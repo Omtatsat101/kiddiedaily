@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+:root {
+  --bg: #faf7f2;
+  --ink: #2a1f18;
+  --muted: #7a6b5c;
+  --accent: #C4856A;
+  --accent-dark: #B87058;
+  --card: #ffffff;
+  --border: rgba(50, 30, 15, 0.08);
+  --trust-kids: #4CAF50;
+  --trust-parent: #FF9800;
+  --trust-research: #2196F3;
+  --safety-g: #4CAF50;
+  --safety-pg: #FF9800;
+  --safety-pg13: #F44336;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
