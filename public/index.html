@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KiddieDaily — AI-Curated Kids Health &amp; Wellness News</title>
+<meta name="description" content="Free daily newsletter for parents. AI-curated kids health, wellness, and development news — like Ground News, but for raising healthy kids. Ages 0-12.">
+<meta property="og:title" content="KiddieDaily — Ground News for Kids Health &amp; Wellness">
+<meta property="og:description" content="AI-curated daily digest of kids health, wellness, nutrition, development, and safety news. Multiple sources, zero bias.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;color:#2a1f18;background:#faf7f2;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{padding:18px 0;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-size:22px;font-weight:900}
+.nav-brand span{color:#C4856A}
+.nav-badge{font:700 11px/1 'SF Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid rgba(50,30,15,0.12);color:#7a6b5c}
+
+/* HERO */
+.hero{padding:80px 0 60px;text-align:center}
+.hero-kicker{display:inline-block;font:700 12px/1 'SF Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:#C4856A;margin-bottom:20px}
+.hero h1{font-size:clamp(36px,7vw,56px);font-weight:900;line-height:1.1;margin-bottom:20px}
+.hero h1 .typed{color:#C4856A;border-right:3px solid #C4856A;padding-right:4px;animation:blink 1s step-end infinite}
+@keyframes blink{50%{border-color:transparent}}
+.hero p{font-size:clamp(16px,2.5vw,20px);color:#7a6b5c;max-width:540px;margin:0 auto 36px;line-height:1.7}
+
+/* SIGNUP FORM */
+.signup{display:flex;gap:12px;max-width:460px;margin:0 auto 16px;flex-wrap:wrap}
+.signup input{flex:1;min-width:200px;padding:14px 20px;border:2px solid #e0dcd4;border-radius:14px;font-family:'Nunito',sans-serif;font-size:16px;font-weight:600;background:#fff;outline:none;transition:border-color 0.2s}
+.signup input:focus{border-color:#C4856A}
+.signup button{padding:14px 28px;background:linear-gradient(135deg,#C4856A,#B87058);color:#fff;border:none;border-radius:14px;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;white-space:nowrap}
+.signup button:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,133,106,0.4)}
+.signup-note{font-size:13px;color:#9a9a9a;font-weight:600;text-align:center}
+
+/* SOCIAL PROOF */
+.proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:28px;font-size:14px;font-weight:700;color:#7a6b5c}
+.proof-dots{display:flex;gap:-4px}
+.proof-dot{width:28px;height:28px;border-radius:50%;border:2px solid #faf7f2;display:flex;align-items:center;justify-content:center;font-size:12px;margin-left:-8px}
+.proof-dot:first-child{margin-left:0}
+.proof-dot:nth-child(1){background:#e8d5c4}
+.proof-dot:nth-child(2){background:#d4c4b4}
+.proof-dot:nth-child(3){background:#c4b4a4}
+
+/* WHAT YOU GET */
+.section{padding:60px 0}
+.section-title{font-size:28px;font-weight:900;margin-bottom:8px}
+.section-sub{color:#7a6b5c;margin-bottom:32px}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#fff;border:1px solid rgba(50,30,15,0.08);border-radius:20px;padding:24px;transition:transform 0.2s}
+.card:hover{transform:translateY(-2px)}
+.card-icon{font-size:32px;margin-bottom:12px}
+.card h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.card p{font-size:14px;color:#7a6b5c;line-height:1.5}
+
+/* SAMPLE ISSUE */
+.sample{background:#fff;border:1px solid rgba(50,30,15,0.08);border-radius:24px;padding:32px;margin-top:40px}
+.sample-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(50,30,15,0.08)}
+.sample-dot{width:10px;height:10px;border-radius:50%}
+.sample-label{font:700 11px/1 'SF Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#7a6b5c}
+.sample h3{font-size:20px;font-weight:800;margin-bottom:12px}
+.sample-activity{background:#faf7f2;border-radius:14px;padding:20px;margin-bottom:16px}
+.sample-activity strong{display:block;font-size:15px;margin-bottom:4px}
+.sample-activity span{font-size:14px;color:#7a6b5c}
+.sample-pick{display:flex;align-items:center;gap:12px;background:#f5f0eb;border-radius:14px;padding:16px}
+.sample-pick-img{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#C4856A,#d4a88a);flex-shrink:0}
+.sample-pick strong{display:block;font-size:14px}
+.sample-pick span{font-size:13px;color:#7a6b5c}
+
+/* ARCHIVE PREVIEW */
+.archive{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+.archive-card{background:#fff;border:1px solid rgba(50,30,15,0.08);border-radius:16px;padding:16px;text-align:center}
+.archive-day{font:700 11px/1 'SF Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;color:#C4856A;margin-bottom:8px}
+.archive-title{font-size:14px;font-weight:700;line-height:1.3}
+
+/* CTA BOTTOM */
+.cta-bottom{text-align:center;padding:60px 0 40px}
+.cta-bottom h2{font-size:clamp(28px,5vw,40px);font-weight:900;margin-bottom:12px}
+.cta-bottom p{color:#7a6b5c;margin-bottom:28px}
+
+/* FOOTER */
+.footer{text-align:center;padding:20px 0 40px;font-size:13px;color:#9a9a9a;font-weight:600}
+.footer a{color:#C4856A}
+
+/* CONNECTED */
+.connected{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.connected-pill{font:700 11px/1 'SF Mono',monospace;letter-spacing:0.06em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid rgba(50,30,15,0.08);background:rgba(255,255,255,0.7);color:#7a6b5c}
+
+@media(max-width:600px){
+  .card-grid,.archive{grid-template-columns:1fr}
+  .signup{flex-direction:column}
+  .signup input,.signup button{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav class="nav">
+    <div class="nav-brand">Kiddie<span>Daily</span></div>
+    <span class="nav-badge">Free Newsletter</span>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-kicker">Ground News, but for raising healthy kids</span>
+    <h1>One email.<br>One <span class="typed" id="typed"></span></h1>
+    <p>AI-curated kids health, wellness, and development news from multiple sources — zero bias, zero noise. Plus a daily activity and product pick, delivered before your kids wake up.</p>
+    <form class="signup" action="#" method="POST">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe Free</button>
+    </form>
+    <p class="signup-note">No spam. Unsubscribe anytime. First issue tomorrow morning.</p>
+    <div class="proof">
+      <div class="proof-dots">
+        <div class="proof-dot">P</div>
+        <div class="proof-dot">M</div>
+        <div class="proof-dot">K</div>
+      </div>
+      Join parents building creative kids
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">What you get every morning</h2>
+    <p class="section-sub">Five minutes of reading. Smarter parenting all day.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">&#128240;</div>
+        <h3>AI-Curated News</h3>
+        <p>Kids health, nutrition, development, and safety news pulled from multiple sources by AI — no bias, no clickbait, just what matters.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#129504;</div>
+        <h3>Wellness Digest</h3>
+        <p>Sleep, screen time, mental health, nutrition — research-backed insights translated into actionable parenting moves.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#127912;</div>
+        <h3>Daily Activity</h3>
+        <p>One creative play idea for your kid's age group — 5 minutes, stuff you have at home, connected to the Maya universe.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#127873;</div>
+        <h3>Product Pick</h3>
+        <p>One handpicked toy, book, or wellness product from the KiddieGo catalog — tested and parent-approved.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <h2 class="section-title">Sample issue</h2>
+    <p class="section-sub">Here's what tomorrow's email looks like.</p>
+    <div class="sample">
+      <div class="sample-header">
+        <div class="sample-dot" style="background:#4CAF50"></div>
+        <span class="sample-label">KiddieDaily #47 &mdash; Monday</span>
+      </div>
+      <h3>New AAP Screen Time Guidelines + Vitamin D Study</h3>
+      <div class="sample-activity">
+        <strong>Top Story: AAP Updates Screen Time Guidance</strong>
+        <span>The American Academy of Pediatrics released updated screen time recommendations. Key change: interactive apps now treated differently from passive video. What it means for your family. <em>Sources: AAP, NYT, Reuters Health</em></span>
+      </div>
+      <div class="sample-activity">
+        <strong>Wellness Signal: Vitamin D &amp; Kids' Sleep</strong>
+        <span>New study links vitamin D levels to sleep quality in children ages 4-8. Simple dietary changes that help. <em>Sources: JAMA Pediatrics, Healthline</em></span>
+      </div>
+      <div class="sample-activity">
+        <strong>Today's Activity (Ages 3-6)</strong>
+        <span>Kitchen Collage Safari — cereal boxes + pasta shapes + glue = 15 minutes of creative play. Zero prep.</span>
+      </div>
+      <div class="sample-pick">
+        <div class="sample-pick-img"></div>
+        <div>
+          <strong>Today's Pick: Washable Craft Glue Set</strong>
+          <span>Non-toxic, easy-squeeze bottles. $8.99 on KiddieGo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <h2 class="section-title">Past issues</h2>
+    <p class="section-sub">Every issue stays free in the archive.</p>
+    <div class="archive">
+      <div class="archive-card">
+        <div class="archive-day">Friday</div>
+        <div class="archive-title">FDA Recalls 3 Kids' Vitamins + Weekend Activity Pack</div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-day">Thursday</div>
+        <div class="archive-title">New Study: Outdoor Play Reduces ADHD Symptoms by 30%</div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-day">Wednesday</div>
+        <div class="archive-title">WHO Updates Child Nutrition Guidelines + Snack Recipes</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <p class="section-sub" style="text-align:center">Part of the KiddieSketch / Maya universe</p>
+    <div class="connected">
+      <span class="connected-pill">KiddieSketch</span>
+      <span class="connected-pill">KiddieGo</span>
+      <span class="connected-pill">GoGoMaya</span>
+      <span class="connected-pill">KiddieWordle</span>
+      <span class="connected-pill">GoGoFlag</span>
+    </div>
+  </section>
+
+  <section class="cta-bottom">
+    <h2>Start tomorrow morning.</h2>
+    <p>One email. One creative spark. Zero effort to unsubscribe.</p>
+    <form class="signup" style="justify-content:center" action="#" method="POST">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe Free</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    &copy; 2026 KiddieDaily &mdash; A <a href="https://kiddiesketch.com">KiddieSketch</a> brand
+  </footer>
+</div>
+
+<script>
+// Lightweight typed effect inspired by typed.js (MIT license)
+(function(){
+  const words = ['health update.', 'wellness insight.', 'play idea.', 'parenting win.', 'product pick.'];
+  const el = document.getElementById('typed');
+  let wordIdx = 0, charIdx = 0, deleting = false;
+  function tick() {
+    const word = words[wordIdx];
+    el.textContent = word.substring(0, charIdx);
+    if (!deleting) {
+      charIdx++;
+      if (charIdx > word.length) { setTimeout(() => { deleting = true; tick(); }, 2000); return; }
+    } else {
+      charIdx--;
+      if (charIdx < 0) { charIdx = 0; deleting = false; wordIdx = (wordIdx + 1) % words.length; }
+    }
+    setTimeout(tick, deleting ? 40 : 80);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>
