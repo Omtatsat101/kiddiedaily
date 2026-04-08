@@ -43,7 +43,7 @@ export default function ArchivePage() {
           {SAMPLE_DIGESTS.map(d => {
             const trust = TRUST_COLORS[d.topTrust]
             return (
-              <Link key={d.date} href={`/archive/${d.date}`}
+              <Link key={d.date} href={`/digest/${d.date}`}
                 className="block bg-white border border-[var(--border)] rounded-xl p-5 hover:translate-y-[-1px] transition-transform">
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div>

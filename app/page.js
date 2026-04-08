@@ -51,6 +51,7 @@ export default function Home() {
           <Link href="/archive" className="hover:text-[var(--ink)]">Archive</Link>
           <Link href="/topics" className="hover:text-[var(--ink)]">Topics</Link>
           <Link href="/about" className="hover:text-[var(--ink)]">About</Link>
+          <Link href="/preferences" className="hover:text-[var(--ink)]">Preferences</Link>
           <Link href="/publishers" className="hover:text-[var(--ink)]">For Publishers</Link>
         </div>
       </nav>

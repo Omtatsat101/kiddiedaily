@@ -3,3 +3,5 @@ node_modules/
 .env
 .env.local
 data/digests/
+data/subscribers.json
+data/moderation.json
