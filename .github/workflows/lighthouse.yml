@@ -20,13 +20,28 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Detect site-facing changes
+        id: scope
+        shell: bash
+        run: |
+          changed_files=$(git diff --name-only origin/main...HEAD -- . ':(exclude).github/**')
+          if [ -z "$changed_files" ]; then
+            echo "site_changed=false" >> "$GITHUB_OUTPUT"
+            echo "No site-facing files changed; skipping Lighthouse comparison."
+          else
+            echo "site_changed=true" >> "$GITHUB_OUTPUT"
+            printf '%s\n' "$changed_files"
+          fi
+
       - name: Prepare main-branch baseline checkout
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
         shell: bash
         run: |
           git fetch origin main --depth=1
           git worktree add ../baseline origin/main
 
       - name: Start local static servers
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
         shell: bash
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > current-site.log 2>&1 &
@@ -39,6 +54,7 @@ jobs:
           )
 
       - name: Wait for local sites
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
         shell: bash
         run: |
           for attempt in {1..30}; do
@@ -52,6 +68,7 @@ jobs:
           exit 1
 
       - name: Compare Lighthouse scores against main baseline
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
         shell: bash
         env:
           BASELINE_URL: http://127.0.0.1:4174/
@@ -100,7 +117,7 @@ jobs:
           NODE
 
       - name: Upload Lighthouse artifacts
-        if: always()
+        if: ${{ always() && steps.scope.outputs.site_changed == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-reports
@@ -111,7 +128,7 @@ jobs:
             baseline-site.log
 
       - name: Stop local servers
-        if: always()
+        if: ${{ always() && steps.scope.outputs.site_changed == 'true' }}
         shell: bash
         run: |
           if [ -f current-site.pid ]; then
