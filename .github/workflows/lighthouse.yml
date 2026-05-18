@@ -1,0 +1,120 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Resolve baseline URL
+        id: site
+        shell: bash
+        run: |
+          if [ -f CNAME ]; then
+            domain=$(tr -d '\r\n' < CNAME)
+            echo "site_url=https://${domain}" >> "$GITHUB_OUTPUT"
+          else
+            repo_name="${GITHUB_REPOSITORY#*/}"
+            echo "site_url=https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo_name}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Start local static server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > site.log 2>&1 &
+          echo $! > site.pid
+
+      - name: Wait for local site
+        shell: bash
+        run: |
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat site.log
+          exit 1
+
+      - name: Compare Lighthouse scores against live baseline
+        shell: bash
+        env:
+          BASELINE_URL: ${{ steps.site.outputs.site_url }}
+          LOCAL_URL: http://127.0.0.1:4173/
+        run: |
+          npx --yes lighthouse "$BASELINE_URL" \
+            --only-categories=performance,accessibility \
+            --output=json \
+            --output-path=baseline-lighthouse.json \
+            --chrome-flags="--headless=new --no-sandbox" \
+            --quiet
+
+          npx --yes lighthouse "$LOCAL_URL" \
+            --only-categories=performance,accessibility \
+            --output=json \
+            --output-path=pr-lighthouse.json \
+            --chrome-flags="--headless=new --no-sandbox" \
+            --quiet
+
+          node <<'NODE'
+          const fs = require("node:fs");
+
+          const baseline = JSON.parse(fs.readFileSync("baseline-lighthouse.json", "utf8"));
+          const current = JSON.parse(fs.readFileSync("pr-lighthouse.json", "utf8"));
+          const categories = ["performance", "accessibility"];
+          const failures = [];
+
+          for (const category of categories) {
+            const baselineScore = baseline.categories[category]?.score ?? 0;
+            const currentScore = current.categories[category]?.score ?? 0;
+            const delta = currentScore - baselineScore;
+
+            console.log(
+              `${category}: baseline ${(baselineScore * 100).toFixed(0)}, current ${(currentScore * 100).toFixed(0)}, delta ${(delta * 100).toFixed(1)}`,
+            );
+
+            if (delta < -0.05) {
+              failures.push(`${category} dropped by ${Math.abs(delta * 100).toFixed(1)} points`);
+            }
+          }
+
+          if (failures.length > 0) {
+            console.error(failures.join("\n"));
+            process.exit(1);
+          }
+          NODE
+
+      - name: Upload Lighthouse artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: |
+            baseline-lighthouse.json
+            pr-lighthouse.json
+            site.log
+
+      - name: Stop local server
+        if: always()
+        shell: bash
+        run: |
+          if [ -f site.pid ]; then
+            kill "$(cat site.pid)" || true
+          fi
