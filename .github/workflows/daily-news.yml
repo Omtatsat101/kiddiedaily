@@ -1,0 +1,25 @@
+name: KiddieDaily Daily News Scraper
+
+on:
+  schedule:
+    - cron: '0 10 * * *'    # 10am UTC = 6am ET daily
+  workflow_dispatch:          # manual trigger for testing
+
+jobs:
+  scrape-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run KiddieDaily news scraper
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scrape_and_push.py
