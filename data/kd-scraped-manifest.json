@@ -5,7 +5,10 @@
     "news/2026-06-26-nasa-announces-winners-for-2026-human-lander-chall.html",
     "news/2026-06-26-nasa-tests-new-refuel-device-for-future-in-space-r.html",
     "news/2026-06-26-partners-nasa-ready-for-june-launch-of-swift-boost.html",
-    "news/2026-06-26-nasa-identifies-more-than-40-space-technologies-fo.html"
+    "news/2026-06-26-nasa-identifies-more-than-40-space-technologies-fo.html",
+    "news/2026-06-26-euclid-sees-heart-of-milky-way.html",
+    "news/2026-06-26-bringing-signals-to-nasa.html",
+    "news/2026-06-26-nasas-pace-mission-studies-smoke-fires.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -13,7 +16,10 @@
     "NASA Announces Winners for 2026 Human Lander Challenge",
     "NASA Tests New Refuel Device for Future In-Space Refueling Missions",
     "Partners, NASA Ready for June Launch of Swift Boost Mission",
-    "NASA Identifies More Than 40 Space Technologies for Collaboration"
+    "NASA Identifies More Than 40 Space Technologies for Collaboration",
+    "Euclid Sees Heart of Milky Way",
+    "Bringing Signals to NASA",
+    "NASA’s PACE Mission Studies Smoke, Fires"
   ],
   "articles": [
     {
@@ -70,6 +76,36 @@
       "slug": "news/2026-06-26-nasa-identifies-more-than-40-space-technologies-fo.html",
       "title": "NASA Identifies More Than 40 Space Technologies for Collaboration",
       "display_title": "NASA Identifies More Than 40 Space Technologies for Collaboration",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-26-euclid-sees-heart-of-milky-way.html",
+      "title": "Euclid Sees Heart of Milky Way",
+      "display_title": "Euclid Sees Heart of Milky Way",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-26-bringing-signals-to-nasa.html",
+      "title": "Bringing Signals to NASA",
+      "display_title": "Bringing Signals to NASA",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-26-nasas-pace-mission-studies-smoke-fires.html",
+      "title": "NASA’s PACE Mission Studies Smoke, Fires",
+      "display_title": "NASA’s PACE Mission Studies Smoke, Fires",
       "date": "2026-06-26",
       "n_sources": 1,
       "bias_avg": 0.0,
