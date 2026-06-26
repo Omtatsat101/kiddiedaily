@@ -167,6 +167,28 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian"}
+DEPRIORITIZE_WORDS = [
+    "war", "strike", "bomb", "missile", "airstrike", "military",
+    "attack", "troops", "soldier", "killed", "dead", "death",
+    "iran", "israel", "ukraine", "russia", "hamas", "congress",
+    "senate", "republican", "democrat", "trump", "biden", "president",
+    "election", "indicted", "arrested", "shooting", "crash",
+]
+
+def ranking_score(group):
+    n = len(group)
+    has_science = any(s["source_name"] in SCIENCE_SOURCES for s in group)
+    bias_penalty = abs(sum(s["source_bias"] for s in group) / n)
+    combined_text = " ".join(s["title"].lower() for s in group)
+    heavy_news = sum(1 for w in DEPRIORITIZE_WORDS if w in combined_text)
+    return (
+        (5 if has_science else 0)  # science sources get big boost
+        + n * 2                    # more corroborating sources = better
+        - heavy_news * 3           # political/military words = penalty
+        - bias_penalty             # extreme bias = small penalty
+    )
+
 def group_stories(stories):
     groups = []
     used = set()
@@ -178,15 +200,11 @@ def group_stories(stories):
         for j, other in enumerate(stories):
             if j in used or j == i:
                 continue
-            if jaccard(s["title"], other["title"]) > 0.28:
+            if jaccard(s["title"], other["title"]) > 0.25:
                 group.append(other)
                 used.add(j)
         groups.append(group)
-    # Prefer groups with more sources, then science/tech topics
-    groups.sort(key=lambda g: (
-        -len(g),
-        abs(sum(s["source_bias"] for s in g) / len(g))  # prefer center bias
-    ))
+    groups.sort(key=ranking_score, reverse=True)
     return groups
 
 # ── Bias + source-agreement scoring ──────────────────────────────────────────
@@ -444,16 +462,90 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 def load_manifest():
     r = gh("GET", f"/repos/{REPO}/contents/data/kd-scraped-manifest.json")
     if r.get("_err") or not r.get("content"):
-        return {"pushed_slugs": [], "pushed_titles": []}
+        return {"pushed_slugs": [], "pushed_titles": [], "articles": []}
     try:
-        return json.loads(base64.b64decode(r["content"]).decode("utf-8"))
+        m = json.loads(base64.b64decode(r["content"]).decode("utf-8"))
     except Exception:
-        return {"pushed_slugs": [], "pushed_titles": []}
+        return {"pushed_slugs": [], "pushed_titles": [], "articles": []}
+
+    # Migrate: if pushed_slugs exist but articles list is missing, create stubs
+    if m.get("pushed_slugs") and not m.get("articles"):
+        m["articles"] = []
+        titles = m.get("pushed_titles", [])
+        for i, slug in enumerate(m["pushed_slugs"]):
+            title = titles[i] if i < len(titles) else "Article"
+            date_match = re.search(r"\d{4}-\d{2}-\d{2}", slug)
+            m["articles"].append({
+                "slug": slug,
+                "title": title,
+                "display_title": title,
+                "date": date_match.group() if date_match else "2026-06-26",
+                "n_sources": 1,
+                "bias_avg": 0.0,
+                "agreement_pct": 30,
+                "is_science": any(w in slug for w in ["nasa", "science", "space", "animal"]),
+            })
+        print(f"    (migrated {len(m['articles'])} legacy articles to new manifest format)")
+
+    return m
 
 def save_manifest(manifest):
     upload("data/kd-scraped-manifest.json",
            json.dumps(manifest, indent=2, ensure_ascii=False),
            "Update scraped articles manifest")
+
+# ── news/index.html update ────────────────────────────────────────────────────
+SCRAPED_START = "<!-- SCRAPED_CARDS_START -->"
+SCRAPED_END   = "<!-- SCRAPED_CARDS_END -->"
+
+def build_scraped_cards(articles):
+    if not articles:
+        return ""
+    cards = []
+    for a in sorted(articles, key=lambda x: x.get("date",""), reverse=True)[:10]:
+        slug  = a["slug"]
+        title = a.get("display_title", a.get("title", ""))[:90]
+        date  = a.get("date", "")
+        n     = a.get("n_sources", 1)
+        ap    = a.get("agreement_pct", 0)
+        label = ("Science" if a.get("is_science") else "World News")
+        src_note = f"{n} source{'s' if n!=1 else ''} · {ap}% agreement"
+        cards.append(
+            f'<div class="card"><h3><a href="/{slug}">{title}</a></h3>'
+            f'<p class="meta">{label} &middot; {date} &middot; {src_note}</p></div>'
+        )
+    inner = "\n".join(cards)
+    return f"{SCRAPED_START}\n<h2>Today&#39;s news</h2>\n{inner}\n{SCRAPED_END}"
+
+def update_news_index(manifest):
+    articles = manifest.get("articles", [])
+    if not articles:
+        return
+
+    r = gh("GET", f"/repos/{REPO}/contents/news/index.html")
+    if r.get("_err"):
+        print(f"    ⚠ Could not fetch news/index.html: {r}")
+        return
+
+    html = base64.b64decode(r["content"]).decode("utf-8")
+
+    new_block = build_scraped_cards(articles)
+
+    if SCRAPED_START in html:
+        # Replace existing scraped section
+        start_i = html.index(SCRAPED_START)
+        end_i   = html.index(SCRAPED_END) + len(SCRAPED_END)
+        html = html[:start_i] + new_block + html[end_i:]
+    else:
+        # First run: insert before <h2>This week</h2>
+        marker = "<h2>This week</h2>"
+        if marker in html:
+            html = html.replace(marker, new_block + "\n" + marker)
+        else:
+            # Fallback: append before </main>
+            html = html.replace("</main>", new_block + "\n</main>")
+
+    upload("news/index.html", html, "[scraper] Update news index with today's articles")
 
 # ── GitHub Actions workflow (self-deployed to kiddiedaily repo) ───────────────
 WORKFLOW_YAML = """\
@@ -556,12 +648,30 @@ def main():
         if result:
             manifest["pushed_slugs"].append(slug)
             manifest["pushed_titles"].append(rep["title"])
+            if "articles" not in manifest:
+                manifest["articles"] = []
+            manifest["articles"].append({
+                "slug": slug,
+                "title": rep["title"],
+                "display_title": article_title,
+                "date": today,
+                "n_sources": score["n_sources"],
+                "bias_avg": score["bias_avg"],
+                "agreement_pct": score["agreement_pct"],
+                "is_science": any(s["source_name"] in SCIENCE_SOURCES for s in group),
+            })
             pushed_count += 1
 
-    # 6. Save manifest
-    if pushed_count > 0:
-        print(f"\n[6] Saving manifest...")
+    # 6. Save manifest (always if changed: new articles OR migration)
+    manifest_dirty = pushed_count > 0 or "articles" in manifest
+    if manifest_dirty:
+        print(f"\n[6] Saving manifest ({len(manifest.get('articles',[]))} total articles)...")
         save_manifest(manifest)
+
+    # 6b. Always rebuild news index if we have articles
+    if manifest.get("articles"):
+        print(f"\n[6b] Updating news/index.html...")
+        update_news_index(manifest)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
