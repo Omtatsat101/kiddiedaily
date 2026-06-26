@@ -576,6 +576,47 @@ jobs:
         run: python scrape_and_push.py
 """
 
+# ── Sitemap ───────────────────────────────────────────────────────────────────
+STATIC_URLS = [
+    "/", "/news/", "/parents/", "/fact-check/", "/games/",
+    "/news/galaxy-far-far-away.html",
+    "/news/water-filter-invention.html",
+    "/news/sea-turtles-comeback.html",
+    "/parents/screen-time-balance.html",
+    "/parents/back-to-school-anxiety.html",
+    "/parents/read-aloud-after-8.html",
+    "/fact-check/tylenol-kids-brains.html",
+    "/fact-check/social-media-teen-depression.html",
+    "/games/index.html",
+    "/about.html", "/privacy.html", "/terms.html", "/contact.html",
+]
+
+def update_sitemap(pushed_slugs):
+    BASE_URL = "https://kiddiedaily.com"
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    # Collect all URLs
+    urls = list(STATIC_URLS)
+    for slug in pushed_slugs:
+        # slug is already a full repo path like "news/2026-06-26-title.html"
+        url = f"/{slug}" if not slug.startswith("/") else slug
+        if url not in urls:
+            urls.append(url)
+
+    xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in urls:
+        xml_lines.append(f"  <url>")
+        xml_lines.append(f"    <loc>{BASE_URL}{u}</loc>")
+        xml_lines.append(f"    <lastmod>{today}</lastmod>")
+        xml_lines.append(f"  </url>")
+    xml_lines.append("</urlset>")
+    sitemap_content = "\n".join(xml_lines) + "\n"
+
+    upload("sitemap.xml", sitemap_content, f"[scraper] Rebuild sitemap with {len(pushed_slugs)} scraped articles")
+    print(f"  Sitemap rebuilt — {len(urls)} URLs total")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -672,6 +713,11 @@ def main():
     if manifest.get("articles"):
         print(f"\n[6b] Updating news/index.html...")
         update_news_index(manifest)
+
+    # 6c. Update sitemap with any new article URLs
+    if pushed_count > 0:
+        print(f"\n[6c] Updating sitemap.xml...")
+        update_sitemap(manifest.get("pushed_slugs", []))
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
