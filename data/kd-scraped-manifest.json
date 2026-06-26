@@ -2,11 +2,79 @@
   "pushed_slugs": [
     "news/2026-06-26-us-conducts-strikes-on-iran-after-attack-on-cargo.html",
     "news/2026-06-26-israel-lebanon-sign-framework-deal-after-us-mediat.html",
-    "news/2026-06-26-nasa-announces-winners-for-2026-human-lander-chall.html"
+    "news/2026-06-26-nasa-announces-winners-for-2026-human-lander-chall.html",
+    "news/2026-06-26-nasa-tests-new-refuel-device-for-future-in-space-r.html",
+    "news/2026-06-26-partners-nasa-ready-for-june-launch-of-swift-boost.html",
+    "news/2026-06-26-nasa-identifies-more-than-40-space-technologies-fo.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
     "Israel, Lebanon sign framework deal after US-mediated talks",
-    "NASA Announces Winners for 2026 Human Lander Challenge"
+    "NASA Announces Winners for 2026 Human Lander Challenge",
+    "NASA Tests New Refuel Device for Future In-Space Refueling Missions",
+    "Partners, NASA Ready for June Launch of Swift Boost Mission",
+    "NASA Identifies More Than 40 Space Technologies for Collaboration"
+  ],
+  "articles": [
+    {
+      "slug": "news/2026-06-26-us-conducts-strikes-on-iran-after-attack-on-cargo.html",
+      "title": "US conducts strikes on Iran after attack on cargo ship",
+      "display_title": "US conducts strikes on Iran after attack on cargo ship",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 30,
+      "is_science": false
+    },
+    {
+      "slug": "news/2026-06-26-israel-lebanon-sign-framework-deal-after-us-mediat.html",
+      "title": "Israel, Lebanon sign framework deal after US-mediated talks",
+      "display_title": "Israel, Lebanon sign framework deal after US-mediated talks",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 30,
+      "is_science": false
+    },
+    {
+      "slug": "news/2026-06-26-nasa-announces-winners-for-2026-human-lander-chall.html",
+      "title": "NASA Announces Winners for 2026 Human Lander Challenge",
+      "display_title": "NASA Announces Winners for 2026 Human Lander Challenge",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 30,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-26-nasa-tests-new-refuel-device-for-future-in-space-r.html",
+      "title": "NASA Tests New Refuel Device for Future In-Space Refueling Missions",
+      "display_title": "NASA Tests New Refuel Device for Future In-Space Refueling Missions",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-26-partners-nasa-ready-for-june-launch-of-swift-boost.html",
+      "title": "Partners, NASA Ready for June Launch of Swift Boost Mission",
+      "display_title": "Partners, NASA Ready for June Launch of Swift Boost Mission",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-26-nasa-identifies-more-than-40-space-technologies-fo.html",
+      "title": "NASA Identifies More Than 40 Space Technologies for Collaboration",
+      "display_title": "NASA Identifies More Than 40 Space Technologies for Collaboration",
+      "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    }
   ]
 }
