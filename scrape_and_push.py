@@ -112,19 +112,28 @@ def fetch_rss(source):
         print(f"    ⚠ {source['name']}: {e}")
         return []
 
-    stories = []
-    for item in (root.findall(".//item") or root.findall(".//{http://www.w3.org/2005/Atom}entry"))[:25]:
-        def txt(*tags):
-            for tag in tags:
-                el = item.find(tag) or item.find(f"{{http://www.w3.org/2005/Atom}}{tag}")
-                if el is not None and el.text:
-                    return el.text.strip()
-            return ""
+    ATOM = "http://www.w3.org/2005/Atom"
 
-        title = clean(txt("title"))
-        link  = clean(txt("link", "url"))
-        desc  = clean(txt("description", "summary", "content"))
-        pub   = txt("pubDate", "published", "updated")
+    def get_field(item, *tags):
+        for tag in tags:
+            el = item.find(tag)
+            if el is not None and el.text:
+                return el.text.strip()
+            el = item.find(f"{{{ATOM}}}{tag}")
+            if el is not None and el.text:
+                return el.text.strip()
+        return ""
+
+    items = root.findall(".//item")
+    if not items:
+        items = root.findall(f".//{{{ATOM}}}entry")
+
+    stories = []
+    for item in items[:25]:
+        title = clean(get_field(item, "title"))
+        link  = clean(get_field(item, "link", "url"))
+        desc  = clean(get_field(item, "description", "summary", "content"))
+        pub   = get_field(item, "pubDate", "published", "updated")
 
         if not title or not link:
             continue
