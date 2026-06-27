@@ -290,21 +290,32 @@ Always read multiple sources and think critically.
 def rewrite_for_kids(title, description):
     if not ANTHROPIC_KEY:
         return None
-    prompt = f"""Rewrite this news story for KiddieDaily — a fact-checked news site for kids ages 8–14.
+    prompt = f"""You are a writer for KiddieDaily, a fact-checked daily news site for kids ages 8-14 and their parents.
 
 Original headline: {title}
 Original summary: {description}
 
-Write (return ONLY the article, no commentary):
-Line 1: Kid-friendly headline (exciting, accurate, under 12 words)
-Line 2: (blank)
-Lede paragraph: 2–3 sentences, engaging hook explaining what happened and why it's interesting.
-Then 2–3 short sections (each starts with ## Header):
-- What Happened (the facts, simply explained)
-- Why It Matters (impact on kids/families/world)
-- Think About This (one reflective question for family discussion)
+Rewrite this as a short kid-friendly article. Return ONLY the article, no meta-commentary.
 
-Rules: factual, age-appropriate, no violence/politics/adult content, warm + curious tone."""
+FORMAT (follow exactly):
+[Kid-friendly headline — exciting, accurate, max 12 words]
+
+[Lede — 2 vivid sentences that hook a curious kid. Start with what happened.]
+
+## What Happened
+[3-4 simple sentences: the core facts, explained like you're talking to a smart 10-year-old.]
+
+## Why It Matters
+[2-3 sentences: real-world impact. Connect to something kids care about — animals, space, health, discovery.]
+
+## Think About This
+[One open question for family discussion. Starts with "What do you think..." or "Why do you think..."]
+
+RULES:
+- No violence, war, politics, or adult content. Skip if unavoidable.
+- Use vivid, concrete language. Avoid jargon.
+- Keep total length under 200 words.
+- Tone: warm, curious, slightly excited — like a science teacher who loves their subject."""
 
     req = urllib.request.Request(
         "https://api.anthropic.com/v1/messages",
@@ -456,7 +467,12 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 &#128269; <strong>Want to verify this story?</strong>
 <a href="{fact_check_url}" rel="noopener nofollow" target="_blank" style="color:#065f46">Check it on Google Fact Check Explorer &rarr;</a>
 </p>
-<p><em>More stories: <a href="/news/">Kid News</a> &middot; <a href="/fact-check/">Fact Check</a></em></p>"""
+<p><em>More stories: <a href="/news/">Kid News</a> &middot; <a href="/news/archive.html">Archive</a> &middot; <a href="/fact-check/">Fact Check</a></em></p>
+<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+<button onclick="if(navigator.share){{navigator.share({{title:document.title,url:location.href}})}}else{{navigator.clipboard.writeText(location.href);this.textContent='Link copied!';setTimeout(()=>this.textContent='Copy link',2000)}}" style="background:#1a4d80;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:14px">Share this story</button>
+<a href="/news/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:8px 18px;border-radius:6px;font-size:14px;text-decoration:none">&larr; All news</a>
+<a href="/feed.xml" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:8px 18px;border-radius:6px;font-size:14px;text-decoration:none">RSS feed</a>
+</div>"""
 
     return f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -659,7 +675,7 @@ STATIC_URLS = [
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
     "/about.html", "/privacy.html", "/terms.html", "/contact.html",
-    "/feed.xml",
+    "/feed.xml", "/news/archive.html",
 ]
 
 def update_sitemap(pushed_slugs):
@@ -883,6 +899,166 @@ def update_parent_zone(manifest):
     upload("parent-zone/index.html", html, "[scraper] Update Parent Zone with latest articles table")
 
 
+# ── Archive page ───────────────────────────────────────────────────────────────
+def generate_archive(manifest):
+    articles = sorted(manifest.get("articles", []), key=lambda x: x.get("date", ""), reverse=True)
+    if not articles:
+        return
+
+    # Build inline JSON for client-side search (no backend needed)
+    search_data = json.dumps([{
+        "slug": a["slug"],
+        "title": a.get("display_title", a.get("title", "")),
+        "date": a.get("date", ""),
+        "cat": "Science" if a.get("is_science") else "World News",
+    } for a in articles])
+
+    # Group articles by date
+    by_date = {}
+    for a in articles:
+        d = a.get("date", "Unknown")
+        by_date.setdefault(d, []).append(a)
+
+    date_sections = []
+    for date, arts in sorted(by_date.items(), reverse=True):
+        rows = []
+        for a in arts:
+            slug  = a["slug"]
+            title = a.get("display_title", a.get("title", ""))
+            is_sci = a.get("is_science", False)
+            cat   = "Science" if is_sci else "World News"
+            badge = "kd-badge-sci" if is_sci else "kd-badge-news"
+            n     = a.get("n_sources", 1)
+            bias  = a.get("bias_avg", 0.0)
+            dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
+            agree = f"{n} outlet{'s' if n!=1 else ''}"
+            rows.append(
+                f'<div class="kd-sc arch-item" data-title="{title.lower()}" data-cat="{cat.lower()}">'
+                f'<div class="kd-sc-top">'
+                f'<span class="kd-badge {badge}">{cat}</span>'
+                f'<span style="font-size:11px;color:#718096;margin-left:auto">{agree}</span>'
+                f'</div>'
+                f'<h3 style="margin:4px 0 6px"><a href="/{slug}">{title}</a></h3>'
+                f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
+                f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
+                f'<span class="kd-mini-lbl" style="text-align:right">R</span></div>'
+                f'</div>'
+            )
+        date_sections.append(
+            f'<h2 style="font-size:1em;color:#718096;font-family:system-ui,sans-serif;'
+            f'font-weight:600;letter-spacing:1px;text-transform:uppercase;margin:24px 0 8px">{date}</h2>\n'
+            + "\n".join(rows)
+        )
+
+    sections_html = "\n".join(date_sections)
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>News Archive — KiddieDaily</title>
+<meta name="description" content="All KiddieDaily news articles — kid-friendly, bias-rated, fact-checked daily.">
+<link rel="canonical" href="https://kiddiedaily.com/news/archive.html">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+<style>
+body{{margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748}}
+header.kd{{background:#1a4d80;padding:14px 0}}
+header.kd .inner{{max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:0 20px}}
+header.kd .logo{{font-weight:700;font-size:22px;color:#fff;font-family:Georgia,serif;text-decoration:none}}
+header.kd nav{{display:flex;flex-wrap:wrap;gap:18px;flex:1;justify-content:flex-end}}
+header.kd nav a{{color:#fff;font-size:15px;font-family:system-ui,sans-serif}}
+main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
+.kd-sc{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:8px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
+.kd-sc-top{{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}}
+.kd-badge{{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}}
+.kd-badge-sci{{background:#d1fae5;color:#065f46}}
+.kd-badge-news{{background:#dbeafe;color:#1e40af}}
+.kd-mini-bias{{display:flex;align-items:center;gap:6px;margin-top:8px}}
+.kd-mini-lbl{{font-size:10px;font-weight:700;color:#718096;width:16px}}
+.kd-mini-track{{flex:1;height:6px;border-radius:3px;background:linear-gradient(to right,#3182ce 0%,#805ad5 50%,#e53e3e 100%);position:relative}}
+.kd-mini-dot{{position:absolute;top:-5px;width:16px;height:16px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)}}
+.kd-sc h3 a{{color:#1a4d80;text-decoration:none}}
+.kd-sc h3 a:hover{{text-decoration:underline}}
+#search{{width:100%;box-sizing:border-box;padding:10px 14px;font-size:16px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:4px;font-family:system-ui,sans-serif}}
+#filter-btns{{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}}
+#filter-btns button{{background:#f7fafc;border:1px solid #e2e8f0;border-radius:20px;padding:5px 14px;cursor:pointer;font-size:13px;font-family:system-ui,sans-serif}}
+#filter-btns button.active{{background:#1a4d80;color:#fff;border-color:#1a4d80}}
+footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sans-serif;font-size:13px;text-align:center}}
+</style></head>
+<body>
+<header class="kd"><div class="inner">
+<a href="/" class="logo">KiddieDaily<small>news for families</small></a>
+<nav><a href="/news/">Kid News</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/parent-zone/">Parent Zone</a></nav>
+</div></header>
+<main>
+<h1 style="font-size:28px;margin-bottom:4px">News Archive</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 20px">{len(articles)} articles &middot; Updated {today_str}</p>
+
+<input type="search" id="search" placeholder="Search stories..." aria-label="Search articles">
+<div id="filter-btns">
+  <button class="active" onclick="filterCat('all',this)">All</button>
+  <button onclick="filterCat('science',this)">Science</button>
+  <button onclick="filterCat('world news',this)">World News</button>
+</div>
+
+<div id="archive-list">
+{sections_html}
+</div>
+
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096">
+  <a href="/feed.xml">Subscribe via RSS</a> &middot; <a href="/news/">Latest news</a>
+</p>
+</main>
+<footer><p>&copy; KiddieDaily &mdash; <a href="/privacy.html" style="color:#a0aec0">Privacy</a> &middot; <a href="/feed.xml" style="color:#a0aec0">RSS</a></p></footer>
+
+<script>
+const DATA = {search_data};
+let activeCat = 'all';
+
+document.getElementById('search').addEventListener('input', function() {{
+  const q = this.value.toLowerCase().trim();
+  document.querySelectorAll('.arch-item').forEach(el => {{
+    const t = el.dataset.title || '';
+    const c = el.dataset.cat || '';
+    const catOk = activeCat === 'all' || c === activeCat;
+    const qOk = !q || t.includes(q);
+    el.style.display = (catOk && qOk) ? '' : 'none';
+  }});
+  updateDateHeaders();
+}});
+
+function filterCat(cat, btn) {{
+  activeCat = cat;
+  document.querySelectorAll('#filter-btns button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('.arch-item').forEach(el => {{
+    const c = el.dataset.cat || '';
+    const t = el.dataset.title || '';
+    const catOk = cat === 'all' || c === cat;
+    const qOk = !q || t.includes(q);
+    el.style.display = (catOk && qOk) ? '' : 'none';
+  }});
+  updateDateHeaders();
+}}
+
+function updateDateHeaders() {{
+  document.querySelectorAll('#archive-list h2').forEach(h => {{
+    let next = h.nextElementSibling;
+    let anyVisible = false;
+    while (next && !next.matches('h2')) {{
+      if (next.style.display !== 'none') anyVisible = true;
+      next = next.nextElementSibling;
+    }}
+    h.style.display = anyVisible ? '' : 'none';
+  }});
+}}
+</script>
+</body></html>"""
+
+    upload("news/archive.html", page, f"[scraper] Archive page — {len(articles)} articles")
+    print(f"  Archive: {len(articles)} articles")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -998,6 +1174,10 @@ def main():
     # 6f. Update Parent Zone article table
     print(f"\n[6f] Updating Parent Zone...")
     update_parent_zone(manifest)
+
+    # 6g. Generate archive page with client-side search
+    print(f"\n[6g] Generating archive page...")
+    generate_archive(manifest)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
