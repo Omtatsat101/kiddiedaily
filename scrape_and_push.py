@@ -659,6 +659,7 @@ STATIC_URLS = [
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
     "/about.html", "/privacy.html", "/terms.html", "/contact.html",
+    "/feed.xml",
 ]
 
 def update_sitemap(pushed_slugs):
@@ -685,6 +686,201 @@ def update_sitemap(pushed_slugs):
 
     upload("sitemap.xml", sitemap_content, f"[scraper] Rebuild sitemap with {len(pushed_slugs)} scraped articles")
     print(f"  Sitemap rebuilt — {len(urls)} URLs total")
+
+
+# ── Homepage widget ───────────────────────────────────────────────────────────
+HOMEPAGE_START = "<!-- HOMEPAGE_NEWS_START -->"
+HOMEPAGE_END   = "<!-- HOMEPAGE_NEWS_END -->"
+
+def update_homepage(manifest):
+    articles = manifest.get("articles", [])
+    if not articles:
+        return
+
+    r = gh("GET", f"/repos/{REPO}/contents/index.html")
+    if r.get("_err"):
+        print(f"    ⚠ Could not fetch index.html: {r}")
+        return
+
+    html = base64.b64decode(r["content"]).decode("utf-8")
+    latest = sorted(articles, key=lambda x: x.get("date", ""), reverse=True)[:3]
+
+    cards = []
+    for a in latest:
+        slug  = a["slug"]
+        title = a.get("display_title", a.get("title", ""))[:90]
+        date  = a.get("date", "")
+        is_sci = a.get("is_science", False)
+        cat   = "Science" if is_sci else "World News"
+        bias  = a.get("bias_avg", 0.0)
+        n     = a.get("n_sources", 1)
+        agree_txt = f"{n} outlets agree" if n > 1 else "1 outlet"
+        dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
+        badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
+        cards.append(
+            f'<div class="kd-sc" style="margin:10px 0">'
+            f'<div class="kd-sc-top"><span class="kd-badge {badge_cls}">{cat}</span>'
+            f'<span class="kd-agree {"kd-agree-med" if n>1 else "kd-agree-low"}">{agree_txt}</span></div>'
+            f'<h3 style="margin:4px 0 8px"><a href="/{slug}">{title}</a></h3>'
+            f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
+            f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
+            f'<span class="kd-mini-lbl" style="text-align:right">R</span></div>'
+            f'<div class="kd-sc-date">{date}</div>'
+            f'</div>'
+        )
+
+    new_block = (
+        f'{HOMEPAGE_START}\n'
+        f'<h2>Today\'s top kid news</h2>\n'
+        + "\n".join(cards) +
+        f'\n<p style="text-align:right;font-size:13px;margin-top:4px">'
+        f'<a href="/news/">See all news &rarr;</a></p>\n'
+        f'{HOMEPAGE_END}'
+    )
+
+    if HOMEPAGE_START in html:
+        si = html.index(HOMEPAGE_START)
+        ei = html.index(HOMEPAGE_END) + len(HOMEPAGE_END)
+        html = html[:si] + new_block + html[ei:]
+    else:
+        # First run — replace the static "Today's top kid news" block
+        old_h2    = "<h2>Today's top kid news</h2>"
+        next_h2   = "<h2>For parents</h2>"
+        if old_h2 in html and next_h2 in html:
+            si = html.index(old_h2)
+            ei = html.index(next_h2)
+            html = html[:si] + new_block + "\n\n" + html[ei:]
+        else:
+            html = html.replace("</main>", new_block + "\n</main>")
+
+    # Add RSS autodiscovery link if not already present
+    rss_link = '<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">'
+    if rss_link not in html and "</head>" in html:
+        html = html.replace("</head>", f"  {rss_link}\n</head>")
+
+    upload("index.html", html, "[scraper] Update homepage with latest 3 articles")
+
+
+# ── RSS feed ──────────────────────────────────────────────────────────────────
+def generate_rss_feed(manifest):
+    articles = manifest.get("articles", [])
+    BASE_URL = "https://kiddiedaily.com"
+    now_rfc = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    items = []
+    for a in sorted(articles, key=lambda x: x.get("date", ""), reverse=True)[:20]:
+        slug  = a["slug"]
+        title = a.get("display_title", a.get("title", "")).replace("&", "&amp;").replace("<", "&lt;")
+        cat   = "Science" if a.get("is_science") else "World News"
+        url   = f"{BASE_URL}/{slug}"
+        try:
+            d = datetime.strptime(a.get("date", ""), "%Y-%m-%d")
+            pub = d.strftime("%a, %d %b %Y 10:00:00 +0000")
+        except Exception:
+            pub = now_rfc
+        n     = a.get("n_sources", 1)
+        agree = f"{n} outlet{'s' if n!=1 else ''} covering this story"
+        items.append(
+            f"  <item>\n"
+            f"    <title>{title}</title>\n"
+            f"    <link>{url}</link>\n"
+            f"    <guid isPermaLink=\"true\">{url}</guid>\n"
+            f"    <pubDate>{pub}</pubDate>\n"
+            f"    <category>{cat}</category>\n"
+            f"    <description>{agree} — bias-rated, fact-checked daily on KiddieDaily.</description>\n"
+            f"  </item>"
+        )
+
+    feed = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        '  <channel>\n'
+        '    <title>KiddieDaily — News for Families</title>\n'
+        f'    <link>{BASE_URL}</link>\n'
+        f'    <atom:link href="{BASE_URL}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+        '    <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>\n'
+        '    <language>en-us</language>\n'
+        f'    <lastBuildDate>{now_rfc}</lastBuildDate>\n'
+        '    <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>\n'
+        + "\n".join(items) + "\n"
+        '  </channel>\n'
+        '</rss>\n'
+    )
+    upload("feed.xml", feed, f"[scraper] RSS feed — {len(articles)} articles")
+    print(f"  RSS: {len(articles)} items")
+
+
+# ── Parent Zone article list ───────────────────────────────────────────────────
+PARENT_START = "<!-- PARENT_ARTICLES_START -->"
+PARENT_END   = "<!-- PARENT_ARTICLES_END -->"
+
+PARENT_CONTEXT = {
+    "Science": "These stories cover recent discoveries in science, space, and nature. Great for sparking curiosity-driven conversations.",
+    "World News": "These stories cover current events. Use them to introduce media literacy — discuss where each outlet stands politically.",
+}
+
+def update_parent_zone(manifest):
+    articles = manifest.get("articles", [])
+    if not articles:
+        return
+
+    r = gh("GET", f"/repos/{REPO}/contents/parent-zone/index.html")
+    if r.get("_err"):
+        print(f"    ⚠ Could not fetch parent-zone/index.html: {r}")
+        return
+
+    html = base64.b64decode(r["content"]).decode("utf-8")
+    recent = sorted(articles, key=lambda x: x.get("date", ""), reverse=True)[:8]
+
+    rows = []
+    for a in recent:
+        slug  = a["slug"]
+        title = a.get("display_title", a.get("title", ""))[:90]
+        date  = a.get("date", "")
+        is_sci = a.get("is_science", False)
+        cat   = "Science" if is_sci else "World News"
+        n     = a.get("n_sources", 1)
+        bias  = a.get("bias_avg", 0.0)
+        bias_dir = "Left-leaning" if bias < -0.3 else ("Right-leaning" if bias > 0.3 else "Center")
+        rows.append(
+            f'<tr>'
+            f'<td><a href="/{slug}">{title}</a></td>'
+            f'<td>{cat}</td>'
+            f'<td>{bias_dir} ({bias:+.1f})</td>'
+            f'<td>{n}</td>'
+            f'<td>{date}</td>'
+            f'</tr>'
+        )
+
+    ctx_note = "These articles are curated daily by the KiddieDaily scraper — bias-rated and fact-check linked."
+    new_block = (
+        f'{PARENT_START}\n'
+        f'<h2>Today\'s Articles — Parent View</h2>\n'
+        f'<p style="font-size:14px;color:#4a5568;margin-bottom:12px">{ctx_note}</p>\n'
+        f'<table style="width:100%;border-collapse:collapse;font-size:14px">\n'
+        f'<thead><tr style="background:#1a4d80;color:#fff">'
+        f'<th style="padding:8px;text-align:left">Story</th>'
+        f'<th>Category</th><th>Bias</th><th>Sources</th><th>Date</th>'
+        f'</tr></thead>\n'
+        f'<tbody style="background:#fff">\n'
+        + "\n".join(rows) +
+        '\n</tbody></table>\n'
+        f'<p style="font-size:12px;color:#718096;margin-top:8px">Bias scale: -2 far-left to +2 far-right. Sources = number of outlets covering the same story.</p>\n'
+        f'{PARENT_END}'
+    )
+
+    if PARENT_START in html:
+        si = html.index(PARENT_START)
+        ei = html.index(PARENT_END) + len(PARENT_END)
+        html = html[:si] + new_block + html[ei:]
+    else:
+        # Inject before </main> or before the "Coming soon" text
+        for marker in ("</main>", "<p>Coming soon", "<h2>Coming soon"):
+            if marker in html:
+                html = html.replace(marker, new_block + "\n" + marker, 1)
+                break
+
+    upload("parent-zone/index.html", html, "[scraper] Update Parent Zone with latest articles table")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -790,6 +986,18 @@ def main():
     if pushed_count > 0:
         print(f"\n[6c] Updating sitemap.xml...")
         update_sitemap(manifest.get("pushed_slugs", []))
+
+    # 6d. Update homepage with latest 3 articles
+    print(f"\n[6d] Updating homepage...")
+    update_homepage(manifest)
+
+    # 6e. Generate RSS feed
+    print(f"\n[6e] Generating RSS feed...")
+    generate_rss_feed(manifest)
+
+    # 6f. Update Parent Zone article table
+    print(f"\n[6f] Updating Parent Zone...")
+    update_parent_zone(manifest)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
