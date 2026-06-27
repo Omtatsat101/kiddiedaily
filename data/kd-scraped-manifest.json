@@ -26,7 +26,10 @@
     "news/2026-06-27-researchers-discover-why-fructose-doesnt-satisfy-h.html",
     "news/2026-06-27-study-challenges-a-common-belief-about-vitamin-d-a.html",
     "news/2026-06-27-scientists-just-discovered-how-queen-bees-are-real.html",
-    "news/2026-06-27-new-solid-state-material-converts-sunlight-into-hi.html"
+    "news/2026-06-27-new-solid-state-material-converts-sunlight-into-hi.html",
+    "news/2026-06-27-how-cape-verde-stunned-world-cup-to-set-up-argenti.html",
+    "news/2026-06-27-absolutely-huge-400-year-old-black-coral-stuns-sci.html",
+    "news/2026-06-27-fda-approved-drug-may-finally-help-immunotherapy-d.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -55,7 +58,10 @@
     "Researchers discover why fructose doesn't satisfy hunger like glucose",
     "Study challenges a common belief about vitamin D and sunlight",
     "Scientists just discovered how queen bees are really made",
-    "New solid-state material converts sunlight into higher-energy UV light"
+    "New solid-state material converts sunlight into higher-energy UV light",
+    "How Cape Verde stunned World Cup to set up Argentina tie",
+    "“Absolutely huge” 400-year-old black coral stuns scientists in New Zealand",
+    "FDA-approved drug may finally help immunotherapy defeat rare liver cancer"
   ],
   "articles": [
     {
@@ -336,6 +342,39 @@
       "slug": "news/2026-06-27-new-solid-state-material-converts-sunlight-into-hi.html",
       "title": "New solid-state material converts sunlight into higher-energy UV light",
       "display_title": "New solid-state material converts sunlight into higher-energy UV light",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-how-cape-verde-stunned-world-cup-to-set-up-argenti.html",
+      "title": "How Cape Verde stunned World Cup to set up Argentina tie",
+      "display_title": "How Cape Verde stunned World Cup to set up Argentina tie",
+      "date": "2026-06-27",
+      "n_sources": 2,
+      "bias_avg": -0.38,
+      "agreement_pct": 62,
+      "is_science": false,
+      "source_icons": "🇬🇧 🌍"
+    },
+    {
+      "slug": "news/2026-06-27-absolutely-huge-400-year-old-black-coral-stuns-sci.html",
+      "title": "“Absolutely huge” 400-year-old black coral stuns scientists in New Zealand",
+      "display_title": "“Absolutely huge” 400-year-old black coral stuns scientists in New Zealand",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-fda-approved-drug-may-finally-help-immunotherapy-d.html",
+      "title": "FDA-approved drug may finally help immunotherapy defeat rare liver cancer",
+      "display_title": "FDA-approved drug may finally help immunotherapy defeat rare liver cancer",
       "date": "2026-06-27",
       "n_sources": 1,
       "bias_avg": 0.0,
