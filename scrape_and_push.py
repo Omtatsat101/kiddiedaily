@@ -498,6 +498,32 @@ def save_manifest(manifest):
 SCRAPED_START = "<!-- SCRAPED_CARDS_START -->"
 SCRAPED_END   = "<!-- SCRAPED_CARDS_END -->"
 
+KD_CARD_CSS = """<style>
+.kd-today-hdr{margin:28px 0 12px;font-size:1.2em;font-family:Georgia,serif;color:#1a4d80;border-bottom:2px solid #ffd700;padding-bottom:6px}
+.kd-sc{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:10px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.kd-sc-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.kd-badge{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}
+.kd-badge-sci{background:#d1fae5;color:#065f46}
+.kd-badge-news{background:#dbeafe;color:#1e40af}
+.kd-agree{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;margin-left:auto}
+.kd-agree-high{background:#d1fae5;color:#065f46}
+.kd-agree-med{background:#fef3c7;color:#92400e}
+.kd-agree-low{background:#fee2e2;color:#991b1b}
+.kd-sc h3{margin:4px 0 8px;font-size:1em;line-height:1.35}
+.kd-sc h3 a{color:#1a4d80;text-decoration:none}
+.kd-sc h3 a:hover{text-decoration:underline}
+.kd-mini-bias{display:flex;align-items:center;gap:6px;margin-top:8px}
+.kd-mini-lbl{font-size:10px;font-weight:700;color:#718096;width:16px}
+.kd-mini-track{flex:1;height:6px;border-radius:3px;background:linear-gradient(to right,#3182ce 0%,#805ad5 50%,#e53e3e 100%);position:relative}
+.kd-mini-dot{position:absolute;top:-5px;width:16px;height:16px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.kd-sc-date{font-size:11px;color:#a0aec0;margin-top:6px}
+</style>"""
+
+def _agree_class(pct):
+    if pct >= 65: return "kd-agree-high"
+    if pct >= 40: return "kd-agree-med"
+    return "kd-agree-low"
+
 def build_scraped_cards(articles):
     if not articles:
         return ""
@@ -508,14 +534,34 @@ def build_scraped_cards(articles):
         date  = a.get("date", "")
         n     = a.get("n_sources", 1)
         ap    = a.get("agreement_pct", 0)
-        label = ("Science" if a.get("is_science") else "World News")
-        src_note = f"{n} source{'s' if n!=1 else ''} · {ap}% agreement"
+        bias  = a.get("bias_avg", 0.0)
+        is_sci = a.get("is_science", False)
+
+        badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
+        badge_lbl = "Science" if is_sci else "World News"
+        agree_cls = _agree_class(ap)
+
+        # Bias dot: map -2..+2 → 5%..95%
+        dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
+        src_word = f"{n} source{'s' if n!=1 else ''}"
+
         cards.append(
-            f'<div class="card"><h3><a href="/{slug}">{title}</a></h3>'
-            f'<p class="meta">{label} &middot; {date} &middot; {src_note}</p></div>'
+            f'<div class="kd-sc">'
+            f'<div class="kd-sc-top">'
+            f'<span class="kd-badge {badge_cls}">{badge_lbl}</span>'
+            f'<span class="kd-agree {agree_cls}">{ap}% sources agree</span>'
+            f'</div>'
+            f'<h3><a href="/{slug}">{title}</a></h3>'
+            f'<div class="kd-mini-bias">'
+            f'<span class="kd-mini-lbl">L</span>'
+            f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
+            f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
+            f'</div>'
+            f'<div class="kd-sc-date">{date} &middot; {src_word}</div>'
+            f'</div>'
         )
     inner = "\n".join(cards)
-    return f"{SCRAPED_START}\n<h2>Today&#39;s news</h2>\n{inner}\n{SCRAPED_END}"
+    return f"{SCRAPED_START}\n{KD_CARD_CSS}\n<h2 class=\"kd-today-hdr\">Today&#39;s news</h2>\n{inner}\n{SCRAPED_END}"
 
 def update_news_index(manifest):
     articles = manifest.get("articles", [])
