@@ -9,7 +9,7 @@ GitHub Actions: triggered daily at 10am UTC via .github/workflows/daily-news.yml
 Requires:  GITHUB_TOKEN  (env var or projects/API-KEYS.env)
 Optional:  ANTHROPIC_API_KEY  (for Claude Haiku kid-friendly rewrites)
 """
-import urllib.request, urllib.error, ssl, json, base64, time, os, pathlib, re, sys
+import urllib.request, urllib.error, urllib.parse, ssl, json, base64, time, os, pathlib, re, sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
@@ -439,15 +439,23 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
     })
 
     source_items = "".join(
-        f'<li><a href="{s["link"]}" rel="noopener nofollow" target="_blank">'
+        f'<li>{s["source_icon"]} <a href="{s["link"]}" rel="noopener nofollow" target="_blank">'
         f'{s["source_name"]}: {s["title"][:75]}{"..." if len(s["title"])>75 else ""}</a></li>'
         for s in group
     )
+    # Google Fact Check Explorer link — lets parents quickly search for claims
+    fc_query = urllib.parse.quote(title[:80])
+    fact_check_url = f"https://toolbox.google.com/factcheck/explorer/search/{fc_query}"
+
     body = f"""<p class="byline">By KiddieDaily Editors &middot; {today} &middot; Aggregated from {n} source{"s" if n!=1 else ""}</p>
 <h1>{title}</h1>
 {bias_html}
 {body_html}
 <div class="sources"><h4>Original Sources</h4><ul>{source_items}</ul></div>
+<p style="margin-top:16px;padding:10px 14px;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;font-size:13px">
+&#128269; <strong>Want to verify this story?</strong>
+<a href="{fact_check_url}" rel="noopener nofollow" target="_blank" style="color:#065f46">Check it on Google Fact Check Explorer &rarr;</a>
+</p>
 <p><em>More stories: <a href="/news/">Kid News</a> &middot; <a href="/fact-check/">Fact Check</a></em></p>"""
 
     return f"""<!DOCTYPE html><html lang="en"><head>
