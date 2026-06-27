@@ -9,9 +9,13 @@ GitHub Actions: triggered daily at 10am UTC via .github/workflows/daily-news.yml
 Requires:  GITHUB_TOKEN  (env var or projects/API-KEYS.env)
 Optional:  ANTHROPIC_API_KEY  (for Claude Haiku kid-friendly rewrites)
 """
-import urllib.request, urllib.error, ssl, json, base64, time, os, pathlib, re
+import urllib.request, urllib.error, ssl, json, base64, time, os, pathlib, re, sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+
+# Force UTF-8 on Windows so emoji in print() don't crash
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 # ── SSL (matches existing kiddiedaily scripts) ────────────────────────────────
 ctx = ssl.create_default_context()
@@ -543,13 +547,25 @@ def build_scraped_cards(articles):
 
         # Bias dot: map -2..+2 → 5%..95%
         dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
-        src_word = f"{n} source{'s' if n!=1 else ''}"
+
+        # Agreement label: single source = "1 outlet" not "31% sources agree"
+        if n == 1:
+            agree_lbl = "1 outlet"
+            agree_cls = "kd-agree-low"
+        else:
+            agree_lbl = f"{n} outlets agree"
+
+        # Source icons from stored group info (not available in manifest, derive from name)
+        SOURCE_ICONS = {"BBC News": "🇬🇧", "NPR": "📻", "Al Jazeera": "🌍",
+                        "The Hill": "⚖️", "Fox News": "🦅", "NASA": "🚀",
+                        "Science Daily": "🔬", "Smithsonian": "🏛️"}
+        src_icons = a.get("source_icons", "")
 
         cards.append(
             f'<div class="kd-sc">'
             f'<div class="kd-sc-top">'
             f'<span class="kd-badge {badge_cls}">{badge_lbl}</span>'
-            f'<span class="kd-agree {agree_cls}">{ap}% sources agree</span>'
+            f'<span class="kd-agree {agree_cls}">{agree_lbl}</span>'
             f'</div>'
             f'<h3><a href="/{slug}">{title}</a></h3>'
             f'<div class="kd-mini-bias">'
@@ -557,8 +573,8 @@ def build_scraped_cards(articles):
             f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
             f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
             f'</div>'
-            f'<div class="kd-sc-date">{date} &middot; {src_word}</div>'
-            f'</div>'
+            + (f'<div class="kd-sc-date">{date}{" &middot; " + src_icons if src_icons else ""}</div>' if date else "")
+            + f'</div>'
         )
     inner = "\n".join(cards)
     return f"{SCRAPED_START}\n{KD_CARD_CSS}\n<h2 class=\"kd-today-hdr\">Today&#39;s news</h2>\n{inner}\n{SCRAPED_END}"
@@ -737,6 +753,7 @@ def main():
             manifest["pushed_titles"].append(rep["title"])
             if "articles" not in manifest:
                 manifest["articles"] = []
+            icons = " ".join(dict.fromkeys(s["source_icon"] for s in group))
             manifest["articles"].append({
                 "slug": slug,
                 "title": rep["title"],
@@ -746,6 +763,7 @@ def main():
                 "bias_avg": score["bias_avg"],
                 "agreement_pct": score["agreement_pct"],
                 "is_science": any(s["source_name"] in SCIENCE_SOURCES for s in group),
+                "source_icons": icons,
             })
             pushed_count += 1
 
