@@ -11,7 +11,10 @@
     "news/2026-06-26-nasas-pace-mission-studies-smoke-fires.html",
     "news/2026-06-27-early-humans-were-bringing-fire-into-caves-18-mill.html",
     "news/2026-06-27-hubble-spies-starry-chandelier.html",
-    "news/2026-06-27-the-battle-for-sullivans-island.html"
+    "news/2026-06-27-the-battle-for-sullivans-island.html",
+    "news/2026-06-27-expedition-73-crew-reflects-on-science-teamwork-an.html",
+    "news/2026-06-27-they-knew-the-pill-was-fake-but-their-memory-still.html",
+    "news/2026-06-27-after-70-years-of-excavation-ancient-sardis-become.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -25,7 +28,10 @@
     "NASA’s PACE Mission Studies Smoke, Fires",
     "Early humans were bringing fire into caves 1.8 million years ago",
     "Hubble Spies Starry Chandelier",
-    "The Battle for Sullivan’s Island"
+    "The Battle for Sullivan’s Island",
+    "Expedition 73 Crew Reflects on Science, Teamwork, and Life in Orbit",
+    "They knew the pill was fake but their memory still improved",
+    "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site"
   ],
   "articles": [
     {
@@ -147,6 +153,39 @@
       "bias_avg": 0.0,
       "agreement_pct": 31,
       "is_science": true
+    },
+    {
+      "slug": "news/2026-06-27-expedition-73-crew-reflects-on-science-teamwork-an.html",
+      "title": "Expedition 73 Crew Reflects on Science, Teamwork, and Life in Orbit",
+      "display_title": "Expedition 73 Crew Reflects on Science, Teamwork, and Life in Orbit",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🚀"
+    },
+    {
+      "slug": "news/2026-06-27-they-knew-the-pill-was-fake-but-their-memory-still.html",
+      "title": "They knew the pill was fake but their memory still improved",
+      "display_title": "They knew the pill was fake but their memory still improved",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-after-70-years-of-excavation-ancient-sardis-become.html",
+      "title": "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site",
+      "display_title": "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
     }
   ]
 }
