@@ -675,7 +675,7 @@ STATIC_URLS = [
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
     "/about.html", "/privacy.html", "/terms.html", "/contact.html",
-    "/feed.xml", "/news/archive.html",
+    "/feed.xml", "/news/archive.html", "/news/science.html", "/news/world.html",
 ]
 
 def update_sitemap(pushed_slugs):
@@ -745,13 +745,17 @@ def update_homepage(manifest):
             f'</div>'
         )
 
+    trending_html = build_trending(manifest)
     new_block = (
         f'{HOMEPAGE_START}\n'
         f'<h2>Today\'s top kid news</h2>\n'
         + "\n".join(cards) +
         f'\n<p style="text-align:right;font-size:13px;margin-top:4px">'
-        f'<a href="/news/">See all news &rarr;</a></p>\n'
-        f'{HOMEPAGE_END}'
+        f'<a href="/news/">All news</a> &middot; '
+        f'<a href="/news/science.html">Science</a> &middot; '
+        f'<a href="/news/archive.html">Archive</a></p>\n'
+        + trending_html +
+        f'\n{HOMEPAGE_END}'
     )
 
     if HOMEPAGE_START in html:
@@ -1059,6 +1063,124 @@ function updateDateHeaders() {{
     print(f"  Archive: {len(articles)} articles")
 
 
+# ── Category pages ───────────────────────────────────────────────────────────
+def generate_category_pages(manifest):
+    articles = manifest.get("articles", [])
+    cats = {
+        "science": [a for a in articles if a.get("is_science")],
+        "world":   [a for a in articles if not a.get("is_science")],
+    }
+    cat_labels = {"science": "Science", "world": "World News"}
+    desc = {
+        "science": "Space, animals, inventions, and discoveries — science stories for curious kids.",
+        "world":   "What's happening around the world, explained for families.",
+    }
+
+    for key, arts in cats.items():
+        if not arts:
+            continue
+        arts = sorted(arts, key=lambda x: x.get("date", ""), reverse=True)
+        label = cat_labels[key]
+
+        rows = []
+        for a in arts[:20]:
+            slug  = a["slug"]
+            title = a.get("display_title", a.get("title", ""))
+            date  = a.get("date", "")
+            n     = a.get("n_sources", 1)
+            bias  = a.get("bias_avg", 0.0)
+            dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
+            agree = f"{n} outlet{'s' if n!=1 else ''}"
+            rows.append(
+                f'<div class="kd-sc">'
+                f'<div class="kd-sc-top"><span class="kd-badge kd-badge-sci">{label}</span>'
+                f'<span style="font-size:11px;color:#718096;margin-left:auto">{agree} &middot; {date}</span></div>'
+                f'<h3 style="margin:4px 0 6px"><a href="/{slug}">{title}</a></h3>'
+                f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
+                f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
+                f'<span class="kd-mini-lbl" style="text-align:right">R</span></div>'
+                f'</div>'
+            )
+
+        page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>{label} News — KiddieDaily</title>
+<meta name="description" content="{desc[key]}">
+<link rel="canonical" href="https://kiddiedaily.com/news/{key}.html">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+<style>
+body{{margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748}}
+header.kd{{background:#1a4d80;padding:14px 0}}
+header.kd .inner{{max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:0 20px}}
+header.kd .logo{{font-weight:700;font-size:22px;color:#fff;font-family:Georgia,serif;text-decoration:none}}
+header.kd nav{{display:flex;flex-wrap:wrap;gap:18px;flex:1;justify-content:flex-end}}
+header.kd nav a{{color:#fff;font-size:15px;font-family:system-ui,sans-serif}}
+main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
+.kd-sc{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:10px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
+.kd-sc-top{{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}}
+.kd-badge{{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}}
+.kd-badge-sci{{background:#d1fae5;color:#065f46}}
+.kd-mini-bias{{display:flex;align-items:center;gap:6px;margin-top:8px}}
+.kd-mini-lbl{{font-size:10px;font-weight:700;color:#718096;width:16px}}
+.kd-mini-track{{flex:1;height:6px;border-radius:3px;background:linear-gradient(to right,#3182ce 0%,#805ad5 50%,#e53e3e 100%);position:relative}}
+.kd-mini-dot{{position:absolute;top:-5px;width:16px;height:16px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)}}
+.kd-sc h3 a{{color:#1a4d80;text-decoration:none}}
+footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sans-serif;font-size:13px;text-align:center}}
+</style></head>
+<body>
+<header class="kd"><div class="inner">
+<a href="/" class="logo">KiddieDaily<small>news for families</small></a>
+<nav><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/archive.html">Archive</a></nav>
+</div></header>
+<main>
+<h1 style="font-size:28px;margin-bottom:4px">{label} News</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 24px">{desc[key]} {len(arts)} stories.</p>
+{"".join(rows)}
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096">
+  <a href="/news/archive.html">Full archive</a> &middot; <a href="/feed.xml">RSS feed</a> &middot; <a href="/news/">All news</a>
+</p>
+</main>
+<footer><p>&copy; KiddieDaily &mdash; <a href="/privacy.html" style="color:#a0aec0">Privacy</a></p></footer>
+</body></html>"""
+
+        upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
+    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])}")
+
+
+# ── Trending topics ───────────────────────────────────────────────────────────
+def build_trending(manifest):
+    """Return top 5 keyword clusters from recent article titles."""
+    articles = manifest.get("articles", [])
+    recent = sorted(articles, key=lambda x: x.get("date",""), reverse=True)[:15]
+    SKIP = {"the","a","an","in","on","at","to","for","of","and","or","is","are",
+            "was","were","be","has","have","had","will","would","it","this","that",
+            "as","by","from","with","its","how","why","what","new","more","after",
+            "they","says","over","amid","first","than","but","not","can","one","may",
+            "two","about","could","news","year","years","using","found","study",
+            "scientists","researchers","finds","discover","discovered","found"}
+    freq = {}
+    for a in recent:
+        title = a.get("display_title", a.get("title","")).lower()
+        for w in re.sub(r"[^\w\s]","",title).split():
+            if w not in SKIP and len(w) > 3:
+                freq[w] = freq.get(w, 0) + 1
+    top = sorted(freq.items(), key=lambda x: -x[1])[:6]
+    if not top:
+        return ""
+    tags = " ".join(
+        f'<a href="/news/archive.html" style="background:#e2e8f0;color:#2d3748;padding:4px 10px;'
+        f'border-radius:20px;font-size:12px;text-decoration:none;font-family:system-ui">'
+        f'{w}</a>'
+        for w, _ in top
+    )
+    return (
+        '<div style="margin:16px 0 8px;padding:12px 16px;background:#fffbeb;border:1px solid #fef3c7;border-radius:8px">'
+        '<p style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#92400e;margin:0 0 8px">Trending this week</p>'
+        f'<div style="display:flex;flex-wrap:wrap;gap:6px">{tags}</div>'
+        '</div>'
+    )
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -1178,6 +1300,10 @@ def main():
     # 6g. Generate archive page with client-side search
     print(f"\n[6g] Generating archive page...")
     generate_archive(manifest)
+
+    # 6h. Generate category pages
+    print(f"\n[6h] Generating category pages...")
+    generate_category_pages(manifest)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
