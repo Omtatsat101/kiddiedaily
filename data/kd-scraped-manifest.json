@@ -8,7 +8,10 @@
     "news/2026-06-26-nasa-identifies-more-than-40-space-technologies-fo.html",
     "news/2026-06-26-euclid-sees-heart-of-milky-way.html",
     "news/2026-06-26-bringing-signals-to-nasa.html",
-    "news/2026-06-26-nasas-pace-mission-studies-smoke-fires.html"
+    "news/2026-06-26-nasas-pace-mission-studies-smoke-fires.html",
+    "news/2026-06-27-early-humans-were-bringing-fire-into-caves-18-mill.html",
+    "news/2026-06-27-hubble-spies-starry-chandelier.html",
+    "news/2026-06-27-the-battle-for-sullivans-island.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -19,7 +22,10 @@
     "NASA Identifies More Than 40 Space Technologies for Collaboration",
     "Euclid Sees Heart of Milky Way",
     "Bringing Signals to NASA",
-    "NASA’s PACE Mission Studies Smoke, Fires"
+    "NASA’s PACE Mission Studies Smoke, Fires",
+    "Early humans were bringing fire into caves 1.8 million years ago",
+    "Hubble Spies Starry Chandelier",
+    "The Battle for Sullivan’s Island"
   ],
   "articles": [
     {
@@ -107,6 +113,36 @@
       "title": "NASA’s PACE Mission Studies Smoke, Fires",
       "display_title": "NASA’s PACE Mission Studies Smoke, Fires",
       "date": "2026-06-26",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-27-early-humans-were-bringing-fire-into-caves-18-mill.html",
+      "title": "Early humans were bringing fire into caves 1.8 million years ago",
+      "display_title": "Early humans were bringing fire into caves 1.8 million years ago",
+      "date": "2026-06-27",
+      "n_sources": 2,
+      "bias_avg": -0.05,
+      "agreement_pct": 62,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-27-hubble-spies-starry-chandelier.html",
+      "title": "Hubble Spies Starry Chandelier",
+      "display_title": "Hubble Spies Starry Chandelier",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true
+    },
+    {
+      "slug": "news/2026-06-27-the-battle-for-sullivans-island.html",
+      "title": "The Battle for Sullivan’s Island",
+      "display_title": "The Battle for Sullivan’s Island",
+      "date": "2026-06-27",
       "n_sources": 1,
       "bias_avg": 0.0,
       "agreement_pct": 31,
