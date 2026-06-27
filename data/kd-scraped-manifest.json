@@ -14,7 +14,10 @@
     "news/2026-06-27-the-battle-for-sullivans-island.html",
     "news/2026-06-27-expedition-73-crew-reflects-on-science-teamwork-an.html",
     "news/2026-06-27-they-knew-the-pill-was-fake-but-their-memory-still.html",
-    "news/2026-06-27-after-70-years-of-excavation-ancient-sardis-become.html"
+    "news/2026-06-27-after-70-years-of-excavation-ancient-sardis-become.html",
+    "news/2026-06-27-earth-may-have-been-seeding-venus-with-life-for-bi.html",
+    "news/2026-06-27-osteopenia-is-silently-weakening-bones-in-millions.html",
+    "news/2026-06-27-nasas-lucy-finds-a-wobbling-peanut-shaped-asteroid.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -31,7 +34,10 @@
     "The Battle for Sullivan’s Island",
     "Expedition 73 Crew Reflects on Science, Teamwork, and Life in Orbit",
     "They knew the pill was fake but their memory still improved",
-    "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site"
+    "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site",
+    "Earth may have been seeding Venus with life for billions of years",
+    "Osteopenia is silently weakening bones in millions of people",
+    "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water"
   ],
   "articles": [
     {
@@ -180,6 +186,39 @@
       "slug": "news/2026-06-27-after-70-years-of-excavation-ancient-sardis-become.html",
       "title": "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site",
       "display_title": "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-earth-may-have-been-seeding-venus-with-life-for-bi.html",
+      "title": "Earth may have been seeding Venus with life for billions of years",
+      "display_title": "Earth may have been seeding Venus with life for billions of years",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-osteopenia-is-silently-weakening-bones-in-millions.html",
+      "title": "Osteopenia is silently weakening bones in millions of people",
+      "display_title": "Osteopenia is silently weakening bones in millions of people",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-nasas-lucy-finds-a-wobbling-peanut-shaped-asteroid.html",
+      "title": "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water",
+      "display_title": "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water",
       "date": "2026-06-27",
       "n_sources": 1,
       "bias_avg": 0.0,
