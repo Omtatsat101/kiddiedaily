@@ -20,7 +20,10 @@
     "news/2026-06-27-nasas-lucy-finds-a-wobbling-peanut-shaped-asteroid.html",
     "news/2026-06-27-scientists-discover-ancient-brain-cells-that-help.html",
     "news/2026-06-27-the-universe-may-be-hiding-conscious-minds-strange.html",
-    "news/2026-06-27-this-common-vitamin-deficiency-can-mimic-normal-ag.html"
+    "news/2026-06-27-this-common-vitamin-deficiency-can-mimic-normal-ag.html",
+    "news/2026-06-27-why-south-africas-leopards-shrank-to-half-their-no.html",
+    "news/2026-06-27-new-superconducting-x-ray-detector-is-up-to-1000-t.html",
+    "news/2026-06-27-researchers-discover-why-fructose-doesnt-satisfy-h.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -43,7 +46,10 @@
     "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water",
     "Scientists discover ancient brain cells that help block distractions",
     "The universe may be hiding conscious minds stranger than we can imagine",
-    "This common vitamin deficiency can mimic normal aging"
+    "This common vitamin deficiency can mimic normal aging",
+    "Why South Africa’s leopards shrank to half their normal size",
+    "New superconducting X-ray detector is up to 1,000 times more sensitive",
+    "Researchers discover why fructose doesn't satisfy hunger like glucose"
   ],
   "articles": [
     {
@@ -258,6 +264,39 @@
       "slug": "news/2026-06-27-this-common-vitamin-deficiency-can-mimic-normal-ag.html",
       "title": "This common vitamin deficiency can mimic normal aging",
       "display_title": "This common vitamin deficiency can mimic normal aging",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-why-south-africas-leopards-shrank-to-half-their-no.html",
+      "title": "Why South Africa’s leopards shrank to half their normal size",
+      "display_title": "Why South Africa’s leopards shrank to half their normal size",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-new-superconducting-x-ray-detector-is-up-to-1000-t.html",
+      "title": "New superconducting X-ray detector is up to 1,000 times more sensitive",
+      "display_title": "New superconducting X-ray detector is up to 1,000 times more sensitive",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-researchers-discover-why-fructose-doesnt-satisfy-h.html",
+      "title": "Researchers discover why fructose doesn't satisfy hunger like glucose",
+      "display_title": "Researchers discover why fructose doesn't satisfy hunger like glucose",
       "date": "2026-06-27",
       "n_sources": 1,
       "bias_avg": 0.0,
