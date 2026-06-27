@@ -17,7 +17,10 @@
     "news/2026-06-27-after-70-years-of-excavation-ancient-sardis-become.html",
     "news/2026-06-27-earth-may-have-been-seeding-venus-with-life-for-bi.html",
     "news/2026-06-27-osteopenia-is-silently-weakening-bones-in-millions.html",
-    "news/2026-06-27-nasas-lucy-finds-a-wobbling-peanut-shaped-asteroid.html"
+    "news/2026-06-27-nasas-lucy-finds-a-wobbling-peanut-shaped-asteroid.html",
+    "news/2026-06-27-scientists-discover-ancient-brain-cells-that-help.html",
+    "news/2026-06-27-the-universe-may-be-hiding-conscious-minds-strange.html",
+    "news/2026-06-27-this-common-vitamin-deficiency-can-mimic-normal-ag.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -37,7 +40,10 @@
     "After 70 years of excavation, ancient Sardis becomes a UNESCO World Heritage site",
     "Earth may have been seeding Venus with life for billions of years",
     "Osteopenia is silently weakening bones in millions of people",
-    "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water"
+    "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water",
+    "Scientists discover ancient brain cells that help block distractions",
+    "The universe may be hiding conscious minds stranger than we can imagine",
+    "This common vitamin deficiency can mimic normal aging"
   ],
   "articles": [
     {
@@ -219,6 +225,39 @@
       "slug": "news/2026-06-27-nasas-lucy-finds-a-wobbling-peanut-shaped-asteroid.html",
       "title": "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water",
       "display_title": "NASA’s Lucy finds a wobbling peanut-shaped asteroid with signs of ancient water",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-scientists-discover-ancient-brain-cells-that-help.html",
+      "title": "Scientists discover ancient brain cells that help block distractions",
+      "display_title": "Scientists discover ancient brain cells that help block distractions",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-the-universe-may-be-hiding-conscious-minds-strange.html",
+      "title": "The universe may be hiding conscious minds stranger than we can imagine",
+      "display_title": "The universe may be hiding conscious minds stranger than we can imagine",
+      "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-27-this-common-vitamin-deficiency-can-mimic-normal-ag.html",
+      "title": "This common vitamin deficiency can mimic normal aging",
+      "display_title": "This common vitamin deficiency can mimic normal aging",
       "date": "2026-06-27",
       "n_sources": 1,
       "bias_avg": 0.0,
