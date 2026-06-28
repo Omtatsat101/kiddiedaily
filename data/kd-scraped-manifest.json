@@ -32,7 +32,10 @@
     "news/2026-06-27-fda-approved-drug-may-finally-help-immunotherapy-d.html",
     "news/2026-06-28-astronomers-found-two-rare-super-puff-planets-ligh.html",
     "news/2026-06-28-scientists-discover-what-triggers-belly-fat-as-we.html",
-    "news/2026-06-28-scientists-open-a-million-year-old-time-capsule-hi.html"
+    "news/2026-06-28-scientists-open-a-million-year-old-time-capsule-hi.html",
+    "news/2026-06-28-hawaii-is-turning-ocean-plastic-and-fishing-nets-i.html",
+    "news/2026-06-28-a-nasa-satellite-caught-a-giant-tsunami-doing-some.html",
+    "news/2026-06-28-deep-in-the-mexican-jungle-archaeologists-discover.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -67,7 +70,10 @@
     "FDA-approved drug may finally help immunotherapy defeat rare liver cancer",
     "Astronomers found two rare super puff planets lighter than cotton candy",
     "Scientists discover what triggers belly fat as we age",
-    "Scientists open a million-year-old time capsule hidden beneath New Zealand"
+    "Scientists open a million-year-old time capsule hidden beneath New Zealand",
+    "Hawaii is turning ocean plastic and fishing nets into roads",
+    "A NASA satellite caught a giant tsunami doing something no one expected",
+    "Deep in the Mexican Jungle, Archaeologists Discovered a Lost Maya City That May Yield Clues About the Civilization Just Before It Collapsed"
   ],
   "articles": [
     {
@@ -420,6 +426,39 @@
       "agreement_pct": 31,
       "is_science": true,
       "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-28-hawaii-is-turning-ocean-plastic-and-fishing-nets-i.html",
+      "title": "Hawaii is turning ocean plastic and fishing nets into roads",
+      "display_title": "Hawaii is turning ocean plastic and fishing nets into roads",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-28-a-nasa-satellite-caught-a-giant-tsunami-doing-some.html",
+      "title": "A NASA satellite caught a giant tsunami doing something no one expected",
+      "display_title": "A NASA satellite caught a giant tsunami doing something no one expected",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-28-deep-in-the-mexican-jungle-archaeologists-discover.html",
+      "title": "Deep in the Mexican Jungle, Archaeologists Discovered a Lost Maya City That May Yield Clues About the Civilization Just Before It Collapsed",
+      "display_title": "Deep in the Mexican Jungle, Archaeologists Discovered a Lost Maya City That May Yield Clues About the Civilization Just Before It Collapsed",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🏛️"
     }
   ]
 }
