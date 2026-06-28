@@ -758,7 +758,9 @@ STATIC_URLS = [
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
     "/about.html", "/privacy.html", "/terms.html", "/contact.html",
-    "/feed.xml", "/news/archive.html", "/news/science.html", "/news/world.html",
+    "/feed.xml", "/news/archive.html", "/news/today.html",
+    "/news/science.html", "/news/world.html",
+    "/digest/latest.html",
 ]
 
 def update_sitemap(pushed_slugs, manifest=None):
@@ -845,12 +847,12 @@ def update_homepage(manifest):
         )
 
     trending_html = build_trending(manifest)
-    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     new_block = (
         f'{HOMEPAGE_START}\n'
         f'<h2>Today\'s top kid news</h2>\n'
         + "\n".join(cards) +
         f'\n<p style="text-align:right;font-size:13px;margin-top:4px">'
+        f'<a href="/news/today.html">Today</a> &middot; '
         f'<a href="/news/">All news</a> &middot; '
         f'<a href="/news/science.html">Science</a> &middot; '
         f'<a href="/news/archive.html">Archive</a> &middot; '
@@ -1231,7 +1233,7 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 <body>
 <header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>news for families</small></a>
-<nav><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/archive.html">Archive</a></nav>
+<nav><a href="/news/today.html">Today</a><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/archive.html">Archive</a></nav>
 </div></header>
 <main>
 <h1 style="font-size:28px;margin-bottom:4px">{label} News</h1>
@@ -1246,6 +1248,71 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 
         upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
     print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])}")
+
+
+# ── Today's news page ─────────────────────────────────────────────────────────
+def generate_today_page(manifest, today):
+    articles = manifest.get("articles", [])
+    todays = [a for a in articles if a.get("date") == today]
+    all_recent = sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
+
+    def article_row(a, label=None):
+        slug  = a["slug"]
+        title = a.get("display_title", a.get("title", ""))
+        is_sci = a.get("is_science", False)
+        cat   = "Science" if is_sci else "World News"
+        n     = a.get("n_sources", 1)
+        date  = a.get("date", "")
+        badge_bg = "#d1fae5" if is_sci else "#dbeafe"
+        badge_cl = "#065f46" if is_sci else "#1e40af"
+        return (
+            f'<div style="padding:14px 0;border-bottom:1px solid #e5e7eb">'
+            + (f'<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#92400e;margin-bottom:6px">{label}</div>' if label else '')
+            + f'<div style="display:flex;align-items:flex-start;gap:10px">'
+            f'<span style="flex-shrink:0;font-size:11px;font-weight:700;background:{badge_bg};color:{badge_cl};padding:2px 8px;border-radius:20px;margin-top:3px">{cat}</span>'
+            f'<div style="flex:1"><a href="/{slug}" style="font-size:16px;font-weight:600;color:#1a4d80;text-decoration:none;line-height:1.3">{title}</a>'
+            f'<div style="font-size:12px;color:#718096;margin-top:4px">{date} &middot; {n} source{"s" if n!=1 else ""}</div>'
+            f'</div></div></div>'
+        )
+
+    today_rows = "".join(article_row(a) for a in todays) if todays else (
+        '<p style="color:#718096;font-family:system-ui,sans-serif">No articles yet today — check back after 6 AM ET.</p>'
+    )
+
+    # Recent: up to 6 articles NOT from today
+    prev_articles = [a for a in all_recent if a.get("date") != today][:6]
+    prev_rows = "".join(article_row(a) for a in prev_articles)
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Today's Kid News — {today} | KiddieDaily</title>
+<meta name="description" content="Today's top stories for families, curated and bias-rated. {len(todays)} articles added {today}.">
+<link rel="canonical" href="https://kiddiedaily.com/news/today.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">
+</head>
+<body style="margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748">
+{HEADER}
+<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<h1 style="font-size:32px;margin:0 0 4px">Today's News</h1>
+<p style="font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 24px">{today} &middot; {len(todays)} article{"s" if len(todays)!=1 else ""} added today</p>
+
+<section>
+{today_rows}
+</section>
+
+{"<h2 style='font-size:20px;margin:36px 0 12px;color:#2d3748;border-bottom:1px solid #e5e7eb;padding-bottom:6px'>Recent stories</h2>" + prev_rows if prev_articles else ""}
+
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
+<a href="/news/archive.html" style="color:#1a4d80">Full archive</a> &middot;
+<a href="/digest/latest.html" style="color:#1a4d80">Daily digest</a> &middot;
+<a href="/feed.xml" style="color:#1a4d80">RSS feed</a>
+</p>
+</main>
+{FOOTER}
+</body></html>"""
+
+    upload("news/today.html", page, f"[scraper] Today's news page — {len(todays)} articles for {today}")
+    print(f"  Today page: {len(todays)} article(s) for {today}")
 
 
 # ── Trending topics ───────────────────────────────────────────────────────────
@@ -1466,10 +1533,9 @@ def main():
         print(f"\n[6b] Updating news/index.html...")
         update_news_index(manifest)
 
-    # 6c. Update sitemap with any new article URLs
-    if pushed_count > 0:
-        print(f"\n[6c] Updating sitemap.xml...")
-        update_sitemap(manifest.get("pushed_slugs", []), manifest)
+    # 6c. Always rebuild sitemap (articles + digest dates change daily)
+    print(f"\n[6c] Updating sitemap.xml...")
+    update_sitemap(manifest.get("pushed_slugs", []), manifest)
 
     # 6d. Update homepage with latest 3 articles
     print(f"\n[6d] Updating homepage...")
@@ -1498,6 +1564,10 @@ def main():
     # 6j. Generate daily digest page
     print(f"\n[6j] Generating daily digest...")
     generate_daily_digest(manifest, today)
+
+    # 6k. Generate today's news page
+    print(f"\n[6k] Generating today's news page...")
+    generate_today_page(manifest, today)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
