@@ -29,7 +29,10 @@
     "news/2026-06-27-new-solid-state-material-converts-sunlight-into-hi.html",
     "news/2026-06-27-how-cape-verde-stunned-world-cup-to-set-up-argenti.html",
     "news/2026-06-27-absolutely-huge-400-year-old-black-coral-stuns-sci.html",
-    "news/2026-06-27-fda-approved-drug-may-finally-help-immunotherapy-d.html"
+    "news/2026-06-27-fda-approved-drug-may-finally-help-immunotherapy-d.html",
+    "news/2026-06-28-astronomers-found-two-rare-super-puff-planets-ligh.html",
+    "news/2026-06-28-scientists-discover-what-triggers-belly-fat-as-we.html",
+    "news/2026-06-28-scientists-open-a-million-year-old-time-capsule-hi.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -61,7 +64,10 @@
     "New solid-state material converts sunlight into higher-energy UV light",
     "How Cape Verde stunned World Cup to set up Argentina tie",
     "“Absolutely huge” 400-year-old black coral stuns scientists in New Zealand",
-    "FDA-approved drug may finally help immunotherapy defeat rare liver cancer"
+    "FDA-approved drug may finally help immunotherapy defeat rare liver cancer",
+    "Astronomers found two rare super puff planets lighter than cotton candy",
+    "Scientists discover what triggers belly fat as we age",
+    "Scientists open a million-year-old time capsule hidden beneath New Zealand"
   ],
   "articles": [
     {
@@ -376,6 +382,39 @@
       "title": "FDA-approved drug may finally help immunotherapy defeat rare liver cancer",
       "display_title": "FDA-approved drug may finally help immunotherapy defeat rare liver cancer",
       "date": "2026-06-27",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-28-astronomers-found-two-rare-super-puff-planets-ligh.html",
+      "title": "Astronomers found two rare super puff planets lighter than cotton candy",
+      "display_title": "Astronomers found two rare super puff planets lighter than cotton candy",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-28-scientists-discover-what-triggers-belly-fat-as-we.html",
+      "title": "Scientists discover what triggers belly fat as we age",
+      "display_title": "Scientists discover what triggers belly fat as we age",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-28-scientists-open-a-million-year-old-time-capsule-hi.html",
+      "title": "Scientists open a million-year-old time capsule hidden beneath New Zealand",
+      "display_title": "Scientists open a million-year-old time capsule hidden beneath New Zealand",
+      "date": "2026-06-28",
       "n_sources": 1,
       "bias_avg": 0.0,
       "agreement_pct": 31,
