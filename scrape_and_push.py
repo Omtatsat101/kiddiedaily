@@ -335,24 +335,69 @@ RULES:
         return None
 
 # ── Article body builders ─────────────────────────────────────────────────────
+SKIP_PARA_WORDS = ["cookie", "subscribe", "newsletter", "javascript", "sign up",
+                   "advertisement", "click here", "read more", "follow us",
+                   "privacy policy", "terms of use", "all rights reserved",
+                   "copyright", "©", "skip to", "share this", "email address"]
+
+def fetch_article_text(url, fallback):
+    """Fetch full article text from source URL; return cleaned paragraphs or fallback."""
+    try:
+        req = urllib.request.Request(
+            url, headers={"User-Agent": "Mozilla/5.0 (compatible; KiddieDaily/1.0)"})
+        raw = urllib.request.urlopen(req, timeout=10, context=ctx).read().decode("utf-8", errors="replace")
+        # Strip scripts, styles, nav, footer, aside
+        raw = re.sub(r"<(script|style|nav|footer|aside|header)[^>]*>.*?</\1>",
+                     "", raw, flags=re.DOTALL | re.IGNORECASE)
+        # Extract <p> content
+        paras = re.findall(r"<p[^>]*>(.*?)</p>", raw, re.DOTALL | re.IGNORECASE)
+        paras = [re.sub(r"<[^>]+>", "", p).strip() for p in paras]
+        paras = [
+            re.sub(r"\s+", " ", p)
+            for p in paras
+            if len(p) > 55
+            and not any(w in p.lower() for w in SKIP_PARA_WORDS)
+        ]
+        if len(paras) >= 2:
+            return " ".join(paras[:7])
+    except Exception:
+        pass
+    return fallback
+
+
 def body_from_rss(group):
     rep = group[0]
-    desc = rep["description"]
-    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", desc) if len(s.strip()) > 20]
-    lede = " ".join(sentences[:2]) if sentences else desc[:200]
-    rest = " ".join(sentences[2:]) if len(sentences) > 2 else ""
+    # Try to fetch full text; fall back to RSS description
+    full_text = fetch_article_text(rep["link"], rep["description"])
+
+    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", full_text) if len(s.strip()) > 25]
+    lede   = " ".join(sentences[:2]) if sentences else full_text[:220]
+    middle = " ".join(sentences[2:5]) if len(sentences) > 2 else ""
+    extra  = " ".join(sentences[5:9]) if len(sentences) > 5 else ""
 
     html = [f'<p class="lede">{lede}</p>']
-    if rest:
-        html.append(f"<h2>What Happened</h2><p>{rest}</p>")
+    if middle:
+        html.append(f"<h2>What Happened</h2><p>{middle}</p>")
+    if extra:
+        html.append(f"<p>{extra}</p>")
 
-    others = [s for s in group[1:3] if s["description"] and s["description"][:100] != desc[:100]]
+    # Other-source perspective (multi-source stories)
+    others = [s for s in group[1:3] if s["description"] and s["description"][:80] != rep["description"][:80]]
     if others:
-        html.append(f"<h2>How {others[0]['source_name']} Covers It</h2><p>{others[0]['description'][:500]}</p>")
+        other_text = fetch_article_text(others[0]["link"], others[0]["description"])
+        other_sents = [s.strip() for s in re.split(r"(?<=[.!?])\s+", other_text) if len(s.strip()) > 25]
+        other_lede = " ".join(other_sents[:3]) if other_sents else others[0]["description"][:400]
+        html.append(
+            f"<h2>How {others[0]['source_icon']} {others[0]['source_name']} Covers It</h2>"
+            f"<p>{other_lede}</p>"
+        )
 
-    html.append("""<h2>Think About This</h2>
-<p>What questions does this story raise for you? Talk with your family: Why does this news matter?
-Who is affected? What might happen next? Is there anything you can do?</p>""")
+    html.append(
+        "<h2>Think About This</h2>"
+        "<p>What questions does this story raise for you? Talk with your family: "
+        "Why does this news matter? Who is affected? What might happen next? "
+        "Is there anything you can do?</p>"
+    )
     return rep["title"], "".join(html)
 
 def body_from_api(original_title, text):
@@ -437,6 +482,11 @@ def make_slug(title, date_str):
     slug = re.sub(r"\s+", "-", slug.strip())[:50].rstrip("-")
     return f"news/{date_str}-{slug}.html"
 
+def reading_time(html_text):
+    words = len(re.sub(r"<[^>]+>", " ", html_text).split())
+    mins = max(1, round(words / 200))
+    return f"{mins} min read"
+
 def build_page(title, body_html, bias_html, score, group, slug, today):
     n = score["n_sources"]
     url = f"https://kiddiedaily.com/{slug}"
@@ -458,7 +508,8 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
     fc_query = urllib.parse.quote(title[:80])
     fact_check_url = f"https://toolbox.google.com/factcheck/explorer/search/{fc_query}"
 
-    body = f"""<p class="byline">By KiddieDaily Editors &middot; {today} &middot; Aggregated from {n} source{"s" if n!=1 else ""}</p>
+    rt = reading_time(body_html)
+    body = f"""<p class="byline">By KiddieDaily Editors &middot; {today} &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
 <h1>{title}</h1>
 {bias_html}
 {body_html}
@@ -484,7 +535,31 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{title}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">{jsonld}</script>
-{CSS}</head><body>{HEADER}<main>{body}</main>{FOOTER}</body></html>"""
+{CSS}</head><body>{HEADER}<main>{body}</main>{FOOTER}
+<script>
+(function(){{
+  const SLUG="{slug}";
+  const TITLE_WORDS=new Set("{title}".toLowerCase().replace(/[^\w\s]/g,"").split(/\s+/).filter(w=>w.length>3&&!["that","this","with","from","have","were","they","more"].includes(w)));
+  fetch("/data/kd-articles.json").then(r=>r.json()).then(articles=>{{
+    const scored=articles.filter(a=>a.slug!==SLUG).map(a=>{{
+      const w=new Set(a.title.toLowerCase().replace(/[^\w\s]/g,"").split(/\s+/).filter(x=>x.length>3));
+      const overlap=[...TITLE_WORDS].filter(x=>w.has(x)).length;
+      return{{...a,score:overlap+(a.is_science?0.5:0)}};
+    }}).sort((a,b)=>b.score-a.score).slice(0,3).filter(a=>a.score>0);
+    if(!scored.length)return;
+    const box=document.createElement("div");
+    box.style.cssText="max-width:780px;margin:0 auto;padding:0 24px 48px;font-family:system-ui,sans-serif";
+    box.innerHTML="<h2 style='font-size:18px;color:#2d3748;border-bottom:1px solid #e5e7eb;padding-bottom:6px;margin-bottom:12px'>Related stories</h2>"
+      +scored.map(a=>`<div style='margin:8px 0;padding:10px 14px;background:#fff;border:1px solid #e5e7eb;border-radius:8px'>
+        <span style='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;background:${{a.is_science?"#d1fae5":"#dbeafe"}};color:${{a.is_science?"#065f46":"#1e40af"}};padding:2px 7px;border-radius:20px'>${{a.is_science?"Science":"World News"}}</span>
+        <a href="/${{a.slug}}" style='display:block;color:#1a4d80;font-weight:600;margin:5px 0 2px;font-size:15px'>${{a.title}}</a>
+        <span style='font-size:11px;color:#a0aec0'>${{a.date}}</span>
+        </div>`).join("");
+    document.body.appendChild(box);
+  }}).catch(()=>{{}});
+}})();
+</script>
+</body></html>"""
 
 # ── Manifest: tracks pushed slugs to avoid duplicates ─────────────────────────
 def load_manifest():
@@ -1181,6 +1256,91 @@ def build_trending(manifest):
     )
 
 
+# ── Public articles JSON (used by related-articles JS on every article page) ──
+def generate_articles_json(manifest):
+    articles = manifest.get("articles", [])
+    data = [
+        {
+            "slug":     a["slug"],
+            "title":    a.get("display_title", a.get("title", "")),
+            "date":     a.get("date", ""),
+            "is_science": a.get("is_science", False),
+            "bias_avg": a.get("bias_avg", 0.0),
+            "n_sources": a.get("n_sources", 1),
+        }
+        for a in sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
+    ]
+    upload("data/kd-articles.json", json.dumps(data, ensure_ascii=False), f"[scraper] Articles index ({len(data)} items)")
+    print(f"  Articles JSON: {len(data)} items")
+
+
+# ── Daily digest page ──────────────────────────────────────────────────────────
+def generate_daily_digest(manifest, today):
+    articles = manifest.get("articles", [])
+    todays = [a for a in articles if a.get("date") == today]
+    if not todays:
+        print("  Digest: no articles for today, skipping")
+        return
+
+    rows = []
+    for a in todays:
+        slug  = a["slug"]
+        title = a.get("display_title", a.get("title", ""))
+        is_sci = a.get("is_science", False)
+        cat   = "Science" if is_sci else "World News"
+        n     = a.get("n_sources", 1)
+        bias  = a.get("bias_avg", 0.0)
+        bias_label = "Center" if abs(bias) < 0.3 else ("Left-leaning" if bias < 0 else "Right-leaning")
+        rows.append(
+            f'<tr>'
+            f'<td style="padding:10px 8px;border-bottom:1px solid #e5e7eb">'
+            f'<strong><a href="https://kiddiedaily.com/{slug}" style="color:#1a4d80">{title}</a></strong><br>'
+            f'<span style="font-size:12px;color:#718096">{cat} &middot; {n} source{"s" if n!=1 else ""} &middot; Bias: {bias_label} ({bias:+.1f})</span>'
+            f'</td>'
+            f'</tr>'
+        )
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KiddieDaily Digest — {today}</title>
+<meta name="description" content="KiddieDaily daily digest for {today} — {len(todays)} stories for families.">
+<link rel="canonical" href="https://kiddiedaily.com/digest/{today}.html">
+</head>
+<body style="margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748">
+<div style="max-width:640px;margin:40px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1)">
+  <div style="background:#1a4d80;padding:28px 32px">
+    <h1 style="margin:0;color:#ffd700;font-size:26px;letter-spacing:-0.5px">KiddieDaily</h1>
+    <p style="margin:4px 0 0;color:#a0c4e8;font-family:system-ui,sans-serif;font-size:14px">Daily digest for families &middot; {today}</p>
+  </div>
+  <div style="padding:24px 32px">
+    <p style="font-size:14px;color:#4a5568;font-family:system-ui,sans-serif;margin:0 0 20px">
+      Today's {len(todays)} kid-friendly stories — bias-rated and fact-check linked.
+    </p>
+    <table style="width:100%;border-collapse:collapse">{"".join(rows)}</table>
+    <div style="margin-top:24px;padding:14px 16px;background:#f7fafc;border-radius:8px;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568">
+      <strong>How to read the bias rating:</strong> -2 = far left &nbsp;|&nbsp; 0 = center &nbsp;|&nbsp; +2 = far right.
+      Sources = how many of our 8 monitored outlets covered the same story.
+    </div>
+    <p style="text-align:center;margin-top:20px;font-family:system-ui,sans-serif;font-size:13px;color:#718096">
+      <a href="https://kiddiedaily.com/news/" style="color:#1a4d80">Read all news</a> &middot;
+      <a href="https://kiddiedaily.com/feed.xml" style="color:#1a4d80">Subscribe via RSS</a>
+    </p>
+  </div>
+</div>
+</body></html>"""
+
+    upload(f"digest/{today}.html", page, f"[scraper] Daily digest {today} — {len(todays)} articles")
+    # Also write /digest/latest.html as a redirect to today's digest
+    redirect = f"""<!DOCTYPE html><html><head>
+<meta http-equiv="refresh" content="0;url=/digest/{today}.html">
+<title>KiddieDaily Latest Digest</title>
+</head><body>
+<p>Redirecting to <a href="/digest/{today}.html">today's digest</a>...</p>
+</body></html>"""
+    upload("digest/latest.html", redirect, f"[scraper] Update latest digest redirect → {today}")
+    print(f"  Digest: {len(todays)} articles for {today}")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -1304,6 +1464,14 @@ def main():
     # 6h. Generate category pages
     print(f"\n[6h] Generating category pages...")
     generate_category_pages(manifest)
+
+    # 6i. Generate articles JSON index (used by related-articles JS on every article page)
+    print(f"\n[6i] Generating articles JSON index...")
+    generate_articles_json(manifest)
+
+    # 6j. Generate daily digest page
+    print(f"\n[6j] Generating daily digest...")
+    generate_daily_digest(manifest, today)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
