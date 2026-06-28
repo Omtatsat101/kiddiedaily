@@ -35,7 +35,10 @@
     "news/2026-06-28-scientists-open-a-million-year-old-time-capsule-hi.html",
     "news/2026-06-28-hawaii-is-turning-ocean-plastic-and-fishing-nets-i.html",
     "news/2026-06-28-a-nasa-satellite-caught-a-giant-tsunami-doing-some.html",
-    "news/2026-06-28-deep-in-the-mexican-jungle-archaeologists-discover.html"
+    "news/2026-06-28-deep-in-the-mexican-jungle-archaeologists-discover.html",
+    "news/2026-06-28-see-the-most-detailed-photo-of-the-milky-ways-hear.html",
+    "news/2026-06-28-years-in-the-making-national-geographics-museum-of.html",
+    "news/2026-06-28-scientists-have-deciphered-the-surviving-fragments.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -73,7 +76,10 @@
     "Scientists open a million-year-old time capsule hidden beneath New Zealand",
     "Hawaii is turning ocean plastic and fishing nets into roads",
     "A NASA satellite caught a giant tsunami doing something no one expected",
-    "Deep in the Mexican Jungle, Archaeologists Discovered a Lost Maya City That May Yield Clues About the Civilization Just Before It Collapsed"
+    "Deep in the Mexican Jungle, Archaeologists Discovered a Lost Maya City That May Yield Clues About the Civilization Just Before It Collapsed",
+    "See the Most Detailed Photo of the Milky Way's Heart Ever Taken in Visible Light, Which Will Help Astronomers Hunt for Exoplanets",
+    "Years in the Making, National Geographic's Museum of Exploration Is Here to Take You on an Adventure",
+    "Scientists Have Deciphered the Surviving Fragments of a 2,000-Year-Old Philosophical Treatise Frozen in Time by Mount Vesuvius' Eruption"
   ],
   "articles": [
     {
@@ -453,6 +459,39 @@
       "slug": "news/2026-06-28-deep-in-the-mexican-jungle-archaeologists-discover.html",
       "title": "Deep in the Mexican Jungle, Archaeologists Discovered a Lost Maya City That May Yield Clues About the Civilization Just Before It Collapsed",
       "display_title": "Deep in the Mexican Jungle, Archaeologists Discovered a Lost Maya City That May Yield Clues About the Civilization Just Before It Collapsed",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-28-see-the-most-detailed-photo-of-the-milky-ways-hear.html",
+      "title": "See the Most Detailed Photo of the Milky Way's Heart Ever Taken in Visible Light, Which Will Help Astronomers Hunt for Exoplanets",
+      "display_title": "See the Most Detailed Photo of the Milky Way's Heart Ever Taken in Visible Light, Which Will Help Astronomers Hunt for Exoplanets",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-28-years-in-the-making-national-geographics-museum-of.html",
+      "title": "Years in the Making, National Geographic's Museum of Exploration Is Here to Take You on an Adventure",
+      "display_title": "Years in the Making, National Geographic's Museum of Exploration Is Here to Take You on an Adventure",
+      "date": "2026-06-28",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-28-scientists-have-deciphered-the-surviving-fragments.html",
+      "title": "Scientists Have Deciphered the Surviving Fragments of a 2,000-Year-Old Philosophical Treatise Frozen in Time by Mount Vesuvius' Eruption",
+      "display_title": "Scientists Have Deciphered the Surviving Fragments of a 2,000-Year-Old Philosophical Treatise Frozen in Time by Mount Vesuvius' Eruption",
       "date": "2026-06-28",
       "n_sources": 1,
       "bias_avg": -0.1,
