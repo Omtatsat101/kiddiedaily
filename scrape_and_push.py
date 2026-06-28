@@ -464,8 +464,8 @@ HEADER = """<header class="kd"><div class="inner">
 FOOTER = """<footer class="kd"><div class="inner">
 <div style="flex:1;min-width:200px"><h4>KiddieDaily</h4>
 <p style="margin:0;font-size:14px;color:#cbd5e0">Curated daily news for families with research-backed fact checks.</p></div>
-<div><h4>Read</h4><a href="/news/">Kid News</a><a href="/parents/">For Parents</a>
-<a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
+<div><h4>Read</h4><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
+<a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
 <div><h4>Account</h4><a href="/parent-zone/">Parent Zone</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
 <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
@@ -518,6 +518,14 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 &#128269; <strong>Want to verify this story?</strong>
 <a href="{fact_check_url}" rel="noopener nofollow" target="_blank" style="color:#065f46">Check it on Google Fact Check Explorer &rarr;</a>
 </p>
+<div style="margin:24px 0;padding:16px 20px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+<div style="font-size:28px">&#128240;</div>
+<div style="flex:1">
+<strong style="font-size:15px;display:block;color:#0c4a6e;margin-bottom:2px">Get today's digest</strong>
+<span style="font-size:13px;color:#075985">All of today's kid-safe stories in one parent-friendly roundup — with bias ratings.</span>
+</div>
+<a href="/digest/latest.html" style="background:#0c4a6e;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;white-space:nowrap;font-family:system-ui,sans-serif">Read digest &rarr;</a>
+</div>
 <p><em>More stories: <a href="/news/">Kid News</a> &middot; <a href="/news/archive.html">Archive</a> &middot; <a href="/fact-check/">Fact Check</a></em></p>
 <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
 <button onclick="if(navigator.share){{navigator.share({{title:document.title,url:location.href}})}}else{{navigator.clipboard.writeText(location.href);this.textContent='Link copied!';setTimeout(()=>this.textContent='Copy link',2000)}}" style="background:#1a4d80;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:14px">Share this story</button>
@@ -539,10 +547,10 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 <script>
 (function(){{
   const SLUG="{slug}";
-  const TITLE_WORDS=new Set("{title}".toLowerCase().replace(/[^\w\s]/g,"").split(/\s+/).filter(w=>w.length>3&&!["that","this","with","from","have","were","they","more"].includes(w)));
+  const TITLE_WORDS=new Set("{title}".toLowerCase().replace(/[^\\w\\s]/g,"").split(/\\s+/).filter(w=>w.length>3&&!["that","this","with","from","have","were","they","more"].includes(w)));
   fetch("/data/kd-articles.json").then(r=>r.json()).then(articles=>{{
     const scored=articles.filter(a=>a.slug!==SLUG).map(a=>{{
-      const w=new Set(a.title.toLowerCase().replace(/[^\w\s]/g,"").split(/\s+/).filter(x=>x.length>3));
+      const w=new Set(a.title.toLowerCase().replace(/[^\\w\\s]/g,"").split(/\\s+/).filter(x=>x.length>3));
       const overlap=[...TITLE_WORDS].filter(x=>w.has(x)).length;
       return{{...a,score:overlap+(a.is_science?0.5:0)}};
     }}).sort((a,b)=>b.score-a.score).slice(0,3).filter(a=>a.score>0);
@@ -753,7 +761,7 @@ STATIC_URLS = [
     "/feed.xml", "/news/archive.html", "/news/science.html", "/news/world.html",
 ]
 
-def update_sitemap(pushed_slugs):
+def update_sitemap(pushed_slugs, manifest=None):
     BASE_URL = "https://kiddiedaily.com"
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
@@ -764,6 +772,22 @@ def update_sitemap(pushed_slugs):
         url = f"/{slug}" if not slug.startswith("/") else slug
         if url not in urls:
             urls.append(url)
+
+    # Add digest pages for each unique date in the manifest
+    if manifest:
+        digest_dates = set()
+        for a in manifest.get("articles", []):
+            d = a.get("date", "")
+            if d:
+                digest_dates.add(d)
+        for d in sorted(digest_dates):
+            url = f"/digest/{d}.html"
+            if url not in urls:
+                urls.append(url)
+        if digest_dates:
+            urls_set = set(urls)
+            if "/digest/latest.html" not in urls_set:
+                urls.append("/digest/latest.html")
 
     xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>',
                  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -821,6 +845,7 @@ def update_homepage(manifest):
         )
 
     trending_html = build_trending(manifest)
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     new_block = (
         f'{HOMEPAGE_START}\n'
         f'<h2>Today\'s top kid news</h2>\n'
@@ -828,7 +853,8 @@ def update_homepage(manifest):
         f'\n<p style="text-align:right;font-size:13px;margin-top:4px">'
         f'<a href="/news/">All news</a> &middot; '
         f'<a href="/news/science.html">Science</a> &middot; '
-        f'<a href="/news/archive.html">Archive</a></p>\n'
+        f'<a href="/news/archive.html">Archive</a> &middot; '
+        f'<a href="/digest/latest.html">Daily digest</a></p>\n'
         + trending_html +
         f'\n{HOMEPAGE_END}'
     )
@@ -1443,7 +1469,7 @@ def main():
     # 6c. Update sitemap with any new article URLs
     if pushed_count > 0:
         print(f"\n[6c] Updating sitemap.xml...")
-        update_sitemap(manifest.get("pushed_slugs", []))
+        update_sitemap(manifest.get("pushed_slugs", []), manifest)
 
     # 6d. Update homepage with latest 3 articles
     print(f"\n[6d] Updating homepage...")
