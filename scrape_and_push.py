@@ -37,9 +37,9 @@ def _load_token(env_var, prefix):
 GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
-MAX_ARTICLES     = 5   # max new articles per run
-MAX_SCI_PER_RUN  = 3   # max science articles per run (remaining slots go to world)
-MAX_WORLD_PER_RUN= 2   # max world-news articles per run
+MAX_ARTICLES     = 8   # max new articles per run
+MAX_SCI_PER_RUN  = 5   # max science articles per run (remaining slots go to world)
+MAX_WORLD_PER_RUN= 3   # max world-news articles per run
 
 # Titles containing any of these words are not suitable for a K-12 audience
 _ADULT_TITLE_SKIP = {
@@ -161,7 +161,7 @@ SOURCES = [
     {"name": "Al Jazeera",    "url": "https://www.aljazeera.com/xml/rss/all.xml",              "bias": -0.4, "icon": "🌍"},
     {"name": "The Hill",      "url": "https://thehill.com/news/feed/",                          "bias":  0.1, "icon": "⚖️"},
     {"name": "Fox News",      "url": "https://moxie.foxnews.com/google-publisher/latest.xml",   "bias":  1.3, "icon": "🦅"},
-    {"name": "AP News",       "url": "https://feeds.apnews.com/rss/apf-topnews",               "bias":  0.0, "icon": "📰"},
+    {"name": "DW News",       "url": "https://rss.dw.com/rdf/rss-en-all",                    "bias": -0.1, "icon": "🌐"},
     {"name": "PBS NewsHour",  "url": "https://www.pbs.org/newshour/feeds/rss/headlines",        "bias": -0.2, "icon": "📺"},
     {"name": "NASA",          "url": "https://www.nasa.gov/rss/dyn/breaking_news.rss",          "bias":  0.0, "icon": "🚀"},
     {"name": "Science Daily", "url": "https://www.sciencedaily.com/rss/all.xml",               "bias":  0.0, "icon": "🔬"},
@@ -170,6 +170,7 @@ SOURCES = [
     {"name": "Science News",  "url": "https://www.sciencenews.org/feed",                       "bias":  0.0, "icon": "📡"},
     {"name": "EarthSky",      "url": "https://earthsky.org/feed/",                             "bias":  0.0, "icon": "🌏"},
     {"name": "Live Science",  "url": "https://www.livescience.com/feeds/all",                  "bias":  0.0, "icon": "🧬"},
+    {"name": "Phys.org",      "url": "https://phys.org/rss-feed/",                             "bias":  0.0, "icon": "⚛️"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -267,7 +268,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -283,6 +284,9 @@ DEPRIORITIZE_WORDS = [
     # UK-specific politics (not relevant for US/global families)
     "burnham", "keir starmer", "rishi sunak", "suella braverman",
     "tory party", "labour party", "hs2", "westminster",
+    # EU/German-specific politics (DW News source — filter local German politics)
+    "bundestag", "bundesrat", "scholz", "friedrich merz", "habeck",
+    "spd ", " cdu", " fdp", " afd",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
