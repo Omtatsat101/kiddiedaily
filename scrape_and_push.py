@@ -238,6 +238,10 @@ SOURCES = [
     {"name": "BBC Newsround",       "url": "https://feeds.bbci.co.uk/newsround/rss.xml",              "bias": -0.1, "icon": "📺"},
     # Science magazine: Discover — animals, space, paleontology, environment, physics
     {"name": "Discover Magazine",   "url": "https://www.discovermagazine.com/rss/all",                "bias":  0.0, "icon": "🔬"},
+    # Science journalism for ages 9-14: STEM, biology, physics, earth science, space, tech
+    {"name": "Science News Students", "url": "https://www.snexplores.org/feed",                      "bias":  0.0, "icon": "🔭"},
+    # Weird wonders of the world: unusual places, lost history, strange science, discoveries
+    {"name": "Atlas Obscura",       "url": "https://www.atlasobscura.com/feeds/latest",              "bias":  0.0, "icon": "🗺️"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -3831,7 +3835,7 @@ def main():
     sports_tournament_pushed = {}  # {keyword: count} — cap each live tournament at 1 per run
     source_counts_run = {}  # tracks articles per source this run
 
-    MIN_SCORE = 1  # skip topics that rank ≤ 0 (political, low-signal, single-source noise)
+    MIN_SCORE = -1  # allow mild heavy-news terms (1 hit) through for world news variety
     skipped_low = 0
     skipped_adult = 0
     skipped_quota = 0
