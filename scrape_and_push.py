@@ -204,7 +204,7 @@ SOURCES = [
     {"name": "Science News",  "url": "https://www.sciencenews.org/feed",                       "bias":  0.0, "icon": "📡"},
     {"name": "EarthSky",      "url": "https://earthsky.org/feed/",                             "bias":  0.0, "icon": "🌏"},
     {"name": "Live Science",  "url": "https://www.livescience.com/feeds/all",                  "bias":  0.0, "icon": "🧬"},
-    {"name": "Phys.org",      "url": "https://phys.org/rss-feed/",                             "bias":  0.0, "icon": "⚛️"},
+    {"name": "ScienceAlert",  "url": "https://www.sciencealert.com/feed",                      "bias":  0.0, "icon": "⚛️"},
     {"name": "MIT News",      "url": "https://news.mit.edu/rss/research",                      "bias":  0.0, "icon": "🎓"},
     {"name": "New Scientist", "url": "https://www.newscientist.com/feed/home/",                "bias": -0.1, "icon": "🧪"},
     {"name": "Popular Science","url": "https://www.popsci.com/feed/",                          "bias":  0.0, "icon": "💡"},
@@ -1130,8 +1130,16 @@ def load_manifest():
     return m
 
 def save_manifest(manifest):
+    # Trim descriptions to 200 chars to keep manifest compact (full text lives in kd-articles.json)
+    slim_articles = []
+    for a in manifest.get("articles", []):
+        s = dict(a)
+        if len(s.get("description", "")) > 200:
+            s["description"] = s["description"][:200]
+        slim_articles.append(s)
+    slim = {**manifest, "articles": slim_articles}
     upload("data/kd-scraped-manifest.json",
-           json.dumps(manifest, indent=2, ensure_ascii=False),
+           json.dumps(slim, ensure_ascii=False),
            "Update scraped articles manifest")
 
 # ── news/index.html update ────────────────────────────────────────────────────
