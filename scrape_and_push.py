@@ -458,6 +458,17 @@ DEPRIORITIZE_WORDS = [
     "one great shot:", "little books with",
     # Adult content framing in science titles (coral/marine biology reproduction)
     "sex lives of",
+    # US political figures not already covered (by name → catch specific political stories)
+    "hegseth", "pelosi", "mayorkas", "blinken", "yellen", "mcconnell", "schumer",
+    "mitch mcconnell", "chuck schumer", "rand paul", "ted cruz", "marco rubio",
+    # Politically-charged policy labels
+    "obamacare", "aca repeal", "medicaid cut", "snap cut", "food stamp",
+    "defense policy board", "national security council",
+    # Pride/social-identity advocacy framing (pride celebrations are fine; policy battles not for kids)
+    "pride month legislation", "anti-lgbt", "transgender ban", "gender identity bill",
+    # Tech-industry lobbying / regulatory affairs (not kids-relevant)
+    "antitrust case", "sec charges", "ftc sues", "doj sues", "regulatory fine",
+    "billion-dollar fine", "billion fine",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
@@ -901,6 +912,8 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
     jsonld = json.dumps({
         "@context": "https://schema.org", "@type": "NewsArticle",
         "headline": title,
+        "description": og_desc,
+        "image": og_image,
         "author": {"@type": "Organization", "name": "KiddieDaily Editors"},
         "publisher": {"@type": "Organization", "name": "KiddieDaily", "url": "https://kiddiedaily.com"},
         "datePublished": today, "dateModified": today,
@@ -1583,6 +1596,9 @@ def generate_rss_feed(manifest):
             pub = now_rfc
         n     = a.get("n_sources", 1)
         agree = f"{n} outlet{'s' if n!=1 else ''} covering this story"
+        raw_desc = a.get("description", "").strip()
+        desc_text = (raw_desc[:200] + "…" if len(raw_desc) > 200 else raw_desc) if raw_desc else agree
+        desc_safe = desc_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
         items.append(
             f"  <item>\n"
             f"    <title>{title}</title>\n"
@@ -1590,7 +1606,7 @@ def generate_rss_feed(manifest):
             f"    <guid isPermaLink=\"true\">{url}</guid>\n"
             f"    <pubDate>{pub}</pubDate>\n"
             f"    <category>{cat}</category>\n"
-            f"    <description>{agree} — bias-rated, fact-checked daily on KiddieDaily.</description>\n"
+            f"    <description>{desc_safe} — {agree}, bias-rated on KiddieDaily.</description>\n"
             f"  </item>"
         )
 
@@ -3235,8 +3251,14 @@ def generate_search_page(manifest):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Search — KiddieDaily</title>
 <meta name="description" content="Search all KiddieDaily news articles — kid-friendly, bias-rated, fact-checked.">
+<meta property="og:title" content="Search — KiddieDaily">
+<meta property="og:description" content="Search 700+ kid-safe, bias-rated news articles. Filter by science, space, animals, and more.">
+<meta property="og:url" content="https://kiddiedaily.com/search.html">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://kiddiedaily.com/search.html">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","name":"KiddieDaily","url":"https://kiddiedaily.com","potentialAction":{{"@type":"SearchAction","target":{{"@type":"EntryPoint","urlTemplate":"https://kiddiedaily.com/search.html?q={{search_term_string}}"}},"query-input":"required name=search_term_string"}}}}</script>
 {CSS}
 <style>
 #kd-search-input{{
@@ -3330,11 +3352,13 @@ def generate_search_page(manifest):
       var badgeCls  = a.is_science ? 'kd-badge-sci' : 'kd-badge-news';
       var badgeLbl  = a.is_science ? 'Science' : 'World News';
       var src_word  = a.n_sources === 1 ? '1 source' : a.n_sources + ' sources';
+      var excerpt = a.description ? '<p style="font-size:13px;color:#4a5568;margin:4px 0 6px;line-height:1.5">' + a.description.slice(0, 130) + (a.description.length > 130 ? '…' : '') + '</p>' : '';
       return '<div class="kd-sr">'
         + '<div class="kd-sr-top">'
         + '<span class="kd-badge ' + badgeCls + '">' + badgeLbl + '</span>'
         + '</div>'
         + '<h3><a href="/' + a.slug + '">' + a.title + '</a></h3>'
+        + excerpt
         + '<div class="kd-sr-meta">' + a.date + ' &middot; ' + src_word + '</div>'
         + '</div>';
     }}).join('');
@@ -3344,7 +3368,7 @@ def generate_search_page(manifest):
     var q = input.value.trim().toLowerCase();
     var filtered = allArticles.filter(function(a) {{
       var matchesCat = activeCategory === 'all' || (a.category || (a.is_science ? 'science' : 'world')) === activeCategory;
-      var matchesQ   = !q || a.title.toLowerCase().indexOf(q) !== -1;
+      var matchesQ   = !q || a.title.toLowerCase().indexOf(q) !== -1 || (a.description && a.description.toLowerCase().indexOf(q) !== -1);
       return matchesCat && matchesQ;
     }});
     renderResults(filtered, q);
@@ -3356,13 +3380,22 @@ def generate_search_page(manifest):
       allArticles = data.sort(function(a, b) {{ return b.date < a.date ? -1 : b.date > a.date ? 1 : 0; }});
       // Update placeholder with live count
       input.placeholder = 'Search ' + allArticles.length + ' articles...';
-      renderResults(allArticles, '');
+      // Pre-fill from ?q= URL parameter (enables Google sitelinks search box)
+      var urlQ = new URLSearchParams(window.location.search).get('q') || '';
+      if (urlQ) {{ input.value = urlQ; filterAndRender(); }}
+      else {{ renderResults(allArticles, ''); }}
     }})
     .catch(function() {{
       countEl.textContent = 'Could not load articles. Try refreshing.';
     }});
 
-  input.addEventListener('input', filterAndRender);
+  input.addEventListener('input', function() {{
+    filterAndRender();
+    // Keep URL in sync so searches are shareable
+    var q = input.value.trim();
+    var newUrl = q ? '?q=' + encodeURIComponent(q) : location.pathname;
+    history.replaceState(null, '', newUrl);
+  }});
 }})();
 </script>
 </body></html>"""
