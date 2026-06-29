@@ -425,7 +425,11 @@
     "news/2026-06-29-nisaba-sumerian-goddess-of-writing-and-scribe-of-t.html",
     "news/2026-06-29-first-intermediate-period-of-egypt-era-of-transfor.html",
     "news/2026-06-29-maginot-line-frances-fortress-defence-system.html",
-    "news/2026-06-29-casablanca-conference-the-call-for-an-axis-uncondi.html"
+    "news/2026-06-29-casablanca-conference-the-call-for-an-axis-uncondi.html",
+    "news/2026-06-29-rome-and-persia-the-seven-hundred-year-rivalry.html",
+    "news/2026-06-29-tehran-conference-the-debate-on-how-the-allies-sho.html",
+    "news/2026-06-29-capitalism-a-global-history.html",
+    "news/2026-06-29-china-slaps-export-controls-on-dozens-of-japanese.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -853,7 +857,11 @@
     "Nisaba: Sumerian Goddess of Writing and Scribe of the Gods",
     "First Intermediate Period of Egypt: Era of Transformation",
     "Maginot Line: France's Fortress Defence System",
-    "Casablanca Conference: The Call for an Axis Unconditional Surrender in WWII"
+    "Casablanca Conference: The Call for an Axis Unconditional Surrender in WWII",
+    "Rome and Persia: The Seven Hundred Year Rivalry",
+    "Tehran Conference: The Debate on How the Allies Should Win WWII",
+    "Capitalism: A Global History",
+    "China slaps export controls on dozens of Japanese entities"
   ],
   "articles": [
     {
@@ -5529,6 +5537,54 @@
       "agreement_pct": 10,
       "is_science": true,
       "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-rome-and-persia-the-seven-hundred-year-rivalry.html",
+      "title": "Rome and Persia: The Seven Hundred Year Rivalry",
+      "display_title": "Rome and Persia: The Seven Hundred Year Rivalry",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-tehran-conference-the-debate-on-how-the-allies-sho.html",
+      "title": "Tehran Conference: The Debate on How the Allies Should Win WWII",
+      "display_title": "Tehran Conference: The Debate on How the Allies Should Win WWII",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-capitalism-a-global-history.html",
+      "title": "Capitalism: A Global History",
+      "display_title": "Capitalism: A Global History",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-china-slaps-export-controls-on-dozens-of-japanese.html",
+      "title": "China slaps export controls on dozens of Japanese entities",
+      "display_title": "China slaps export controls on dozens of Japanese entities",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍"
     }
   ]
 }
