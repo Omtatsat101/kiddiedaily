@@ -457,7 +457,10 @@
     "news/2026-06-29-mummified-dogs-reveal-tiwanaku-people-buried-compa.html",
     "news/2026-06-29-ieee-rolls-out-large-language-models-virtual-train.html",
     "news/2026-06-29-what-amazons-astro-taught-me-about-giving-robots-a.html",
-    "news/2026-06-29-ieees-2026-education-week-events-emphasized-lifelo.html"
+    "news/2026-06-29-ieees-2026-education-week-events-emphasized-lifelo.html",
+    "news/2026-06-29-behind-the-scenes-of-a-technical-interview.html",
+    "news/2026-06-29-how-musicians-can-get-paid-for-training-ai.html",
+    "news/2026-06-29-the-secret-to-marathon-winning-humanoid-robots.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -917,7 +920,10 @@
     "Mummified dogs reveal Tiwanaku people buried companions beside homes long before they became status symbols",
     "IEEE Rolls Out Large Language Models Virtual Training Course",
     "What Amazon’s Astro Taught Me About Giving Robots a Soul",
-    "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning"
+    "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning",
+    "Behind the Scenes of a Technical Interview",
+    "How Musicians Can Get Paid for Training AI",
+    "The Secret to Marathon-Winning Humanoid Robots"
   ],
   "articles": [
     {
@@ -5970,6 +5976,42 @@
       "slug": "news/2026-06-29-ieees-2026-education-week-events-emphasized-lifelo.html",
       "title": "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning",
       "display_title": "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-behind-the-scenes-of-a-technical-interview.html",
+      "title": "Behind the Scenes of a Technical Interview",
+      "display_title": "Behind the Scenes of a Technical Interview",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-how-musicians-can-get-paid-for-training-ai.html",
+      "title": "How Musicians Can Get Paid for Training AI",
+      "display_title": "How Musicians Can Get Paid for Training AI",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-the-secret-to-marathon-winning-humanoid-robots.html",
+      "title": "The Secret to Marathon-Winning Humanoid Robots",
+      "display_title": "The Secret to Marathon-Winning Humanoid Robots",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
