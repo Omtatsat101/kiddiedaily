@@ -365,7 +365,9 @@
     "news/2026-06-29-spacex-launches-15000-pound-siriusxm-satellite-to.html",
     "news/2026-06-29-cockroaches-scurry-around-with-thousands-of-pieces.html",
     "news/2026-06-29-trump-admin-persists-in-quixotic-quest-against-win.html",
-    "news/2026-06-29-uss-climategov-site-taken-down-by-trump-relaunched.html"
+    "news/2026-06-29-uss-climategov-site-taken-down-by-trump-relaunched.html",
+    "news/2026-06-29-a-us-military-exercise-in-space-got-underway-with.html",
+    "news/2026-06-29-trump-admins-coal-investments-assist-plants-with-r.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -733,7 +735,9 @@
     "SpaceX launches 15,000-pound SiriusXM satellite to orbit from Florida",
     "Cockroaches scurry around with thousands of pieces of bacterial genomes",
     "Trump admin persists in quixotic quest against wind power despite legal defeat",
-    "US's climate.gov site, taken down by Trump, relaunched by nonprofit"
+    "US's climate.gov site, taken down by Trump, relaunched by nonprofit",
+    "A US military exercise in space got underway with barely anyone noticing",
+    "Trump admin’s coal investments assist plants with repeated violations"
   ],
   "articles": [
     {
@@ -4743,6 +4747,28 @@
       "slug": "news/2026-06-29-uss-climategov-site-taken-down-by-trump-relaunched.html",
       "title": "US's climate.gov site, taken down by Trump, relaunched by nonprofit",
       "display_title": "US's climate.gov site, taken down by Trump, relaunched by nonprofit",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-a-us-military-exercise-in-space-got-underway-with.html",
+      "title": "A US military exercise in space got underway with barely anyone noticing",
+      "display_title": "A US military exercise in space got underway with barely anyone noticing",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-trump-admins-coal-investments-assist-plants-with-r.html",
+      "title": "Trump admin’s coal investments assist plants with repeated violations",
+      "display_title": "Trump admin’s coal investments assist plants with repeated violations",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
