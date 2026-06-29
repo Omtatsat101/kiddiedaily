@@ -382,7 +382,11 @@
     "news/2026-06-29-has-cornwalls-housing-crisis-created-a-van-life-ge.html",
     "news/2026-06-29-heat-waves-mess-with-your-brain-scientists-are-try.html",
     "news/2026-06-29-heatwave-and-high-humidity-to-blast-much-of-us-imp.html",
-    "news/2026-06-29-us-says-it-has-agreed-to-stand-down-after-exchange.html"
+    "news/2026-06-29-us-says-it-has-agreed-to-stand-down-after-exchange.html",
+    "news/2026-06-29-repositioning-retail-for-the-ai-era.html",
+    "news/2026-06-29-ibm-has-unveiled-chip-technology-that-could-help-e.html",
+    "news/2026-06-29-call-for-inquiry-into-alligator-alcatrazs-abuse-of.html",
+    "news/2026-06-29-judge-declares-mistrial-in-arson-case-against-man.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -767,7 +771,11 @@
     "Has Cornwall’s housing crisis created a van life generation?",
     "Heat waves mess with your brain. Scientists are trying to figure out why.",
     "Heatwave and high humidity to blast much of US: ‘impactful to anyone’",
-    "US says it has agreed to 'stand down' after exchange of strikes with Iran"
+    "US says it has agreed to 'stand down' after exchange of strikes with Iran",
+    "Repositioning retail for the AI era",
+    "IBM has unveiled chip technology that could help extend Moore’s Law another decade",
+    "Call for inquiry into Alligator Alcatraz’s ‘abuse of Everglades’ despite closure",
+    "Judge declares mistrial in arson case against man accused of sparking Palisades fire"
   ],
   "articles": [
     {
@@ -4970,6 +4978,50 @@
       "agreement_pct": 42,
       "is_science": false,
       "source_icons": "🇬🇧 📻 ⚖️ 🌐"
+    },
+    {
+      "slug": "news/2026-06-29-repositioning-retail-for-the-ai-era.html",
+      "title": "Repositioning retail for the AI era",
+      "display_title": "Repositioning retail for the AI era",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-ibm-has-unveiled-chip-technology-that-could-help-e.html",
+      "title": "IBM has unveiled chip technology that could help extend Moore’s Law another decade",
+      "display_title": "IBM has unveiled chip technology that could help extend Moore’s Law another decade",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-call-for-inquiry-into-alligator-alcatrazs-abuse-of.html",
+      "title": "Call for inquiry into Alligator Alcatraz’s ‘abuse of Everglades’ despite closure",
+      "display_title": "Call for inquiry into Alligator Alcatraz’s ‘abuse of Everglades’ despite closure",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-judge-declares-mistrial-in-arson-case-against-man.html",
+      "title": "Judge declares mistrial in arson case against man accused of sparking Palisades fire",
+      "display_title": "Judge declares mistrial in arson case against man accused of sparking Palisades fire",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌿"
     }
   ]
 }
