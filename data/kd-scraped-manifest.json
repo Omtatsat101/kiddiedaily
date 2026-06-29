@@ -595,7 +595,11 @@
     "news/2026-06-29-for-the-love-of-a-little-sea.html",
     "news/2026-06-29-finding-food-and-solace-in-the-intertidal.html",
     "news/2026-06-29-how-to-produce-hydrogen-gas-as-cleanly-as-possible.html",
-    "news/2026-06-29-the-other-side-of-the-worlds-largest-dam-removal.html"
+    "news/2026-06-29-the-other-side-of-the-worlds-largest-dam-removal.html",
+    "news/2026-06-29-one-great-shot-let-us-admire-the-lettuce-slug.html",
+    "news/2026-06-29-caviar-pizzas-new-money-and-the-death-of-an-ancien.html",
+    "news/2026-06-29-the-secret-sex-lives-of-deep-dark-corals.html",
+    "news/2026-06-29-pelosi-to-teach-at-new-uc-berkeley-democracy-insti.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1193,7 +1197,11 @@
     "For the Love of a Little Sea",
     "Finding Food and Solace in the Intertidal",
     "How to Produce Hydrogen Gas as Cleanly as Possible",
-    "The Other Side of the World’s Largest Dam Removal"
+    "The Other Side of the World’s Largest Dam Removal",
+    "One Great Shot: Let Us Admire the Lettuce (Slug)",
+    "Caviar Pizzas, New Money, and the Death of an Ancient Fish",
+    "The Secret Sex Lives of Deep, Dark Corals",
+    "Pelosi to teach at new UC Berkeley democracy institute"
   ],
   "articles": [
     {
@@ -7909,6 +7917,54 @@
       "is_science": true,
       "source_name": "Hakai Magazine",
       "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-one-great-shot-let-us-admire-the-lettuce-slug.html",
+      "title": "One Great Shot: Let Us Admire the Lettuce (Slug)",
+      "display_title": "One Great Shot: Let Us Admire the Lettuce (Slug)",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-caviar-pizzas-new-money-and-the-death-of-an-ancien.html",
+      "title": "Caviar Pizzas, New Money, and the Death of an Ancient Fish",
+      "display_title": "Caviar Pizzas, New Money, and the Death of an Ancient Fish",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-secret-sex-lives-of-deep-dark-corals.html",
+      "title": "The Secret Sex Lives of Deep, Dark Corals",
+      "display_title": "The Secret Sex Lives of Deep, Dark Corals",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-pelosi-to-teach-at-new-uc-berkeley-democracy-insti.html",
+      "title": "Pelosi to teach at new UC Berkeley democracy institute",
+      "display_title": "Pelosi to teach at new UC Berkeley democracy institute",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 8,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
     }
   ]
 }
