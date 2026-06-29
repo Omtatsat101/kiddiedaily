@@ -576,7 +576,9 @@
     "news/2026-06-29-the-ideas-shaping-environmental-action.html",
     "news/2026-06-29-the-boat-billed-heron-when-nature-thinks-big.html",
     "news/2026-06-29-how-nasas-america-250-celebrations-are-reaching-fr.html",
-    "news/2026-06-29-the-lab-mistake-that-might-revolutionize-computing.html"
+    "news/2026-06-29-the-lab-mistake-that-might-revolutionize-computing.html",
+    "news/2026-06-29-8-principles-from-human-ecology-can-help-ai-work-f.html",
+    "news/2026-06-29-can-you-make-a-black-hole-in-a-laboratory.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1155,7 +1157,9 @@
     "The Ideas Shaping Environmental Action",
     "The boat-billed heron: When nature thinks big",
     "How NASA's 'America 250' celebrations are reaching from the sky to the moon",
-    "The Lab Mistake That Might Revolutionize Computing"
+    "The Lab Mistake That Might Revolutionize Computing",
+    "8 principles from human ecology can help AI work for human well-being",
+    "Can you make a black hole in a laboratory?"
   ],
   "articles": [
     {
@@ -7643,6 +7647,30 @@
       "is_science": true,
       "source_name": "IEEE Spectrum",
       "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-8-principles-from-human-ecology-can-help-ai-work-f.html",
+      "title": "8 principles from human ecology can help AI work for human well-being",
+      "display_title": "8 principles from human ecology can help AI work for human well-being",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-can-you-make-a-black-hole-in-a-laboratory.html",
+      "title": "Can you make a black hole in a laboratory?",
+      "display_title": "Can you make a black hole in a laboratory?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
     }
   ]
 }
