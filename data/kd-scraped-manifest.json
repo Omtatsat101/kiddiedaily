@@ -265,7 +265,13 @@
     "news/2026-06-29-spacexs-next-starship-breathes-fire-for-1st-time-i.html",
     "news/2026-06-29-the-surprising-ways-your-brain-changes-from-your-2.html",
     "news/2026-06-29-lost-books-by-ancient-philosophers-recovered-from.html",
-    "news/2026-06-29-16-gorgeous-images-from-the-1839-awards-color-phot.html"
+    "news/2026-06-29-16-gorgeous-images-from-the-1839-awards-color-phot.html",
+    "news/2026-06-29-china-plans-to-double-the-size-of-its-tiangong-spa.html",
+    "news/2026-06-29-moores-law-tells-us-that-the-price-of-technology-s.html",
+    "news/2026-06-29-i-have-a-100-per-cent-chance-of-getting-cancer-due.html",
+    "news/2026-06-29-ancient-human-dna-found-on-cave-art-for-the-first.html",
+    "news/2026-06-29-watch-bison-shield-their-baby-from-a-rare-wolf-att.html",
+    "news/2026-06-29-clarke-leaves-strong-scotland-legacy-but-exit-brin.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -533,7 +539,13 @@
     "SpaceX's next Starship breathes fire for 1st time in prelaunch test (video)",
     "The surprising ways your brain changes from your 20s to your 40s",
     "Lost books by ancient philosophers recovered from 'unreadable' scrolls",
-    "16 gorgeous images from the 1839 Awards’ Color Photography Contest"
+    "16 gorgeous images from the 1839 Awards’ Color Photography Contest",
+    "China plans to double the size of its Tiangong space station while the ISS nears its end",
+    "Moore's law tells us that the price of technology should go down over time, so why is stargazing gear getting more expensive?",
+    "I have a 100 per cent chance of getting cancer due to a rare gene",
+    "Ancient human DNA found on cave art for the first time",
+    "Watch bison shield their baby from a rare wolf attack in Poland",
+    "Clarke leaves strong Scotland legacy but exit brings sense of relief"
   ],
   "articles": [
     {
@@ -3449,6 +3461,72 @@
       "agreement_pct": 14,
       "is_science": true,
       "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-china-plans-to-double-the-size-of-its-tiangong-spa.html",
+      "title": "China plans to double the size of its Tiangong space station while the ISS nears its end",
+      "display_title": "China plans to double the size of its Tiangong space station while the ISS nears its end",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-moores-law-tells-us-that-the-price-of-technology-s.html",
+      "title": "Moore's law tells us that the price of technology should go down over time, so why is stargazing gear getting more expensive?",
+      "display_title": "Moore's law tells us that the price of technology should go down over time, so why is stargazing gear getting more expensive?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-i-have-a-100-per-cent-chance-of-getting-cancer-due.html",
+      "title": "I have a 100 per cent chance of getting cancer due to a rare gene",
+      "display_title": "I have a 100 per cent chance of getting cancer due to a rare gene",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-ancient-human-dna-found-on-cave-art-for-the-first.html",
+      "title": "Ancient human DNA found on cave art for the first time",
+      "display_title": "Ancient human DNA found on cave art for the first time",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-watch-bison-shield-their-baby-from-a-rare-wolf-att.html",
+      "title": "Watch bison shield their baby from a rare wolf attack in Poland",
+      "display_title": "Watch bison shield their baby from a rare wolf attack in Poland",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-clarke-leaves-strong-scotland-legacy-but-exit-brin.html",
+      "title": "Clarke leaves strong Scotland legacy but exit brings sense of relief",
+      "display_title": "Clarke leaves strong Scotland legacy but exit brings sense of relief",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
     }
   ]
 }
