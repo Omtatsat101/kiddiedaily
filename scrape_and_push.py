@@ -797,10 +797,15 @@ footer.kd{background:#1a202c;color:#cbd5e0;padding:36px 24px;margin-top:48px;fon
 footer.kd .inner{max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px}
 footer.kd h4{color:#fff;margin:0 0 10px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
 footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
+.kd-card-excerpt{font-size:13px;color:#4a5568;margin:4px 0 6px;line-height:1.4;font-family:system-ui,sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.kd-bias-text{font-size:10px;color:#718096;margin-left:6px}
+.kd-ham{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:24px;line-height:1;padding:4px 8px}
+@media(max-width:640px){.kd-ham{display:flex;align-items:center;margin-left:auto;order:2}header.kd nav{display:none;order:3;width:100%;flex-direction:column;gap:0;padding:6px 0 8px;justify-content:flex-start}header.kd nav.open{display:flex}header.kd nav a{padding:12px 0;font-size:16px;border-top:1px solid rgba(255,255,255,.12);min-height:44px;display:flex;align-items:center}.pz-cta{width:fit-content}main{padding:20px 16px 48px}}
 ''' + BIAS_CSS + "</style>"
 
 HEADER = """<header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
+<button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
 <a href="/games/">Games</a><a href="/about.html">About</a><a href="/parent-zone/" class="pz-cta">Parent Zone</a></nav>
 </div></header>"""
@@ -1102,6 +1107,12 @@ def build_scraped_cards(articles):
                         "The Hill": "⚖️", "Fox News": "🦅", "NASA": "🚀",
                         "Science Daily": "🔬", "Smithsonian": "🏛️"}
         src_icons = a.get("source_icons", "")
+        excerpt_raw = a.get("description") or ""
+        excerpt = excerpt_raw[:137].rstrip() + "…" if len(excerpt_raw) > 137 else excerpt_raw
+        bias_label = ("Far Left" if bias <= -1.2 else "Leans Left" if bias <= -0.4
+                      else "Center-Left" if bias <= -0.15 else "Center" if bias <= 0.15
+                      else "Center-Right" if bias <= 0.4 else "Leans Right" if bias <= 1.2
+                      else "Far Right")
 
         cards.append(
             f'<div class="kd-sc">'
@@ -1110,10 +1121,12 @@ def build_scraped_cards(articles):
             f'<span class="kd-agree {agree_cls}">{agree_lbl}</span>'
             f'</div>'
             f'<h3><a href="/{slug}">{title}</a></h3>'
-            f'<div class="kd-mini-bias">'
+            + (f'<p class="kd-card-excerpt">{excerpt}</p>' if excerpt else "")
+            + f'<div class="kd-mini-bias">'
             f'<span class="kd-mini-lbl">L</span>'
             f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
             f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
+            f'<span class="kd-bias-text">{bias_label}</span>'
             f'</div>'
             + (f'<div class="kd-sc-date">{date}{" &middot; " + src_icons if src_icons else ""}</div>' if date else "")
             + f'</div>'
@@ -1443,14 +1456,22 @@ def update_homepage(manifest):
         agree_txt = f"{n} outlets agree" if n > 1 else "1 outlet"
         dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
         badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
+        excerpt_raw = a.get("description") or ""
+        excerpt = excerpt_raw[:137].rstrip() + "…" if len(excerpt_raw) > 137 else excerpt_raw
+        bias_lbl = ("Far Left" if bias <= -1.2 else "Leans Left" if bias <= -0.4
+                    else "Center-Left" if bias <= -0.15 else "Center" if bias <= 0.15
+                    else "Center-Right" if bias <= 0.4 else "Leans Right" if bias <= 1.2
+                    else "Far Right")
         cards.append(
             f'<div class="kd-sc" style="margin:10px 0">'
             f'<div class="kd-sc-top"><span class="kd-badge {badge_cls}">{cat}</span>'
             f'<span class="kd-agree {"kd-agree-med" if n>1 else "kd-agree-low"}">{agree_txt}</span></div>'
-            f'<h3 style="margin:4px 0 8px"><a href="/{slug}">{title}</a></h3>'
-            f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
+            f'<h3 style="margin:4px 0 6px"><a href="/{slug}">{title}</a></h3>'
+            + (f'<p class="kd-card-excerpt">{excerpt}</p>' if excerpt else "")
+            + f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
             f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
-            f'<span class="kd-mini-lbl" style="text-align:right">R</span></div>'
+            f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
+            f'<span class="kd-bias-text">{bias_lbl}</span></div>'
             f'<div class="kd-sc-date">{date}</div>'
             f'</div>'
         )
@@ -1472,10 +1493,20 @@ def update_homepage(manifest):
         f'</div>'
     )
 
+    hero = (
+        '<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 20px;margin:0 0 14px;font-family:system-ui,sans-serif">'
+        '<p style="margin:0 0 8px;font-size:15px;color:#166534;font-weight:600;line-height:1.4">Science, world events, and discoveries — explained so kids can actually understand them.</p>'
+        '<ul style="margin:0;padding-left:20px;font-size:13px;color:#166534;line-height:2">'
+        '<li>Every story checked for age-appropriateness</li>'
+        '<li>36 sources, 70% science &amp; discovery</li>'
+        '<li>Bias-rated so families can think for themselves</li>'
+        '</ul>'
+        '</div>'
+    )
     trending_html = build_trending(manifest)
     new_block = (
         f'{HOMEPAGE_START}\n'
-        + stats_bar +
+        + hero + stats_bar +
         f'<h2>Today\'s top kid news</h2>\n'
         + "\n".join(cards) +
         f'\n<p style="text-align:right;font-size:13px;margin-top:4px">'
@@ -1919,6 +1950,24 @@ def generate_category_pages(manifest):
         multi_source = [a for a in arts if a.get("n_sources", 1) > 1]
         latest_date  = arts[0].get("date", "") if arts else ""
 
+        # Build cross-category pill nav (current category gets outline highlight)
+        _pill_colors = {
+            "science": ("#d1fae5","#065f46"), "technology": ("#e0e7ff","#3730a3"),
+            "space": ("#ede9fe","#5b21b6"), "animals": ("#fef3c7","#92400e"),
+            "world": ("#dbeafe","#1e40af"), "environment": ("#dcfce7","#166534"),
+            "history": ("#fce7f3","#9d174d"),
+        }
+        pills = []
+        for ck, ci in cat_icons.items():
+            bg, fg = _pill_colors.get(ck, ("#f3f4f6","#374151"))
+            outline = f";outline:2px solid {fg};outline-offset:1px" if ck == key else ""
+            pills.append(
+                f'<a href="/news/{ck}.html" style="background:{bg};color:{fg};padding:4px 12px;'
+                f'border-radius:20px;font-size:12px;font-weight:700;text-decoration:none{outline}">'
+                f'{ci} {cat_labels[ck]}</a>'
+            )
+        cross_nav_html = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">' + ''.join(pills) + '</div>'
+
         rows = []
         for a in arts[:30]:
             slug    = a["slug"]
@@ -1928,21 +1977,28 @@ def generate_category_pages(manifest):
             bias    = a.get("bias_avg", 0.0)
             dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
             agree   = f"{n} outlet{'s' if n!=1 else ''}"
+            excerpt_raw = a.get("description") or ""
+            excerpt = excerpt_raw[:137].rstrip() + "…" if len(excerpt_raw) > 137 else excerpt_raw
+            bias_text = ("Far Left" if bias <= -1.2 else "Leans Left" if bias <= -0.4
+                         else "Center-Left" if bias <= -0.15 else "Center" if bias <= 0.15
+                         else "Center-Right" if bias <= 0.4 else "Leans Right" if bias <= 1.2
+                         else "Far Right")
             multi_badge = (
                 f'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;'
                 f'padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'
                 f'{n} outlets</span>'
             ) if n > 1 else ""
             rows.append(
-                f'<div class="kd-sc">'
+                f'<div class="kd-sc" data-title="{title.lower()}">'
                 f'<div class="kd-sc-top">'
                 f'<span class="kd-badge {badge_cls}">{icon} {label}</span>{multi_badge}'
                 f'<span style="font-size:11px;color:#718096;margin-left:auto">{agree} &middot; {date}</span></div>'
                 f'<h3 style="margin:4px 0 6px"><a href="/{slug}">{title}</a></h3>'
-                f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
+                + (f'<p class="kd-card-excerpt">{excerpt}</p>' if excerpt else "")
+                + f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
                 f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
                 f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
-                f'<span style="font-size:10px;color:#a0aec0;margin-left:6px">bias {bias:+.1f}</span></div>'
+                f'<span class="kd-bias-text">{bias_text}</span></div>'
                 f'</div>'
             )
 
@@ -1966,6 +2022,8 @@ def generate_category_pages(manifest):
 .kd-mini-track{{flex:1;height:6px;border-radius:3px;background:linear-gradient(to right,#3182ce 0%,#805ad5 50%,#e53e3e 100%);position:relative}}
 .kd-mini-dot{{position:absolute;top:-5px;width:16px;height:16px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)}}
 .kd-sc h3 a{{color:#1a4d80;text-decoration:none}}
+.kd-sc h3 a:hover{{text-decoration:underline}}
+#cat-search{{width:100%;box-sizing:border-box;padding:10px 14px;font-size:16px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:16px;font-family:system-ui,sans-serif}}
 </style>
 </head><body>
 {HEADER}
@@ -1974,9 +2032,11 @@ def generate_category_pages(manifest):
 <h1 style="font-size:28px;margin:0">{icon} {label} News</h1>
 <span style="font-size:13px;color:#718096;font-family:system-ui,sans-serif">{len(arts)} stories</span>
 </div>
-<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 20px">{desc[key]}</p>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 14px">{desc[key]}</p>
+{cross_nav_html}
+<input type="search" id="cat-search" placeholder="Search {label} stories..." aria-label="Search {label} articles">
 {"" if not multi_source else f'<div style="background:#fff8e1;border:1px solid #fde68a;border-radius:8px;padding:8px 14px;margin-bottom:16px;font-size:13px;font-family:system-ui,sans-serif;color:#92400e">&#x1F4F0; <strong>{len(multi_source)}</strong> stories covered by multiple news outlets — look for the yellow badge</div>'}
-{"".join(rows)}
+<div id="cat-list">{"".join(rows)}</div>
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
   <a href="/news/archive.html" style="color:#1a4d80">Full archive ({len(articles)} total)</a> &middot;
   <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
@@ -1984,6 +2044,14 @@ def generate_category_pages(manifest):
 </p>
 </main>
 {FOOTER}
+<script>
+document.getElementById('cat-search').addEventListener('input',function(){{
+  const q=this.value.toLowerCase().trim();
+  document.querySelectorAll('#cat-list .kd-sc').forEach(function(el){{
+    el.style.display=(!q||( el.dataset.title||'').includes(q))?'':'none';
+  }});
+}});
+</script>
 </body></html>"""
 
         upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
