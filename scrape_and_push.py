@@ -46,7 +46,7 @@ MAX_SPORTS_TOURNAMENT_PER_RUN = 1   # cap for any single major live tournament (
 # Regex word-boundary filter — avoids substring false positives like "scraper"→"rape"
 _ADULT_TITLE_RE = re.compile(
     r'\b(?:'
-    r'vagina|penis|vulva|genitals?|testicle|erectile|sperm|semen|ovary|uterus|cervix'
+    r'vagina|penis|vulva|genitals?|testicle|erectile|sperm(?!\s+whales?)|semen|ovary|uterus|cervix'
     r'|sexual(?:\s+assault)?|sexuall?y|rape[sd]?|rapist'
     r'|abortion|contraception|condom'
     r'|nude|naked(?!\s+mole)|pornograph'
