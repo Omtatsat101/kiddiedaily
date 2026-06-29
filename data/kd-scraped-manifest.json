@@ -422,7 +422,10 @@
     "news/2026-06-29-hymn-to-nisaba-a-praise-song-for-the-sumerian-godd.html",
     "news/2026-06-29-how-the-united-nations-was-born-from-wwii.html",
     "news/2026-06-29-middle-kingdom-of-egypt-ancient-egypts-classical-a.html",
-    "news/2026-06-29-nisaba-sumerian-goddess-of-writing-and-scribe-of-t.html"
+    "news/2026-06-29-nisaba-sumerian-goddess-of-writing-and-scribe-of-t.html",
+    "news/2026-06-29-first-intermediate-period-of-egypt-era-of-transfor.html",
+    "news/2026-06-29-maginot-line-frances-fortress-defence-system.html",
+    "news/2026-06-29-casablanca-conference-the-call-for-an-axis-uncondi.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -847,7 +850,10 @@
     "Hymn to Nisaba: A Praise Song for the Sumerian Goddess of Writing",
     "How the United Nations was Born from WWII",
     "Middle Kingdom of Egypt: Ancient Egypt's Classical Age",
-    "Nisaba: Sumerian Goddess of Writing and Scribe of the Gods"
+    "Nisaba: Sumerian Goddess of Writing and Scribe of the Gods",
+    "First Intermediate Period of Egypt: Era of Transformation",
+    "Maginot Line: France's Fortress Defence System",
+    "Casablanca Conference: The Call for an Axis Unconditional Surrender in WWII"
   ],
   "articles": [
     {
@@ -5484,6 +5490,39 @@
       "slug": "news/2026-06-29-nisaba-sumerian-goddess-of-writing-and-scribe-of-t.html",
       "title": "Nisaba: Sumerian Goddess of Writing and Scribe of the Gods",
       "display_title": "Nisaba: Sumerian Goddess of Writing and Scribe of the Gods",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-first-intermediate-period-of-egypt-era-of-transfor.html",
+      "title": "First Intermediate Period of Egypt: Era of Transformation",
+      "display_title": "First Intermediate Period of Egypt: Era of Transformation",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-maginot-line-frances-fortress-defence-system.html",
+      "title": "Maginot Line: France's Fortress Defence System",
+      "display_title": "Maginot Line: France's Fortress Defence System",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-casablanca-conference-the-call-for-an-axis-uncondi.html",
+      "title": "Casablanca Conference: The Call for an Axis Unconditional Surrender in WWII",
+      "display_title": "Casablanca Conference: The Call for an Axis Unconditional Surrender in WWII",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
