@@ -511,7 +511,11 @@
     "news/2026-06-29-killing-cancer-requires-immune-cells-to-infiltrate.html",
     "news/2026-06-29-drone-use-poised-to-soar-as-faa-homes-in-on-rule-c.html",
     "news/2026-06-29-butter-or-margarine-a-food-scientist-describes-the.html",
-    "news/2026-06-29-glucosamine-supplements-may-speed-memory-loss-from.html"
+    "news/2026-06-29-glucosamine-supplements-may-speed-memory-loss-from.html",
+    "news/2026-06-29-telling-one-guina-from-another-its-all-about-the-a.html",
+    "news/2026-06-29-kids-learn-to-bully-from-adults-threats-manipulati.html",
+    "news/2026-06-29-upcoming-telescopes-could-shed-light-on-dark-matte.html",
+    "news/2026-06-29-hiv-enters-the-brain-and-doesnt-leave-paradoxicall.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1025,7 +1029,11 @@
     "Killing cancer requires immune cells to infiltrate tumors’ hostile microenvironment – sugar shields can help them break in",
     "Drone use poised to soar as FAA homes in on rule change allowing pilots to fly them out of sight",
     "Butter or margarine? A food scientist describes their subtle chemical deviations and how they can affect your baked goods",
-    "Glucosamine supplements may speed memory loss from Alzheimer’s, new research shows"
+    "Glucosamine supplements may speed memory loss from Alzheimer’s, new research shows",
+    "Telling one guiña from another: It’s all about the angle",
+    "Kids learn to bully from adults’ threats, manipulation and criticism – a child psychologist explains how parents can model better tactics",
+    "Upcoming telescopes could shed light on dark matter – astronomers are looking for these ‘fingerprints’ of the elusive substance",
+    "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels"
   ],
   "articles": [
     {
@@ -6726,6 +6734,54 @@
       "slug": "news/2026-06-29-glucosamine-supplements-may-speed-memory-loss-from.html",
       "title": "Glucosamine supplements may speed memory loss from Alzheimer’s, new research shows",
       "display_title": "Glucosamine supplements may speed memory loss from Alzheimer’s, new research shows",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-telling-one-guina-from-another-its-all-about-the-a.html",
+      "title": "Telling one guiña from another: It’s all about the angle",
+      "display_title": "Telling one guiña from another: It’s all about the angle",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Mongabay",
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-kids-learn-to-bully-from-adults-threats-manipulati.html",
+      "title": "Kids learn to bully from adults’ threats, manipulation and criticism – a child psychologist explains how parents can model better tactics",
+      "display_title": "Kids learn to bully from adults’ threats, manipulation and criticism – a child psychologist explains how parents can model better tactics",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-upcoming-telescopes-could-shed-light-on-dark-matte.html",
+      "title": "Upcoming telescopes could shed light on dark matter – astronomers are looking for these ‘fingerprints’ of the elusive substance",
+      "display_title": "Upcoming telescopes could shed light on dark matter – astronomers are looking for these ‘fingerprints’ of the elusive substance",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-hiv-enters-the-brain-and-doesnt-leave-paradoxicall.html",
+      "title": "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels",
+      "display_title": "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
