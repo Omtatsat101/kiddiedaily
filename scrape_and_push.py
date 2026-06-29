@@ -232,12 +232,19 @@ def fetch_rss(source):
     if not items:
         items = root.findall(f".//{{{RSS1}}}item")
 
+    # DW News prefixes like "Germany news:", "Europe news:", "Turkey news:" etc.
+    _DW_PREFIX = re.compile(r"^[A-Za-z\s]+\s+news:\s*", re.I)
+
     stories = []
     for item in items[:25]:
         title = clean(get_field(item, "title"))
         link  = clean(get_field(item, "link", "url"))
         desc  = clean(get_field(item, "description", "summary", "content"))
         pub   = get_field(item, "pubDate", "published", "updated")
+
+        # Strip DW "Germany news: " type prefixes
+        if source.get("name") == "DW News":
+            title = _DW_PREFIX.sub("", title).strip()
 
         if not title or not link:
             continue
