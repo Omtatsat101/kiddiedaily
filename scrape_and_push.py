@@ -1250,7 +1250,9 @@ name: KiddieDaily Daily News Scraper
 
 on:
   schedule:
-    - cron: '0 10 * * *'    # 10am UTC = 6am ET daily
+    - cron: '0 10 * * *'    # 6am ET — morning update
+    - cron: '0 16 * * *'    # noon ET — midday update
+    - cron: '0 22 * * *'    # 6pm ET — evening update
   workflow_dispatch:          # manual trigger for testing
 
 jobs:
