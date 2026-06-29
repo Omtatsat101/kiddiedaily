@@ -177,7 +177,15 @@
     "news/2026-06-29-mit-in-the-media-exploring-how-curiosity-driven-sc.html",
     "news/2026-06-29-comedy-legend-mel-brooks-turns-100.html",
     "news/2026-06-29-why-germanys-deutsche-bahn-will-face-delays-for-ma.html",
-    "news/2026-06-29-creative-climate-messaging-and-other-eco-wins-of-t.html"
+    "news/2026-06-29-creative-climate-messaging-and-other-eco-wins-of-t.html",
+    "news/2026-06-29-how-architecture-influences-political-activity.html",
+    "news/2026-06-29-improving-the-speed-and-energy-efficiency-of-ai-ag.html",
+    "news/2026-06-29-what-happens-when-environmental-change-outpaces-li.html",
+    "news/2026-06-29-computer-model-could-enable-bridges-and-buildings.html",
+    "news/2026-06-29-new-chip-could-help-tiny-robots-traverse-complex-e.html",
+    "news/2026-06-29-tens-of-thousands-march-in-the-first-budapest-prid.html",
+    "news/2026-06-29-at-the-great-american-state-fair-you-can-find-a-di.html",
+    "news/2026-06-29-temperatures-to-drop-this-week-but-relief-from-hea.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -357,7 +365,15 @@
     "MIT in the media: Exploring how curiosity-driven science is an essential ingredient in America’s success",
     "Comedy legend Mel Brooks turns 100",
     "Why Germany's Deutsche Bahn will face delays for many years",
-    "Creative climate messaging and other eco wins of the week"
+    "Creative climate messaging and other eco wins of the week",
+    "How architecture influences political activity",
+    "Improving the speed and energy-efficiency of AI agents",
+    "What happens when environmental change outpaces life’s ability to adapt?",
+    "Computer model could enable bridges and buildings that use less material",
+    "New chip could help tiny robots traverse complex environments",
+    "Tens of thousands march in the first Budapest Pride since Viktor Orb&aacute;n was voted out",
+    "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+    "Temperatures to drop this week but relief from heat may be short-lived"
   ],
   "articles": [
     {
@@ -2305,6 +2321,94 @@
       "agreement_pct": 14,
       "is_science": false,
       "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-how-architecture-influences-political-activity.html",
+      "title": "How architecture influences political activity",
+      "display_title": "How architecture influences political activity",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-improving-the-speed-and-energy-efficiency-of-ai-ag.html",
+      "title": "Improving the speed and energy-efficiency of AI agents",
+      "display_title": "Improving the speed and energy-efficiency of AI agents",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-what-happens-when-environmental-change-outpaces-li.html",
+      "title": "What happens when environmental change outpaces life’s ability to adapt?",
+      "display_title": "What happens when environmental change outpaces life’s ability to adapt?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-computer-model-could-enable-bridges-and-buildings.html",
+      "title": "Computer model could enable bridges and buildings that use less material",
+      "display_title": "Computer model could enable bridges and buildings that use less material",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-new-chip-could-help-tiny-robots-traverse-complex-e.html",
+      "title": "New chip could help tiny robots traverse complex environments",
+      "display_title": "New chip could help tiny robots traverse complex environments",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-tens-of-thousands-march-in-the-first-budapest-prid.html",
+      "title": "Tens of thousands march in the first Budapest Pride since Viktor Orb&aacute;n was voted out",
+      "display_title": "Tens of thousands march in the first Budapest Pride since Viktor Orb&aacute;n was voted out",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-at-the-great-american-state-fair-you-can-find-a-di.html",
+      "title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "display_title": "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-temperatures-to-drop-this-week-but-relief-from-hea.html",
+      "title": "Temperatures to drop this week but relief from heat may be short-lived",
+      "display_title": "Temperatures to drop this week but relief from heat may be short-lived",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
     }
   ]
 }
