@@ -902,8 +902,10 @@ FOOTER = """<footer class="kd"><div class="inner">
 <a href="https://kiddiego.com" rel="noopener">KiddieGo</a></div>
 </div>
 <div style="text-align:center;font-size:13px;color:#a0aec0;margin-top:24px">
-&copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project</div>
-</footer>"""
+&copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project<br>
+<span style="font-size:11px;opacity:.6">Press <kbd style="background:#1a3660;border:1px solid #2d4f80;border-radius:3px;padding:1px 5px;font-family:monospace">/</kbd> to search</span></div>
+</footer>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){var s=document.getElementById('kd-search-input')||document.getElementById('search');if(s){e.preventDefault();s.focus();}else{window.location='/search.html';}}});</script>"""
 
 def make_slug(title, date_str):
     # Normalize accented characters (ñ→n, é→e, etc.) so the URL path stays ASCII-safe
@@ -3587,8 +3589,13 @@ def generate_search_page(manifest):
 <h1 style="font-size:28px;margin:0 0 16px">Search KiddieDaily</h1>
 <div class="kd-cat-filters">
   <button class="kd-cat-btn active" data-cat="all" onclick="setCat(this,'all')">All</button>
-  <button class="kd-cat-btn" data-cat="science" onclick="setCat(this,'science')">🔬 Science</button>
-  <button class="kd-cat-btn" data-cat="world" onclick="setCat(this,'world')">🌍 World News</button>
+  <button class="kd-cat-btn" data-cat="science" onclick="setCat(this,'science')">&#128300; Science</button>
+  <button class="kd-cat-btn" data-cat="world" onclick="setCat(this,'world')">&#127758; World</button>
+  <button class="kd-cat-btn" data-cat="space" onclick="setCat(this,'space')">&#128640; Space</button>
+  <button class="kd-cat-btn" data-cat="animals" onclick="setCat(this,'animals')">&#128062; Animals</button>
+  <button class="kd-cat-btn" data-cat="history" onclick="setCat(this,'history')">&#127963; History</button>
+  <button class="kd-cat-btn" data-cat="environment" onclick="setCat(this,'environment')">&#127807; Env</button>
+  <button class="kd-cat-btn" data-cat="technology" onclick="setCat(this,'technology')">&#128187; Tech</button>
 </div>
 <input
   id="kd-search-input"
@@ -3655,12 +3662,19 @@ def generate_search_page(manifest):
     }}).join('');
   }}
 
+  function matchesCat(a, cat) {{
+    if (cat === 'all') return true;
+    if (cat === 'science') return a.is_science;
+    if (cat === 'world') return !a.is_science;
+    return (a.cats || []).indexOf(cat) !== -1;
+  }}
+
   function filterAndRender() {{
     var q = input.value.trim().toLowerCase();
     var filtered = allArticles.filter(function(a) {{
-      var matchesCat = activeCategory === 'all' || (a.category || (a.is_science ? 'science' : 'world')) === activeCategory;
-      var matchesQ   = !q || a.title.toLowerCase().indexOf(q) !== -1 || (a.description && a.description.toLowerCase().indexOf(q) !== -1);
-      return matchesCat && matchesQ;
+      var catOk = matchesCat(a, activeCategory);
+      var qOk   = !q || a.title.toLowerCase().indexOf(q) !== -1 || (a.description && a.description.toLowerCase().indexOf(q) !== -1);
+      return catOk && qOk;
     }});
     renderResults(filtered, q);
   }}
@@ -4156,21 +4170,44 @@ def main():
 {CSS}
 </head><body>
 {HEADER}
-<main id="main" style="max-width:600px;margin:0 auto;padding:64px 24px;text-align:center">
-<div style="font-size:72px;margin-bottom:16px">📰</div>
-<h1 style="font-size:28px;margin-bottom:8px">Page not found</h1>
-<p style="color:#718096;font-family:system-ui,sans-serif;font-size:16px;margin:0 0 28px">
+<main id="main" style="max-width:700px;margin:0 auto;padding:48px 24px">
+<div style="text-align:center;margin-bottom:36px">
+<div style="font-size:64px;margin-bottom:12px">&#128240;</div>
+<h1 style="font-size:26px;margin-bottom:6px">Page not found</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 20px">
   This story may have moved, or the URL might be misspelled.
 </p>
-<a href="/search.html" style="display:inline-block;background:#1a4d80;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:16px;font-family:system-ui,sans-serif;font-weight:600;margin-bottom:12px">
+<a href="/search.html" style="display:inline-block;background:#1a4d80;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:15px;font-family:system-ui,sans-serif;font-weight:600;margin-right:10px">
   Search KiddieDaily &rarr;
 </a>
-<br>
-<a href="/" style="display:inline-block;color:#1a4d80;font-size:14px;font-family:system-ui,sans-serif;margin-top:12px">
-  &larr; Back to homepage
+<a href="/" style="display:inline-block;background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:10px 24px;border-radius:8px;font-size:15px;font-family:system-ui,sans-serif;text-decoration:none">
+  &larr; Homepage
 </a>
+</div>
+<div id="kd-404-recent" style="margin-top:8px"></div>
+<div style="text-align:center;margin-top:28px;padding:16px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;font-family:system-ui,sans-serif">
+<p style="margin:0;font-size:14px;color:#075985">&#128241; Browse by topic: <a href="/news/science.html">Science</a> &middot; <a href="/news/space.html">Space</a> &middot; <a href="/news/animals.html">Animals</a> &middot; <a href="/news/history.html">History</a> &middot; <a href="/news/environment.html">Environment</a> &middot; <a href="/news/technology.html">Technology</a></p>
+</div>
 </main>
 {FOOTER}
+<script>
+fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(function(arts){{
+  var recent=arts.slice(0,4);
+  if(!recent.length)return;
+  var el=document.getElementById('kd-404-recent');
+  if(!el)return;
+  el.innerHTML='<h2 style="font-size:17px;color:#2d3748;font-family:system-ui,sans-serif;margin:0 0 12px">Recent stories you might like</h2>'
+    +recent.map(function(a){{
+      var bc=a.is_science?'#d1fae5':'#dbeafe';var tc=a.is_science?'#065f46':'#1e40af';var bl=a.is_science?'Science':'World News';
+      var ex=a.description?(a.description.length>100?a.description.slice(0,100)+'…':a.description):'';
+      return'<div style="margin:8px 0;padding:12px 16px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;font-family:system-ui,sans-serif">'
+        +'<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;background:'+bc+';color:'+tc+';padding:2px 7px;border-radius:20px">'+bl+'</span>'
+        +'<a href="/'+a.slug+'" style="display:block;color:#1a4d80;font-weight:600;margin:5px 0 2px;font-size:15px">'+a.title+'</a>'
+        +(ex?'<p style="font-size:13px;color:#4a5568;margin:2px 0;line-height:1.4">'+ex+'</p>':'')
+        +'<span style="font-size:11px;color:#a0aec0">'+a.date+'</span></div>';
+    }}).join('');
+}}).catch(function(){{}});
+</script>
 </body></html>"""
     _404_page = _404_page.replace('{HEADER}', HEADER).replace('{FOOTER}', FOOTER)
     upload("404.html", _404_page, "[scraper] Custom 404 page")
