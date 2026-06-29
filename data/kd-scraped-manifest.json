@@ -400,7 +400,8 @@
     "news/2026-06-29-china-briefing-25-june-2026-five-year-plans-passed.html",
     "news/2026-06-29-analysis-uk-sales-of-electric-vehicles-just-overto.html",
     "news/2026-06-29-guest-post-how-us-renewable-energy-growth-persists.html",
-    "news/2026-06-29-mombasa-key-outcomes-from-the-our-ocean-conference.html"
+    "news/2026-06-29-mombasa-key-outcomes-from-the-our-ocean-conference.html",
+    "news/2026-06-29-ccc-faster-electrification-of-uk-will-put-money-ba.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -803,7 +804,8 @@
     "China Briefing 25 June 2026: Five-year plans passed | Critical-mineral tensions | Industrial decarbonisation plan",
     "Analysis: UK sales of electric vehicles just overtook petrol cars for the first time",
     "Guest post: How US renewable-energy growth persists despite federal policy uncertainty",
-    "Mombasa: Key outcomes from the Our Ocean Conference in Kenya"
+    "Mombasa: Key outcomes from the Our Ocean Conference in Kenya",
+    "CCC: Faster electrification of UK will ‘put money back into people’s pockets’"
   ],
   "articles": [
     {
@@ -5198,6 +5200,17 @@
       "slug": "news/2026-06-29-mombasa-key-outcomes-from-the-our-ocean-conference.html",
       "title": "Mombasa: Key outcomes from the Our Ocean Conference in Kenya",
       "display_title": "Mombasa: Key outcomes from the Our Ocean Conference in Kenya",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-ccc-faster-electrification-of-uk-will-put-money-ba.html",
+      "title": "CCC: Faster electrification of UK will ‘put money back into people’s pockets’",
+      "display_title": "CCC: Faster electrification of UK will ‘put money back into people’s pockets’",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
