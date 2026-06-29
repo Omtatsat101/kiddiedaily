@@ -695,7 +695,15 @@
     "news/2026-06-29-one-mountain-lion-changed-the-food-web-in-a-califo.html",
     "news/2026-06-29-will-ospreay-wins-owen-hart-mens-tournament-at-aew.html",
     "news/2026-06-29-what-is-flying-ant-day-and-will-it-come-early-this.html",
-    "news/2026-06-29-your-planet-environmental-news-from-around-the-wor.html"
+    "news/2026-06-29-your-planet-environmental-news-from-around-the-wor.html",
+    "news/2026-06-29-nasa-to-launch-rescue-mission-june-30-to-save-swif.html",
+    "news/2026-06-29-once-thought-difficult-to-identify-a-subtle-mark-o.html",
+    "news/2026-06-29-illegal-excavation-near-rome-uncovers-villa-linked.html",
+    "news/2026-06-29-hong-kongs-urban-cockatoos-could-be-a-genetic-life.html",
+    "news/2026-06-29-nasa39s-roman-space-telescope-arrives-in-florida-n.html",
+    "news/2026-06-29-pride-month-has-great-significance-for-those-who-f.html",
+    "news/2026-06-29-strange-news-the-weirdest-stories-of-the-week.html",
+    "news/2026-06-29-staying-safe-in-water-when-the-weathers-hot.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1393,7 +1401,15 @@
     "One mountain lion changed the food web in a California suburb, study finds",
     "Will Ospreay wins Owen Hart Men's Tournament at AEW Forbidden Door, punches ticket for All In title shot",
     "What is Flying Ant Day and will it come early this year?",
-    "Your Planet: Environmental news from around the world"
+    "Your Planet: Environmental news from around the world",
+    "NASA to launch rescue mission June 30 to save Swift space telescope from burning up in Earth's atmosphere",
+    "Once Thought Difficult to Identify, a Subtle Mark on an Ancient Femur May Help Track the Start of Women&#39;s Reproductive Maturity",
+    "Illegal Excavation Near Rome Uncovers Villa Linked to the Antonine Age",
+    "Hong Kong’s urban cockatoos could be a genetic lifeline for Indonesian ancestors",
+    "NASA&#39;s Roman Space Telescope Arrives in Florida, New Treatment Could Relieve Knee Pain Without Surgery, and a Cave Full of All-Female Skeletons",
+    "Pride Month has great significance for those who feel invisible. In Slovenia, many LGBTQ+ people understand just what that means",
+    "Strange News: The weirdest stories of the week",
+    "Staying safe in water when the weather's hot"
   ],
   "articles": [
     {
@@ -9309,6 +9325,110 @@
       "is_science": false,
       "source_name": "BBC Newsround",
       "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-nasa-to-launch-rescue-mission-june-30-to-save-swif.html",
+      "title": "NASA to launch rescue mission June 30 to save Swift space telescope from burning up in Earth's atmosphere",
+      "display_title": "NASA to launch rescue mission June 30 to save Swift space telescope from burning up in Earth's atmosphere",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Space.com",
+      "source_icons": "🌌",
+      "description": "Northrop Grumman will launch a rocket from an airplane to save NASA's SWIFT space telescope from falling out of orbit."
+    },
+    {
+      "slug": "news/2026-06-29-once-thought-difficult-to-identify-a-subtle-mark-o.html",
+      "title": "Once Thought Difficult to Identify, a Subtle Mark on an Ancient Femur May Help Track the Start of Women&#39;s Reproductive Maturity",
+      "display_title": "Once Thought Difficult to Identify, a Subtle Mark on an Ancient Femur May Help Track the Start of Women&#39;s Reproductive Maturity",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬",
+      "description": "Learn more about menarche, a mark on an ancient femur bone, and how it can help us understand the reproductive beginnings of ancient women.&nbsp;"
+    },
+    {
+      "slug": "news/2026-06-29-illegal-excavation-near-rome-uncovers-villa-linked.html",
+      "title": "Illegal Excavation Near Rome Uncovers Villa Linked to the Antonine Age",
+      "display_title": "Illegal Excavation Near Rome Uncovers Villa Linked to the Antonine Age",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬",
+      "description": "Learn how illegal digging near Rome exposed an Imperial-era Roman villa with mosaic floors, painted walls, and a marble statue."
+    },
+    {
+      "slug": "news/2026-06-29-hong-kongs-urban-cockatoos-could-be-a-genetic-life.html",
+      "title": "Hong Kong’s urban cockatoos could be a genetic lifeline for Indonesian ancestors",
+      "display_title": "Hong Kong’s urban cockatoos could be a genetic lifeline for Indonesian ancestors",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Mongabay",
+      "source_icons": "🦁",
+      "description": "A noisy population of feral yellow-crested cockatoos living in the dense, urban landscape of Hong Kong may hold the genetic key to saving the species from extinction in Indonesia, according to a new s"
+    },
+    {
+      "slug": "news/2026-06-29-nasa39s-roman-space-telescope-arrives-in-florida-n.html",
+      "title": "NASA&#39;s Roman Space Telescope Arrives in Florida, New Treatment Could Relieve Knee Pain Without Surgery, and a Cave Full of All-Female Skeletons",
+      "display_title": "NASA&#39;s Roman Space Telescope Arrives in Florida, New Treatment Could Relieve Knee Pain Without Surgery, and a Cave Full of All-Female Skeletons",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬",
+      "description": "Discover the top stories from June 20 to June 26, 2026, including a surgery-free answer to knee osteoarthritis and a spider species that catapults its prey into a web."
+    },
+    {
+      "slug": "news/2026-06-29-pride-month-has-great-significance-for-those-who-f.html",
+      "title": "Pride Month has great significance for those who feel invisible. In Slovenia, many LGBTQ+ people understand just what that means",
+      "display_title": "Pride Month has great significance for those who feel invisible. In Slovenia, many LGBTQ+ people understand just what that means",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐",
+      "description": "One of the first steps taken by Slovenia's new right-wing government in June was to remove the rainbow flag outside the Culture Ministry. As Pride Month draws to a close, DW surveys the situation of t"
+    },
+    {
+      "slug": "news/2026-06-29-strange-news-the-weirdest-stories-of-the-week.html",
+      "title": "Strange News: The weirdest stories of the week",
+      "display_title": "Strange News: The weirdest stories of the week",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺",
+      "description": "Nina has your weekly dose of Strange News. Check it out for the Norway football fans' giant Viking row, a robot octopus and an AI museum light show."
+    },
+    {
+      "slug": "news/2026-06-29-staying-safe-in-water-when-the-weathers-hot.html",
+      "title": "Staying safe in water when the weather's hot",
+      "display_title": "Staying safe in water when the weather's hot",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺",
+      "description": "When it's super hot it can be tempting to cool off by going for a dip in some water. But experts want to make sure kids stay safe and only swim in the right places. Here's what you need to know."
     }
   ]
 }
