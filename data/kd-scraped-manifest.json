@@ -386,7 +386,11 @@
     "news/2026-06-29-repositioning-retail-for-the-ai-era.html",
     "news/2026-06-29-ibm-has-unveiled-chip-technology-that-could-help-e.html",
     "news/2026-06-29-call-for-inquiry-into-alligator-alcatrazs-abuse-of.html",
-    "news/2026-06-29-judge-declares-mistrial-in-arson-case-against-man.html"
+    "news/2026-06-29-judge-declares-mistrial-in-arson-case-against-man.html",
+    "news/2026-06-29-europes-extreme-heat-is-shutting-down-power-plants.html",
+    "news/2026-06-29-stripe-anthropic-and-openai-are-backing-an-effort.html",
+    "news/2026-06-29-guest-post-climate-change-has-caused-one-fifth-of.html",
+    "news/2026-06-29-debriefed-26-june-2026-heat-records-broken-across.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -775,7 +779,11 @@
     "Repositioning retail for the AI era",
     "IBM has unveiled chip technology that could help extend Moore’s Law another decade",
     "Call for inquiry into Alligator Alcatraz’s ‘abuse of Everglades’ despite closure",
-    "Judge declares mistrial in arson case against man accused of sparking Palisades fire"
+    "Judge declares mistrial in arson case against man accused of sparking Palisades fire",
+    "Europe’s extreme heat is shutting down power plants",
+    "Stripe, Anthropic, and OpenAI are backing an effort to stop respiratory infections",
+    "Guest post: Climate change has caused one-fifth of Pine Island glacier retreat",
+    "DeBriefed 26 June 2026: Heat records broken across Europe | London climate action week | Introducing ‘Project Cosmos’"
   ],
   "articles": [
     {
@@ -5019,6 +5027,50 @@
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-europes-extreme-heat-is-shutting-down-power-plants.html",
+      "title": "Europe’s extreme heat is shutting down power plants",
+      "display_title": "Europe’s extreme heat is shutting down power plants",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-stripe-anthropic-and-openai-are-backing-an-effort.html",
+      "title": "Stripe, Anthropic, and OpenAI are backing an effort to stop respiratory infections",
+      "display_title": "Stripe, Anthropic, and OpenAI are backing an effort to stop respiratory infections",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-guest-post-climate-change-has-caused-one-fifth-of.html",
+      "title": "Guest post: Climate change has caused one-fifth of Pine Island glacier retreat",
+      "display_title": "Guest post: Climate change has caused one-fifth of Pine Island glacier retreat",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-debriefed-26-june-2026-heat-records-broken-across.html",
+      "title": "DeBriefed 26 June 2026: Heat records broken across Europe | London climate action week | Introducing ‘Project Cosmos’",
+      "display_title": "DeBriefed 26 June 2026: Heat records broken across Europe | London climate action week | Introducing ‘Project Cosmos’",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
       "agreement_pct": 10,
       "is_science": false,
       "source_icons": "🌿"
