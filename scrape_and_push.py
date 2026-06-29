@@ -104,6 +104,12 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\bfavorite\s+fast\s+food\s+(?:chain|restaurant)\b'  # fast food commercial content
     r'|\bmortgage\s+rates?\s+(?:frustrate|hurt|rise|climb)\b'  # adult real estate
     r'|\bhomes?\s+(?:harder|slower)\s+to\s+sell\b'  # adult housing market
+    r'|\b(?:craft\s+(?:beer|ipa|ale|lager|stout)|whiskey|whisky|bourbon|cocktail|spirits?)\b'  # alcohol content
+    r'|\b(?:third\s+trimester|postpartum|baby\s+formula|best\s+stroller|maternity\s+leave)\b'  # pregnancy/parenting
+    r'|\b(?:bitcoin|ethereum|crypto(?:currency)?|nft\s+(?:drop|mint)|web3)\b'  # crypto/NFT adult investing
+    r'|\b(?:index\s+fund|roth\s+ira|401k|hedge\s+fund|dividend\s+yield)\b'  # adult investing content
+    r'|\b(?:ufc\s+\d+|boxing\s+results?|knockou?t\s+(?:win|loss)|canelo|fury\s+vs|usyk)\b'  # combat sports
+    r'|\bin\s+memoriam\b|\bremembering\s+\w+.{0,15}years?\s+later\b'  # obituary/tribute format
     r'|^watch\s*:\s+how\s+to'                   # tutorial video stub articles ("Watch: How to...")
     r'|\bgel\s+nails?\b'                         # adult beauty/cosmetic content
     r'|\bdaca\s+recipients?\b|\bdreamers?\s+(?:face|struggle|fight)\b'  # immigration policy
@@ -333,6 +339,10 @@ SOURCES = [
     {"name": "Berkeley News",       "url": "https://news.berkeley.edu/feed/",                        "bias":  0.0, "icon": "🎙️"},
     # ZME Science: accessible science for curious minds — animals, space, paleontology
     {"name": "ZME Science",         "url": "https://www.zmescience.com/feed/",                       "bias":  0.0, "icon": "🔬"},
+    # Dogo News: news written specifically for kids ages 8-14 — exact audience match
+    {"name": "Dogo News",           "url": "https://www.dogonews.com/feed",                          "bias":  0.0, "icon": "🐶"},
+    # Wired Science: accessible tech + science explainers for general audience
+    {"name": "Wired Science",       "url": "https://www.wired.com/feed/category/science/latest/rss", "bias":  0.1, "icon": "💡"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -470,7 +480,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "SciTechDaily", "Berkeley News", "ZME Science"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "SciTechDaily", "Berkeley News", "ZME Science", "Wired Science"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -726,6 +736,22 @@ DEPRIORITIZE_WORDS = [
     "mortgage rates frustrate", "homes harder to sell", "harder to sell",
     "housing market cooling", "homes sitting longer", "real estate slowdown",
     "affordability crisis",
+    # Combat sports / violent sports results (not age-appropriate for kids)
+    "ufc results", "boxing results", "mma results", "knockout win", "knocked out",
+    "unanimous decision", "split decision", "title defense", "fight recap",
+    # Alcohol and spirits content
+    "craft beer", "craft ipa", "best whiskey", "best bourbon", "cocktail recipe",
+    "wine tasting", "beer review", "spirits review", "distillery tour",
+    # Pregnancy / baby product parenting content
+    "third trimester", "postpartum", "baby formula", "best stroller",
+    "maternity leave", "newborn sleep", "breastfeeding", "diaper",
+    # Crypto / NFT / adult investing content
+    "bitcoin price", "ethereum price", "crypto market", "nft mint",
+    "index fund", "roth ira", "401k", "dividend yield", "hedge fund",
+    "stock market crash", "portfolio rebalancing",
+    # Obituary / tribute format (not celebrity deaths — separate)
+    "in memoriam", "one year since", "a life remembered", "legacy of",
+    "years later: the faces", "remembering the victims",
     # Adult FIRE / early retirement personal finance content
     "retired at", "retire at", "retired early", "early retirement",
     "financial independence", "fire movement", "f.i.r.e.", "financially free",
