@@ -337,7 +337,13 @@
     "news/2026-06-29-the-rise-and-fall-of-britains-muskrat-empire.html",
     "news/2026-06-29-the-ghost-roads-of-irelands-great-famine.html",
     "news/2026-06-29-feedbacks-upon-feedbacks-rock-weathering-and-the-c.html",
-    "news/2026-06-29-planet-orbits-so-close-to-its-star-that-their-magn.html"
+    "news/2026-06-29-planet-orbits-so-close-to-its-star-that-their-magn.html",
+    "news/2026-06-29-asias-shark-and-ray-hotspots-remain-poorly-protect.html",
+    "news/2026-06-29-chewing-sounds-can-help-decode-an-animals-diet-usi.html",
+    "news/2026-06-29-the-atlas-behind-the-revolution.html",
+    "news/2026-06-29-how-sicilian-sulfur-fueled-the-industrial-revoluti.html",
+    "news/2026-06-29-the-sad-inevitability-of-europes-heat-wave.html",
+    "news/2026-06-29-new-effort-will-get-genome-sequences-for-entire-en.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -677,7 +683,13 @@
     "The Rise and Fall of Britain’s Muskrat Empire",
     "The Ghost Roads of Ireland’s Great Famine",
     "Feedbacks upon feedbacks: Rock weathering and the climate",
-    "Planet orbits so close to its star that their magnetic fields connect"
+    "Planet orbits so close to its star that their magnetic fields connect",
+    "Asia’s shark and ray hotspots remain poorly protected, study finds",
+    "Chewing sounds can help decode an animal’s diet using AI, new study finds",
+    "The Atlas Behind the Revolution",
+    "How Sicilian Sulfur Fueled the Industrial Revolution",
+    "The \"sad inevitability\" of Europe's heat wave",
+    "New effort will get genome sequences for entire Endangered Species list"
   ],
   "articles": [
     {
@@ -4379,6 +4391,72 @@
       "slug": "news/2026-06-29-planet-orbits-so-close-to-its-star-that-their-magn.html",
       "title": "Planet orbits so close to its star that their magnetic fields connect",
       "display_title": "Planet orbits so close to its star that their magnetic fields connect",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-asias-shark-and-ray-hotspots-remain-poorly-protect.html",
+      "title": "Asia’s shark and ray hotspots remain poorly protected, study finds",
+      "display_title": "Asia’s shark and ray hotspots remain poorly protected, study finds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-chewing-sounds-can-help-decode-an-animals-diet-usi.html",
+      "title": "Chewing sounds can help decode an animal’s diet using AI, new study finds",
+      "display_title": "Chewing sounds can help decode an animal’s diet using AI, new study finds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-the-atlas-behind-the-revolution.html",
+      "title": "The Atlas Behind the Revolution",
+      "display_title": "The Atlas Behind the Revolution",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-how-sicilian-sulfur-fueled-the-industrial-revoluti.html",
+      "title": "How Sicilian Sulfur Fueled the Industrial Revolution",
+      "display_title": "How Sicilian Sulfur Fueled the Industrial Revolution",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-the-sad-inevitability-of-europes-heat-wave.html",
+      "title": "The \"sad inevitability\" of Europe's heat wave",
+      "display_title": "The \"sad inevitability\" of Europe's heat wave",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-new-effort-will-get-genome-sequences-for-entire-en.html",
+      "title": "New effort will get genome sequences for entire Endangered Species list",
+      "display_title": "New effort will get genome sequences for entire Endangered Species list",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
