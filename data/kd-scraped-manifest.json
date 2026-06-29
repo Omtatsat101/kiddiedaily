@@ -412,7 +412,12 @@
     "news/2026-06-29-sun-news-a-near-m-flare-while-waiting-for-cme.html",
     "news/2026-06-29-fifa-world-cup-round-of-32-schedule-predictions-an.html",
     "news/2026-06-29-could-neo-nazi-youth-or-active-clubs-have-played-a.html",
-    "news/2026-06-29-why-do-some-us-airports-have-private-security-but.html"
+    "news/2026-06-29-why-do-some-us-airports-have-private-security-but.html",
+    "news/2026-06-29-gula-the-sumerian-goddess-of-doctors-and-the-heali.html",
+    "news/2026-06-29-late-period-of-ancient-egypt-the-end-of-egyptian-r.html",
+    "news/2026-06-29-mum-of-newborn-rescued-from-venezuela-rubble-tells.html",
+    "news/2026-06-29-people-are-taking-allergy-and-heartburn-pills-for.html",
+    "news/2026-06-29-morning-news-brief.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -827,7 +832,12 @@
     "Sun news: A near M-flare while waiting for CME",
     "FIFA World Cup: Round of 32 schedule, predictions and latest news",
     "Could neo-Nazi youth, or 'active clubs,' have played a role in Belfast riots?",
-    "Why do some U.S. airports have private security, but others use TSA?"
+    "Why do some U.S. airports have private security, but others use TSA?",
+    "Gula: The Sumerian Goddess of Doctors and the Healing Arts",
+    "Late Period of Ancient Egypt: The End of Egyptian Rule of Egypt",
+    "Mum of newborn rescued from Venezuela rubble tells BBC baby motivated her to survive",
+    "People are taking allergy and heartburn pills for PMS. Could it work?",
+    "Morning news brief"
   ],
   "articles": [
     {
@@ -5354,6 +5364,61 @@
       "slug": "news/2026-06-29-why-do-some-us-airports-have-private-security-but.html",
       "title": "Why do some U.S. airports have private security, but others use TSA?",
       "display_title": "Why do some U.S. airports have private security, but others use TSA?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-gula-the-sumerian-goddess-of-doctors-and-the-heali.html",
+      "title": "Gula: The Sumerian Goddess of Doctors and the Healing Arts",
+      "display_title": "Gula: The Sumerian Goddess of Doctors and the Healing Arts",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-late-period-of-ancient-egypt-the-end-of-egyptian-r.html",
+      "title": "Late Period of Ancient Egypt: The End of Egyptian Rule of Egypt",
+      "display_title": "Late Period of Ancient Egypt: The End of Egyptian Rule of Egypt",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-mum-of-newborn-rescued-from-venezuela-rubble-tells.html",
+      "title": "Mum of newborn rescued from Venezuela rubble tells BBC baby motivated her to survive",
+      "display_title": "Mum of newborn rescued from Venezuela rubble tells BBC baby motivated her to survive",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-people-are-taking-allergy-and-heartburn-pills-for.html",
+      "title": "People are taking allergy and heartburn pills for PMS. Could it work?",
+      "display_title": "People are taking allergy and heartburn pills for PMS. Could it work?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-morning-news-brief.html",
+      "title": "Morning news brief",
+      "display_title": "Morning news brief",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.7,
