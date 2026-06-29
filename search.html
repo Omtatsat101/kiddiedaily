@@ -71,6 +71,12 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 .kd-badge-sci{background:#d1fae5;color:#065f46}
 .kd-badge-news{background:#dbeafe;color:#1e40af}
 #kd-no-results{display:none;text-align:center;color:#718096;font-family:system-ui,sans-serif;padding:40px 0;font-size:15px}
+.kd-cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.kd-cat-btn{padding:7px 16px;border-radius:20px;border:2px solid #dde4ef;background:#fff;
+  font-size:13px;font-weight:700;cursor:pointer;font-family:system-ui,sans-serif;
+  color:#4a5568;transition:all .15s}
+.kd-cat-btn.active{background:#1a4d80;color:#fff;border-color:#1a4d80}
+.kd-cat-btn:hover:not(.active){border-color:#1a4d80;color:#1a4d80}
 </style>
 </head>
 <body>
@@ -80,11 +86,16 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <a href="/games/">Games</a><a href="/about.html">About</a><a href="/parent-zone/" class="pz-cta">Parent Zone</a></nav>
 </div></header>
 <main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
-<h1 style="font-size:28px;margin:0 0 20px">Search KiddieDaily</h1>
+<h1 style="font-size:28px;margin:0 0 16px">Search KiddieDaily</h1>
+<div class="kd-cat-filters">
+  <button class="kd-cat-btn active" data-cat="all" onclick="setCat(this,'all')">All</button>
+  <button class="kd-cat-btn" data-cat="science" onclick="setCat(this,'science')">🔬 Science</button>
+  <button class="kd-cat-btn" data-cat="world" onclick="setCat(this,'world')">🌍 World News</button>
+</div>
 <input
   id="kd-search-input"
   type="search"
-  placeholder="Search 56 articles..."
+  placeholder="Search 61 articles..."
   aria-label="Search articles"
   autofocus
   autocomplete="off"
@@ -121,12 +132,21 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
   var noResults = document.getElementById('kd-no-results');
   var input     = document.getElementById('kd-search-input');
   var allArticles = [];
+  var activeCategory = 'all';
+
+  function setCat(btn, cat) {
+    activeCategory = cat;
+    document.querySelectorAll('.kd-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    filterAndRender();
+  }
+  window.setCat = setCat;
 
   function renderResults(articles, query) {
     if (!articles.length) {
       container.innerHTML = '';
-      noResults.style.display = query ? 'block' : 'none';
-      countEl.textContent = query ? '' : '';
+      noResults.style.display = (query || activeCategory !== 'all') ? 'block' : 'none';
+      countEl.textContent = '';
       return;
     }
     noResults.style.display = 'none';
@@ -151,9 +171,11 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 
   function filterAndRender() {
     var q = input.value.trim().toLowerCase();
-    var filtered = q
-      ? allArticles.filter(function(a) { return a.title.toLowerCase().indexOf(q) !== -1; })
-      : allArticles;
+    var filtered = allArticles.filter(function(a) {
+      var matchesCat = activeCategory === 'all' || (a.category || (a.is_science ? 'science' : 'world')) === activeCategory;
+      var matchesQ   = !q || a.title.toLowerCase().indexOf(q) !== -1;
+      return matchesCat && matchesQ;
+    });
     renderResults(filtered, q);
   }
 
