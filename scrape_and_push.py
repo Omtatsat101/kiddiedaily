@@ -880,7 +880,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 @media(prefers-color-scheme:dark){html{background:#0f1117;color:#e2e8f0}header.kd{background:#0d2d54}a{color:#90cdf4}.byline,.kd-card-excerpt,.kd-bias-text{color:#a0aec0}.sources{background:#1a202c;border-left-color:#4a5568}footer.kd{background:#070c14}.kd-sc{background:#1a202c;border-color:#2d3748}.kd-sc h3 a{color:#90cdf4}h2{color:#a0c4ff;border-color:#2d3748}#search,#cat-search,#today-search{background:#1a202c;color:#e2e8f0;border-color:#4a5568}main{background:#0f1117}}
 @media print{header.kd,footer.kd,#kd-prog,.kd-skip,button,.kd-ham{display:none!important}main{max-width:100%!important;padding:0!important;margin:0!important}a{color:#000!important}h1,h2,h3{break-after:avoid}p{orphans:3;widows:3}.sources{border:1px solid #000;background:none!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
-''' + BIAS_CSS + '</style>\n<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#1a4d80"><meta name="theme-color" content="#0d2d54" media="(prefers-color-scheme:dark)">'
+''' + BIAS_CSS + '</style>\n<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#1a4d80"><meta name="theme-color" content="#0d2d54" media="(prefers-color-scheme:dark)"><script>if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");</script>'
 
 HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
@@ -964,7 +964,7 @@ def parent_discussion_guide(title, is_science):
     )
 
 
-def build_page(title, body_html, bias_html, score, group, slug, today):
+def build_page(title, body_html, bias_html, score, group, slug, today, cats=None):
     n = score["n_sources"]
     url = f"https://kiddiedaily.com/{slug}"
     # og:description — clean text from RSS summary (strip HTML tags)
@@ -1026,11 +1026,30 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
     rt = reading_time(body_html)
     cat_label = "Science" if is_sci else "World News"
     cat_url   = "/news/science.html" if is_sci else "/news/world.html"
+    _SUBCAT_META = {
+        "space":       ("🚀", "Space",       "/news/space.html",       "#ede9fe", "#5b21b6"),
+        "animals":     ("🐾", "Animals",     "/news/animals.html",     "#fef3c7", "#92400e"),
+        "history":     ("🏛", "History",     "/news/history.html",     "#fce7f3", "#9d174d"),
+        "environment": ("🌿", "Environment", "/news/environment.html", "#dcfce7", "#166534"),
+        "technology":  ("💻", "Technology",  "/news/technology.html",  "#e0e7ff", "#3730a3"),
+    }
+    subcat_pills = ""
+    if cats:
+        subcats = [c for c in cats if c in _SUBCAT_META]
+        if subcats:
+            pill_html = "".join(
+                f'<a href="{_SUBCAT_META[c][2]}" style="display:inline-flex;align-items:center;gap:4px;'
+                f'background:{_SUBCAT_META[c][3]};color:{_SUBCAT_META[c][4]};border-radius:20px;'
+                f'padding:3px 12px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">'
+                f'{_SUBCAT_META[c][0]} {_SUBCAT_META[c][1]}</a>'
+                for c in subcats
+            )
+            subcat_pills = f'<div style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px">{pill_html}</div>'
     body = f"""<nav aria-label="Breadcrumb" style="font-size:12px;color:#718096;font-family:system-ui,sans-serif;margin-bottom:10px">
 <a href="/" style="color:#718096">KiddieDaily</a> ›
 <a href="/news/" style="color:#718096">News</a> ›
 <a href="{cat_url}" style="color:#1a4d80;font-weight:600">{cat_label}</a>
-</nav>
+</nav>{subcat_pills}
 <p class="byline">By KiddieDaily Editors &middot; {today} &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
 <h1>{title}</h1>
 {bias_html}
@@ -1059,7 +1078,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 
     return f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="{title[:155]}">
+<meta name="description" content="{og_desc}">
 <link rel="canonical" href="{url}">
 <title>{title} — KiddieDaily</title>
 <meta property="og:type" content="article"><meta property="og:title" content="{title}">
@@ -1075,23 +1094,31 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 <script>
 (function(){{
   const SLUG="{slug}";
+  const PAGE_CATS=new Set({json.dumps([c for c in (cats or []) if c not in ("science","world")])});
   const TITLE_WORDS=new Set("{title}".toLowerCase().replace(/[^\\w\\s]/g,"").split(/\\s+/).filter(w=>w.length>3&&!["that","this","with","from","have","were","they","more"].includes(w)));
+  const CCLR={{"space":"#ede9fe;color:#5b21b6","animals":"#fef3c7;color:#92400e","history":"#fce7f3;color:#9d174d","environment":"#dcfce7;color:#166534","technology":"#e0e7ff;color:#3730a3"}};
   fetch("/data/kd-articles.json").then(r=>r.json()).then(articles=>{{
     const scored=articles.filter(a=>a.slug!==SLUG).map(a=>{{
       const w=new Set(a.title.toLowerCase().replace(/[^\\w\\s]/g,"").split(/\\s+/).filter(x=>x.length>3));
       const overlap=[...TITLE_WORDS].filter(x=>w.has(x)).length;
-      return{{...a,score:overlap+(a.is_science?0.5:0)}};
+      const ac=new Set((a.cats||[]).filter(c=>c!=="science"&&c!=="world"));
+      const catBoost=[...PAGE_CATS].filter(c=>ac.has(c)).length*0.8;
+      return{{...a,score:overlap+catBoost+(a.is_science?0.3:0)}};
     }}).sort((a,b)=>b.score-a.score).slice(0,3).filter(a=>a.score>0);
     if(!scored.length)return;
     const box=document.createElement("div");
     box.style.cssText="max-width:780px;margin:0 auto;padding:0 24px 48px;font-family:system-ui,sans-serif";
     box.innerHTML="<h2 style='font-size:18px;color:#2d3748;border-bottom:1px solid #e5e7eb;padding-bottom:6px;margin-bottom:12px'>Related stories</h2>"
-      +scored.map(a=>`<div style='margin:8px 0;padding:10px 14px;background:#fff;border:1px solid #e5e7eb;border-radius:8px'>
-        <span style='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;background:${{a.is_science?"#d1fae5":"#dbeafe"}};color:${{a.is_science?"#065f46":"#1e40af"}};padding:2px 7px;border-radius:20px'>${{a.is_science?"Science":"World News"}}</span>
+      +scored.map(a=>{{
+        const subcats=(a.cats||[]).filter(c=>c!=="science"&&c!=="world").slice(0,2);
+        const pills=subcats.map(c=>{{const s=CCLR[c]||"#f3f4f6;color:#374151";return`<span style="font-size:10px;background:${{s}};padding:1px 7px;border-radius:20px;font-weight:600;margin-left:4px">${{c}}</span>`;}}).join("");
+        return`<div style='margin:8px 0;padding:10px 14px;background:#fff;border:1px solid #e5e7eb;border-radius:8px'>
+        <span style='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;background:${{a.is_science?"#d1fae5":"#dbeafe"}};color:${{a.is_science?"#065f46":"#1e40af"}};padding:2px 7px;border-radius:20px'>${{a.is_science?"Science":"World News"}}</span>${{pills}}
         <a href="/${{a.slug}}" style='display:block;color:#1a4d80;font-weight:600;margin:5px 0 2px;font-size:15px'>${{a.title}}</a>
         ${{a.description?`<p style='font-size:13px;color:#4a5568;margin:3px 0 4px;line-height:1.4'>${{a.description.length>120?a.description.slice(0,120)+"…":a.description}}</p>`:""}}
         <span style='font-size:11px;color:#a0aec0'>${{a.date}}</span>
-        </div>`).join("");
+        </div>`;
+      }}).join("");
     const ft=document.querySelector('footer.kd');
     if(ft)ft.parentNode.insertBefore(box,ft);else document.body.appendChild(box);
   }}).catch(()=>{{}});
@@ -1560,7 +1587,7 @@ def update_homepage(manifest):
         f'<span>&#128230; <strong>{today_count}</strong> stories today</span>'
         f'<span>&#128300; <strong>{sci_pct}%</strong> science</span>'
         f'<span>&#128202; <strong>{len(articles)}</strong> total articles</span>'
-        f'<span style="margin-left:auto;color:#93c5fd">Updated daily at 6am ET</span>'
+        f'<span style="margin-left:auto;color:#93c5fd">Updated 3× daily</span>'
         f'</div>'
     )
 
@@ -2334,8 +2361,23 @@ def build_trending(manifest):
     top = sorted(freq.items(), key=lambda x: -x[1])[:6]
     if not top:
         return ""
+    _KW_TO_CAT = {
+        "space": "/news/space.html", "nasa": "/news/space.html", "planet": "/news/space.html",
+        "mars": "/news/space.html", "moon": "/news/space.html", "asteroid": "/news/space.html",
+        "telescope": "/news/space.html", "galaxy": "/news/space.html", "rocket": "/news/space.html",
+        "animals": "/news/animals.html", "animal": "/news/animals.html", "whale": "/news/animals.html",
+        "shark": "/news/animals.html", "bird": "/news/animals.html", "fish": "/news/animals.html",
+        "wolf": "/news/animals.html", "bear": "/news/animals.html", "coral": "/news/animals.html",
+        "history": "/news/history.html", "ancient": "/news/history.html", "fossil": "/news/history.html",
+        "dinosaur": "/news/history.html", "archaeology": "/news/history.html", "medieval": "/news/history.html",
+        "environment": "/news/environment.html", "climate": "/news/environment.html",
+        "ocean": "/news/environment.html", "forest": "/news/environment.html",
+        "technology": "/news/technology.html", "robot": "/news/technology.html",
+        "artificial": "/news/technology.html", "quantum": "/news/technology.html",
+        "computer": "/news/technology.html", "drone": "/news/technology.html",
+    }
     tags = " ".join(
-        f'<a href="/news/archive.html" style="background:#e2e8f0;color:#2d3748;padding:4px 10px;'
+        f'<a href="{_KW_TO_CAT.get(w, "/news/archive.html")}" style="background:#e2e8f0;color:#2d3748;padding:4px 10px;'
         f'border-radius:20px;font-size:12px;text-decoration:none;font-family:system-ui">'
         f'{w}</a>'
         for w, _ in top
@@ -3916,7 +3958,12 @@ def main():
             print("    → Using RSS content (no API key)")
 
         bias_html = bias_bar_html(score)
-        html = build_page(article_title, body_html, bias_html, score, group, slug, today)
+        _page_cats = _article_cats({
+            "title": article_title, "slug": slug,
+            "is_science": is_sci_group,
+            "source_name": group[0].get("source_name", "") if group else "",
+        })
+        html = build_page(article_title, body_html, bias_html, score, group, slug, today, cats=_page_cats)
 
         print(f"    Pushing {slug}...")
         result = upload(slug, html, f"[scraper] {article_title[:60]}")
@@ -4159,6 +4206,28 @@ def main():
             print("  Homepage JSON-LD already present — skipping")
     else:
         print(f"  Could not read index.html: {_home_resp.get('_err') if isinstance(_home_resp, dict) else 'unknown error'}")
+
+    # 6k14. Service worker — stale-while-revalidate cache for kd-articles.json
+    print(f"\n[6k14] Deploying service worker (sw.js)...")
+    _sw = """\
+const CACHE='kd-v1';
+self.addEventListener('install',function(e){
+  self.skipWaiting();
+  e.waitUntil(caches.open(CACHE).then(function(c){return c.add('/data/kd-articles.json');}).catch(function(){}));
+});
+self.addEventListener('activate',function(e){e.waitUntil(clients.claim());});
+self.addEventListener('fetch',function(e){
+  if(!e.request.url.includes('kd-articles.json'))return;
+  e.respondWith(caches.open(CACHE).then(function(cache){
+    return cache.match(e.request).then(function(cached){
+      var fresh=fetch(e.request).then(function(r){if(r.ok)cache.put(e.request,r.clone());return r;}).catch(function(){return cached;});
+      return cached||fresh;
+    });
+  }));
+});
+"""
+    upload("sw.js", _sw, "[scraper] Service worker — stale-while-revalidate for kd-articles.json")
+    print("  sw.js deployed")
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
