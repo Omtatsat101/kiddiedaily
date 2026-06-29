@@ -85,7 +85,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/fact-check/">Fact Check</a>
-<a href="/games/">Games</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
+<a href="/games/">Games</a><a href="/saved.html">Saved</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
 </div></header>
 <main id="main">
 <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px">
@@ -100,7 +100,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <button id="cat-more" class="cat-more-btn" style="display:none" onclick="catLoadMore()"></button>
 <div id="cat-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles found in this category yet.</div>
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
-  <a href="/news/archive.html" style="color:#1a4d80">Full archive (836 total)</a> &middot;
+  <a href="/news/archive.html" style="color:#1a4d80">Full archive (843 total)</a> &middot;
   <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
   <a href="/feed/environment.xml" style="color:#1a4d80">Environment RSS feed</a> &middot;
   <a href="/feed.xml" style="color:#718096">All news RSS</a>
@@ -111,7 +111,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <p style="margin:0;font-size:14px;color:#cbd5e0">Curated daily news for families with research-backed fact checks.</p></div>
 <div><h4>Read</h4><a href="/news/today.html">Today's News</a><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
 <a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
-<div><h4>Account</h4><a href="/parents/">For Parents</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
+<div><h4>Account</h4><a href="/saved.html">Saved Stories</a><a href="/parents/">For Parents</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
 <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
 <div><h4>Our Network</h4><a href="https://kiddiewordle.com" rel="noopener">KiddieWordle</a>
@@ -122,7 +122,26 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 &copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project<br>
 <span style="font-size:11px;opacity:.6">Press <kbd style="background:#1a3660;border:1px solid #2d4f80;border-radius:3px;padding:1px 5px;font-family:monospace">/</kbd> to search</span></div>
 </footer>
-<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){var s=document.getElementById('kd-search-input')||document.getElementById('search');if(s){e.preventDefault();s.focus();}else{window.location='/search.html';}}});</script>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){var s=document.getElementById('kd-search-input')||document.getElementById('search');if(s){e.preventDefault();s.focus();}else{window.location='/search.html';}}});
+(function(){try{
+  var KEY='kd_streak',LAST='kd_last';
+  var today=new Date().toISOString().slice(0,10);
+  var last=localStorage.getItem(LAST);
+  var streak=parseInt(localStorage.getItem(KEY)||'0',10);
+  if(!last){streak=1;}
+  else if(last<today){
+    var yest=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    streak=(last===yest?streak+1:1);
+  }
+  localStorage.setItem(KEY,streak);localStorage.setItem(LAST,today);
+  if(streak>=2){
+    var b=document.createElement('div');
+    b.innerHTML='&#128293;&nbsp;'+streak+'-day streak!';
+    b.style.cssText='position:fixed;bottom:16px;right:16px;z-index:9998;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;font-family:system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.12);pointer-events:none;opacity:1';
+    document.body.appendChild(b);
+    setTimeout(function(){b.style.transition='opacity 1.5s';b.style.opacity='0';setTimeout(function(){if(b.parentNode)b.parentNode.removeChild(b);},1500);},3500);
+  }
+}catch(e){}})();</script>
 <script>
 (function(){
 var CAT='environment',PAGE=20,arts=[],off=0,q='';
