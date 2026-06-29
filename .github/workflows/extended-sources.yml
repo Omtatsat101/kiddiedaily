@@ -1,0 +1,40 @@
+name: KiddieDaily Extended Sources — Afternoon Run
+
+on:
+  # Fire after the truth-check verifier completes (which itself fires after the morning scraper)
+  workflow_run:
+    workflows: ["KiddieDaily Truth & Bias Verifier"]
+    types: [completed]
+  # Fallback cron: 15:00 UTC (10am ET) — well after morning scraper + truth-check finish
+  schedule:
+    - cron: "0 15 * * *"
+  # Always allow manual trigger
+  workflow_dispatch: {}
+
+jobs:
+  scrape-afternoon:
+    name: Afternoon science & global news
+    runs-on: ubuntu-latest
+
+    # When triggered by workflow_run, run regardless of verifier outcome
+    # (the verifier failing shouldn't block afternoon news)
+    permissions:
+      contents: write   # needed to push new article HTML + update manifest/index
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install --quiet requests anthropic
+
+      - name: Run extended sources scraper
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python extended_sources_patch.py
