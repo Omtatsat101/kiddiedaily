@@ -727,7 +727,12 @@
     "news/2026-06-29-evidence-of-recently-discovered-bat-behavior-found.html",
     "news/2026-06-29-harry-still-hoping-to-bring-meghan-and-children-on.html",
     "news/2026-06-29-maddy-cusack-kept-mental-health-secret-over-fears.html",
-    "news/2026-06-29-dogs-drones-and-sound-detectors-how-rescuers-searc.html"
+    "news/2026-06-29-dogs-drones-and-sound-detectors-how-rescuers-searc.html",
+    "news/2026-06-29-scientists-find-ozone-depletion-began-decades-befo.html",
+    "news/2026-06-29-man-uses-a-game-boy-camera-to-photograph-jupiter.html",
+    "news/2026-06-29-jetblue-pilot-reports-striking-a-drone-while-landi.html",
+    "news/2026-06-29-is-ranch-dressing-american-what-to-know-about-the.html",
+    "news/2026-06-29-american-pride-hits-25-year-low-gallup.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1457,7 +1462,12 @@
     "Evidence of Recently Discovered Bat Behavior Found Hiding in Plain Sight in Renaissance Painting",
     "Harry still hoping to bring Meghan and children on UK visit",
     "Maddy Cusack kept mental health secret over fears of stigma, inquest hears",
-    "Dogs, drones and sound detectors: How rescuers search for quake survivors"
+    "Dogs, drones and sound detectors: How rescuers search for quake survivors",
+    "Scientists find ozone depletion began decades before discovery of ozone hole",
+    "Man uses a Game Boy Camera to photograph Jupiter",
+    "JetBlue pilot reports striking a drone while landing at JFK airport",
+    "Is ranch dressing American? What to know about the World Cup's breakout condiment",
+    "American pride hits 25-year low: Gallup"
   ],
   "articles": [
     {
@@ -9789,6 +9799,71 @@
       "source_name": "BBC News",
       "source_icons": "🇬🇧",
       "description": "Rescuers armed with a range of techniques continue to search through the rubble in Venezuela."
+    },
+    {
+      "slug": "news/2026-06-29-scientists-find-ozone-depletion-began-decades-befo.html",
+      "title": "Scientists find ozone depletion began decades before discovery of ozone hole",
+      "display_title": "Scientists find ozone depletion began decades before discovery of ozone hole",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "MIT News",
+      "source_icons": "🎓",
+      "description": "Using modern tools, they also determined that carbon tetrachloride, used as a dry-cleaning and degreasing agent as early as the 1930s, was at the root of early ozone loss."
+    },
+    {
+      "slug": "news/2026-06-29-man-uses-a-game-boy-camera-to-photograph-jupiter.html",
+      "title": "Man uses a Game Boy Camera to photograph Jupiter",
+      "display_title": "Man uses a Game Boy Camera to photograph Jupiter",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Popular Science",
+      "source_icons": "💡",
+      "description": "With a big boost from Mount Wilson Observatory’s powerful Hooker Telescope. The post Man uses a Game Boy Camera to photograph Jupiter appeared first on Popular Science ."
+    },
+    {
+      "slug": "news/2026-06-29-jetblue-pilot-reports-striking-a-drone-while-landi.html",
+      "title": "JetBlue pilot reports striking a drone while landing at JFK airport",
+      "display_title": "JetBlue pilot reports striking a drone while landing at JFK airport",
+      "date": "2026-06-29",
+      "n_sources": 3,
+      "bias_avg": 0.37,
+      "agreement_pct": 21,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧 ⚖️ 🦅",
+      "description": "Aviation authorities say the aircraft landed safely and a post-flight inspection found no damage."
+    },
+    {
+      "slug": "news/2026-06-29-is-ranch-dressing-american-what-to-know-about-the.html",
+      "title": "Is ranch dressing American? What to know about the World Cup's breakout condiment",
+      "display_title": "Is ranch dressing American? What to know about the World Cup's breakout condiment",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️",
+      "description": "Ranch-style dressing has apparently become popular enough with foreigners visiting the US that the Transportation Safety Administration (TSA) was forced to issue a PSA reminding them to stop bringing "
+    },
+    {
+      "slug": "news/2026-06-29-american-pride-hits-25-year-low-gallup.html",
+      "title": "American pride hits 25-year low: Gallup",
+      "display_title": "American pride hits 25-year low: Gallup",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️",
+      "description": "A new Gallup survey found that American pride is at a 25-year low, days ahead of the country’s 250th anniversary. Poll results show that 33 percent of U.S. adults say they are “extremely proud” to be "
     }
   ]
 }
