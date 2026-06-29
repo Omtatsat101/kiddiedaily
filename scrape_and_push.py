@@ -55,6 +55,18 @@ _ADULT_TITLE_RE = re.compile(
     re.I
 )
 
+# Hard-reject commercial/shopping/promo titles (score penalty not enough — science +5 overrides it)
+_COMMERCIAL_TITLE_RE = re.compile(
+    r'(?:'
+    r'deals?\s+(?:are\s+)?ending|prime\s+deals?|prime\s+day'
+    r'|last\s+day\s+to\s+save|last\s+chance\s+to\s+(?:save|buy|get)'
+    r'|save\s+(?:up\s+to|\d+%?)\s+on|best\s+(?:deals?|prices?)\s+on'
+    r'|limited.time\s+offer|shop\s+now|buy\s+now\s+and\s+save'
+    r'|black\s+friday|cyber\s+monday'
+    r')',
+    re.I
+)
+
 # Active branch — set to a content branch in main(); falls back to "main" locally
 ACTIVE_BRANCH = "main"
 
@@ -3189,6 +3201,12 @@ def main():
         if _ADULT_TITLE_RE.search(rep["title"]):
             skipped_adult += 1
             print(f"    ⚠ Skipped (adult title): {rep['title'][:60]}")
+            continue
+
+        # Hard-reject commercial/shopping titles (score penalty insufficient — science+5 overrides)
+        if _COMMERCIAL_TITLE_RE.search(rep["title"]):
+            skipped_adult += 1
+            print(f"    ⚠ Skipped (commercial): {rep['title'][:60]}")
             continue
 
         # Skip groups that score too low (political noise, single-source political stories)
