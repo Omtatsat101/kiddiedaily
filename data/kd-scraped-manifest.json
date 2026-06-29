@@ -615,7 +615,9 @@
     "news/2026-06-29-dorm-life-forever-the-problem-with-micro-living.html",
     "news/2026-06-29-fox-news-apologizes-for-airing-oleary-claims-about.html",
     "news/2026-06-29-june-heatwave-was-hotter-than-thought-whilst-relie.html",
-    "news/2026-06-29-worth-every-penny-say-england-fans-at-world-cup.html"
+    "news/2026-06-29-worth-every-penny-say-england-fans-at-world-cup.html",
+    "news/2026-06-29-nanopore-technology-identifies-proteins-molecule-b.html",
+    "news/2026-06-29-ev-myths-muddy-the-road-to-electrification.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1233,7 +1235,9 @@
     "Dorm Life Forever? The Problem with Micro-Living",
     "Fox News apologizes for airing O'Leary claims about data centers",
     "June heatwave was hotter than thought whilst relief from heat set to be short lived",
-    "'Worth every penny', say England fans at World Cup"
+    "'Worth every penny', say England fans at World Cup",
+    "Nanopore technology identifies proteins molecule by molecule",
+    "EV myths muddy the road to electrification"
   ],
   "articles": [
     {
@@ -8189,6 +8193,30 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-nanopore-technology-identifies-proteins-molecule-b.html",
+      "title": "Nanopore technology identifies proteins molecule by molecule",
+      "display_title": "Nanopore technology identifies proteins molecule by molecule",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-ev-myths-muddy-the-road-to-electrification.html",
+      "title": "EV myths muddy the road to electrification",
+      "display_title": "EV myths muddy the road to electrification",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
     }
   ]
 }
