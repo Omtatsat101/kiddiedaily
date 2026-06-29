@@ -1686,7 +1686,21 @@ def generate_category_pages(manifest):
     _SPACE_KW    = {"space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope"}
     _ANIMAL_KW   = {"animal", "animals", "species", "whale", "shark", "bird", "birds", "dog", "dogs", "cat", "cats", "wildlife", "octopus", "insect", "insects", "turtle", "turtles", "fish", "elephant", "elephants", "bear", "bears", "wolf", "wolves", "lion", "lions", "tiger", "tigers", "dolphin", "dolphins", "penguin", "penguins", "seal", "seals", "zoo", "habitat", "extinct", "endangered", "mammal", "reptile", "amphibian", "coral", "reef", "migration", "nest", "prey", "predator", "marine", "ocean life", "bee", "bees", "butterfly", "butterflies"}
     _ENVIRONMENT_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation"}
-    _HISTORY_KW  = {"ancient", "fossil", "dinosaur", "historical", "archaeolog", "million year", "prehistoric", "artifact", "ruin", "pyramid", "roman", "greek", "viking"}
+    _HISTORY_KW  = {
+        # Time periods
+        "ancient", "prehistoric", "medieval", "bronze age", "iron age", "stone age", "neolithic",
+        "paleolithic", "19th century", "18th century", "17th century", "16th century",
+        "world war", "war ii", "civil war", "cold war",
+        # Peoples & civilizations
+        "viking", "roman", "greek", "pharaoh", "mayan", "aztec", "inca", "mongol",
+        "neanderthal", "homo naledi", "homo sapiens", "hominid",
+        "native american", "indigenous", "colonial",
+        # Historical content
+        "fossil", "dinosaur", "archaeolog", "artifact", "excavat",
+        "ruin", "pyramid", "empire", "revolution", "civilization",
+        "million year", "thousand year", "history of", "history behind",
+        "historical", "archives", "uncovered a", "were discovered",
+    }
     _TECH_KW     = {"quantum", "robot", "robotics", "ai ", "artificial intelligence", "machine learning",
                     "nanosensor", "nanotechnology", "semiconductor", "computer chip", "microchip",
                     "algorithm", "software", "engineering", "invention", "cryogenic",
@@ -1702,9 +1716,9 @@ def generate_category_pages(manifest):
         "science": [a for a in articles if a.get("is_science")],
         "world":   [a for a in articles if not a.get("is_science")],
         "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
-        "animals": [a for a in articles if _matches(a, _ANIMAL_KW)],
-        "history": [a for a in articles if _matches(a, _HISTORY_KW)],
-        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW)],
+        "animals": [a for a in articles if _matches(a, _ANIMAL_KW) or a.get("source_name") == "Mongabay"],
+        "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") == "JSTOR Daily"],
+        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") == "NASA Earth"],
         "technology":  [a for a in articles if _matches(a, _TECH_KW)],
     }
     cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment", "technology": "Technology"}
