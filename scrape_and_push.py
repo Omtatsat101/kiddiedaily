@@ -371,15 +371,33 @@ def body_from_rss(group):
     full_text = fetch_article_text(rep["link"], rep["description"])
 
     sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", full_text) if len(s.strip()) > 25]
-    lede   = " ".join(sentences[:2]) if sentences else full_text[:220]
-    middle = " ".join(sentences[2:5]) if len(sentences) > 2 else ""
-    extra  = " ".join(sentences[5:9]) if len(sentences) > 5 else ""
 
+    # Detect science article by checking group sources against SCIENCE_SOURCES
+    is_science = any(s["source_name"] in SCIENCE_SOURCES for s in group)
+    h2_mid  = "What scientists found" if is_science else "What happened"
+    h2_late = "Why it matters for kids"
+
+    # Lede = first sentence only
+    lede = sentences[0] if sentences else full_text[:220]
+
+    # Build structured paragraphs from remaining sentences (groups of 2-3)
+    body_sents = sentences[1:]  # everything after the lede sentence
     html = [f'<p class="lede">{lede}</p>']
-    if middle:
-        html.append(f"<h2>What Happened</h2><p>{middle}</p>")
-    if extra:
-        html.append(f"<p>{extra}</p>")
+
+    i = 0
+    para_index = 0  # counts paragraphs emitted so we can insert h2s at the right spots
+    while i < len(body_sents):
+        # Insert h2 before the paragraph that starts at original sentence index 3 (0-based)
+        # sentence index 3 = body_sents index 2 (lede was sentence 0)
+        orig_sent_idx = i + 1  # +1 because body_sents starts at sentence[1]
+        if orig_sent_idx == 3 and len(sentences) >= 6:
+            html.append(f"<h2>{h2_mid}</h2>")
+        if orig_sent_idx == 6 and len(sentences) >= 9:
+            html.append(f"<h2>{h2_late}</h2>")
+        chunk = body_sents[i:i + 3]
+        html.append(f"<p>{' '.join(chunk)}</p>")
+        i += 3
+        para_index += 1
 
     # Other-source perspective (multi-source stories)
     others = [s for s in group[1:3] if s["description"] and s["description"][:80] != rep["description"][:80]]
@@ -457,7 +475,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 
 HEADER = """<header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
-<nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
+<nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
 <a href="/games/">Games</a><a href="/about.html">About</a><a href="/parent-zone/" class="pz-cta">Parent Zone</a></nav>
 </div></header>"""
 
@@ -748,6 +766,7 @@ jobs:
 # ── Sitemap ───────────────────────────────────────────────────────────────────
 STATIC_URLS = [
     "/", "/news/", "/parents/", "/fact-check/", "/games/",
+    "/search.html",
     "/news/galaxy-far-far-away.html",
     "/news/water-filter-invention.html",
     "/news/sea-turtles-comeback.html",
@@ -760,7 +779,7 @@ STATIC_URLS = [
     "/about.html", "/privacy.html", "/terms.html", "/contact.html",
     "/feed.xml", "/news/archive.html", "/news/today.html",
     "/news/science.html", "/news/world.html",
-    "/news/space.html", "/news/animals.html", "/news/history.html",
+    "/news/space.html", "/news/animals.html", "/news/history.html", "/news/environment.html",
     "/digest/latest.html",
     "/digest/weekly.html",
 ]
@@ -1172,7 +1191,8 @@ function updateDateHeaders() {{
 def generate_category_pages(manifest):
     articles = manifest.get("articles", [])
     _SPACE_KW    = {"space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope"}
-    _ANIMAL_KW   = {"animal", "species", "whale", "shark", "bird", "dog", "cat", "wildlife", "octopus", "insect", "turtle", "fish", "elephant", "bear", "wolf"}
+    _ANIMAL_KW   = {"animal", "animals", "species", "whale", "shark", "bird", "birds", "dog", "dogs", "cat", "cats", "wildlife", "octopus", "insect", "insects", "turtle", "turtles", "fish", "elephant", "elephants", "bear", "bears", "wolf", "wolves", "lion", "lions", "tiger", "tigers", "dolphin", "dolphins", "penguin", "penguins", "seal", "seals", "zoo", "habitat", "extinct", "endangered", "mammal", "reptile", "amphibian", "coral", "reef", "migration", "nest", "prey", "predator", "marine", "ocean life", "bee", "bees", "butterfly", "butterflies"}
+    _ENVIRONMENT_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation"}
     _HISTORY_KW  = {"ancient", "fossil", "dinosaur", "historical", "archaeolog", "million year", "prehistoric", "artifact", "ruin", "pyramid", "roman", "greek", "viking"}
 
     def _matches(a, kw_set):
@@ -1185,14 +1205,16 @@ def generate_category_pages(manifest):
         "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
         "animals": [a for a in articles if _matches(a, _ANIMAL_KW)],
         "history": [a for a in articles if _matches(a, _HISTORY_KW)],
+        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW)],
     }
-    cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History"}
+    cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment"}
     desc = {
         "science": "Space, animals, inventions, and discoveries — science stories for curious kids.",
         "world":   "What's happening around the world, explained for families.",
         "space":   "Rockets, planets, galaxies, and NASA discoveries — space news for kids.",
         "animals": "Wildlife, sea creatures, and amazing animals from around the world.",
         "history": "Fossils, ancient civilizations, and discoveries that unlock the past.",
+        "environment": "Climate, oceans, forests, and Earth's ecosystems — environment news for kids.",
     }
 
     for key, arts in cats.items():
@@ -1249,7 +1271,7 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 <body>
 <header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>news for families</small></a>
-<nav><a href="/news/today.html">Today</a><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/space.html">Space</a><a href="/news/animals.html">Animals</a><a href="/news/history.html">History</a><a href="/news/archive.html">Archive</a></nav>
+<nav><a href="/news/today.html">Today</a><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/space.html">Space</a><a href="/news/animals.html">Animals</a><a href="/news/history.html">History</a><a href="/news/environment.html">Environment</a><a href="/news/archive.html">Archive</a></nav>
 </div></header>
 <main>
 <h1 style="font-size:28px;margin-bottom:4px">{label} News</h1>
@@ -1263,7 +1285,7 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 </body></html>"""
 
         upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
-    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])} space={len(cats['space'])} animals={len(cats['animals'])} history={len(cats['history'])}")
+    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])} space={len(cats['space'])} animals={len(cats['animals'])} history={len(cats['history'])} environment={len(cats['environment'])}")
 
 
 # ── Today's news page ─────────────────────────────────────────────────────────
@@ -1544,6 +1566,133 @@ def generate_weekly_digest(manifest, today):
     print(f"  Weekly digest: {len(week_articles)} articles over 7 days")
 
 
+# ── Search page ──────────────────────────────────────────────────────────────
+def generate_search_page(manifest):
+    """Generate /search.html — full-page search interface fetching /data/kd-articles.json."""
+    articles = manifest.get("articles", [])
+    total = len(articles)
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Search — KiddieDaily</title>
+<meta name="description" content="Search all KiddieDaily news articles — kid-friendly, bias-rated, fact-checked.">
+<link rel="canonical" href="https://kiddiedaily.com/search.html">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
+<style>
+#kd-search-input{{
+  display:block;width:100%;box-sizing:border-box;
+  font-size:22px;padding:14px 18px;
+  border:2px solid #1a4d80;border-radius:10px;
+  font-family:system-ui,sans-serif;color:#1a1a1a;
+  background:#fff;margin-bottom:8px;
+  box-shadow:0 2px 8px rgba(26,77,128,.10);
+  outline:none;
+}}
+#kd-search-input:focus{{border-color:#ffd700;box-shadow:0 2px 12px rgba(26,77,128,.18)}}
+#kd-result-count{{font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 20px;min-height:20px}}
+.kd-sr{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:8px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
+.kd-sr-top{{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}}
+.kd-sr h3{{margin:4px 0 4px;font-size:1em;line-height:1.35}}
+.kd-sr h3 a{{color:#1a4d80;text-decoration:none}}
+.kd-sr h3 a:hover{{text-decoration:underline}}
+.kd-sr-meta{{font-size:12px;color:#a0aec0;margin-top:4px;font-family:system-ui,sans-serif}}
+.kd-badge{{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}}
+.kd-badge-sci{{background:#d1fae5;color:#065f46}}
+.kd-badge-news{{background:#dbeafe;color:#1e40af}}
+#kd-no-results{{display:none;text-align:center;color:#718096;font-family:system-ui,sans-serif;padding:40px 0;font-size:15px}}
+</style>
+</head>
+<body>
+{{HEADER}}
+<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<h1 style="font-size:28px;margin:0 0 20px">Search KiddieDaily</h1>
+<input
+  id="kd-search-input"
+  type="search"
+  placeholder="Search {total} articles..."
+  aria-label="Search articles"
+  autofocus
+  autocomplete="off"
+  spellcheck="false"
+>
+<p id="kd-result-count"></p>
+<div id="kd-results"></div>
+<div id="kd-no-results">No articles matched your search.</div>
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
+  <a href="/news/archive.html" style="color:#1a4d80">Full archive</a> &middot;
+  <a href="/news/" style="color:#1a4d80">Kid News</a> &middot;
+  <a href="/feed.xml" style="color:#1a4d80">RSS</a>
+</p>
+</main>
+{{FOOTER}}
+<script>
+(function(){{
+  var container = document.getElementById('kd-results');
+  var countEl   = document.getElementById('kd-result-count');
+  var noResults = document.getElementById('kd-no-results');
+  var input     = document.getElementById('kd-search-input');
+  var allArticles = [];
+
+  function renderResults(articles, query) {{
+    if (!articles.length) {{
+      container.innerHTML = '';
+      noResults.style.display = query ? 'block' : 'none';
+      countEl.textContent = query ? '' : '';
+      return;
+    }}
+    noResults.style.display = 'none';
+    if (query) {{
+      countEl.textContent = articles.length + ' result' + (articles.length === 1 ? '' : 's') + " for '" + query + "'";
+    }} else {{
+      countEl.textContent = articles.length + ' article' + (articles.length === 1 ? '' : 's') + ', newest first';
+    }}
+    container.innerHTML = articles.map(function(a) {{
+      var badgeCls  = a.is_science ? 'kd-badge-sci' : 'kd-badge-news';
+      var badgeLbl  = a.is_science ? 'Science' : 'World News';
+      var src_word  = a.n_sources === 1 ? '1 source' : a.n_sources + ' sources';
+      return '<div class="kd-sr">'
+        + '<div class="kd-sr-top">'
+        + '<span class="kd-badge ' + badgeCls + '">' + badgeLbl + '</span>'
+        + '</div>'
+        + '<h3><a href="/' + a.slug + '">' + a.title + '</a></h3>'
+        + '<div class="kd-sr-meta">' + a.date + ' &middot; ' + src_word + '</div>'
+        + '</div>';
+    }}).join('');
+  }}
+
+  function filterAndRender() {{
+    var q = input.value.trim().toLowerCase();
+    var filtered = q
+      ? allArticles.filter(function(a) {{ return a.title.toLowerCase().indexOf(q) !== -1; }})
+      : allArticles;
+    renderResults(filtered, q);
+  }}
+
+  fetch('/data/kd-articles.json')
+    .then(function(r) {{ return r.json(); }})
+    .then(function(data) {{
+      allArticles = data.sort(function(a, b) {{ return b.date < a.date ? -1 : b.date > a.date ? 1 : 0; }});
+      // Update placeholder with live count
+      input.placeholder = 'Search ' + allArticles.length + ' articles...';
+      renderResults(allArticles, '');
+    }})
+    .catch(function() {{
+      countEl.textContent = 'Could not load articles. Try refreshing.';
+    }});
+
+  input.addEventListener('input', filterAndRender);
+}})();
+</script>
+</body></html>"""
+
+    # Substitute HEADER and FOOTER (they contain braces so we inject after f-string render)
+    page = page.replace('{HEADER}', HEADER).replace('{FOOTER}', FOOTER)
+    upload("search.html", page, f"[scraper] Search page — {total} articles indexed")
+    print(f"  Search page: {total} articles indexed")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -1682,6 +1831,10 @@ def main():
     # 6k2. Generate weekly digest page
     print(f"\n[6k2] Generating weekly digest...")
     generate_weekly_digest(manifest, today)
+
+    # 6k3. Generate search page
+    print(f"\n[6k3] Generating search page...")
+    generate_search_page(manifest)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
