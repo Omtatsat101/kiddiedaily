@@ -556,7 +556,15 @@
     "news/2026-06-29-the-holy-grail-of-arthurian-manuscripts-is-for-auc.html",
     "news/2026-06-29-omaha-24-hours-in-normandy-the-longest-day-unearth.html",
     "news/2026-06-29-rise-of-augustus-the-architect-of-romes-empire.html",
-    "news/2026-06-29-how-tuchel-is-still-searching-for-solutions-out-wi.html"
+    "news/2026-06-29-how-tuchel-is-still-searching-for-solutions-out-wi.html",
+    "news/2026-06-29-unusual-platform-and-monolith-found-in-eastern-mex.html",
+    "news/2026-06-29-imperial-era-villa-excavated-near-rome.html",
+    "news/2026-06-29-parthenons-western-facade-restored.html",
+    "news/2026-06-29-lost-writings-of-saint-augustine-found-in-medieval.html",
+    "news/2026-06-29-the-father-of-parliament-or-a-ruthless-rebel-the-b.html",
+    "news/2026-06-29-beyond-the-rubble-preserving-benghazis-heritage-an.html",
+    "news/2026-06-29-fort-laramie-americas-road-west-an-oasis-a-bastion.html",
+    "news/2026-06-29-how-roman-taxes-became-medieval-military-service.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1115,7 +1123,15 @@
     "The Holy Grail of Arthurian Manuscripts is for auction at Christie’s",
     "Omaha: 24 Hours in Normandy – The Longest Day Unearthed",
     "Rise of Augustus: The Architect of Rome’s Empire",
-    "How Tuchel is still searching for solutions out wide"
+    "How Tuchel is still searching for solutions out wide",
+    "Unusual Platform and Monolith Found in Eastern Mexico",
+    "Imperial-Era Villa Excavated Near Rome",
+    "Parthenon’s Western Facade Restored",
+    "Lost Writings of Saint Augustine Found in Medieval Manuscript",
+    "The Father of Parliament or a Ruthless Rebel? The Bloody Legacy of Simon de Montfort",
+    "Beyond the Rubble: Preserving Benghazi’s Heritage and Identity",
+    "Fort Laramie: America’s Road West – An Oasis, a Bastion, and a Battlefield",
+    "How Roman Taxes Became Medieval Military Service"
   ],
   "articles": [
     {
@@ -7363,6 +7379,102 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-unusual-platform-and-monolith-found-in-eastern-mex.html",
+      "title": "Unusual Platform and Monolith Found in Eastern Mexico",
+      "display_title": "Unusual Platform and Monolith Found in Eastern Mexico",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-imperial-era-villa-excavated-near-rome.html",
+      "title": "Imperial-Era Villa Excavated Near Rome",
+      "display_title": "Imperial-Era Villa Excavated Near Rome",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-parthenons-western-facade-restored.html",
+      "title": "Parthenon’s Western Facade Restored",
+      "display_title": "Parthenon’s Western Facade Restored",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-lost-writings-of-saint-augustine-found-in-medieval.html",
+      "title": "Lost Writings of Saint Augustine Found in Medieval Manuscript",
+      "display_title": "Lost Writings of Saint Augustine Found in Medieval Manuscript",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-the-father-of-parliament-or-a-ruthless-rebel-the-b.html",
+      "title": "The Father of Parliament or a Ruthless Rebel? The Bloody Legacy of Simon de Montfort",
+      "display_title": "The Father of Parliament or a Ruthless Rebel? The Bloody Legacy of Simon de Montfort",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-beyond-the-rubble-preserving-benghazis-heritage-an.html",
+      "title": "Beyond the Rubble: Preserving Benghazi’s Heritage and Identity",
+      "display_title": "Beyond the Rubble: Preserving Benghazi’s Heritage and Identity",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-fort-laramie-americas-road-west-an-oasis-a-bastion.html",
+      "title": "Fort Laramie: America’s Road West – An Oasis, a Bastion, and a Battlefield",
+      "display_title": "Fort Laramie: America’s Road West – An Oasis, a Bastion, and a Battlefield",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-how-roman-taxes-became-medieval-military-service.html",
+      "title": "How Roman Taxes Became Medieval Military Service",
+      "display_title": "How Roman Taxes Became Medieval Military Service",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
     }
   ]
 }
