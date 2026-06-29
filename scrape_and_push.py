@@ -981,7 +981,18 @@ def build_scraped_cards(articles):
             + f'</div>'
         )
     inner = "\n".join(cards)
-    return f"{SCRAPED_START}\n{KD_CARD_CSS}\n<h2 class=\"kd-today-hdr\">Today&#39;s news</h2>\n{inner}\n{SCRAPED_END}"
+    cat_nav = (
+        '<div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px">'
+        '<a href="/news/science.html" style="background:#d1fae5;color:#065f46;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🔬 Science</a>'
+        '<a href="/news/technology.html" style="background:#e0e7ff;color:#3730a3;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">💻 Technology</a>'
+        '<a href="/news/space.html" style="background:#ede9fe;color:#5b21b6;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🚀 Space</a>'
+        '<a href="/news/animals.html" style="background:#fef3c7;color:#92400e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🐾 Animals</a>'
+        '<a href="/news/world.html" style="background:#dbeafe;color:#1e40af;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🌍 World</a>'
+        '<a href="/news/environment.html" style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🌿 Environment</a>'
+        '<a href="/news/history.html" style="background:#fce7f3;color:#9d174d;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🏛 History</a>'
+        '</div>'
+    )
+    return f"{SCRAPED_START}\n{KD_CARD_CSS}\n<h2 class=\"kd-today-hdr\">Today&#39;s news</h2>\n{cat_nav}\n{inner}\n{SCRAPED_END}"
 
 def update_news_index(manifest):
     articles = manifest.get("articles", [])
@@ -1331,8 +1342,11 @@ def update_homepage(manifest):
         + "\n".join(cards) +
         f'\n<p style="text-align:right;font-size:13px;margin-top:4px">'
         f'<a href="/news/today.html">Today</a> &middot; '
-        f'<a href="/news/">All news</a> &middot; '
         f'<a href="/news/science.html">Science</a> &middot; '
+        f'<a href="/news/technology.html">Technology</a> &middot; '
+        f'<a href="/news/space.html">Space</a> &middot; '
+        f'<a href="/news/animals.html">Animals</a> &middot; '
+        f'<a href="/news/world.html">World</a> &middot; '
         f'<a href="/news/archive.html">Archive</a> &middot; '
         f'<a href="/digest/latest.html">Daily digest</a></p>\n'
         + trending_html +
