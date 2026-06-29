@@ -715,7 +715,14 @@
     "news/2026-06-29-human-rights-abuse-allegations-continue-to-rise-in.html",
     "news/2026-06-29-hegseth-announces-new-defense-policy-board-after-c.html",
     "news/2026-06-29-south-korean-tech-giants-will-invest-518-billion-i.html",
-    "news/2026-06-29-about-3-million-people-have-dropped-obamacare-heal.html"
+    "news/2026-06-29-about-3-million-people-have-dropped-obamacare-heal.html",
+    "news/2026-06-29-a-discovery-about-this-bats-diet-was-hiding-in-a-r.html",
+    "news/2026-06-29-a-whopping-14-million-species-of-insects-or-more-m.html",
+    "news/2026-06-29-starseeker-astroneer-expeditions-takes-space-explo.html",
+    "news/2026-06-29-quantum-computing-startup-says-it-will-leapfrog-ev.html",
+    "news/2026-06-29-in-pursuit-of-happiness-with-judy-woodruff.html",
+    "news/2026-06-29-they-are-hoping-beyond-hope-rescue-efforts-continu.html",
+    "news/2026-06-29-whatsapp-to-let-people-chat-without-swapping-phone.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1433,7 +1440,14 @@
     "Human rights abuse allegations continue to rise in the mining sector, report finds",
     "Hegseth announces new Defense Policy Board after clearing out previous panel",
     "South Korean tech giants will invest $518 billion in chip plants to serve soaring AI demand",
-    "About 3 million people have dropped Obamacare health coverage after subsidies expire and costs rise"
+    "About 3 million people have dropped Obamacare health coverage after subsidies expire and costs rise",
+    "A discovery about this bat’s diet was hiding in a Renaissance painting",
+    "A whopping 14 million species of insects — or more — may roam Earth",
+    "'Starseeker: Astroneer Expeditions' takes space exploration in a different (and friendlier) direction, and we chatted with System Era's creative director about it (interview)",
+    "Quantum computing startup says it will leapfrog everybody",
+    "In Pursuit of Happiness with Judy Woodruff",
+    "'They are hoping beyond hope': Rescue efforts continue at collapsed La Guaira building",
+    "WhatsApp to let people chat without swapping phone numbers"
   ],
   "articles": [
     {
@@ -9609,6 +9623,97 @@
       "source_name": "PBS NewsHour",
       "source_icons": "📺",
       "description": "The Department of Health and Human Services suggests the 13% drop is due to a federal crackdown on fraudulent enrollmentut, but health analysts believe it's more likely related to the Jan. 1 expiratio"
+    },
+    {
+      "slug": "news/2026-06-29-a-discovery-about-this-bats-diet-was-hiding-in-a-r.html",
+      "title": "A discovery about this bat’s diet was hiding in a Renaissance painting",
+      "display_title": "A discovery about this bat’s diet was hiding in a Renaissance painting",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_name": "Science News",
+      "source_icons": "📡 🔵",
+      "description": "Renaissance painter Jan Brueghel the Elder painted a bat eating a bird — 400 years before scientists would document the behavior."
+    },
+    {
+      "slug": "news/2026-06-29-a-whopping-14-million-species-of-insects-or-more-m.html",
+      "title": "A whopping 14 million species of insects — or more — may roam Earth",
+      "display_title": "A whopping 14 million species of insects — or more — may roam Earth",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_name": "Science News",
+      "source_icons": "📡 💡",
+      "description": "New calculations suggest that the insect species inhabiting our planet may be double or triple previous estimates."
+    },
+    {
+      "slug": "news/2026-06-29-starseeker-astroneer-expeditions-takes-space-explo.html",
+      "title": "'Starseeker: Astroneer Expeditions' takes space exploration in a different (and friendlier) direction, and we chatted with System Era's creative director about it (interview)",
+      "display_title": "'Starseeker: Astroneer Expeditions' takes space exploration in a different (and friendlier) direction, and we chatted with System Era's creative director about it (interview)",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Space.com",
+      "source_icons": "🌌",
+      "description": "The follow-up to Astroneer isn't what veteran space explorers expected, but it might be exactly what we need."
+    },
+    {
+      "slug": "news/2026-06-29-quantum-computing-startup-says-it-will-leapfrog-ev.html",
+      "title": "Quantum computing startup says it will leapfrog everybody",
+      "display_title": "Quantum computing startup says it will leapfrog everybody",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Ars Technica Science",
+      "source_icons": "🔭",
+      "description": "But the system would require a massive leap from any of its existing hardware."
+    },
+    {
+      "slug": "news/2026-06-29-in-pursuit-of-happiness-with-judy-woodruff.html",
+      "title": "In Pursuit of Happiness with Judy Woodruff",
+      "display_title": "In Pursuit of Happiness with Judy Woodruff",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "PBS NewsHour",
+      "source_icons": "📺",
+      "description": "Join PBS News' Judy Woodruff on a limited six-episode journey this summer as our nation celebrates its 250th anniversary. She'll explore the stories behind the milestones of American history and look "
+    },
+    {
+      "slug": "news/2026-06-29-they-are-hoping-beyond-hope-rescue-efforts-continu.html",
+      "title": "'They are hoping beyond hope': Rescue efforts continue at collapsed La Guaira building",
+      "display_title": "'They are hoping beyond hope': Rescue efforts continue at collapsed La Guaira building",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧",
+      "description": "The BBC's Will Grant reports on the efforts to dig out survivors in the port city of Catia la Mer."
+    },
+    {
+      "slug": "news/2026-06-29-whatsapp-to-let-people-chat-without-swapping-phone.html",
+      "title": "WhatsApp to let people chat without swapping phone numbers",
+      "display_title": "WhatsApp to let people chat without swapping phone numbers",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧",
+      "description": "The app's new usernames feature will be rolled out globally over the next few months."
     }
   ]
 }
