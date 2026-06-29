@@ -1623,7 +1623,7 @@ def update_homepage(manifest):
             f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
             f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
             f'<span class="kd-bias-text">{bias_lbl}</span></div>'
-            f'<div class="kd-sc-date">{date}</div>'
+            f'<div class="kd-sc-date">{__import__("datetime").datetime.strptime(date, "%Y-%m-%d").strftime("%b %d, %Y").replace(" 0", " ") if date else ""}</div>'
             f'</div>'
         )
 
@@ -2612,10 +2612,14 @@ def generate_daily_digest(manifest, today):
     var bias = typeof a.bias_avg === 'number' ? a.bias_avg : 0;
     var sign = bias >= 0 ? '+' : '';
     var desc = a.description ? '<p style="font-size:13px;color:#4a5568;margin:4px 0 0;line-height:1.5">' + a.description.slice(0,130) + (a.description.length > 130 ? '…' : '') + '</p>' : '';
+    var cats=(a.cats||[]).filter(function(c){{return c!=='science'&&c!=='world';}});
+    var catTags=cats.slice(0,2).map(function(c){{return '<span style="font-size:9px;background:#e0e7ff;color:#3730a3;padding:1px 5px;border-radius:20px;font-weight:600;margin-right:4px">'+c+'</span>';}}).join('');
+    var mainBadge='<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-right:6px;'+(a.is_science?'background:#d1fae5;color:#065f46':'background:#dbeafe;color:#1e40af')+'">'+(a.is_science?'Science':'World News')+'</span>';
     return '<div class="dig-card ' + cls + '">'
+      + '<div style="margin-bottom:5px">'+mainBadge+catTags+'</div>'
       + '<h3><a href="/' + a.slug + '">' + (a.display_title || a.title) + '</a></h3>'
       + desc
-      + '<p class="dig-meta">' + (a.is_science ? 'Science' : 'World News') + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + biasLabel(bias) + ' (' + sign + bias.toFixed(1) + ')</p>'
+      + '<p class="dig-meta">' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + biasLabel(bias) + ' (' + sign + bias.toFixed(1) + ')</p>'
       + '</div>';
   }}
 
@@ -2807,7 +2811,11 @@ def generate_weekly_digest(manifest, today):
     var bLabel = biasLabel(bias);
     var sign = bias >= 0 ? '+' : '';
     var desc = a.description ? '<p style="font-size:13px;color:#4a5568;margin:4px 0 0;line-height:1.5">' + a.description.slice(0,130) + (a.description.length > 130 ? '…' : '') + '</p>' : '';
+    var cats=(a.cats||[]).filter(function(c){{return c!=='science'&&c!=='world';}});
+    var catTags=cats.slice(0,2).map(function(c){{return '<span style="font-size:9px;background:#e0e7ff;color:#3730a3;padding:1px 5px;border-radius:20px;font-weight:600;margin-right:4px">'+c+'</span>';}}).join('');
+    var mainBadge='<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-right:6px;'+(a.is_science?'background:#d1fae5;color:#065f46':'background:#dbeafe;color:#1e40af')+'">'+(a.is_science?'Science':'World News')+'</span>';
     return '<div class="wk-card ' + cls + '">'
+      + '<div style="margin-bottom:5px">'+mainBadge+catTags+'</div>'
       + '<h3><a href="/' + a.slug + '">' + (a.display_title || a.title) + '</a></h3>'
       + desc
       + '<p class="wk-meta">' + fmtDate(a.date) + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + bLabel + ' (' + sign + bias.toFixed(1) + ')</p>'
