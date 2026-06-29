@@ -804,6 +804,8 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 @media(max-width:640px){.kd-ham{display:flex;align-items:center;margin-left:auto;order:2}header.kd nav{display:none;order:3;width:100%;flex-direction:column;gap:0;padding:6px 0 8px;justify-content:flex-start}header.kd nav.open{display:flex}header.kd nav a{padding:12px 0;font-size:16px;border-top:1px solid rgba(255,255,255,.12);min-height:44px;display:flex;align-items:center}.pz-cta{width:fit-content}main{padding:20px 16px 48px}}
 #kd-prog{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#1a4d80,#38b2ac);z-index:9999;transition:width .08s linear;pointer-events:none}
 @media(prefers-color-scheme:dark){html{background:#0f1117;color:#e2e8f0}header.kd{background:#0d2d54}a{color:#90cdf4}.byline,.kd-card-excerpt,.kd-bias-text{color:#a0aec0}.sources{background:#1a202c;border-left-color:#4a5568}footer.kd{background:#070c14}.kd-sc{background:#1a202c;border-color:#2d3748}.kd-sc h3 a{color:#90cdf4}h2{color:#a0c4ff;border-color:#2d3748}#search,#cat-search,#today-search{background:#1a202c;color:#e2e8f0;border-color:#4a5568}main{background:#0f1117}}
+@media print{header.kd,footer.kd,#kd-prog,.kd-skip,button,.kd-ham{display:none!important}main{max-width:100%!important;padding:0!important;margin:0!important}a{color:#000!important}h1,h2,h3{break-after:avoid}p{orphans:3;widows:3}.sources{border:1px solid #000;background:none!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 ''' + BIAS_CSS + "</style>"
 
 HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
@@ -2550,7 +2552,7 @@ def generate_for_parents_page(manifest, today):
 </style>
 </head><body>
 {HEADER}
-<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 4px">For Parents</h1>
 <p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 20px">
 Your daily briefing — {today} &middot; Balanced sources &middot; No spin &middot; Made for families
@@ -2636,7 +2638,7 @@ def generate_subscribe_page(manifest, today):
 </style>
 </head><body>
 {HEADER}
-<main style="max-width:720px;margin:0 auto;padding:32px 24px 64px">
+<main id="main" style="max-width:720px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 6px">Stay Updated</h1>
 <p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 24px">
 KiddieDaily publishes fresh kid-safe, bias-rated news every morning at <strong>6am ET</strong>. Here&#39;s how to get it.
@@ -2753,7 +2755,7 @@ def generate_static_info_pages(manifest, today):
 {CSS}
 </head><body>
 {HEADER}
-<main style="max-width:720px;margin:0 auto;padding:32px 24px 64px;font-family:system-ui,sans-serif;line-height:1.65;color:#2d3748">
+<main id="main" style="max-width:720px;margin:0 auto;padding:32px 24px 64px;font-family:system-ui,sans-serif;line-height:1.65;color:#2d3748">
 <h1 style="font-size:26px;margin:0 0 20px">{h1}</h1>
 {body_inner}
 </main>
@@ -2925,7 +2927,7 @@ def generate_fact_check_page(manifest):
 </style>
 </head><body>
 {HEADER}
-<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 6px">Fact Check &amp; Media Literacy</h1>
 <p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 24px">
 Helping families read the news with open eyes — no agenda, no spin.
@@ -3100,7 +3102,7 @@ def generate_games_page(manifest):
 </style>
 </head><body>
 {HEADER}
-<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 6px">Games &amp; Activities</h1>
 <p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 24px">
 Learn to read news like a pro — because critical thinking is a superpower.
@@ -3244,7 +3246,7 @@ def generate_search_page(manifest):
 </head>
 <body>
 {{HEADER}}
-<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 16px">Search KiddieDaily</h1>
 <div class="kd-cat-filters">
   <button class="kd-cat-btn active" data-cat="all" onclick="setCat(this,'all')">All</button>
@@ -3400,7 +3402,7 @@ main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
     <a href="/parent-zone/">Parents</a>
   </nav>
 </div></header>
-<main>
+<main id="main">
   <h1 style="font-size:28px;margin:0 0 4px">Automation Status</h1>
   <p style="color:#718096;margin:0 0 24px;font-size:14px">KiddieDaily runs automatically every morning at 6am ET via GitHub Actions.</p>
 
