@@ -95,7 +95,12 @@
     "news/2026-06-29-rise-in-cancer-in-younger-adults-may-be-explained.html",
     "news/2026-06-29-bullseye-enormous-bow-and-arrow-galaxy-is-unlike-a.html",
     "news/2026-06-29-why-does-metal-stick-together-in-space.html",
-    "news/2026-06-29-climate-change-is-driving-capuchin-monkey-mothers.html"
+    "news/2026-06-29-climate-change-is-driving-capuchin-monkey-mothers.html",
+    "news/2026-06-29-the-romans-were-probably-never-going-to-go-away-in.html",
+    "news/2026-06-29-science-news-this-week-life-on-mars-weird-water-an.html",
+    "news/2026-06-29-ai-images-are-more-convincing-than-ever-infiltrati.html",
+    "news/2026-06-29-how-did-the-romans-build-such-straight-roads.html",
+    "news/2026-06-29-it-sounds-so-impossible-student-studying-fungus-th.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -193,7 +198,12 @@
     "Rise in cancer in younger adults may be explained by faster 'biological aging,' early study hints",
     "Bullseye! Enormous 'bow and arrow' galaxy is unlike anything radio astronomers have ever seen — Space photo of the week",
     "Why does metal stick together in space?",
-    "Climate change is driving capuchin monkey mothers to abandon their infants"
+    "Climate change is driving capuchin monkey mothers to abandon their infants",
+    "'The Romans were probably never going to go away': In new 'Almost History' podcast, listen to how history might have played out if Carthage had defeated the Roman Republic",
+    "Science news this week: Life on Mars, weird water and a curious human cousin",
+    "AI images are more convincing than ever — infiltrating journals and undermining trust in science",
+    "How did the Romans build such straight roads?",
+    "'It sounds so impossible': Student studying fungus that makes users hallucinate tiny people may be on the verge of a scientific breakthrough"
   ],
   "articles": [
     {
@@ -1233,6 +1243,61 @@
       "slug": "news/2026-06-29-climate-change-is-driving-capuchin-monkey-mothers.html",
       "title": "Climate change is driving capuchin monkey mothers to abandon their infants",
       "display_title": "Climate change is driving capuchin monkey mothers to abandon their infants",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-the-romans-were-probably-never-going-to-go-away-in.html",
+      "title": "'The Romans were probably never going to go away': In new 'Almost History' podcast, listen to how history might have played out if Carthage had defeated the Roman Republic",
+      "display_title": "'The Romans were probably never going to go away': In new 'Almost History' podcast, listen to how history might have played out if Carthage had defeated the Roman Republic",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-science-news-this-week-life-on-mars-weird-water-an.html",
+      "title": "Science news this week: Life on Mars, weird water and a curious human cousin",
+      "display_title": "Science news this week: Life on Mars, weird water and a curious human cousin",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-ai-images-are-more-convincing-than-ever-infiltrati.html",
+      "title": "AI images are more convincing than ever — infiltrating journals and undermining trust in science",
+      "display_title": "AI images are more convincing than ever — infiltrating journals and undermining trust in science",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-how-did-the-romans-build-such-straight-roads.html",
+      "title": "How did the Romans build such straight roads?",
+      "display_title": "How did the Romans build such straight roads?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-it-sounds-so-impossible-student-studying-fungus-th.html",
+      "title": "'It sounds so impossible': Student studying fungus that makes users hallucinate tiny people may be on the verge of a scientific breakthrough",
+      "display_title": "'It sounds so impossible': Student studying fungus that makes users hallucinate tiny people may be on the verge of a scientific breakthrough",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
