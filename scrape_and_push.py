@@ -116,6 +116,11 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bsave\s+america\s+act\b'               # specific US partisan legislation
     r'|\b(?:doge|department\s+of\s+government\s+efficiency)\b' # US partisan agency
     r'|\bconcedes?\s+(?:save|big|beautiful)\s+america\b' # specific bill negotiation
+    r'|\b(?:indicted?|indictment)\b'           # criminal indictment news
+    r'|\bfraud\s+(?:allegations?|charges?|case)\b' # financial fraud proceedings
+    r'|\b(?:gambling|bribery|extortion)\s+(?:scheme|ring|case|scandal|charges?|indictment)\b' # crime
+    r'|\bmortgage\s+fraud\b'                   # mortgage fraud coverage
+    r'|\bcriminal\s+(?:charges?|allegations?|conspiracy)\b' # criminal proceedings
     r')',
     re.I
 )
@@ -491,6 +496,10 @@ DEPRIORITIZE_WORDS = [
     "anti-corruption crackdown", "crackdown in iraq", "corruption case",
     "temporary protected status", "tps program", "protected status",
     "concedes save", "concedes bill", "spending bill", "budget bill vote",
+    # International political policy (adult governance topics)
+    "devolution plan", "devolution deal", "austerity package", "fiscal plan",
+    "renews allegations", "fraud allegations", "corruption allegations",
+    "mortgage fraud", "gambling ring", "criminal ring",
     # Court/criminal proceedings scoring (backup to hard-reject)
     "judge delays", "murder trial", "sentencing delayed", "awaiting sentencing",
     "verdict reached", "jury finds", "testifies that",
