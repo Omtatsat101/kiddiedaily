@@ -100,7 +100,12 @@
     "news/2026-06-29-science-news-this-week-life-on-mars-weird-water-an.html",
     "news/2026-06-29-ai-images-are-more-convincing-than-ever-infiltrati.html",
     "news/2026-06-29-how-did-the-romans-build-such-straight-roads.html",
-    "news/2026-06-29-it-sounds-so-impossible-student-studying-fungus-th.html"
+    "news/2026-06-29-it-sounds-so-impossible-student-studying-fungus-th.html",
+    "news/2026-06-29-ancient-empires-quiz-can-you-match-these-lands-to.html",
+    "news/2026-06-29-chinas-top-secret-dragon-space-plane-just-released.html",
+    "news/2026-06-29-ai-companies-dont-want-to-be-legally-responsible-f.html",
+    "news/2026-06-29-scientists-infected-a-vagina-on-a-chip-with-gonorr.html",
+    "news/2026-06-29-early-homo-sapiens-may-have-lived-in-rainforests-n.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -203,7 +208,12 @@
     "Science news this week: Life on Mars, weird water and a curious human cousin",
     "AI images are more convincing than ever — infiltrating journals and undermining trust in science",
     "How did the Romans build such straight roads?",
-    "'It sounds so impossible': Student studying fungus that makes users hallucinate tiny people may be on the verge of a scientific breakthrough"
+    "'It sounds so impossible': Student studying fungus that makes users hallucinate tiny people may be on the verge of a scientific breakthrough",
+    "Ancient empires quiz: Can you match these lands to the historical powers that ruled them?",
+    "China's top-secret 'dragon' space plane just released another unidentified object over Earth",
+    "AI companies don't want to be legally responsible for their chatbots. US courts should make them.",
+    "Scientists infected a 'vagina on a chip' with gonorrhea — then cured it with a new antibiotic found by AI",
+    "Early Homo sapiens may have lived in rainforests, new clues suggest — and it could overturn our understanding of human evolution"
   ],
   "articles": [
     {
@@ -1298,6 +1308,61 @@
       "slug": "news/2026-06-29-it-sounds-so-impossible-student-studying-fungus-th.html",
       "title": "'It sounds so impossible': Student studying fungus that makes users hallucinate tiny people may be on the verge of a scientific breakthrough",
       "display_title": "'It sounds so impossible': Student studying fungus that makes users hallucinate tiny people may be on the verge of a scientific breakthrough",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-ancient-empires-quiz-can-you-match-these-lands-to.html",
+      "title": "Ancient empires quiz: Can you match these lands to the historical powers that ruled them?",
+      "display_title": "Ancient empires quiz: Can you match these lands to the historical powers that ruled them?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-chinas-top-secret-dragon-space-plane-just-released.html",
+      "title": "China's top-secret 'dragon' space plane just released another unidentified object over Earth",
+      "display_title": "China's top-secret 'dragon' space plane just released another unidentified object over Earth",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-ai-companies-dont-want-to-be-legally-responsible-f.html",
+      "title": "AI companies don't want to be legally responsible for their chatbots. US courts should make them.",
+      "display_title": "AI companies don't want to be legally responsible for their chatbots. US courts should make them.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-scientists-infected-a-vagina-on-a-chip-with-gonorr.html",
+      "title": "Scientists infected a 'vagina on a chip' with gonorrhea — then cured it with a new antibiotic found by AI",
+      "display_title": "Scientists infected a 'vagina on a chip' with gonorrhea — then cured it with a new antibiotic found by AI",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-early-homo-sapiens-may-have-lived-in-rainforests-n.html",
+      "title": "Early Homo sapiens may have lived in rainforests, new clues suggest — and it could overturn our understanding of human evolution",
+      "display_title": "Early Homo sapiens may have lived in rainforests, new clues suggest — and it could overturn our understanding of human evolution",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
