@@ -195,7 +195,7 @@ SOURCES = [
     {"name": "Mongabay",      "url": "https://news.mongabay.com/feed/",                        "bias": -0.1, "icon": "🦁"},
     {"name": "JSTOR Daily",   "url": "https://daily.jstor.org/feed/",                          "bias": -0.1, "icon": "📚"},
     {"name": "NASA Earth",    "url": "https://earthobservatory.nasa.gov/feeds/earth-observatory.rss", "bias": 0.0, "icon": "🌍"},
-    {"name": "Yale E360",     "url": "https://e360.yale.edu/feeds/latest",                            "bias": -0.2, "icon": "🌿"},
+    {"name": "Guardian Env",  "url": "https://www.theguardian.com/environment/rss",                    "bias": -0.7, "icon": "🌿"},
     {"name": "MIT Tech Review","url": "https://www.technologyreview.com/feed/",                        "bias": -0.1, "icon": "💻"},
 ]
 
@@ -304,7 +304,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "Yale E360", "MIT Tech Review"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "Guardian Env", "MIT Tech Review"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -1737,7 +1737,7 @@ def generate_category_pages(manifest):
         "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
         "animals": [a for a in articles if _matches(a, _ANIMAL_KW) or a.get("source_name") == "Mongabay"],
         "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") == "JSTOR Daily"],
-        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Yale E360"}],
+        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Guardian Env"}],
         "technology":  [a for a in articles if _matches(a, _TECH_KW) or a.get("source_name") == "MIT Tech Review"],
     }
     cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment", "technology": "Technology"}
