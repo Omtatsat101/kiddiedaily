@@ -37,8 +37,8 @@ def _load_token(env_var, prefix):
 GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
-MAX_ARTICLES          = 8   # max new articles per run
-MAX_SCI_PER_RUN       = 5   # max science articles per run (remaining slots go to world)
+MAX_ARTICLES          = 9   # max new articles per run (6 sci + 3 world)
+MAX_SCI_PER_RUN       = 6   # max science articles per run (bumped with 22 sources)
 MAX_WORLD_PER_RUN     = 3   # max world-news articles per run
 MAX_PER_SOURCE_PER_RUN= 2   # max articles from any single source per run (prevents domination)
 MAX_SPORTS_TOURNAMENT_PER_RUN = 1   # cap for any single major live tournament (World Cup, Wimbledon, Olympics…)
@@ -191,7 +191,7 @@ SOURCES = [
     {"name": "Popular Science","url": "https://www.popsci.com/feed/",                          "bias":  0.0, "icon": "💡"},
     {"name": "Space.com",     "url": "https://www.space.com/feeds/all",                        "bias":  0.0, "icon": "🌌"},
     # Additional sources for underrepresented categories (history, environment, animals)
-    {"name": "Scientific American", "url": "https://rss.scientificamerican.com/scientific-american/all", "bias": -0.1, "icon": "🔭"},
+    {"name": "Ars Technica Science", "url": "https://feeds.arstechnica.com/arstechnica/science", "bias": -0.2, "icon": "🔭"},
     {"name": "Mongabay",      "url": "https://news.mongabay.com/feed/",                        "bias": -0.1, "icon": "🦁"},
     {"name": "JSTOR Daily",   "url": "https://daily.jstor.org/feed/",                          "bias": -0.1, "icon": "📚"},
     {"name": "NASA Earth",    "url": "https://earthobservatory.nasa.gov/feeds/earth-observatory.rss", "bias": 0.0, "icon": "🌍"},
@@ -302,7 +302,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Scientific American", "Mongabay", "JSTOR Daily", "NASA Earth"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -342,6 +342,11 @@ DEPRIORITIZE_WORDS = [
     # Personal essays / creative writing / opinion (not factual science/world news)
     "my sci-fi novel", "sci-fi novel", "my novel", "i started my", "why i wrote",
     "when i was", "my journey", "my experience with", "opinion:", "essay:",
+    # Fear-mongering / alarmist framing (climate content is fine; panic headlines are not)
+    "you should be terrified", "aren't terrified", "should be scared", "be very afraid",
+    "doomsday", "apocalypse", "end of the world",
+    # Sports lifestyle / how-to (not news, not educational science)
+    "got the tennis bug", "got the cycling bug", "got the football bug", "how to play sport",
     # Sports predictions/analysis (journalist opinion, not factual news)
     "predicts world cup", "world cup predictions", "team to beat",
     "sutton predicts", "expert predictions", "power rankings",
