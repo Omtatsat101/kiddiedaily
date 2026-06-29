@@ -709,7 +709,13 @@
     "news/2026-06-29-a-dwarf-galaxy-torn-apart-by-the-milky-way-left-be.html",
     "news/2026-06-29-america-250-brings-extraordinary-security-challeng.html",
     "news/2026-06-29-uc-berkeley-establishing-nancy-pelosi-institute-de.html",
-    "news/2026-06-29-paris-mortuaries-overwhelmed-amid-europes-record-h.html"
+    "news/2026-06-29-paris-mortuaries-overwhelmed-amid-europes-record-h.html",
+    "news/2026-06-29-humans-and-great-apes-giggle-with-a-similar-rhythm.html",
+    "news/2026-06-29-aquatic-animal-and-terrestrial-meat-trades-now-alm.html",
+    "news/2026-06-29-human-rights-abuse-allegations-continue-to-rise-in.html",
+    "news/2026-06-29-hegseth-announces-new-defense-policy-board-after-c.html",
+    "news/2026-06-29-south-korean-tech-giants-will-invest-518-billion-i.html",
+    "news/2026-06-29-about-3-million-people-have-dropped-obamacare-heal.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1421,7 +1427,13 @@
     "A Dwarf Galaxy Torn Apart by the Milky Way Left Behind the Gaia Sausage&nbsp;",
     "America 250 brings extraordinary security challenge to Washington",
     "UC Berkeley establishing Nancy Pelosi Institute dedicated to addressing democracy's challenges",
-    "Paris mortuaries overwhelmed amid Europe's record heat"
+    "Paris mortuaries overwhelmed amid Europe's record heat",
+    "Humans and Great Apes Giggle With a Similar Rhythm and Timing, Suggesting We Have Shared Our Style of Laughter for 15 Million Years",
+    "Aquatic animal and terrestrial meat trades now almost on par, FAO report finds",
+    "Human rights abuse allegations continue to rise in the mining sector, report finds",
+    "Hegseth announces new Defense Policy Board after clearing out previous panel",
+    "South Korean tech giants will invest $518 billion in chip plants to serve soaring AI demand",
+    "About 3 million people have dropped Obamacare health coverage after subsidies expire and costs rise"
   ],
   "articles": [
     {
@@ -9519,6 +9531,84 @@
       "source_name": "PBS NewsHour",
       "source_icons": "📺",
       "description": "A record-breaking heat wave has overwhelmed mortuaries in Paris, leaving funeral directors struggling to find space for bodies."
+    },
+    {
+      "slug": "news/2026-06-29-humans-and-great-apes-giggle-with-a-similar-rhythm.html",
+      "title": "Humans and Great Apes Giggle With a Similar Rhythm and Timing, Suggesting We Have Shared Our Style of Laughter for 15 Million Years",
+      "display_title": "Humans and Great Apes Giggle With a Similar Rhythm and Timing, Suggesting We Have Shared Our Style of Laughter for 15 Million Years",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Smithsonian",
+      "source_icons": "🏛️",
+      "description": "Understanding how laughter evolved can reveal the secrets of human speech"
+    },
+    {
+      "slug": "news/2026-06-29-aquatic-animal-and-terrestrial-meat-trades-now-alm.html",
+      "title": "Aquatic animal and terrestrial meat trades now almost on par, FAO report finds",
+      "display_title": "Aquatic animal and terrestrial meat trades now almost on par, FAO report finds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Mongabay",
+      "source_icons": "🦁",
+      "description": "Rapid aquaculture growth has pushed farmed aquatic animal production to more than 100 million metric tons per year for the first time ever, boosting the trade value of all aquatic animal products almo"
+    },
+    {
+      "slug": "news/2026-06-29-human-rights-abuse-allegations-continue-to-rise-in.html",
+      "title": "Human rights abuse allegations continue to rise in the mining sector, report finds",
+      "display_title": "Human rights abuse allegations continue to rise in the mining sector, report finds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Mongabay",
+      "source_icons": "🦁",
+      "description": "Over the last several years, the United States and European Union have intensified efforts to secure the minerals needed for a clean energy transition. Officials have fast-tracked new projects and sig"
+    },
+    {
+      "slug": "news/2026-06-29-hegseth-announces-new-defense-policy-board-after-c.html",
+      "title": "Hegseth announces new Defense Policy Board after clearing out previous panel",
+      "display_title": "Hegseth announces new Defense Policy Board after clearing out previous panel",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️",
+      "description": "Defense Secretary Pete Hegseth on Monday announced the 15 individuals who will make up the new Defense Policy Board, just over a year after the previous panel was cleared out by the Pentagon chief. Ro"
+    },
+    {
+      "slug": "news/2026-06-29-south-korean-tech-giants-will-invest-518-billion-i.html",
+      "title": "South Korean tech giants will invest $518 billion in chip plants to serve soaring AI demand",
+      "display_title": "South Korean tech giants will invest $518 billion in chip plants to serve soaring AI demand",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "PBS NewsHour",
+      "source_icons": "📺",
+      "description": "Government officials dismissed questions about whether the southwest has enough power and water to support major semiconductor fabs."
+    },
+    {
+      "slug": "news/2026-06-29-about-3-million-people-have-dropped-obamacare-heal.html",
+      "title": "About 3 million people have dropped Obamacare health coverage after subsidies expire and costs rise",
+      "display_title": "About 3 million people have dropped Obamacare health coverage after subsidies expire and costs rise",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "PBS NewsHour",
+      "source_icons": "📺",
+      "description": "The Department of Health and Human Services suggests the 13% drop is due to a federal crackdown on fraudulent enrollmentut, but health analysts believe it's more likely related to the Jan. 1 expiratio"
     }
   ]
 }
