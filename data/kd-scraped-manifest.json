@@ -527,7 +527,11 @@
     "news/2026-06-29-remote-controlled-cockroach-swarm-can-now-breathe.html",
     "news/2026-06-29-in-slovenia-pride-meets-growing-support-and-hostil.html",
     "news/2026-06-29-saudi-arabias-early-fifa-world-cup-exit-prompts-fe.html",
-    "news/2026-06-29-the-james-webb-space-telescope-peered-into-one-of.html"
+    "news/2026-06-29-the-james-webb-space-telescope-peered-into-one-of.html",
+    "news/2026-06-29-camera-traps-reveal-the-true-culprit-behind-crop-d.html",
+    "news/2026-06-29-what-do-you-do-when-you-lose-gigantic-megalodon-sh.html",
+    "news/2026-06-29-four-new-chameleon-species-found-in-tropical-sky-i.html",
+    "news/2026-06-29-the-new-seismic-discovery-beneath-the-surface-of-m.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1057,7 +1061,11 @@
     "Remote-controlled cockroach swarm can now breathe underwater",
     "In Slovenia, Pride meets growing support — and hostility",
     "Saudi Arabia’s early FIFA World Cup exit prompts federation chief to resign",
-    "The James Webb Space Telescope peered into one of the universe's oldest galaxy clusters, and scientists can't explain what they saw"
+    "The James Webb Space Telescope peered into one of the universe's oldest galaxy clusters, and scientists can't explain what they saw",
+    "Camera traps reveal the true culprit behind crop damage in Honduras",
+    "What Do You Do When You Lose Gigantic Megalodon Shark Vertebrae?",
+    "Four New Chameleon Species Found in Tropical “Sky Islands”",
+    "The New Seismic Discovery Beneath the Surface of Mars"
   ],
   "articles": [
     {
@@ -6957,6 +6965,54 @@
       "is_science": true,
       "source_name": "Space.com",
       "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-camera-traps-reveal-the-true-culprit-behind-crop-d.html",
+      "title": "Camera traps reveal the true culprit behind crop damage in Honduras",
+      "display_title": "Camera traps reveal the true culprit behind crop damage in Honduras",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-what-do-you-do-when-you-lose-gigantic-megalodon-sh.html",
+      "title": "What Do You Do When You Lose Gigantic Megalodon Shark Vertebrae?",
+      "display_title": "What Do You Do When You Lose Gigantic Megalodon Shark Vertebrae?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-four-new-chameleon-species-found-in-tropical-sky-i.html",
+      "title": "Four New Chameleon Species Found in Tropical “Sky Islands”",
+      "display_title": "Four New Chameleon Species Found in Tropical “Sky Islands”",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-the-new-seismic-discovery-beneath-the-surface-of-m.html",
+      "title": "The New Seismic Discovery Beneath the Surface of Mars",
+      "display_title": "The New Seismic Discovery Beneath the Surface of Mars",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
     }
   ]
 }
