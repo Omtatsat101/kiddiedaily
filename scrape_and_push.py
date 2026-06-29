@@ -195,7 +195,7 @@ SOURCES = [
     {"name": "Mongabay",      "url": "https://news.mongabay.com/feed/",                        "bias": -0.1, "icon": "🦁"},
     {"name": "JSTOR Daily",   "url": "https://daily.jstor.org/feed/",                          "bias": -0.1, "icon": "📚"},
     {"name": "NASA Earth",    "url": "https://earthobservatory.nasa.gov/feeds/earth-observatory.rss", "bias": 0.0, "icon": "🌍"},
-    {"name": "Guardian Env",  "url": "https://www.theguardian.com/environment/rss",                    "bias": -0.7, "icon": "🌿"},
+    {"name": "Carbon Brief",  "url": "https://www.carbonbrief.org/feed/",                             "bias": -0.3, "icon": "🌿"},
     {"name": "MIT Tech Review","url": "https://www.technologyreview.com/feed/",                        "bias": -0.1, "icon": "💻"},
 ]
 
@@ -353,6 +353,15 @@ DEPRIORITIZE_WORDS = [
     "predicts world cup", "world cup predictions", "team to beat",
     "sutton predicts", "expert predictions", "power rankings",
     "player ratings", "match ratings", "pundit",
+    # Crime, legal proceedings, immigration detention (never appropriate for kids)
+    "mistrial", "arson case", "arson attack", "vandalism",
+    "faces charges", "charged with", "convicted of", "acquitted",
+    "detention center", "immigration detention", "deported", "deportation",
+    # Business/corporate AI content (MIT Tech Review newsletter / enterprise pieces)
+    "the download:", "repositioning retail", "enterprise ai",
+    "ai for business", "ai strategy for", "corporate ai",
+    # Housing/social policy that isn't kids-relevant
+    "housing crisis", "van life", "cost of living crisis",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
@@ -1737,7 +1746,7 @@ def generate_category_pages(manifest):
         "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
         "animals": [a for a in articles if _matches(a, _ANIMAL_KW) or a.get("source_name") == "Mongabay"],
         "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") == "JSTOR Daily"],
-        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Guardian Env"}],
+        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Carbon Brief"}],
         "technology":  [a for a in articles if _matches(a, _TECH_KW) or a.get("source_name") == "MIT Tech Review"],
     }
     cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment", "technology": "Technology"}
