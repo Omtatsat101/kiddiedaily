@@ -325,7 +325,13 @@
     "news/2026-06-29-the-lunar-botanist-with-a-plan-to-farm-vegetables.html",
     "news/2026-06-29-laser-scanning-forests-may-boost-carbon-estimates.html",
     "news/2026-06-29-a-trailblazing-ugandan-championing-women-in-africa.html",
-    "news/2026-06-29-how-the-himalayan-blackberry-took-over-the-pacific.html"
+    "news/2026-06-29-how-the-himalayan-blackberry-took-over-the-pacific.html",
+    "news/2026-06-29-france-confirms-its-first-ebola-case-as-drc-outbre.html",
+    "news/2026-06-29-three-years-after-cyclone-freddy-farms-remain-unde.html",
+    "news/2026-06-29-rollerena-new-yorks-fairy-godmother.html",
+    "news/2026-06-29-the-making-of-the-muscular-farmer.html",
+    "news/2026-06-29-why-did-this-journal-retract-two-1940s-papers-by-m.html",
+    "news/2026-06-29-antibiotic-megacluster-discovery-provides-new-stra.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -653,7 +659,13 @@
     "The lunar botanist with a plan to farm vegetables on the moon",
     "Laser scanning forests may boost carbon estimates, but credibility questions linger",
     "A trailblazing Ugandan championing women in African fisheries: Q&A with Lovin Kobusingye",
-    "How the Himalayan Blackberry Took Over the Pacific Northwest"
+    "How the Himalayan Blackberry Took Over the Pacific Northwest",
+    "France confirms its first Ebola case as DRC outbreak continues to grow",
+    "Three years after Cyclone Freddy, farms remain under water in Malawi’s Elephant Marsh",
+    "Rollerena: New York’s Fairy Godmother",
+    "The Making of the Muscular Farmer",
+    "Why did this journal retract two 1940s papers by Max Planck?",
+    "Antibiotic \"megacluster\" discovery provides new strategy to fight superbugs"
   ],
   "articles": [
     {
@@ -4229,6 +4241,72 @@
       "agreement_pct": 11,
       "is_science": true,
       "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-france-confirms-its-first-ebola-case-as-drc-outbre.html",
+      "title": "France confirms its first Ebola case as DRC outbreak continues to grow",
+      "display_title": "France confirms its first Ebola case as DRC outbreak continues to grow",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-three-years-after-cyclone-freddy-farms-remain-unde.html",
+      "title": "Three years after Cyclone Freddy, farms remain under water in Malawi’s Elephant Marsh",
+      "display_title": "Three years after Cyclone Freddy, farms remain under water in Malawi’s Elephant Marsh",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-rollerena-new-yorks-fairy-godmother.html",
+      "title": "Rollerena: New York’s Fairy Godmother",
+      "display_title": "Rollerena: New York’s Fairy Godmother",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-the-making-of-the-muscular-farmer.html",
+      "title": "The Making of the Muscular Farmer",
+      "display_title": "The Making of the Muscular Farmer",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-why-did-this-journal-retract-two-1940s-papers-by-m.html",
+      "title": "Why did this journal retract two 1940s papers by Max Planck?",
+      "display_title": "Why did this journal retract two 1940s papers by Max Planck?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-antibiotic-megacluster-discovery-provides-new-stra.html",
+      "title": "Antibiotic \"megacluster\" discovery provides new strategy to fight superbugs",
+      "display_title": "Antibiotic \"megacluster\" discovery provides new strategy to fight superbugs",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
     }
   ]
 }
