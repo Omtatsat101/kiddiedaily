@@ -408,7 +408,11 @@
     "news/2026-06-29-venezuela-earthquake-aid-ramps-up-as-rescue-window.html",
     "news/2026-06-29-venezuela-rescuers-race-against-the-clock-to-find.html",
     "news/2026-06-29-south-korea-announces-more-than-1-trillion-ai-chip.html",
-    "news/2026-06-29-3-world-cup-rivals-find-common-ground-in-a-cross-b.html"
+    "news/2026-06-29-3-world-cup-rivals-find-common-ground-in-a-cross-b.html",
+    "news/2026-06-29-sun-news-a-near-m-flare-while-waiting-for-cme.html",
+    "news/2026-06-29-fifa-world-cup-round-of-32-schedule-predictions-an.html",
+    "news/2026-06-29-could-neo-nazi-youth-or-active-clubs-have-played-a.html",
+    "news/2026-06-29-why-do-some-us-airports-have-private-security-but.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -819,7 +823,11 @@
     "Venezuela earthquake: Aid ramps up as rescue window closes",
     "Venezuela rescuers race against the clock to find more survivors",
     "South Korea announces more than $1 trillion AI, chip investment drive",
-    "3 World Cup rivals find 'Common Ground' in a cross-border beer"
+    "3 World Cup rivals find 'Common Ground' in a cross-border beer",
+    "Sun news: A near M-flare while waiting for CME",
+    "FIFA World Cup: Round of 32 schedule, predictions and latest news",
+    "Could neo-Nazi youth, or 'active clubs,' have played a role in Belfast riots?",
+    "Why do some U.S. airports have private security, but others use TSA?"
   ],
   "articles": [
     {
@@ -5302,6 +5310,50 @@
       "slug": "news/2026-06-29-3-world-cup-rivals-find-common-ground-in-a-cross-b.html",
       "title": "3 World Cup rivals find 'Common Ground' in a cross-border beer",
       "display_title": "3 World Cup rivals find 'Common Ground' in a cross-border beer",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-sun-news-a-near-m-flare-while-waiting-for-cme.html",
+      "title": "Sun news: A near M-flare while waiting for CME",
+      "display_title": "Sun news: A near M-flare while waiting for CME",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-fifa-world-cup-round-of-32-schedule-predictions-an.html",
+      "title": "FIFA World Cup: Round of 32 schedule, predictions and latest news",
+      "display_title": "FIFA World Cup: Round of 32 schedule, predictions and latest news",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-could-neo-nazi-youth-or-active-clubs-have-played-a.html",
+      "title": "Could neo-Nazi youth, or 'active clubs,' have played a role in Belfast riots?",
+      "display_title": "Could neo-Nazi youth, or 'active clubs,' have played a role in Belfast riots?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-why-do-some-us-airports-have-private-security-but.html",
+      "title": "Why do some U.S. airports have private security, but others use TSA?",
+      "display_title": "Why do some U.S. airports have private security, but others use TSA?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.7,
