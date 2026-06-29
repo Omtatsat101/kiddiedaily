@@ -367,7 +367,13 @@
     "news/2026-06-29-trump-admin-persists-in-quixotic-quest-against-win.html",
     "news/2026-06-29-uss-climategov-site-taken-down-by-trump-relaunched.html",
     "news/2026-06-29-a-us-military-exercise-in-space-got-underway-with.html",
-    "news/2026-06-29-trump-admins-coal-investments-assist-plants-with-r.html"
+    "news/2026-06-29-trump-admins-coal-investments-assist-plants-with-r.html",
+    "news/2026-06-29-these-tiny-soil-microbes-could-rescue-crops-from-s.html",
+    "news/2026-06-29-brain-activity-under-anesthesia-challenges-what-we.html",
+    "news/2026-06-29-as-global-warming-threatens-corals-scientists-sear.html",
+    "news/2026-06-29-australia-vanuatu-deal-bars-foreign-bases-in-islan.html",
+    "news/2026-06-29-pampered-protected-primed---so-why-didnt-scotland.html",
+    "news/2026-06-29-stealing-from-the-gods-indias-ram-temple-hit-by-co.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -737,7 +743,13 @@
     "Trump admin persists in quixotic quest against wind power despite legal defeat",
     "US's climate.gov site, taken down by Trump, relaunched by nonprofit",
     "A US military exercise in space got underway with barely anyone noticing",
-    "Trump admin’s coal investments assist plants with repeated violations"
+    "Trump admin’s coal investments assist plants with repeated violations",
+    "These tiny soil microbes could rescue crops from salty farmland",
+    "Brain activity under anesthesia challenges what we know about consciousness",
+    "As global warming threatens corals, scientists search for reefs that can take the heat",
+    "Australia-Vanuatu deal bars foreign bases in island nation",
+    "Pampered, protected & primed - so why didn't Scotland players perform?",
+    "Stealing from the gods: India’s Ram Temple hit by corruption scandal"
   ],
   "articles": [
     {
@@ -4775,6 +4787,72 @@
       "agreement_pct": 11,
       "is_science": true,
       "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-these-tiny-soil-microbes-could-rescue-crops-from-s.html",
+      "title": "These tiny soil microbes could rescue crops from salty farmland",
+      "display_title": "These tiny soil microbes could rescue crops from salty farmland",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-brain-activity-under-anesthesia-challenges-what-we.html",
+      "title": "Brain activity under anesthesia challenges what we know about consciousness",
+      "display_title": "Brain activity under anesthesia challenges what we know about consciousness",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-as-global-warming-threatens-corals-scientists-sear.html",
+      "title": "As global warming threatens corals, scientists search for reefs that can take the heat",
+      "display_title": "As global warming threatens corals, scientists search for reefs that can take the heat",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-australia-vanuatu-deal-bars-foreign-bases-in-islan.html",
+      "title": "Australia-Vanuatu deal bars foreign bases in island nation",
+      "display_title": "Australia-Vanuatu deal bars foreign bases in island nation",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-pampered-protected-primed---so-why-didnt-scotland.html",
+      "title": "Pampered, protected & primed - so why didn't Scotland players perform?",
+      "display_title": "Pampered, protected & primed - so why didn't Scotland players perform?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 11,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-stealing-from-the-gods-indias-ram-temple-hit-by-co.html",
+      "title": "Stealing from the gods: India’s Ram Temple hit by corruption scandal",
+      "display_title": "Stealing from the gods: India’s Ram Temple hit by corruption scandal",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 11,
+      "is_science": false,
+      "source_icons": "🌍"
     }
   ]
 }
