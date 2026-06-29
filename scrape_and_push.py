@@ -1183,9 +1183,27 @@ def update_homepage(manifest):
             f'</div>'
         )
 
+    # Stats bar — today's summary
+    from datetime import date as _date
+    _today = str(_date.today())
+    today_count = sum(1 for a in articles if a.get("date") == _today)
+    sci_count = sum(1 for a in articles if a.get("is_science"))
+    sci_pct = round(sci_count / len(articles) * 100) if articles else 0
+    stats_bar = (
+        f'<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;'
+        f'padding:8px 14px;margin:0 0 14px;display:flex;gap:16px;flex-wrap:wrap;'
+        f'font-size:12px;color:#1e40af;font-family:system-ui,sans-serif">'
+        f'<span>&#128230; <strong>{today_count}</strong> stories today</span>'
+        f'<span>&#128300; <strong>{sci_pct}%</strong> science</span>'
+        f'<span>&#128202; <strong>{len(articles)}</strong> total articles</span>'
+        f'<span style="margin-left:auto;color:#93c5fd">Updated daily at 6am ET</span>'
+        f'</div>'
+    )
+
     trending_html = build_trending(manifest)
     new_block = (
         f'{HOMEPAGE_START}\n'
+        + stats_bar +
         f'<h2>Today\'s top kid news</h2>\n'
         + "\n".join(cards) +
         f'\n<p style="text-align:right;font-size:13px;margin-top:4px">'
@@ -2038,6 +2056,162 @@ Your daily briefing — {today} &middot; Balanced sources &middot; No spin &midd
     print(f"  For-Parents page: {n_today} articles today, avg bias {avg_bias:+.2f} ({avg_bias_lbl})")
 
 
+def generate_static_info_pages(manifest, today):
+    """Generate about.html, contact.html, privacy.html, terms.html — static info pages."""
+    articles = manifest.get("articles", [])
+    total = len(articles)
+    sci_n = sum(1 for a in articles if a.get("is_science"))
+    sci_pct = round(sci_n / total * 100) if total else 0
+
+    def _page(title_tag, meta_desc, canonical, h1, body_inner):
+        return f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>{title_tag}</title>
+<meta name="description" content="{meta_desc}">
+<link rel="canonical" href="https://kiddiedaily.com{canonical}">
+{CSS}
+</head><body>
+{HEADER}
+<main style="max-width:720px;margin:0 auto;padding:32px 24px 64px;font-family:system-ui,sans-serif;line-height:1.65;color:#2d3748">
+<h1 style="font-size:26px;margin:0 0 20px">{h1}</h1>
+{body_inner}
+</main>
+{FOOTER}
+</body></html>"""
+
+    # ── About ──────────────────────────────────────────────────────────────────
+    about_body = f"""
+<p style="font-size:16px;color:#4a5568">KiddieDaily is a free, independent daily news service for families. We believe every parent deserves access to balanced, kid-safe news — without paywalls, ads, or political spin.</p>
+
+<h2 style="font-size:18px;margin:24px 0 10px;color:#1a4d80">Our mission</h2>
+<p>Ground-level news for parents: so you have the unbiased data you need to make the best decisions for your child. We don&#39;t tell you what to think — we give you the landscape, and the tools to read it critically.</p>
+
+<h2 style="font-size:18px;margin:24px 0 10px;color:#1a4d80">How it works</h2>
+<p>Every morning at 6am ET, our automated scraper collects stories from <strong>11 vetted sources</strong> spanning the full political spectrum. Each story is:</p>
+<ul style="padding-left:20px;margin:8px 0">
+<li>Filtered through a kid-safety blocklist (violence, explicit content, age-inappropriate topics)</li>
+<li>Ranked to prioritize science, discovery, and nature over political conflict</li>
+<li>Bias-rated using <strong>AllSides</strong> and <strong>Ad Fontes Media</strong> methodology</li>
+<li>Grouped when multiple outlets cover the same topic — so you can compare framing</li>
+</ul>
+<p>We publish up to 5 new articles per day. Science-focused sources are weighted higher because they tend to be more universally relevant to families and less politically charged.</p>
+
+<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin:20px 0">
+<p style="margin:0;font-size:14px;color:#1e40af"><strong>By the numbers:</strong> {total} articles published &middot; {sci_pct}% science content &middot; 11 sources &middot; 0 ads &middot; 0 trackers &middot; updated daily at 6am ET</p>
+</div>
+
+<h2 style="font-size:18px;margin:24px 0 10px;color:#1a4d80">Our principles</h2>
+<ol style="padding-left:20px;margin:8px 0">
+<li><strong>Balance over narrative.</strong> We pull from Left, Center, and Right outlets. No single outlet is always right or always wrong.</li>
+<li><strong>Science first.</strong> Discovery, nature, space, and health science take priority over political conflict.</li>
+<li><strong>Kid-safe filtering.</strong> Our blocklist removes violence, explicit content, and age-inappropriate material before any article is considered.</li>
+<li><strong>Parent-grade transparency.</strong> Every article shows which outlets covered it and how they lean. You see the bias before you read the story.</li>
+<li><strong>No agenda.</strong> We&#39;re not affiliated with any political party, religion, or advocacy organization. We&#39;re a family project.</li>
+</ol>
+
+<h2 style="font-size:18px;margin:24px 0 10px;color:#1a4d80">Who runs KiddieDaily?</h2>
+<p>KiddieDaily is a project of <strong>Legacy Bridge Alliance Group</strong>, a family-owned holding company building digital tools for families and kids. We also operate <a href="https://kiddiesketch.com" rel="noopener" style="color:#1a4d80">KiddieSketch</a>, <a href="https://kiddiego.com" rel="noopener" style="color:#1a4d80">KiddieGo</a>, and <a href="https://kiddiewordle.com" rel="noopener" style="color:#1a4d80">KiddieWordle</a>.</p>
+<p>Have feedback? Reach us at <a href="/contact.html" style="color:#1a4d80">contact page</a>.</p>
+
+<div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" style="background:#1a4d80;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none">Today&#39;s stories</a>
+<a href="/parents/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none">For Parents</a>
+<a href="/fact-check/" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none">Media literacy</a>
+</div>"""
+
+    # ── Contact ────────────────────────────────────────────────────────────────
+    contact_body = """
+<p style="font-size:16px;color:#4a5568">Have a question, a story tip, or feedback about KiddieDaily? We&#39;d love to hear from you.</p>
+
+<div style="background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:20px 24px;margin:20px 0;box-shadow:0 1px 4px rgba(0,0,0,.05)">
+<h2 style="font-size:17px;margin:0 0 12px;color:#1a4d80">Reach us by email</h2>
+<p style="margin:0 0 8px">General questions and feedback:</p>
+<p style="margin:0"><a href="mailto:hello@kiddiedaily.com" style="color:#1a4d80;font-weight:600;font-size:16px">hello@kiddiedaily.com</a></p>
+</div>
+
+<div style="background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:20px 24px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.05)">
+<h2 style="font-size:17px;margin:0 0 12px;color:#1a4d80">Story tip or content concern?</h2>
+<p style="margin:0">If you spot a story that shouldn&#39;t be on KiddieDaily (inappropriate for kids, factually wrong, or bias-rated incorrectly), please email:</p>
+<p style="margin:8px 0 0"><a href="mailto:content@kiddiedaily.com" style="color:#1a4d80;font-weight:600;font-size:16px">content@kiddiedaily.com</a></p>
+<p style="margin:8px 0 0;font-size:13px;color:#718096">We review all reports within 24 hours and will remove or correct the story if warranted.</p>
+</div>
+
+<div style="background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:20px 24px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.05)">
+<h2 style="font-size:17px;margin:0 0 12px;color:#1a4d80">Media or partnership inquiries</h2>
+<p style="margin:0"><a href="mailto:partners@kiddiedaily.com" style="color:#1a4d80;font-weight:600">partners@kiddiedaily.com</a></p>
+<p style="margin:8px 0 0;font-size:13px;color:#718096">We&#39;re open to partnerships with schools, libraries, and family-focused organizations that align with our mission of unbiased, kid-safe news.</p>
+</div>
+
+<p style="font-size:13px;color:#718096;margin:20px 0 0">KiddieDaily is operated by Legacy Bridge Alliance Group. We typically respond within 1–2 business days.</p>"""
+
+    # ── Privacy ────────────────────────────────────────────────────────────────
+    privacy_body = f"""
+<p style="font-size:13px;color:#718096">Last updated: {today}</p>
+<p style="font-size:16px;color:#4a5568">KiddieDaily is designed from the ground up with privacy in mind — especially for children. We collect the minimum possible data to operate the site.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">What we collect</h2>
+<p><strong>Almost nothing.</strong> KiddieDaily is a static website served via GitHub Pages. We do not have accounts, logins, comment sections, or forms that collect personal information.</p>
+<ul style="padding-left:20px;margin:8px 0">
+<li><strong>No cookies.</strong> We set no tracking cookies, session cookies, or advertising cookies.</li>
+<li><strong>No accounts.</strong> There is no sign-up, no login, and no stored user profiles.</li>
+<li><strong>No ads.</strong> We run no advertising of any kind.</li>
+<li><strong>No behavioral tracking.</strong> We do not track what articles you read, for how long, or what you click.</li>
+</ul>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Analytics (if any)</h2>
+<p>If we add analytics, we will use a cookieless, privacy-respecting tool (such as Cloudflare Web Analytics) that does not build user profiles, does not track individuals across sessions, and does not share data with third parties. We will update this policy before enabling any analytics.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Third-party links</h2>
+<p>KiddieDaily links to external news sources (BBC, NPR, NASA, etc.) and fact-checking sites. Clicking those links takes you to third-party websites with their own privacy policies. We are not responsible for their data practices.</p>
+<p>We also link to external educational resources (Snopes, AllSides, PBS NewsHour). These are informational links, not tracking partnerships.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Children&#39;s privacy (COPPA)</h2>
+<p>KiddieDaily is designed to be used by families and does not knowingly collect personal information from children under 13. Because we collect no personal data at all, we believe we comply with the Children&#39;s Online Privacy Protection Act (COPPA). If you believe your child&#39;s information has been collected in error, contact us at <a href="mailto:privacy@kiddiedaily.com" style="color:#1a4d80">privacy@kiddiedaily.com</a> and we will delete it promptly.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">RSS content</h2>
+<p>KiddieDaily aggregates headlines and summaries from public RSS feeds published by third-party news organizations. We link back to original articles and do not republish full copyrighted content. If you represent a news organization and have a concern about how we display your content, please contact us.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Contact</h2>
+<p>Privacy questions: <a href="mailto:privacy@kiddiedaily.com" style="color:#1a4d80">privacy@kiddiedaily.com</a> &middot; <a href="/contact.html" style="color:#1a4d80">Contact page</a></p>"""
+
+    # ── Terms ──────────────────────────────────────────────────────────────────
+    terms_body = f"""
+<p style="font-size:13px;color:#718096">Last updated: {today}</p>
+<p style="font-size:16px;color:#4a5568">By using KiddieDaily, you agree to these terms. They&#39;re short and written in plain language.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">What KiddieDaily is</h2>
+<p>KiddieDaily is a free news aggregation and curation service. We pull headlines and summaries from public RSS feeds and display them in a kid-safe, bias-labeled format for families. We are not a news organization — we do not produce original journalism.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Content accuracy</h2>
+<p>We curate news to be kid-appropriate and balanced, but we do not independently verify every fact. The bias ratings we display (from AllSides and Ad Fontes Media) are methodological estimates, not legal judgments. Always read the original source and think critically.</p>
+<p>KiddieDaily is provided &ldquo;as is.&rdquo; We make no warranties about the accuracy, completeness, or suitability of the content for any particular purpose.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Content ownership</h2>
+<p>Article summaries and headlines remain the property of their original publishers. We display them under fair use for informational and educational purposes, with attribution and links back to the original source. KiddieDaily&#39;s own editorial text, design, and code are &copy; 2026 Legacy Bridge Alliance Group. Our commentary, page design, parent guides, and discussion prompts are our original work.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Prohibited uses</h2>
+<ul style="padding-left:20px;margin:8px 0">
+<li>Do not scrape or republish KiddieDaily content at scale without permission</li>
+<li>Do not use KiddieDaily content to train AI models without written permission</li>
+<li>Do not use our bias ratings to misrepresent news outlets as facts</li>
+</ul>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Limitation of liability</h2>
+<p>KiddieDaily and Legacy Bridge Alliance Group are not liable for any decisions made based on content displayed on this site. We are a news curation tool, not a professional advisor of any kind (legal, medical, financial, or otherwise).</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Changes</h2>
+<p>We may update these terms. The &ldquo;last updated&rdquo; date at the top will reflect any changes. Continued use of the site after an update means you accept the new terms.</p>
+
+<h2 style="font-size:18px;margin:20px 0 10px;color:#1a4d80">Contact</h2>
+<p><a href="mailto:hello@kiddiedaily.com" style="color:#1a4d80">hello@kiddiedaily.com</a> &middot; <a href="/contact.html" style="color:#1a4d80">Contact page</a></p>"""
+
+    upload("about.html", _page("About KiddieDaily — News for Families", "KiddieDaily is a free, ad-free daily news service for families. Learn about our mission, sources, and editorial principles.", "/about.html", "About KiddieDaily", about_body), "[scraper] Generate about.html")
+    upload("contact.html", _page("Contact — KiddieDaily", "Get in touch with KiddieDaily for feedback, story tips, or partnership inquiries.", "/contact.html", "Contact Us", contact_body), "[scraper] Generate contact.html")
+    upload("privacy.html", _page("Privacy Policy — KiddieDaily", "KiddieDaily privacy policy. No cookies, no accounts, no ads. Designed for families.", "/privacy.html", "Privacy Policy", privacy_body), "[scraper] Generate privacy.html")
+    upload("terms.html", _page("Terms of Use — KiddieDaily", "KiddieDaily terms of use. Plain language, short version.", "/terms.html", "Terms of Use", terms_body), "[scraper] Generate terms.html")
+    print(f"  Static pages: about, contact, privacy, terms — all deployed")
+
+
 def generate_fact_check_page(manifest):
     """Generate /fact-check/index.html — media literacy + fact-check hub for families."""
     articles = manifest.get("articles", [])
@@ -2752,6 +2926,10 @@ def main():
     # 6k7. Generate Games / activities page
     print(f"\n[6k7] Generating Games / activities page...")
     generate_games_page(manifest)
+
+    # 6k8. Generate static info pages (about, contact, privacy, terms)
+    print(f"\n[6k8] Generating static info pages...")
+    generate_static_info_pages(manifest, today)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
