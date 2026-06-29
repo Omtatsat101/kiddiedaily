@@ -297,6 +297,12 @@ DEPRIORITIZE_WORDS = [
     # EU/German-specific politics (DW News source — filter local German politics)
     "bundestag", "bundesrat", "scholz", "friedrich merz", "habeck",
     "spd ", " cdu", " fdp", " afd",
+    # Ultra-niche international politics (not relevant for US families)
+    "orban", "vucic", "fidesz", "new caledonia", "macron", "french parliament",
+    "italian parliament", "spanish parliament", "austrian coalition",
+    # Business/finance research (not relevant for kids/parents' child-rearing decisions)
+    "sales channel", "supply chain disruption", "quarterly earnings",
+    "profit margin", "market share", "shareholder", "stock market", "hedge fund",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
