@@ -270,14 +270,31 @@ def clean(s):
     return re.sub(r"\s+", " ", s).strip()
 
 def fetch_rss(source):
+    req = urllib.request.Request(
+        source["url"],
+        headers={"User-Agent": "Mozilla/5.0 (compatible; KiddieDaily/1.0)"})
+    xml_bytes = None
+    for attempt in range(3):
+        try:
+            xml_bytes = urllib.request.urlopen(req, timeout=15, context=ctx).read()
+            break
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 503) and attempt < 2:
+                wait = (attempt + 1) * 8
+                print(f"    ⏳ {source['name']}: HTTP {e.code}, retry in {wait}s...")
+                time.sleep(wait)
+            else:
+                print(f"    ⚠ {source['name']}: HTTP {e.code}")
+                return []
+        except Exception as e:
+            print(f"    ⚠ {source['name']}: {e}")
+            return []
+    if xml_bytes is None:
+        return []
     try:
-        req = urllib.request.Request(
-            source["url"],
-            headers={"User-Agent": "Mozilla/5.0 (compatible; KiddieDaily/1.0)"})
-        xml_bytes = urllib.request.urlopen(req, timeout=15, context=ctx).read()
         root = ET.fromstring(xml_bytes)
     except Exception as e:
-        print(f"    ⚠ {source['name']}: {e}")
+        print(f"    ⚠ {source['name']}: XML parse error: {e}")
         return []
 
     ATOM  = "http://www.w3.org/2005/Atom"
@@ -2422,92 +2439,157 @@ def generate_weekly_digest(manifest, today):
     articles = manifest.get("articles", [])
     cutoff = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=7)).strftime("%Y-%m-%d")
     week_articles = [a for a in articles if a.get("date", "") >= cutoff]
+    total_week = len(week_articles)
     if not week_articles:
         print("  Weekly digest: no articles in last 7 days, skipping")
         return
 
-    science = [a for a in week_articles if a.get("is_science")]
-    world   = [a for a in week_articles if not a.get("is_science")]
-
-    def digest_rows(arts):
-        rows = []
-        for a in sorted(arts, key=lambda x: x.get("date", ""), reverse=True):
-            slug  = a["slug"]
-            title = a.get("display_title", a.get("title", ""))
-            n     = a.get("n_sources", 1)
-            bias  = a.get("bias_avg", 0.0)
-            bias_label = "Center" if abs(bias) < 0.3 else ("Left-leaning" if bias < 0 else "Right-leaning")
-            date  = a.get("date", "")
-            rows.append(
-                f'<tr>'
-                f'<td style="padding:10px 8px;border-bottom:1px solid #e5e7eb">'
-                f'<strong><a href="https://kiddiedaily.com/{slug}" style="color:#1a4d80">{title}</a></strong><br>'
-                f'<span style="font-size:12px;color:#718096">{date} &middot; {n} source{{"s" if n!=1 else ""}} &middot; Bias: {bias_label} ({bias:+.1f})</span>'
-                f'</td>'
-                f'</tr>'
-            )
-        return "".join(rows)
-
-    all_biases = [a.get("bias_avg", 0.0) for a in week_articles]
-    avg_bias = sum(all_biases) / len(all_biases) if all_biases else 0.0
-    avg_bias_label = ("Center" if abs(avg_bias) < 0.3
-                      else ("Left-leaning" if avg_bias < 0 else "Right-leaning"))
-
-    science_section = ""
-    if science:
-        science_section = (
-            f'<h2 style="font-size:20px;color:#065f46;border-bottom:2px solid #d1fae5;padding-bottom:6px;margin:28px 0 12px">'
-            f'Science ({len(science)} stories)</h2>'
-            f'<table style="width:100%;border-collapse:collapse">{digest_rows(science)}</table>'
-        )
-
-    world_section = ""
-    if world:
-        world_section = (
-            f'<h2 style="font-size:20px;color:#1e40af;border-bottom:2px solid #dbeafe;padding-bottom:6px;margin:28px 0 12px">'
-            f'World News ({len(world)} stories)</h2>'
-            f'<table style="width:100%;border-collapse:collapse">{digest_rows(world)}</table>'
-        )
-
+    # Lightweight dynamic shell — loads from /data/kd-articles.json at runtime
+    # (same approach as archive page — reduces file from 300KB+ to ~9KB)
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>KiddieDaily Weekly Digest — Best of the Week</title>
-<meta name="description" content="KiddieDaily weekly digest — {len(week_articles)} stories from the last 7 days for families.">
+<meta name="description" content="KiddieDaily weekly digest — {total_week} stories from the last 7 days for families. Kid-safe, bias-rated news.">
+<meta property="og:title" content="KiddieDaily — Best of the Week">
+<meta property="og:description" content="{total_week} kid-friendly stories from the last 7 days — bias-rated and fact-check linked.">
+<meta property="og:url" content="https://kiddiedaily.com/digest/weekly.html">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://kiddiedaily.com/digest/weekly.html">
-</head>
-<body style="margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748">
-<div style="max-width:640px;margin:40px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1)">
-  <div style="background:#1a4d80;padding:28px 32px">
-    <h1 style="margin:0;color:#ffd700;font-size:26px;letter-spacing:-0.5px">KiddieDaily</h1>
-    <p style="margin:4px 0 0;color:#a0c4e8;font-family:system-ui,sans-serif;font-size:14px">Best of the week &middot; Updated {today}</p>
-  </div>
-  <div style="padding:24px 32px">
-    <h2 style="font-size:24px;margin:0 0 8px;color:#1a4d80">Best of the Week</h2>
-    <p style="font-size:14px;color:#4a5568;font-family:system-ui,sans-serif;margin:0 0 16px">
-      {len(week_articles)} kid-friendly stories from the last 7 days — bias-rated and fact-check linked.
-    </p>
-    <div style="padding:12px 16px;background:#f7fafc;border-left:4px solid #1a4d80;border-radius:0 8px 8px 0;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568;margin-bottom:20px">
-      <strong>Week bias summary:</strong> Average bias across all stories this week is
-      <strong>{avg_bias:+.2f}</strong> ({avg_bias_label}).
-      Scale: -2 = far left &nbsp;|&nbsp; 0 = center &nbsp;|&nbsp; +2 = far right.
-    </div>
-    {science_section}
-    {world_section}
-    <div style="margin-top:24px;padding:14px 16px;background:#f7fafc;border-radius:8px;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568">
-      <strong>How to read the bias rating:</strong> -2 = far left &nbsp;|&nbsp; 0 = center &nbsp;|&nbsp; +2 = far right.
-      Sources = how many of our 8 monitored outlets covered the same story.
-    </div>
-    <p style="text-align:center;margin-top:20px;font-family:system-ui,sans-serif;font-size:13px;color:#718096">
-      <a href="https://kiddiedaily.com/news/" style="color:#1a4d80">Read all news</a> &middot;
-      <a href="https://kiddiedaily.com/digest/latest.html" style="color:#1a4d80">Today's digest</a> &middot;
-      <a href="https://kiddiedaily.com/feed.xml" style="color:#1a4d80">Subscribe via RSS</a>
-    </p>
-  </div>
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
+<style>
+.wk-card{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 10px;margin:8px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
+.wk-card h3{{margin:0 0 4px;font-size:15px}}
+.wk-card h3 a{{color:#1a4d80;text-decoration:none}}
+.wk-card h3 a:hover{{text-decoration:underline}}
+.wk-meta{{font-size:12px;color:#718096;font-family:system-ui,sans-serif}}
+.wk-sci{{border-left:3px solid #059669}}
+.wk-world{{border-left:3px solid #1d4ed8}}
+.wk-section-hdr{{font-size:18px;font-weight:700;margin:28px 0 10px;padding-bottom:6px;font-family:system-ui,sans-serif}}
+.wk-section-hdr.sci{{color:#065f46;border-bottom:2px solid #d1fae5}}
+.wk-section-hdr.world{{color:#1e40af;border-bottom:2px solid #dbeafe}}
+#wk-bias-bar{{padding:12px 16px;background:#f7fafc;border-left:4px solid #1a4d80;border-radius:0 8px 8px 0;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568;margin-bottom:20px;display:none}}
+#wk-count{{font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px;min-height:20px}}
+</style>
+</head><body>
+{HEADER}
+<main id="main">
+<h1 style="font-size:28px;margin-bottom:4px">Best of the Week</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 16px">
+  Last 7 days &middot; Updated {today}
+</p>
+
+<div id="wk-bias-bar"></div>
+<p id="wk-count">Loading this week's stories…</p>
+
+<div id="wk-science-wrap" style="display:none">
+  <h2 class="wk-section-hdr sci" id="wk-sci-hdr"></h2>
+  <div id="wk-science-list"></div>
 </div>
+
+<div id="wk-world-wrap" style="display:none">
+  <h2 class="wk-section-hdr world" id="wk-world-hdr"></h2>
+  <div id="wk-world-list"></div>
+</div>
+
+<p id="wk-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;font-size:14px">
+  No articles found for this week yet — check back after the daily update.
+</p>
+
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
+  <a href="/news/" style="color:#1a4d80">All news</a> &middot;
+  <a href="/digest/latest.html" style="color:#1a4d80">Today's digest</a> &middot;
+  <a href="/news/archive.html" style="color:#1a4d80">Full archive</a> &middot;
+  <a href="/feed.xml" style="color:#1a4d80">RSS</a>
+</p>
+</main>
+{FOOTER}
+
+<script>
+(function() {{
+  var cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 7);
+  var cutoffStr = cutoff.toISOString().slice(0, 10);
+
+  function biasLabel(b) {{
+    if (b <= -1.2) return 'Far Left';
+    if (b <= -0.4) return 'Leans Left';
+    if (b <= -0.15) return 'Center-Left';
+    if (b <= 0.15) return 'Center';
+    if (b <= 0.4) return 'Center-Right';
+    if (b <= 1.2) return 'Leans Right';
+    return 'Far Right';
+  }}
+
+  function card(a, cls) {{
+    var n = a.n_sources || 1;
+    var bias = typeof a.bias_avg === 'number' ? a.bias_avg : 0;
+    var bLabel = biasLabel(bias);
+    var sign = bias >= 0 ? '+' : '';
+    var desc = a.description ? '<p style="font-size:13px;color:#4a5568;margin:4px 0 0;line-height:1.5">' + a.description.slice(0,130) + (a.description.length > 130 ? '…' : '') + '</p>' : '';
+    return '<div class="wk-card ' + cls + '">'
+      + '<h3><a href="/' + a.slug + '">' + (a.display_title || a.title) + '</a></h3>'
+      + desc
+      + '<p class="wk-meta">' + (a.date || '') + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + bLabel + ' (' + sign + bias.toFixed(1) + ')</p>'
+      + '</div>';
+  }}
+
+  fetch('/data/kd-articles.json')
+    .then(function(r) {{ return r.json(); }})
+    .then(function(data) {{
+      var all = Array.isArray(data) ? data : (data.articles || []);
+      var week = all.filter(function(a) {{ return (a.date || '') >= cutoffStr; }});
+
+      var sciEl   = document.getElementById('wk-science-list');
+      var worldEl = document.getElementById('wk-world-list');
+      var sciWrap = document.getElementById('wk-science-wrap');
+      var worldWrap = document.getElementById('wk-world-wrap');
+      var sciHdr  = document.getElementById('wk-sci-hdr');
+      var worldHdr= document.getElementById('wk-world-hdr');
+      var countEl = document.getElementById('wk-count');
+      var biasBar = document.getElementById('wk-bias-bar');
+      var emptyEl = document.getElementById('wk-empty');
+
+      if (!week.length) {{
+        countEl.style.display = 'none';
+        emptyEl.style.display = 'block';
+        return;
+      }}
+
+      week.sort(function(a, b) {{ return (b.date || '') < (a.date || '') ? -1 : 1; }});
+      var sci   = week.filter(function(a) {{ return a.is_science; }});
+      var world = week.filter(function(a) {{ return !a.is_science; }});
+
+      // Bias summary
+      var biases = week.map(function(a) {{ return typeof a.bias_avg === 'number' ? a.bias_avg : 0; }});
+      var avg = biases.reduce(function(s, v) {{ return s + v; }}, 0) / biases.length;
+      var sign = avg >= 0 ? '+' : '';
+      biasBar.innerHTML = '<strong>Week bias summary:</strong> Average across all stories this week is <strong>' + sign + avg.toFixed(2) + '</strong> (' + biasLabel(avg) + '). Scale: -2 = far left | 0 = center | +2 = far right.';
+      biasBar.style.display = 'block';
+
+      countEl.textContent = week.length + ' stories from the last 7 days';
+
+      if (sci.length) {{
+        sciHdr.textContent = 'Science (' + sci.length + ' ' + (sci.length === 1 ? 'story' : 'stories') + ')';
+        sciEl.innerHTML = sci.map(function(a) {{ return card(a, 'wk-sci'); }}).join('');
+        sciWrap.style.display = 'block';
+      }}
+      if (world.length) {{
+        worldHdr.textContent = 'World News (' + world.length + ' ' + (world.length === 1 ? 'story' : 'stories') + ')';
+        worldEl.innerHTML = world.map(function(a) {{ return card(a, 'wk-world'); }}).join('');
+        worldWrap.style.display = 'block';
+      }}
+    }})
+    .catch(function() {{
+      document.getElementById('wk-count').textContent = 'Could not load this week’s stories. Please try refreshing.';
+    }});
+}})();
+</script>
 </body></html>"""
 
-    upload("digest/weekly.html", page, f"[scraper] Weekly digest — {len(week_articles)} articles over 7 days")
-    print(f"  Weekly digest: {len(week_articles)} articles over 7 days")
+    upload("digest/weekly.html", page, f"[scraper] Weekly digest (dynamic) — {total_week} articles this week")
+    print(f"  Weekly digest: {total_week} articles over 7 days (dynamic JS render)")
 
 
 # ── Search page ──────────────────────────────────────────────────────────────
@@ -3914,6 +3996,37 @@ def main():
     _404_page = _404_page.replace('{HEADER}', HEADER).replace('{FOOTER}', FOOTER)
     upload("404.html", _404_page, "[scraper] Custom 404 page")
     print("  404.html deployed")
+
+    # 6k13. Homepage WebSite JSON-LD — enables Google sitelinks search box
+    print(f"\n[6k13] Injecting WebSite JSON-LD on homepage...")
+    _home_resp = gh("GET", f"/repos/{REPO}/contents/index.html?ref={ACTIVE_BRANCH}")
+    if isinstance(_home_resp, dict) and not _home_resp.get("_err") and _home_resp.get("content"):
+        _home_html = base64.b64decode(_home_resp["content"]).decode("utf-8", errors="replace")
+        if 'application/ld+json' not in _home_html:
+            _ws_ld = json.dumps({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "KiddieDaily",
+                "url": "https://kiddiedaily.com",
+                "description": "Daily kid-friendly news — bias-rated, fact-checked, no ads.",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {"@type": "EntryPoint",
+                               "urlTemplate": "https://kiddiedaily.com/search.html?q={search_term_string}"},
+                    "query-input": "required name=search_term_string"
+                }
+            }, separators=(',', ':'))
+            _home_html = _home_html.replace(
+                '</head>',
+                f'<script type="application/ld+json">{_ws_ld}</script>\n</head>',
+                1
+            )
+            upload("index.html", _home_html, "[scraper] Inject WebSite JSON-LD on homepage for Google sitelinks")
+            print("  Homepage WebSite JSON-LD injected")
+        else:
+            print("  Homepage JSON-LD already present — skipping")
+    else:
+        print(f"  Could not read index.html: {_home_resp.get('_err') if isinstance(_home_resp, dict) else 'unknown error'}")
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
