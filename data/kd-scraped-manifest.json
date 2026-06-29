@@ -531,7 +531,11 @@
     "news/2026-06-29-camera-traps-reveal-the-true-culprit-behind-crop-d.html",
     "news/2026-06-29-what-do-you-do-when-you-lose-gigantic-megalodon-sh.html",
     "news/2026-06-29-four-new-chameleon-species-found-in-tropical-sky-i.html",
-    "news/2026-06-29-the-new-seismic-discovery-beneath-the-surface-of-m.html"
+    "news/2026-06-29-the-new-seismic-discovery-beneath-the-surface-of-m.html",
+    "news/2026-06-29-this-was-a-big-week-for-marie-curie-more-than-120.html",
+    "news/2026-06-29-james-webb-space-telescope-captures-the-cigar-gala.html",
+    "news/2026-06-29-how-humans-are-like-bloodhounds-and-bats.html",
+    "news/2026-06-29-can-thailand-cambodia-unlock-massive-oil-and-gas-r.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1065,7 +1069,11 @@
     "Camera traps reveal the true culprit behind crop damage in Honduras",
     "What Do You Do When You Lose Gigantic Megalodon Shark Vertebrae?",
     "Four New Chameleon Species Found in Tropical “Sky Islands”",
-    "The New Seismic Discovery Beneath the Surface of Mars"
+    "The New Seismic Discovery Beneath the Surface of Mars",
+    "This Was a Big Week for Marie Curie, More Than 120 Years Ago",
+    "James Webb Space Telescope Captures the Cigar Galaxy’s Brilliant Stellar Halo in Pristine Detail",
+    "How Humans Are Like Bloodhounds and Bats",
+    "Can Thailand, Cambodia unlock massive oil and gas reserves?"
   ],
   "articles": [
     {
@@ -7013,6 +7021,54 @@
       "is_science": true,
       "source_name": "Nautilus",
       "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-this-was-a-big-week-for-marie-curie-more-than-120.html",
+      "title": "This Was a Big Week for Marie Curie, More Than 120 Years Ago",
+      "display_title": "This Was a Big Week for Marie Curie, More Than 120 Years Ago",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-james-webb-space-telescope-captures-the-cigar-gala.html",
+      "title": "James Webb Space Telescope Captures the Cigar Galaxy’s Brilliant Stellar Halo in Pristine Detail",
+      "display_title": "James Webb Space Telescope Captures the Cigar Galaxy’s Brilliant Stellar Halo in Pristine Detail",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-how-humans-are-like-bloodhounds-and-bats.html",
+      "title": "How Humans Are Like Bloodhounds and Bats",
+      "display_title": "How Humans Are Like Bloodhounds and Bats",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-can-thailand-cambodia-unlock-massive-oil-and-gas-r.html",
+      "title": "Can Thailand, Cambodia unlock massive oil and gas reserves?",
+      "display_title": "Can Thailand, Cambodia unlock massive oil and gas reserves?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
     }
   ]
 }
