@@ -9,7 +9,7 @@ GitHub Actions: triggered daily at 10am UTC via .github/workflows/daily-news.yml
 Requires:  GITHUB_TOKEN  (env var or projects/API-KEYS.env)
 Optional:  ANTHROPIC_API_KEY  (for Claude Haiku kid-friendly rewrites)
 """
-import urllib.request, urllib.error, urllib.parse, ssl, json, base64, time, os, pathlib, re, sys
+import urllib.request, urllib.error, urllib.parse, ssl, json, base64, time, os, pathlib, re, sys, unicodedata
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
@@ -715,7 +715,9 @@ FOOTER = """<footer class="kd"><div class="inner">
 </footer>"""
 
 def make_slug(title, date_str):
-    slug = re.sub(r"[^\w\s-]", "", title.lower())
+    # Normalize accented characters (ñ→n, é→e, etc.) so the URL path stays ASCII-safe
+    normalized = unicodedata.normalize("NFKD", title.lower()).encode("ascii", "ignore").decode("ascii")
+    slug = re.sub(r"[^\w\s-]", "", normalized)
     slug = re.sub(r"\s+", "-", slug.strip())[:50].rstrip("-")
     return f"news/{date_str}-{slug}.html"
 
