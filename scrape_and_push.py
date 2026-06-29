@@ -37,9 +37,9 @@ def _load_token(env_var, prefix):
 GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
-MAX_ARTICLES          = 11  # max new articles per run (8 sci + 3 world)
-MAX_SCI_PER_RUN       = 8   # max science articles per run (bumped with 25 sources)
-MAX_WORLD_PER_RUN     = 3   # max world-news articles per run
+MAX_ARTICLES          = 15  # max new articles per run (11 sci + 4 world)
+MAX_SCI_PER_RUN       = 11  # max science articles per run
+MAX_WORLD_PER_RUN     = 4   # max world-news articles per run
 MAX_PER_SOURCE_PER_RUN= 3   # max articles from any single source per run (prevents domination)
 MAX_SPORTS_TOURNAMENT_PER_RUN = 1   # cap for any single major live tournament (World Cup, Wimbledon, Olympics…)
 
@@ -885,8 +885,8 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
-<nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
-<a href="/games/">Games</a><a href="/about.html">About</a><a href="/parent-zone/" class="pz-cta">Parent Zone</a></nav>
+<nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/fact-check/">Fact Check</a>
+<a href="/games/">Games</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
 </div></header>"""
 
 FOOTER = """<footer class="kd"><div class="inner">
@@ -894,7 +894,7 @@ FOOTER = """<footer class="kd"><div class="inner">
 <p style="margin:0;font-size:14px;color:#cbd5e0">Curated daily news for families with research-backed fact checks.</p></div>
 <div><h4>Read</h4><a href="/news/today.html">Today's News</a><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
 <a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
-<div><h4>Account</h4><a href="/parent-zone/">Parent Zone</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
+<div><h4>Account</h4><a href="/parents/">For Parents</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
 <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
 <div><h4>Our Network</h4><a href="https://kiddiewordle.com" rel="noopener">KiddieWordle</a>
@@ -974,21 +974,34 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
     og_desc = re.sub(r"<[^>]+>", "", raw_desc).strip()[:160] or title[:160]
     is_sci_page = any(s.get("source_name", "") in SCIENCE_SOURCES for s in group)
     og_image = "https://kiddiedaily.com/og-science.svg" if is_sci_page else "https://kiddiedaily.com/og-news.svg"
-    jsonld = json.dumps({
-        "@context": "https://schema.org", "@type": "NewsArticle",
-        "headline": title,
-        "description": og_desc,
-        "image": og_image,
-        "url": url,
-        "inLanguage": "en-US",
-        "isAccessibleForFree": True,
-        "articleSection": "Science" if is_sci_page else "World News",
-        "keywords": cats or [],
-        "author": {"@type": "Organization", "name": "KiddieDaily Editors"},
-        "publisher": {"@type": "Organization", "name": "KiddieDaily", "url": "https://kiddiedaily.com"},
-        "datePublished": today, "dateModified": today,
-        "mainEntityOfPage": {"@type": "WebPage", "@id": url}
-    })
+    _art_section = "Science" if is_sci_page else "World News"
+    _art_section_url = "https://kiddiedaily.com/news/science.html" if is_sci_page else "https://kiddiedaily.com/news/world.html"
+    jsonld = json.dumps([
+        {
+            "@context": "https://schema.org", "@type": "NewsArticle",
+            "headline": title,
+            "description": og_desc,
+            "image": og_image,
+            "url": url,
+            "inLanguage": "en-US",
+            "isAccessibleForFree": True,
+            "articleSection": _art_section,
+            "keywords": cats or [],
+            "author": {"@type": "Organization", "name": "KiddieDaily Editors"},
+            "publisher": {"@type": "Organization", "name": "KiddieDaily", "url": "https://kiddiedaily.com"},
+            "datePublished": today, "dateModified": today,
+            "mainEntityOfPage": {"@type": "WebPage", "@id": url}
+        },
+        {
+            "@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "KiddieDaily", "item": "https://kiddiedaily.com"},
+                {"@type": "ListItem", "position": 2, "name": "News", "item": "https://kiddiedaily.com/news/"},
+                {"@type": "ListItem", "position": 3, "name": _art_section, "item": _art_section_url},
+                {"@type": "ListItem", "position": 4, "name": title, "item": url},
+            ]
+        }
+    ])
 
     source_items = "".join(
         f'<li>{s["source_icon"]} <a href="{s["link"]}" rel="noopener nofollow" target="_blank">'
@@ -1105,6 +1118,8 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
   const SLUG="{slug}";
   const PAGE_CATS=new Set({json.dumps([c for c in (cats or []) if c not in ("science","world")])});
   const TITLE_WORDS=new Set("{title}".toLowerCase().replace(/[^\\w\\s]/g,"").split(/\\s+/).filter(w=>w.length>3&&!["that","this","with","from","have","were","they","more"].includes(w)));
+  const MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmtDate(d){{var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}}
   const CCLR={{"space":"#ede9fe;color:#5b21b6","animals":"#fef3c7;color:#92400e","history":"#fce7f3;color:#9d174d","environment":"#dcfce7;color:#166534","technology":"#e0e7ff;color:#3730a3"}};
   fetch("/data/kd-articles.json").then(r=>r.json()).then(articles=>{{
     const scored=articles.filter(a=>a.slug!==SLUG).map(a=>{{
@@ -1125,7 +1140,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
         <span style='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;background:${{a.is_science?"#d1fae5":"#dbeafe"}};color:${{a.is_science?"#065f46":"#1e40af"}};padding:2px 7px;border-radius:20px'>${{a.is_science?"Science":"World News"}}</span>${{pills}}
         <a href="/${{a.slug}}" style='display:block;color:#1a4d80;font-weight:600;margin:5px 0 2px;font-size:15px'>${{a.title}}</a>
         ${{a.description?`<p style='font-size:13px;color:#4a5568;margin:3px 0 4px;line-height:1.4'>${{a.description.length>120?a.description.slice(0,120)+"…":a.description}}</p>`:""}}
-        <span style='font-size:11px;color:#a0aec0'>${{a.date}}</span>
+        <span style='font-size:11px;color:#a0aec0'>${{fmtDate(a.date)}}</span>
         </div>`;
       }}).join("");
     const ft=document.querySelector('footer.kd');
@@ -3994,7 +4009,7 @@ def generate_status_page(manifest, today, pushed_count):
     # Named source breakdown (top 12 by article count using source_name field)
     named_counts = {}
     for a in articles:
-        sn = a.get("source_name") or a.get("sources", [{}])[0].get("name", "") if a.get("sources") else ""
+        sn = a.get("source_name") or ""
         if sn:
             named_counts[sn] = named_counts.get(sn, 0) + 1
     top_named = sorted(named_counts.items(), key=lambda x: -x[1])[:12]
