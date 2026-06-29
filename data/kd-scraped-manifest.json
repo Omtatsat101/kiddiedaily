@@ -569,7 +569,11 @@
     "news/2026-06-29-the-defiant-sovereignty-of-queen-jane.html",
     "news/2026-06-29-holbeins-hidden-code-secrets-of-the-tudor-ambassad.html",
     "news/2026-06-29-new-medieval-books-the-north-caucasian-kingdom-of.html",
-    "news/2026-06-29-us-india-trade-deal-inside-the-key-sticking-points.html"
+    "news/2026-06-29-us-india-trade-deal-inside-the-key-sticking-points.html",
+    "news/2026-06-29-why-nanoscale-droplets-dont-coalesce-and-microscal.html",
+    "news/2026-06-29-this-tiny-organism-contracts-200-times-faster-than.html",
+    "news/2026-06-29-the-pink-planet-has-a-salty-secret.html",
+    "news/2026-06-29-the-ideas-shaping-environmental-action.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1141,7 +1145,11 @@
     "The Defiant Sovereignty of Queen Jane",
     "Holbein’s Hidden Code: Secrets of the Tudor Ambassadors",
     "New Medieval Books: The North Caucasian Kingdom of Alania, 850–1240",
-    "US-India trade deal: Inside the key sticking points"
+    "US-India trade deal: Inside the key sticking points",
+    "Why nanoscale droplets don't coalesce and microscale droplets do",
+    "This tiny organism contracts 200 times faster than we can blink—here's how",
+    "The Pink Planet has a salty secret",
+    "The Ideas Shaping Environmental Action"
   ],
   "articles": [
     {
@@ -7545,6 +7553,54 @@
       "is_science": false,
       "source_name": "DW News",
       "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-why-nanoscale-droplets-dont-coalesce-and-microscal.html",
+      "title": "Why nanoscale droplets don't coalesce and microscale droplets do",
+      "display_title": "Why nanoscale droplets don't coalesce and microscale droplets do",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-this-tiny-organism-contracts-200-times-faster-than.html",
+      "title": "This tiny organism contracts 200 times faster than we can blink—here's how",
+      "display_title": "This tiny organism contracts 200 times faster than we can blink—here's how",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-the-pink-planet-has-a-salty-secret.html",
+      "title": "The Pink Planet has a salty secret",
+      "display_title": "The Pink Planet has a salty secret",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Popular Science",
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-the-ideas-shaping-environmental-action.html",
+      "title": "The Ideas Shaping Environmental Action",
+      "display_title": "The Ideas Shaping Environmental Action",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Mongabay",
+      "source_icons": "🦁"
     }
   ]
 }
