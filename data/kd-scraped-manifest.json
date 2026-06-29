@@ -233,7 +233,15 @@
     "news/2026-06-29-could-future-astronauts-use-oysters-as-water-filte.html",
     "news/2026-06-29-if-i-am-to-die-let-it-be-here-malawians-fleeing-un.html",
     "news/2026-06-29-ireland-upstage-world-champions-india-to-win-t20-s.html",
-    "news/2026-06-29-in-venezuela-silence-has-become-a-rescue-tool.html"
+    "news/2026-06-29-in-venezuela-silence-has-become-a-rescue-tool.html",
+    "news/2026-06-29-augmented-reality-system-could-make-medical-ultras.html",
+    "news/2026-06-29-the-consequences-of-relying-on-ai-for-accurate-new.html",
+    "news/2026-06-29-bob-ross-painting-could-sell-for-70k-to-benefit-in.html",
+    "news/2026-06-29-if-you-want-to-keep-mosquitoes-away-you-want-to-ke.html",
+    "news/2026-06-29-logans-run-at-50-remembering-this-disco-age-sci-fi.html",
+    "news/2026-06-29-hope-of-finding-more-venezuela-quake-survivors-fad.html",
+    "news/2026-06-29-gazas-displaced-families-face-worsening-living-con.html",
+    "news/2026-06-29-trade-tensions-shake-up-brazils-caipirinha-spirit.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -469,7 +477,15 @@
     "Could future astronauts use oysters as water filters? Here's why one company thinks so",
     "‘If I am to die, let it be here’: Malawians fleeing unrest in South Africa",
     "Ireland upstage world champions India to win T20 series at home",
-    "In Venezuela, silence has become a rescue tool"
+    "In Venezuela, silence has become a rescue tool",
+    "Augmented reality system could make medical ultrasounds easier to interpret",
+    "The consequences of relying on AI for accurate news",
+    "Bob Ross painting could sell for $70K to benefit Indiana public broadcasting",
+    "If you want to keep mosquitoes away, you want to keep Thermacell repellents close, and Amazon has them on sale for a limited time",
+    "'Logan's Run' at 50: Remembering this disco-age sci-fi classic on its golden anniversary",
+    "Hope of finding more Venezuela quake survivors fades despite late rescues",
+    "Gaza’s displaced families face worsening living conditions",
+    "Trade tensions shake up Brazil's caipirinha spirit"
   ],
   "articles": [
     {
@@ -3027,6 +3043,94 @@
       "slug": "news/2026-06-29-in-venezuela-silence-has-become-a-rescue-tool.html",
       "title": "In Venezuela, silence has become a rescue tool",
       "display_title": "In Venezuela, silence has become a rescue tool",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-augmented-reality-system-could-make-medical-ultras.html",
+      "title": "Augmented reality system could make medical ultrasounds easier to interpret",
+      "display_title": "Augmented reality system could make medical ultrasounds easier to interpret",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-the-consequences-of-relying-on-ai-for-accurate-new.html",
+      "title": "The consequences of relying on AI for accurate news",
+      "display_title": "The consequences of relying on AI for accurate news",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-bob-ross-painting-could-sell-for-70k-to-benefit-in.html",
+      "title": "Bob Ross painting could sell for $70K to benefit Indiana public broadcasting",
+      "display_title": "Bob Ross painting could sell for $70K to benefit Indiana public broadcasting",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-if-you-want-to-keep-mosquitoes-away-you-want-to-ke.html",
+      "title": "If you want to keep mosquitoes away, you want to keep Thermacell repellents close, and Amazon has them on sale for a limited time",
+      "display_title": "If you want to keep mosquitoes away, you want to keep Thermacell repellents close, and Amazon has them on sale for a limited time",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-logans-run-at-50-remembering-this-disco-age-sci-fi.html",
+      "title": "'Logan's Run' at 50: Remembering this disco-age sci-fi classic on its golden anniversary",
+      "display_title": "'Logan's Run' at 50: Remembering this disco-age sci-fi classic on its golden anniversary",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-hope-of-finding-more-venezuela-quake-survivors-fad.html",
+      "title": "Hope of finding more Venezuela quake survivors fades despite late rescues",
+      "display_title": "Hope of finding more Venezuela quake survivors fades despite late rescues",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-gazas-displaced-families-face-worsening-living-con.html",
+      "title": "Gaza’s displaced families face worsening living conditions",
+      "display_title": "Gaza’s displaced families face worsening living conditions",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-trade-tensions-shake-up-brazils-caipirinha-spirit.html",
+      "title": "Trade tensions shake up Brazil's caipirinha spirit",
+      "display_title": "Trade tensions shake up Brazil's caipirinha spirit",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.7,
