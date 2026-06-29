@@ -80,7 +80,12 @@
     "news/2026-06-29-a-textbook-assumption-about-early-land-vertebrates.html",
     "news/2026-06-29-a-2011-earthquake-bounced-a-seismic-wave-off-earth.html",
     "news/2026-06-29-the-truth-about-brain-rot-according-to-science.html",
-    "news/2026-06-29-june-full-moon-strawberry-moon-is-the-lowest-highe.html"
+    "news/2026-06-29-june-full-moon-strawberry-moon-is-the-lowest-highe.html",
+    "news/2026-06-29-large-asteroid-safely-passed-earth-on-june-27.html",
+    "news/2026-06-29-a-lunar-quarantine-facility-to-protect-from-alien.html",
+    "news/2026-06-29-will-earth-survive-the-red-giant-sun-new-research.html",
+    "news/2026-06-29-visible-planets-and-night-sky-guide-for-june-and-j.html",
+    "news/2026-06-29-is-zubeneschamali-a-green-star-pros-say-no-sky-wat.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -163,7 +168,12 @@
     "A textbook assumption about early land vertebrates may be wrong",
     "A 2011 earthquake bounced a seismic wave off Earth’s core, nudging Japan east",
     "The truth about brain rot, according to science",
-    "June full moon – Strawberry Moon – is the lowest (highest) of the year"
+    "June full moon – Strawberry Moon – is the lowest (highest) of the year",
+    "Large asteroid safely passed Earth on June 27",
+    "A lunar quarantine facility to protect from alien microbes?",
+    "Will Earth survive the red giant sun? New research suggests yes",
+    "Visible planets and night sky guide for June and July",
+    "Is Zubeneschamali a green star? Pros say no. Sky-watchers say yes."
   ],
   "articles": [
     {
@@ -1038,6 +1048,61 @@
       "slug": "news/2026-06-29-june-full-moon-strawberry-moon-is-the-lowest-highe.html",
       "title": "June full moon – Strawberry Moon – is the lowest (highest) of the year",
       "display_title": "June full moon – Strawberry Moon – is the lowest (highest) of the year",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-large-asteroid-safely-passed-earth-on-june-27.html",
+      "title": "Large asteroid safely passed Earth on June 27",
+      "display_title": "Large asteroid safely passed Earth on June 27",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-a-lunar-quarantine-facility-to-protect-from-alien.html",
+      "title": "A lunar quarantine facility to protect from alien microbes?",
+      "display_title": "A lunar quarantine facility to protect from alien microbes?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-will-earth-survive-the-red-giant-sun-new-research.html",
+      "title": "Will Earth survive the red giant sun? New research suggests yes",
+      "display_title": "Will Earth survive the red giant sun? New research suggests yes",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-visible-planets-and-night-sky-guide-for-june-and-j.html",
+      "title": "Visible planets and night sky guide for June and July",
+      "display_title": "Visible planets and night sky guide for June and July",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-is-zubeneschamali-a-green-star-pros-say-no-sky-wat.html",
+      "title": "Is Zubeneschamali a green star? Pros say no. Sky-watchers say yes.",
+      "display_title": "Is Zubeneschamali a green star? Pros say no. Sky-watchers say yes.",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
