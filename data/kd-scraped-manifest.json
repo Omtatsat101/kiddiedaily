@@ -539,7 +539,15 @@
     "news/2026-06-29-some-neanderthals-were-genetically-healthy-right-u.html",
     "news/2026-06-29-perseverance-scratches-the-martian-surface-finds-o.html",
     "news/2026-06-29-archaic-hominin-species-buried-only-their-women.html",
-    "news/2026-06-29-ford-rehires-human-engineers-after-ai-fails-to-mat.html"
+    "news/2026-06-29-ford-rehires-human-engineers-after-ai-fails-to-mat.html",
+    "news/2026-06-29-viking-textile-center-excavated-in-denmark.html",
+    "news/2026-06-29-traces-of-homo-erectus-fire-use-dated-to-18-millio.html",
+    "news/2026-06-29-2000-year-old-defenses-examined-in-cyprus.html",
+    "news/2026-06-29-10-medieval-inventions-that-shaped-the-modern-worl.html",
+    "news/2026-06-29-merlins-prophecies-how-medieval-people-believed-he.html",
+    "news/2026-06-29-frederick-ii-and-islam-separating-myth-from-realit.html",
+    "news/2026-06-29-secrets-of-the-maya-unlocking-3000-years-of-jungle.html",
+    "news/2026-06-29-eleanor-and-henry-forging-the-angevin-empire.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1081,7 +1089,15 @@
     "Some Neanderthals Were Genetically Healthy Right Up Until the End",
     "Perseverance Scratches the Martian Surface, Finds Organic Carbon",
     "Archaic Hominin Species Buried Only Their Women",
-    "Ford rehires human engineers after AI fails to match quality checks"
+    "Ford rehires human engineers after AI fails to match quality checks",
+    "Viking Textile Center Excavated in Denmark",
+    "Traces of Homo erectus Fire Use Dated to 1.8 Million Years Ago",
+    "2,000-Year-Old Defenses Examined in Cyprus",
+    "10 Medieval Inventions That Shaped the Modern World",
+    "Merlin’s Prophecies: How Medieval People Believed He Predicted England’s Future",
+    "Frederick II and Islam: Separating Myth from Reality",
+    "Secrets of the Maya: Unlocking 3,000 Years of Jungle History",
+    "Eleanor and Henry: Forging the Angevin Empire"
   ],
   "articles": [
     {
@@ -7125,6 +7141,102 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-viking-textile-center-excavated-in-denmark.html",
+      "title": "Viking Textile Center Excavated in Denmark",
+      "display_title": "Viking Textile Center Excavated in Denmark",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": 0.0,
+      "agreement_pct": 16,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺 ⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-traces-of-homo-erectus-fire-use-dated-to-18-millio.html",
+      "title": "Traces of Homo erectus Fire Use Dated to 1.8 Million Years Ago",
+      "display_title": "Traces of Homo erectus Fire Use Dated to 1.8 Million Years Ago",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-2000-year-old-defenses-examined-in-cyprus.html",
+      "title": "2,000-Year-Old Defenses Examined in Cyprus",
+      "display_title": "2,000-Year-Old Defenses Examined in Cyprus",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-10-medieval-inventions-that-shaped-the-modern-worl.html",
+      "title": "10 Medieval Inventions That Shaped the Modern World",
+      "display_title": "10 Medieval Inventions That Shaped the Modern World",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-merlins-prophecies-how-medieval-people-believed-he.html",
+      "title": "Merlin’s Prophecies: How Medieval People Believed He Predicted England’s Future",
+      "display_title": "Merlin’s Prophecies: How Medieval People Believed He Predicted England’s Future",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-frederick-ii-and-islam-separating-myth-from-realit.html",
+      "title": "Frederick II and Islam: Separating Myth from Reality",
+      "display_title": "Frederick II and Islam: Separating Myth from Reality",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-secrets-of-the-maya-unlocking-3000-years-of-jungle.html",
+      "title": "Secrets of the Maya: Unlocking 3,000 Years of Jungle History",
+      "display_title": "Secrets of the Maya: Unlocking 3,000 Years of Jungle History",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-eleanor-and-henry-forging-the-angevin-empire.html",
+      "title": "Eleanor and Henry: Forging the Angevin Empire",
+      "display_title": "Eleanor and Henry: Forging the Angevin Empire",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
     }
   ]
 }
