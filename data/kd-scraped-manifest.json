@@ -444,7 +444,13 @@
     "news/2026-06-29-erased-from-history-a-century-on-from-canadas-anti.html",
     "news/2026-06-29-this-senior-member-solves-complex-product-lifecycl.html",
     "news/2026-06-29-why-does-a-bank-need-a-chief-scientist.html",
-    "news/2026-06-29-what-it-means-to-be-a-mathematician-when-ai-does-t.html"
+    "news/2026-06-29-what-it-means-to-be-a-mathematician-when-ai-does-t.html",
+    "news/2026-06-29-make-an-origami-circuit-board.html",
+    "news/2026-06-29-ai-is-designing-radio-chips-that-humans-couldnt-ev.html",
+    "news/2026-06-29-home-broadband-is-5gs-surprise-killer-app.html",
+    "news/2026-06-29-us-mens-world-cup-team-reignites-nations-love-affa.html",
+    "news/2026-06-29-this-week-on-the-hill-house-aims-to-move-prioritie.html",
+    "news/2026-06-29-catherine-completes-three-peaks-challenge-to-explo.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -891,7 +897,13 @@
     "‘Erased from history’: A century on from Canada’s anti-Greek riots",
     "This Senior Member Solves Complex Product Lifecycle Challenges",
     "Why Does a Bank Need a Chief Scientist?",
-    "What it Means to Be a Mathematician When AI Does the Math"
+    "What it Means to Be a Mathematician When AI Does the Math",
+    "Make an Origami Circuit Board",
+    "AI Is Designing Radio Chips That Humans Couldn’t Even Imagine",
+    "Home Broadband Is 5G’s Surprise Killer App",
+    "US men’s World Cup team reignites nation’s love affair with soccer",
+    "This week on The Hill: House aims to move priorities after conservative SAVE America Act rebellion",
+    "Catherine completes Three Peaks Challenge to 'explore life beyond' cancer diagnosis"
   ],
   "articles": [
     {
@@ -5795,6 +5807,78 @@
       "is_science": true,
       "source_name": "IEEE Spectrum",
       "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-make-an-origami-circuit-board.html",
+      "title": "Make an Origami Circuit Board",
+      "display_title": "Make an Origami Circuit Board",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-ai-is-designing-radio-chips-that-humans-couldnt-ev.html",
+      "title": "AI Is Designing Radio Chips That Humans Couldn’t Even Imagine",
+      "display_title": "AI Is Designing Radio Chips That Humans Couldn’t Even Imagine",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-home-broadband-is-5gs-surprise-killer-app.html",
+      "title": "Home Broadband Is 5G’s Surprise Killer App",
+      "display_title": "Home Broadband Is 5G’s Surprise Killer App",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-us-mens-world-cup-team-reignites-nations-love-affa.html",
+      "title": "US men’s World Cup team reignites nation’s love affair with soccer",
+      "display_title": "US men’s World Cup team reignites nation’s love affair with soccer",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-this-week-on-the-hill-house-aims-to-move-prioritie.html",
+      "title": "This week on The Hill: House aims to move priorities after conservative SAVE America Act rebellion",
+      "display_title": "This week on The Hill: House aims to move priorities after conservative SAVE America Act rebellion",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-catherine-completes-three-peaks-challenge-to-explo.html",
+      "title": "Catherine completes Three Peaks Challenge to 'explore life beyond' cancer diagnosis",
+      "display_title": "Catherine completes Three Peaks Challenge to 'explore life beyond' cancer diagnosis",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
