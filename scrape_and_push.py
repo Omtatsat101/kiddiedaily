@@ -281,7 +281,7 @@ def group_stories(stories):
         for j, other in enumerate(stories):
             if j in used or j == i:
                 continue
-            if jaccard(s["title"], other["title"]) > 0.25:
+            if jaccard(s["title"], other["title"]) > 0.18:
                 group.append(other)
                 used.add(j)
         groups.append(group)
@@ -632,6 +632,11 @@ def parent_discussion_guide(title, is_science):
 def build_page(title, body_html, bias_html, score, group, slug, today):
     n = score["n_sources"]
     url = f"https://kiddiedaily.com/{slug}"
+    # og:description — clean text from RSS summary (strip HTML tags)
+    raw_desc = group[0].get("description", "") if group else ""
+    og_desc = re.sub(r"<[^>]+>", "", raw_desc).strip()[:160] or title[:160]
+    is_sci_page = any(s.get("source_name", "") in SCIENCE_SOURCES for s in group)
+    og_image = "https://kiddiedaily.com/og-science.svg" if is_sci_page else "https://kiddiedaily.com/og-news.svg"
     jsonld = json.dumps({
         "@context": "https://schema.org", "@type": "NewsArticle",
         "headline": title,
@@ -715,7 +720,11 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 <title>{title} — KiddieDaily</title>
 <meta property="og:type" content="article"><meta property="og:title" content="{title}">
 <meta property="og:url" content="{url}"><meta property="og:site_name" content="KiddieDaily">
+<meta property="og:description" content="{og_desc}">
+<meta property="og:image" content="{og_image}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{og_desc}">
+<meta name="twitter:image" content="{og_image}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">{jsonld}</script>
 {CSS}</head><body>{HEADER}<main>{body}</main>{FOOTER}
@@ -2930,6 +2939,32 @@ def main():
     # 6k8. Generate static info pages (about, contact, privacy, terms)
     print(f"\n[6k8] Generating static info pages...")
     generate_static_info_pages(manifest, today)
+
+    # 6k9. Generate og:image SVGs (used for social sharing previews)
+    print(f"\n[6k9] Deploying og:image SVGs for social sharing...")
+    _sci_svg = """<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#0f172a"/>
+<rect x="0" y="0" width="8" height="630" fill="#34d399"/>
+<text x="80" y="90" font-family="system-ui,sans-serif" font-size="28" fill="#34d399" font-weight="700" letter-spacing="2">KIDDIEDAILY</text>
+<text x="80" y="135" font-family="system-ui,sans-serif" font-size="18" fill="#94a3b8">News for Families · Science Edition</text>
+<text x="80" y="340" font-family="system-ui,sans-serif" font-size="72" fill="#f8fafc">🔬</text>
+<text x="200" y="310" font-family="system-ui,sans-serif" font-size="52" fill="#f1f5f9" font-weight="700">Science</text>
+<text x="200" y="375" font-family="system-ui,sans-serif" font-size="52" fill="#f1f5f9" font-weight="700">Discovery</text>
+<text x="80" y="540" font-family="system-ui,sans-serif" font-size="22" fill="#64748b">Bias-rated · Kid-safe · No ads · kiddiedaily.com</text>
+</svg>"""
+    _news_svg = """<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#0f172a"/>
+<rect x="0" y="0" width="8" height="630" fill="#60a5fa"/>
+<text x="80" y="90" font-family="system-ui,sans-serif" font-size="28" fill="#60a5fa" font-weight="700" letter-spacing="2">KIDDIEDAILY</text>
+<text x="80" y="135" font-family="system-ui,sans-serif" font-size="18" fill="#94a3b8">News for Families · World News</text>
+<text x="80" y="340" font-family="system-ui,sans-serif" font-size="72" fill="#f8fafc">🌍</text>
+<text x="200" y="310" font-family="system-ui,sans-serif" font-size="52" fill="#f1f5f9" font-weight="700">World</text>
+<text x="200" y="375" font-family="system-ui,sans-serif" font-size="52" fill="#f1f5f9" font-weight="700">News</text>
+<text x="80" y="540" font-family="system-ui,sans-serif" font-size="22" fill="#64748b">Bias-rated · Kid-safe · No ads · kiddiedaily.com</text>
+</svg>"""
+    upload("og-science.svg", _sci_svg, "[scraper] og:image — science articles")
+    upload("og-news.svg", _news_svg, "[scraper] og:image — world news articles")
+    print("  og:image SVGs deployed: og-science.svg, og-news.svg")
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
