@@ -417,7 +417,9 @@
     "news/2026-06-29-late-period-of-ancient-egypt-the-end-of-egyptian-r.html",
     "news/2026-06-29-mum-of-newborn-rescued-from-venezuela-rubble-tells.html",
     "news/2026-06-29-people-are-taking-allergy-and-heartburn-pills-for.html",
-    "news/2026-06-29-morning-news-brief.html"
+    "news/2026-06-29-morning-news-brief.html",
+    "news/2026-06-29-third-intermediate-period-of-egypt-era-of-foreign.html",
+    "news/2026-06-29-hymn-to-nisaba-a-praise-song-for-the-sumerian-godd.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -837,7 +839,9 @@
     "Late Period of Ancient Egypt: The End of Egyptian Rule of Egypt",
     "Mum of newborn rescued from Venezuela rubble tells BBC baby motivated her to survive",
     "People are taking allergy and heartburn pills for PMS. Could it work?",
-    "Morning news brief"
+    "Morning news brief",
+    "Third Intermediate Period of Egypt: Era of Foreign Invasion",
+    "Hymn to Nisaba: A Praise Song for the Sumerian Goddess of Writing"
   ],
   "articles": [
     {
@@ -5425,6 +5429,28 @@
       "agreement_pct": 10,
       "is_science": false,
       "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-third-intermediate-period-of-egypt-era-of-foreign.html",
+      "title": "Third Intermediate Period of Egypt: Era of Foreign Invasion",
+      "display_title": "Third Intermediate Period of Egypt: Era of Foreign Invasion",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-hymn-to-nisaba-a-praise-song-for-the-sumerian-godd.html",
+      "title": "Hymn to Nisaba: A Praise Song for the Sumerian Goddess of Writing",
+      "display_title": "Hymn to Nisaba: A Praise Song for the Sumerian Goddess of Writing",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "📜"
     }
   ]
 }
