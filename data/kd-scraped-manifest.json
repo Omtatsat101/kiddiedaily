@@ -477,7 +477,8 @@
     "news/2026-06-29-closing-the-ai-fluency-gap-to-support-workforce-re.html",
     "news/2026-06-29-eib-announces-largest-ever-loan-3-billion-to-airbu.html",
     "news/2026-06-29-how-the-new-brazil-is-taking-shape-and-why-cunha-i.html",
-    "news/2026-06-29-clarke-says-standing-down-easy-decision-after-worl.html"
+    "news/2026-06-29-clarke-says-standing-down-easy-decision-after-worl.html",
+    "news/2026-06-29-dame-penelope-keith-the-good-lifes-funny-and-formi.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -957,7 +958,8 @@
     "Closing the AI fluency gap to support workforce retention",
     "EIB announces largest-ever loan: €3 billion to Airbus",
     "How the new Brazil is taking shape and why Cunha is key",
-    "Clarke says standing down 'easy' decision after World Cup exit"
+    "Clarke says standing down 'easy' decision after World Cup exit",
+    "Dame Penelope Keith: The Good Life's funny and formidable star"
   ],
   "articles": [
     {
@@ -6250,6 +6252,18 @@
       "slug": "news/2026-06-29-clarke-says-standing-down-easy-decision-after-worl.html",
       "title": "Clarke says standing down 'easy' decision after World Cup exit",
       "display_title": "Clarke says standing down 'easy' decision after World Cup exit",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-dame-penelope-keith-the-good-lifes-funny-and-formi.html",
+      "title": "Dame Penelope Keith: The Good Life's funny and formidable star",
+      "display_title": "Dame Penelope Keith: The Good Life's funny and formidable star",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
