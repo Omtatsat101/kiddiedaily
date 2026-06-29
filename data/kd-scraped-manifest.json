@@ -276,7 +276,14 @@
     "news/2026-06-29-watch-a-potentially-hazardous-asteroid-the-size-of.html",
     "news/2026-06-29-europes-heatwave-is-the-hottest-and-most-humid-eve.html",
     "news/2026-06-29-read-an-extract-from-slow-gods-by-claire-north.html",
-    "news/2026-06-29-amazon-prime-deals-are-ending-and-its-the-last-day.html"
+    "news/2026-06-29-amazon-prime-deals-are-ending-and-its-the-last-day.html",
+    "news/2026-06-29-neon-green-auroras-from-space-will-take-your-breat.html",
+    "news/2026-06-29-nasa-is-paying-30-million-for-a-1st-of-its-kind-re.html",
+    "news/2026-06-29-why-i-started-my-sci-fi-novel-with-a-world-ending.html",
+    "news/2026-06-29-can-video-games-help-us-better-understand-quantum.html",
+    "news/2026-06-29-world-cup-2026-top-matches-to-watch-in-the-round-o.html",
+    "news/2026-06-29-great-stories-little-jeopardy---does-the-new-world.html",
+    "news/2026-06-29-knockouts-are-here---what-is-englands-path-to-the.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -555,7 +562,14 @@
     "Watch a 'Potentially hazardous asteroid' the size of a skyscraper close in on Earth live online tonight",
     "Europe’s heatwave is the hottest and most humid ever",
     "Read an extract from Slow Gods by Claire North",
-    "Amazon Prime deals are ending and it’s the last day to save on these top Bluetooth headphone, earbud, and speaker picks"
+    "Amazon Prime deals are ending and it’s the last day to save on these top Bluetooth headphone, earbud, and speaker picks",
+    "Neon green auroras from space will take your breath away | Space photo of the day for June 26, 2026",
+    "NASA is paying $30 million for a 1st-of-its-kind rescue mission to the aging Swift telescope before it falls from space. Is it worth it?",
+    "Why I started my sci-fi novel with a world-ending supernova",
+    "Can video games help us better understand quantum mechanics?",
+    "World Cup 2026: Top matches to watch in the Round of 32 knockout stage",
+    "Great stories, little jeopardy - does the new World Cup format work?",
+    "Knockouts are here - what is England's path to the final?"
   ],
   "articles": [
     {
@@ -3592,6 +3606,83 @@
       "agreement_pct": 14,
       "is_science": true,
       "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-neon-green-auroras-from-space-will-take-your-breat.html",
+      "title": "Neon green auroras from space will take your breath away | Space photo of the day for June 26, 2026",
+      "display_title": "Neon green auroras from space will take your breath away | Space photo of the day for June 26, 2026",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-nasa-is-paying-30-million-for-a-1st-of-its-kind-re.html",
+      "title": "NASA is paying $30 million for a 1st-of-its-kind rescue mission to the aging Swift telescope before it falls from space. Is it worth it?",
+      "display_title": "NASA is paying $30 million for a 1st-of-its-kind rescue mission to the aging Swift telescope before it falls from space. Is it worth it?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-why-i-started-my-sci-fi-novel-with-a-world-ending.html",
+      "title": "Why I started my sci-fi novel with a world-ending supernova",
+      "display_title": "Why I started my sci-fi novel with a world-ending supernova",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-can-video-games-help-us-better-understand-quantum.html",
+      "title": "Can video games help us better understand quantum mechanics?",
+      "display_title": "Can video games help us better understand quantum mechanics?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-world-cup-2026-top-matches-to-watch-in-the-round-o.html",
+      "title": "World Cup 2026: Top matches to watch in the Round of 32 knockout stage",
+      "display_title": "World Cup 2026: Top matches to watch in the Round of 32 knockout stage",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": 0.45,
+      "agreement_pct": 28,
+      "is_science": false,
+      "source_icons": "🌍 🦅"
+    },
+    {
+      "slug": "news/2026-06-29-great-stories-little-jeopardy---does-the-new-world.html",
+      "title": "Great stories, little jeopardy - does the new World Cup format work?",
+      "display_title": "Great stories, little jeopardy - does the new World Cup format work?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-knockouts-are-here---what-is-englands-path-to-the.html",
+      "title": "Knockouts are here - what is England's path to the final?",
+      "display_title": "Knockouts are here - what is England's path to the final?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
     }
   ]
 }
