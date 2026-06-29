@@ -201,7 +201,15 @@
     "news/2026-06-29-superman-returns-at-20-is-it-a-sequel-is-it-a-rebo.html",
     "news/2026-06-29-first-dinosaur-bone-from-antarctica-found-in-a-dra.html",
     "news/2026-06-29-conspiracy-or-chaos-algeria-austria-defend-unexpec.html",
-    "news/2026-06-29-venezuelans-angry-with-government-as-time-runs-out.html"
+    "news/2026-06-29-venezuelans-angry-with-government-as-time-runs-out.html",
+    "news/2026-06-29-a-tiny-ingestible-sensor-can-measure-temperature-f.html",
+    "news/2026-06-29-mit-engineers-find-a-way-to-deliver-drugs-directly.html",
+    "news/2026-06-29-your-web-browser-knows-a-lot-about-you-heres-what.html",
+    "news/2026-06-29-amazon-prime-deal-days-is-over-but-the-savings-on.html",
+    "news/2026-06-29-japanese-probe-set-for-super-close-flyby-on-july-5.html",
+    "news/2026-06-29-france-the-team-to-beat-chris-sutton-predicts-worl.html",
+    "news/2026-06-29-how-bellingham-became-tuchels-most-important-playe.html",
+    "news/2026-06-29-praise-pours-in-for-true-canadian-heroes-after-las.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -405,7 +413,15 @@
     "'Superman Returns' at 20: Is it a sequel? Is it a reboot? Two decades on, we're still not sure",
     "First dinosaur bone from Antarctica found in a drawer",
     "Conspiracy or chaos? Algeria & Austria defend 'unexpected' draw",
-    "Venezuelans angry with government as time runs out to rescue survivors"
+    "Venezuelans angry with government as time runs out to rescue survivors",
+    "A tiny ingestible sensor can measure temperature from inside the body",
+    "MIT engineers find a way to deliver drugs directly to the esophagus",
+    "Your web browser knows a lot about you. Here’s what you can do about it.",
+    "Amazon Prime Deal Days is over, but the savings on these Marshall speakers and headphones still rock",
+    "Japanese probe set for super-close flyby on July 5: 'We're going to discover another beast to put in the zoo of asteroids'",
+    "France the team to beat? Chris Sutton predicts World Cup's last-32 matches",
+    "How Bellingham became Tuchel's most important player",
+    "Praise pours in for ‘true Canadian heroes’ after last-minute World Cup win"
   ],
   "articles": [
     {
@@ -2611,6 +2627,94 @@
       "slug": "news/2026-06-29-venezuelans-angry-with-government-as-time-runs-out.html",
       "title": "Venezuelans angry with government as time runs out to rescue survivors",
       "display_title": "Venezuelans angry with government as time runs out to rescue survivors",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-a-tiny-ingestible-sensor-can-measure-temperature-f.html",
+      "title": "A tiny ingestible sensor can measure temperature from inside the body",
+      "display_title": "A tiny ingestible sensor can measure temperature from inside the body",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-mit-engineers-find-a-way-to-deliver-drugs-directly.html",
+      "title": "MIT engineers find a way to deliver drugs directly to the esophagus",
+      "display_title": "MIT engineers find a way to deliver drugs directly to the esophagus",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-your-web-browser-knows-a-lot-about-you-heres-what.html",
+      "title": "Your web browser knows a lot about you. Here’s what you can do about it.",
+      "display_title": "Your web browser knows a lot about you. Here’s what you can do about it.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-amazon-prime-deal-days-is-over-but-the-savings-on.html",
+      "title": "Amazon Prime Deal Days is over, but the savings on these Marshall speakers and headphones still rock",
+      "display_title": "Amazon Prime Deal Days is over, but the savings on these Marshall speakers and headphones still rock",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-japanese-probe-set-for-super-close-flyby-on-july-5.html",
+      "title": "Japanese probe set for super-close flyby on July 5: 'We're going to discover another beast to put in the zoo of asteroids'",
+      "display_title": "Japanese probe set for super-close flyby on July 5: 'We're going to discover another beast to put in the zoo of asteroids'",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-france-the-team-to-beat-chris-sutton-predicts-worl.html",
+      "title": "France the team to beat? Chris Sutton predicts World Cup's last-32 matches",
+      "display_title": "France the team to beat? Chris Sutton predicts World Cup's last-32 matches",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-how-bellingham-became-tuchels-most-important-playe.html",
+      "title": "How Bellingham became Tuchel's most important player",
+      "display_title": "How Bellingham became Tuchel's most important player",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-praise-pours-in-for-true-canadian-heroes-after-las.html",
+      "title": "Praise pours in for ‘true Canadian heroes’ after last-minute World Cup win",
+      "display_title": "Praise pours in for ‘true Canadian heroes’ after last-minute World Cup win",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.4,
