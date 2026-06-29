@@ -202,7 +202,7 @@ SOURCES = [
     {"name": "NASA Earth",    "url": "https://earthobservatory.nasa.gov/feeds/earth-observatory.rss", "bias": 0.0, "icon": "🌍"},
     {"name": "Carbon Brief",  "url": "https://www.carbonbrief.org/feed/",                             "bias": -0.3, "icon": "🌿"},
     {"name": "MIT Tech Review","url": "https://www.technologyreview.com/feed/",                        "bias": -0.1, "icon": "💻"},
-    {"name": "World History Encyclopedia", "url": "https://www.worldhistory.org/feed/",               "bias":  0.0, "icon": "📜"},
+    {"name": "World History Encyclopedia", "url": "https://www.worldhistory.org/rss/",                "bias":  0.0, "icon": "📜"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -213,6 +213,10 @@ BLOCKLIST = [
     "war crime", "genocide", "torture", "execution", "beheading",
     "fatally", "death toll", "casualties", "bodies found",
     "die in", "dies in", "died in",
+    # Hate groups and extremism (never appropriate for kids)
+    "neo-nazi", "white supremac", "white nationalist", "white supremist",
+    "kkk", "ku klux", "extremist group", "domestic terrorist",
+    "hate group", "hate crime",
 ]
 SAFE_OVERRIDES = [
     "space", "science", "animal", "planet", "nature", "research",
