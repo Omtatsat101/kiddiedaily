@@ -89,6 +89,12 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\bhighest.paid\s+job|best.paid\s+jobs?|highest.paying\s+job'  # adult salary content
     r'|\bin\s+every\s+state.{0,15}mapped|mapped.{0,15}every\s+state'  # adult data maps
     r'|\bsigns\s+with\s+\w|\btransfer\s+(?:fee|window|deal)\b'  # sports transfer gossip
+    r'|\bscotus\b'                               # Supreme Court partisan politics
+    r'|\brevenge\s+dress\b'                      # celebrity fashion events
+    r'|\baverage\s+salary.{0,30}(?:rent|state|ranked)\b'  # adult housing/finance content
+    r'|\brequired\s+bible|bible\s+stories?\s+(?:in|for|required|at)\b'  # church-state curriculum
+    r'|\bchurch\s+and\s+state\b|\bseparation\s+of\s+church\b'  # church-state controversy
+    r'|\bsongs?\s+you\s+(?:might\s+not\s+know|didn\'t\s+know).{0,20}wrote\b'  # celebrity song trivia
     r')',
     re.I
 )
@@ -292,14 +298,14 @@ SOURCES = [
     {"name": "Atlas Obscura",       "url": "https://www.atlasobscura.com/feeds/latest",              "bias":  0.0, "icon": "🗺️"},
     # Mental Floss: fun facts, trivia, history oddities, science curiosities
     {"name": "Mental Floss",        "url": "https://www.mentalfloss.com/rss.xml",                    "bias":  0.0, "icon": "🧠"},
-    # Phys.org: broad science — physics, space, biology, chemistry, earth science
-    {"name": "Phys.org",            "url": "https://phys.org/rss-feed/",                             "bias":  0.0, "icon": "⚗️"},
-    # IFLScience: accessible science news — animals, space, weird science, archaeology
-    {"name": "IFLScience",          "url": "https://www.iflscience.com/feed/",                       "bias":  0.0, "icon": "🧪"},
+    # Sci-News: archaeology, paleontology, astronomy, biology discoveries
+    {"name": "Sci-News",            "url": "https://www.sci.news/feed",                              "bias":  0.0, "icon": "⚗️"},
+    # Earth.com: nature, wildlife, environment, ocean science, conservation
+    {"name": "Earth.com",           "url": "https://www.earth.com/feed/",                            "bias":  0.0, "icon": "🌍"},
     # SciTechDaily: science & technology news aggregator — archaeology, space, biology, physics
     {"name": "SciTechDaily",        "url": "https://scitechdaily.com/feed/",                         "bias":  0.0, "icon": "🏛"},
-    # Cosmos Magazine: quality science journalism — space, physics, biology, climate
-    {"name": "Cosmos Magazine",     "url": "https://cosmosmagazine.com/feed/",                       "bias":  0.0, "icon": "🎙️"},
+    # Berkeley News: UC Berkeley research — physics, biology, environment, technology
+    {"name": "Berkeley News",       "url": "https://news.berkeley.edu/feed/",                        "bias":  0.0, "icon": "🎙️"},
     # ZME Science: accessible science for curious minds — animals, space, paleontology
     {"name": "ZME Science",         "url": "https://www.zmescience.com/feed/",                       "bias":  0.0, "icon": "🔬"},
 ]
@@ -439,7 +445,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "IFLScience", "SciTechDaily", "Cosmos Magazine", "ZME Science"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "Earth.com", "SciTechDaily", "Berkeley News", "ZME Science"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -564,6 +570,27 @@ DEPRIORITIZE_WORDS = [
     # Sports contract/transfer gossip (adult sports industry news)
     "signs with", "signs for", "transfer fee", "transfer window",
     "contract extension", "agrees deal", "seals deal",
+    # Adult self-help / therapy framing (SciTechDaily/ZME repackaged adult psychology)
+    "fearing failure", "stop fearing", "fear of failure",
+    "people stop fearing", "helps people stop",
+    "therapy that helps", "surprising therapy",
+    "cognitive behavioral", "cbt therapy",
+    # Celebrity royal / fashion content (Mental Floss pop-culture category)
+    "princess diana", "revenge dress", "diana's dress",
+    "royal family drama", "royal scandal",
+    # Celebrity music / pop-culture trivia (not educational for kids)
+    "songs you might not know", "songs you didn't know",
+    "songs they wrote", "songs written by",
+    "wrote for other", "wrote these songs",
+    # US partisan Supreme Court / constitutional law (adult political news)
+    "scotus", "supreme court spares", "supreme court blocks",
+    "supreme court rules", "high court rules",
+    # Church-state / curriculum controversy (adult policy debate)
+    "bible in schools", "bible required", "required bible",
+    "separation of church", "church and state",
+    # Adult housing/rental market content
+    "salary to rent", "salary needed to rent", "afford rent",
+    "average rent", "rental market", "housing affordability",
     # IEEE organizational events, award ceremonies, training announcements
     "ieee awardee", "epics in ieee", "ieee's awards", "education week events",
     "virtual training course", "ieee rolls out",
