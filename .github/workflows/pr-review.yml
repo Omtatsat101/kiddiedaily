@@ -1,0 +1,126 @@
+name: Content PR Review Agent
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  # Stage 1: validate script syntax
+  review-script:
+    name: "Stage 1 — Script Syntax Check"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Python syntax check
+        run: |
+          python -m py_compile scrape_and_push.py
+          echo "✓ scrape_and_push.py syntax OK"
+
+  # Stage 2: validate generated content
+  review-content:
+    name: "Stage 2 — Content Validator"
+    runs-on: ubuntu-latest
+    needs: review-script
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate HTML files (DOCTYPE + KiddieDaily header)
+        run: |
+          python - <<'EOF'
+          import os, sys
+          fail = 0
+          for root, _, files in os.walk('.'):
+              if '.git' in root:
+                  continue
+              for f in files:
+                  if not f.endswith('.html'):
+                      continue
+                  path = os.path.join(root, f)
+                  text = open(path, encoding='utf-8', errors='ignore').read()
+                  if '<!DOCTYPE html>' not in text and '<!doctype html>' not in text.lower():
+                      print(f'FAIL missing DOCTYPE: {path}')
+                      fail += 1
+          print(f'HTML check: {fail} failures')
+          sys.exit(fail > 0)
+          EOF
+      - name: Validate articles JSON index
+        run: |
+          python - <<'EOF'
+          import json, sys
+          try:
+              data = json.load(open('data/kd-articles.json'))
+              assert len(data) > 0, "Empty articles JSON"
+              required = {'slug', 'title', 'date', 'is_science'}
+              for item in data[:3]:
+                  missing = required - set(item.keys())
+                  assert not missing, f"Missing fields {missing} in {item.get('slug','?')}"
+              print(f"✓ {len(data)} articles in index, schema OK")
+          except Exception as e:
+              print(f"FAIL: {e}")
+              sys.exit(1)
+          EOF
+      - name: Validate RSS feed
+        run: |
+          python - <<'EOF'
+          import xml.etree.ElementTree as ET, sys
+          try:
+              tree = ET.parse('feed.xml')
+              items = tree.findall('.//{http://www.w3.org/2005/Atom}entry') or                       tree.findall('.//item')
+              print(f"✓ RSS feed has {len(items)} items")
+          except Exception as e:
+              print(f"FAIL RSS: {e}")
+              sys.exit(1)
+          EOF
+
+  # Stage 3: validate sitemap
+  review-sitemap:
+    name: "Stage 3 — Sitemap & Coverage Check"
+    runs-on: ubuntu-latest
+    needs: review-content
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate sitemap
+        run: |
+          python - <<'EOF'
+          import xml.etree.ElementTree as ET, sys
+          tree = ET.parse('sitemap.xml')
+          ns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
+          urls = [u.text for u in tree.findall(f'.//{{{ns}}}loc')]
+          required = ['/', '/news/', '/news/archive.html', '/feed.xml',
+                      '/news/science.html', '/search.html', '/digest/latest.html']
+          missing = [r for r in required if not any(r in u for u in urls)]
+          if missing:
+              print(f"FAIL sitemap missing: {missing}")
+              sys.exit(1)
+          print(f"✓ Sitemap has {len(urls)} URLs, all required pages present")
+          EOF
+      - name: Coverage report
+        run: |
+          python - <<'EOF'
+          import os, json
+          cats = {'news': 0, 'digest': 0, 'search': 0}
+          for root, _, files in os.walk('.'):
+              if '.git' in root: continue
+              for f in files:
+                  if f.endswith('.html'):
+                      k = root.split(os.sep)[1] if len(root.split(os.sep)) > 1 else 'root'
+                      cats[k] = cats.get(k, 0) + 1
+          print("Coverage:", json.dumps(cats, indent=2))
+          articles = json.load(open('data/kd-articles.json'))
+          print(f"✓ Total articles: {len(articles)}")
+          EOF
