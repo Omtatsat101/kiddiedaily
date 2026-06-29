@@ -99,6 +99,11 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\bonly\s+true\s+\w+\s+fans?\s+(?:know|can|will)\b'  # fan trivia quiz patterns
     r'|\bseniors?\s+(?:are|most|least).{0,30}outlive\b'  # adult retirement/aging data
     r'|\boutlive\s+their.{0,20}savings?\b'       # adult financial planning content
+    r'|\bhoroscope\b|\bweekly\s+horoscope\b|\bastrology\s+(?:forecast|column)\b'  # pseudoscience
+    r'|\branked\s+by\s+rotten\s+tomatoes\b'      # entertainment movie rankings
+    r'|\bfavorite\s+fast\s+food\s+(?:chain|restaurant)\b'  # fast food commercial content
+    r'|\bmortgage\s+rates?\s+(?:frustrate|hurt|rise|climb)\b'  # adult real estate
+    r'|\bhomes?\s+(?:harder|slower)\s+to\s+sell\b'  # adult housing market
     r'|^watch\s*:\s+how\s+to'                   # tutorial video stub articles ("Watch: How to...")
     r'|\bgel\s+nails?\b'                         # adult beauty/cosmetic content
     r'|\bdaca\s+recipients?\b|\bdreamers?\s+(?:face|struggle|fight)\b'  # immigration policy
@@ -698,6 +703,23 @@ DEPRIORITIZE_WORDS = [
     # Extremist / terror content
     "terrorist attack", "terror plot", "extremist group",
     "jihad", "isis", "al-qaeda", "boko haram",
+    # Horoscope / astrology content (pseudoscience, not educational)
+    "horoscope", "weekly horoscope", "free will astrology", "astrology forecast",
+    "your stars this week", "zodiac forecast", "sun sign",
+    # Entertainment movie/TV ranking lists (not news)
+    "ranked by rotten tomatoes", "rotten tomatoes score", "movies ranked",
+    "all 13 star wars", "all 10 star wars", "every star wars film",
+    "ranked worst to", "films ranked", "episodes ranked",
+    # Fast food commercial preference content (not educational)
+    "favorite fast food chain", "fast food chains mapped", "best fast food",
+    "america's favorite restaurant", "favorite fast food",
+    # Adult cancer-warning health alerts (medical, not kids science)
+    "colorectal cancer", "colon cancer symptoms", "colorectal symptoms",
+    "cancer symptoms to watch", "surgeons warn", "don't ignore these symptoms",
+    # Adult housing/mortgage market content
+    "mortgage rates frustrate", "homes harder to sell", "harder to sell",
+    "housing market cooling", "homes sitting longer", "real estate slowdown",
+    "affordability crisis",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
