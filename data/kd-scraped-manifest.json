@@ -617,7 +617,12 @@
     "news/2026-06-29-june-heatwave-was-hotter-than-thought-whilst-relie.html",
     "news/2026-06-29-worth-every-penny-say-england-fans-at-world-cup.html",
     "news/2026-06-29-nanopore-technology-identifies-proteins-molecule-b.html",
-    "news/2026-06-29-ev-myths-muddy-the-road-to-electrification.html"
+    "news/2026-06-29-ev-myths-muddy-the-road-to-electrification.html",
+    "news/2026-06-29-happy-news-stories-to-make-you-smile.html",
+    "news/2026-06-29-uv-light-patterns-thermochromic-crystals-without-d.html",
+    "news/2026-06-29-online-calculator-shows-how-drastically-mowing-aff.html",
+    "news/2026-06-29-brazil-vs-japan-live-fifa-world-cup-2026.html",
+    "news/2026-06-29-all-you-need-to-know-about-wimbledon-2026.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1237,7 +1242,12 @@
     "June heatwave was hotter than thought whilst relief from heat set to be short lived",
     "'Worth every penny', say England fans at World Cup",
     "Nanopore technology identifies proteins molecule by molecule",
-    "EV myths muddy the road to electrification"
+    "EV myths muddy the road to electrification",
+    "Happy News: Stories to make you smile",
+    "UV light patterns thermochromic crystals without damage, unlocking color-changing designs",
+    "Online calculator shows how drastically mowing affects insects",
+    "Brazil vs Japan LIVE: FIFA World Cup 2026",
+    "All you need to know about Wimbledon 2026"
   ],
   "articles": [
     {
@@ -8217,6 +8227,66 @@
       "is_science": false,
       "source_name": "DW News",
       "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-happy-news-stories-to-make-you-smile.html",
+      "title": "Happy News: Stories to make you smile",
+      "display_title": "Happy News: Stories to make you smile",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-uv-light-patterns-thermochromic-crystals-without-d.html",
+      "title": "UV light patterns thermochromic crystals without damage, unlocking color-changing designs",
+      "display_title": "UV light patterns thermochromic crystals without damage, unlocking color-changing designs",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-online-calculator-shows-how-drastically-mowing-aff.html",
+      "title": "Online calculator shows how drastically mowing affects insects",
+      "display_title": "Online calculator shows how drastically mowing affects insects",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-brazil-vs-japan-live-fifa-world-cup-2026.html",
+      "title": "Brazil vs Japan LIVE: FIFA World Cup 2026",
+      "display_title": "Brazil vs Japan LIVE: FIFA World Cup 2026",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍 📺"
+    },
+    {
+      "slug": "news/2026-06-29-all-you-need-to-know-about-wimbledon-2026.html",
+      "title": "All you need to know about Wimbledon 2026",
+      "display_title": "All you need to know about Wimbledon 2026",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
     }
   ]
 }
