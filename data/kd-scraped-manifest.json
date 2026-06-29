@@ -665,7 +665,18 @@
     "news/2026-06-29-sao-tome-declares-first-two-of-eight-planned-marin.html",
     "news/2026-06-29-mms-without-artificial-dyes-are-coming-but-two-ico.html",
     "news/2026-06-29-poland-orders-swedish-submarines-to-bulk-up-navy.html",
-    "news/2026-06-29-south-africa-braces-for-anti-migrant-protests.html"
+    "news/2026-06-29-south-africa-braces-for-anti-migrant-protests.html",
+    "news/2026-06-29-functional-nin-persists-in-non-nodulating-plants-r.html",
+    "news/2026-06-29-childbirth-is-not-uniquely-difficult-to-humans.html",
+    "news/2026-06-29-ultra-faint-galaxy-discovered-near-andromeda-may-b.html",
+    "news/2026-06-29-82-viking-workshop-huts-found-near-aarhus-may-have.html",
+    "news/2026-06-29-dogs-can-have-positive-impacts-on-our-mental-and-p.html",
+    "news/2026-06-29-these-rare-super-puff-planets-are-less-dense-than.html",
+    "news/2026-06-29-agent-confidence-on-the-technical-frontier.html",
+    "news/2026-06-29-your-menstrual-cycle-may-affect-how-well-vaccines.html",
+    "news/2026-06-29-sperm-whales-across-mediterranean-sea-have-differe.html",
+    "news/2026-06-29-how-are-kids-coping-with-the-heat-in-europe.html",
+    "news/2026-06-29-uk-experiences-hottest-june-day-on-record-for-thir.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1333,7 +1344,18 @@
     "São Tomé declares first two of eight planned marine protected areas",
     "M&M’s without artificial dyes are coming, but two iconic colors will be left out for now",
     "Poland orders Swedish submarines to bulk up navy",
-    "South Africa braces for anti-migrant protests"
+    "South Africa braces for anti-migrant protests",
+    "Functional NIN persists in non-nodulating plants: Rethinking the loss of symbiosis",
+    "Childbirth is not uniquely difficult to humans",
+    "Ultra-faint galaxy discovered near Andromeda may be 12.5 billion years old",
+    "82 Viking Workshop Huts Found Near Aarhus May Have Supplied a Major Trading City",
+    "Dogs Can Have Positive Impacts on Our Mental and Physical Health &mdash; but Can They Help Us Live Longer?&nbsp;",
+    "These Rare Super-Puff Planets Are Less Dense Than Cotton Candy",
+    "Agent confidence on the technical frontier",
+    "Your menstrual cycle may affect how well vaccines work",
+    "Sperm whales across Mediterranean Sea have different 'accents'",
+    "How are kids coping with the heat in Europe?",
+    "UK experiences hottest June day on record for third day in a row"
   ],
   "articles": [
     {
@@ -8889,6 +8911,138 @@
       "is_science": false,
       "source_name": "DW News",
       "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-functional-nin-persists-in-non-nodulating-plants-r.html",
+      "title": "Functional NIN persists in non-nodulating plants: Rethinking the loss of symbiosis",
+      "display_title": "Functional NIN persists in non-nodulating plants: Rethinking the loss of symbiosis",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-childbirth-is-not-uniquely-difficult-to-humans.html",
+      "title": "Childbirth is not uniquely difficult to humans",
+      "display_title": "Childbirth is not uniquely difficult to humans",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-ultra-faint-galaxy-discovered-near-andromeda-may-b.html",
+      "title": "Ultra-faint galaxy discovered near Andromeda may be 12.5 billion years old",
+      "display_title": "Ultra-faint galaxy discovered near Andromeda may be 12.5 billion years old",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-82-viking-workshop-huts-found-near-aarhus-may-have.html",
+      "title": "82 Viking Workshop Huts Found Near Aarhus May Have Supplied a Major Trading City",
+      "display_title": "82 Viking Workshop Huts Found Near Aarhus May Have Supplied a Major Trading City",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-dogs-can-have-positive-impacts-on-our-mental-and-p.html",
+      "title": "Dogs Can Have Positive Impacts on Our Mental and Physical Health &mdash; but Can They Help Us Live Longer?&nbsp;",
+      "display_title": "Dogs Can Have Positive Impacts on Our Mental and Physical Health &mdash; but Can They Help Us Live Longer?&nbsp;",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-these-rare-super-puff-planets-are-less-dense-than.html",
+      "title": "These Rare Super-Puff Planets Are Less Dense Than Cotton Candy",
+      "display_title": "These Rare Super-Puff Planets Are Less Dense Than Cotton Candy",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-agent-confidence-on-the-technical-frontier.html",
+      "title": "Agent confidence on the technical frontier",
+      "display_title": "Agent confidence on the technical frontier",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "MIT Tech Review",
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-your-menstrual-cycle-may-affect-how-well-vaccines.html",
+      "title": "Your menstrual cycle may affect how well vaccines work",
+      "display_title": "Your menstrual cycle may affect how well vaccines work",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "New Scientist",
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-sperm-whales-across-mediterranean-sea-have-differe.html",
+      "title": "Sperm whales across Mediterranean Sea have different 'accents'",
+      "display_title": "Sperm whales across Mediterranean Sea have different 'accents'",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-how-are-kids-coping-with-the-heat-in-europe.html",
+      "title": "How are kids coping with the heat in Europe?",
+      "display_title": "How are kids coping with the heat in Europe?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-uk-experiences-hottest-june-day-on-record-for-thir.html",
+      "title": "UK experiences hottest June day on record for third day in a row",
+      "display_title": "UK experiences hottest June day on record for third day in a row",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
     }
   ]
 }
