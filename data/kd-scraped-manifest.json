@@ -496,7 +496,10 @@
     "news/2026-06-29-what-are-supermassive-black-holes-everything-you-n.html",
     "news/2026-06-29-what-20-million-bans-reveal-about-the-strain-on-wi.html",
     "news/2026-06-29-como-las-ranitas-coqui-jovenes-equilibran-las-dema.html",
-    "news/2026-06-29-the-american-left-has-lost-its-mind-and-the-media.html"
+    "news/2026-06-29-the-american-left-has-lost-its-mind-and-the-media.html",
+    "news/2026-06-29-how-young-coqui-frogs-balance-the-competing-demand.html",
+    "news/2026-06-29-anyone-can-fake-a-scientific-image-with-ai-trickin.html",
+    "news/2026-06-29-why-do-baseball-players-put-a-black-mark-under-the.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -995,7 +998,10 @@
     "What are supermassive black holes? Everything you need to know – and what astronomers are still learning – about these mysterious objects",
     "What 20 million bans reveal about the strain on Wikipedia’s volunteers",
     "¿Cómo las ranitas coquí jóvenes equilibran las demandas de crecimiento y de combatir enfermedades?",
-    "The American left has lost its mind, and the media seem unbothered"
+    "The American left has lost its mind, and the media seem unbothered",
+    "How young coquí frogs balance the competing demands of growth and fighting disease",
+    "Anyone can fake a scientific image with AI, tricking even academic journals – and undermining trust in science",
+    "Why do baseball players put a black mark under their eyes?"
   ],
   "articles": [
     {
@@ -6523,6 +6529,42 @@
       "is_science": false,
       "source_name": "The Hill",
       "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-how-young-coqui-frogs-balance-the-competing-demand.html",
+      "title": "How young coquí frogs balance the competing demands of growth and fighting disease",
+      "display_title": "How young coquí frogs balance the competing demands of growth and fighting disease",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-anyone-can-fake-a-scientific-image-with-ai-trickin.html",
+      "title": "Anyone can fake a scientific image with AI, tricking even academic journals – and undermining trust in science",
+      "display_title": "Anyone can fake a scientific image with AI, tricking even academic journals – and undermining trust in science",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-why-do-baseball-players-put-a-black-mark-under-the.html",
+      "title": "Why do baseball players put a black mark under their eyes?",
+      "display_title": "Why do baseball players put a black mark under their eyes?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
     }
   ]
 }
