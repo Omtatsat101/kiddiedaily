@@ -3157,6 +3157,9 @@ def main():
         slug = make_slug(rep["title"], today)
         if slug in pushed_slugs:
             continue
+        # Title-level dedup: prevents same story appearing on multiple days
+        if rep["title"].lower() in pushed_titles:
+            continue
 
         score = score_group(group)
         print(f"\n    Topic: {rep['title'][:60]}...")
