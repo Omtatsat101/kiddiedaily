@@ -2631,8 +2631,14 @@ def generate_games_page(manifest):
     """Generate /games/index.html — media literacy games and educational activities for families."""
     articles = manifest.get("articles", [])
     sci_articles = [a for a in articles if a.get("is_science")]
-    # Pick 3 random-ish science articles for the quiz (by position, not random)
-    quiz_pool = sci_articles[:6:2]  # every other one, max 3
+    world_articles = [a for a in articles if not a.get("is_science")]
+    # Pick 5 quiz articles: 4 recent science + 1 recent world news (for variety)
+    # Spread selection across the recent pool to avoid always same articles
+    recent_sci = sci_articles[-20:] if len(sci_articles) >= 20 else sci_articles
+    step = max(1, len(recent_sci) // 4)
+    quiz_sci = [recent_sci[min(i * step, len(recent_sci) - 1)] for i in range(4)]
+    quiz_world = world_articles[-2:] if world_articles else []
+    quiz_pool = (quiz_sci + quiz_world[:1])[:5]
 
     stop = {"about", "their", "these", "those", "would", "could", "which", "where",
             "there", "after", "other", "first", "world", "using", "study", "finds",
@@ -2780,7 +2786,7 @@ Check My Answers</button>""" if quiz_pool else ""}
 </body></html>"""
 
     upload("games/index.html", page, "[scraper] Games / media literacy activities page")
-    print(f"  Games page: {len(quiz_pool)} quiz questions from today's science articles")
+    print(f"  Games page: {len(quiz_pool)} quiz questions ({len(quiz_sci)} science + {len(quiz_world[:1])} world)")
 
 
 def generate_search_page(manifest):
