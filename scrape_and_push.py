@@ -275,7 +275,13 @@ DEPRIORITIZE_WORDS = [
     # political-regulatory (heavy penalty so non-science replaces them)
     "supreme court", "aoc", "gop", "filibuster", "legislation",
     "firefighter", "firefighters", "police officer", "custody",
+    # entertainment/sport-entertainment (low value for kids news)
+    "wwe", "tna", "wrestling", "championship belt", "retains the", "smackdown",
+    "raw results", "raw recap", "nxt results",
 ]
+
+# Max absolute bias for world news articles (highly partisan sources get skipped)
+MAX_WORLD_NEWS_BIAS = 0.9
 
 def ranking_score(group):
     n = len(group)
@@ -3127,6 +3133,14 @@ def main():
         if not is_sci_group and world_pushed_run >= MAX_WORLD_PER_RUN:
             skipped_quota += 1
             continue
+
+        # World news: reject high-bias single-source stories (partisan entertainment/opinion)
+        if not is_sci_group:
+            n = len(group)
+            bias_avg = sum(s["source_bias"] for s in group) / n if n else 0.0
+            if abs(bias_avg) > MAX_WORLD_NEWS_BIAS and n == 1:
+                skipped_low += 1
+                continue
 
         slug = make_slug(rep["title"], today)
         if slug in pushed_slugs:
