@@ -37,9 +37,10 @@ def _load_token(env_var, prefix):
 GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
-MAX_ARTICLES     = 8   # max new articles per run
-MAX_SCI_PER_RUN  = 5   # max science articles per run (remaining slots go to world)
-MAX_WORLD_PER_RUN= 3   # max world-news articles per run
+MAX_ARTICLES          = 8   # max new articles per run
+MAX_SCI_PER_RUN       = 5   # max science articles per run (remaining slots go to world)
+MAX_WORLD_PER_RUN     = 3   # max world-news articles per run
+MAX_PER_SOURCE_PER_RUN= 2   # max articles from any single source per run (prevents domination)
 
 # Regex word-boundary filter — avoids substring false positives like "scraper"→"rape"
 _ADULT_TITLE_RE = re.compile(
@@ -296,6 +297,12 @@ DEPRIORITIZE_WORDS = [
     # entertainment/sport-entertainment (low value for kids news)
     "wwe", "tna", "wrestling", "championship belt", "retains the", "smackdown",
     "raw results", "raw recap", "nxt results",
+    # professional-sports results/retirements (adult sports industry, not child-development news)
+    "test match", "ashes series", "ashes test", "county cricket",
+    "says retiring", "retiring from international", "ends international career",
+    "wimbledon final", "wimbledon semi", "wimbledon quarter",
+    "premier league", "la liga", "serie a", "ligue 1",
+    "formula 1 race", "grand prix result",
     # UK-specific politics (not relevant for US/global families)
     "burnham", "keir starmer", "rishi sunak", "suella braverman",
     "tory party", "labour party", "hs2", "westminster",
@@ -3131,6 +3138,7 @@ def main():
     pushed_count = 0
     sci_pushed_run   = 0
     world_pushed_run = 0
+    source_counts_run = {}  # tracks articles per source this run
 
     MIN_SCORE = 1  # skip topics that rank ≤ 0 (political, low-signal, single-source noise)
     skipped_low = 0
@@ -3160,6 +3168,12 @@ def main():
             skipped_quota += 1
             continue
         if not is_sci_group and world_pushed_run >= MAX_WORLD_PER_RUN:
+            skipped_quota += 1
+            continue
+
+        # Per-source cap: no single source dominates the run
+        primary_source = rep["source_name"]
+        if source_counts_run.get(primary_source, 0) >= MAX_PER_SOURCE_PER_RUN:
             skipped_quota += 1
             continue
 
@@ -3219,6 +3233,7 @@ def main():
                 "source_icons": icons,
             })
             pushed_count += 1
+            source_counts_run[primary_source] = source_counts_run.get(primary_source, 0) + 1
             if is_sci_group:
                 sci_pushed_run += 1
             else:
