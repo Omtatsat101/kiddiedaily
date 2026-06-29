@@ -53,6 +53,7 @@ _ADULT_TITLE_RE = re.compile(
     r'|genocide|massacre|beheading|torture'
     r'|suicide|overdose|opioid\s+overdose|drug\s+addict'
     r'|hiv\b'
+    r'|hitler\b'
     r')\b',
     re.I
 )
@@ -215,6 +216,12 @@ SOURCES = [
     {"name": "The Conversation",    "url": "https://theconversation.com/us/technology/articles.atom", "bias": -0.2, "icon": "🎓"},
     # Deep-dive science journalism: paleontology, space, ecology, evolution, discovery
     {"name": "Nautilus",            "url": "https://nautil.us/feed/",                                 "bias":  0.0, "icon": "🔵"},
+    # Archaeology: AIA official news — excavations, discoveries, ancient civilizations
+    {"name": "Archaeology",         "url": "https://www.archaeology.org/feed",                        "bias":  0.0, "icon": "🏺"},
+    # Medieval history research: inventions, archaeology, manuscripts, Viking discoveries
+    {"name": "Medievalists",        "url": "https://www.medievalists.net/feed/",                      "bias":  0.0, "icon": "⚔️"},
+    # Popular history: Maya, Rome, Tudor, ancient empires, archaeological mysteries
+    {"name": "HistoryHit",          "url": "https://www.historyhit.com/feed/",                        "bias":  0.0, "icon": "🗺️"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -333,7 +340,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -424,6 +431,10 @@ DEPRIORITIZE_WORDS = [
     "climate denial", "legacy of climate",
     # Entertainment ranking listicles (not news, not educational)
     "worst to best", "ranked from worst",
+    # Book/movie/game reviews (not news content — use article-style titles only)
+    "movie review:", "book review:", "new medieval books:", "game review:",
+    # Review headlines structured as "X review: " or "Review: X"
+    " review: ", "^review: ",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
@@ -1836,7 +1847,7 @@ def generate_category_pages(manifest):
         "world":   [a for a in articles if not a.get("is_science")],
         "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
         "animals": [a for a in articles if _matches(a, _ANIMAL_KW) or a.get("source_name") == "Mongabay"],
-        "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") in {"JSTOR Daily", "World History Encyclopedia"}],
+        "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") in {"JSTOR Daily", "World History Encyclopedia", "Archaeology", "Medievalists", "HistoryHit"}],
         "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Carbon Brief"}],
         "technology":  [a for a in articles if _matches(a, _TECH_KW) or a.get("source_name") in {"MIT Tech Review", "IEEE Spectrum"}],
     }
