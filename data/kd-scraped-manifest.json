@@ -463,7 +463,11 @@
     "news/2026-06-29-the-secret-to-marathon-winning-humanoid-robots.html",
     "news/2026-06-29-engineering-is-critical-to-boosting-food-security.html",
     "news/2026-06-29-this-1976-university-experiment-spun-up-the-us-win.html",
-    "news/2026-06-29-why-orbital-data-centers-are-harder-than-silicon-v.html"
+    "news/2026-06-29-why-orbital-data-centers-are-harder-than-silicon-v.html",
+    "news/2026-06-29-defining-autonomy-for-wellness-robots-in-senior-ca.html",
+    "news/2026-06-29-we-are-crowdsourcing-the-panopticon.html",
+    "news/2026-06-29-what-size-company-is-right-for-you.html",
+    "news/2026-06-29-the-good-life-actress-dame-penelope-keith-dies-age.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -929,7 +933,11 @@
     "The Secret to Marathon-Winning Humanoid Robots",
     "Engineering Is Critical to Boosting Food Security",
     "This 1976 University Experiment Spun Up the U.S. Wind Industry",
-    "Why Orbital Data Centers Are Harder Than Silicon Valley Thinks"
+    "Why Orbital Data Centers Are Harder Than Silicon Valley Thinks",
+    "Defining Autonomy for Wellness Robots in Senior Care",
+    "We Are Crowdsourcing the Panopticon",
+    "What Size Company Is Right for You?",
+    "The Good Life actress Dame Penelope Keith dies aged 86"
   ],
   "articles": [
     {
@@ -6061,6 +6069,54 @@
       "is_science": true,
       "source_name": "IEEE Spectrum",
       "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-defining-autonomy-for-wellness-robots-in-senior-ca.html",
+      "title": "Defining Autonomy for Wellness Robots in Senior Care",
+      "display_title": "Defining Autonomy for Wellness Robots in Senior Care",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-we-are-crowdsourcing-the-panopticon.html",
+      "title": "We Are Crowdsourcing the Panopticon",
+      "display_title": "We Are Crowdsourcing the Panopticon",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-what-size-company-is-right-for-you.html",
+      "title": "What Size Company Is Right for You?",
+      "display_title": "What Size Company Is Right for You?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-the-good-life-actress-dame-penelope-keith-dies-age.html",
+      "title": "The Good Life actress Dame Penelope Keith dies aged 86",
+      "display_title": "The Good Life actress Dame Penelope Keith dies aged 86",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
