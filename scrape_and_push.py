@@ -1031,6 +1031,8 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
     guide_html = parent_discussion_guide(title, is_sci)
 
     rt = reading_time(body_html)
+    from datetime import datetime as _dt
+    _friendly_today = _dt.strptime(today, "%Y-%m-%d").strftime("%b %d, %Y").replace(" 0", " ")
     cat_label = "Science" if is_sci else "World News"
     cat_url   = "/news/science.html" if is_sci else "/news/world.html"
     _SUBCAT_META = {
@@ -1057,7 +1059,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
 <a href="/news/" style="color:#718096">News</a> ›
 <a href="{cat_url}" style="color:#1a4d80;font-weight:600">{cat_label}</a>
 </nav>{subcat_pills}
-<p class="byline">By KiddieDaily Editors &middot; {today} &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
+<p class="byline">By KiddieDaily Editors &middot; <time datetime="{today}">{_friendly_today}</time> &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
 <h1>{title}</h1>
 {bias_html}
 {perspectives_html}
@@ -2943,6 +2945,31 @@ def generate_for_parents_page(manifest, today):
     cards_html = "\n".join(_card(a) for a in today_articles[:8])
     n_today = len(today_articles)
 
+    # Subcategory breakdown for today
+    _SUBCAT_META = [
+        ("space",       "&#x1f680;", "Space"),
+        ("animals",     "&#x1f43e;", "Animals"),
+        ("history",     "&#x1f3db;", "History"),
+        ("environment", "&#x1f33f;", "Environment"),
+        ("technology",  "&#x1f4bb;", "Technology"),
+    ]
+    subcat_counts = {}
+    for a in today_articles:
+        for c in (a.get("cats") or []):
+            if c in {k for k, _, _ in _SUBCAT_META}:
+                subcat_counts[c] = subcat_counts.get(c, 0) + 1
+    subcat_chips = "".join(
+        f'<a href="/news/{key}.html" style="display:inline-flex;align-items:center;gap:5px;'
+        f'background:#f7fafc;border:1px solid #e2e8f0;border-radius:20px;padding:5px 12px;'
+        f'font-size:13px;color:#2d3748;text-decoration:none;font-family:system-ui,sans-serif">'
+        f'{icon} <strong>{label}</strong> <span style="color:#718096">{subcat_counts.get(key,0)}</span></a>'
+        for key, icon, label in _SUBCAT_META if subcat_counts.get(key, 0) > 0
+    )
+    subcat_html = (
+        f'<div class="section-hdr">Today\'s topics</div>'
+        f'<div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px">{subcat_chips}</div>'
+    ) if subcat_chips else ""
+
     # Source distribution bar
     bar_total = left_n + center_n + right_n or 1
     left_pct   = round(left_n / bar_total * 100)
@@ -3012,7 +3039,7 @@ Your daily briefing — {today} &middot; Balanced sources &middot; No spin &midd
   <div class="step-box"><div class="num">3</div><p><strong>Compare sources.</strong> When 2+ outlets cover the same story, we show you how each framed it. Look for what facts they agree on vs. what they emphasize differently.</p></div>
 </div>
 
-<div class="section-hdr">Today&#39;s stories — {today}</div>
+{subcat_html}<div class="section-hdr">Today&#39;s stories — {today}</div>
 {cards_html if cards_html else '<p style="color:#718096;font-family:system-ui,sans-serif">No articles for today yet — check back after 6am ET when the scraper runs.</p>'}
 
 <div style="background:#f0f4f8;border-radius:10px;padding:20px 24px;margin:28px 0 0;font-family:system-ui,sans-serif">
