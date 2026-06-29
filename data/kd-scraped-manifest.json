@@ -70,7 +70,12 @@
     "news/2026-06-29-a-mars-rover-found-organic-carbon-just-sitting-on.html",
     "news/2026-06-29-a-potential-hindrance-to-fusion-power-may-help-ins.html",
     "news/2026-06-29-the-worlds-largest-scorpion-lived-415-million-year.html",
-    "news/2026-06-29-the-little-brain-may-give-the-aging-mind-a-big-boo.html"
+    "news/2026-06-29-the-little-brain-may-give-the-aging-mind-a-big-boo.html",
+    "news/2026-06-29-even-safe-air-pollution-levels-may-affect-heart-he.html",
+    "news/2026-06-29-a-new-dino-fossil-may-solve-an-ancient-murder-myst.html",
+    "news/2026-06-29-the-new-world-screwworm-has-returned-to-the-us-now.html",
+    "news/2026-06-29-sea-cucumbers-harbor-zombie-tissues-that-wont-die.html",
+    "news/2026-06-29-a-tropical-permafrost-layer-in-peru-may-be-one-of.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -143,7 +148,12 @@
     "A Mars rover found organic carbon just sitting on a rock",
     "A potential hindrance to fusion power may help instead",
     "The world’s largest scorpion lived 415 million years ago",
-    "The ‘little brain’ may give the aging mind a big boost"
+    "The ‘little brain’ may give the aging mind a big boost",
+    "Even ‘safe’ air pollution levels may affect heart health",
+    "A new dino fossil may solve an ancient murder mystery",
+    "The New World screwworm has returned to the U.S. Now what?",
+    "Sea cucumbers harbor ‘zombie’ tissues that won’t die",
+    "A tropical permafrost layer in Peru may be one of the world’s largest"
   ],
   "articles": [
     {
@@ -908,6 +918,61 @@
       "slug": "news/2026-06-29-the-little-brain-may-give-the-aging-mind-a-big-boo.html",
       "title": "The ‘little brain’ may give the aging mind a big boost",
       "display_title": "The ‘little brain’ may give the aging mind a big boost",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-even-safe-air-pollution-levels-may-affect-heart-he.html",
+      "title": "Even ‘safe’ air pollution levels may affect heart health",
+      "display_title": "Even ‘safe’ air pollution levels may affect heart health",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-a-new-dino-fossil-may-solve-an-ancient-murder-myst.html",
+      "title": "A new dino fossil may solve an ancient murder mystery",
+      "display_title": "A new dino fossil may solve an ancient murder mystery",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-the-new-world-screwworm-has-returned-to-the-us-now.html",
+      "title": "The New World screwworm has returned to the U.S. Now what?",
+      "display_title": "The New World screwworm has returned to the U.S. Now what?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-sea-cucumbers-harbor-zombie-tissues-that-wont-die.html",
+      "title": "Sea cucumbers harbor ‘zombie’ tissues that won’t die",
+      "display_title": "Sea cucumbers harbor ‘zombie’ tissues that won’t die",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-a-tropical-permafrost-layer-in-peru-may-be-one-of.html",
+      "title": "A tropical permafrost layer in Peru may be one of the world’s largest",
+      "display_title": "A tropical permafrost layer in Peru may be one of the world’s largest",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
