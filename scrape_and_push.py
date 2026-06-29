@@ -150,6 +150,10 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:gambling|bribery|extortion)\s+(?:scheme|ring|case|scandal|charges?|indictment)\b' # crime
     r'|\bmortgage\s+fraud\b'                   # mortgage fraud coverage
     r'|\bcriminal\s+(?:charges?|allegations?|conspiracy)\b' # criminal proceedings
+    r'|\bpelosi\b|\bnancy\s+pelosi\b'          # partisan political figure (hard block)
+    r'|\bpelosi\s+institute\b'                 # named partisan institution
+    r'|\btrump\s+(?:signs?|pushes?|demands?|orders?|calls?)\b' # partisan executive action
+    r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r')',
     re.I
 )
@@ -723,7 +727,7 @@ DEPRIORITIZE_WORDS = [
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
-MAX_WORLD_NEWS_BIAS = 0.9
+MAX_WORLD_NEWS_BIAS = 0.6
 
 def ranking_score(group):
     n = len(group)
