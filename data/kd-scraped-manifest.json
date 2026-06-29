@@ -515,7 +515,10 @@
     "news/2026-06-29-telling-one-guina-from-another-its-all-about-the-a.html",
     "news/2026-06-29-kids-learn-to-bully-from-adults-threats-manipulati.html",
     "news/2026-06-29-upcoming-telescopes-could-shed-light-on-dark-matte.html",
-    "news/2026-06-29-hiv-enters-the-brain-and-doesnt-leave-paradoxicall.html"
+    "news/2026-06-29-hiv-enters-the-brain-and-doesnt-leave-paradoxicall.html",
+    "news/2026-06-29-methane-rocket-fuel-is-easier-to-handle-and-conven.html",
+    "news/2026-06-29-fossil-fishes-buried-in-the-desert-reveal-a-missin.html",
+    "news/2026-06-29-from-hormuz-to-the-cockpit-how-warfare-and-crimina.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1033,7 +1036,10 @@
     "Telling one guiña from another: It’s all about the angle",
     "Kids learn to bully from adults’ threats, manipulation and criticism – a child psychologist explains how parents can model better tactics",
     "Upcoming telescopes could shed light on dark matter – astronomers are looking for these ‘fingerprints’ of the elusive substance",
-    "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels"
+    "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels",
+    "Methane rocket fuel is easier to handle and convenient but, as Blue Origin saw, it can be very explosive",
+    "Fossil fishes buried in the desert reveal a missing chapter in marine history",
+    "From Hormuz to the cockpit: How warfare and criminal activity undermine GPS and the race to safeguard navigation"
   ],
   "articles": [
     {
@@ -6782,6 +6788,42 @@
       "slug": "news/2026-06-29-hiv-enters-the-brain-and-doesnt-leave-paradoxicall.html",
       "title": "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels",
       "display_title": "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-methane-rocket-fuel-is-easier-to-handle-and-conven.html",
+      "title": "Methane rocket fuel is easier to handle and convenient but, as Blue Origin saw, it can be very explosive",
+      "display_title": "Methane rocket fuel is easier to handle and convenient but, as Blue Origin saw, it can be very explosive",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-fossil-fishes-buried-in-the-desert-reveal-a-missin.html",
+      "title": "Fossil fishes buried in the desert reveal a missing chapter in marine history",
+      "display_title": "Fossil fishes buried in the desert reveal a missing chapter in marine history",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-from-hormuz-to-the-cockpit-how-warfare-and-crimina.html",
+      "title": "From Hormuz to the cockpit: How warfare and criminal activity undermine GPS and the race to safeguard navigation",
+      "display_title": "From Hormuz to the cockpit: How warfare and criminal activity undermine GPS and the race to safeguard navigation",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
