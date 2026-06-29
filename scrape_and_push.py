@@ -41,7 +41,7 @@ MAX_ARTICLES          = 8   # max new articles per run
 MAX_SCI_PER_RUN       = 5   # max science articles per run (remaining slots go to world)
 MAX_WORLD_PER_RUN     = 3   # max world-news articles per run
 MAX_PER_SOURCE_PER_RUN= 2   # max articles from any single source per run (prevents domination)
-MAX_WORLD_CUP_PER_RUN = 1   # cap FIFA World Cup articles — prevents tournament dominating all world slots
+MAX_SPORTS_TOURNAMENT_PER_RUN = 1   # cap for any single major live tournament (World Cup, Wimbledon, Olympics…)
 
 # Regex word-boundary filter — avoids substring false positives like "scraper"→"rape"
 _ADULT_TITLE_RE = re.compile(
@@ -3188,7 +3188,7 @@ def main():
     pushed_count = 0
     sci_pushed_run   = 0
     world_pushed_run = 0
-    world_cup_pushed_run = 0  # separate cap so tournament doesn't consume all world slots
+    sports_tournament_pushed = {}  # {keyword: count} — cap each live tournament at 1 per run
     source_counts_run = {}  # tracks articles per source this run
 
     MIN_SCORE = 1  # skip topics that rank ≤ 0 (political, low-signal, single-source noise)
@@ -3228,9 +3228,11 @@ def main():
             skipped_quota += 1
             continue
 
-        # World Cup / single-tournament cap — prevent one event from consuming all world slots
-        is_world_cup = not is_sci_group and "world cup" in rep["title"].lower()
-        if is_world_cup and world_cup_pushed_run >= MAX_WORLD_CUP_PER_RUN:
+        # Per-tournament cap — prevent any single live event from consuming all world slots
+        _LIVE_TOURNAMENTS = ["world cup", "wimbledon", "olympics", "olympic games", "euro 2024", "copa america"]
+        _title_lower = rep["title"].lower()
+        active_tournament = next((t for t in _LIVE_TOURNAMENTS if t in _title_lower), None) if not is_sci_group else None
+        if active_tournament and sports_tournament_pushed.get(active_tournament, 0) >= MAX_SPORTS_TOURNAMENT_PER_RUN:
             skipped_quota += 1
             continue
 
@@ -3301,8 +3303,8 @@ def main():
                 sci_pushed_run += 1
             else:
                 world_pushed_run += 1
-                if is_world_cup:
-                    world_cup_pushed_run += 1
+                if active_tournament:
+                    sports_tournament_pushed[active_tournament] = sports_tournament_pushed.get(active_tournament, 0) + 1
 
     if skipped_low:
         print(f"\n    Skipped {skipped_low} low-score topics (political/noise below threshold)")
