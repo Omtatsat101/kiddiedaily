@@ -319,7 +319,13 @@
     "news/2026-06-29-the-17-best-popular-science-books-of-2026-so-far.html",
     "news/2026-06-29-possible-signs-of-ancient-life-on-mars-are-rich-in.html",
     "news/2026-06-29-french-court-orders-totalenergies-to-disclose-clim.html",
-    "news/2026-06-29-indias-fishers-confront-homegrown-ghost-gear-probl.html"
+    "news/2026-06-29-indias-fishers-confront-homegrown-ghost-gear-probl.html",
+    "news/2026-06-29-el-nino-is-underway.html",
+    "news/2026-06-29-screwworm-could-be-the-first-species-targeted-by-a.html",
+    "news/2026-06-29-the-lunar-botanist-with-a-plan-to-farm-vegetables.html",
+    "news/2026-06-29-laser-scanning-forests-may-boost-carbon-estimates.html",
+    "news/2026-06-29-a-trailblazing-ugandan-championing-women-in-africa.html",
+    "news/2026-06-29-how-the-himalayan-blackberry-took-over-the-pacific.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -641,7 +647,13 @@
     "The 17 best popular science books of 2026 so far",
     "Possible signs of ancient life on Mars are rich in complex carbon",
     "French court orders TotalEnergies to disclose climate impacts in vigilance plan",
-    "India’s fishers confront homegrown ‘ghost gear’ problem"
+    "India’s fishers confront homegrown ‘ghost gear’ problem",
+    "El Niño Is Underway",
+    "Screwworm could be the first species targeted by an 'extinction drive'",
+    "The lunar botanist with a plan to farm vegetables on the moon",
+    "Laser scanning forests may boost carbon estimates, but credibility questions linger",
+    "A trailblazing Ugandan championing women in African fisheries: Q&A with Lovin Kobusingye",
+    "How the Himalayan Blackberry Took Over the Pacific Northwest"
   ],
   "articles": [
     {
@@ -4151,6 +4163,72 @@
       "agreement_pct": 11,
       "is_science": true,
       "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-el-nino-is-underway.html",
+      "title": "El Niño Is Underway",
+      "display_title": "El Niño Is Underway",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-screwworm-could-be-the-first-species-targeted-by-a.html",
+      "title": "Screwworm could be the first species targeted by an 'extinction drive'",
+      "display_title": "Screwworm could be the first species targeted by an 'extinction drive'",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-the-lunar-botanist-with-a-plan-to-farm-vegetables.html",
+      "title": "The lunar botanist with a plan to farm vegetables on the moon",
+      "display_title": "The lunar botanist with a plan to farm vegetables on the moon",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-laser-scanning-forests-may-boost-carbon-estimates.html",
+      "title": "Laser scanning forests may boost carbon estimates, but credibility questions linger",
+      "display_title": "Laser scanning forests may boost carbon estimates, but credibility questions linger",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-a-trailblazing-ugandan-championing-women-in-africa.html",
+      "title": "A trailblazing Ugandan championing women in African fisheries: Q&A with Lovin Kobusingye",
+      "display_title": "A trailblazing Ugandan championing women in African fisheries: Q&A with Lovin Kobusingye",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-how-the-himalayan-blackberry-took-over-the-pacific.html",
+      "title": "How the Himalayan Blackberry Took Over the Pacific Northwest",
+      "display_title": "How the Himalayan Blackberry Took Over the Pacific Northwest",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
     }
   ]
 }
