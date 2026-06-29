@@ -209,6 +209,8 @@ SOURCES = [
     {"name": "IEEE Spectrum",  "url": "https://spectrum.ieee.org/feeds/feed.rss",                  "bias":  0.0, "icon": "⚡"},
     # Environment deep-coverage (not in SCIENCE_SOURCES so political articles get filtered by score)
     {"name": "Inside Climate News", "url": "https://insideclimatenews.org/feed/",                  "bias": -0.4, "icon": "🌊"},
+    # Academic journalism — science/space/tech explainers written by researchers
+    {"name": "The Conversation",    "url": "https://theconversation.com/us/technology/articles.atom", "bias": -0.2, "icon": "🎓"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -320,7 +322,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
