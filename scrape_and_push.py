@@ -467,6 +467,16 @@ DEPRIORITIZE_WORDS = [
     "hits all-time", "confidence in government", "public trust", "american pride",
     "national pride", "voter sentiment", "opinion poll", "poll shows",
     "pew research", "% of americans say", "% say they",
+    # Immigration political framing (not age-appropriate issue framing for kids)
+    "undocumented migrants", "undocumented immigrants", "anti-immigration",
+    "illegal immigration", "immigration crackdown", "migrant caravan",
+    "border crossing", "asylum seekers", "deportation order", "expulsion of",
+    # Political framing / electoral commentary (covers remaining political gaps)
+    "prime minister-in-waiting", "vows to shake up", "shaking up politics",
+    "disrupting democracy", "democracy's decline", "disrupting democracy",
+    "political comeback", "political turmoil", "opposition leader",
+    # Named-author opinion column format (journalist name: topic)
+    "mehdi hasan:", "mehdi hasan ",
     # US political figures not already covered (by name → catch specific political stories)
     "hegseth", "pelosi", "mayorkas", "blinken", "yellen", "mcconnell", "schumer",
     "mitch mcconnell", "chuck schumer", "rand paul", "ted cruz", "marco rubio",
