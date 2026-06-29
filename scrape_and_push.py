@@ -386,6 +386,9 @@ DEPRIORITIZE_WORDS = [
     "cigarette maker", "cigarette company", "vape company", "e-cigarette firm",
     # Gambling / adult entertainment
     "casino", "gambling company", "betting firm", "sports betting",
+    # IEEE member-profile / organizational content (not editorial news)
+    "senior member", "product lifecycle", "ieee member", "member solves",
+    "distinguished lecturer", "fellow elevation",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
