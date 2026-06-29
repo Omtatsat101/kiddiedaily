@@ -526,7 +526,8 @@
     "news/2026-06-29-neuroscience-cant-tell-us-the-way-to-govern-people.html",
     "news/2026-06-29-remote-controlled-cockroach-swarm-can-now-breathe.html",
     "news/2026-06-29-in-slovenia-pride-meets-growing-support-and-hostil.html",
-    "news/2026-06-29-saudi-arabias-early-fifa-world-cup-exit-prompts-fe.html"
+    "news/2026-06-29-saudi-arabias-early-fifa-world-cup-exit-prompts-fe.html",
+    "news/2026-06-29-the-james-webb-space-telescope-peered-into-one-of.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1055,7 +1056,8 @@
     "Neuroscience can't tell us the way to govern people's brains",
     "Remote-controlled cockroach swarm can now breathe underwater",
     "In Slovenia, Pride meets growing support — and hostility",
-    "Saudi Arabia’s early FIFA World Cup exit prompts federation chief to resign"
+    "Saudi Arabia’s early FIFA World Cup exit prompts federation chief to resign",
+    "The James Webb Space Telescope peered into one of the universe's oldest galaxy clusters, and scientists can't explain what they saw"
   ],
   "articles": [
     {
@@ -6943,6 +6945,18 @@
       "is_science": false,
       "source_name": "Al Jazeera",
       "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-the-james-webb-space-telescope-peered-into-one-of.html",
+      "title": "The James Webb Space Telescope peered into one of the universe's oldest galaxy clusters, and scientists can't explain what they saw",
+      "display_title": "The James Webb Space Telescope peered into one of the universe's oldest galaxy clusters, and scientists can't explain what they saw",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Space.com",
+      "source_icons": "🌌"
     }
   ]
 }
