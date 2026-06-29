@@ -979,6 +979,11 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
         "headline": title,
         "description": og_desc,
         "image": og_image,
+        "url": url,
+        "inLanguage": "en-US",
+        "isAccessibleForFree": True,
+        "articleSection": "Science" if is_sci_page else "World News",
+        "keywords": cats or [],
         "author": {"@type": "Organization", "name": "KiddieDaily Editors"},
         "publisher": {"@type": "Organization", "name": "KiddieDaily", "url": "https://kiddiedaily.com"},
         "datePublished": today, "dateModified": today,
@@ -1513,12 +1518,25 @@ def update_sitemap(pushed_slugs, manifest=None):
             if "/digest/latest.html" not in urls_set:
                 urls.append("/digest/latest.html")
 
+    _DAILY = {"/", "/news/", "/news/today.html", "/news/archive.html", "/digest/latest.html"}
+    _WEEKLY = {"/search.html", "/parents/", "/fact-check/", "/games/", "/subscribe/",
+               "/news/science.html", "/news/world.html", "/news/space.html",
+               "/news/animals.html", "/news/history.html", "/news/environment.html", "/news/technology.html"}
+    def _fp(u):
+        if u in _DAILY: return "daily", "1.0"
+        if u in _WEEKLY or u.startswith("/digest/"): return "weekly", "0.8"
+        if u.startswith("/news/"): return "monthly", "0.6"
+        return "monthly", "0.4"
+
     xml_lines = ['<?xml version="1.0" encoding="UTF-8"?>',
                  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
+        freq, prio = _fp(u)
         xml_lines.append(f"  <url>")
         xml_lines.append(f"    <loc>{BASE_URL}{u}</loc>")
         xml_lines.append(f"    <lastmod>{today}</lastmod>")
+        xml_lines.append(f"    <changefreq>{freq}</changefreq>")
+        xml_lines.append(f"    <priority>{prio}</priority>")
         xml_lines.append(f"  </url>")
     xml_lines.append("</urlset>")
     sitemap_content = "\n".join(xml_lines) + "\n"
@@ -1667,6 +1685,13 @@ def generate_rss_feed(manifest):
         raw_desc = a.get("description", "").strip()
         desc_text = (raw_desc[:200] + "…" if len(raw_desc) > 200 else raw_desc) if raw_desc else agree
         desc_safe = desc_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        _RSS_SUBCAT = {"space": "Space", "animals": "Animals", "history": "History",
+                       "environment": "Environment", "technology": "Technology"}
+        extra_cats = "".join(
+            f"    <category>{_RSS_SUBCAT[c]}</category>\n"
+            for c in (a.get("cats", []) or [])
+            if c in _RSS_SUBCAT
+        )
         items.append(
             f"  <item>\n"
             f"    <title>{title}</title>\n"
@@ -1674,6 +1699,7 @@ def generate_rss_feed(manifest):
             f"    <guid isPermaLink=\"true\">{url}</guid>\n"
             f"    <pubDate>{pub}</pubDate>\n"
             f"    <category>{cat}</category>\n"
+            f"{extra_cats}"
             f"    <description>{desc_safe} — {agree}, bias-rated on KiddieDaily.</description>\n"
             f"  </item>"
         )
@@ -1817,11 +1843,14 @@ def generate_archive(manifest):
 <input type="search" id="arch-search" placeholder="Search {total} articles..." aria-label="Search archive">
 <p id="arch-count"></p>
 <div id="filter-btns">
-  <button class="active" onclick="setFilter('all',this)">All categories</button>
-  <button onclick="setFilter('science',this)">Science</button>
-  <button onclick="setFilter('world',this)">World News</button>
-  <button onclick="setFilter('space',this)">Space</button>
-  <button onclick="setFilter('animals',this)">Animals</button>
+  <button class="active" onclick="setFilter('all',this)">All</button>
+  <button onclick="setFilter('science',this)">&#128300; Science</button>
+  <button onclick="setFilter('world',this)">&#127758; World</button>
+  <button onclick="setFilter('space',this)">&#128640; Space</button>
+  <button onclick="setFilter('animals',this)">&#128062; Animals</button>
+  <button onclick="setFilter('history',this)">&#127963; History</button>
+  <button onclick="setFilter('environment',this)">&#127807; Env</button>
+  <button onclick="setFilter('technology',this)">&#128187; Tech</button>
 </div>
 
 <div id="archive-list"><p style="color:#718096;font-family:system-ui,sans-serif">Loading articles…</p></div>
@@ -1874,11 +1903,17 @@ def generate_archive(manifest):
       + '</div>';
   }}
 
+  function matchFilter(a, f) {{
+    if (f === 'all') return true;
+    if (f === 'science') return a.is_science;
+    if (f === 'world') return !a.is_science;
+    return (a.cats || []).indexOf(f) !== -1;
+  }}
+
   function applyFilter() {{
     var q = query.toLowerCase();
     filtered = allArticles.filter(function(a) {{
-      var catKey = a.category || (a.is_science ? 'science' : 'world');
-      var catOk = activeFilter === 'all' || catKey === activeFilter;
+      var catOk = matchFilter(a, activeFilter);
       var qOk = !q || (a.title && a.title.toLowerCase().indexOf(q) !== -1)
                || (a.description && a.description.toLowerCase().indexOf(q) !== -1);
       return catOk && qOk;
@@ -2222,10 +2257,18 @@ def generate_today_page(manifest, today):
 <a href="/feed.xml" style="color:#1a4d80">RSS</a>
 </p>
 <input type="search" id="today-search" placeholder="Search today&#39;s stories..." aria-label="Search today's news">
-<div id="td-jump" style="display:none;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:13px;align-items:center">
+<div id="td-jump" style="display:none;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin:0 0 10px;display:flex;gap:12px;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:13px;align-items:center">
   <span style="color:#718096;font-weight:600">Jump to:</span>
   <a href="#td-sci" style="color:#065f46;background:#d1fae5;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f52c; Science (<span id="td-sci-n">0</span>)</a>
   <a href="#td-world" style="color:#1e40af;background:#dbeafe;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f30d; World News (<span id="td-world-n">0</span>)</a>
+</div>
+<div id="td-subcats" style="display:none;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin:0 0 20px;flex-wrap:wrap;gap:10px;font-family:system-ui,sans-serif;font-size:13px;align-items:center">
+  <span style="color:#718096;font-weight:600">Browse by topic:</span>
+  <a href="/news/space.html" style="color:#5b21b6;background:#ede9fe;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f680; Space (<span id="td-spc-n">0</span>)</a>
+  <a href="/news/animals.html" style="color:#92400e;background:#fef3c7;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f43e; Animals (<span id="td-ani-n">0</span>)</a>
+  <a href="/news/history.html" style="color:#9d174d;background:#fce7f3;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f3db; History (<span id="td-his-n">0</span>)</a>
+  <a href="/news/environment.html" style="color:#166534;background:#dcfce7;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f33f; Env (<span id="td-env-n">0</span>)</a>
+  <a href="/news/technology.html" style="color:#3730a3;background:#e0e7ff;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f4bb; Tech (<span id="td-tec-n">0</span>)</a>
 </div>
 <div id="td-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles yet today — check back after 6am ET.</div>
 <div id="td-sci-sec">
@@ -2308,6 +2351,15 @@ fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(funct
   document.getElementById('td-sci-n').textContent=sci.length;
   document.getElementById('td-world-n').textContent=world.length;
   document.getElementById('td-count').textContent=sci.length+world.length;
+  var snCnt={{space:0,animals:0,history:0,environment:0,technology:0}};
+  sci.concat(world).forEach(function(a){{(a.cats||[]).forEach(function(c){{if(snCnt.hasOwnProperty(c))snCnt[c]++;}});}});
+  document.getElementById('td-spc-n').textContent=snCnt.space;
+  document.getElementById('td-ani-n').textContent=snCnt.animals;
+  document.getElementById('td-his-n').textContent=snCnt.history;
+  document.getElementById('td-env-n').textContent=snCnt.environment;
+  document.getElementById('td-tec-n').textContent=snCnt.technology;
+  if(snCnt.space+snCnt.animals+snCnt.history+snCnt.environment+snCnt.technology>0)
+    document.getElementById('td-subcats').style.display='flex';
   if(!sci.length&&!world.length){{
     document.getElementById('td-empty').style.display='';
     document.getElementById('td-sci-sec').style.display='none';
