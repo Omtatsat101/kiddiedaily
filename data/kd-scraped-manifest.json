@@ -90,7 +90,12 @@
     "news/2026-06-29-why-do-stars-twinkle-but-planets-dont.html",
     "news/2026-06-29-sun-news-possible-g2-storm-due-overnight-june-29-a.html",
     "news/2026-06-29-see-milky-ways-core-in-most-detailed-photo-yet.html",
-    "news/2026-06-29-our-brains-arent-wired-to-handle-this-much-bad-new.html"
+    "news/2026-06-29-our-brains-arent-wired-to-handle-this-much-bad-new.html",
+    "news/2026-06-29-computer-scientists-are-rushing-to-tame-tame-ais-v.html",
+    "news/2026-06-29-rise-in-cancer-in-younger-adults-may-be-explained.html",
+    "news/2026-06-29-bullseye-enormous-bow-and-arrow-galaxy-is-unlike-a.html",
+    "news/2026-06-29-why-does-metal-stick-together-in-space.html",
+    "news/2026-06-29-climate-change-is-driving-capuchin-monkey-mothers.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -183,7 +188,12 @@
     "Why do stars twinkle, but planets don’t?",
     "Sun news: Possible G2 storm due overnight June 29? Aurora alert!",
     "See Milky Way’s core in most detailed photo yet",
-    "Our brains aren't wired to handle this much bad news. But 'looking away is not the fix,' expert says."
+    "Our brains aren't wired to handle this much bad news. But 'looking away is not the fix,' expert says.",
+    "Computer scientists are rushing to tame tame AI's voracious appetite for energy",
+    "Rise in cancer in younger adults may be explained by faster 'biological aging,' early study hints",
+    "Bullseye! Enormous 'bow and arrow' galaxy is unlike anything radio astronomers have ever seen — Space photo of the week",
+    "Why does metal stick together in space?",
+    "Climate change is driving capuchin monkey mothers to abandon their infants"
   ],
   "articles": [
     {
@@ -1168,6 +1178,61 @@
       "slug": "news/2026-06-29-our-brains-arent-wired-to-handle-this-much-bad-new.html",
       "title": "Our brains aren't wired to handle this much bad news. But 'looking away is not the fix,' expert says.",
       "display_title": "Our brains aren't wired to handle this much bad news. But 'looking away is not the fix,' expert says.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-computer-scientists-are-rushing-to-tame-tame-ais-v.html",
+      "title": "Computer scientists are rushing to tame tame AI's voracious appetite for energy",
+      "display_title": "Computer scientists are rushing to tame tame AI's voracious appetite for energy",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-rise-in-cancer-in-younger-adults-may-be-explained.html",
+      "title": "Rise in cancer in younger adults may be explained by faster 'biological aging,' early study hints",
+      "display_title": "Rise in cancer in younger adults may be explained by faster 'biological aging,' early study hints",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-bullseye-enormous-bow-and-arrow-galaxy-is-unlike-a.html",
+      "title": "Bullseye! Enormous 'bow and arrow' galaxy is unlike anything radio astronomers have ever seen — Space photo of the week",
+      "display_title": "Bullseye! Enormous 'bow and arrow' galaxy is unlike anything radio astronomers have ever seen — Space photo of the week",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-why-does-metal-stick-together-in-space.html",
+      "title": "Why does metal stick together in space?",
+      "display_title": "Why does metal stick together in space?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-climate-change-is-driving-capuchin-monkey-mothers.html",
+      "title": "Climate change is driving capuchin monkey mothers to abandon their infants",
+      "display_title": "Climate change is driving capuchin monkey mothers to abandon their infants",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
