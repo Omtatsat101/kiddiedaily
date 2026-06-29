@@ -471,7 +471,9 @@
     "news/2026-06-29-how-ieee-awardee-karen-panetta-became-bewitched-by.html",
     "news/2026-06-29-war-taught-this-ukrainian-entrepreneur-the-value-o.html",
     "news/2026-06-29-award-winning-researcher-trains-robots-to-make-edu.html",
-    "news/2026-06-29-epics-in-ieees-awards-honor-outstanding-students-a.html"
+    "news/2026-06-29-epics-in-ieees-awards-honor-outstanding-students-a.html",
+    "news/2026-06-29-bbc-news-app.html",
+    "news/2026-06-29-newscast.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -945,7 +947,9 @@
     "How IEEE Awardee Karen Panetta Became Bewitched by Engineering",
     "War Taught this Ukrainian Entrepreneur the Value of Resilience",
     "Award-Winning Researcher Trains Robots to Make Educated Guesses",
-    "EPICS in IEEE’s Awards Honor Outstanding Students and Faculty"
+    "EPICS in IEEE’s Awards Honor Outstanding Students and Faculty",
+    "BBC News app",
+    "Newscast"
   ],
   "articles": [
     {
@@ -6173,6 +6177,30 @@
       "is_science": true,
       "source_name": "IEEE Spectrum",
       "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-bbc-news-app.html",
+      "title": "BBC News app",
+      "display_title": "BBC News app",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-newscast.html",
+      "title": "Newscast",
+      "display_title": "Newscast",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
