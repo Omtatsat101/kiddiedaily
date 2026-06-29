@@ -133,7 +133,15 @@
     "news/2026-06-29-human-activity-has-driven-retreat-of-antarcticas-f.html",
     "news/2026-06-29-the-us-lags-other-countries-in-social-media-restri.html",
     "news/2026-06-29-man-with-same-name-as-us-sen-dan-sullivan-is-eligi.html",
-    "news/2026-06-29-world-cup-final-day-of-group-play-will-set-the-fie.html"
+    "news/2026-06-29-world-cup-final-day-of-group-play-will-set-the-fie.html",
+    "news/2026-06-29-europe-heat-wave-over-1300-excess-deaths-who-says.html",
+    "news/2026-06-29-nanopattern-method-unlocks-precise-control-of-diso.html",
+    "news/2026-06-29-injectable-silk-kudzu-hydrogel-achieves-complete-w.html",
+    "news/2026-06-29-reanalysis-suggests-phoebe-is-a-variable-star-not.html",
+    "news/2026-06-29-12-billion-years-old-this-interstellar-comet-is-ol.html",
+    "news/2026-06-29-why-is-the-us-targeting-germanys-drug-industry.html",
+    "news/2026-06-29-hungary-holds-first-post-orban-budapest-pride-marc.html",
+    "news/2026-06-29-protesters-in-serbia-doubt-vucic-resignation-will.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -269,7 +277,15 @@
     "Human activity has driven retreat of Antarctica's fastest melting glacier",
     "The U.S. lags other countries in social media restrictions for kids, but a reform push is growing",
     "Man with same name as U.S. Sen. Dan Sullivan is eligible for Alaska's primary ballot, judge rules",
-    "World Cup final day of group play will set the field for the round of 32"
+    "World Cup final day of group play will set the field for the round of 32",
+    "Europe heat wave: Over 1,300 excess deaths, WHO says",
+    "Nanopattern method unlocks precise control of disorder for wave-guiding devices",
+    "Injectable silk-kudzu hydrogel achieves complete wound closure in laboratory tests",
+    "Reanalysis suggests 'Phoebe' is a variable star, not a primordial black hole",
+    "12 billion years old, this interstellar comet is older than our solar system",
+    "Why is the US targeting Germany's drug industry?",
+    "Hungary holds first post-Orban Budapest Pride march",
+    "Protesters in Serbia doubt Vucic resignation will bring change"
   ],
   "articles": [
     {
@@ -1733,6 +1749,94 @@
       "agreement_pct": 18,
       "is_science": false,
       "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-europe-heat-wave-over-1300-excess-deaths-who-says.html",
+      "title": "Europe heat wave: Over 1,300 excess deaths, WHO says",
+      "display_title": "Europe heat wave: Over 1,300 excess deaths, WHO says",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.03,
+      "agreement_pct": 36,
+      "is_science": true,
+      "source_icons": "🌐 ⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-nanopattern-method-unlocks-precise-control-of-diso.html",
+      "title": "Nanopattern method unlocks precise control of disorder for wave-guiding devices",
+      "display_title": "Nanopattern method unlocks precise control of disorder for wave-guiding devices",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-injectable-silk-kudzu-hydrogel-achieves-complete-w.html",
+      "title": "Injectable silk-kudzu hydrogel achieves complete wound closure in laboratory tests",
+      "display_title": "Injectable silk-kudzu hydrogel achieves complete wound closure in laboratory tests",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-reanalysis-suggests-phoebe-is-a-variable-star-not.html",
+      "title": "Reanalysis suggests 'Phoebe' is a variable star, not a primordial black hole",
+      "display_title": "Reanalysis suggests 'Phoebe' is a variable star, not a primordial black hole",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-12-billion-years-old-this-interstellar-comet-is-ol.html",
+      "title": "12 billion years old, this interstellar comet is older than our solar system",
+      "display_title": "12 billion years old, this interstellar comet is older than our solar system",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-why-is-the-us-targeting-germanys-drug-industry.html",
+      "title": "Why is the US targeting Germany's drug industry?",
+      "display_title": "Why is the US targeting Germany's drug industry?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-hungary-holds-first-post-orban-budapest-pride-marc.html",
+      "title": "Hungary holds first post-Orban Budapest Pride march",
+      "display_title": "Hungary holds first post-Orban Budapest Pride march",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.15,
+      "agreement_pct": 36,
+      "is_science": false,
+      "source_icons": "🌐 📺"
+    },
+    {
+      "slug": "news/2026-06-29-protesters-in-serbia-doubt-vucic-resignation-will.html",
+      "title": "Protesters in Serbia doubt Vucic resignation will bring change",
+      "display_title": "Protesters in Serbia doubt Vucic resignation will bring change",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.25,
+      "agreement_pct": 36,
+      "is_science": false,
+      "source_icons": "🌍 🌐"
     }
   ]
 }
