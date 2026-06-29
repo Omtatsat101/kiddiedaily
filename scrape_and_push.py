@@ -2201,14 +2201,17 @@ var CAT='{key}',PAGE=20,arts=[],off=0,q='';
 var BL=[[-1.2,'Far Left'],[-0.4,'Leans Left'],[-0.15,'Center-Left'],[0.15,'Center'],[0.4,'Center-Right'],[1.2,'Leans Right'],[99,'Far Right']];
 function blbl(b){{for(var i=0;i<BL.length;i++)if(b<=BL[i][0])return BL[i][1];return'Far Right';}}
 var BC='{("kd-badge-sci" if key != "world" else "kd-badge-news")}';
+var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];var TODAY_STR=new Date().toISOString().slice(0,10);
+function fmtDate(d){{var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}}
 function card(a){{
   var b=a.bias_avg||0,dp=Math.max(5,Math.min(95,Math.round((b+2)/4*100)));
   var ttl=a.title||'';var dt=a.date||'';var n=a.n_sources||1;
   var multi=n>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'+n+' outlets</span>':'';
+  var newBadge=dt===TODAY_STR?'<span style="font-size:10px;background:#dc2626;color:#fff;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">NEW</span>':'';
   var ex=a.description?a.description.slice(0,137)+(a.description.length>137?'…':''):'';
   return '<div class="kd-sc" data-title="'+ttl.toLowerCase()+'">'
-    +'<div class="kd-sc-top"><span class="kd-badge '+BC+'">{icon} {label}</span>'+multi
-    +'<span style="font-size:11px;color:#718096;margin-left:auto">'+n+' outlet'+(n!==1?'s':'')+'&middot;'+dt+'</span></div>'
+    +'<div class="kd-sc-top"><span class="kd-badge '+BC+'">{icon} {label}</span>'+multi+newBadge
+    +'<span style="font-size:11px;color:#718096;margin-left:auto">'+n+' outlet'+(n!==1?'s':'')+'&middot;'+fmtDate(dt)+'</span></div>'
     +'<h3 style="margin:4px 0 6px"><a href="/'+a.slug+'">'+ttl+'</a></h3>'
     +(ex?'<p class="kd-card-excerpt">'+ex+'</p>':'')
     +'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
