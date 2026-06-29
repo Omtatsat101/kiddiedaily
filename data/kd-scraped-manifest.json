@@ -293,7 +293,14 @@
     "news/2026-06-29-weve-uncovered-a-master-gene-that-switches-on-huma.html",
     "news/2026-06-29-where-when-and-how-to-watch-the-2026-solar-eclipse.html",
     "news/2026-06-29-i-see-tourists-pee-in-front-of-my-house-the-camper.html",
-    "news/2026-06-29-why-is-pregnancy-sickness-drug-not-easily-accessib.html"
+    "news/2026-06-29-why-is-pregnancy-sickness-drug-not-easily-accessib.html",
+    "news/2026-06-29-the-nuclear-test-site-that-advanced-oceanography.html",
+    "news/2026-06-29-how-snow-leopards-wolves-and-leopards-share-the-sa.html",
+    "news/2026-06-29-star-spangled-city.html",
+    "news/2026-06-29-a-turquoise-tint-for-the-black-sea.html",
+    "news/2026-06-29-if-you-arent-terrified-by-this-heatwave-you-should.html",
+    "news/2026-06-29-ben-stokess-exit-is-unconventional-for-an-english.html",
+    "news/2026-06-29-got-the-tennis-bug-how-to-play-sport-without-payin.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -589,7 +596,14 @@
     "We’ve uncovered a master gene that switches on human development",
     "Where, when and how to watch the 2026 solar eclipse",
     "'I see tourists pee in front of my house': The campervan problem on the Isle of Skye",
-    "Why is pregnancy sickness drug not easily accessible to all?"
+    "Why is pregnancy sickness drug not easily accessible to all?",
+    "The Nuclear Test Site That Advanced Oceanography",
+    "How snow leopards, wolves and leopards share the same Himalayan valley, study",
+    "Star-Spangled City",
+    "A Turquoise Tint for the Black Sea",
+    "If you aren't terrified by this heatwave, you should be",
+    "Ben Stokes's exit is unconventional for an English great",
+    "Got the tennis bug? How to play sport without paying"
   ],
   "articles": [
     {
@@ -3811,6 +3825,83 @@
       "n_sources": 1,
       "bias_avg": -0.3,
       "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-the-nuclear-test-site-that-advanced-oceanography.html",
+      "title": "The Nuclear Test Site That Advanced Oceanography",
+      "display_title": "The Nuclear Test Site That Advanced Oceanography",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.05,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📚 🌍"
+    },
+    {
+      "slug": "news/2026-06-29-how-snow-leopards-wolves-and-leopards-share-the-sa.html",
+      "title": "How snow leopards, wolves and leopards share the same Himalayan valley, study",
+      "display_title": "How snow leopards, wolves and leopards share the same Himalayan valley, study",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-star-spangled-city.html",
+      "title": "Star-Spangled City",
+      "display_title": "Star-Spangled City",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-a-turquoise-tint-for-the-black-sea.html",
+      "title": "A Turquoise Tint for the Black Sea",
+      "display_title": "A Turquoise Tint for the Black Sea",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-if-you-arent-terrified-by-this-heatwave-you-should.html",
+      "title": "If you aren't terrified by this heatwave, you should be",
+      "display_title": "If you aren't terrified by this heatwave, you should be",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-ben-stokess-exit-is-unconventional-for-an-english.html",
+      "title": "Ben Stokes's exit is unconventional for an English great",
+      "display_title": "Ben Stokes's exit is unconventional for an English great",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 11,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-got-the-tennis-bug-how-to-play-sport-without-payin.html",
+      "title": "Got the tennis bug? How to play sport without paying",
+      "display_title": "Got the tennis bug? How to play sport without paying",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 11,
       "is_science": false,
       "source_icons": "🇬🇧"
     }
