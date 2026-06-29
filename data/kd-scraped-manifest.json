@@ -722,7 +722,12 @@
     "news/2026-06-29-quantum-computing-startup-says-it-will-leapfrog-ev.html",
     "news/2026-06-29-in-pursuit-of-happiness-with-judy-woodruff.html",
     "news/2026-06-29-they-are-hoping-beyond-hope-rescue-efforts-continu.html",
-    "news/2026-06-29-whatsapp-to-let-people-chat-without-swapping-phone.html"
+    "news/2026-06-29-whatsapp-to-let-people-chat-without-swapping-phone.html",
+    "news/2026-06-29-new-estimate-earth-has-14-to-20-million-insect-spe.html",
+    "news/2026-06-29-evidence-of-recently-discovered-bat-behavior-found.html",
+    "news/2026-06-29-harry-still-hoping-to-bring-meghan-and-children-on.html",
+    "news/2026-06-29-maddy-cusack-kept-mental-health-secret-over-fears.html",
+    "news/2026-06-29-dogs-drones-and-sound-detectors-how-rescuers-searc.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1447,7 +1452,12 @@
     "Quantum computing startup says it will leapfrog everybody",
     "In Pursuit of Happiness with Judy Woodruff",
     "'They are hoping beyond hope': Rescue efforts continue at collapsed La Guaira building",
-    "WhatsApp to let people chat without swapping phone numbers"
+    "WhatsApp to let people chat without swapping phone numbers",
+    "New estimate: Earth has 14 to 20 million insect species",
+    "Evidence of Recently Discovered Bat Behavior Found Hiding in Plain Sight in Renaissance Painting",
+    "Harry still hoping to bring Meghan and children on UK visit",
+    "Maddy Cusack kept mental health secret over fears of stigma, inquest hears",
+    "Dogs, drones and sound detectors: How rescuers search for quake survivors"
   ],
   "articles": [
     {
@@ -9714,6 +9724,71 @@
       "source_name": "BBC News",
       "source_icons": "🇬🇧",
       "description": "The app's new usernames feature will be rolled out globally over the next few months."
+    },
+    {
+      "slug": "news/2026-06-29-new-estimate-earth-has-14-to-20-million-insect-spe.html",
+      "title": "New estimate: Earth has 14 to 20 million insect species",
+      "display_title": "New estimate: Earth has 14 to 20 million insect species",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Popular Science",
+      "source_icons": "💡",
+      "description": "For 40 years, we thought Earth was home to six million insect species. Turns out, it could be three times that. The post New estimate: Earth has 14 to 20 million insect species appeared first on Popul"
+    },
+    {
+      "slug": "news/2026-06-29-evidence-of-recently-discovered-bat-behavior-found.html",
+      "title": "Evidence of Recently Discovered Bat Behavior Found Hiding in Plain Sight in Renaissance Painting",
+      "display_title": "Evidence of Recently Discovered Bat Behavior Found Hiding in Plain Sight in Renaissance Painting",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵",
+      "description": "The Flemish painter Jan Brueghel the Elder captured the bird-eating behavior in 1611 The post Evidence of Recently Discovered Bat Behavior Found Hiding in Plain Sight in Renaissance Painting appeared "
+    },
+    {
+      "slug": "news/2026-06-29-harry-still-hoping-to-bring-meghan-and-children-on.html",
+      "title": "Harry still hoping to bring Meghan and children on UK visit",
+      "display_title": "Harry still hoping to bring Meghan and children on UK visit",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧",
+      "description": "Despite arguments over security, Prince Harry is still expected to bring his wife and children to the UK."
+    },
+    {
+      "slug": "news/2026-06-29-maddy-cusack-kept-mental-health-secret-over-fears.html",
+      "title": "Maddy Cusack kept mental health secret over fears of stigma, inquest hears",
+      "display_title": "Maddy Cusack kept mental health secret over fears of stigma, inquest hears",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧",
+      "description": "The former Sheffield United player had feared being ridiculed and stigmatised, her inquest hears."
+    },
+    {
+      "slug": "news/2026-06-29-dogs-drones-and-sound-detectors-how-rescuers-searc.html",
+      "title": "Dogs, drones and sound detectors: How rescuers search for quake survivors",
+      "display_title": "Dogs, drones and sound detectors: How rescuers search for quake survivors",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧",
+      "description": "Rescuers armed with a range of techniques continue to search through the rubble in Venezuela."
     }
   ]
 }
