@@ -654,7 +654,18 @@
     "news/2026-06-29-light-pollution-may-be-erasing-millions-of-dollars.html",
     "news/2026-06-29-liberals-eat-their-own-harass-scott-wiener-over-ga.html",
     "news/2026-06-29-the-constitution-has-expired-we-should-write-a-new.html",
-    "news/2026-06-29-texas-hosting-three-matchups-in-round-of-32-at-fif.html"
+    "news/2026-06-29-texas-hosting-three-matchups-in-round-of-32-at-fif.html",
+    "news/2026-06-29-giraffes-combine-quantities-similarly-to-addition.html",
+    "news/2026-06-29-tiny-dna-hitchhikers-may-be-reshaping-life-in-thaw.html",
+    "news/2026-06-29-europas-ice-shell-secrets-unlocked-by-ground-radar.html",
+    "news/2026-06-29-31-new-species-found-off-brazil-reveal-a-fragile-w.html",
+    "news/2026-06-29-a-young-giraffe-went-strangely-missing-in-texas-an.html",
+    "news/2026-06-29-giggling-apes-may-help-us-understand-how-speech-em.html",
+    "news/2026-06-29-a-rare-comet-made-history-as-the-third-known-inter.html",
+    "news/2026-06-29-sao-tome-declares-first-two-of-eight-planned-marin.html",
+    "news/2026-06-29-mms-without-artificial-dyes-are-coming-but-two-ico.html",
+    "news/2026-06-29-poland-orders-swedish-submarines-to-bulk-up-navy.html",
+    "news/2026-06-29-south-africa-braces-for-anti-migrant-protests.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1311,7 +1322,18 @@
     "Light pollution may be erasing millions of dollars in value at US dark-sky parks",
     "Liberals eat their own, harass Scott Wiener over Gaza stance",
     "The Constitution has expired — we should write a new one",
-    "Texas hosting three matchups in Round of 32 at FIFA World Cup"
+    "Texas hosting three matchups in Round of 32 at FIFA World Cup",
+    "Giraffes combine quantities similarly to addition",
+    "Tiny DNA 'hitchhikers' may be reshaping life in thawing Arctic soils",
+    "Europa's ice shell secrets unlocked by ground radar study",
+    "31 New Species Found off Brazil Reveal a Fragile World in the Ocean&rsquo;s Midwater",
+    "A Young Giraffe Went Strangely Missing in Texas, and the Two-Week Search Revealed the Complex World of Exotic Wildlife",
+    "Giggling Apes May Help Us Understand How Speech Emerged, as We&#39;ve Shared a Similar Laugh Pattern for 15 Million Years",
+    "A Rare Comet Made History as the Third Known Interstellar Object to Fly Through Our Solar System. Studies Are Now Revealing the Mysterious Conditions in Which It Formed",
+    "São Tomé declares first two of eight planned marine protected areas",
+    "M&M’s without artificial dyes are coming, but two iconic colors will be left out for now",
+    "Poland orders Swedish submarines to bulk up navy",
+    "South Africa braces for anti-migrant protests"
   ],
   "articles": [
     {
@@ -8735,6 +8757,138 @@
       "is_science": false,
       "source_name": "The Hill",
       "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-giraffes-combine-quantities-similarly-to-addition.html",
+      "title": "Giraffes combine quantities similarly to addition",
+      "display_title": "Giraffes combine quantities similarly to addition",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-tiny-dna-hitchhikers-may-be-reshaping-life-in-thaw.html",
+      "title": "Tiny DNA 'hitchhikers' may be reshaping life in thawing Arctic soils",
+      "display_title": "Tiny DNA 'hitchhikers' may be reshaping life in thawing Arctic soils",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-europas-ice-shell-secrets-unlocked-by-ground-radar.html",
+      "title": "Europa's ice shell secrets unlocked by ground radar study",
+      "display_title": "Europa's ice shell secrets unlocked by ground radar study",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-31-new-species-found-off-brazil-reveal-a-fragile-w.html",
+      "title": "31 New Species Found off Brazil Reveal a Fragile World in the Ocean&rsquo;s Midwater",
+      "display_title": "31 New Species Found off Brazil Reveal a Fragile World in the Ocean&rsquo;s Midwater",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-a-young-giraffe-went-strangely-missing-in-texas-an.html",
+      "title": "A Young Giraffe Went Strangely Missing in Texas, and the Two-Week Search Revealed the Complex World of Exotic Wildlife",
+      "display_title": "A Young Giraffe Went Strangely Missing in Texas, and the Two-Week Search Revealed the Complex World of Exotic Wildlife",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-giggling-apes-may-help-us-understand-how-speech-em.html",
+      "title": "Giggling Apes May Help Us Understand How Speech Emerged, as We&#39;ve Shared a Similar Laugh Pattern for 15 Million Years",
+      "display_title": "Giggling Apes May Help Us Understand How Speech Emerged, as We&#39;ve Shared a Similar Laugh Pattern for 15 Million Years",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-a-rare-comet-made-history-as-the-third-known-inter.html",
+      "title": "A Rare Comet Made History as the Third Known Interstellar Object to Fly Through Our Solar System. Studies Are Now Revealing the Mysterious Conditions in Which It Formed",
+      "display_title": "A Rare Comet Made History as the Third Known Interstellar Object to Fly Through Our Solar System. Studies Are Now Revealing the Mysterious Conditions in Which It Formed",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Smithsonian",
+      "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-29-sao-tome-declares-first-two-of-eight-planned-marin.html",
+      "title": "São Tomé declares first two of eight planned marine protected areas",
+      "display_title": "São Tomé declares first two of eight planned marine protected areas",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Mongabay",
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-mms-without-artificial-dyes-are-coming-but-two-ico.html",
+      "title": "M&M’s without artificial dyes are coming, but two iconic colors will be left out for now",
+      "display_title": "M&M’s without artificial dyes are coming, but two iconic colors will be left out for now",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-poland-orders-swedish-submarines-to-bulk-up-navy.html",
+      "title": "Poland orders Swedish submarines to bulk up navy",
+      "display_title": "Poland orders Swedish submarines to bulk up navy",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-south-africa-braces-for-anti-migrant-protests.html",
+      "title": "South Africa braces for anti-migrant protests",
+      "display_title": "South Africa braces for anti-migrant protests",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
     }
   ]
 }
