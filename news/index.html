@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kid News Hub — KiddieDaily</title>
-<meta name="description" content="Browse all 800 kid-safe, bias-rated articles across Science, Space, Animals, History, Environment, Technology and World News.">
+<meta name="description" content="Browse all 803 kid-safe, bias-rated articles across Science, Space, Animals, History, Environment, Technology and World News.">
 <link rel="canonical" href="https://kiddiedaily.com/news/">
 <style>
 *{box-sizing:border-box}html{font-family:Georgia,"Times New Roman",serif;color:#1a1a1a;background:#faf8f3;line-height:1.6}
@@ -78,7 +78,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 .ni-more{display:block;text-align:center;padding:11px;background:#f0f4f8;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;color:#1a4d80;width:100%;margin-top:16px}
 .ni-count{font-size:13px;color:#718096;margin-bottom:12px}
 </style>
-</head><body>
+</head><body><div id="kd-prog"></div>
 <a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
@@ -87,12 +87,13 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 </div></header>
 <main id="main" style="max-width:760px;margin:0 auto;padding:20px 16px">
 <h1 style="font-size:1.5em;color:#1a4d80;margin-bottom:4px">Kid News Hub</h1>
-<p style="color:#718096;margin:0 0 6px;font-size:14px">800 articles — bias-rated, kid-safe, updated daily</p>
+<p style="color:#718096;margin:0 0 6px;font-size:14px">803 articles — bias-rated, kid-safe, updated daily</p>
 
-<div class="ni-cat-grid"><a href="/news/science.html" class="ni-cat" style="background:#d1fae5;color:#065f46"><span class="ni-icon">🔬</span>Science</a><a href="/news/world.html" class="ni-cat" style="background:#dbeafe;color:#1e40af"><span class="ni-icon">🌍</span>World</a><a href="/news/space.html" class="ni-cat" style="background:#ede9fe;color:#5b21b6"><span class="ni-icon">🚀</span>Space</a><a href="/news/animals.html" class="ni-cat" style="background:#fef3c7;color:#92400e"><span class="ni-icon">🐾</span>Animals</a><a href="/news/history.html" class="ni-cat" style="background:#fce7f3;color:#9d174d"><span class="ni-icon">🏛</span>History</a><a href="/news/environment.html" class="ni-cat" style="background:#dcfce7;color:#166534"><span class="ni-icon">🌿</span>Environment</a><a href="/news/technology.html" class="ni-cat" style="background:#e0e7ff;color:#3730a3"><span class="ni-icon">💻</span>Technology</a></div>
+<div class="ni-cat-grid"><a href="/news/science.html" class="ni-cat" style="background:#d1fae5;color:#065f46"><span class="ni-icon">🔬</span>Science<span id="ni-c-science" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a><a href="/news/world.html" class="ni-cat" style="background:#dbeafe;color:#1e40af"><span class="ni-icon">🌍</span>World<span id="ni-c-world" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a><a href="/news/space.html" class="ni-cat" style="background:#ede9fe;color:#5b21b6"><span class="ni-icon">🚀</span>Space<span id="ni-c-space" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a><a href="/news/animals.html" class="ni-cat" style="background:#fef3c7;color:#92400e"><span class="ni-icon">🐾</span>Animals<span id="ni-c-animals" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a><a href="/news/history.html" class="ni-cat" style="background:#fce7f3;color:#9d174d"><span class="ni-icon">🏛</span>History<span id="ni-c-history" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a><a href="/news/environment.html" class="ni-cat" style="background:#dcfce7;color:#166534"><span class="ni-icon">🌿</span>Environment<span id="ni-c-environment" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a><a href="/news/technology.html" class="ni-cat" style="background:#e0e7ff;color:#3730a3"><span class="ni-icon">💻</span>Technology<span id="ni-c-technology" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a></div>
 
 <h2 style="font-size:1.15em;color:#1a4d80;border-bottom:2px solid #ffd700;padding-bottom:6px;margin-bottom:14px">All Articles</h2>
 <input type="text" id="ni-search" placeholder="Search all articles..." aria-label="Search articles">
+<div id="ni-featured" style="display:none;margin-bottom:20px"></div>
 <div id="ni-count" class="ni-count"></div>
 <div id="ni-list"></div>
 <button id="ni-more" class="ni-more" onclick="niMore()">Load more</button>
@@ -117,6 +118,8 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <script>
 (function(){
   var PAGE=20,arts=[],off=0,q='',filt=[];
+  var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmtDate(d){var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}
   function blbl(b){return b<=-1.2?'Far Left':b<=-0.4?'Leans Left':b<=-.15?'Ctr-Left':b<=.15?'Center':b<=.4?'Ctr-Right':b<=1.2?'Leans Right':'Far Right';}
   function card(a){
     var sci=a.is_science,bc=sci?'ni-badge-sci':'ni-badge-news',bl=sci?'Science':'World';
@@ -125,7 +128,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
     var ex=a.description?a.description.slice(0,110)+(a.description.length>110?'…':''):'';
     var n=a.n_sources||1;
     var multi=n>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">'+n+' outlets</span>':'';
-    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+multi+'<a href="/'+a.slug+'">'+a.title+'</a>'+(ex?'<p style="margin:3px 0 5px;font-size:12px;color:#4a5568;line-height:1.4">'+ex+'</p>':'')+'<div class="ni-card-meta">'+a.date+' &middot; '+blbl(a.bias_avg)+'</div></div>';
+    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+multi+'<a href="/'+a.slug+'">'+a.title+'</a>'+(ex?'<p style="margin:3px 0 5px;font-size:12px;color:#4a5568;line-height:1.4">'+ex+'</p>':'')+'<div class="ni-card-meta">'+fmtDate(a.date)+' &middot; '+blbl(a.bias_avg)+'</div></div>';
   }
   function applyFilter(){filt=q?arts.filter(function(a){return((a.title||'')+' '+(a.description||'')).toLowerCase().indexOf(q)>=0;}):arts;}
   function render(){
@@ -144,8 +147,35 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
     q=e.target.value.toLowerCase().trim();off=0;applyFilter();render();
   });
   fetch('/data/kd-articles.json').then(function(r){return r.json();}).then(function(data){
-    arts=data;applyFilter();render();
+    arts=data;
+    // Dynamic category counts
+    var cc={science:0,world:0,space:0,animals:0,history:0,environment:0,technology:0};
+    arts.forEach(function(a){
+      if(a.is_science)cc.science++;else cc.world++;
+      (a.cats||[]).forEach(function(c){if(c!=='science'&&c!=='world'&&cc.hasOwnProperty(c))cc[c]++;});
+    });
+    Object.keys(cc).forEach(function(k){var el=document.getElementById('ni-c-'+k);if(el)el.textContent=cc[k];});
+    // Featured top story from today (or most recent)
+    var todayStr=new Date().toISOString().slice(0,10);
+    var pool=arts.filter(function(a){return a.date===todayStr;});
+    if(!pool.length)pool=arts.slice(0,50);
+    var top=pool.sort(function(a,b){return(b.n_sources||1)-(a.n_sources||1);})[0];
+    if(top&&(top.n_sources||1)>1){
+      var fe=document.getElementById('ni-featured');
+      fe.style.display='block';
+      fe.innerHTML='<h2 style="font-size:1.05em;color:#1a4d80;border-bottom:2px solid #ffd700;padding-bottom:4px;margin-bottom:10px">&#11088; Top Story Today</h2>'
+        +'<div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:16px">'
+        +'<a href="/'+top.slug+'" style="font-size:17px;font-weight:700;color:#1a4d80;display:block;margin-bottom:6px">'+top.title+'</a>'
+        +(top.description?'<p style="font-size:14px;color:#4a5568;margin:0 0 8px;line-height:1.4">'+(top.description.length>160?top.description.slice(0,160)+'…':top.description)+'</p>':'')
+        +'<span style="font-size:12px;color:#92400e;background:#fef3c7;padding:2px 8px;border-radius:20px;font-weight:600">&#x1f4f0; '+(top.n_sources||1)+' outlets covering this story</span>'
+        +'</div>';
+    }
+    applyFilter();render();
   });
+  window.addEventListener('scroll',function(){
+    var d=document.documentElement;
+    document.getElementById('kd-prog').style.width=Math.min(100,100*d.scrollTop/((d.scrollHeight-d.clientHeight)||1))+'%';
+  },{passive:true});
 })();
 </script>
 </body></html>
