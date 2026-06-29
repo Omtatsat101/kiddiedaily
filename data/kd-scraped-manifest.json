@@ -120,7 +120,10 @@
     "news/2026-06-29-you-cant-patch-your-way-out-of-it-cheap-ai-worm-ca.html",
     "news/2026-06-29-a-deadly-fungus-that-can-infect-cats-and-people-is.html",
     "news/2026-06-29-cedric-alexander-retains-the-x-division-championsh.html",
-    "news/2026-06-29-fetterman-mccormick-sidestep-shapiro-on-pennsylvan.html"
+    "news/2026-06-29-fetterman-mccormick-sidestep-shapiro-on-pennsylvan.html",
+    "news/2026-06-29-the-fate-of-earth-depends-on-a-delicate-balance-ou.html",
+    "news/2026-06-29-chris-mason-burnham-begins-to-sketch-out-vision-bu.html",
+    "news/2026-06-29-white-working-class-children-failed-by-education-s.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -243,7 +246,10 @@
     "'You can't patch your way out of it': Cheap AI worm can spread between devices without human guidance — but how did scientists create it?",
     "A deadly fungus that can infect cats and people is spreading",
     "Cedric Alexander retains the X Division Championship with high IQ steal at TNA Slammiversary",
-    "Fetterman, McCormick sidestep Shapiro on Pennsylvania's 'Great American State Fair' booth"
+    "Fetterman, McCormick sidestep Shapiro on Pennsylvania's 'Great American State Fair' booth",
+    "'The fate of Earth depends on a delicate balance': Our planet may survive the death of the sun after all, new models hint",
+    "Chris Mason: Burnham begins to sketch out vision but faces huge and imminent questions",
+    "White working-class children failed by education system, says inquiry"
   ],
   "articles": [
     {
@@ -1564,6 +1570,39 @@
       "agreement_pct": 23,
       "is_science": false,
       "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-the-fate-of-earth-depends-on-a-delicate-balance-ou.html",
+      "title": "'The fate of Earth depends on a delicate balance': Our planet may survive the death of the sun after all, new models hint",
+      "display_title": "'The fate of Earth depends on a delicate balance': Our planet may survive the death of the sun after all, new models hint",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-chris-mason-burnham-begins-to-sketch-out-vision-bu.html",
+      "title": "Chris Mason: Burnham begins to sketch out vision but faces huge and imminent questions",
+      "display_title": "Chris Mason: Burnham begins to sketch out vision but faces huge and imminent questions",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 23,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-white-working-class-children-failed-by-education-s.html",
+      "title": "White working-class children failed by education system, says inquiry",
+      "display_title": "White working-class children failed by education system, says inquiry",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 23,
+      "is_science": false,
+      "source_icons": "🇬🇧"
     }
   ]
 }
