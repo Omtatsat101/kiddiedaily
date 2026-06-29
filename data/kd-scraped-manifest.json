@@ -110,7 +110,12 @@
     "news/2026-06-29-water-shortages-could-prevent-the-us-from-mining-m.html",
     "news/2026-06-29-new-chip-harnesses-quantum-computings-biggest-weak.html",
     "news/2026-06-29-how-to-win-a-world-cup-penalty-shootout.html",
-    "news/2026-06-29-nic-nemeth-captures-tna-world-championship-with-wi.html"
+    "news/2026-06-29-nic-nemeth-captures-tna-world-championship-with-wi.html",
+    "news/2026-06-29-some-of-the-last-surviving-neanderthals-were-remar.html",
+    "news/2026-06-29-ibm-creates-worlds-first-sub-1nm-computer-chip-cra.html",
+    "news/2026-06-29-scientists-find-thousands-of-earthquakes-in-a-perf.html",
+    "news/2026-06-29-two-boys-pulled-from-venezuela-earthquake-rubble-a.html",
+    "news/2026-06-29-england-top-group---but-they-will-not-win-world-cu.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -223,7 +228,12 @@
     "Water shortages could prevent the US from mining more lithium, deepening reliance on foreign imports",
     "New chip harnesses quantum computing's biggest weakness — and tries to turn it into a strength",
     "How to win a World Cup penalty shootout",
-    "Nic Nemeth captures TNA World Championship with win over Mike Santana at Slammiversary"
+    "Nic Nemeth captures TNA World Championship with win over Mike Santana at Slammiversary",
+    "Some of the last surviving Neanderthals were remarkably diverse ‪—‬ suggesting inbreeding didn't doom them",
+    "IBM creates world's first sub-1nm computer chip — cramming 100 billion transistors into a tiny fingernail-sized space",
+    "Scientists find thousands of earthquakes in a perfectly straight line in Alaska, revealing a hidden 'microplate'",
+    "Two boys pulled from Venezuela earthquake rubble among 33 people rescued over weekend",
+    "England top group - but they will not win World Cup unless they improve"
   ],
   "articles": [
     {
@@ -1434,6 +1444,61 @@
       "agreement_pct": 23,
       "is_science": false,
       "source_icons": "🦅"
+    },
+    {
+      "slug": "news/2026-06-29-some-of-the-last-surviving-neanderthals-were-remar.html",
+      "title": "Some of the last surviving Neanderthals were remarkably diverse ‪—‬ suggesting inbreeding didn't doom them",
+      "display_title": "Some of the last surviving Neanderthals were remarkably diverse ‪—‬ suggesting inbreeding didn't doom them",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-ibm-creates-worlds-first-sub-1nm-computer-chip-cra.html",
+      "title": "IBM creates world's first sub-1nm computer chip — cramming 100 billion transistors into a tiny fingernail-sized space",
+      "display_title": "IBM creates world's first sub-1nm computer chip — cramming 100 billion transistors into a tiny fingernail-sized space",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-scientists-find-thousands-of-earthquakes-in-a-perf.html",
+      "title": "Scientists find thousands of earthquakes in a perfectly straight line in Alaska, revealing a hidden 'microplate'",
+      "display_title": "Scientists find thousands of earthquakes in a perfectly straight line in Alaska, revealing a hidden 'microplate'",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-two-boys-pulled-from-venezuela-earthquake-rubble-a.html",
+      "title": "Two boys pulled from Venezuela earthquake rubble among 33 people rescued over weekend",
+      "display_title": "Two boys pulled from Venezuela earthquake rubble among 33 people rescued over weekend",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.35,
+      "agreement_pct": 45,
+      "is_science": false,
+      "source_icons": "🇬🇧 🌍"
+    },
+    {
+      "slug": "news/2026-06-29-england-top-group---but-they-will-not-win-world-cu.html",
+      "title": "England top group - but they will not win World Cup unless they improve",
+      "display_title": "England top group - but they will not win World Cup unless they improve",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.35,
+      "agreement_pct": 45,
+      "is_science": false,
+      "source_icons": "🇬🇧 🌍"
     }
   ]
 }
