@@ -99,6 +99,8 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bjudge\s+delay'                        # "judge delays sentencing"
     r'|\bsentencing\s+(?:hearing|delayed?|phase)' # court sentencing news
     r'|\b(?:murder|assault|rape|kidnap)\s+trial\b' # criminal trial coverage
+    r'|\byears?\s+in\s+(?:prison|jail)'      # "X years in prison/jail" - sentencing coverage
+    r'|\bsentenced\s+to\s+(?:\d+|life|two|three|four|five)\b' # "sentenced to N years"
     r'|\bgets?\s+(?:life|years?)\s+in\s+(?:prison|jail)' # prison sentence results
     r'|\bdied\s+of\s+(?:aids?|hiv|cancer|drug|overdose|covid)' # celebrity death + disease
     r'|\b(?:actress|actor|celebrity|star)\s+(?:died?|dead|passes?\s+away|passes?)' # celebrity death
@@ -108,6 +110,12 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bborder\s+(?:crisis|crossing|enforcement|crackdown)' # border enforcement
     r'|\bserial\s+killer\b'                   # serial killer coverage
     r'|\bmass\s+(?:shooting|murder|killing)\b' # mass violence events
+    r'|\btemporary\s+protected\s+status\b'    # immigration status policy
+    r'|\bprotected\s+status\s+program\b'       # immigration program policy
+    r'|\b(?:anti.corruption|corruption)\s+crackdown\b' # foreign political crackdowns
+    r'|\bsave\s+america\s+act\b'               # specific US partisan legislation
+    r'|\b(?:doge|department\s+of\s+government\s+efficiency)\b' # US partisan agency
+    r'|\bconcedes?\s+(?:save|big|beautiful)\s+america\b' # specific bill negotiation
     r')',
     re.I
 )
@@ -463,6 +471,11 @@ DEPRIORITIZE_WORDS = [
     "world cup semi", "world cup final", "world cup quarter",
     "who will england play", "what went wrong for", "top scorer at",
     "will win the world cup", "group stage results",
+    # Injury/violence incidents (not educational for kids)
+    "people injured", "injured after", "explosion in", "injured in explosion",
+    "blast kills", "blast injures", "bombing suspect",
+    "earthquake victims", "flood victims", "hurricane victims", "victims shelter",
+    "displaced by", "flee their homes", "shelter in place",
     # Crime, legal proceedings, immigration detention (never appropriate for kids)
     "mistrial", "arson case", "arson attack", "vandalism",
     "faces charges", "charged with", "convicted of", "acquitted",
@@ -471,6 +484,13 @@ DEPRIORITIZE_WORDS = [
     "midterm", "primary election", "election results", "primaries", "caucus",
     "live results", "vote count", "ballot count", "exit poll",
     "general election", "runoff election", "polling shows",
+    # Partisan US political news (not age-appropriate framing for kids)
+    "trump calls", "trump signs", "trump says", "trump admin", "trump's",
+    "biden calls", "biden signs", "says trump", "white house says",
+    "republican bill", "democrat bill", "gop bill", "housing bill",
+    "anti-corruption crackdown", "crackdown in iraq", "corruption case",
+    "temporary protected status", "tps program", "protected status",
+    "concedes save", "concedes bill", "spending bill", "budget bill vote",
     # Court/criminal proceedings scoring (backup to hard-reject)
     "judge delays", "murder trial", "sentencing delayed", "awaiting sentencing",
     "verdict reached", "jury finds", "testifies that",
@@ -929,7 +949,7 @@ HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/fact-check/">Fact Check</a>
-<a href="/games/">Games</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
+<a href="/games/">Games</a><a href="/saved.html">Saved</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
 </div></header>"""
 
 FOOTER = """<footer class="kd"><div class="inner">
@@ -937,7 +957,7 @@ FOOTER = """<footer class="kd"><div class="inner">
 <p style="margin:0;font-size:14px;color:#cbd5e0">Curated daily news for families with research-backed fact checks.</p></div>
 <div><h4>Read</h4><a href="/news/today.html">Today's News</a><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
 <a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
-<div><h4>Account</h4><a href="/parents/">For Parents</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
+<div><h4>Account</h4><a href="/saved.html">Saved Stories</a><a href="/parents/">For Parents</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
 <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
 <div><h4>Our Network</h4><a href="https://kiddiewordle.com" rel="noopener">KiddieWordle</a>
@@ -967,7 +987,8 @@ FOOTER = """<footer class="kd"><div class="inner">
     document.body.appendChild(b);
     setTimeout(function(){b.style.transition='opacity 1.5s';b.style.opacity='0';setTimeout(function(){if(b.parentNode)b.parentNode.removeChild(b);},1500);},3500);
   }
-}catch(e){}})();</script>"""
+}catch(e){}})();
+(function(){try{var n=JSON.parse(localStorage.getItem('kd_saved')||'[]').length;if(n>0){var links=document.querySelectorAll('a[href="/saved.html"]');links.forEach(function(l){l.textContent='🔖 Saved ('+n+')';});}}catch(e){}})();</script>"""
 
 def make_slug(title, date_str):
     # Normalize accented characters (ñ→n, é→e, etc.) so the URL path stays ASCII-safe
@@ -1171,9 +1192,11 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
 <p><em>More stories: <a href="/news/">Kid News</a> &middot; <a href="/news/archive.html">Archive</a> &middot; <a href="/fact-check/">Fact Check</a></em></p>
 <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
 <button onclick="if(navigator.share){{navigator.share({{title:document.title,url:location.href}})}}else{{navigator.clipboard.writeText(location.href);this.textContent='Link copied!';setTimeout(()=>this.textContent='Copy link',2000)}}" style="background:#1a4d80;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:14px">Share this story</button>
+<button id="kd-save-btn" onclick="(function(){{var K='kd_saved',s='{slug}',saved=JSON.parse(localStorage.getItem(K)||'[]'),idx=saved.indexOf(s);if(idx>=0){{saved.splice(idx,1);}}else{{saved.push(s);}}localStorage.setItem(K,JSON.stringify(saved));var b=document.getElementById('kd-save-btn');if(idx>=0){{b.style.background='#f7fafc';b.style.color='#1a4d80';b.textContent='🔖 Save';}}else{{b.style.background='#d1fae5';b.style.color='#065f46';b.textContent='✓ Saved';}}}})()" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:14px">🔖 Save</button>
 <a href="/news/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:8px 18px;border-radius:6px;font-size:14px;text-decoration:none">&larr; All news</a>
 <a href="/feed.xml" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:8px 18px;border-radius:6px;font-size:14px;text-decoration:none">RSS feed</a>
-</div>"""
+</div>
+<script>(function(){{var K='kd_saved',s='{slug}',saved=JSON.parse(localStorage.getItem(K)||'[]'),b=document.getElementById('kd-save-btn');if(b&&saved.indexOf(s)>=0){{b.style.background='#d1fae5';b.style.color='#065f46';b.textContent='✓ Saved';}}}})()</script>"""
 
     return f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -4213,6 +4236,81 @@ def generate_search_page(manifest):
     print(f"  Search page: {total} articles indexed")
 
 
+# ── Saved Stories page ───────────────────────────────────────────────────────
+def generate_saved_page():
+    """Generate /saved.html — pure localStorage bookmark list, fetches /data/kd-articles.json."""
+    page = """<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Saved Stories — KiddieDaily</title>
+<meta name="description" content="Your saved KiddieDaily stories — bookmark articles to read later.">
+<meta property="og:title" content="Saved Stories — KiddieDaily">
+<meta property="og:url" content="https://kiddiedaily.com/saved.html">
+<link rel="canonical" href="https://kiddiedaily.com/saved.html">
+""" + CSS + """
+</head><body>""" + HEADER + """
+<main id="main" class="container" style="max-width:860px;margin:0 auto;padding:24px 16px">
+<h1 style="font-size:26px;color:#1a4d80;margin-bottom:4px">🔖 Saved Stories</h1>
+<p style="color:#718096;font-size:14px;margin-bottom:20px">Articles you've bookmarked for later — stored in your browser only.</p>
+<div id="kd-saved-list"><p style="color:#718096">Loading your saved stories…</p></div>
+<p style="margin-top:28px;font-size:13px;color:#a0aec0">Bookmarks are stored in your browser and are private to you.<br>
+<a href="/news/" style="color:#1a4d80">Browse today's news &rarr;</a></p>
+</main>""" + FOOTER + """
+<script>
+(function(){
+  var KEY='kd_saved';
+  var saved=JSON.parse(localStorage.getItem(KEY)||'[]');
+  var el=document.getElementById('kd-saved-list');
+  if(!saved.length){
+    el.innerHTML='<div style="text-align:center;padding:40px 20px;color:#718096;font-family:system-ui,sans-serif">'
+      +'<div style="font-size:48px;margin-bottom:12px">🔖</div>'
+      +'<p style="font-size:16px;font-weight:600;margin-bottom:8px">No saved stories yet</p>'
+      +'<p style="font-size:14px">When you read an article, tap <strong>🔖 Save</strong> to bookmark it here.</p>'
+      +'<a href="/news/" style="display:inline-block;margin-top:16px;background:#1a4d80;color:#fff;padding:9px 20px;border-radius:6px;text-decoration:none;font-size:14px">Browse today\'s news</a>'
+      +'</div>';
+    return;
+  }
+  fetch('/data/kd-articles.json')
+    .then(function(r){return r.json();})
+    .then(function(data){
+      var articles=data.articles||data;
+      var bySlug={};
+      articles.forEach(function(a){bySlug[a.slug]=a;});
+      var found=saved.map(function(s){return bySlug[s];}).filter(Boolean);
+      var missing=saved.filter(function(s){return !bySlug[s];});
+      if(!found.length){
+        el.innerHTML='<p style="color:#718096;font-size:14px">None of your saved articles could be found — they may have been removed. <a href="/news/" style="color:#1a4d80">Browse news</a></p>';
+        return;
+      }
+      var html='<p style="font-size:13px;color:#718096;margin-bottom:16px">'+found.length+' saved article'+(found.length!==1?'s':'')+'</p>';
+      html+='<div style="display:flex;flex-direction:column;gap:12px">';
+      found.forEach(function(a){
+        var cat=a.is_science?'Science':'World News';
+        var catColor=a.is_science?'#065f46':'#1e40af';
+        var catBg=a.is_science?'#d1fae5':'#dbeafe';
+        html+='<div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;font-family:system-ui,sans-serif">'
+          +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">'
+          +'<div style="flex:1">'
+          +'<span style="font-size:11px;font-weight:700;background:'+catBg+';color:'+catColor+';border-radius:12px;padding:2px 10px">'+cat+'</span>'
+          +'<a href="/'+a.slug+'" style="display:block;font-size:16px;font-weight:700;color:#1a4d80;text-decoration:none;margin:8px 0 4px;line-height:1.35">'+a.title+'</a>'
+          +'<span style="font-size:12px;color:#718096">'+a.date+'</span>'
+          +'</div>'
+          +'<button onclick="(function(s,el){var K=\'kd_saved\',arr=JSON.parse(localStorage.getItem(K)||\'[]\'),i=arr.indexOf(s);if(i>=0){arr.splice(i,1);}localStorage.setItem(K,JSON.stringify(arr));el.closest(\'[data-slug]\').remove();var c=document.querySelectorAll(\'[data-slug]\').length;var cnt=document.getElementById(\'kd-count\');if(cnt)cnt.textContent=c+\' saved article\'+(c!==1?\'s\':\'\');})(\''+a.slug+'\',this)" data-rm="1" style="background:#fee2e2;color:#991b1b;border:none;border-radius:6px;padding:6px 12px;font-size:12px;cursor:pointer;white-space:nowrap;flex-shrink:0">Remove</button>'
+          +'</div>'
+          +'</div>';
+      });
+      html+='</div>';
+      el.innerHTML=html;
+      var cnt=document.createElement('span');cnt.id='kd-count';
+      var cp=el.querySelector('p');if(cp){cp.replaceWith(cnt);cnt.style.cssText='font-size:13px;color:#718096;display:block;margin-bottom:16px';cnt.textContent=found.length+' saved article'+(found.length!==1?'s':'');}
+    })
+    .catch(function(){el.innerHTML='<p style="color:#718096">Could not load articles. <a href="/news/" style="color:#1a4d80">Go to news</a></p>';});
+})();
+</script>
+</body></html>"""
+    upload("saved.html", page, "[scraper] Saved Stories page")
+    print(f"  ✓ saved.html — Saved Stories page deployed")
+
+
 # ── Scraper status page ───────────────────────────────────────────────────────
 def generate_status_page(manifest, today, pushed_count):
     articles = manifest.get("articles", [])
@@ -4637,6 +4735,10 @@ def main():
     # 6k3. Generate search page
     print(f"\n[6k3] Generating search page...")
     generate_search_page(manifest)
+
+    # 6k3b. Generate saved stories page
+    print(f"\n[6k3b] Generating saved stories page...")
+    generate_saved_page()
 
     # 6k4. Generate automation status page
     print(f"\n[6k4] Generating status page...")
