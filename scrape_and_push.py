@@ -919,6 +919,20 @@ def reading_time(html_text):
     mins = max(1, round(words / 200))
     return f"{mins} min read"
 
+def reading_level(html_text):
+    """Return a simple grade-level label (Ages 8-10, Ages 10-12, Ages 12+) using avg word length."""
+    plain = re.sub(r"<[^>]+>", " ", html_text)
+    words = [w for w in plain.split() if w.isalpha()]
+    if not words:
+        return "Ages 8+"
+    avg_len = sum(len(w) for w in words) / len(words)
+    if avg_len < 5.0:
+        return "Ages 8–10"
+    elif avg_len < 6.5:
+        return "Ages 10–12"
+    else:
+        return "Ages 12+"
+
 def parent_discussion_guide(title, is_science):
     """Return an HTML parent discussion guide for an article."""
     # Extract 1-2 meaningful topic words from the title for question prompts
@@ -1044,6 +1058,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
     guide_html = parent_discussion_guide(title, is_sci)
 
     rt = reading_time(body_html)
+    rl = reading_level(body_html)
     from datetime import datetime as _dt
     _friendly_today = _dt.strptime(today, "%Y-%m-%d").strftime("%b %d, %Y").replace(" 0", " ")
     cat_label = "Science" if is_sci else "World News"
@@ -1072,7 +1087,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
 <a href="/news/" style="color:#718096">News</a> ›
 <a href="{cat_url}" style="color:#1a4d80;font-weight:600">{cat_label}</a>
 </nav>{subcat_pills}
-<p class="byline">By KiddieDaily Editors &middot; <time datetime="{today}">{_friendly_today}</time> &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
+<p class="byline">By KiddieDaily Editors &middot; <time datetime="{today}">{_friendly_today}</time> &middot; {rt} &middot; <span title="Estimated reading level">{rl}</span> &middot; {n} source{"s" if n!=1 else ""}</p>
 <h1>{title}</h1>
 {bias_html}
 {perspectives_html}
@@ -1772,6 +1787,55 @@ def generate_rss_feed(manifest):
     upload("feed.xml", feed, f"[scraper] RSS feed — {len(articles)} articles")
     print(f"  RSS: {len(articles)} items")
 
+    # Category-specific feeds: /feed/science.xml, /feed/world.xml, /feed/space.xml, etc.
+    _CAT_FEEDS = [
+        ("science",     lambda a: a.get("is_science"),                      "Science",     "Kid-friendly science and nature news, bias-rated."),
+        ("world",       lambda a: not a.get("is_science"),                   "World News",  "Kid-friendly world news, bias-rated."),
+        ("space",       lambda a: "space"       in (a.get("cats") or []),    "Space",       "Space exploration and astronomy news for families."),
+        ("animals",     lambda a: "animals"     in (a.get("cats") or []),    "Animals",     "Wildlife and animal science news for kids."),
+        ("history",     lambda a: "history"     in (a.get("cats") or []),    "History",     "History and archaeology news for families."),
+        ("environment", lambda a: "environment" in (a.get("cats") or []),    "Environment", "Climate and environment news for families."),
+        ("technology",  lambda a: "technology"  in (a.get("cats") or []),    "Technology",  "Tech and innovation news for kids."),
+    ]
+    for cat_key, cat_filter, cat_label, cat_desc in _CAT_FEEDS:
+        cat_articles = [a for a in sorted(articles, key=lambda x: x.get("date", ""), reverse=True) if cat_filter(a)][:20]
+        if not cat_articles:
+            continue
+        cat_items = []
+        for a in cat_articles:
+            slug  = a["slug"]
+            t     = a.get("display_title", a.get("title", "")).replace("&", "&amp;").replace("<", "&lt;")
+            url   = f"{BASE_URL}/{slug}"
+            try:
+                d = datetime.strptime(a.get("date", ""), "%Y-%m-%d")
+                pub = d.strftime("%a, %d %b %Y 10:00:00 +0000")
+            except Exception:
+                pub = now_rfc
+            raw_d = a.get("description", "").strip()
+            ds = (raw_d[:200] + "…" if len(raw_d) > 200 else raw_d).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            cat_items.append(
+                f"  <item>\n    <title>{t}</title>\n    <link>{url}</link>\n"
+                f"    <guid isPermaLink=\"true\">{url}</guid>\n    <pubDate>{pub}</pubDate>\n"
+                f"    <category>{cat_label}</category>\n    <description>{ds}</description>\n  </item>"
+            )
+        cat_feed = (
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+            '  <channel>\n'
+            f'    <title>KiddieDaily — {cat_label}</title>\n'
+            f'    <link>{BASE_URL}/news/{cat_key}.html</link>\n'
+            f'    <atom:link href="{BASE_URL}/feed/{cat_key}.xml" rel="self" type="application/rss+xml"/>\n'
+            f'    <description>{cat_desc}</description>\n'
+            '    <language>en-us</language>\n'
+            f'    <lastBuildDate>{now_rfc}</lastBuildDate>\n'
+            '    <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>\n'
+            + "\n".join(cat_items) + "\n"
+            '  </channel>\n'
+            '</rss>\n'
+        )
+        upload(f"feed/{cat_key}.xml", cat_feed, f"[scraper] RSS feed — {cat_label} ({len(cat_items)} articles)")
+    print(f"  RSS: category feeds deployed (science, world, space, animals, history, environment, technology)")
+
 
 # ── Parent Zone article list ───────────────────────────────────────────────────
 PARENT_START = "<!-- PARENT_ARTICLES_START -->"
@@ -1783,6 +1847,18 @@ PARENT_CONTEXT = {
 }
 
 def update_parent_zone(manifest):
+    """Keep parent-zone/index.html as a redirect to /parents/ (the canonical For-Parents page)."""
+    redirect_html = (
+        '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">'
+        '<meta http-equiv="refresh" content="0;url=/parents/">'
+        '<link rel="canonical" href="https://kiddiedaily.com/parents/">'
+        '<title>Redirecting... — KiddieDaily</title></head><body>'
+        '<p>Redirecting to <a href="/parents/">For Parents</a>…</p>'
+        '</body></html>'
+    )
+    upload("parent-zone/index.html", redirect_html, "[scraper] parent-zone → /parents/ redirect")
+    return
+
     articles = manifest.get("articles", [])
     if not articles:
         return
@@ -3949,6 +4025,13 @@ def generate_search_page(manifest):
     var q = input.value.trim();
     var newUrl = q ? '?q=' + encodeURIComponent(q) : location.pathname;
     history.replaceState(null, '', newUrl);
+  }});
+  // Press / to focus the search box (skip if already typing somewhere)
+  document.addEventListener('keydown', function(e) {{
+    if (e.key === '/' && document.activeElement !== input && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {{
+      e.preventDefault();
+      input.focus();
+    }}
   }});
 }})();
 </script>
