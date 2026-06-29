@@ -505,7 +505,10 @@
     "news/2026-06-29-nasa-announces-its-artemis-iii-crew-which-will-tes.html",
     "news/2026-06-29-the-drawer-problem-why-so-many-of-us-cant-let-go-o.html",
     "news/2026-06-29-asteroid-or-comet-meteor-or-meteorite-how-to-ident.html",
-    "news/2026-06-29-building-data-centers-in-space-is-an-intriguing-id.html"
+    "news/2026-06-29-building-data-centers-in-space-is-an-intriguing-id.html",
+    "news/2026-06-29-sonic-booms-from-meteors-can-release-the-energy-of.html",
+    "news/2026-06-29-who-was-the-first-transgender-person.html",
+    "news/2026-06-29-killing-cancer-requires-immune-cells-to-infiltrate.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1013,7 +1016,10 @@
     "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion",
     "The drawer problem: Why so many of us can’t let go of our old electronics, and what we can do about it",
     "Asteroid or comet? Meteor or meteorite? How to identify and classify the rocks you see streaking through the sky",
-    "Building data centers in space is an intriguing idea on paper, but major engineering challenges must be solved"
+    "Building data centers in space is an intriguing idea on paper, but major engineering challenges must be solved",
+    "Sonic booms from meteors can release the energy of hundreds of tons of TNT – here’s how they work",
+    "Who was the first transgender person?",
+    "Killing cancer requires immune cells to infiltrate tumors’ hostile microenvironment – sugar shields can help them break in"
   ],
   "articles": [
     {
@@ -6642,6 +6648,42 @@
       "slug": "news/2026-06-29-building-data-centers-in-space-is-an-intriguing-id.html",
       "title": "Building data centers in space is an intriguing idea on paper, but major engineering challenges must be solved",
       "display_title": "Building data centers in space is an intriguing idea on paper, but major engineering challenges must be solved",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-sonic-booms-from-meteors-can-release-the-energy-of.html",
+      "title": "Sonic booms from meteors can release the energy of hundreds of tons of TNT – here’s how they work",
+      "display_title": "Sonic booms from meteors can release the energy of hundreds of tons of TNT – here’s how they work",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-who-was-the-first-transgender-person.html",
+      "title": "Who was the first transgender person?",
+      "display_title": "Who was the first transgender person?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-killing-cancer-requires-immune-cells-to-infiltrate.html",
+      "title": "Killing cancer requires immune cells to infiltrate tumors’ hostile microenvironment – sugar shields can help them break in",
+      "display_title": "Killing cancer requires immune cells to infiltrate tumors’ hostile microenvironment – sugar shields can help them break in",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
