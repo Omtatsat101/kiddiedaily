@@ -1148,135 +1148,98 @@ def save_manifest(manifest):
            json.dumps(slim, ensure_ascii=False),
            "Update scraped articles manifest")
 
-# ── news/index.html update ────────────────────────────────────────────────────
-SCRAPED_START = "<!-- SCRAPED_CARDS_START -->"
-SCRAPED_END   = "<!-- SCRAPED_CARDS_END -->"
-
-KD_CARD_CSS = """<style>
-.kd-today-hdr{margin:28px 0 12px;font-size:1.2em;font-family:Georgia,serif;color:#1a4d80;border-bottom:2px solid #ffd700;padding-bottom:6px}
-.kd-sc{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:10px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.kd-sc-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
-.kd-badge{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}
-.kd-badge-sci{background:#d1fae5;color:#065f46}
-.kd-badge-news{background:#dbeafe;color:#1e40af}
-.kd-agree{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;margin-left:auto}
-.kd-agree-high{background:#d1fae5;color:#065f46}
-.kd-agree-med{background:#fef3c7;color:#92400e}
-.kd-agree-low{background:#fee2e2;color:#991b1b}
-.kd-sc h3{margin:4px 0 8px;font-size:1em;line-height:1.35}
-.kd-sc h3 a{color:#1a4d80;text-decoration:none}
-.kd-sc h3 a:hover{text-decoration:underline}
-.kd-mini-bias{display:flex;align-items:center;gap:6px;margin-top:8px}
-.kd-mini-lbl{font-size:10px;font-weight:700;color:#718096;width:16px}
-.kd-mini-track{flex:1;height:6px;border-radius:3px;background:linear-gradient(to right,#3182ce 0%,#805ad5 50%,#e53e3e 100%);position:relative}
-.kd-mini-dot{position:absolute;top:-5px;width:16px;height:16px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%);box-shadow:0 1px 3px rgba(0,0,0,.25)}
-.kd-sc-date{font-size:11px;color:#a0aec0;margin-top:6px}
-</style>"""
-
-def _agree_class(pct):
-    if pct >= 65: return "kd-agree-high"
-    if pct >= 40: return "kd-agree-med"
-    return "kd-agree-low"
-
-def build_scraped_cards(articles):
-    if not articles:
-        return ""
-    cards = []
-    for a in sorted(articles, key=lambda x: x.get("date",""), reverse=True)[:10]:
-        slug  = a["slug"]
-        title = a.get("display_title", a.get("title", ""))[:90]
-        date  = a.get("date", "")
-        n     = a.get("n_sources", 1)
-        ap    = a.get("agreement_pct", 0)
-        bias  = a.get("bias_avg", 0.0)
-        is_sci = a.get("is_science", False)
-
-        badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
-        badge_lbl = "Science" if is_sci else "World News"
-        agree_cls = _agree_class(ap)
-
-        # Bias dot: map -2..+2 → 5%..95%
-        dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
-
-        # Agreement label: single source = "1 outlet" not "31% sources agree"
-        if n == 1:
-            agree_lbl = "1 outlet"
-            agree_cls = "kd-agree-low"
-        else:
-            agree_lbl = f"{n} outlets agree"
-
-        # Source icons from stored group info (not available in manifest, derive from name)
-        SOURCE_ICONS = {"BBC News": "🇬🇧", "NPR": "📻", "Al Jazeera": "🌍",
-                        "The Hill": "⚖️", "Fox News": "🦅", "NASA": "🚀",
-                        "Science Daily": "🔬", "Smithsonian": "🏛️"}
-        src_icons = a.get("source_icons", "")
-        excerpt_raw = a.get("description") or ""
-        excerpt = excerpt_raw[:137].rstrip() + "…" if len(excerpt_raw) > 137 else excerpt_raw
-        bias_label = ("Far Left" if bias <= -1.2 else "Leans Left" if bias <= -0.4
-                      else "Center-Left" if bias <= -0.15 else "Center" if bias <= 0.15
-                      else "Center-Right" if bias <= 0.4 else "Leans Right" if bias <= 1.2
-                      else "Far Right")
-
-        cards.append(
-            f'<div class="kd-sc">'
-            f'<div class="kd-sc-top">'
-            f'<span class="kd-badge {badge_cls}">{badge_lbl}</span>'
-            f'<span class="kd-agree {agree_cls}">{agree_lbl}</span>'
-            f'</div>'
-            f'<h3><a href="/{slug}">{title}</a></h3>'
-            + (f'<p class="kd-card-excerpt">{excerpt}</p>' if excerpt else "")
-            + f'<div class="kd-mini-bias">'
-            f'<span class="kd-mini-lbl">L</span>'
-            f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
-            f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
-            f'<span class="kd-bias-text">{bias_label}</span>'
-            f'</div>'
-            + (f'<div class="kd-sc-date">{date}{" &middot; " + src_icons if src_icons else ""}</div>' if date else "")
-            + f'</div>'
-        )
-    inner = "\n".join(cards)
-    cat_nav = (
-        '<div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px">'
-        '<a href="/news/science.html" style="background:#d1fae5;color:#065f46;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🔬 Science</a>'
-        '<a href="/news/technology.html" style="background:#e0e7ff;color:#3730a3;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">💻 Technology</a>'
-        '<a href="/news/space.html" style="background:#ede9fe;color:#5b21b6;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🚀 Space</a>'
-        '<a href="/news/animals.html" style="background:#fef3c7;color:#92400e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🐾 Animals</a>'
-        '<a href="/news/world.html" style="background:#dbeafe;color:#1e40af;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🌍 World</a>'
-        '<a href="/news/environment.html" style="background:#dcfce7;color:#166534;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🌿 Environment</a>'
-        '<a href="/news/history.html" style="background:#fce7f3;color:#9d174d;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none">🏛 History</a>'
-        '</div>'
-    )
-    return f"{SCRAPED_START}\n{KD_CARD_CSS}\n<h2 class=\"kd-today-hdr\">Today&#39;s news</h2>\n{cat_nav}\n{inner}\n{SCRAPED_END}"
-
-def update_news_index(manifest):
+# ── news/index.html — fully generated dynamic hub ─────────────────────────────
+def generate_news_index_page(manifest):
     articles = manifest.get("articles", [])
-    if not articles:
-        return
+    total    = len(articles)
 
-    r = gh("GET", f"/repos/{REPO}/contents/news/index.html")
-    if r.get("_err"):
-        print(f"    ⚠ Could not fetch news/index.html: {r}")
-        return
+    CAT_CARDS = [
+        ("🔬", "Science",     "news/science.html",     "#d1fae5", "#065f46"),
+        ("🌍", "World",       "news/world.html",       "#dbeafe", "#1e40af"),
+        ("🚀", "Space",       "news/space.html",       "#ede9fe", "#5b21b6"),
+        ("🐾", "Animals",     "news/animals.html",     "#fef3c7", "#92400e"),
+        ("🏛", "History",     "news/history.html",     "#fce7f3", "#9d174d"),
+        ("🌿", "Environment", "news/environment.html", "#dcfce7", "#166534"),
+        ("💻", "Technology",  "news/technology.html",  "#e0e7ff", "#3730a3"),
+    ]
+    cat_grid = "".join(
+        f'<a href="/{path}" class="ni-cat" style="background:{bg};color:{fg}">'
+        f'<span class="ni-icon">{icon}</span>{label}</a>'
+        for icon, label, path, bg, fg in CAT_CARDS
+    )
 
-    html = base64.b64decode(r["content"]).decode("utf-8")
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kid News Hub — KiddieDaily</title>
+<meta name="description" content="Browse all {total} kid-safe, bias-rated articles across Science, Space, Animals, History, Environment, Technology and World News.">
+<link rel="canonical" href="https://kiddiedaily.com/news/">
+{CSS}
+<style>
+.ni-cat-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:18px 0 28px}}
+.ni-cat{{display:flex;flex-direction:column;align-items:center;padding:14px 8px;border-radius:12px;font-weight:700;font-size:13px;text-align:center;text-decoration:none;gap:6px;transition:opacity .15s}}
+.ni-cat:hover{{opacity:.82;text-decoration:none}}
+.ni-icon{{font-size:28px}}
+#ni-search{{width:100%;padding:10px 14px;border:1.5px solid #dde4ef;border-radius:8px;font-size:15px;margin-bottom:16px;font-family:inherit}}
+.ni-card{{padding:14px 0;border-bottom:1px solid #e5e7eb}}
+.ni-card a{{font-size:15px;font-weight:600;color:#1a4d80;display:block;margin:4px 0;line-height:1.4}}
+.ni-card a:hover{{text-decoration:underline}}
+.ni-card-meta{{font-size:12px;color:#718096}}
+.ni-badge{{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.6px;padding:2px 7px;border-radius:20px;margin-right:5px;text-transform:uppercase}}
+.ni-badge-sci{{background:#d1fae5;color:#065f46}}
+.ni-badge-news{{background:#dbeafe;color:#1e40af}}
+.ni-badge-cat{{background:#f3f4f6;color:#374151}}
+.ni-more{{display:block;text-align:center;padding:11px;background:#f0f4f8;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;color:#1a4d80;width:100%;margin-top:16px}}
+.ni-count{{font-size:13px;color:#718096;margin-bottom:12px}}
+</style>
+</head><body>
+{HEADER}
+<main id="main" style="max-width:760px;margin:0 auto;padding:20px 16px">
+<h1 style="font-size:1.5em;color:#1a4d80;margin-bottom:4px">Kid News Hub</h1>
+<p style="color:#718096;margin:0 0 6px;font-size:14px">{total} articles — bias-rated, kid-safe, updated daily</p>
 
-    new_block = build_scraped_cards(articles)
+<div class="ni-cat-grid">{cat_grid}</div>
 
-    if SCRAPED_START in html:
-        # Replace existing scraped section
-        start_i = html.index(SCRAPED_START)
-        end_i   = html.index(SCRAPED_END) + len(SCRAPED_END)
-        html = html[:start_i] + new_block + html[end_i:]
-    else:
-        # First run: insert before <h2>This week</h2>
-        marker = "<h2>This week</h2>"
-        if marker in html:
-            html = html.replace(marker, new_block + "\n" + marker)
-        else:
-            # Fallback: append before </main>
-            html = html.replace("</main>", new_block + "\n</main>")
-
-    upload("news/index.html", html, "[scraper] Update news index with today's articles")
+<h2 style="font-size:1.15em;color:#1a4d80;border-bottom:2px solid #ffd700;padding-bottom:6px;margin-bottom:14px">All Articles</h2>
+<input type="text" id="ni-search" placeholder="Search all articles..." aria-label="Search articles">
+<div id="ni-count" class="ni-count"></div>
+<div id="ni-list"></div>
+<button id="ni-more" class="ni-more" onclick="niMore()">Load more</button>
+</main>
+{FOOTER}
+<script>
+(function(){{
+  var PAGE=20,arts=[],off=0,q='',filt=[];
+  function blbl(b){{return b<=-1.2?'Far Left':b<=-0.4?'Leans Left':b<=-.15?'Ctr-Left':b<=.15?'Center':b<=.4?'Ctr-Right':b<=1.2?'Leans Right':'Far Right';}}
+  function card(a){{
+    var sci=a.is_science,bc=sci?'ni-badge-sci':'ni-badge-news',bl=sci?'Science':'World';
+    var cats=(a.cats||[]).filter(function(c){{return c!=='science'&&c!=='world';}});
+    var tags=cats.slice(0,2).map(function(c){{return'<span class="ni-badge ni-badge-cat">'+c+'</span>';}}).join('');
+    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+'<a href="/'+a.slug+'">'+a.title+'</a><div class="ni-card-meta">'+a.date+' &middot; '+blbl(a.bias_avg)+'</div></div>';
+  }}
+  function applyFilter(){{filt=q?arts.filter(function(a){{return(a.title+' '+(a.description||'')).toLowerCase().indexOf(q)>=0;}}):arts;}}
+  function render(){{
+    var list=document.getElementById('ni-list'),btn=document.getElementById('ni-more'),cnt=document.getElementById('ni-count');
+    if(!off)list.innerHTML='';
+    var chunk=filt.slice(off,off+PAGE);
+    list.innerHTML+=chunk.map(card).join('');
+    off+=PAGE;
+    var rem=filt.length-off;
+    btn.style.display=rem>0?'block':'none';
+    if(rem>0)btn.textContent='Load '+Math.min(PAGE,rem)+' more ('+rem+' remaining)';
+    cnt.textContent='Showing '+Math.min(off,filt.length)+' of '+filt.length+' articles';
+  }}
+  window.niMore=function(){{render();}};
+  document.getElementById('ni-search').addEventListener('input',function(e){{
+    q=e.target.value.toLowerCase().trim();off=0;applyFilter();render();
+  }});
+  fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(function(data){{
+    arts=data;applyFilter();render();
+  }});
+}})();
+</script>
+</body></html>"""
+    upload("news/index.html", page, f"[scraper] news/index — dynamic hub, {total} articles")
 
 # ── GitHub Actions workflow (self-deployed to kiddiedaily repo) ───────────────
 WORKFLOW_YAML = """\
@@ -1942,7 +1905,17 @@ def generate_archive(manifest):
 
 
 # ── Category keyword sets (shared by JSON index and page generator) ───────────
-_CAT_SPACE_KW = {"space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope"}
+_CAT_SPACE_KW = {
+    "space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope",
+    "solar storm", "solar flare", "solar wind", "solar eruption", "coronal mass ejection", "geomagnetic",
+    "sun ", " sun", "orbit", "comet", "black hole", "nebula", "eclipse", "exoplanet", "spacecraft",
+    "cosmos", "aurora borealis", "aurora australis", "northern lights", "southern lights",
+    "space weather", "ionosphere", "magnetosphere", "heliosphere",
+    "venus", "jupiter", "saturn", "mercury", "neptune", "uranus", "pluto",
+    "milky way", "supernova", "pulsar", "quasar", "big bang", "dark matter", "dark energy",
+    "hubble", "james webb", "jwst", "voyager", "cassini", "juno probe", "perseverance",
+    "space station", "iss ", "astronaut", "cosmonaut", "spacewalk", "launch vehicle",
+}
 _CAT_ANIMAL_KW = {"animal", "animals", "species", "whale", "shark", "bird", "birds", "dog", "dogs", "cat", "cats", "wildlife", "octopus", "insect", "insects", "turtle", "turtles", "fish", "elephant", "elephants", "bear", "bears", "wolf", "wolves", "lion", "lions", "tiger", "tigers", "dolphin", "dolphins", "penguin", "penguins", "seal", "seals", "zoo", "habitat", "extinct", "endangered", "mammal", "reptile", "amphibian", "coral", "reef", "migration", "nest", "prey", "predator", "marine", "ocean life", "bee", "bees", "butterfly", "butterflies"}
 _CAT_ENV_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation",
                "sea level", "permafrost", "arctic", "antarctic", "polar ice",
@@ -2013,11 +1986,11 @@ _CAT_TECH_KW = {
     "haptic", "augmented reality", "virtual reality",
 }
 _CAT_SOURCES = {
-    "space":       {"NASA"},
-    "animals":     {"Mongabay"},
-    "history":     {"JSTOR Daily", "World History Encyclopedia", "Archaeology", "Medievalists", "HistoryHit"},
-    "environment": {"NASA Earth", "Carbon Brief", "Hakai Magazine"},
-    "technology":  {"MIT Tech Review", "IEEE Spectrum"},
+    "space":       {"NASA", "EarthSky", "Space.com"},
+    "animals":     {"Mongabay", "BBC Newsround"},
+    "history":     {"JSTOR Daily", "World History Encyclopedia", "Archaeology", "Medievalists", "HistoryHit", "Atlas Obscura", "Smithsonian"},
+    "environment": {"NASA Earth", "Carbon Brief", "Hakai Magazine", "Inside Climate News"},
+    "technology":  {"MIT Tech Review", "IEEE Spectrum", "MIT News", "Ars Technica Science"},
 }
 _CAT_KEYWORDS = {
     "space": _CAT_SPACE_KW, "animals": _CAT_ANIMAL_KW, "environment": _CAT_ENV_KW,
@@ -3985,8 +3958,8 @@ def main():
 
     # 6b. Always rebuild news index if we have articles
     if manifest.get("articles"):
-        print(f"\n[6b] Updating news/index.html...")
-        update_news_index(manifest)
+        print(f"\n[6b] Generating news/index.html hub...")
+        generate_news_index_page(manifest)
 
     # 6c. Always rebuild sitemap (articles + digest dates change daily)
     print(f"\n[6c] Updating sitemap.xml...")
