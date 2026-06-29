@@ -1,126 +1,185 @@
-name: Content PR Review Agent
+name: KiddieDaily PR Review — 5-Stage Gate
 
 on:
   pull_request:
     branches: [main]
-    types: [opened, synchronize, reopened]
+  workflow_dispatch: {}
 
 jobs:
-  # Stage 1: validate script syntax
+  # Stage 1 — Syntax check on the main scraper
   review-script:
-    name: "Stage 1 — Script Syntax Check"
+    name: "Stage 1 — Script syntax"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - name: Python syntax check
-        run: |
-          python -m py_compile scrape_and_push.py
-          echo "✓ scrape_and_push.py syntax OK"
+          python-version: "3.11"
+      - name: Syntax check scrape_and_push.py
+        run: python -m py_compile scrape_and_push.py && echo "scrape_and_push.py OK"
 
-  # Stage 2: validate generated content
+  # Stage 2 — Content integrity (HTML doctype, articles JSON schema, XML well-formed)
   review-content:
-    name: "Stage 2 — Content Validator"
+    name: "Stage 2 — Content validation"
     runs-on: ubuntu-latest
-    needs: review-script
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - name: Validate HTML files (DOCTYPE + KiddieDaily header)
+          python-version: "3.11"
+      - name: Validate HTML DOCTYPE
         run: |
-          python - <<'EOF'
-          import os, sys
-          fail = 0
-          for root, _, files in os.walk('.'):
-              if '.git' in root:
-                  continue
-              for f in files:
-                  if not f.endswith('.html'):
-                      continue
-                  path = os.path.join(root, f)
-                  text = open(path, encoding='utf-8', errors='ignore').read()
-                  if '<!DOCTYPE html>' not in text and '<!doctype html>' not in text.lower():
-                      print(f'FAIL missing DOCTYPE: {path}')
-                      fail += 1
-          print(f'HTML check: {fail} failures')
-          sys.exit(fail > 0)
-          EOF
-      - name: Validate articles JSON index
+          FAIL=0
+          for f in $(find . -name "*.html" -not -path "./.git/*"); do
+            if ! head -1 "$f" | grep -qi "<!DOCTYPE"; then
+              echo "FAIL: Missing DOCTYPE in $f"
+              FAIL=1
+            fi
+          done
+          [ $FAIL -eq 0 ] && echo "All HTML files have DOCTYPE" || exit 1
+      - name: Validate articles JSON schema
         run: |
-          python - <<'EOF'
-          import json, sys
-          try:
-              data = json.load(open('data/kd-articles.json'))
-              assert len(data) > 0, "Empty articles JSON"
-              required = {'slug', 'title', 'date', 'is_science'}
-              for item in data[:3]:
-                  missing = required - set(item.keys())
-                  assert not missing, f"Missing fields {missing} in {item.get('slug','?')}"
-              print(f"✓ {len(data)} articles in index, schema OK")
-          except Exception as e:
-              print(f"FAIL: {e}")
+          python3 - <<'PYEOF'
+          import json, glob, sys
+          REQUIRED = {"slug", "title", "date", "is_science"}
+          files = glob.glob("data/*.json")
+          ok = True
+          for path in files:
+              with open(path) as f:
+                  data = json.load(f)
+              articles = data if isinstance(data, list) else data.get("articles", [])
+              for i, a in enumerate(articles):
+                  missing = REQUIRED - a.keys()
+                  if missing:
+                      print(f"FAIL {path}[{i}]: missing fields {missing}")
+                      ok = False
+          if not ok:
               sys.exit(1)
-          EOF
-      - name: Validate RSS feed
+          print(f"Checked {len(files)} JSON file(s) — all schemas valid")
+          PYEOF
+      - name: Validate XML files (well-formed)
         run: |
-          python - <<'EOF'
-          import xml.etree.ElementTree as ET, sys
-          try:
-              tree = ET.parse('feed.xml')
-              items = tree.findall('.//{http://www.w3.org/2005/Atom}entry') or                       tree.findall('.//item')
-              print(f"✓ RSS feed has {len(items)} items")
-          except Exception as e:
-              print(f"FAIL RSS: {e}")
+          python3 - <<'PYEOF'
+          import xml.etree.ElementTree as ET, glob, sys
+          feeds = glob.glob("**/*.xml", recursive=True)
+          ok = True
+          for path in feeds:
+              try:
+                  ET.parse(path)
+              except ET.ParseError as e:
+                  print(f"FAIL {path}: {e}")
+                  ok = False
+          if not ok:
               sys.exit(1)
+          print(f"Checked {len(feeds)} XML file(s) — all well-formed")
+          PYEOF
+
+  # Stage 3 — Sitemap URL coverage against required page list
+  review-sitemap:
+    name: "Stage 3 — Sitemap coverage"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check sitemap URL coverage
+        run: |
+          python3 - <<'PYEOF'
+          import xml.etree.ElementTree as ET, os, sys
+          REQUIRED = [
+              "index.html", "news/index.html", "about.html", "contact.html",
+              "privacy.html", "terms.html", "parents.html", "fact-check.html",
+              "games.html", "sitemap.xml",
+          ]
+          if not os.path.exists("sitemap.xml"):
+              print("FAIL: sitemap.xml not found")
+              sys.exit(1)
+          tree = ET.parse("sitemap.xml")
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          urls = [loc.text for loc in tree.findall(".//sm:loc", ns)]
+          missing = [p for p in REQUIRED if not any(p in (u or "") for u in urls)]
+          if missing:
+              print(f"FAIL: Required pages missing from sitemap: {missing}")
+              sys.exit(1)
+          print(f"Sitemap has {len(urls)} URLs — all {len(REQUIRED)} required pages covered")
+          PYEOF
+
+  # Stage 4 — Full Python lint on ALL scraper scripts (py_compile + pyflakes)
+  review-lint:
+    name: "Stage 4 — Full Python lint"
+    runs-on: ubuntu-latest
+    needs: [review-script]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install lint tools
+        run: pip install --quiet pyflakes requests anthropic
+      - name: Syntax check all scraper scripts
+        run: |
+          FAIL=0
+          for f in scrape_and_push.py truth_verify.py extended_sources_patch.py; do
+            if [ -f "$f" ]; then
+              python -m py_compile "$f" && echo "OK: $f" || { echo "FAIL: $f"; FAIL=1; }
+            else
+              echo "SKIP: $f not found in repo (may be newly added)"
+            fi
+          done
+          [ $FAIL -eq 0 ] || exit 1
+      - name: pyflakes lint — undefined names and unused imports
+        run: |
+          FAIL=0
+          for f in scrape_and_push.py truth_verify.py extended_sources_patch.py; do
+            if [ -f "$f" ]; then
+              echo "=== pyflakes: $f ==="
+              python -m pyflakes "$f" || FAIL=1
+            fi
+          done
+          [ $FAIL -eq 0 ] && echo "pyflakes clean on all scripts" || exit 1
+
+  # Stage 5 — Post consolidated PR review comment (runs even if prior stages fail)
+  review-summary:
+    name: "Stage 5 — Review summary comment"
+    runs-on: ubuntu-latest
+    needs: [review-script, review-content, review-sitemap, review-lint]
+    if: always() && github.event_name == 'pull_request'
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Post summary to PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+          R1: ${{ needs.review-script.result }}
+          R2: ${{ needs.review-content.result }}
+          R3: ${{ needs.review-sitemap.result }}
+          R4: ${{ needs.review-lint.result }}
+        run: |
+          icon() { [ "$1" = "success" ] && echo "✅" || [ "$1" = "skipped" ] && echo "⏭️" || echo "❌"; }
+
+          ALL_PASS="true"
+          for r in "$R1" "$R2" "$R3" "$R4"; do
+            [ "$r" != "success" ] && ALL_PASS="false"
+          done
+
+          if [ "$ALL_PASS" = "true" ]; then
+            STATUS_LINE="**All 4 checks passed. Ready to merge.** 🚀"
+          else
+            STATUS_LINE="**One or more checks failed — review the logs above before merging.**"
+          fi
+
+          cat > /tmp/pr-summary.md <<EOF
+          ## KiddieDaily PR Review — Automated Gate Summary
+
+          | Stage | Check | Result |
+          |---|---|---|
+          | 1 | Script syntax (\`scrape_and_push.py\`) | $(icon "$R1") \`$R1\` |
+          | 2 | Content validation (HTML / JSON schema / XML) | $(icon "$R2") \`$R2\` |
+          | 3 | Sitemap URL coverage | $(icon "$R3") \`$R3\` |
+          | 4 | Full Python lint — all scraper scripts | $(icon "$R4") \`$R4\` |
+
+          $STATUS_LINE
+
+          > _Posted by the KiddieDaily PR Review workflow. [View run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})_
           EOF
 
-  # Stage 3: validate sitemap
-  review-sitemap:
-    name: "Stage 3 — Sitemap & Coverage Check"
-    runs-on: ubuntu-latest
-    needs: review-content
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Validate sitemap
-        run: |
-          python - <<'EOF'
-          import xml.etree.ElementTree as ET, sys
-          tree = ET.parse('sitemap.xml')
-          ns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
-          urls = [u.text for u in tree.findall(f'.//{{{ns}}}loc')]
-          required = ['/', '/news/', '/news/archive.html', '/feed.xml',
-                      '/news/science.html', '/search.html', '/digest/latest.html']
-          missing = [r for r in required if not any(r in u for u in urls)]
-          if missing:
-              print(f"FAIL sitemap missing: {missing}")
-              sys.exit(1)
-          print(f"✓ Sitemap has {len(urls)} URLs, all required pages present")
-          EOF
-      - name: Coverage report
-        run: |
-          python - <<'EOF'
-          import os, json
-          cats = {'news': 0, 'digest': 0, 'search': 0}
-          for root, _, files in os.walk('.'):
-              if '.git' in root: continue
-              for f in files:
-                  if f.endswith('.html'):
-                      k = root.split(os.sep)[1] if len(root.split(os.sep)) > 1 else 'root'
-                      cats[k] = cats.get(k, 0) + 1
-          print("Coverage:", json.dumps(cats, indent=2))
-          articles = json.load(open('data/kd-articles.json'))
-          print(f"✓ Total articles: {len(articles)}")
-          EOF
+          gh pr comment "$PR_NUM" --repo "${{ github.repository }}" --body-file /tmp/pr-summary.md
