@@ -1757,6 +1757,17 @@ def generate_category_pages(manifest):
         "ancient ship", "shipwreck", "ancient kingdom", "ancient empire",
         "world history", "cultural history", "oral history",
         "early human", "early homo", "first humans",
+        # Period names and event types (covers WHE article patterns)
+        "maginot", "casablanca conference", "intermediate period",
+        "kingdom of egypt", "old kingdom", "middle kingdom", "new kingdom",
+        "treaty of", "siege of", "dynasty of",
+        "pantheon", "mythology", "ancient god", "ancient goddess",
+        "ancient religion", "ancient myth", "ancient legend",
+        "ancient soldier", "ancient warrior", "ancient weapon",
+        "fortress", "ancient fortress", "ancient wall", "ancient palace",
+        "pharaoh of", "king of egypt", "queen of egypt",
+        "roman emperor", "roman senate", "roman republic",
+        "greek empire", "greek city", "greek philosophy",
     }
     _TECH_KW     = {"quantum", "robot", "robotics", "ai ", "artificial intelligence", "machine learning",
                     "nanosensor", "nanotechnology", "semiconductor", "computer chip", "microchip",
@@ -3383,6 +3394,7 @@ def main():
                 "bias_avg": score["bias_avg"],
                 "agreement_pct": score["agreement_pct"],
                 "is_science": any(s["source_name"] in SCIENCE_SOURCES for s in group),
+                "source_name": primary_source,
                 "source_icons": icons,
             })
             pushed_count += 1
