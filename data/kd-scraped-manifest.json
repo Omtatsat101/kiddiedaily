@@ -47,7 +47,10 @@
     "news/2026-06-29-late-goal-gives-canada-first-ever-world-cup-knocko.html",
     "news/2026-06-29-einstein-probe-may-have-caught-a-black-hole-tearin.html",
     "news/2026-06-29-scientists-discover-hidden-footprints-of-death-tha.html",
-    "news/2026-06-29-this-newly-discovered-ballista-spider-catapults-an.html"
+    "news/2026-06-29-this-newly-discovered-ballista-spider-catapults-an.html",
+    "news/2026-06-29-three-firefighters-die-battling-huge-wildfires-on.html",
+    "news/2026-06-29-speed-limits-for-ships-protect-endangered-right-wh.html",
+    "news/2026-06-29-did-these-prehistoric-primates-really-bury-just-th.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -97,7 +100,10 @@
     "Late goal gives Canada first-ever World Cup knockout stage victory",
     "Einstein Probe may have caught a black hole tearing apart a white dwarf for the first time",
     "Scientists discover hidden “footprints of death” that may help viruses spread",
-    "This newly discovered ballista spider catapults ants into a deadly trap"
+    "This newly discovered ballista spider catapults ants into a deadly trap",
+    "Three firefighters die battling huge wildfires on Colorado-Utah border",
+    "Speed Limits for Ships Protect Endangered Right Whales From Vessel Strikes. Could the Animals Survive Without Them?",
+    "Did These Prehistoric Primates Really Bury Just Their Female Dead Deep in a Cave?"
   ],
   "articles": [
     {
@@ -615,6 +621,39 @@
       "agreement_pct": 31,
       "is_science": true,
       "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-three-firefighters-die-battling-huge-wildfires-on.html",
+      "title": "Three firefighters die battling huge wildfires on Colorado-Utah border",
+      "display_title": "Three firefighters die battling huge wildfires on Colorado-Utah border",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.1,
+      "agreement_pct": 62,
+      "is_science": false,
+      "source_icons": "🇬🇧 ⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-speed-limits-for-ships-protect-endangered-right-wh.html",
+      "title": "Speed Limits for Ships Protect Endangered Right Whales From Vessel Strikes. Could the Animals Survive Without Them?",
+      "display_title": "Speed Limits for Ships Protect Endangered Right Whales From Vessel Strikes. Could the Animals Survive Without Them?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-29-did-these-prehistoric-primates-really-bury-just-th.html",
+      "title": "Did These Prehistoric Primates Really Bury Just Their Female Dead Deep in a Cave?",
+      "display_title": "Did These Prehistoric Primates Really Bury Just Their Female Dead Deep in a Cave?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🏛️"
     }
   ]
 }
