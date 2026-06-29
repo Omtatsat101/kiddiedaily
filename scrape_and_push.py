@@ -207,6 +207,8 @@ SOURCES = [
     {"name": "MIT Tech Review","url": "https://www.technologyreview.com/feed/",                        "bias": -0.1, "icon": "💻"},
     {"name": "World History Encyclopedia", "url": "https://www.worldhistory.org/rss/",                "bias":  0.0, "icon": "📜"},
     {"name": "IEEE Spectrum",  "url": "https://spectrum.ieee.org/feeds/feed.rss",                  "bias":  0.0, "icon": "⚡"},
+    # Environment deep-coverage (not in SCIENCE_SOURCES so political articles get filtered by score)
+    {"name": "Inside Climate News", "url": "https://insideclimatenews.org/feed/",                  "bias": -0.4, "icon": "🌊"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
