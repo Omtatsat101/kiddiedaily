@@ -458,6 +458,10 @@ DEPRIORITIZE_WORDS = [
     "one great shot:", "little books with",
     # Adult content framing in science titles (coral/marine biology reproduction)
     "sex lives of",
+    # Disaster / tragedy framing that's not appropriate for kids without age-gating
+    "mine collapse", "mine explosion", "mine rescue", "miners trapped",
+    "rescue efforts continue", "hoping beyond hope", "survivors pulled from",
+    "bodies recovered", "toll rises", "death toll",
     # US political figures not already covered (by name → catch specific political stories)
     "hegseth", "pelosi", "mayorkas", "blinken", "yellen", "mcconnell", "schumer",
     "mitch mcconnell", "chuck schumer", "rand paul", "ted cruz", "marco rubio",
