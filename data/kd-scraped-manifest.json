@@ -601,7 +601,10 @@
     "news/2026-06-29-the-secret-sex-lives-of-deep-dark-corals.html",
     "news/2026-06-29-pelosi-to-teach-at-new-uc-berkeley-democracy-insti.html",
     "news/2026-06-29-one-great-shot-bluebottle-beauty.html",
-    "news/2026-06-29-little-books-with-big-subjects.html"
+    "news/2026-06-29-little-books-with-big-subjects.html",
+    "news/2026-06-29-after-80-years-mathematicians-give-famed-erdos-met.html",
+    "news/2026-06-29-what-is-the-positive-grassmannian-and-why-does-it.html",
+    "news/2026-06-29-how-physicists-track-and-trap-the-elusive-neutrino.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1205,7 +1208,10 @@
     "The Secret Sex Lives of Deep, Dark Corals",
     "Pelosi to teach at new UC Berkeley democracy institute",
     "One Great Shot: Bluebottle Beauty",
-    "Little Books with Big Subjects"
+    "Little Books with Big Subjects",
+    "After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade",
+    "What Is the Positive Grassmannian and Why Does It Show Up Everywhere?",
+    "How Physicists Track and Trap the Elusive Neutrino"
   ],
   "articles": [
     {
@@ -7993,6 +7999,42 @@
       "is_science": true,
       "source_name": "Hakai Magazine",
       "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-after-80-years-mathematicians-give-famed-erdos-met.html",
+      "title": "After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade",
+      "display_title": "After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Quanta Magazine",
+      "source_icons": "🔷"
+    },
+    {
+      "slug": "news/2026-06-29-what-is-the-positive-grassmannian-and-why-does-it.html",
+      "title": "What Is the Positive Grassmannian and Why Does It Show Up Everywhere?",
+      "display_title": "What Is the Positive Grassmannian and Why Does It Show Up Everywhere?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Quanta Magazine",
+      "source_icons": "🔷"
+    },
+    {
+      "slug": "news/2026-06-29-how-physicists-track-and-trap-the-elusive-neutrino.html",
+      "title": "How Physicists Track and Trap the Elusive Neutrino",
+      "display_title": "How Physicists Track and Trap the Elusive Neutrino",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Quanta Magazine",
+      "source_icons": "🔷"
     }
   ]
 }
