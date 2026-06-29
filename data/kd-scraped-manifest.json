@@ -429,7 +429,11 @@
     "news/2026-06-29-rome-and-persia-the-seven-hundred-year-rivalry.html",
     "news/2026-06-29-tehran-conference-the-debate-on-how-the-allies-sho.html",
     "news/2026-06-29-capitalism-a-global-history.html",
-    "news/2026-06-29-china-slaps-export-controls-on-dozens-of-japanese.html"
+    "news/2026-06-29-china-slaps-export-controls-on-dozens-of-japanese.html",
+    "news/2026-06-29-strawberry-moon-2026-tonights-full-moon-is-the-low.html",
+    "news/2026-06-29-nanshe-the-selfless-sumerian-goddess-of-social-jus.html",
+    "news/2026-06-29-old-kingdom-of-egypt-the-age-of-the-pyramids.html",
+    "news/2026-06-29-scramble-for-africa-how-european-empires-took-over.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -861,7 +865,11 @@
     "Rome and Persia: The Seven Hundred Year Rivalry",
     "Tehran Conference: The Debate on How the Allies Should Win WWII",
     "Capitalism: A Global History",
-    "China slaps export controls on dozens of Japanese entities"
+    "China slaps export controls on dozens of Japanese entities",
+    "Strawberry moon 2026: Tonight's full moon is the lowest, and one of the smallest 'micromoons' all year",
+    "Nanshe: The Selfless Sumerian Goddess of Social Justice",
+    "Old Kingdom of Egypt: The Age of the Pyramids",
+    "Scramble for Africa: How European Empires Took Over a Continent"
   ],
   "articles": [
     {
@@ -5585,6 +5593,54 @@
       "is_science": false,
       "source_name": "Al Jazeera",
       "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-strawberry-moon-2026-tonights-full-moon-is-the-low.html",
+      "title": "Strawberry moon 2026: Tonight's full moon is the lowest, and one of the smallest 'micromoons' all year",
+      "display_title": "Strawberry moon 2026: Tonight's full moon is the lowest, and one of the smallest 'micromoons' all year",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "Live Science",
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-nanshe-the-selfless-sumerian-goddess-of-social-jus.html",
+      "title": "Nanshe: The Selfless Sumerian Goddess of Social Justice",
+      "display_title": "Nanshe: The Selfless Sumerian Goddess of Social Justice",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-old-kingdom-of-egypt-the-age-of-the-pyramids.html",
+      "title": "Old Kingdom of Egypt: The Age of the Pyramids",
+      "display_title": "Old Kingdom of Egypt: The Age of the Pyramids",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-scramble-for-africa-how-european-empires-took-over.html",
+      "title": "Scramble for Africa: How European Empires Took Over a Continent",
+      "display_title": "Scramble for Africa: How European Empires Took Over a Continent",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
     }
   ]
 }
