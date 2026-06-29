@@ -473,7 +473,11 @@
     "news/2026-06-29-award-winning-researcher-trains-robots-to-make-edu.html",
     "news/2026-06-29-epics-in-ieees-awards-honor-outstanding-students-a.html",
     "news/2026-06-29-bbc-news-app.html",
-    "news/2026-06-29-newscast.html"
+    "news/2026-06-29-newscast.html",
+    "news/2026-06-29-closing-the-ai-fluency-gap-to-support-workforce-re.html",
+    "news/2026-06-29-eib-announces-largest-ever-loan-3-billion-to-airbu.html",
+    "news/2026-06-29-how-the-new-brazil-is-taking-shape-and-why-cunha-i.html",
+    "news/2026-06-29-clarke-says-standing-down-easy-decision-after-worl.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -949,7 +953,11 @@
     "Award-Winning Researcher Trains Robots to Make Educated Guesses",
     "EPICS in IEEE’s Awards Honor Outstanding Students and Faculty",
     "BBC News app",
-    "Newscast"
+    "Newscast",
+    "Closing the AI fluency gap to support workforce retention",
+    "EIB announces largest-ever loan: €3 billion to Airbus",
+    "How the new Brazil is taking shape and why Cunha is key",
+    "Clarke says standing down 'easy' decision after World Cup exit"
   ],
   "articles": [
     {
@@ -6194,6 +6202,54 @@
       "slug": "news/2026-06-29-newscast.html",
       "title": "Newscast",
       "display_title": "Newscast",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-closing-the-ai-fluency-gap-to-support-workforce-re.html",
+      "title": "Closing the AI fluency gap to support workforce retention",
+      "display_title": "Closing the AI fluency gap to support workforce retention",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-eib-announces-largest-ever-loan-3-billion-to-airbu.html",
+      "title": "EIB announces largest-ever loan: €3 billion to Airbus",
+      "display_title": "EIB announces largest-ever loan: €3 billion to Airbus",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-how-the-new-brazil-is-taking-shape-and-why-cunha-i.html",
+      "title": "How the new Brazil is taking shape and why Cunha is key",
+      "display_title": "How the new Brazil is taking shape and why Cunha is key",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-clarke-says-standing-down-easy-decision-after-worl.html",
+      "title": "Clarke says standing down 'easy' decision after World Cup exit",
+      "display_title": "Clarke says standing down 'easy' decision after World Cup exit",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
