@@ -349,7 +349,11 @@
     "news/2026-06-29-every-homo-naledi-we-know-of-is-female-and-the-imp.html",
     "news/2026-06-29-experimental-wine-bottle-tracks-oxygen-moving-thro.html",
     "news/2026-06-29-france-records-around-1000-additional-deaths-as-ex.html",
-    "news/2026-06-29-when-did-presidents-start-traveling-abroad.html"
+    "news/2026-06-29-when-did-presidents-start-traveling-abroad.html",
+    "news/2026-06-29-extreme-heat-wave-in-france-kills-hundreds-of-thou.html",
+    "news/2026-06-29-nepals-central-zoo-faces-questions-over-its-bird-f.html",
+    "news/2026-06-29-early-land-animals-skipped-the-tadpole-phase.html",
+    "news/2026-06-29-with-starfall-spacex-eyes-an-edge-in-global-cargo.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -701,7 +705,11 @@
     "Every Homo naledi we know of is female, and the implications are fascinating",
     "Experimental wine bottle tracks oxygen moving through the cork",
     "France records around 1,000 additional deaths as extreme heat sets European records",
-    "When Did Presidents Start Traveling Abroad?"
+    "When Did Presidents Start Traveling Abroad?",
+    "Extreme heat wave in France kills hundreds of thousands of poultry",
+    "Nepal’s Central Zoo faces questions over its bird flu response",
+    "Early land animals skipped the tadpole phase",
+    "With Starfall, SpaceX eyes an edge in global cargo delivery from orbit"
   ],
   "articles": [
     {
@@ -4541,6 +4549,50 @@
       "agreement_pct": 11,
       "is_science": true,
       "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-extreme-heat-wave-in-france-kills-hundreds-of-thou.html",
+      "title": "Extreme heat wave in France kills hundreds of thousands of poultry",
+      "display_title": "Extreme heat wave in France kills hundreds of thousands of poultry",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-nepals-central-zoo-faces-questions-over-its-bird-f.html",
+      "title": "Nepal’s Central Zoo faces questions over its bird flu response",
+      "display_title": "Nepal’s Central Zoo faces questions over its bird flu response",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-early-land-animals-skipped-the-tadpole-phase.html",
+      "title": "Early land animals skipped the tadpole phase",
+      "display_title": "Early land animals skipped the tadpole phase",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-with-starfall-spacex-eyes-an-edge-in-global-cargo.html",
+      "title": "With Starfall, SpaceX eyes an edge in global cargo delivery from orbit",
+      "display_title": "With Starfall, SpaceX eyes an edge in global cargo delivery from orbit",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
     }
   ]
 }
