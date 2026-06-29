@@ -457,14 +457,14 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 
 HEADER = """<header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
-<nav><a href="/news/">Kid News</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
+<nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
 <a href="/games/">Games</a><a href="/about.html">About</a><a href="/parent-zone/" class="pz-cta">Parent Zone</a></nav>
 </div></header>"""
 
 FOOTER = """<footer class="kd"><div class="inner">
 <div style="flex:1;min-width:200px"><h4>KiddieDaily</h4>
 <p style="margin:0;font-size:14px;color:#cbd5e0">Curated daily news for families with research-backed fact checks.</p></div>
-<div><h4>Read</h4><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
+<div><h4>Read</h4><a href="/news/today.html">Today's News</a><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
 <a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
 <div><h4>Account</h4><a href="/parent-zone/">Parent Zone</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
@@ -760,7 +760,9 @@ STATIC_URLS = [
     "/about.html", "/privacy.html", "/terms.html", "/contact.html",
     "/feed.xml", "/news/archive.html", "/news/today.html",
     "/news/science.html", "/news/world.html",
+    "/news/space.html", "/news/animals.html", "/news/history.html",
     "/digest/latest.html",
+    "/digest/weekly.html",
 ]
 
 def update_sitemap(pushed_slugs, manifest=None):
@@ -1169,14 +1171,28 @@ function updateDateHeaders() {{
 # ── Category pages ───────────────────────────────────────────────────────────
 def generate_category_pages(manifest):
     articles = manifest.get("articles", [])
+    _SPACE_KW    = {"space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope"}
+    _ANIMAL_KW   = {"animal", "species", "whale", "shark", "bird", "dog", "cat", "wildlife", "octopus", "insect", "turtle", "fish", "elephant", "bear", "wolf"}
+    _HISTORY_KW  = {"ancient", "fossil", "dinosaur", "historical", "archaeolog", "million year", "prehistoric", "artifact", "ruin", "pyramid", "roman", "greek", "viking"}
+
+    def _matches(a, kw_set):
+        haystack = (a.get("title", "") + " " + a.get("slug", "")).lower()
+        return any(k in haystack for k in kw_set)
+
     cats = {
         "science": [a for a in articles if a.get("is_science")],
         "world":   [a for a in articles if not a.get("is_science")],
+        "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
+        "animals": [a for a in articles if _matches(a, _ANIMAL_KW)],
+        "history": [a for a in articles if _matches(a, _HISTORY_KW)],
     }
-    cat_labels = {"science": "Science", "world": "World News"}
+    cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History"}
     desc = {
         "science": "Space, animals, inventions, and discoveries — science stories for curious kids.",
         "world":   "What's happening around the world, explained for families.",
+        "space":   "Rockets, planets, galaxies, and NASA discoveries — space news for kids.",
+        "animals": "Wildlife, sea creatures, and amazing animals from around the world.",
+        "history": "Fossils, ancient civilizations, and discoveries that unlock the past.",
     }
 
     for key, arts in cats.items():
@@ -1233,7 +1249,7 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 <body>
 <header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>news for families</small></a>
-<nav><a href="/news/today.html">Today</a><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/archive.html">Archive</a></nav>
+<nav><a href="/news/today.html">Today</a><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/space.html">Space</a><a href="/news/animals.html">Animals</a><a href="/news/history.html">History</a><a href="/news/archive.html">Archive</a></nav>
 </div></header>
 <main>
 <h1 style="font-size:28px;margin-bottom:4px">{label} News</h1>
@@ -1247,7 +1263,7 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 </body></html>"""
 
         upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
-    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])}")
+    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])} space={len(cats['space'])} animals={len(cats['animals'])} history={len(cats['history'])}")
 
 
 # ── Today's news page ─────────────────────────────────────────────────────────
@@ -1434,6 +1450,100 @@ def generate_daily_digest(manifest, today):
     print(f"  Digest: {len(todays)} articles for {today}")
 
 
+# ── Weekly digest page ────────────────────────────────────────────────────────
+def generate_weekly_digest(manifest, today):
+    from datetime import timedelta
+    articles = manifest.get("articles", [])
+    cutoff = (datetime.strptime(today, "%Y-%m-%d") - timedelta(days=7)).strftime("%Y-%m-%d")
+    week_articles = [a for a in articles if a.get("date", "") >= cutoff]
+    if not week_articles:
+        print("  Weekly digest: no articles in last 7 days, skipping")
+        return
+
+    science = [a for a in week_articles if a.get("is_science")]
+    world   = [a for a in week_articles if not a.get("is_science")]
+
+    def digest_rows(arts):
+        rows = []
+        for a in sorted(arts, key=lambda x: x.get("date", ""), reverse=True):
+            slug  = a["slug"]
+            title = a.get("display_title", a.get("title", ""))
+            n     = a.get("n_sources", 1)
+            bias  = a.get("bias_avg", 0.0)
+            bias_label = "Center" if abs(bias) < 0.3 else ("Left-leaning" if bias < 0 else "Right-leaning")
+            date  = a.get("date", "")
+            rows.append(
+                f'<tr>'
+                f'<td style="padding:10px 8px;border-bottom:1px solid #e5e7eb">'
+                f'<strong><a href="https://kiddiedaily.com/{slug}" style="color:#1a4d80">{title}</a></strong><br>'
+                f'<span style="font-size:12px;color:#718096">{date} &middot; {n} source{{"s" if n!=1 else ""}} &middot; Bias: {bias_label} ({bias:+.1f})</span>'
+                f'</td>'
+                f'</tr>'
+            )
+        return "".join(rows)
+
+    all_biases = [a.get("bias_avg", 0.0) for a in week_articles]
+    avg_bias = sum(all_biases) / len(all_biases) if all_biases else 0.0
+    avg_bias_label = ("Center" if abs(avg_bias) < 0.3
+                      else ("Left-leaning" if avg_bias < 0 else "Right-leaning"))
+
+    science_section = ""
+    if science:
+        science_section = (
+            f'<h2 style="font-size:20px;color:#065f46;border-bottom:2px solid #d1fae5;padding-bottom:6px;margin:28px 0 12px">'
+            f'Science ({len(science)} stories)</h2>'
+            f'<table style="width:100%;border-collapse:collapse">{digest_rows(science)}</table>'
+        )
+
+    world_section = ""
+    if world:
+        world_section = (
+            f'<h2 style="font-size:20px;color:#1e40af;border-bottom:2px solid #dbeafe;padding-bottom:6px;margin:28px 0 12px">'
+            f'World News ({len(world)} stories)</h2>'
+            f'<table style="width:100%;border-collapse:collapse">{digest_rows(world)}</table>'
+        )
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KiddieDaily Weekly Digest — Best of the Week</title>
+<meta name="description" content="KiddieDaily weekly digest — {len(week_articles)} stories from the last 7 days for families.">
+<link rel="canonical" href="https://kiddiedaily.com/digest/weekly.html">
+</head>
+<body style="margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748">
+<div style="max-width:640px;margin:40px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1)">
+  <div style="background:#1a4d80;padding:28px 32px">
+    <h1 style="margin:0;color:#ffd700;font-size:26px;letter-spacing:-0.5px">KiddieDaily</h1>
+    <p style="margin:4px 0 0;color:#a0c4e8;font-family:system-ui,sans-serif;font-size:14px">Best of the week &middot; Updated {today}</p>
+  </div>
+  <div style="padding:24px 32px">
+    <h2 style="font-size:24px;margin:0 0 8px;color:#1a4d80">Best of the Week</h2>
+    <p style="font-size:14px;color:#4a5568;font-family:system-ui,sans-serif;margin:0 0 16px">
+      {len(week_articles)} kid-friendly stories from the last 7 days — bias-rated and fact-check linked.
+    </p>
+    <div style="padding:12px 16px;background:#f7fafc;border-left:4px solid #1a4d80;border-radius:0 8px 8px 0;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568;margin-bottom:20px">
+      <strong>Week bias summary:</strong> Average bias across all stories this week is
+      <strong>{avg_bias:+.2f}</strong> ({avg_bias_label}).
+      Scale: -2 = far left &nbsp;|&nbsp; 0 = center &nbsp;|&nbsp; +2 = far right.
+    </div>
+    {science_section}
+    {world_section}
+    <div style="margin-top:24px;padding:14px 16px;background:#f7fafc;border-radius:8px;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568">
+      <strong>How to read the bias rating:</strong> -2 = far left &nbsp;|&nbsp; 0 = center &nbsp;|&nbsp; +2 = far right.
+      Sources = how many of our 8 monitored outlets covered the same story.
+    </div>
+    <p style="text-align:center;margin-top:20px;font-family:system-ui,sans-serif;font-size:13px;color:#718096">
+      <a href="https://kiddiedaily.com/news/" style="color:#1a4d80">Read all news</a> &middot;
+      <a href="https://kiddiedaily.com/digest/latest.html" style="color:#1a4d80">Today's digest</a> &middot;
+      <a href="https://kiddiedaily.com/feed.xml" style="color:#1a4d80">Subscribe via RSS</a>
+    </p>
+  </div>
+</div>
+</body></html>"""
+
+    upload("digest/weekly.html", page, f"[scraper] Weekly digest — {len(week_articles)} articles over 7 days")
+    print(f"  Weekly digest: {len(week_articles)} articles over 7 days")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -1568,6 +1678,10 @@ def main():
     # 6k. Generate today's news page
     print(f"\n[6k] Generating today's news page...")
     generate_today_page(manifest, today)
+
+    # 6k2. Generate weekly digest page
+    print(f"\n[6k2] Generating weekly digest...")
+    generate_weekly_digest(manifest, today)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
