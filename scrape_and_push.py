@@ -1287,6 +1287,8 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
         + '</div></div>'
     )
 
+    json_cats = json.dumps(cats or [])
+
     subcat_pills = ""
     if cats:
         subcats = [c for c in cats if c in _SUBCAT_META]
@@ -1332,6 +1334,37 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
 </div>
 <a href="/digest/latest.html" style="background:#0c4a6e;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;white-space:nowrap;font-family:system-ui,sans-serif">Read digest &rarr;</a>
 </div>
+<div id="kd-related" style="margin:24px 0;display:none">
+<h3 style="font-family:system-ui,sans-serif;font-size:16px;color:#1a4d80;margin:0 0 12px">&#128218; More stories you might like</h3>
+<div id="kd-related-cards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px"></div>
+</div>
+<script>(function(){{
+  var thisCats={json_cats};var thisSlug='{slug}';
+  fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(function(data){{
+    var scored=[];
+    data.forEach(function(a){{
+      if(a.slug===thisSlug)return;
+      var shared=0;if(a.cats&&thisCats){{a.cats.forEach(function(c){{if(thisCats.indexOf(c)>=0)shared++;}});}}
+      if(shared>0)scored.push({{a:a,score:shared+(Math.random()*0.4)}});
+    }});
+    scored.sort(function(x,y){{return y.score-x.score;}});
+    var picks=scored.slice(0,4);
+    if(!picks.length)return;
+    var ctr=document.getElementById('kd-related-cards');
+    picks.forEach(function(p){{
+      var a=p.a;
+      var el=document.createElement('a');
+      el.href='/news/'+a.slug+'.html';
+      el.style.cssText='display:block;padding:12px 14px;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#1a202c;font-family:system-ui,sans-serif;transition:background 0.15s';
+      el.onmouseover=function(){{this.style.background='#edf2f7';}};
+      el.onmouseout=function(){{this.style.background='#f7fafc';}};
+      var dateStr=a.date||'';
+      el.innerHTML='<div style="font-size:11px;color:#718096;margin-bottom:5px">'+dateStr+'</div><div style="font-size:13px;font-weight:600;line-height:1.45;color:#1a4d80">'+a.title+'</div>';
+      ctr.appendChild(el);
+    }});
+    document.getElementById('kd-related').style.display='block';
+  }}).catch(function(){{}});
+}})();</script>
 <p><em>More stories: <a href="/news/">Kid News</a> &middot; <a href="/news/archive.html">Archive</a> &middot; <a href="/fact-check/">Fact Check</a></em></p>
 <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
 <button onclick="if(navigator.share){{navigator.share({{title:document.title,url:location.href}})}}else{{navigator.clipboard.writeText(location.href);this.textContent='Link copied!';setTimeout(()=>this.textContent='Copy link',2000)}}" style="background:#1a4d80;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:14px">Share this story</button>
