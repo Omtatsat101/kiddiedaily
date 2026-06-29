@@ -37,7 +37,21 @@ def _load_token(env_var, prefix):
 GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
-MAX_ARTICLES = 5   # max new articles per run
+MAX_ARTICLES     = 5   # max new articles per run
+MAX_SCI_PER_RUN  = 3   # max science articles per run (remaining slots go to world)
+MAX_WORLD_PER_RUN= 2   # max world-news articles per run
+
+# Titles containing any of these words are not suitable for a K-12 audience
+_ADULT_TITLE_SKIP = {
+    "vagina", "penis", "vulva", "genital", "testicle", "erectile",
+    "sperm", "semen", "ovary", "uterus", "cervix",
+    "sex ", " sex,", " sex.", "sexual", "sexuall",
+    "rape", "raped", "rapist", "assault",
+    "abortion", "contraception", "condom",
+    "nude", "naked", "pornograph",
+    "genocide", "massacre", "beheading", "torture",
+    "suicide", "overdose", "drug addict", "opioid overdose",
+}
 
 # Active branch — set to a content branch in main(); falls back to "main" locally
 ACTIVE_BRANCH = "main"
@@ -3063,22 +3077,43 @@ def main():
     print(f"    {len(groups)} unique topics")
 
     # 5. Generate + push articles
-    print(f"\n[5] Generating articles (max {MAX_ARTICLES} per run)...")
+    print(f"\n[5] Generating articles (max {MAX_ARTICLES} per run — up to {MAX_SCI_PER_RUN} science, {MAX_WORLD_PER_RUN} world)...")
     pushed_count = 0
+    sci_pushed_run   = 0
+    world_pushed_run = 0
 
     MIN_SCORE = 1  # skip topics that rank ≤ 0 (political, low-signal, single-source noise)
     skipped_low = 0
+    skipped_adult = 0
+    skipped_quota = 0
 
     for group in groups:
         if pushed_count >= MAX_ARTICLES:
             break
+
+        rep = group[0]
+
+        # Skip topics with adult/inappropriate titles
+        title_lc = rep["title"].lower()
+        if any(w in title_lc for w in _ADULT_TITLE_SKIP):
+            skipped_adult += 1
+            print(f"    ⚠ Skipped (adult title): {rep['title'][:60]}")
+            continue
 
         # Skip groups that score too low (political noise, single-source political stories)
         if ranking_score(group) < MIN_SCORE:
             skipped_low += 1
             continue
 
-        rep = group[0]
+        # Per-run category balance
+        is_sci_group = any(s["source_name"] in SCIENCE_SOURCES for s in group)
+        if is_sci_group and sci_pushed_run >= MAX_SCI_PER_RUN:
+            skipped_quota += 1
+            continue
+        if not is_sci_group and world_pushed_run >= MAX_WORLD_PER_RUN:
+            skipped_quota += 1
+            continue
+
         slug = make_slug(rep["title"], today)
         if slug in pushed_slugs:
             continue
@@ -3124,9 +3159,17 @@ def main():
                 "source_icons": icons,
             })
             pushed_count += 1
+            if is_sci_group:
+                sci_pushed_run += 1
+            else:
+                world_pushed_run += 1
 
     if skipped_low:
         print(f"\n    Skipped {skipped_low} low-score topics (political/noise below threshold)")
+    if skipped_adult:
+        print(f"    Filtered {skipped_adult} adult/inappropriate titles")
+    if skipped_quota:
+        print(f"    Skipped {skipped_quota} topics (category quota reached)")
 
     # 6. Save manifest (always if changed: new articles OR migration)
     manifest_dirty = pushed_count > 0 or "articles" in manifest
