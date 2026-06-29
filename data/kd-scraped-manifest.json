@@ -547,7 +547,16 @@
     "news/2026-06-29-merlins-prophecies-how-medieval-people-believed-he.html",
     "news/2026-06-29-frederick-ii-and-islam-separating-myth-from-realit.html",
     "news/2026-06-29-secrets-of-the-maya-unlocking-3000-years-of-jungle.html",
-    "news/2026-06-29-eleanor-and-henry-forging-the-angevin-empire.html"
+    "news/2026-06-29-eleanor-and-henry-forging-the-angevin-empire.html",
+    "news/2026-06-29-genomes-of-europes-last-neanderthals-analyzed.html",
+    "news/2026-06-29-genetic-material-recovered-from-300000-year-old-ho.html",
+    "news/2026-06-29-medieval-game-board-identified-in-moroccan-bathhou.html",
+    "news/2026-06-29-why-are-the-middle-ages-called-the-dark-ages.html",
+    "news/2026-06-29-major-viking-age-settlement-unearthed-in-denmark.html",
+    "news/2026-06-29-the-holy-grail-of-arthurian-manuscripts-is-for-auc.html",
+    "news/2026-06-29-omaha-24-hours-in-normandy-the-longest-day-unearth.html",
+    "news/2026-06-29-rise-of-augustus-the-architect-of-romes-empire.html",
+    "news/2026-06-29-how-tuchel-is-still-searching-for-solutions-out-wi.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1097,7 +1106,16 @@
     "Merlin’s Prophecies: How Medieval People Believed He Predicted England’s Future",
     "Frederick II and Islam: Separating Myth from Reality",
     "Secrets of the Maya: Unlocking 3,000 Years of Jungle History",
-    "Eleanor and Henry: Forging the Angevin Empire"
+    "Eleanor and Henry: Forging the Angevin Empire",
+    "Genomes of Europe’s Last Neanderthals Analyzed",
+    "Genetic Material Recovered from 300,000-Year-Old Homo naledi Teeth",
+    "Medieval Game Board Identified in Moroccan Bathhouse",
+    "Why Are the Middle Ages Called the Dark Ages?",
+    "Major Viking Age Settlement Unearthed in Denmark",
+    "The Holy Grail of Arthurian Manuscripts is for auction at Christie’s",
+    "Omaha: 24 Hours in Normandy – The Longest Day Unearthed",
+    "Rise of Augustus: The Architect of Rome’s Empire",
+    "How Tuchel is still searching for solutions out wide"
   ],
   "articles": [
     {
@@ -7237,6 +7255,114 @@
       "is_science": true,
       "source_name": "HistoryHit",
       "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-genomes-of-europes-last-neanderthals-analyzed.html",
+      "title": "Genomes of Europe’s Last Neanderthals Analyzed",
+      "display_title": "Genomes of Europe’s Last Neanderthals Analyzed",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-genetic-material-recovered-from-300000-year-old-ho.html",
+      "title": "Genetic Material Recovered from 300,000-Year-Old Homo naledi Teeth",
+      "display_title": "Genetic Material Recovered from 300,000-Year-Old Homo naledi Teeth",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-medieval-game-board-identified-in-moroccan-bathhou.html",
+      "title": "Medieval Game Board Identified in Moroccan Bathhouse",
+      "display_title": "Medieval Game Board Identified in Moroccan Bathhouse",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-why-are-the-middle-ages-called-the-dark-ages.html",
+      "title": "Why Are the Middle Ages Called the Dark Ages?",
+      "display_title": "Why Are the Middle Ages Called the Dark Ages?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-major-viking-age-settlement-unearthed-in-denmark.html",
+      "title": "Major Viking Age Settlement Unearthed in Denmark",
+      "display_title": "Major Viking Age Settlement Unearthed in Denmark",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-the-holy-grail-of-arthurian-manuscripts-is-for-auc.html",
+      "title": "The Holy Grail of Arthurian Manuscripts is for auction at Christie’s",
+      "display_title": "The Holy Grail of Arthurian Manuscripts is for auction at Christie’s",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-omaha-24-hours-in-normandy-the-longest-day-unearth.html",
+      "title": "Omaha: 24 Hours in Normandy – The Longest Day Unearthed",
+      "display_title": "Omaha: 24 Hours in Normandy – The Longest Day Unearthed",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-rise-of-augustus-the-architect-of-romes-empire.html",
+      "title": "Rise of Augustus: The Architect of Rome’s Empire",
+      "display_title": "Rise of Augustus: The Architect of Rome’s Empire",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-how-tuchel-is-still-searching-for-solutions-out-wi.html",
+      "title": "How Tuchel is still searching for solutions out wide",
+      "display_title": "How Tuchel is still searching for solutions out wide",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 8,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
