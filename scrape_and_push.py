@@ -52,6 +52,7 @@ _ADULT_TITLE_RE = re.compile(
     r'|nude|naked(?!\s+mole)|pornograph'
     r'|genocide|massacre|beheading|torture'
     r'|suicide|overdose|opioid\s+overdose|drug\s+addict'
+    r'|hiv\b'
     r')\b',
     re.I
 )
@@ -72,6 +73,7 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\bnews\s+brief\b'                # Morning/evening news brief roundups (NPR etc.)
     r'|^morning\s+edition[\s:]'         # NPR Morning Edition teasers
     r'|^this\s+week\s+on\s+'            # "This week on The Hill" / "This week on X" roundups
+    r'|^[¿¡]'                           # Non-English articles (Spanish inverted punctuation)
     r')',
     re.I
 )
@@ -391,6 +393,11 @@ DEPRIORITIZE_WORDS = [
     "for pms", "menopause", "erectile", "libido", "testosterone therapy",
     "fertility treatment", "ivf", "miscarriage", "abortion pill",
     "hormone therapy", "menstrual",
+    # Adult disease / clinical research (not age-appropriate framing)
+    " hiv ", "hiv enters", "hiv and", "hiv in",
+    "alzheimer", "memory loss from",
+    "glucosamine", "chemotherapy",
+    "infiltrate tumor", "tumors' hostile",
     # News roundups/briefs (supplements commercial filter — lower score before hard-reject)
     "news brief", "morning brief", "evening brief",
     # Tobacco/cigarette industry content (not appropriate for kids context)
