@@ -95,6 +95,10 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\brevenge\s+dress\b'                      # celebrity fashion events
     r'|quiz\s*:\s*which\s+\w+\s+character\s+are\s+you'  # adult TV personality quizzes
     r'|\bwhich\s+\w+\s+character\s+are\s+you\b'  # alternate quiz title pattern
+    r'|quiz\s*:\s*only\s+true\s+\w+\s+fans?\s+know'  # celebrity fan trivia quizzes
+    r'|\bonly\s+true\s+\w+\s+fans?\s+(?:know|can|will)\b'  # fan trivia quiz patterns
+    r'|\bseniors?\s+(?:are|most|least).{0,30}outlive\b'  # adult retirement/aging data
+    r'|\boutlive\s+their.{0,20}savings?\b'       # adult financial planning content
     r'|^watch\s*:\s+how\s+to'                   # tutorial video stub articles ("Watch: How to...")
     r'|\bgel\s+nails?\b'                         # adult beauty/cosmetic content
     r'|\bdaca\s+recipients?\b|\bdreamers?\s+(?:face|struggle|fight)\b'  # immigration policy
