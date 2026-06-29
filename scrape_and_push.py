@@ -95,6 +95,9 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\brevenge\s+dress\b'                      # celebrity fashion events
     r'|quiz\s*:\s*which\s+\w+\s+character\s+are\s+you'  # adult TV personality quizzes
     r'|\bwhich\s+\w+\s+character\s+are\s+you\b'  # alternate quiz title pattern
+    r'|^watch\s*:\s+how\s+to'                   # tutorial video stub articles ("Watch: How to...")
+    r'|\bgel\s+nails?\b'                         # adult beauty/cosmetic content
+    r'|\bdaca\s+recipients?\b|\bdreamers?\s+(?:face|struggle|fight)\b'  # immigration policy
     r'|\baverage\s+salary.{0,30}(?:rent|state|ranked)\b'  # adult housing/finance content
     r'|\brequired\s+bible|bible\s+stories?\s+(?:in|for|required|at)\b'  # church-state curriculum
     r'|\bchurch\s+and\s+state\b|\bseparation\s+of\s+church\b'  # church-state controversy
@@ -304,8 +307,8 @@ SOURCES = [
     {"name": "Mental Floss",        "url": "https://www.mentalfloss.com/rss.xml",                    "bias":  0.0, "icon": "🧠"},
     # Sci-News: archaeology, paleontology, astronomy, biology discoveries
     {"name": "Sci-News",            "url": "https://www.sci.news/feed",                              "bias":  0.0, "icon": "⚗️"},
-    # Earth.com: nature, wildlife, environment, ocean science, conservation
-    {"name": "Earth.com",           "url": "https://www.earth.com/rss/",                             "bias":  0.0, "icon": "🌍"},
+    # Good News Network: uplifting, positive global news — environment, science, community
+    {"name": "Good News Network",   "url": "https://www.goodnewsnetwork.org/feed/",                  "bias":  0.0, "icon": "🌍"},
     # SciTechDaily: science & technology news aggregator — archaeology, space, biology, physics
     {"name": "SciTechDaily",        "url": "https://scitechdaily.com/feed/",                         "bias":  0.0, "icon": "🏛"},
     # Berkeley News: UC Berkeley research — physics, biology, environment, technology
@@ -449,7 +452,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "Earth.com", "SciTechDaily", "Berkeley News", "ZME Science"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "SciTechDaily", "Berkeley News", "ZME Science"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -598,10 +601,19 @@ DEPRIORITIZE_WORDS = [
     # Millennial nostalgia / retro pop-culture (adult demographic, not kids)
     "every millennial", "millennials remember", "millennial played",
     "90s kids remember", "00s kids remember", "millennial classic",
-    "forgotten games", "retro game", "classic games",
+    "forgotten games",
     # Academic lectures / podcast teasers (not news articles)
     "berkeley talks", "berkeley talk:", "philosopher asks",
     "is this our last",
+    # Music/entertainment opinion lists (not educational news)
+    "musical covers", "covers that are better", "songs that are better",
+    "better than the original",
+    # Adult beauty/cosmetic content
+    "gel nails", "nail art", "manicure", "pedicure", "skin care routine",
+    "how to style", "how to wear",
+    # US DACA/immigration status (adult policy debate)
+    "daca recipients", "daca recipient", "dreamers face",
+    "american dream slipping",
     # IEEE organizational events, award ceremonies, training announcements
     "ieee awardee", "epics in ieee", "ieee's awards", "education week events",
     "virtual training course", "ieee rolls out",
