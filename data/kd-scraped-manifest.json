@@ -739,7 +739,10 @@
     "news/2026-06-29-miracle-man-pulled-from-rubble-four-days-after-ven.html",
     "news/2026-06-29-undocumented-migrants-flee-south-africa-amid-risin.html",
     "news/2026-06-29-uks-prime-minister-in-waiting-vows-to-shake-up-pol.html",
-    "news/2026-06-29-mehdi-hasan-disrupting-democracys-decline.html"
+    "news/2026-06-29-mehdi-hasan-disrupting-democracys-decline.html",
+    "news/2026-06-29-iraqs-corruption-crackdown-is-a-start-not-a-soluti.html",
+    "news/2026-06-29-gaza-high-school-students-fight-for-a-future.html",
+    "news/2026-06-29-fire-and-floods-hit-ghanas-capital-as-residents-ar.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1481,7 +1484,10 @@
     "‘Miracle’: Man pulled from rubble four days after Venezuelan quakes",
     "Undocumented migrants flee South Africa amid rising anti-immigrant protests",
     "UK’s prime minister-in-waiting vows to shake up politics",
-    "Mehdi Hasan: Disrupting democracy’s decline"
+    "Mehdi Hasan: Disrupting democracy’s decline",
+    "Iraq’s corruption crackdown is a start, not a solution",
+    "Gaza high school student’s fight for a future",
+    "Fire and floods hit Ghana’s capital as residents are left stranded"
   ],
   "articles": [
     {
@@ -9969,6 +9975,45 @@
       "source_name": "Al Jazeera",
       "source_icons": "🌍",
       "description": "With democracy on the decline in both the UK and US, Mehdi Hasan makes the case for independent journalism."
+    },
+    {
+      "slug": "news/2026-06-29-iraqs-corruption-crackdown-is-a-start-not-a-soluti.html",
+      "title": "Iraq’s corruption crackdown is a start, not a solution",
+      "display_title": "Iraq’s corruption crackdown is a start, not a solution",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "New PM Ali al-Zaidi&#039;s arrest of 47 officials is welcome, but the rot runs through the system that put him in power."
+    },
+    {
+      "slug": "news/2026-06-29-gaza-high-school-students-fight-for-a-future.html",
+      "title": "Gaza high school student’s fight for a future",
+      "display_title": "Gaza high school student’s fight for a future",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "Amid Israel’s genocidal war on Gaza that destroyed most schools, 18-year-old Dana Shabat sits her final exams online."
+    },
+    {
+      "slug": "news/2026-06-29-fire-and-floods-hit-ghanas-capital-as-residents-ar.html",
+      "title": "Fire and floods hit Ghana’s capital as residents are left stranded",
+      "display_title": "Fire and floods hit Ghana’s capital as residents are left stranded",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "A massive fire engulfed a rubber factory in Ghana’s capital, Accra, as severe flooding swamped parts of the city."
     }
   ]
 }
