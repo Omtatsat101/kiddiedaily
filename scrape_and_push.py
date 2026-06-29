@@ -2072,6 +2072,7 @@ def generate_category_pages(manifest):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kiddiedaily.com/news/{key}.html">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://kiddiedaily.com"}},{{"@type":"ListItem","position":2,"name":"News","item":"https://kiddiedaily.com/news/"}},{{"@type":"ListItem","position":3,"name":"{label}","item":"https://kiddiedaily.com/news/{key}.html"}}]}}</script>
 {CSS}
 <style>
 .kd-sc{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:10px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
@@ -3873,6 +3874,36 @@ def main():
     }, indent=2)
     upload("manifest.json", _manifest, "[scraper] PWA web app manifest")
     print("  manifest.json deployed")
+
+    # 6k12. Custom 404 page — better UX than GitHub Pages default; redirects to search
+    print(f"\n[6k12] Deploying custom 404 page...")
+    _404_page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Page Not Found — KiddieDaily</title>
+<meta name="description" content="The page you're looking for isn't here. Search KiddieDaily for kid-friendly news.">
+<meta name="robots" content="noindex">
+{CSS}
+</head><body>
+{HEADER}
+<main id="main" style="max-width:600px;margin:0 auto;padding:64px 24px;text-align:center">
+<div style="font-size:72px;margin-bottom:16px">📰</div>
+<h1 style="font-size:28px;margin-bottom:8px">Page not found</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:16px;margin:0 0 28px">
+  This story may have moved, or the URL might be misspelled.
+</p>
+<a href="/search.html" style="display:inline-block;background:#1a4d80;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:16px;font-family:system-ui,sans-serif;font-weight:600;margin-bottom:12px">
+  Search KiddieDaily &rarr;
+</a>
+<br>
+<a href="/" style="display:inline-block;color:#1a4d80;font-size:14px;font-family:system-ui,sans-serif;margin-top:12px">
+  &larr; Back to homepage
+</a>
+</main>
+{FOOTER}
+</body></html>"""
+    _404_page = _404_page.replace('{HEADER}', HEADER).replace('{FOOTER}', FOOTER)
+    upload("404.html", _404_page, "[scraper] Custom 404 page")
+    print("  404.html deployed")
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
