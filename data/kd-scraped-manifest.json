@@ -435,7 +435,12 @@
     "news/2026-06-29-old-kingdom-of-egypt-the-age-of-the-pyramids.html",
     "news/2026-06-29-scramble-for-africa-how-european-empires-took-over.html",
     "news/2026-06-29-second-intermediate-period-of-egypt-the-era-of-the.html",
-    "news/2026-06-29-the-great-game-britain-and-russias-imperial-rivalr.html"
+    "news/2026-06-29-the-great-game-britain-and-russias-imperial-rivalr.html",
+    "news/2026-06-29-the-strawberry-moon-rises-tonight-heres-what-to-ex.html",
+    "news/2026-06-29-mum-rescued-from-venezuela-rubble-with-newborn-bab.html",
+    "news/2026-06-29-michael-jackson-movie-becomes-highest-grossing-bio.html",
+    "news/2026-06-29-british-american-tobacco-to-cut-9000-jobs.html",
+    "news/2026-06-29-sleep-and-death-cista-handle-a-2400-year-old-sculp.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -873,7 +878,12 @@
     "Old Kingdom of Egypt: The Age of the Pyramids",
     "Scramble for Africa: How European Empires Took Over a Continent",
     "Second Intermediate Period of Egypt: The Era of the Hyksos",
-    "The Great Game: Britain and Russia's Imperial Rivalry"
+    "The Great Game: Britain and Russia's Imperial Rivalry",
+    "The Strawberry Moon rises tonight. Here's what to expect from June's full moon",
+    "Mum rescued from Venezuela rubble with newborn baby tells BBC how he helped her survive",
+    "Michael Jackson movie becomes highest-grossing biopic of all time",
+    "British American Tobacco to cut 9,000 jobs",
+    "Sleep and Death cista handle: A 2,400-year-old sculpture depicting gods carrying away Zeus' son during the Trojan War"
   ],
   "articles": [
     {
@@ -5669,6 +5679,66 @@
       "is_science": true,
       "source_name": "World History Encyclopedia",
       "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-the-strawberry-moon-rises-tonight-heres-what-to-ex.html",
+      "title": "The Strawberry Moon rises tonight. Here's what to expect from June's full moon",
+      "display_title": "The Strawberry Moon rises tonight. Here's what to expect from June's full moon",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "Space.com",
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-mum-rescued-from-venezuela-rubble-with-newborn-bab.html",
+      "title": "Mum rescued from Venezuela rubble with newborn baby tells BBC how he helped her survive",
+      "display_title": "Mum rescued from Venezuela rubble with newborn baby tells BBC how he helped her survive",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-michael-jackson-movie-becomes-highest-grossing-bio.html",
+      "title": "Michael Jackson movie becomes highest-grossing biopic of all time",
+      "display_title": "Michael Jackson movie becomes highest-grossing biopic of all time",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-british-american-tobacco-to-cut-9000-jobs.html",
+      "title": "British American Tobacco to cut 9,000 jobs",
+      "display_title": "British American Tobacco to cut 9,000 jobs",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-sleep-and-death-cista-handle-a-2400-year-old-sculp.html",
+      "title": "Sleep and Death cista handle: A 2,400-year-old sculpture depicting gods carrying away Zeus' son during the Trojan War",
+      "display_title": "Sleep and Death cista handle: A 2,400-year-old sculpture depicting gods carrying away Zeus' son during the Trojan War",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "Live Science",
+      "source_icons": "🧬"
     }
   ]
 }
