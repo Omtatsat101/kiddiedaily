@@ -50,7 +50,12 @@
     "news/2026-06-29-this-newly-discovered-ballista-spider-catapults-an.html",
     "news/2026-06-29-three-firefighters-die-battling-huge-wildfires-on.html",
     "news/2026-06-29-speed-limits-for-ships-protect-endangered-right-wh.html",
-    "news/2026-06-29-did-these-prehistoric-primates-really-bury-just-th.html"
+    "news/2026-06-29-did-these-prehistoric-primates-really-bury-just-th.html",
+    "news/2026-06-29-from-boston-to-miami-how-the-tartan-army-lit-up-th.html",
+    "news/2026-06-29-canada-score-late-to-beat-south-africa-and-reach-l.html",
+    "news/2026-06-29-aoc-calls-to-break-up-big-tech-companies-amid-pric.html",
+    "news/2026-06-29-maha-feels-betrayed-after-supreme-court-ruling-on.html",
+    "news/2026-06-29-three-firefighters-die-in-colorado-blaze.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -103,7 +108,12 @@
     "This newly discovered ballista spider catapults ants into a deadly trap",
     "Three firefighters die battling huge wildfires on Colorado-Utah border",
     "Speed Limits for Ships Protect Endangered Right Whales From Vessel Strikes. Could the Animals Survive Without Them?",
-    "Did These Prehistoric Primates Really Bury Just Their Female Dead Deep in a Cave?"
+    "Did These Prehistoric Primates Really Bury Just Their Female Dead Deep in a Cave?",
+    "From Boston to Miami: How the Tartan Army lit up the World Cup",
+    "Canada score late to beat South Africa and reach last 16 at World Cup 2026",
+    "AOC calls to 'break up' big tech companies amid price hikes",
+    "MAHA feels betrayed after Supreme Court ruling on Monsanto, glyphosate",
+    "Three firefighters die in Colorado blaze"
   ],
   "articles": [
     {
@@ -654,6 +664,61 @@
       "agreement_pct": 31,
       "is_science": true,
       "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-29-from-boston-to-miami-how-the-tartan-army-lit-up-th.html",
+      "title": "From Boston to Miami: How the Tartan Army lit up the World Cup",
+      "display_title": "From Boston to Miami: How the Tartan Army lit up the World Cup",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-canada-score-late-to-beat-south-africa-and-reach-l.html",
+      "title": "Canada score late to beat South Africa and reach last 16 at World Cup 2026",
+      "display_title": "Canada score late to beat South Africa and reach last 16 at World Cup 2026",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": 0.45,
+      "agreement_pct": 62,
+      "is_science": false,
+      "source_icons": "🌍 🦅"
+    },
+    {
+      "slug": "news/2026-06-29-aoc-calls-to-break-up-big-tech-companies-amid-pric.html",
+      "title": "AOC calls to 'break up' big tech companies amid price hikes",
+      "display_title": "AOC calls to 'break up' big tech companies amid price hikes",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-maha-feels-betrayed-after-supreme-court-ruling-on.html",
+      "title": "MAHA feels betrayed after Supreme Court ruling on Monsanto, glyphosate",
+      "display_title": "MAHA feels betrayed after Supreme Court ruling on Monsanto, glyphosate",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-three-firefighters-die-in-colorado-blaze.html",
+      "title": "Three firefighters die in Colorado blaze",
+      "display_title": "Three firefighters die in Colorado blaze",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "⚖️"
     }
   ]
 }
