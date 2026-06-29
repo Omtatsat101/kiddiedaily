@@ -165,7 +165,11 @@
     "news/2026-06-29-off-center-stellar-death-points-to-wandering-super.html",
     "news/2026-06-29-new-heat-record-at-417-degrees-celsius.html",
     "news/2026-06-29-with-operation-purgatory-magyar-moves-to-demolish.html",
-    "news/2026-06-29-new-caledonia-heads-to-polls-in-vote-delayed-since.html"
+    "news/2026-06-29-new-caledonia-heads-to-polls-in-vote-delayed-since.html",
+    "news/2026-06-29-climate-change-to-blame-for-intensity-of-europe-he.html",
+    "news/2026-06-29-argentina-mileis-top-aide-resigns-over-corruption.html",
+    "news/2026-06-29-albanias-flamingo-revolution-whats-behind-the-prot.html",
+    "news/2026-06-29-why-is-germany-taking-a-big-stake-in-a-major-tankm.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -333,7 +337,11 @@
     "Off-center stellar death points to wandering supermassive black hole stripped of its own galaxy",
     "New heat record at 41.7 degrees Celsius",
     "With 'Operation Purgatory,' Magyar moves to demolish Orban system",
-    "New Caledonia heads to polls in vote delayed since 2024"
+    "New Caledonia heads to polls in vote delayed since 2024",
+    "Climate change to blame for intensity of Europe heat wave: Scientists",
+    "Argentina: Milei's top aide resigns over corruption scandal",
+    "Albania's 'Flamingo Revolution': What's behind the protests?",
+    "Why is Germany taking a big stake in a major tankmaker?"
   ],
   "articles": [
     {
@@ -2143,6 +2151,50 @@
       "slug": "news/2026-06-29-new-caledonia-heads-to-polls-in-vote-delayed-since.html",
       "title": "New Caledonia heads to polls in vote delayed since 2024",
       "display_title": "New Caledonia heads to polls in vote delayed since 2024",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-climate-change-to-blame-for-intensity-of-europe-he.html",
+      "title": "Climate change to blame for intensity of Europe heat wave: Scientists",
+      "display_title": "Climate change to blame for intensity of Europe heat wave: Scientists",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-argentina-mileis-top-aide-resigns-over-corruption.html",
+      "title": "Argentina: Milei's top aide resigns over corruption scandal",
+      "display_title": "Argentina: Milei's top aide resigns over corruption scandal",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-albanias-flamingo-revolution-whats-behind-the-prot.html",
+      "title": "Albania's 'Flamingo Revolution': What's behind the protests?",
+      "display_title": "Albania's 'Flamingo Revolution': What's behind the protests?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-why-is-germany-taking-a-big-stake-in-a-major-tankm.html",
+      "title": "Why is Germany taking a big stake in a major tankmaker?",
+      "display_title": "Why is Germany taking a big stake in a major tankmaker?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.1,
