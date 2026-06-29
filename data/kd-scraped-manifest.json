@@ -141,7 +141,15 @@
     "news/2026-06-29-12-billion-years-old-this-interstellar-comet-is-ol.html",
     "news/2026-06-29-why-is-the-us-targeting-germanys-drug-industry.html",
     "news/2026-06-29-hungary-holds-first-post-orban-budapest-pride-marc.html",
-    "news/2026-06-29-protesters-in-serbia-doubt-vucic-resignation-will.html"
+    "news/2026-06-29-protesters-in-serbia-doubt-vucic-resignation-will.html",
+    "news/2026-06-29-ancient-algal-defenses-against-uv-may-have-helped.html",
+    "news/2026-06-29-better-unemployment-welfare-could-curb-rise-of-pop.html",
+    "news/2026-06-29-australia-boosts-shark-spotting-drone-coverage-at.html",
+    "news/2026-06-29-shining-blue-light-on-gold-graphene-nanodots-achie.html",
+    "news/2026-06-29-nasa-races-to-save-swift-telescope-from-falling-ba.html",
+    "news/2026-06-29-serbia-protests-continue-after-vucic-says-he-will.html",
+    "news/2026-06-29-will-germany-impose-an-age-limit-for-social-media.html",
+    "news/2026-06-29-germanys-development-aid-strategy-under-fire.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -285,7 +293,15 @@
     "12 billion years old, this interstellar comet is older than our solar system",
     "Why is the US targeting Germany's drug industry?",
     "Hungary holds first post-Orban Budapest Pride march",
-    "Protesters in Serbia doubt Vucic resignation will bring change"
+    "Protesters in Serbia doubt Vucic resignation will bring change",
+    "Ancient algal defenses against UV may have helped plants conquer land",
+    "Better unemployment welfare could curb rise of populism",
+    "Australia boosts shark-spotting drone coverage at Sydney beaches",
+    "Shining blue light on gold-graphene nanodots achieves wound healing trifecta",
+    "NASA races to save Swift telescope from falling back to Earth with daring rescue mission",
+    "Serbia: Protests continue after Vucic says he will step down",
+    "Will Germany impose an age limit for social media?",
+    "Germany's development aid strategy under fire"
   ],
   "articles": [
     {
@@ -1837,6 +1853,94 @@
       "agreement_pct": 36,
       "is_science": false,
       "source_icons": "🌍 🌐"
+    },
+    {
+      "slug": "news/2026-06-29-ancient-algal-defenses-against-uv-may-have-helped.html",
+      "title": "Ancient algal defenses against UV may have helped plants conquer land",
+      "display_title": "Ancient algal defenses against UV may have helped plants conquer land",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-better-unemployment-welfare-could-curb-rise-of-pop.html",
+      "title": "Better unemployment welfare could curb rise of populism",
+      "display_title": "Better unemployment welfare could curb rise of populism",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-australia-boosts-shark-spotting-drone-coverage-at.html",
+      "title": "Australia boosts shark-spotting drone coverage at Sydney beaches",
+      "display_title": "Australia boosts shark-spotting drone coverage at Sydney beaches",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-shining-blue-light-on-gold-graphene-nanodots-achie.html",
+      "title": "Shining blue light on gold-graphene nanodots achieves wound healing trifecta",
+      "display_title": "Shining blue light on gold-graphene nanodots achieves wound healing trifecta",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-nasa-races-to-save-swift-telescope-from-falling-ba.html",
+      "title": "NASA races to save Swift telescope from falling back to Earth with daring rescue mission",
+      "display_title": "NASA races to save Swift telescope from falling back to Earth with daring rescue mission",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-serbia-protests-continue-after-vucic-says-he-will.html",
+      "title": "Serbia: Protests continue after Vucic says he will step down",
+      "display_title": "Serbia: Protests continue after Vucic says he will step down",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-will-germany-impose-an-age-limit-for-social-media.html",
+      "title": "Will Germany impose an age limit for social media?",
+      "display_title": "Will Germany impose an age limit for social media?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-germanys-development-aid-strategy-under-fire.html",
+      "title": "Germany's development aid strategy under fire",
+      "display_title": "Germany's development aid strategy under fire",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
     }
   ]
 }
