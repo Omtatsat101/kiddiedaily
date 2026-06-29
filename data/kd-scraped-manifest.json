@@ -502,7 +502,10 @@
     "news/2026-06-29-why-do-baseball-players-put-a-black-mark-under-the.html",
     "news/2026-06-29-quantum-sensors-could-spot-hidden-damage-in-the-th.html",
     "news/2026-06-29-where-nature-draws-the-map-here-are-5-ways-to-look.html",
-    "news/2026-06-29-nasa-announces-its-artemis-iii-crew-which-will-tes.html"
+    "news/2026-06-29-nasa-announces-its-artemis-iii-crew-which-will-tes.html",
+    "news/2026-06-29-the-drawer-problem-why-so-many-of-us-cant-let-go-o.html",
+    "news/2026-06-29-asteroid-or-comet-meteor-or-meteorite-how-to-ident.html",
+    "news/2026-06-29-building-data-centers-in-space-is-an-intriguing-id.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1007,7 +1010,10 @@
     "Why do baseball players put a black mark under their eyes?",
     "Quantum sensors could spot hidden damage in the thousands of US bridges rated ‘structurally deficient’",
     "Where nature draws the map – here are 5 ways to look at the US, without state boundaries",
-    "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion"
+    "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion",
+    "The drawer problem: Why so many of us can’t let go of our old electronics, and what we can do about it",
+    "Asteroid or comet? Meteor or meteorite? How to identify and classify the rocks you see streaking through the sky",
+    "Building data centers in space is an intriguing idea on paper, but major engineering challenges must be solved"
   ],
   "articles": [
     {
@@ -6600,6 +6606,42 @@
       "slug": "news/2026-06-29-nasa-announces-its-artemis-iii-crew-which-will-tes.html",
       "title": "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion",
       "display_title": "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-the-drawer-problem-why-so-many-of-us-cant-let-go-o.html",
+      "title": "The drawer problem: Why so many of us can’t let go of our old electronics, and what we can do about it",
+      "display_title": "The drawer problem: Why so many of us can’t let go of our old electronics, and what we can do about it",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-asteroid-or-comet-meteor-or-meteorite-how-to-ident.html",
+      "title": "Asteroid or comet? Meteor or meteorite? How to identify and classify the rocks you see streaking through the sky",
+      "display_title": "Asteroid or comet? Meteor or meteorite? How to identify and classify the rocks you see streaking through the sky",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-building-data-centers-in-space-is-an-intriguing-id.html",
+      "title": "Building data centers in space is an intriguing idea on paper, but major engineering challenges must be solved",
+      "display_title": "Building data centers in space is an intriguing idea on paper, but major engineering challenges must be solved",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
