@@ -478,7 +478,10 @@
     "news/2026-06-29-eib-announces-largest-ever-loan-3-billion-to-airbu.html",
     "news/2026-06-29-how-the-new-brazil-is-taking-shape-and-why-cunha-i.html",
     "news/2026-06-29-clarke-says-standing-down-easy-decision-after-worl.html",
-    "news/2026-06-29-dame-penelope-keith-the-good-lifes-funny-and-formi.html"
+    "news/2026-06-29-dame-penelope-keith-the-good-lifes-funny-and-formi.html",
+    "news/2026-06-29-how-formidable-sitcom-star-penelope-keith-won-the.html",
+    "news/2026-06-29-offshore-oil-and-gas-rush-threatens-whale-corridor.html",
+    "news/2026-06-29-federal-officials-say-an-endangered-wetland-plant.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -959,7 +962,10 @@
     "EIB announces largest-ever loan: €3 billion to Airbus",
     "How the new Brazil is taking shape and why Cunha is key",
     "Clarke says standing down 'easy' decision after World Cup exit",
-    "Dame Penelope Keith: The Good Life's funny and formidable star"
+    "Dame Penelope Keith: The Good Life's funny and formidable star",
+    "How formidable sitcom star Penelope Keith won the nation's hearts",
+    "Offshore Oil and Gas Rush Threatens Whale Corridors and Coral Reefs",
+    "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees."
   ],
   "articles": [
     {
@@ -6271,6 +6277,42 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-how-formidable-sitcom-star-penelope-keith-won-the.html",
+      "title": "How formidable sitcom star Penelope Keith won the nation's hearts",
+      "display_title": "How formidable sitcom star Penelope Keith won the nation's hearts",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-offshore-oil-and-gas-rush-threatens-whale-corridor.html",
+      "title": "Offshore Oil and Gas Rush Threatens Whale Corridors and Coral Reefs",
+      "display_title": "Offshore Oil and Gas Rush Threatens Whale Corridors and Coral Reefs",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-federal-officials-say-an-endangered-wetland-plant.html",
+      "title": "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees.",
+      "display_title": "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
     }
   ]
 }
