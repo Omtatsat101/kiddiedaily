@@ -579,7 +579,10 @@
     "news/2026-06-29-the-lab-mistake-that-might-revolutionize-computing.html",
     "news/2026-06-29-8-principles-from-human-ecology-can-help-ai-work-f.html",
     "news/2026-06-29-can-you-make-a-black-hole-in-a-laboratory.html",
-    "news/2026-06-29-sudan-says-china-has-waived-50m-loan-whats-in-it-f.html"
+    "news/2026-06-29-sudan-says-china-has-waived-50m-loan-whats-in-it-f.html",
+    "news/2026-06-29-how-exactly-could-deep-sea-mining-benefit-all-of-h.html",
+    "news/2026-06-29-so-long-and-thanks-for-all-the-fish.html",
+    "news/2026-06-29-the-first-first-responders.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1161,7 +1164,10 @@
     "The Lab Mistake That Might Revolutionize Computing",
     "8 principles from human ecology can help AI work for human well-being",
     "Can you make a black hole in a laboratory?",
-    "Sudan says China has waived $50m loan: What’s in it for Khartoum, Beijing?"
+    "Sudan says China has waived $50m loan: What’s in it for Khartoum, Beijing?",
+    "How, Exactly, Could Deep-Sea Mining Benefit All of Humanity?",
+    "So Long, and Thanks for All the Fish",
+    "The First First Responders"
   ],
   "articles": [
     {
@@ -7685,6 +7691,42 @@
       "is_science": false,
       "source_name": "Al Jazeera",
       "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-how-exactly-could-deep-sea-mining-benefit-all-of-h.html",
+      "title": "How, Exactly, Could Deep-Sea Mining Benefit All of Humanity?",
+      "display_title": "How, Exactly, Could Deep-Sea Mining Benefit All of Humanity?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-so-long-and-thanks-for-all-the-fish.html",
+      "title": "So Long, and Thanks for All the Fish",
+      "display_title": "So Long, and Thanks for All the Fish",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-first-first-responders.html",
+      "title": "The First First Responders",
+      "display_title": "The First First Responders",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
     }
   ]
 }
