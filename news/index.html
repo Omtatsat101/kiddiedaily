@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kid News Hub — KiddieDaily</title>
-<meta name="description" content="Browse all 786 kid-safe, bias-rated articles across Science, Space, Animals, History, Environment, Technology and World News.">
+<meta name="description" content="Browse all 789 kid-safe, bias-rated articles across Science, Space, Animals, History, Environment, Technology and World News.">
 <link rel="canonical" href="https://kiddiedaily.com/news/">
 <style>
 *{box-sizing:border-box}html{font-family:Georgia,"Times New Roman",serif;color:#1a1a1a;background:#faf8f3;line-height:1.6}
@@ -87,7 +87,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 </div></header>
 <main id="main" style="max-width:760px;margin:0 auto;padding:20px 16px">
 <h1 style="font-size:1.5em;color:#1a4d80;margin-bottom:4px">Kid News Hub</h1>
-<p style="color:#718096;margin:0 0 6px;font-size:14px">786 articles — bias-rated, kid-safe, updated daily</p>
+<p style="color:#718096;margin:0 0 6px;font-size:14px">789 articles — bias-rated, kid-safe, updated daily</p>
 
 <div class="ni-cat-grid"><a href="/news/science.html" class="ni-cat" style="background:#d1fae5;color:#065f46"><span class="ni-icon">🔬</span>Science</a><a href="/news/world.html" class="ni-cat" style="background:#dbeafe;color:#1e40af"><span class="ni-icon">🌍</span>World</a><a href="/news/space.html" class="ni-cat" style="background:#ede9fe;color:#5b21b6"><span class="ni-icon">🚀</span>Space</a><a href="/news/animals.html" class="ni-cat" style="background:#fef3c7;color:#92400e"><span class="ni-icon">🐾</span>Animals</a><a href="/news/history.html" class="ni-cat" style="background:#fce7f3;color:#9d174d"><span class="ni-icon">🏛</span>History</a><a href="/news/environment.html" class="ni-cat" style="background:#dcfce7;color:#166534"><span class="ni-icon">🌿</span>Environment</a><a href="/news/technology.html" class="ni-cat" style="background:#e0e7ff;color:#3730a3"><span class="ni-icon">💻</span>Technology</a></div>
 
@@ -120,9 +120,12 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
     var sci=a.is_science,bc=sci?'ni-badge-sci':'ni-badge-news',bl=sci?'Science':'World';
     var cats=(a.cats||[]).filter(function(c){return c!=='science'&&c!=='world';});
     var tags=cats.slice(0,2).map(function(c){return'<span class="ni-badge ni-badge-cat">'+c+'</span>';}).join('');
-    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+'<a href="/'+a.slug+'">'+a.title+'</a><div class="ni-card-meta">'+a.date+' &middot; '+blbl(a.bias_avg)+'</div></div>';
+    var ex=a.description?a.description.slice(0,110)+(a.description.length>110?'…':''):'';
+    var n=a.n_sources||1;
+    var multi=n>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">'+n+' outlets</span>':'';
+    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+multi+'<a href="/'+a.slug+'">'+a.title+'</a>'+(ex?'<p style="margin:3px 0 5px;font-size:12px;color:#4a5568;line-height:1.4">'+ex+'</p>':'')+'<div class="ni-card-meta">'+a.date+' &middot; '+blbl(a.bias_avg)+'</div></div>';
   }
-  function applyFilter(){filt=q?arts.filter(function(a){return(a.title+' '+(a.description||'')).toLowerCase().indexOf(q)>=0;}):arts;}
+  function applyFilter(){filt=q?arts.filter(function(a){return((a.title||'')+' '+(a.description||'')).toLowerCase().indexOf(q)>=0;}):arts;}
   function render(){
     var list=document.getElementById('ni-list'),btn=document.getElementById('ni-more'),cnt=document.getElementById('ni-count');
     if(!off)list.innerHTML='';
