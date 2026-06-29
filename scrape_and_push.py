@@ -37,10 +37,10 @@ def _load_token(env_var, prefix):
 GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
-MAX_ARTICLES          = 9   # max new articles per run (6 sci + 3 world)
+MAX_ARTICLES          = 11  # max new articles per run (8 sci + 3 world)
 MAX_SCI_PER_RUN       = 8   # max science articles per run (bumped with 25 sources)
 MAX_WORLD_PER_RUN     = 3   # max world-news articles per run
-MAX_PER_SOURCE_PER_RUN= 2   # max articles from any single source per run (prevents domination)
+MAX_PER_SOURCE_PER_RUN= 3   # max articles from any single source per run (prevents domination)
 MAX_SPORTS_TOURNAMENT_PER_RUN = 1   # cap for any single major live tournament (World Cup, Wimbledon, Olympics…)
 
 # Regex word-boundary filter — avoids substring false positives like "scraper"→"rape"
