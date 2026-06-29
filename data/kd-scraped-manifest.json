@@ -75,7 +75,12 @@
     "news/2026-06-29-a-new-dino-fossil-may-solve-an-ancient-murder-myst.html",
     "news/2026-06-29-the-new-world-screwworm-has-returned-to-the-us-now.html",
     "news/2026-06-29-sea-cucumbers-harbor-zombie-tissues-that-wont-die.html",
-    "news/2026-06-29-a-tropical-permafrost-layer-in-peru-may-be-one-of.html"
+    "news/2026-06-29-a-tropical-permafrost-layer-in-peru-may-be-one-of.html",
+    "news/2026-06-29-is-nasa-falling-out-of-love-with-mars.html",
+    "news/2026-06-29-a-textbook-assumption-about-early-land-vertebrates.html",
+    "news/2026-06-29-a-2011-earthquake-bounced-a-seismic-wave-off-earth.html",
+    "news/2026-06-29-the-truth-about-brain-rot-according-to-science.html",
+    "news/2026-06-29-june-full-moon-strawberry-moon-is-the-lowest-highe.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -153,7 +158,12 @@
     "A new dino fossil may solve an ancient murder mystery",
     "The New World screwworm has returned to the U.S. Now what?",
     "Sea cucumbers harbor ‘zombie’ tissues that won’t die",
-    "A tropical permafrost layer in Peru may be one of the world’s largest"
+    "A tropical permafrost layer in Peru may be one of the world’s largest",
+    "Is NASA falling out of love with Mars?",
+    "A textbook assumption about early land vertebrates may be wrong",
+    "A 2011 earthquake bounced a seismic wave off Earth’s core, nudging Japan east",
+    "The truth about brain rot, according to science",
+    "June full moon – Strawberry Moon – is the lowest (highest) of the year"
   ],
   "articles": [
     {
@@ -979,6 +989,61 @@
       "agreement_pct": 23,
       "is_science": true,
       "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-is-nasa-falling-out-of-love-with-mars.html",
+      "title": "Is NASA falling out of love with Mars?",
+      "display_title": "Is NASA falling out of love with Mars?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-a-textbook-assumption-about-early-land-vertebrates.html",
+      "title": "A textbook assumption about early land vertebrates may be wrong",
+      "display_title": "A textbook assumption about early land vertebrates may be wrong",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-a-2011-earthquake-bounced-a-seismic-wave-off-earth.html",
+      "title": "A 2011 earthquake bounced a seismic wave off Earth’s core, nudging Japan east",
+      "display_title": "A 2011 earthquake bounced a seismic wave off Earth’s core, nudging Japan east",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-the-truth-about-brain-rot-according-to-science.html",
+      "title": "The truth about brain rot, according to science",
+      "display_title": "The truth about brain rot, according to science",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-june-full-moon-strawberry-moon-is-the-lowest-highe.html",
+      "title": "June full moon – Strawberry Moon – is the lowest (highest) of the year",
+      "display_title": "June full moon – Strawberry Moon – is the lowest (highest) of the year",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
     }
   ]
 }
