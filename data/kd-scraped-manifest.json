@@ -625,7 +625,14 @@
     "news/2026-06-29-all-you-need-to-know-about-wimbledon-2026.html",
     "news/2026-06-29-quiz-of-the-week-have-you-been-following-this-week.html",
     "news/2026-06-29-new-explorer-scout-badges-include-digital-content.html",
-    "news/2026-06-29-what-happens-when-pokemon-and-wallace-gromits-make.html"
+    "news/2026-06-29-what-happens-when-pokemon-and-wallace-gromits-make.html",
+    "news/2026-06-29-hehe-humans-and-apes-have-similar-giggles.html",
+    "news/2026-06-29-long-lost-megalodon-fossils-confirm-the-giant-shar.html",
+    "news/2026-06-29-feel-like-you39re-on-the-same-wavelength-with-some.html",
+    "news/2026-06-29-rare-camel-bones-found-in-serbian-fortress-suggest.html",
+    "news/2026-06-29-man-city-appoint-new-manager-to-take-over-from-pep.html",
+    "news/2026-06-29-what-games-do-you-play-with-your-friends.html",
+    "news/2026-06-29-why-netherlands-v-morocco-is-more-than-just-a-matc.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1253,7 +1260,14 @@
     "All you need to know about Wimbledon 2026",
     "Quiz of the Week: Have you been following this week's news?",
     "New Explorer Scout badges include digital content creation and democracy",
-    "What happens when Pokémon and Wallace & Gromit's makers collide?"
+    "What happens when Pokémon and Wallace & Gromit's makers collide?",
+    "Hehe! Humans and apes have similar giggles",
+    "Long-Lost Megalodon Fossils Confirm the Giant Shark Could Reach 80 Feet Long",
+    "Feel Like You&#39;re on the Same Wavelength With Someone? Synchrony Is Real, and May be Strengthened",
+    "Rare Camel Bones Found in Serbian Fortress Suggest Far-Reaching Medieval Trade Networks",
+    "Man City appoint new manager to take over from Pep Guardiola",
+    "What games do you play with your friends?",
+    "Why Netherlands v Morocco is more than just a match"
   ],
   "articles": [
     {
@@ -8329,6 +8343,90 @@
       "is_science": false,
       "source_name": "BBC Newsround",
       "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-hehe-humans-and-apes-have-similar-giggles.html",
+      "title": "Hehe! Humans and apes have similar giggles",
+      "display_title": "Hehe! Humans and apes have similar giggles",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.05,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺 🔬"
+    },
+    {
+      "slug": "news/2026-06-29-long-lost-megalodon-fossils-confirm-the-giant-shar.html",
+      "title": "Long-Lost Megalodon Fossils Confirm the Giant Shark Could Reach 80 Feet Long",
+      "display_title": "Long-Lost Megalodon Fossils Confirm the Giant Shark Could Reach 80 Feet Long",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-feel-like-you39re-on-the-same-wavelength-with-some.html",
+      "title": "Feel Like You&#39;re on the Same Wavelength With Someone? Synchrony Is Real, and May be Strengthened",
+      "display_title": "Feel Like You&#39;re on the Same Wavelength With Someone? Synchrony Is Real, and May be Strengthened",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-rare-camel-bones-found-in-serbian-fortress-suggest.html",
+      "title": "Rare Camel Bones Found in Serbian Fortress Suggest Far-Reaching Medieval Trade Networks",
+      "display_title": "Rare Camel Bones Found in Serbian Fortress Suggest Far-Reaching Medieval Trade Networks",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-man-city-appoint-new-manager-to-take-over-from-pep.html",
+      "title": "Man City appoint new manager to take over from Pep Guardiola",
+      "display_title": "Man City appoint new manager to take over from Pep Guardiola",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-what-games-do-you-play-with-your-friends.html",
+      "title": "What games do you play with your friends?",
+      "display_title": "What games do you play with your friends?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-why-netherlands-v-morocco-is-more-than-just-a-matc.html",
+      "title": "Why Netherlands v Morocco is more than just a match",
+      "display_title": "Why Netherlands v Morocco is more than just a match",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
