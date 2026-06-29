@@ -307,7 +307,13 @@
     "news/2026-06-29-record-breaking-ibm-chip-uses-trick-to-cram-in-100.html",
     "news/2026-06-29-thai-farmers-fear-water-woes-from-planned-lng-plan.html",
     "news/2026-06-29-kenyas-overcrowded-safaris-wildlife-for-who.html",
-    "news/2026-06-29-metallica-donates-20000-to-city-foodbank-with-empt.html"
+    "news/2026-06-29-metallica-donates-20000-to-city-foodbank-with-empt.html",
+    "news/2026-06-29-rising-waters-swamp-lake-naivasha.html",
+    "news/2026-06-29-signs-of-thaw-in-the-bering-sea.html",
+    "news/2026-06-29-phages-could-enable-us-to-hijack-vaccine-immunity.html",
+    "news/2026-06-29-hold-the-onions-and-see-if-they-make-you-cry.html",
+    "news/2026-06-29-women-patrol-tanzanias-pemba-waters-in-a-community.html",
+    "news/2026-06-29-honduras-taps-armed-forces-to-eliminate-deforestat.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -617,7 +623,13 @@
     "Record-breaking IBM chip uses trick to cram in 100 billion transistors",
     "Thai farmers fear water woes from planned LNG plant",
     "Kenya’s overcrowded safaris: Wildlife for who?",
-    "Metallica donates £20,000 to city foodbank with 'empty shelves' after sell-out gig"
+    "Metallica donates £20,000 to city foodbank with 'empty shelves' after sell-out gig",
+    "Rising Waters Swamp Lake Naivasha",
+    "Signs of Thaw in the Bering Sea",
+    "Phages could enable us to hijack vaccine immunity to kill cancer cells",
+    "Hold the onions – and see if they make you cry",
+    "Women patrol Tanzania’s Pemba waters in a community-led push to protect the sea",
+    "Honduras taps armed forces to eliminate deforestation by 2029. Is it working?"
   ],
   "articles": [
     {
@@ -3995,6 +4007,72 @@
       "agreement_pct": 11,
       "is_science": false,
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-rising-waters-swamp-lake-naivasha.html",
+      "title": "Rising Waters Swamp Lake Naivasha",
+      "display_title": "Rising Waters Swamp Lake Naivasha",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-signs-of-thaw-in-the-bering-sea.html",
+      "title": "Signs of Thaw in the Bering Sea",
+      "display_title": "Signs of Thaw in the Bering Sea",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-phages-could-enable-us-to-hijack-vaccine-immunity.html",
+      "title": "Phages could enable us to hijack vaccine immunity to kill cancer cells",
+      "display_title": "Phages could enable us to hijack vaccine immunity to kill cancer cells",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-hold-the-onions-and-see-if-they-make-you-cry.html",
+      "title": "Hold the onions – and see if they make you cry",
+      "display_title": "Hold the onions – and see if they make you cry",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-women-patrol-tanzanias-pemba-waters-in-a-community.html",
+      "title": "Women patrol Tanzania’s Pemba waters in a community-led push to protect the sea",
+      "display_title": "Women patrol Tanzania’s Pemba waters in a community-led push to protect the sea",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-honduras-taps-armed-forces-to-eliminate-deforestat.html",
+      "title": "Honduras taps armed forces to eliminate deforestation by 2029. Is it working?",
+      "display_title": "Honduras taps armed forces to eliminate deforestation by 2029. Is it working?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
     }
   ]
 }
