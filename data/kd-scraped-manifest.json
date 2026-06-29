@@ -125,7 +125,15 @@
     "news/2026-06-29-chris-mason-burnham-begins-to-sketch-out-vision-bu.html",
     "news/2026-06-29-white-working-class-children-failed-by-education-s.html",
     "news/2026-06-29-world-cup-knockouts-are-here---what-is-englands-pa.html",
-    "news/2026-06-29-heat-wave-and-high-humidity-will-blast-much-of-the.html"
+    "news/2026-06-29-heat-wave-and-high-humidity-will-blast-much-of-the.html",
+    "news/2026-06-29-europe-swelters-as-heat-wave-moves-east.html",
+    "news/2026-06-29-the-order-of-species-loss-alters-how-grasslands-ma.html",
+    "news/2026-06-29-the-oldest-evidence-of-mourning-rituals-reveals-pa.html",
+    "news/2026-06-29-lost-megalodon-vertebrae-resurface-confirming-80-f.html",
+    "news/2026-06-29-human-activity-has-driven-retreat-of-antarcticas-f.html",
+    "news/2026-06-29-the-us-lags-other-countries-in-social-media-restri.html",
+    "news/2026-06-29-man-with-same-name-as-us-sen-dan-sullivan-is-eligi.html",
+    "news/2026-06-29-world-cup-final-day-of-group-play-will-set-the-fie.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -253,7 +261,15 @@
     "Chris Mason: Burnham begins to sketch out vision but faces huge and imminent questions",
     "White working-class children failed by education system, says inquiry",
     "World Cup knockouts are here - what is England's path to the final?",
-    "Heat wave and high humidity will blast much of the eastern U.S. this week, meteorologists say"
+    "Heat wave and high humidity will blast much of the eastern U.S. this week, meteorologists say",
+    "Europe swelters as heat wave moves east",
+    "The order of species loss alters how grasslands maintain stability, study finds",
+    "The oldest evidence of mourning rituals reveals Paleolithic communities grieved like we do",
+    "Lost megalodon vertebrae resurface, confirming 80-foot size estimate",
+    "Human activity has driven retreat of Antarctica's fastest melting glacier",
+    "The U.S. lags other countries in social media restrictions for kids, but a reform push is growing",
+    "Man with same name as U.S. Sen. Dan Sullivan is eligible for Alaska's primary ballot, judge rules",
+    "World Cup final day of group play will set the field for the round of 32"
   ],
   "articles": [
     {
@@ -1627,6 +1643,94 @@
       "n_sources": 1,
       "bias_avg": -0.2,
       "agreement_pct": 19,
+      "is_science": false,
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-europe-swelters-as-heat-wave-moves-east.html",
+      "title": "Europe swelters as heat wave moves east",
+      "display_title": "Europe swelters as heat wave moves east",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-the-order-of-species-loss-alters-how-grasslands-ma.html",
+      "title": "The order of species loss alters how grasslands maintain stability, study finds",
+      "display_title": "The order of species loss alters how grasslands maintain stability, study finds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-the-oldest-evidence-of-mourning-rituals-reveals-pa.html",
+      "title": "The oldest evidence of mourning rituals reveals Paleolithic communities grieved like we do",
+      "display_title": "The oldest evidence of mourning rituals reveals Paleolithic communities grieved like we do",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-lost-megalodon-vertebrae-resurface-confirming-80-f.html",
+      "title": "Lost megalodon vertebrae resurface, confirming 80-foot size estimate",
+      "display_title": "Lost megalodon vertebrae resurface, confirming 80-foot size estimate",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-human-activity-has-driven-retreat-of-antarcticas-f.html",
+      "title": "Human activity has driven retreat of Antarctica's fastest melting glacier",
+      "display_title": "Human activity has driven retreat of Antarctica's fastest melting glacier",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-the-us-lags-other-countries-in-social-media-restri.html",
+      "title": "The U.S. lags other countries in social media restrictions for kids, but a reform push is growing",
+      "display_title": "The U.S. lags other countries in social media restrictions for kids, but a reform push is growing",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-man-with-same-name-as-us-sen-dan-sullivan-is-eligi.html",
+      "title": "Man with same name as U.S. Sen. Dan Sullivan is eligible for Alaska's primary ballot, judge rules",
+      "display_title": "Man with same name as U.S. Sen. Dan Sullivan is eligible for Alaska's primary ballot, judge rules",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-world-cup-final-day-of-group-play-will-set-the-fie.html",
+      "title": "World Cup final day of group play will set the field for the round of 32",
+      "display_title": "World Cup final day of group play will set the field for the round of 32",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 18,
       "is_science": false,
       "source_icons": "📺"
     }
