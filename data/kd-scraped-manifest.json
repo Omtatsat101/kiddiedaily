@@ -606,7 +606,16 @@
     "news/2026-06-29-what-is-the-positive-grassmannian-and-why-does-it.html",
     "news/2026-06-29-how-physicists-track-and-trap-the-elusive-neutrino.html",
     "news/2026-06-29-a-dark-dimension-could-link-two-of-the-universes-g.html",
-    "news/2026-06-29-why-the-human-genomes-tangled-physicality-may-conf.html"
+    "news/2026-06-29-why-the-human-genomes-tangled-physicality-may-conf.html",
+    "news/2026-06-29-age-bias-discovered-in-ai.html",
+    "news/2026-06-29-red-tailed-hawks-maintain-flight-performance-despi.html",
+    "news/2026-06-29-dna-databases-unite-to-create-a-fully-open-resourc.html",
+    "news/2026-06-29-mars-orbiter-watches-perseverance-rover-cross-the.html",
+    "news/2026-06-29-what-breaks-a-cells-ribs-can-make-it-stronger.html",
+    "news/2026-06-29-dorm-life-forever-the-problem-with-micro-living.html",
+    "news/2026-06-29-fox-news-apologizes-for-airing-oleary-claims-about.html",
+    "news/2026-06-29-june-heatwave-was-hotter-than-thought-whilst-relie.html",
+    "news/2026-06-29-worth-every-penny-say-england-fans-at-world-cup.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1215,7 +1224,16 @@
     "What Is the Positive Grassmannian and Why Does It Show Up Everywhere?",
     "How Physicists Track and Trap the Elusive Neutrino",
     "A Dark Dimension Could Link Two of the Universe’s Great Unknowns",
-    "Why the Human Genome’s Tangled Physicality May Confound AI"
+    "Why the Human Genome’s Tangled Physicality May Confound AI",
+    "Age bias discovered in AI",
+    "Red-tailed hawks maintain flight performance despite missing feathers",
+    "DNA databases unite to create a fully open resource for transposable element research",
+    "Mars orbiter watches Perseverance rover cross the marathon finish line | Space photo of the day for June 29, 2026",
+    "What Breaks a Cell’s Ribs Can Make It Stronger",
+    "Dorm Life Forever? The Problem with Micro-Living",
+    "Fox News apologizes for airing O'Leary claims about data centers",
+    "June heatwave was hotter than thought whilst relief from heat set to be short lived",
+    "'Worth every penny', say England fans at World Cup"
   ],
   "articles": [
     {
@@ -8063,6 +8081,114 @@
       "is_science": true,
       "source_name": "Quanta Magazine",
       "source_icons": "🔷"
+    },
+    {
+      "slug": "news/2026-06-29-age-bias-discovered-in-ai.html",
+      "title": "Age bias discovered in AI",
+      "display_title": "Age bias discovered in AI",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-red-tailed-hawks-maintain-flight-performance-despi.html",
+      "title": "Red-tailed hawks maintain flight performance despite missing feathers",
+      "display_title": "Red-tailed hawks maintain flight performance despite missing feathers",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-dna-databases-unite-to-create-a-fully-open-resourc.html",
+      "title": "DNA databases unite to create a fully open resource for transposable element research",
+      "display_title": "DNA databases unite to create a fully open resource for transposable element research",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-mars-orbiter-watches-perseverance-rover-cross-the.html",
+      "title": "Mars orbiter watches Perseverance rover cross the marathon finish line | Space photo of the day for June 29, 2026",
+      "display_title": "Mars orbiter watches Perseverance rover cross the marathon finish line | Space photo of the day for June 29, 2026",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Space.com",
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-what-breaks-a-cells-ribs-can-make-it-stronger.html",
+      "title": "What Breaks a Cell’s Ribs Can Make It Stronger",
+      "display_title": "What Breaks a Cell’s Ribs Can Make It Stronger",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Quanta Magazine",
+      "source_icons": "🔷"
+    },
+    {
+      "slug": "news/2026-06-29-dorm-life-forever-the-problem-with-micro-living.html",
+      "title": "Dorm Life Forever? The Problem with Micro-Living",
+      "display_title": "Dorm Life Forever? The Problem with Micro-Living",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "JSTOR Daily",
+      "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-fox-news-apologizes-for-airing-oleary-claims-about.html",
+      "title": "Fox News apologizes for airing O'Leary claims about data centers",
+      "display_title": "Fox News apologizes for airing O'Leary claims about data centers",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-june-heatwave-was-hotter-than-thought-whilst-relie.html",
+      "title": "June heatwave was hotter than thought whilst relief from heat set to be short lived",
+      "display_title": "June heatwave was hotter than thought whilst relief from heat set to be short lived",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-worth-every-penny-say-england-fans-at-world-cup.html",
+      "title": "'Worth every penny', say England fans at World Cup",
+      "display_title": "'Worth every penny', say England fans at World Cup",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
