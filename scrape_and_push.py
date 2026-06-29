@@ -89,6 +89,29 @@ _COMMERCIAL_TITLE_RE = re.compile(
     re.I
 )
 
+# Hard-reject world news topics that are NEVER appropriate for a kids' news site.
+# Applied ONLY to non-science articles (world news) in the main loop.
+_WORLD_NEWS_REJECT_RE = re.compile(
+    r'(?:'
+    r'\blive\s+results?:\s'                   # "Live Results: Colorado primaries..."
+    r'|(?:midterm|primary|election)\s+(?:results?|primaries|vote|live)'  # election results
+    r'|\bprimar(?:y|ies)\s+(?:live|results?|election|vote)' # more election variants
+    r'|\bjudge\s+delay'                        # "judge delays sentencing"
+    r'|\bsentencing\s+(?:hearing|delayed?|phase)' # court sentencing news
+    r'|\b(?:murder|assault|rape|kidnap)\s+trial\b' # criminal trial coverage
+    r'|\bgets?\s+(?:life|years?)\s+in\s+(?:prison|jail)' # prison sentence results
+    r'|\bdied\s+of\s+(?:aids?|hiv|cancer|drug|overdose|covid)' # celebrity death + disease
+    r'|\b(?:actress|actor|celebrity|star)\s+(?:died?|dead|passes?\s+away|passes?)' # celebrity death
+    r'|\b(?:asylum|refugee)\s+(?:seeker|repay|repatriat|detain|flee|policy)' # asylum policy
+    r'|\brefugees?\s+will\s+be'               # "Refugees will be told..."
+    r'|\bimmigration\s+(?:crackdown|enforcement|policy|ban|ban)' # immigration enforcement
+    r'|\bborder\s+(?:crisis|crossing|enforcement|crackdown)' # border enforcement
+    r'|\bserial\s+killer\b'                   # serial killer coverage
+    r'|\bmass\s+(?:shooting|murder|killing)\b' # mass violence events
+    r')',
+    re.I
+)
+
 # Active branch — set to a content branch in main(); falls back to "main" locally
 ACTIVE_BRANCH = "main"
 
@@ -444,6 +467,18 @@ DEPRIORITIZE_WORDS = [
     "mistrial", "arson case", "arson attack", "vandalism",
     "faces charges", "charged with", "convicted of", "acquitted",
     "detention center", "immigration detention", "deported", "deportation",
+    # Election/political process (not kid-educational news)
+    "midterm", "primary election", "election results", "primaries", "caucus",
+    "live results", "vote count", "ballot count", "exit poll",
+    "general election", "runoff election", "polling shows",
+    # Court/criminal proceedings scoring (backup to hard-reject)
+    "judge delays", "murder trial", "sentencing delayed", "awaiting sentencing",
+    "verdict reached", "jury finds", "testifies that",
+    # Celebrity content (entertainment not educational news)
+    "actress dies", "actor dies", "celebrity dies", "passes away",
+    "died of aids", "died of cancer", "died of covid",
+    # Adult immigration/asylum policy
+    "asylum seekers repay", "refugees told to", "repay asylum",
     # Business/corporate AI content (MIT Tech Review newsletter / enterprise pieces)
     "the download:", "repositioning retail", "enterprise ai",
     "ai for business", "ai strategy for", "corporate ai",
@@ -913,7 +948,26 @@ FOOTER = """<footer class="kd"><div class="inner">
 &copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project<br>
 <span style="font-size:11px;opacity:.6">Press <kbd style="background:#1a3660;border:1px solid #2d4f80;border-radius:3px;padding:1px 5px;font-family:monospace">/</kbd> to search</span></div>
 </footer>
-<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){var s=document.getElementById('kd-search-input')||document.getElementById('search');if(s){e.preventDefault();s.focus();}else{window.location='/search.html';}}});</script>"""
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){var s=document.getElementById('kd-search-input')||document.getElementById('search');if(s){e.preventDefault();s.focus();}else{window.location='/search.html';}}});
+(function(){try{
+  var KEY='kd_streak',LAST='kd_last';
+  var today=new Date().toISOString().slice(0,10);
+  var last=localStorage.getItem(LAST);
+  var streak=parseInt(localStorage.getItem(KEY)||'0',10);
+  if(!last){streak=1;}
+  else if(last<today){
+    var yest=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    streak=(last===yest?streak+1:1);
+  }
+  localStorage.setItem(KEY,streak);localStorage.setItem(LAST,today);
+  if(streak>=2){
+    var b=document.createElement('div');
+    b.innerHTML='&#128293;&nbsp;'+streak+'-day streak!';
+    b.style.cssText='position:fixed;bottom:16px;right:16px;z-index:9998;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;font-family:system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.12);pointer-events:none;opacity:1';
+    document.body.appendChild(b);
+    setTimeout(function(){b.style.transition='opacity 1.5s';b.style.opacity='0';setTimeout(function(){if(b.parentNode)b.parentNode.removeChild(b);},1500);},3500);
+  }
+}catch(e){}})();</script>"""
 
 def make_slug(title, date_str):
     # Normalize accented characters (ñ→n, é→e, etc.) so the URL path stays ASCII-safe
@@ -3650,6 +3704,97 @@ def generate_games_page(manifest):
 
     tf_correct_js = "[" + ",".join(f'"{it[0]}"' for it in tf_items) + "]"
     tf_slugs_js = "[" + ",".join(f'"{it[2]}"' for it in tf_items) + "]"
+
+    # Word Scramble game: pick 5 distinct science words (5+ letters) from recent articles
+    _SCRAMBLE_STOPS = {
+        "about", "their", "these", "those", "would", "could", "which", "where", "there",
+        "after", "other", "first", "world", "using", "study", "finds", "found", "shows",
+        "says", "that", "have", "with", "from", "this", "will", "into", "been", "more",
+        "also", "than", "when", "were", "they", "some", "each", "then", "into", "here",
+        "research", "scientists", "researchers", "according", "published", "discovered",
+        "observed", "suggests", "reveals", "scientists", "study", "new", "old", "may",
+        "humans", "human", "earth", "years", "year", "time", "times", "place", "what",
+        "known", "turns", "makes", "could", "might", "should", "now", "just", "data",
+        "helps", "shows", "even", "over", "under", "back", "away", "long", "high",
+        "deep", "wide", "fast", "slow", "large", "small", "great", "little", "large",
+    }
+
+    def _scramble_word(word):
+        """Scramble a word deterministically using quarter-rotation."""
+        w = word.upper()
+        n = len(w)
+        if n < 4:
+            return w
+        q = max(1, n // 4)
+        scrambled = w[q:] + w[:q]
+        if scrambled == w:
+            scrambled = w[0] + w[-1:0:-1]
+        return scrambled
+
+    seen_scramble = set()
+    scramble_items = []
+    for a in sci_articles[-60:]:
+        if len(scramble_items) >= 5:
+            break
+        title = a.get("display_title", a.get("title", ""))
+        hint = title[:50] + ("…" if len(title) > 50 else "")
+        slug = a.get("slug", "")
+        for w in re.sub(r"[^\w\s]", "", title).split():
+            if (len(w) >= 5 and w.lower() not in _SCRAMBLE_STOPS
+                    and w.isalpha() and w.lower() not in seen_scramble):
+                seen_scramble.add(w.lower())
+                scrambled = _scramble_word(w)
+                if scrambled != w.upper():
+                    scramble_items.append((w.upper(), scrambled, hint, slug))
+                    break
+
+    scramble_words_js = "[" + ",".join(f'"{it[0]}"' for it in scramble_items) + "]"
+    scramble_slugs_js = "[" + ",".join(f'"{it[3]}"' for it in scramble_items) + "]"
+    scramble_html = ""
+    for i, (word, scrambled, hint, slug) in enumerate(scramble_items):
+        scramble_html += (
+            f'<div style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:10px;'
+            f'padding:14px 18px;margin:10px 0">'
+            f'<p style="font-size:13px;color:#718096;margin:0 0 4px">Hint: <em>{hint}</em></p>'
+            f'<p style="font-weight:700;font-size:22px;letter-spacing:6px;color:#1a4d80;margin:4px 0 10px;font-family:monospace">{scrambled}</p>'
+            f'<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">'
+            f'<input id="sc{i}" type="text" placeholder="Unscramble it…" maxlength="{len(word)}" '
+            f'style="padding:8px 12px;font-size:15px;border:1px solid #cbd5e0;border-radius:6px;'
+            f'font-family:monospace;width:140px;text-transform:uppercase" autocomplete="off">'
+            f'<span id="sc{i}-result" style="display:none;font-size:13px;padding:4px 10px;border-radius:6px"></span>'
+            f'</div>'
+            f'</div>'
+        )
+
+    scramble_section = ""
+    if scramble_items:
+        scramble_section = f"""
+<div class="game-card">
+<span class="tag">Word Play</span>
+<h3>&#128256; Science Word Scramble</h3>
+<p>These words are scrambled — they all came from today&rsquo;s science headlines. Can you unscramble them?</p>
+<div style="margin-top:14px">
+{scramble_html}
+</div>
+<button onclick="(function(){{{{
+  var words={scramble_words_js},slugs={scramble_slugs_js},score=0;
+  for(var i=0;i<words.length;i++){{{{
+    var inp=document.getElementById('sc'+i);
+    var res=document.getElementById('sc'+i+'-result');
+    var ok=inp.value.trim().toUpperCase()===words[i];
+    if(ok)score++;
+    res.style.display='inline-block';
+    if(ok){{{{res.style.background='#d1fae5';res.style.color='#065f46';res.innerHTML='&#9989; '+words[i];}}}}
+    else{{{{res.style.background='#fee2e2';res.style.color='#c53030';res.innerHTML='&#10060; '+words[i]+(slugs[i]?'&nbsp;<a href=\\"/' +slugs[i]+'\\" style=\\"color:#c53030;font-size:11px\\">read&nbsp;&rarr;</a>':'');}}}}
+    inp.disabled=true;
+  }}}}
+  var s=document.getElementById('sc-summary');
+  s.style.display='block';
+  s.innerHTML=(score===words.length?'&#127881; Perfect! All '+words.length+' unscrambled!':score>=Math.ceil(words.length/2)?'&#128077; '+score+'/'+words.length+' — nice work!':'&#128218; '+score+'/'+words.length+' — keep reading science articles to grow your vocabulary!');
+}}}})()" style="margin-top:14px;background:#1a4d80;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:14px;cursor:pointer;font-family:system-ui,sans-serif">Check Answers</button>
+<div id="sc-summary" style="display:none;margin-top:14px;padding:14px 18px;border-radius:8px;background:#eff6ff;color:#1e40af;font-size:15px;font-family:system-ui,sans-serif"></div>
+</div>
+"""
     tf_html = ""
     for i, (answer, stmt, slug) in enumerate(tf_items):
         tf_html += (
@@ -3805,6 +3950,8 @@ Check My Answers</button>
 <div id="tf-summary" style="display:none;margin-top:14px;padding:14px 18px;border-radius:8px;background:#eff6ff;color:#1e40af;font-size:15px;font-family:system-ui,sans-serif"></div>
 </div>
 """}
+
+{scramble_section}
 
 <div class="game-card">
 <span class="tag">Critical Thinking</span>
@@ -4303,6 +4450,14 @@ def main():
             skipped_adult += 1
             print(f"    ⚠ Skipped (commercial): {rep['title'][:60]}")
             continue
+
+        # World news: hard-reject adult-topic stories not appropriate for kids
+        # (applies before category check so non-science articles are filtered early)
+        if not any(s["source_name"] in SCIENCE_SOURCES for s in group):
+            if _WORLD_NEWS_REJECT_RE.search(rep["title"]):
+                skipped_adult += 1
+                print(f"    ⚠ Skipped (world-reject): {rep['title'][:60]}")
+                continue
 
         # Skip groups that score too low (political noise, single-source political stories)
         if ranking_score(group) < MIN_SCORE:
