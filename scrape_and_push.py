@@ -1188,18 +1188,19 @@ def generate_news_index_page(manifest):
     total    = len(articles)
 
     CAT_CARDS = [
-        ("🔬", "Science",     "news/science.html",     "#d1fae5", "#065f46"),
-        ("🌍", "World",       "news/world.html",       "#dbeafe", "#1e40af"),
-        ("🚀", "Space",       "news/space.html",       "#ede9fe", "#5b21b6"),
-        ("🐾", "Animals",     "news/animals.html",     "#fef3c7", "#92400e"),
-        ("🏛", "History",     "news/history.html",     "#fce7f3", "#9d174d"),
-        ("🌿", "Environment", "news/environment.html", "#dcfce7", "#166534"),
-        ("💻", "Technology",  "news/technology.html",  "#e0e7ff", "#3730a3"),
+        ("🔬", "Science",     "news/science.html",     "#d1fae5", "#065f46", "science"),
+        ("🌍", "World",       "news/world.html",       "#dbeafe", "#1e40af", "world"),
+        ("🚀", "Space",       "news/space.html",       "#ede9fe", "#5b21b6", "space"),
+        ("🐾", "Animals",     "news/animals.html",     "#fef3c7", "#92400e", "animals"),
+        ("🏛", "History",     "news/history.html",     "#fce7f3", "#9d174d", "history"),
+        ("🌿", "Environment", "news/environment.html", "#dcfce7", "#166534", "environment"),
+        ("💻", "Technology",  "news/technology.html",  "#e0e7ff", "#3730a3", "technology"),
     ]
     cat_grid = "".join(
         f'<a href="/{path}" class="ni-cat" style="background:{bg};color:{fg}">'
-        f'<span class="ni-icon">{icon}</span>{label}</a>'
-        for icon, label, path, bg, fg in CAT_CARDS
+        f'<span class="ni-icon">{icon}</span>{label}'
+        f'<span id="ni-c-{key}" class="ni-cat-count" style="font-size:11px;opacity:.7;font-weight:400"></span></a>'
+        for icon, label, path, bg, fg, key in CAT_CARDS
     )
 
     page = f"""<!DOCTYPE html><html lang="en"><head>
@@ -1226,7 +1227,7 @@ def generate_news_index_page(manifest):
 .ni-more{{display:block;text-align:center;padding:11px;background:#f0f4f8;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;color:#1a4d80;width:100%;margin-top:16px}}
 .ni-count{{font-size:13px;color:#718096;margin-bottom:12px}}
 </style>
-</head><body>
+</head><body><div id="kd-prog"></div>
 {HEADER}
 <main id="main" style="max-width:760px;margin:0 auto;padding:20px 16px">
 <h1 style="font-size:1.5em;color:#1a4d80;margin-bottom:4px">Kid News Hub</h1>
@@ -1236,6 +1237,7 @@ def generate_news_index_page(manifest):
 
 <h2 style="font-size:1.15em;color:#1a4d80;border-bottom:2px solid #ffd700;padding-bottom:6px;margin-bottom:14px">All Articles</h2>
 <input type="text" id="ni-search" placeholder="Search all articles..." aria-label="Search articles">
+<div id="ni-featured" style="display:none;margin-bottom:20px"></div>
 <div id="ni-count" class="ni-count"></div>
 <div id="ni-list"></div>
 <button id="ni-more" class="ni-more" onclick="niMore()">Load more</button>
@@ -1244,6 +1246,9 @@ def generate_news_index_page(manifest):
 <script>
 (function(){{
   var PAGE=20,arts=[],off=0,q='',filt=[];
+  var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var TODAY_STR=new Date().toISOString().slice(0,10);
+  function fmtDate(d){{var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}}
   function blbl(b){{return b<=-1.2?'Far Left':b<=-0.4?'Leans Left':b<=-.15?'Ctr-Left':b<=.15?'Center':b<=.4?'Ctr-Right':b<=1.2?'Leans Right':'Far Right';}}
   function card(a){{
     var sci=a.is_science,bc=sci?'ni-badge-sci':'ni-badge-news',bl=sci?'Science':'World';
@@ -1252,7 +1257,8 @@ def generate_news_index_page(manifest):
     var ex=a.description?a.description.slice(0,110)+(a.description.length>110?'…':''):'';
     var n=a.n_sources||1;
     var multi=n>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">'+n+' outlets</span>':'';
-    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+multi+'<a href="/'+a.slug+'">'+a.title+'</a>'+(ex?'<p style="margin:3px 0 5px;font-size:12px;color:#4a5568;line-height:1.4">'+ex+'</p>':'')+'<div class="ni-card-meta">'+a.date+' &middot; '+blbl(a.bias_avg)+'</div></div>';
+    var newBadge=a.date===TODAY_STR?'<span style="font-size:10px;background:#dc2626;color:#fff;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">NEW</span>':'';
+    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+multi+newBadge+'<a href="/'+a.slug+'">'+a.title+'</a>'+(ex?'<p style="margin:3px 0 5px;font-size:12px;color:#4a5568;line-height:1.4">'+ex+'</p>':'')+'<div class="ni-card-meta">'+fmtDate(a.date)+' &middot; '+blbl(a.bias_avg)+'</div></div>';
   }}
   function applyFilter(){{filt=q?arts.filter(function(a){{return((a.title||'')+' '+(a.description||'')).toLowerCase().indexOf(q)>=0;}}):arts;}}
   function render(){{
@@ -1271,8 +1277,35 @@ def generate_news_index_page(manifest):
     q=e.target.value.toLowerCase().trim();off=0;applyFilter();render();
   }});
   fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(function(data){{
-    arts=data;applyFilter();render();
+    arts=data;
+    // Dynamic category counts
+    var cc={{science:0,world:0,space:0,animals:0,history:0,environment:0,technology:0}};
+    arts.forEach(function(a){{
+      if(a.is_science)cc.science++;else cc.world++;
+      (a.cats||[]).forEach(function(c){{if(c!=='science'&&c!=='world'&&cc.hasOwnProperty(c))cc[c]++;}});
+    }});
+    Object.keys(cc).forEach(function(k){{var el=document.getElementById('ni-c-'+k);if(el)el.textContent=cc[k];}});
+    // Featured top story from today (or most recent)
+    var todayStr=new Date().toISOString().slice(0,10);
+    var pool=arts.filter(function(a){{return a.date===todayStr;}});
+    if(!pool.length)pool=arts.slice(0,50);
+    var top=pool.sort(function(a,b){{return(b.n_sources||1)-(a.n_sources||1);}})[0];
+    if(top&&(top.n_sources||1)>1){{
+      var fe=document.getElementById('ni-featured');
+      fe.style.display='block';
+      fe.innerHTML='<h2 style="font-size:1.05em;color:#1a4d80;border-bottom:2px solid #ffd700;padding-bottom:4px;margin-bottom:10px">&#11088; Top Story Today</h2>'
+        +'<div style="background:#fffbeb;border:1px solid #fef3c7;border-radius:10px;padding:16px">'
+        +'<a href="/'+top.slug+'" style="font-size:17px;font-weight:700;color:#1a4d80;display:block;margin-bottom:6px">'+top.title+'</a>'
+        +(top.description?'<p style="font-size:14px;color:#4a5568;margin:0 0 8px;line-height:1.4">'+(top.description.length>160?top.description.slice(0,160)+'…':top.description)+'</p>':'')
+        +'<span style="font-size:12px;color:#92400e;background:#fef3c7;padding:2px 8px;border-radius:20px;font-weight:600">&#x1f4f0; '+(top.n_sources||1)+' outlets covering this story</span>'
+        +'</div>';
+    }}
+    applyFilter();render();
   }});
+  window.addEventListener('scroll',function(){{
+    var d=document.documentElement;
+    document.getElementById('kd-prog').style.width=Math.min(100,100*d.scrollTop/((d.scrollHeight-d.clientHeight)||1))+'%';
+  }},{{passive:true}});
 }})();
 </script>
 </body></html>"""
@@ -1878,6 +1911,9 @@ def generate_archive(manifest):
   var moreBtn = document.getElementById('load-more');
   var searchEl = document.getElementById('arch-search');
 
+  var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var TODAY_STR=new Date().toISOString().slice(0,10);
+  function fmtDate(d){{var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}}
   function biasLabel(b) {{
     return b <= -1.2 ? 'Far Left' : b <= -0.4 ? 'Leans Left' : b <= -0.15 ? 'Center-Left'
          : b <= 0.15 ? 'Center' : b <= 0.4 ? 'Center-Right' : b <= 1.2 ? 'Leans Right' : 'Far Right';
@@ -1885,21 +1921,21 @@ def generate_archive(manifest):
 
   function renderCard(a) {{
     var isSci = a.is_science || a.category === 'science';
-    var catKey = a.category || (isSci ? 'science' : 'world');
     var badge = isSci ? '<span class="kd-badge kd-badge-sci">Science</span>' : '<span class="kd-badge kd-badge-news">World News</span>';
     var n = a.n_sources || 1;
     var bias = a.bias_avg || 0;
     var dot = Math.max(5, Math.min(95, Math.round((bias + 2) / 4 * 100)));
     var bLbl = biasLabel(bias);
     var src = n === 1 ? '1 outlet' : n + ' outlets';
+    var newBadge = a.date === TODAY_STR ? '<span style="font-size:10px;background:#dc2626;color:#fff;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">NEW</span>' : '';
     return '<div class="kd-sc">'
-      + '<div class="kd-sc-top">' + badge + '<span style="font-size:11px;color:#718096;margin-left:auto">' + src + '</span></div>'
+      + '<div class="kd-sc-top">' + badge + newBadge + '<span style="font-size:11px;color:#718096;margin-left:auto">' + src + '</span></div>'
       + '<h3 style="margin:4px 0 6px"><a href="/' + a.slug + '">' + a.title + '</a></h3>'
       + '<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
       + '<div class="kd-mini-track"><span class="kd-mini-dot" style="left:' + dot + '%"></span></div>'
       + '<span class="kd-mini-lbl" style="text-align:right">R</span>'
       + '<span style="font-size:10px;color:#718096;margin-left:6px">' + bLbl + '</span></div>'
-      + '<div style="font-size:11px;color:#718096;margin-top:4px">' + (a.date || '') + '</div>'
+      + '<div style="font-size:11px;color:#718096;margin-top:4px">' + fmtDate(a.date) + '</div>'
       + '</div>';
   }}
 
@@ -1929,7 +1965,7 @@ def generate_archive(manifest):
     chunk.forEach(function(a) {{ (byDate[a.date || 'Unknown'] = byDate[a.date || 'Unknown'] || []).push(a); }});
     var html = '';
     Object.keys(byDate).sort().reverse().forEach(function(d) {{
-      html += '<h2 class="arch-date-hdr">' + d + '</h2>';
+      html += '<h2 class="arch-date-hdr">' + fmtDate(d) + '</h2>';
       byDate[d].forEach(function(a) {{ html += renderCard(a); }});
     }});
     listEl.innerHTML = html || '<p style="color:#718096;font-family:system-ui,sans-serif">No articles matched.</p>';
@@ -2378,14 +2414,24 @@ fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(funct
 }}).catch(function(){{document.getElementById('td-empty').style.display='';}});
 document.getElementById('today-search').addEventListener('input',function(){{
   var q=this.value.toLowerCase().trim();
-  document.querySelectorAll('.td-card').forEach(function(el){{
-    el.style.display=(!q||(el.dataset.title||'').includes(q))?'':'none';
-  }});
-  ['td-sci-sec','td-world-sec'].forEach(function(id){{
-    var sec=document.getElementById(id);if(!sec)return;
-    var any=[...sec.querySelectorAll('.td-card')].some(function(el){{return el.style.display!=='none';}});
-    sec.style.display=any?'':'none';
-  }});
+  var sciEl=document.getElementById('td-sci-list'),wldEl=document.getElementById('td-world-list');
+  if(!q){{
+    sciEl.innerHTML='';wldEl.innerHTML='';
+    sciOff=renderSlice(sci,sciEl,0,SCI_PG);updBtn(document.getElementById('td-sci-more'),sci,sciOff,SCI_PG);
+    wldOff=renderSlice(world,wldEl,0,WLD_PG);updBtn(document.getElementById('td-world-more'),world,wldOff,WLD_PG);
+    document.getElementById('td-sci-sec').style.display=sci.length?'':'none';
+    document.getElementById('td-world-sec').style.display=world.length?'':'none';
+    return;
+  }}
+  function match(a){{return((a.title||'')+' '+(a.description||'')).toLowerCase().indexOf(q)!==-1;}}
+  var fs=sci.filter(match),fw=world.filter(match);
+  sciEl.innerHTML='';fw&&(wldEl.innerHTML='');
+  fs.forEach(function(a){{var d=document.createElement('div');d.innerHTML=card(a);sciEl.appendChild(d.firstChild);}});
+  fw.forEach(function(a){{var d=document.createElement('div');d.innerHTML=card(a);wldEl.appendChild(d.firstChild);}});
+  document.getElementById('td-sci-more').style.display='none';
+  document.getElementById('td-world-more').style.display='none';
+  document.getElementById('td-sci-sec').style.display=fs.length?'':'none';
+  document.getElementById('td-world-sec').style.display=fw.length?'':'none';
 }});
 }})();
 </script>
