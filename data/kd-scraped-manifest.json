@@ -518,7 +518,10 @@
     "news/2026-06-29-hiv-enters-the-brain-and-doesnt-leave-paradoxicall.html",
     "news/2026-06-29-methane-rocket-fuel-is-easier-to-handle-and-conven.html",
     "news/2026-06-29-fossil-fishes-buried-in-the-desert-reveal-a-missin.html",
-    "news/2026-06-29-from-hormuz-to-the-cockpit-how-warfare-and-crimina.html"
+    "news/2026-06-29-from-hormuz-to-the-cockpit-how-warfare-and-crimina.html",
+    "news/2026-06-29-trumps-ai-security-order-acknowledges-risks-but-st.html",
+    "news/2026-06-29-dallas-cowboys-cheerleaders-on-fame-pressure-and-w.html",
+    "news/2026-06-29-fitness-brand-founder-and-olympian-les-mills-dies.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1039,7 +1042,10 @@
     "HIV enters the brain and doesn’t leave – paradoxically, drugs intended to reduce brain inflammation increase virus levels",
     "Methane rocket fuel is easier to handle and convenient but, as Blue Origin saw, it can be very explosive",
     "Fossil fishes buried in the desert reveal a missing chapter in marine history",
-    "From Hormuz to the cockpit: How warfare and criminal activity undermine GPS and the race to safeguard navigation"
+    "From Hormuz to the cockpit: How warfare and criminal activity undermine GPS and the race to safeguard navigation",
+    "Trump’s AI security order acknowledges risks but stops short of regulating industry",
+    "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
+    "Fitness brand founder and Olympian Les Mills dies aged 91"
   ],
   "articles": [
     {
@@ -6831,6 +6837,42 @@
       "is_science": true,
       "source_name": "The Conversation",
       "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-trumps-ai-security-order-acknowledges-risks-but-st.html",
+      "title": "Trump’s AI security order acknowledges risks but stops short of regulating industry",
+      "display_title": "Trump’s AI security order acknowledges risks but stops short of regulating industry",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-dallas-cowboys-cheerleaders-on-fame-pressure-and-w.html",
+      "title": "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
+      "display_title": "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-fitness-brand-founder-and-olympian-les-mills-dies.html",
+      "title": "Fitness brand founder and Olympian Les Mills dies aged 91",
+      "display_title": "Fitness brand founder and Olympian Les Mills dies aged 91",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
