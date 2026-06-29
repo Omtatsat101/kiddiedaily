@@ -405,7 +405,10 @@
     "news/2026-06-29-toward-experiment-guided-alphafold-researchers-ove.html",
     "news/2026-06-29-south-korea-unveils-880bn-chip-and-ai-investment-p.html",
     "news/2026-06-29-watch-world-cup-day-18-canada-beats-south-africa-t.html",
-    "news/2026-06-29-venezuela-earthquake-aid-ramps-up-as-rescue-window.html"
+    "news/2026-06-29-venezuela-earthquake-aid-ramps-up-as-rescue-window.html",
+    "news/2026-06-29-venezuela-rescuers-race-against-the-clock-to-find.html",
+    "news/2026-06-29-south-korea-announces-more-than-1-trillion-ai-chip.html",
+    "news/2026-06-29-3-world-cup-rivals-find-common-ground-in-a-cross-b.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -813,7 +816,10 @@
     "Toward experiment-guided AlphaFold: Researchers overcome AI tool's single-conformation limitation",
     "South Korea unveils $880bn chip and AI investment plan",
     "Watch World Cup Day 18: Canada beats South Africa, through to last 16",
-    "Venezuela earthquake: Aid ramps up as rescue window closes"
+    "Venezuela earthquake: Aid ramps up as rescue window closes",
+    "Venezuela rescuers race against the clock to find more survivors",
+    "South Korea announces more than $1 trillion AI, chip investment drive",
+    "3 World Cup rivals find 'Common Ground' in a cross-border beer"
   ],
   "articles": [
     {
@@ -5269,6 +5275,39 @@
       "agreement_pct": 10,
       "is_science": false,
       "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-venezuela-rescuers-race-against-the-clock-to-find.html",
+      "title": "Venezuela rescuers race against the clock to find more survivors",
+      "display_title": "Venezuela rescuers race against the clock to find more survivors",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-south-korea-announces-more-than-1-trillion-ai-chip.html",
+      "title": "South Korea announces more than $1 trillion AI, chip investment drive",
+      "display_title": "South Korea announces more than $1 trillion AI, chip investment drive",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-3-world-cup-rivals-find-common-ground-in-a-cross-b.html",
+      "title": "3 World Cup rivals find 'Common Ground' in a cross-border beer",
+      "display_title": "3 World Cup rivals find 'Common Ground' in a cross-border beer",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "📻"
     }
   ]
 }
