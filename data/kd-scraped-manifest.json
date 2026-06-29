@@ -55,7 +55,12 @@
     "news/2026-06-29-canada-score-late-to-beat-south-africa-and-reach-l.html",
     "news/2026-06-29-aoc-calls-to-break-up-big-tech-companies-amid-pric.html",
     "news/2026-06-29-maha-feels-betrayed-after-supreme-court-ruling-on.html",
-    "news/2026-06-29-three-firefighters-die-in-colorado-blaze.html"
+    "news/2026-06-29-three-firefighters-die-in-colorado-blaze.html",
+    "news/2026-06-29-you-are-canadian-heroes---the-forgotten-hosts-maki.html",
+    "news/2026-06-29-kaine-says-hegseth-grudge-against-army-looks-perso.html",
+    "news/2026-06-29-mullin-defends-haiti-tps-decision.html",
+    "news/2026-06-29-tillis-passing-save-america-act-before-midterms-is.html",
+    "news/2026-06-29-burnham-to-promise-devolution-in-first-major-speec.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -113,7 +118,12 @@
     "Canada score late to beat South Africa and reach last 16 at World Cup 2026",
     "AOC calls to 'break up' big tech companies amid price hikes",
     "MAHA feels betrayed after Supreme Court ruling on Monsanto, glyphosate",
-    "Three firefighters die in Colorado blaze"
+    "Three firefighters die in Colorado blaze",
+    "'You are Canadian heroes' - the forgotten hosts making World Cup history",
+    "Kaine says Hegseth 'grudge' against Army looks 'personal'",
+    "Mullin defends Haiti TPS decision",
+    "Tillis: Passing SAVE America Act before midterms is an 'impossible task'",
+    "Burnham to promise devolution in first major speech since launching No 10 bid"
   ],
   "articles": [
     {
@@ -719,6 +729,61 @@
       "agreement_pct": 31,
       "is_science": false,
       "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-you-are-canadian-heroes---the-forgotten-hosts-maki.html",
+      "title": "'You are Canadian heroes' - the forgotten hosts making World Cup history",
+      "display_title": "'You are Canadian heroes' - the forgotten hosts making World Cup history",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.35,
+      "agreement_pct": 62,
+      "is_science": false,
+      "source_icons": "🇬🇧 🌍"
+    },
+    {
+      "slug": "news/2026-06-29-kaine-says-hegseth-grudge-against-army-looks-perso.html",
+      "title": "Kaine says Hegseth 'grudge' against Army looks 'personal'",
+      "display_title": "Kaine says Hegseth 'grudge' against Army looks 'personal'",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-mullin-defends-haiti-tps-decision.html",
+      "title": "Mullin defends Haiti TPS decision",
+      "display_title": "Mullin defends Haiti TPS decision",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-tillis-passing-save-america-act-before-midterms-is.html",
+      "title": "Tillis: Passing SAVE America Act before midterms is an 'impossible task'",
+      "display_title": "Tillis: Passing SAVE America Act before midterms is an 'impossible task'",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-burnham-to-promise-devolution-in-first-major-speec.html",
+      "title": "Burnham to promise devolution in first major speech since launching No 10 bid",
+      "display_title": "Burnham to promise devolution in first major speech since launching No 10 bid",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 31,
+      "is_science": false,
+      "source_icons": "🇬🇧"
     }
   ]
 }
