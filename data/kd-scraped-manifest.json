@@ -487,7 +487,9 @@
     "news/2026-06-29-can-clusters-of-human-constructed-ponds-in-the-ari.html",
     "news/2026-06-29-the-future-of-duxbury-reef.html",
     "news/2026-06-29-how-mother-trees-nurture-our-forests.html",
-    "news/2026-06-29-a-midwest-mayor-joins-london-climate-week-as-a-rat.html"
+    "news/2026-06-29-a-midwest-mayor-joins-london-climate-week-as-a-rat.html",
+    "news/2026-06-29-mamdani-backed-socialists-look-to-take-new-york-pl.html",
+    "news/2026-06-29-french-oil-major-failed-to-fulfill-vigilance-duty.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -977,7 +979,9 @@
     "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?",
     "The Future of Duxbury Reef",
     "How ‘Mother Trees’ Nurture Our Forests",
-    "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done"
+    "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done",
+    "Mamdani-backed socialists look to take New York playbook nationwide and more top headlines",
+    "French Oil Major Failed to Fulfill ‘Vigilance’ Duty on Climate, Paris Court Rules"
   ],
   "articles": [
     {
@@ -6390,6 +6394,30 @@
       "slug": "news/2026-06-29-a-midwest-mayor-joins-london-climate-week-as-a-rat.html",
       "title": "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done",
       "display_title": "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-mamdani-backed-socialists-look-to-take-new-york-pl.html",
+      "title": "Mamdani-backed socialists look to take New York playbook nationwide and more top headlines",
+      "display_title": "Mamdani-backed socialists look to take New York playbook nationwide and more top headlines",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 1.3,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Fox News",
+      "source_icons": "🦅"
+    },
+    {
+      "slug": "news/2026-06-29-french-oil-major-failed-to-fulfill-vigilance-duty.html",
+      "title": "French Oil Major Failed to Fulfill ‘Vigilance’ Duty on Climate, Paris Court Rules",
+      "display_title": "French Oil Major Failed to Fulfill ‘Vigilance’ Duty on Climate, Paris Court Rules",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.4,
