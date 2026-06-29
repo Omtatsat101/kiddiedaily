@@ -732,7 +732,11 @@
     "news/2026-06-29-man-uses-a-game-boy-camera-to-photograph-jupiter.html",
     "news/2026-06-29-jetblue-pilot-reports-striking-a-drone-while-landi.html",
     "news/2026-06-29-is-ranch-dressing-american-what-to-know-about-the.html",
-    "news/2026-06-29-american-pride-hits-25-year-low-gallup.html"
+    "news/2026-06-29-american-pride-hits-25-year-low-gallup.html",
+    "news/2026-06-29-cern-shutters-the-large-hadron-collider-for-a-majo.html",
+    "news/2026-06-29-dr-congo-bans-mass-gatherings-in-the-capital-to-pr.html",
+    "news/2026-06-29-bullied-teen-who-had-44-surgeries-for-rare-skull-c.html",
+    "news/2026-06-29-miracle-man-pulled-from-rubble-four-days-after-ven.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1467,7 +1471,11 @@
     "Man uses a Game Boy Camera to photograph Jupiter",
     "JetBlue pilot reports striking a drone while landing at JFK airport",
     "Is ranch dressing American? What to know about the World Cup's breakout condiment",
-    "American pride hits 25-year low: Gallup"
+    "American pride hits 25-year low: Gallup",
+    "CERN shutters the Large Hadron Collider for a major transformation",
+    "DR Congo bans mass gatherings in the capital to prevent spread of Ebola",
+    "Bullied teen who had 44 surgeries for rare skull condition now training as doctor",
+    "‘Miracle’: Man pulled from rubble four days after Venezuelan quakes"
   ],
   "articles": [
     {
@@ -9864,6 +9872,58 @@
       "source_name": "The Hill",
       "source_icons": "⚖️",
       "description": "A new Gallup survey found that American pride is at a 25-year low, days ahead of the country’s 250th anniversary. Poll results show that 33 percent of U.S. adults say they are “extremely proud” to be "
+    },
+    {
+      "slug": "news/2026-06-29-cern-shutters-the-large-hadron-collider-for-a-majo.html",
+      "title": "CERN shutters the Large Hadron Collider for a major transformation",
+      "display_title": "CERN shutters the Large Hadron Collider for a major transformation",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Science News",
+      "source_icons": "📡",
+      "description": "The High-Luminosity LHC, planned to switch on in 2030, could help physicists unravel mysteries about the Higgs boson, dark matter and more."
+    },
+    {
+      "slug": "news/2026-06-29-dr-congo-bans-mass-gatherings-in-the-capital-to-pr.html",
+      "title": "DR Congo bans mass gatherings in the capital to prevent spread of Ebola",
+      "display_title": "DR Congo bans mass gatherings in the capital to prevent spread of Ebola",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧",
+      "description": "Opposition politicians accuse the government of using the outbreak to halt a planned protest."
+    },
+    {
+      "slug": "news/2026-06-29-bullied-teen-who-had-44-surgeries-for-rare-skull-c.html",
+      "title": "Bullied teen who had 44 surgeries for rare skull condition now training as doctor",
+      "display_title": "Bullied teen who had 44 surgeries for rare skull condition now training as doctor",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧",
+      "description": "Thomas Pearce has Pfeiffer Syndrome, which causes the skull to prematurely fuse in the womb."
+    },
+    {
+      "slug": "news/2026-06-29-miracle-man-pulled-from-rubble-four-days-after-ven.html",
+      "title": "‘Miracle’: Man pulled from rubble four days after Venezuelan quakes",
+      "display_title": "‘Miracle’: Man pulled from rubble four days after Venezuelan quakes",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "A 21-year-old man was pulled alive from the rubble of an apartment building in La Guaira, Venezuela."
     }
   ]
 }
