@@ -1215,9 +1215,12 @@ def generate_news_index_page(manifest):
     var sci=a.is_science,bc=sci?'ni-badge-sci':'ni-badge-news',bl=sci?'Science':'World';
     var cats=(a.cats||[]).filter(function(c){{return c!=='science'&&c!=='world';}});
     var tags=cats.slice(0,2).map(function(c){{return'<span class="ni-badge ni-badge-cat">'+c+'</span>';}}).join('');
-    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+'<a href="/'+a.slug+'">'+a.title+'</a><div class="ni-card-meta">'+a.date+' &middot; '+blbl(a.bias_avg)+'</div></div>';
+    var ex=a.description?a.description.slice(0,110)+(a.description.length>110?'…':''):'';
+    var n=a.n_sources||1;
+    var multi=n>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">'+n+' outlets</span>':'';
+    return'<div class="ni-card"><span class="ni-badge '+bc+'">'+bl+'</span>'+tags+multi+'<a href="/'+a.slug+'">'+a.title+'</a>'+(ex?'<p style="margin:3px 0 5px;font-size:12px;color:#4a5568;line-height:1.4">'+ex+'</p>':'')+'<div class="ni-card-meta">'+a.date+' &middot; '+blbl(a.bias_avg)+'</div></div>';
   }}
-  function applyFilter(){{filt=q?arts.filter(function(a){{return(a.title+' '+(a.description||'')).toLowerCase().indexOf(q)>=0;}}):arts;}}
+  function applyFilter(){{filt=q?arts.filter(function(a){{return((a.title||'')+' '+(a.description||'')).toLowerCase().indexOf(q)>=0;}}):arts;}}
   function render(){{
     var list=document.getElementById('ni-list'),btn=document.getElementById('ni-more'),cnt=document.getElementById('ni-count');
     if(!off)list.innerHTML='';
@@ -1564,7 +1567,7 @@ def update_homepage(manifest):
         '<p style="margin:0 0 8px;font-size:15px;color:#166534;font-weight:600;line-height:1.4">Science, world events, and discoveries — explained so kids can actually understand them.</p>'
         '<ul style="margin:0;padding-left:20px;font-size:13px;color:#166534;line-height:2">'
         '<li>Every story checked for age-appropriateness</li>'
-        '<li>36 sources, 70% science &amp; discovery</li>'
+        f'<li>{len(SOURCES)} sources, 70%+ science &amp; discovery</li>'
         '<li>Bias-rated so families can think for themselves</li>'
         '</ul>'
         '</div>'
@@ -2113,7 +2116,7 @@ function card(a){{
 }}
 function renderSlice(){{
   var list=document.getElementById('cat-list');
-  var visible=q?arts.filter(function(a){{return(a.title||'').toLowerCase().includes(q);}})
+  var visible=q?arts.filter(function(a){{return((a.title||'')+' '+(a.description||'')).toLowerCase().includes(q);}})
                :arts;
   var slice=visible.slice(off,off+PAGE);
   slice.forEach(function(a){{var d=document.createElement('div');d.innerHTML=card(a);list.appendChild(d.firstChild);}});
@@ -2239,8 +2242,11 @@ function card(a){{
   var multi=a.n_sources>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'+a.n_sources+' outlets</span>':'';
   var ttl=a.display_title||a.title||'';
   var ex=a.description?a.description.slice(0,120)+(a.description.length>120?'…':''):'';
+  var CCLR={{'space':'#ede9fe;color:#5b21b6','animals':'#fef3c7;color:#92400e','history':'#fce7f3;color:#9d174d','environment':'#dcfce7;color:#166534','technology':'#e0e7ff;color:#3730a3'}};
+  var subcats=(a.cats||[]).filter(function(c){{return c!=='science'&&c!=='world';}});
+  var ctags=subcats.slice(0,2).map(function(c){{var s=CCLR[c]||'#f3f4f6;color:#374151';return'<span style="font-size:10px;background:'+s+';padding:1px 7px;border-radius:20px;font-weight:600;margin-left:5px">'+c+'</span>';}}).join('');
   return '<div class="td-card" data-title="'+ttl.toLowerCase()+'">'
-    +'<div style="margin-bottom:5px"><span class="kd-badge '+bc+'" style="font-size:10px">'+cat+'</span>'+multi+'</div>'
+    +'<div style="margin-bottom:5px"><span class="kd-badge '+bc+'" style="font-size:10px">'+cat+'</span>'+ctags+multi+'</div>'
     +'<a href="/'+a.slug+'">'+ttl+'</a>'
     +(ex?'<p class="td-ex">'+ex+'</p>':'')
     +'<div style="display:flex;align-items:center;gap:6px">'
