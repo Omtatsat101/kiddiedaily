@@ -283,6 +283,13 @@ def fetch_rss(source):
     for item in items[:25]:
         title = clean(get_field(item, "title"))
         link  = clean(get_field(item, "link", "url"))
+        # Atom feeds use <link href="..."/> (attribute, not text) — fall back to href
+        if not link:
+            for lel in item.findall(f"{{{ATOM}}}link"):
+                href = lel.get("href", "")
+                if href.startswith("http"):
+                    link = href
+                    break
         desc  = clean(get_field(item, "description", "summary", "content"))
         pub   = get_field(item, "pubDate", "published", "updated")
 
