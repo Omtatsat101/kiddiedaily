@@ -3499,6 +3499,61 @@ def generate_games_page(manifest):
             "found", "shows", "says", "that", "have", "with", "from", "this", "will",
             "into", "been", "more", "also", "than", "when", "were", "they"}
 
+    # True/False quiz: pick 6 science articles and alternate TRUE (real fact) / FALSE (word-swapped)
+    _FALSE_SWAPS = [
+        ("increased", "decreased"), ("larger", "smaller"), ("faster", "slower"),
+        ("older", "younger"), ("more", "fewer"), ("higher", "lower"),
+        ("warmer", "cooler"), ("longer", "shorter"), ("deeper", "shallower"),
+        ("new", "previously known"), ("rare", "common"), ("found", "ruled out"),
+        ("growing", "shrinking"), ("expanding", "contracting"), ("ancient", "modern"),
+    ]
+    tf_pool_raw = [a for a in sci_articles if a.get("description") and len(a.get("description", "")) > 50]
+    tf_pool_raw = tf_pool_raw[-20:] if len(tf_pool_raw) >= 20 else tf_pool_raw
+    tf_items = []
+    tf_idx = 0
+    for a in tf_pool_raw:
+        if len(tf_items) >= 6:
+            break
+        desc = a.get("description", "").strip()
+        sentence = re.split(r"(?<=[.!?])\s", desc)[0].rstrip(".!? ")
+        if len(sentence) < 35 or len(sentence) > 180:
+            continue
+        if tf_idx % 2 == 0:
+            tf_items.append(("true", sentence, a.get("slug", "")))
+        else:
+            false_stmt = sentence
+            swapped = False
+            for tw, fw in _FALSE_SWAPS:
+                if re.search(tw, false_stmt, re.IGNORECASE):
+                    false_stmt = re.sub(tw, fw, false_stmt, flags=re.IGNORECASE, count=1)
+                    swapped = True
+                    break
+            if swapped:
+                tf_items.append(("false", false_stmt, a.get("slug", "")))
+            else:
+                tf_items.append(("true", sentence, a.get("slug", "")))
+        tf_idx += 1
+
+    tf_correct_js = "[" + ",".join(f'"{it[0]}"' for it in tf_items) + "]"
+    tf_slugs_js = "[" + ",".join(f'"{it[2]}"' for it in tf_items) + "]"
+    tf_html = ""
+    for i, (answer, stmt, slug) in enumerate(tf_items):
+        tf_html += (
+            f'<div class="tf-q" id="tf{i}" style="background:#f7fafc;border:1px solid #e2e8f0;'
+            f'border-radius:10px;padding:14px 18px;margin:10px 0">'
+            f'<p style="font-weight:600;font-size:14px;color:#2d3748;margin:0 0 10px">{i+1}. {stmt}</p>'
+            f'<div style="display:flex;gap:10px">'
+            f'<label style="cursor:pointer;font-size:13px;padding:6px 16px;border-radius:20px;'
+            f'border:1px solid #1a4d80;color:#1a4d80;background:#fff">'
+            f'<input type="radio" name="tf{i}" value="true" style="margin-right:6px">True</label>'
+            f'<label style="cursor:pointer;font-size:13px;padding:6px 16px;border-radius:20px;'
+            f'border:1px solid #c53030;color:#c53030;background:#fff">'
+            f'<input type="radio" name="tf{i}" value="false" style="margin-right:6px">False</label>'
+            f'</div>'
+            f'<div id="tf{i}-result" style="display:none;margin-top:8px;padding:8px 12px;border-radius:6px;font-size:13px"></div>'
+            f'</div>'
+        )
+
     def _extract_kws(a):
         title = a.get("display_title", a.get("title", ""))
         return [w.capitalize() for w in re.sub(r"[^\w\s]", "", title.lower()).split()
@@ -3602,6 +3657,40 @@ Learn to read news like a pro — because critical thinking is a superpower.
 Check My Answers</button>
 <div id="quiz-summary" style="display:none;margin-top:14px;padding:14px 18px;border-radius:8px;background:#eff6ff;color:#1e40af;font-size:15px;font-family:system-ui,sans-serif"></div>""" if quiz_pool else ""}
 </div>
+
+{"" if not tf_items else f"""
+<div class="game-card">
+<span class="tag">True or False</span>
+<h3>&#10067; Science Fact Check</h3>
+<p>These statements came from today&rsquo;s science articles &mdash; but some have been <em>slightly</em> changed to make them false. Can you spot the fakes?</p>
+<div style="margin-top:14px">
+{tf_html}
+</div>
+<button onclick="(function(){{{{
+  var ans={tf_correct_js},slugs={tf_slugs_js},score=0,total={len(tf_items)};
+  for(var i=0;i<total;i++){{{{
+    var el=document.querySelector('input[name=tf'+i+']:checked');
+    var res=document.getElementById('tf'+i+'-result');
+    res.style.display='block';
+    if(el&&el.value===ans[i]){{{{
+      score++;
+      res.style.background='#d1fae5';res.style.color='#065f46';
+      res.innerHTML='&#9989; Correct! '+(ans[i]==='true'?'This really happened &mdash; ':'Good catch &mdash; this was altered. ')
+        +(slugs[i]?'<a href=\\"/' + slugs[i] + '\\" style=\\"color:#065f46;font-weight:600\\">Read the article &rarr;</a>':'');
+    }}}}else{{{{
+      res.style.background='#fee2e2';res.style.color='#c53030';
+      res.innerHTML='&#10060; '+(ans[i]==='true'?'Actually true! ':'Yep, this was altered. ')
+        +(slugs[i]?'<a href=\\"/' + slugs[i] + '\\" style=\\"color:#c53030;font-weight:600\\">Read the original &rarr;</a>':'');
+    }}}}
+  }}}}
+  var s=document.getElementById('tf-summary');
+  s.style.display='block';
+  s.innerHTML='<strong>You got '+score+' out of '+total+'!</strong> '
+    +(score===total?'&#127881; Perfect science detective!':score>=Math.ceil(total/2)?'&#128077; Solid work &mdash; keep reading!':'&#128218; Tricky ones! Read more to sharpen your radar.');
+}}}})()" style="margin-top:14px;background:#1a4d80;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:14px;cursor:pointer;font-family:system-ui,sans-serif">Check My Answers</button>
+<div id="tf-summary" style="display:none;margin-top:14px;padding:14px 18px;border-radius:8px;background:#eff6ff;color:#1e40af;font-size:15px;font-family:system-ui,sans-serif"></div>
+</div>
+"""}
 
 <div class="game-card">
 <span class="tag">Critical Thinking</span>
@@ -3877,6 +3966,52 @@ def generate_status_page(manifest, today, pushed_count):
         for icon, cnt in top_sources
     )
 
+    # Per-category counts
+    _CAT_META = [
+        ("science", "&#x1f52c;", "Science", "#d1fae5", "#065f46"),
+        ("world", "&#x1f30d;", "World News", "#dbeafe", "#1e40af"),
+        ("space", "&#x1f680;", "Space", "#ede9fe", "#5b21b6"),
+        ("animals", "&#x1f43e;", "Animals", "#fef3c7", "#92400e"),
+        ("history", "&#x1f3db;", "History", "#fce7f3", "#9d174d"),
+        ("environment", "&#x1f33f;", "Environment", "#dcfce7", "#166534"),
+        ("technology", "&#x1f4bb;", "Technology", "#e0f2fe", "#0369a1"),
+    ]
+    cat_counts = {"science": sci, "world": world}
+    for a in articles:
+        for c in (a.get("cats") or []):
+            if c not in cat_counts:
+                cat_counts[c] = 0
+            cat_counts[c] = cat_counts.get(c, 0) + 1
+    cat_chips = "".join(
+        f'<a href="/news/{key}.html" style="display:inline-flex;align-items:center;gap:5px;'
+        f'background:{bg};color:{fg};border-radius:20px;padding:5px 13px;font-size:13px;'
+        f'font-weight:700;text-decoration:none;font-family:system-ui,sans-serif">'
+        f'{icon} {label} <span style="opacity:.7;font-weight:400">{cat_counts.get(key, 0)}</span></a>'
+        for key, icon, label, bg, fg in _CAT_META
+        if cat_counts.get(key, 0) > 0
+    )
+
+    # Named source breakdown (top 12 by article count using source_name field)
+    named_counts = {}
+    for a in articles:
+        sn = a.get("source_name") or a.get("sources", [{}])[0].get("name", "") if a.get("sources") else ""
+        if sn:
+            named_counts[sn] = named_counts.get(sn, 0) + 1
+    top_named = sorted(named_counts.items(), key=lambda x: -x[1])[:12]
+    source_rows = "".join(
+        f'<tr><td style="padding:5px 10px 5px 0;font-size:13px;color:#2d3748">{name}</td>'
+        f'<td style="padding:5px 0;font-size:13px;color:#718096;text-align:right">{cnt}</td></tr>'
+        for name, cnt in top_named
+    )
+    source_table = (
+        f'<table style="width:100%;border-collapse:collapse;margin-top:10px">'
+        f'<thead><tr><th style="text-align:left;font-size:11px;color:#718096;font-weight:600;'
+        f'text-transform:uppercase;letter-spacing:.8px;padding-bottom:6px">Source</th>'
+        f'<th style="text-align:right;font-size:11px;color:#718096;font-weight:600;'
+        f'text-transform:uppercase;letter-spacing:.8px;padding-bottom:6px">Articles</th></tr></thead>'
+        f'<tbody>{source_rows}</tbody></table>'
+    ) if top_named else ""
+
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>KiddieDaily — Scraper Status</title>
@@ -3937,6 +4072,13 @@ main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
   </div>
 
   <div class="stat-card" style="margin-top:20px">
+    <h3>Categories</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+      {cat_chips}
+    </div>
+  </div>
+
+  <div class="stat-card" style="margin-top:12px">
     <h3>Pipeline Health</h3>
     <div style="margin:10px 0 6px;display:flex;flex-wrap:wrap;gap:8px">
       <span class="badge-ok">✓ GitHub Actions cron active</span>
@@ -3948,6 +4090,7 @@ main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
     <div style="margin-top:12px;font-size:13px;color:#718096">
       Sources monitored: {sources_html}
     </div>
+    {source_table}
   </div>
 
   <div class="stat-card" style="margin-top:16px">
