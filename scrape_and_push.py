@@ -1884,6 +1884,160 @@ def generate_weekly_digest(manifest, today):
 
 
 # ── Search page ──────────────────────────────────────────────────────────────
+def generate_for_parents_page(manifest, today):
+    """Generate /parents/index.html — daily parent briefing with bias context and discussion guides."""
+    articles = manifest.get("articles", [])
+    today_articles = sorted(
+        [a for a in articles if a.get("date") == today],
+        key=lambda x: -(x.get("n_sources", 1) * 2 + (5 if x.get("is_science") else 0))
+    )
+    total = len(articles)
+    sci_count = sum(1 for a in articles if a.get("is_science"))
+    sci_pct = round(sci_count / total * 100) if total else 0
+    all_biases = [a.get("bias_avg", 0.0) for a in articles]
+    avg_bias = sum(all_biases) / len(all_biases) if all_biases else 0.0
+    left_n   = sum(1 for b in all_biases if b < -0.3)
+    center_n = sum(1 for b in all_biases if -0.3 <= b <= 0.3)
+    right_n  = sum(1 for b in all_biases if b > 0.3)
+    avg_bias_lbl = ("Center" if abs(avg_bias) < 0.3
+                    else ("Left-leaning" if avg_bias < 0 else "Right-leaning"))
+
+    stop = {"about", "their", "these", "those", "would", "could", "which", "where",
+            "there", "after", "other", "first", "world", "using", "study", "finds",
+            "found", "shows", "says", "that", "have", "with", "from", "this", "will"}
+
+    def _card(a):
+        slug     = a["slug"]
+        title    = a.get("display_title", a.get("title", ""))
+        is_sci   = a.get("is_science", False)
+        n        = a.get("n_sources", 1)
+        bias     = a.get("bias_avg", 0.0)
+        bias_lbl = "Center" if abs(bias) < 0.3 else ("Left-leaning" if bias < 0 else "Right-leaning")
+        dot_pct  = max(5, min(95, round((bias + 2) / 4 * 100)))
+        badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
+        badge_lbl = "Science" if is_sci else "World News"
+        words = [w for w in re.sub(r"[^\w\s]", "", title.lower()).split()
+                 if len(w) > 3 and w not in stop]
+        topic = " ".join(words[:2]) if len(words) >= 2 else (words[0] if words else "this")
+        teaser = (f"Ask your child: &ldquo;What do scientists think about <em>{topic}</em>?&rdquo;"
+                  if is_sci else
+                  f"Ask: &ldquo;Why might people disagree about <em>{topic}</em>?&rdquo;")
+        return (
+            f'<div style="background:#fff;border:1px solid #dde4ef;border-radius:10px;'
+            f'padding:16px 20px;margin:10px 0;box-shadow:0 1px 4px rgba(0,0,0,.05)">'
+            f'<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">'
+            f'<span class="kd-badge {badge_cls}">{badge_lbl}</span>'
+            f'<span style="font-size:12px;color:#718096">{n} source{"s" if n!=1 else ""}'
+            f' &middot; {bias_lbl} ({bias:+.1f})</span></div>'
+            f'<h3 style="margin:0 0 8px;font-size:16px;line-height:1.4">'
+            f'<a href="/{slug}" style="color:#1a4d80;text-decoration:none">{title}</a></h3>'
+            f'<div style="display:flex;align-items:center;gap:6px;margin-bottom:10px">'
+            f'<span style="font-size:11px;font-weight:700;color:#718096;width:14px">L</span>'
+            f'<div style="flex:1;height:6px;border-radius:3px;'
+            f'background:linear-gradient(to right,#3182ce,#805ad5,#e53e3e);position:relative">'
+            f'<span style="position:absolute;top:-5px;left:{dot_pct}%;width:16px;height:16px;'
+            f'background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)"></span>'
+            f'</div><span style="font-size:11px;font-weight:700;color:#718096;width:14px;text-align:right">R</span></div>'
+            f'<div style="background:#f7fafc;border-radius:6px;padding:8px 12px;font-size:13px;color:#4a5568">'
+            f'&#128172; {teaser} '
+            f'<a href="/{slug}" style="color:#1a4d80;font-size:12px">Full article + discussion guide &rarr;</a>'
+            f'</div></div>'
+        )
+
+    cards_html = "\n".join(_card(a) for a in today_articles[:8])
+    n_today = len(today_articles)
+
+    # Source distribution bar
+    bar_total = left_n + center_n + right_n or 1
+    left_pct   = round(left_n / bar_total * 100)
+    center_pct = round(center_n / bar_total * 100)
+    right_pct  = 100 - left_pct - center_pct
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Parents — KiddieDaily Daily Briefing</title>
+<meta name="description" content="KiddieDaily parent briefing for {today}: {n_today} articles, bias ratings, source analysis, and discussion guides for families.">
+<link rel="canonical" href="https://kiddiedaily.com/parents/">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
+<style>
+.stat-row{{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:16px 0 24px}}
+.stat-box{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 16px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.05)}}
+.stat-box .val{{font-size:28px;font-weight:700;color:#1a4d80;display:block;margin-bottom:2px}}
+.stat-box .lbl{{font-size:12px;color:#718096;font-family:system-ui,sans-serif}}
+.step-row{{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}}
+.step-box{{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px}}
+.step-box .num{{font-size:22px;font-weight:700;color:#1e40af;margin-bottom:4px}}
+.step-box p{{margin:0;font-size:14px;color:#1e40af;line-height:1.5}}
+.section-hdr{{font-size:11px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:1.2px;margin:28px 0 10px;font-family:system-ui,sans-serif}}
+.kd-badge{{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}}
+.kd-badge-sci{{background:#d1fae5;color:#065f46}}
+.kd-badge-news{{background:#dbeafe;color:#1e40af}}
+</style>
+</head><body>
+{HEADER}
+<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<h1 style="font-size:28px;margin:0 0 4px">For Parents</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 20px">
+Your daily briefing — {today} &middot; Balanced sources &middot; No spin &middot; Made for families
+</p>
+
+<div class="stat-row">
+  <div class="stat-box"><span class="val">{n_today}</span><span class="lbl">Stories today</span></div>
+  <div class="stat-box"><span class="val">{sci_pct}%</span><span class="lbl">Science content</span></div>
+  <div class="stat-box"><span class="val">{total}</span><span class="lbl">Total in archive</span></div>
+  <div class="stat-box"><span class="val">{avg_bias:+.2f}</span><span class="lbl">Avg bias (all time)</span></div>
+</div>
+
+<div style="background:#fff8e1;border:1px solid #fde68a;border-radius:10px;padding:16px 20px;margin:0 0 24px;font-family:system-ui,sans-serif">
+<div style="font-size:11px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">&#128200; Source balance across all articles</div>
+<div style="display:flex;height:24px;border-radius:6px;overflow:hidden;margin-bottom:6px">
+  <div style="width:{left_pct}%;background:#3182ce;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">{left_pct if left_pct>8 else ""}%</div>
+  <div style="width:{center_pct}%;background:#805ad5;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">{center_pct if center_pct>8 else ""}%</div>
+  <div style="width:{right_pct}%;background:#e53e3e;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">{right_pct if right_pct>8 else ""}%</div>
+</div>
+<div style="display:flex;gap:16px;font-size:12px;color:#92400e">
+  <span>&#9632; Left-leaning: {left_n}</span>
+  <span>&#9632; Center: {center_n}</span>
+  <span>&#9632; Right-leaning: {right_n}</span>
+  <span style="margin-left:auto;font-weight:600">Overall: {avg_bias_lbl} ({avg_bias:+.2f})</span>
+</div>
+</div>
+
+<div class="section-hdr">How to use KiddieDaily with your family</div>
+<div class="step-row">
+  <div class="step-box"><div class="num">1</div><p><strong>Read the bias bar.</strong> Every article shows which outlets covered it and whether they lean left, center, or right. No single outlet is always wrong — or always right.</p></div>
+  <div class="step-box"><div class="num">2</div><p><strong>Use the discussion guide.</strong> Each article has 3 parent-specific prompts — what to ask your child, how to check facts, and how to explore further.</p></div>
+  <div class="step-box"><div class="num">3</div><p><strong>Compare sources.</strong> When 2+ outlets cover the same story, we show you how each framed it. Look for what facts they agree on vs. what they emphasize differently.</p></div>
+</div>
+
+<div class="section-hdr">Today&#39;s stories — {today}</div>
+{cards_html if cards_html else '<p style="color:#718096;font-family:system-ui,sans-serif">No articles for today yet — check back after 6am ET when the scraper runs.</p>'}
+
+<div style="background:#f0f4f8;border-radius:10px;padding:20px 24px;margin:28px 0 0;font-family:system-ui,sans-serif">
+<div style="font-size:11px;font-weight:700;color:#4a5568;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Understanding bias ratings</div>
+<div style="font-size:14px;color:#2d3748;line-height:1.6">
+<p style="margin:0 0 8px">KiddieDaily uses <strong>AllSides</strong> and <strong>Ad Fontes Media</strong> bias ratings — the same methodology used by researchers and journalism schools.</p>
+<p style="margin:0 0 8px">Scale: <strong>-2</strong> = far left &nbsp;|&nbsp; <strong>-1</strong> = leans left &nbsp;|&nbsp; <strong>0</strong> = center &nbsp;|&nbsp; <strong>+1</strong> = leans right &nbsp;|&nbsp; <strong>+2</strong> = far right</p>
+<p style="margin:0">No media source is perfectly neutral. Our goal is to show you the landscape — so you can read with your eyes open and form your own family&#39;s view.</p>
+</div>
+</div>
+
+<div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" style="background:#1a4d80;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Today&#39;s news</a>
+<a href="/digest/latest.html" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Daily digest</a>
+<a href="/parent-zone/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Parent Zone</a>
+<a href="/search.html" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Search all</a>
+<a href="/feed.xml" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">RSS</a>
+</div>
+</main>
+{FOOTER}
+</body></html>"""
+
+    upload("parents/index.html", page, f"[scraper] For-Parents briefing {today} — {n_today} articles, {avg_bias_lbl}")
+    print(f"  For-Parents page: {n_today} articles today, avg bias {avg_bias:+.2f} ({avg_bias_lbl})")
+
+
 def generate_search_page(manifest):
     """Generate /search.html — full-page search interface fetching /data/kd-articles.json."""
     articles = manifest.get("articles", [])
@@ -2309,6 +2463,10 @@ def main():
     # 6k4. Generate automation status page
     print(f"\n[6k4] Generating status page...")
     generate_status_page(manifest, today, pushed_count)
+
+    # 6k5. Generate For-Parents briefing page
+    print(f"\n[6k5] Generating For-Parents briefing page...")
+    generate_for_parents_page(manifest, today)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
