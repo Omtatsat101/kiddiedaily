@@ -361,7 +361,11 @@
     "news/2026-06-29-as-temperatures-soar-paris-court-set-to-rule-on-la.html",
     "news/2026-06-29-hunter-gatherers-in-siberia-died-of-a-plague-outbr.html",
     "news/2026-06-29-sooner-than-expected-useful-quantum-error-correcti.html",
-    "news/2026-06-29-vietnamese-environmental-lawyer-dang-dinh-bach-rel.html"
+    "news/2026-06-29-vietnamese-environmental-lawyer-dang-dinh-bach-rel.html",
+    "news/2026-06-29-spacex-launches-15000-pound-siriusxm-satellite-to.html",
+    "news/2026-06-29-cockroaches-scurry-around-with-thousands-of-pieces.html",
+    "news/2026-06-29-trump-admin-persists-in-quixotic-quest-against-win.html",
+    "news/2026-06-29-uss-climategov-site-taken-down-by-trump-relaunched.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -725,7 +729,11 @@
     "As temperatures soar, Paris court set to rule on landmark climate change case",
     "Hunter-gatherers in Siberia died of a plague outbreak 5,500 years ago",
     "Sooner than expected? Useful quantum error correction promised for 2028.",
-    "Vietnamese environmental lawyer Dang Dinh Bach released after 5 years in prison"
+    "Vietnamese environmental lawyer Dang Dinh Bach released after 5 years in prison",
+    "SpaceX launches 15,000-pound SiriusXM satellite to orbit from Florida",
+    "Cockroaches scurry around with thousands of pieces of bacterial genomes",
+    "Trump admin persists in quixotic quest against wind power despite legal defeat",
+    "US's climate.gov site, taken down by Trump, relaunched by nonprofit"
   ],
   "articles": [
     {
@@ -4697,6 +4705,50 @@
       "agreement_pct": 11,
       "is_science": true,
       "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-spacex-launches-15000-pound-siriusxm-satellite-to.html",
+      "title": "SpaceX launches 15,000-pound SiriusXM satellite to orbit from Florida",
+      "display_title": "SpaceX launches 15,000-pound SiriusXM satellite to orbit from Florida",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-cockroaches-scurry-around-with-thousands-of-pieces.html",
+      "title": "Cockroaches scurry around with thousands of pieces of bacterial genomes",
+      "display_title": "Cockroaches scurry around with thousands of pieces of bacterial genomes",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-trump-admin-persists-in-quixotic-quest-against-win.html",
+      "title": "Trump admin persists in quixotic quest against wind power despite legal defeat",
+      "display_title": "Trump admin persists in quixotic quest against wind power despite legal defeat",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-uss-climategov-site-taken-down-by-trump-relaunched.html",
+      "title": "US's climate.gov site, taken down by Trump, relaunched by nonprofit",
+      "display_title": "US's climate.gov site, taken down by Trump, relaunched by nonprofit",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
     }
   ]
 }
