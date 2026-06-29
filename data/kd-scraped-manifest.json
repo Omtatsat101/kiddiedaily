@@ -592,7 +592,10 @@
     "news/2026-06-29-conjuring-the-lost-land-beneath-the-north-sea.html",
     "news/2026-06-29-the-fleet-winged-ghosts-of-greenland.html",
     "news/2026-06-29-for-killer-whales-saddle-patches-are-like-fingerpr.html",
-    "news/2026-06-29-for-the-love-of-a-little-sea.html"
+    "news/2026-06-29-for-the-love-of-a-little-sea.html",
+    "news/2026-06-29-finding-food-and-solace-in-the-intertidal.html",
+    "news/2026-06-29-how-to-produce-hydrogen-gas-as-cleanly-as-possible.html",
+    "news/2026-06-29-the-other-side-of-the-worlds-largest-dam-removal.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1187,7 +1190,10 @@
     "Conjuring the Lost Land Beneath the North Sea",
     "The Fleet-Winged Ghosts of Greenland",
     "For Killer Whales, Saddle Patches are Like Fingerprints",
-    "For the Love of a Little Sea"
+    "For the Love of a Little Sea",
+    "Finding Food and Solace in the Intertidal",
+    "How to Produce Hydrogen Gas as Cleanly as Possible",
+    "The Other Side of the World’s Largest Dam Removal"
   ],
   "articles": [
     {
@@ -7860,6 +7866,42 @@
       "slug": "news/2026-06-29-for-the-love-of-a-little-sea.html",
       "title": "For the Love of a Little Sea",
       "display_title": "For the Love of a Little Sea",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-finding-food-and-solace-in-the-intertidal.html",
+      "title": "Finding Food and Solace in the Intertidal",
+      "display_title": "Finding Food and Solace in the Intertidal",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-how-to-produce-hydrogen-gas-as-cleanly-as-possible.html",
+      "title": "How to Produce Hydrogen Gas as Cleanly as Possible",
+      "display_title": "How to Produce Hydrogen Gas as Cleanly as Possible",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-other-side-of-the-worlds-largest-dam-removal.html",
+      "title": "The Other Side of the World’s Largest Dam Removal",
+      "display_title": "The Other Side of the World’s Largest Dam Removal",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
