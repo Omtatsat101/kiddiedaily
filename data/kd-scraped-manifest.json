@@ -123,7 +123,9 @@
     "news/2026-06-29-fetterman-mccormick-sidestep-shapiro-on-pennsylvan.html",
     "news/2026-06-29-the-fate-of-earth-depends-on-a-delicate-balance-ou.html",
     "news/2026-06-29-chris-mason-burnham-begins-to-sketch-out-vision-bu.html",
-    "news/2026-06-29-white-working-class-children-failed-by-education-s.html"
+    "news/2026-06-29-white-working-class-children-failed-by-education-s.html",
+    "news/2026-06-29-world-cup-knockouts-are-here---what-is-englands-pa.html",
+    "news/2026-06-29-heat-wave-and-high-humidity-will-blast-much-of-the.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -249,7 +251,9 @@
     "Fetterman, McCormick sidestep Shapiro on Pennsylvania's 'Great American State Fair' booth",
     "'The fate of Earth depends on a delicate balance': Our planet may survive the death of the sun after all, new models hint",
     "Chris Mason: Burnham begins to sketch out vision but faces huge and imminent questions",
-    "White working-class children failed by education system, says inquiry"
+    "White working-class children failed by education system, says inquiry",
+    "World Cup knockouts are here - what is England's path to the final?",
+    "Heat wave and high humidity will blast much of the eastern U.S. this week, meteorologists say"
   ],
   "articles": [
     {
@@ -1603,6 +1607,28 @@
       "agreement_pct": 23,
       "is_science": false,
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-world-cup-knockouts-are-here---what-is-englands-pa.html",
+      "title": "World Cup knockouts are here - what is England's path to the final?",
+      "display_title": "World Cup knockouts are here - what is England's path to the final?",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.25,
+      "agreement_pct": 38,
+      "is_science": false,
+      "source_icons": "🇬🇧 📺"
+    },
+    {
+      "slug": "news/2026-06-29-heat-wave-and-high-humidity-will-blast-much-of-the.html",
+      "title": "Heat wave and high humidity will blast much of the eastern U.S. this week, meteorologists say",
+      "display_title": "Heat wave and high humidity will blast much of the eastern U.S. this week, meteorologists say",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 19,
+      "is_science": false,
+      "source_icons": "📺"
     }
   ]
 }
