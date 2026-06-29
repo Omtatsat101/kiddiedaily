@@ -76,6 +76,7 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|^morning\s+edition[\s:]'         # NPR Morning Edition teasers
     r'|^this\s+week\s+on\s+'            # "This week on The Hill" / "This week on X" roundups
     r'|^[¿¡]'                           # Non-English articles (Spanish inverted punctuation)
+    r'|^watch\s+newsround'              # BBC Newsround video-promo stub articles
     r')',
     re.I
 )
@@ -227,6 +228,8 @@ SOURCES = [
     {"name": "Hakai Magazine",      "url": "https://hakaimagazine.com/feed/",                         "bias":  0.0, "icon": "🌊"},
     # Math, physics, biology, CS — deep science for curious minds
     {"name": "Quanta Magazine",     "url": "https://www.quantamagazine.org/feed/",                    "bias":  0.0, "icon": "🔷"},
+    # Kids news: BBC Newsround — gold standard children's news; animals, nature, world, science
+    {"name": "BBC Newsround",       "url": "https://feeds.bbci.co.uk/newsround/rss.xml",              "bias": -0.1, "icon": "📺"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -396,6 +399,10 @@ DEPRIORITIZE_WORDS = [
     "predicts world cup", "world cup predictions", "team to beat",
     "sutton predicts", "expert predictions", "power rankings",
     "player ratings", "match ratings", "pundit",
+    # World Cup / tournament match results (sports scores, not kids educational news)
+    "world cup semi", "world cup final", "world cup quarter",
+    "who will england play", "what went wrong for", "top scorer at",
+    "will win the world cup", "group stage results",
     # Crime, legal proceedings, immigration detention (never appropriate for kids)
     "mistrial", "arson case", "arson attack", "vandalism",
     "faces charges", "charged with", "convicted of", "acquitted",
