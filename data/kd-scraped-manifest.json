@@ -481,7 +481,10 @@
     "news/2026-06-29-dame-penelope-keith-the-good-lifes-funny-and-formi.html",
     "news/2026-06-29-how-formidable-sitcom-star-penelope-keith-won-the.html",
     "news/2026-06-29-offshore-oil-and-gas-rush-threatens-whale-corridor.html",
-    "news/2026-06-29-federal-officials-say-an-endangered-wetland-plant.html"
+    "news/2026-06-29-federal-officials-say-an-endangered-wetland-plant.html",
+    "news/2026-06-29-millions-in-climate-investments-for-developing-cou.html",
+    "news/2026-06-29-what-happened-when-an-lng-giant-came-to-town.html",
+    "news/2026-06-29-can-clusters-of-human-constructed-ponds-in-the-ari.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -965,7 +968,10 @@
     "Dame Penelope Keith: The Good Life's funny and formidable star",
     "How formidable sitcom star Penelope Keith won the nation's hearts",
     "Offshore Oil and Gas Rush Threatens Whale Corridors and Coral Reefs",
-    "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees."
+    "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees.",
+    "Millions in Climate Investments for Developing Countries Were Just Announced. It’s Not Nearly Enough.",
+    "What Happened When an LNG Giant Came to Town",
+    "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?"
   ],
   "articles": [
     {
@@ -6306,6 +6312,42 @@
       "slug": "news/2026-06-29-federal-officials-say-an-endangered-wetland-plant.html",
       "title": "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees.",
       "display_title": "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-millions-in-climate-investments-for-developing-cou.html",
+      "title": "Millions in Climate Investments for Developing Countries Were Just Announced. It’s Not Nearly Enough.",
+      "display_title": "Millions in Climate Investments for Developing Countries Were Just Announced. It’s Not Nearly Enough.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-what-happened-when-an-lng-giant-came-to-town.html",
+      "title": "What Happened When an LNG Giant Came to Town",
+      "display_title": "What Happened When an LNG Giant Came to Town",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-can-clusters-of-human-constructed-ponds-in-the-ari.html",
+      "title": "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?",
+      "display_title": "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.4,
