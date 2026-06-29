@@ -1,0 +1,44 @@
+name: KiddieDaily Truth & Bias Verifier
+
+on:
+  # Fire automatically after the daily scraper completes successfully
+  workflow_run:
+    workflows: ["KiddieDaily Daily News Scraper"]
+    types: [completed]
+  # Fallback cron: 30 min after the scraper's 10:00 UTC slot
+  schedule:
+    - cron: "30 10 * * *"
+  # Always allow manual trigger
+  workflow_dispatch: {}
+
+jobs:
+  verify:
+    name: Verify today's articles
+    runs-on: ubuntu-latest
+
+    # When triggered by workflow_run, only run if the scraper succeeded.
+    # When triggered by schedule or workflow_dispatch, always run.
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    permissions:
+      contents: write   # needed to read + push article HTML updates
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install --quiet requests anthropic
+
+      - name: Run truth verifier
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python truth_verify.py
