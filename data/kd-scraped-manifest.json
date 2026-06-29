@@ -467,7 +467,10 @@
     "news/2026-06-29-defining-autonomy-for-wellness-robots-in-senior-ca.html",
     "news/2026-06-29-we-are-crowdsourcing-the-panopticon.html",
     "news/2026-06-29-what-size-company-is-right-for-you.html",
-    "news/2026-06-29-the-good-life-actress-dame-penelope-keith-dies-age.html"
+    "news/2026-06-29-the-good-life-actress-dame-penelope-keith-dies-age.html",
+    "news/2026-06-29-how-ieee-awardee-karen-panetta-became-bewitched-by.html",
+    "news/2026-06-29-war-taught-this-ukrainian-entrepreneur-the-value-o.html",
+    "news/2026-06-29-award-winning-researcher-trains-robots-to-make-edu.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -937,7 +940,10 @@
     "Defining Autonomy for Wellness Robots in Senior Care",
     "We Are Crowdsourcing the Panopticon",
     "What Size Company Is Right for You?",
-    "The Good Life actress Dame Penelope Keith dies aged 86"
+    "The Good Life actress Dame Penelope Keith dies aged 86",
+    "How IEEE Awardee Karen Panetta Became Bewitched by Engineering",
+    "War Taught this Ukrainian Entrepreneur the Value of Resilience",
+    "Award-Winning Researcher Trains Robots to Make Educated Guesses"
   ],
   "articles": [
     {
@@ -6117,6 +6123,42 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-how-ieee-awardee-karen-panetta-became-bewitched-by.html",
+      "title": "How IEEE Awardee Karen Panetta Became Bewitched by Engineering",
+      "display_title": "How IEEE Awardee Karen Panetta Became Bewitched by Engineering",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-war-taught-this-ukrainian-entrepreneur-the-value-o.html",
+      "title": "War Taught this Ukrainian Entrepreneur the Value of Resilience",
+      "display_title": "War Taught this Ukrainian Entrepreneur the Value of Resilience",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-award-winning-researcher-trains-robots-to-make-edu.html",
+      "title": "Award-Winning Researcher Trains Robots to Make Educated Guesses",
+      "display_title": "Award-Winning Researcher Trains Robots to Make Educated Guesses",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
     }
   ]
 }
