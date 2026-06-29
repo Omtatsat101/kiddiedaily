@@ -85,7 +85,12 @@
     "news/2026-06-29-a-lunar-quarantine-facility-to-protect-from-alien.html",
     "news/2026-06-29-will-earth-survive-the-red-giant-sun-new-research.html",
     "news/2026-06-29-visible-planets-and-night-sky-guide-for-june-and-j.html",
-    "news/2026-06-29-is-zubeneschamali-a-green-star-pros-say-no-sky-wat.html"
+    "news/2026-06-29-is-zubeneschamali-a-green-star-pros-say-no-sky-wat.html",
+    "news/2026-06-29-h5n1-bird-flu-has-now-spread-to-all-7-continents.html",
+    "news/2026-06-29-why-do-stars-twinkle-but-planets-dont.html",
+    "news/2026-06-29-sun-news-possible-g2-storm-due-overnight-june-29-a.html",
+    "news/2026-06-29-see-milky-ways-core-in-most-detailed-photo-yet.html",
+    "news/2026-06-29-our-brains-arent-wired-to-handle-this-much-bad-new.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -173,7 +178,12 @@
     "A lunar quarantine facility to protect from alien microbes?",
     "Will Earth survive the red giant sun? New research suggests yes",
     "Visible planets and night sky guide for June and July",
-    "Is Zubeneschamali a green star? Pros say no. Sky-watchers say yes."
+    "Is Zubeneschamali a green star? Pros say no. Sky-watchers say yes.",
+    "H5N1 bird flu has now spread to all 7 continents",
+    "Why do stars twinkle, but planets don’t?",
+    "Sun news: Possible G2 storm due overnight June 29? Aurora alert!",
+    "See Milky Way’s core in most detailed photo yet",
+    "Our brains aren't wired to handle this much bad news. But 'looking away is not the fix,' expert says."
   ],
   "articles": [
     {
@@ -1109,6 +1119,61 @@
       "agreement_pct": 23,
       "is_science": true,
       "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-h5n1-bird-flu-has-now-spread-to-all-7-continents.html",
+      "title": "H5N1 bird flu has now spread to all 7 continents",
+      "display_title": "H5N1 bird flu has now spread to all 7 continents",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-why-do-stars-twinkle-but-planets-dont.html",
+      "title": "Why do stars twinkle, but planets don’t?",
+      "display_title": "Why do stars twinkle, but planets don’t?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-sun-news-possible-g2-storm-due-overnight-june-29-a.html",
+      "title": "Sun news: Possible G2 storm due overnight June 29? Aurora alert!",
+      "display_title": "Sun news: Possible G2 storm due overnight June 29? Aurora alert!",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-see-milky-ways-core-in-most-detailed-photo-yet.html",
+      "title": "See Milky Way’s core in most detailed photo yet",
+      "display_title": "See Milky Way’s core in most detailed photo yet",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🌏"
+    },
+    {
+      "slug": "news/2026-06-29-our-brains-arent-wired-to-handle-this-much-bad-new.html",
+      "title": "Our brains aren't wired to handle this much bad news. But 'looking away is not the fix,' expert says.",
+      "display_title": "Our brains aren't wired to handle this much bad news. But 'looking away is not the fix,' expert says.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
     }
   ]
 }
