@@ -185,7 +185,15 @@
     "news/2026-06-29-new-chip-could-help-tiny-robots-traverse-complex-e.html",
     "news/2026-06-29-tens-of-thousands-march-in-the-first-budapest-prid.html",
     "news/2026-06-29-at-the-great-american-state-fair-you-can-find-a-di.html",
-    "news/2026-06-29-temperatures-to-drop-this-week-but-relief-from-hea.html"
+    "news/2026-06-29-temperatures-to-drop-this-week-but-relief-from-hea.html",
+    "news/2026-06-29-a-better-way-to-model-the-behavior-of-metal-alloys.html",
+    "news/2026-06-29-mit-in-the-media-for-the-future-of-tech-massachuse.html",
+    "news/2026-06-29-in-game-theory-generalists-sometimes-win-out-over.html",
+    "news/2026-06-29-flexible-cryogenic-cables-solve-a-challenge-in-qua.html",
+    "news/2026-06-29-could-ai-tell-you-where-you-left-your-keys.html",
+    "news/2026-06-29-emma-raducanu-withdraws-from-wimbledon-because-of.html",
+    "news/2026-06-29-england-captain-ben-stokes-says-retiring-from-inte.html",
+    "news/2026-06-29-over-one-million-children-referred-for-mental-heal.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -373,7 +381,15 @@
     "New chip could help tiny robots traverse complex environments",
     "Tens of thousands march in the first Budapest Pride since Viktor Orb&aacute;n was voted out",
     "At the Great American State Fair, you can find a dinosaur's rib cage. Unity is another matter",
-    "Temperatures to drop this week but relief from heat may be short-lived"
+    "Temperatures to drop this week but relief from heat may be short-lived",
+    "A better way to model the behavior of metal alloys",
+    "MIT in the media: For the future of tech, \"Massachusetts can absolutely lead\"",
+    "In game theory, generalists sometimes win out over specialists",
+    "Flexible cryogenic cables solve a challenge in quantum system development",
+    "Could AI tell you where you left your keys?",
+    "Emma Raducanu withdraws from Wimbledon because of stress fracture",
+    "England captain Ben Stokes says retiring from international cricket 'best thing' for him",
+    "Over one million children referred for mental healthcare - with anxiety the main reason"
   ],
   "articles": [
     {
@@ -2403,6 +2419,94 @@
       "slug": "news/2026-06-29-temperatures-to-drop-this-week-but-relief-from-hea.html",
       "title": "Temperatures to drop this week but relief from heat may be short-lived",
       "display_title": "Temperatures to drop this week but relief from heat may be short-lived",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-a-better-way-to-model-the-behavior-of-metal-alloys.html",
+      "title": "A better way to model the behavior of metal alloys",
+      "display_title": "A better way to model the behavior of metal alloys",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-mit-in-the-media-for-the-future-of-tech-massachuse.html",
+      "title": "MIT in the media: For the future of tech, \"Massachusetts can absolutely lead\"",
+      "display_title": "MIT in the media: For the future of tech, \"Massachusetts can absolutely lead\"",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-in-game-theory-generalists-sometimes-win-out-over.html",
+      "title": "In game theory, generalists sometimes win out over specialists",
+      "display_title": "In game theory, generalists sometimes win out over specialists",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-flexible-cryogenic-cables-solve-a-challenge-in-qua.html",
+      "title": "Flexible cryogenic cables solve a challenge in quantum system development",
+      "display_title": "Flexible cryogenic cables solve a challenge in quantum system development",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-could-ai-tell-you-where-you-left-your-keys.html",
+      "title": "Could AI tell you where you left your keys?",
+      "display_title": "Could AI tell you where you left your keys?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-emma-raducanu-withdraws-from-wimbledon-because-of.html",
+      "title": "Emma Raducanu withdraws from Wimbledon because of stress fracture",
+      "display_title": "Emma Raducanu withdraws from Wimbledon because of stress fracture",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-england-captain-ben-stokes-says-retiring-from-inte.html",
+      "title": "England captain Ben Stokes says retiring from international cricket 'best thing' for him",
+      "display_title": "England captain Ben Stokes says retiring from international cricket 'best thing' for him",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-over-one-million-children-referred-for-mental-heal.html",
+      "title": "Over one million children referred for mental healthcare - with anxiety the main reason",
+      "display_title": "Over one million children referred for mental healthcare - with anxiety the main reason",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
