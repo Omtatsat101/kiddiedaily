@@ -380,6 +380,11 @@ DEPRIORITIZE_WORDS = [
     "hormone therapy", "menstrual",
     # News roundups/briefs (supplements commercial filter — lower score before hard-reject)
     "news brief", "morning brief", "evening brief",
+    # Tobacco/cigarette industry content (not appropriate for kids context)
+    "tobacco company", "tobacco firm", "british american tobacco", "philip morris",
+    "cigarette maker", "cigarette company", "vape company", "e-cigarette firm",
+    # Gambling / adult entertainment
+    "casino", "gambling company", "betting firm", "sports betting",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
@@ -3355,6 +3360,22 @@ def main():
         # Title-level dedup: prevents same story appearing on multiple days
         if rep["title"].lower() in pushed_titles:
             continue
+        # Fuzzy cross-run dedup: Jaccard similarity against all pushed titles
+        # Catches same event covered by different sources on different days (threshold 0.38)
+        rep_kw = keywords(rep["title"])
+        if rep_kw:
+            near_dup = False
+            for pt in pushed_titles:
+                pt_kw = keywords(pt)
+                if pt_kw:
+                    shared = len(rep_kw & pt_kw)
+                    union = len(rep_kw | pt_kw)
+                    if union > 0 and shared / union >= 0.38:
+                        near_dup = True
+                        break
+            if near_dup:
+                skipped_low += 1
+                continue
 
         score = score_group(group)
         print(f"\n    Topic: {rep['title'][:60]}...")
