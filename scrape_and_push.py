@@ -802,6 +802,8 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 .kd-skip{position:absolute;top:-48px;left:0;background:#1a4d80;color:#fff;padding:8px 16px;font-size:14px;font-family:system-ui,sans-serif;z-index:200;text-decoration:none;border-radius:0 0 6px 0;transition:top .15s}.kd-skip:focus{top:0;outline:3px solid #ffd700}
 .kd-ham{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:24px;line-height:1;padding:4px 8px}
 @media(max-width:640px){.kd-ham{display:flex;align-items:center;margin-left:auto;order:2}header.kd nav{display:none;order:3;width:100%;flex-direction:column;gap:0;padding:6px 0 8px;justify-content:flex-start}header.kd nav.open{display:flex}header.kd nav a{padding:12px 0;font-size:16px;border-top:1px solid rgba(255,255,255,.12);min-height:44px;display:flex;align-items:center}.pz-cta{width:fit-content}main{padding:20px 16px 48px}}
+#kd-prog{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#1a4d80,#38b2ac);z-index:9999;transition:width .08s linear;pointer-events:none}
+@media(prefers-color-scheme:dark){html{background:#0f1117;color:#e2e8f0}header.kd{background:#0d2d54}a{color:#90cdf4}.byline,.kd-card-excerpt,.kd-bias-text{color:#a0aec0}.sources{background:#1a202c;border-left-color:#4a5568}footer.kd{background:#070c14}.kd-sc{background:#1a202c;border-color:#2d3748}.kd-sc h3 a{color:#90cdf4}h2{color:#a0c4ff;border-color:#2d3748}#search,#cat-search,#today-search{background:#1a202c;color:#e2e8f0;border-color:#4a5568}main{background:#0f1117}}
 ''' + BIAS_CSS + "</style>"
 
 HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
@@ -991,7 +993,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 <meta name="twitter:image" content="{og_image}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">{jsonld}</script>
-{CSS}</head><body>{HEADER}<main id="main">{body}</main>{FOOTER}
+{CSS}</head><body><div id="kd-prog"></div>{HEADER}<main id="main">{body}</main>{FOOTER}
 <script>
 (function(){{
   const SLUG="{slug}";
@@ -1009,11 +1011,17 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
       +scored.map(a=>`<div style='margin:8px 0;padding:10px 14px;background:#fff;border:1px solid #e5e7eb;border-radius:8px'>
         <span style='font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;background:${{a.is_science?"#d1fae5":"#dbeafe"}};color:${{a.is_science?"#065f46":"#1e40af"}};padding:2px 7px;border-radius:20px'>${{a.is_science?"Science":"World News"}}</span>
         <a href="/${{a.slug}}" style='display:block;color:#1a4d80;font-weight:600;margin:5px 0 2px;font-size:15px'>${{a.title}}</a>
+        ${{a.description?`<p style='font-size:13px;color:#4a5568;margin:3px 0 4px;line-height:1.4'>${{a.description.length>120?a.description.slice(0,120)+"…":a.description}}</p>`:""}}
         <span style='font-size:11px;color:#a0aec0'>${{a.date}}</span>
         </div>`).join("");
     const ft=document.querySelector('footer.kd');
     if(ft)ft.parentNode.insertBefore(box,ft);else document.body.appendChild(box);
   }}).catch(()=>{{}});
+  window.addEventListener('scroll',function(){{
+    var d=document.documentElement;
+    var pct=100*d.scrollTop/((d.scrollHeight-d.clientHeight)||1);
+    document.getElementById('kd-prog').style.width=Math.min(100,pct)+'%';
+  }},{{passive:true}});
 }})();
 </script>
 </body></html>"""
@@ -1756,7 +1764,7 @@ def generate_archive(manifest):
 </style>
 </head><body>
 {HEADER}
-<main>
+<main id="main">
 <h1 style="font-size:28px;margin-bottom:4px">News Archive</h1>
 <p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 20px">{len(articles)} articles &middot; Updated {today_str}</p>
 
@@ -2273,13 +2281,14 @@ def generate_articles_json(manifest):
     articles = manifest.get("articles", [])
     data = [
         {
-            "slug":      a["slug"],
-            "title":     a.get("display_title", a.get("title", "")),
-            "date":      a.get("date", ""),
-            "is_science": a.get("is_science", False),
-            "category":  "science" if a.get("is_science", False) else "world",
-            "bias_avg":  a.get("bias_avg", 0.0),
-            "n_sources": a.get("n_sources", 1),
+            "slug":        a["slug"],
+            "title":       a.get("display_title", a.get("title", "")),
+            "date":        a.get("date", ""),
+            "is_science":  a.get("is_science", False),
+            "category":    "science" if a.get("is_science", False) else "world",
+            "bias_avg":    a.get("bias_avg", 0.0),
+            "n_sources":   a.get("n_sources", 1),
+            "description": a.get("description", "")[:200],
         }
         for a in sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
     ]
@@ -3610,6 +3619,8 @@ def main():
             if "articles" not in manifest:
                 manifest["articles"] = []
             icons = " ".join(dict.fromkeys(s["source_icon"] for s in group))
+            _raw_desc = rep.get("description", "") if rep else ""
+            _clean_desc = re.sub(r"<[^>]+>", " ", _raw_desc).strip()[:200]
             manifest["articles"].append({
                 "slug": slug,
                 "title": rep["title"],
@@ -3621,6 +3632,7 @@ def main():
                 "is_science": any(s["source_name"] in SCIENCE_SOURCES for s in group),
                 "source_name": primary_source,
                 "source_icons": icons,
+                "description": _clean_desc,
             })
             pushed_count += 1
             source_counts_run[primary_source] = source_counts_run.get(primary_source, 0) + 1
