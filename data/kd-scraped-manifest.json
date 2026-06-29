@@ -149,7 +149,15 @@
     "news/2026-06-29-nasa-races-to-save-swift-telescope-from-falling-ba.html",
     "news/2026-06-29-serbia-protests-continue-after-vucic-says-he-will.html",
     "news/2026-06-29-will-germany-impose-an-age-limit-for-social-media.html",
-    "news/2026-06-29-germanys-development-aid-strategy-under-fire.html"
+    "news/2026-06-29-germanys-development-aid-strategy-under-fire.html",
+    "news/2026-06-29-everyone-experiences-loss-and-grief-but-that-doesn.html",
+    "news/2026-06-29-the-suns-outbursts-may-briefly-weaken-rain-and-sno.html",
+    "news/2026-06-29-scientists-uncover-evolutionary-edge-behind-plant.html",
+    "news/2026-06-29-oxygen-atoms-in-15millionyearold-giant-eggshells-r.html",
+    "news/2026-06-29-female-baboons-keep-family-bonds-strong-research-r.html",
+    "news/2026-06-29-pakistans-geo-news-apologizes-for-muharram-broadca.html",
+    "news/2026-06-29-germany-news-new-heat-record-at-417-degrees-celsiu.html",
+    "news/2026-06-29-fact-check-as-europe-bakes-should-you-trust-your-s.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -301,7 +309,15 @@
     "NASA races to save Swift telescope from falling back to Earth with daring rescue mission",
     "Serbia: Protests continue after Vucic says he will step down",
     "Will Germany impose an age limit for social media?",
-    "Germany's development aid strategy under fire"
+    "Germany's development aid strategy under fire",
+    "Everyone experiences loss and grief, but that doesn't make it any easier to talk with kids about it",
+    "The sun's outbursts may briefly weaken rain and snow events across North America",
+    "Scientists uncover evolutionary edge behind plant invasions",
+    "Oxygen atoms in 15‑million‑year‑old giant eggshells reveal how plants reacted to a hotter Earth",
+    "Female baboons keep family bonds strong: Research reveals the benefits",
+    "Pakistan's Geo News apologizes for Muharram broadcast",
+    "Germany news: New heat record at 41.7 degrees Celsius",
+    "Fact check: As Europe bakes, should you trust your sunscreen?"
   ],
   "articles": [
     {
@@ -1935,6 +1951,94 @@
       "slug": "news/2026-06-29-germanys-development-aid-strategy-under-fire.html",
       "title": "Germany's development aid strategy under fire",
       "display_title": "Germany's development aid strategy under fire",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-everyone-experiences-loss-and-grief-but-that-doesn.html",
+      "title": "Everyone experiences loss and grief, but that doesn't make it any easier to talk with kids about it",
+      "display_title": "Everyone experiences loss and grief, but that doesn't make it any easier to talk with kids about it",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-the-suns-outbursts-may-briefly-weaken-rain-and-sno.html",
+      "title": "The sun's outbursts may briefly weaken rain and snow events across North America",
+      "display_title": "The sun's outbursts may briefly weaken rain and snow events across North America",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-scientists-uncover-evolutionary-edge-behind-plant.html",
+      "title": "Scientists uncover evolutionary edge behind plant invasions",
+      "display_title": "Scientists uncover evolutionary edge behind plant invasions",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-oxygen-atoms-in-15millionyearold-giant-eggshells-r.html",
+      "title": "Oxygen atoms in 15‑million‑year‑old giant eggshells reveal how plants reacted to a hotter Earth",
+      "display_title": "Oxygen atoms in 15‑million‑year‑old giant eggshells reveal how plants reacted to a hotter Earth",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-female-baboons-keep-family-bonds-strong-research-r.html",
+      "title": "Female baboons keep family bonds strong: Research reveals the benefits",
+      "display_title": "Female baboons keep family bonds strong: Research reveals the benefits",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 18,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-pakistans-geo-news-apologizes-for-muharram-broadca.html",
+      "title": "Pakistan's Geo News apologizes for Muharram broadcast",
+      "display_title": "Pakistan's Geo News apologizes for Muharram broadcast",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-germany-news-new-heat-record-at-417-degrees-celsiu.html",
+      "title": "Germany news: New heat record at 41.7 degrees Celsius",
+      "display_title": "Germany news: New heat record at 41.7 degrees Celsius",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-fact-check-as-europe-bakes-should-you-trust-your-s.html",
+      "title": "Fact check: As Europe bakes, should you trust your sunscreen?",
+      "display_title": "Fact check: As Europe bakes, should you trust your sunscreen?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.1,
