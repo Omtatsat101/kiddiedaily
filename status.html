@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KiddieDaily — Scraper Status</title>
+<meta name="description" content="KiddieDaily automation status — last run, article counts, source breakdown.">
+<link rel="canonical" href="https://kiddiedaily.com/status.html">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+<style>
+body{margin:0;font-family:system-ui,sans-serif;background:#f0f4f8;color:#2d3748}
+header.kd{background:#1a4d80;padding:14px 0}
+header.kd .inner{max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:0 20px}
+header.kd .logo{font-weight:700;font-size:22px;color:#fff;font-family:Georgia,serif;text-decoration:none}
+header.kd nav{display:flex;flex-wrap:wrap;gap:18px;flex:1;justify-content:flex-end}
+header.kd nav a{color:#fff;font-size:15px}
+main{max-width:780px;margin:0 auto;padding:32px 24px 64px}
+.stat-card{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:20px 24px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.stat-card h3{margin:0 0 6px;font-size:16px;color:#1a4d80}
+.stat-val{font-size:32px;font-weight:700;color:#2d3748;margin:4px 0}
+.stat-sub{font-size:13px;color:#718096}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.badge-ok{display:inline-block;padding:4px 12px;border-radius:20px;background:#d1fae5;color:#065f46;font-size:13px;font-weight:700}
+</style>
+</head><body>
+<header class="kd"><div class="inner">
+  <a class="logo" href="/">📰 KiddieDaily</a>
+  <nav>
+    <a href="/news/">News</a>
+    <a href="/news/science.html">Science</a>
+    <a href="/search.html">Search</a>
+    <a href="/digest/latest.html">Digest</a>
+    <a href="/parent-zone/">Parents</a>
+  </nav>
+</div></header>
+<main>
+  <h1 style="font-size:28px;margin:0 0 4px">Automation Status</h1>
+  <p style="color:#718096;margin:0 0 24px;font-size:14px">KiddieDaily runs automatically every morning at 6am ET via GitHub Actions.</p>
+
+  <div class="grid">
+    <div class="stat-card">
+      <h3>Last Run</h3>
+      <div class="stat-val">2026-06-29</div>
+      <div class="stat-sub">Today: +5 new articles</div>
+    </div>
+    <div class="stat-card">
+      <h3>Total Articles</h3>
+      <div class="stat-val">56</div>
+      <div class="stat-sub">46 science &middot; 10 world news</div>
+    </div>
+    <div class="stat-card">
+      <h3>Avg Bias (all sources)</h3>
+      <div class="stat-val">-0.02</div>
+      <div class="stat-sub">Scale: -2 far-left → +2 far-right</div>
+    </div>
+    <div class="stat-card">
+      <h3>Days Covered</h3>
+      <div class="stat-val">4</div>
+      <div class="stat-sub">Since 2026-06-26</div>
+    </div>
+  </div>
+
+  <div class="stat-card" style="margin-top:20px">
+    <h3>Pipeline Health</h3>
+    <div style="margin:10px 0 6px;display:flex;flex-wrap:wrap;gap:8px">
+      <span class="badge-ok">✓ GitHub Actions cron active</span>
+      <span class="badge-ok">✓ GitHub Flow (branch → PR → merge)</span>
+      <span class="badge-ok">✓ 3-stage CI review</span>
+      <span class="badge-ok">✓ 56 articles indexed</span>
+      <span class="badge-ok">✓ RSS feed live</span>
+    </div>
+    <div style="margin-top:12px;font-size:13px;color:#718096">
+      Sources monitored: <span style="font-size:24px" title="🔬: 25 articles">🔬</span> <span style="font-size:24px" title="🏛️: 10 articles">🏛️</span> <span style="font-size:24px" title="⚖️: 4 articles">⚖️</span> <span style="font-size:24px" title="🇬🇧: 3 articles">🇬🇧</span> <span style="font-size:24px" title="🌍: 3 articles">🌍</span> <span style="font-size:24px" title="🦅: 2 articles">🦅</span>
+    </div>
+  </div>
+
+  <div class="stat-card" style="margin-top:16px">
+    <h3>Recent Dates</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+      <a href="/digest/2026-06-29.html" style="font-size:13px;padding:4px 10px;background:#dbeafe;color:#1e40af;border-radius:20px;text-decoration:none">2026-06-29</a>      <a href="/digest/2026-06-28.html" style="font-size:13px;padding:4px 10px;background:#dbeafe;color:#1e40af;border-radius:20px;text-decoration:none">2026-06-28</a>      <a href="/digest/2026-06-27.html" style="font-size:13px;padding:4px 10px;background:#dbeafe;color:#1e40af;border-radius:20px;text-decoration:none">2026-06-27</a>      <a href="/digest/2026-06-26.html" style="font-size:13px;padding:4px 10px;background:#dbeafe;color:#1e40af;border-radius:20px;text-decoration:none">2026-06-26</a>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:13px;color:#718096;text-align:center">
+    <a href="https://github.com/Omtatsat101/kiddiedaily" style="color:#1a4d80">View on GitHub</a> &middot;
+    <a href="/feed.xml" style="color:#1a4d80">RSS Feed</a> &middot;
+    <a href="/sitemap.xml" style="color:#1a4d80">Sitemap</a>
+  </p>
+</main>
+</body></html>
