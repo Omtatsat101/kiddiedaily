@@ -2038,6 +2038,283 @@ Your daily briefing — {today} &middot; Balanced sources &middot; No spin &midd
     print(f"  For-Parents page: {n_today} articles today, avg bias {avg_bias:+.2f} ({avg_bias_lbl})")
 
 
+def generate_fact_check_page(manifest):
+    """Generate /fact-check/index.html — media literacy + fact-check hub for families."""
+    articles = manifest.get("articles", [])
+    multi_source = [a for a in articles if a.get("n_sources", 1) > 1]
+    n_multi = len(multi_source)
+    total = len(articles)
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fact Check — KiddieDaily Media Literacy Hub</title>
+<meta name="description" content="Help your family spot bias, check facts, and read news critically. KiddieDaily's media literacy guide for parents and kids.">
+<link rel="canonical" href="https://kiddiedaily.com/fact-check/">
+{CSS}
+<style>
+.fc-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:16px 0}}
+.fc-card{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.05)}}
+.fc-card .icon{{font-size:28px;margin-bottom:10px}}
+.fc-card h3{{margin:0 0 8px;font-size:16px;color:#1a4d80}}
+.fc-card p{{margin:0;font-size:14px;color:#4a5568;line-height:1.55}}
+.fc-step{{display:flex;gap:14px;align-items:flex-start;margin:12px 0;padding:14px 16px;background:#f7fafc;border-radius:8px}}
+.fc-step .num{{font-size:22px;font-weight:700;color:#1a4d80;min-width:32px;line-height:1.2}}
+.fc-step p{{margin:0;font-size:14px;color:#2d3748;line-height:1.55}}
+.source-row{{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #f0f0f0}}
+.source-row:last-child{{border-bottom:none}}
+.bias-pip{{width:12px;height:12px;border-radius:50%;flex-shrink:0}}
+.tip-box{{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin:16px 0}}
+.tip-box h4{{margin:0 0 8px;font-size:14px;font-weight:700;color:#1e40af}}
+.tip-box p,ul{{margin:0;font-size:14px;color:#1e3a8a;line-height:1.6}}
+.tip-box ul{{padding-left:20px}}
+</style>
+</head><body>
+{HEADER}
+<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<h1 style="font-size:28px;margin:0 0 6px">Fact Check &amp; Media Literacy</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 24px">
+Helping families read the news with open eyes — no agenda, no spin.
+</p>
+
+<div style="background:#fff8e1;border:1px solid #fde68a;border-radius:10px;padding:16px 20px;margin:0 0 24px;font-family:system-ui,sans-serif">
+<div style="font-size:11px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">&#128202; KiddieDaily by the numbers</div>
+<div style="display:flex;gap:24px;flex-wrap:wrap;font-size:14px;color:#92400e">
+<span><strong>{total}</strong> articles analyzed</span>
+<span><strong>{n_multi}</strong> covered by 2+ outlets</span>
+<span><strong>11</strong> sources bias-rated</span>
+<span><strong>0</strong> ads or trackers</span>
+</div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:1.2px;margin:0 0 12px">What is media bias?</div>
+<div class="fc-grid">
+<div class="fc-card"><div class="icon">&#129300;</div><h3>Framing bias</h3><p>The same fact can sound different depending on the words chosen. "Police responded to a protest" vs. "Police cracked down on demonstrators" — same event, different frame.</p></div>
+<div class="fc-card"><div class="icon">&#128269;</div><h3>Selection bias</h3><p>News outlets choose WHAT to cover. A story that's big on Fox News might barely appear on NPR — and vice versa. Neither absence means it didn't happen.</p></div>
+<div class="fc-card"><div class="icon">&#128226;</div><h3>Tone bias</h3><p>Word choice, headline intensity, and photo selection all carry emotion. Positive tone toward one group, negative toward another — that's bias at work.</p></div>
+<div class="fc-card"><div class="icon">&#9878;&#65039;</div><h3>Source bias</h3><p>Who gets quoted? When one side of a story gets more expert voices than the other, the story feels more credible even if the evidence isn't.</p></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:1.2px;margin:24px 0 12px">How KiddieDaily measures bias</div>
+<p style="font-size:15px;color:#2d3748;margin:0 0 12px;line-height:1.6">We use the same methodology as journalism schools and independent researchers: <strong>AllSides</strong> and <strong>Ad Fontes Media</strong> bias ratings. These were built by analyzing thousands of articles, surveying readers across the political spectrum, and measuring factual accuracy vs. emotional language.</p>
+
+<div style="overflow-x:auto;margin:0 0 20px">
+<table style="width:100%;border-collapse:collapse;font-family:system-ui,sans-serif;font-size:14px">
+<thead><tr style="background:#f7fafc;text-align:left">
+<th style="padding:10px 12px;border-bottom:2px solid #e2e8f0">Outlet</th>
+<th style="padding:10px 12px;border-bottom:2px solid #e2e8f0">Bias score</th>
+<th style="padding:10px 12px;border-bottom:2px solid #e2e8f0">Lean</th>
+</tr></thead>
+<tbody>
+<tr class="source-row"><td style="padding:8px 12px">&#128251; BBC News</td><td style="padding:8px 12px">&#8722;0.3</td><td style="padding:8px 12px;color:#2b6cb0">Slight Left</td></tr>
+<tr class="source-row" style="background:#fafafa"><td style="padding:8px 12px">&#128251; NPR</td><td style="padding:8px 12px">&#8722;0.7</td><td style="padding:8px 12px;color:#2b6cb0">Left-leaning</td></tr>
+<tr class="source-row"><td style="padding:8px 12px">&#127757; Al Jazeera</td><td style="padding:8px 12px">&#8722;0.4</td><td style="padding:8px 12px;color:#2b6cb0">Slight Left</td></tr>
+<tr class="source-row" style="background:#fafafa"><td style="padding:8px 12px">&#9878;&#65039; The Hill</td><td style="padding:8px 12px">+0.1</td><td style="padding:8px 12px;color:#276749">Center</td></tr>
+<tr class="source-row"><td style="padding:8px 12px">&#129413; Fox News</td><td style="padding:8px 12px">+1.3</td><td style="padding:8px 12px;color:#c53030">Right-leaning</td></tr>
+<tr class="source-row" style="background:#fafafa"><td style="padding:8px 12px">&#128640; NASA</td><td style="padding:8px 12px">0.0</td><td style="padding:8px 12px;color:#276749">Center (Science)</td></tr>
+<tr class="source-row"><td style="padding:8px 12px">&#128300; Science Daily</td><td style="padding:8px 12px">0.0</td><td style="padding:8px 12px;color:#276749">Center (Science)</td></tr>
+<tr class="source-row" style="background:#fafafa"><td style="padding:8px 12px">&#127963;&#65039; Smithsonian</td><td style="padding:8px 12px">&#8722;0.1</td><td style="padding:8px 12px;color:#276749">Center</td></tr>
+<tr class="source-row"><td style="padding:8px 12px">&#128225; Science News</td><td style="padding:8px 12px">0.0</td><td style="padding:8px 12px;color:#276749">Center (Science)</td></tr>
+<tr class="source-row" style="background:#fafafa"><td style="padding:8px 12px">&#127759; EarthSky</td><td style="padding:8px 12px">0.0</td><td style="padding:8px 12px;color:#276749">Center (Science)</td></tr>
+<tr class="source-row"><td style="padding:8px 12px">&#129516; Live Science</td><td style="padding:8px 12px">0.0</td><td style="padding:8px 12px;color:#276749">Center (Science)</td></tr>
+</tbody></table>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:1.2px;margin:24px 0 12px">How to fact-check any story — 5 steps</div>
+<div class="fc-step"><div class="num">1</div><p><strong>Find the original claim.</strong> What exactly is being said? A headline often exaggerates. Read past the first paragraph before reacting.</p></div>
+<div class="fc-step"><div class="num">2</div><p><strong>Who is the source?</strong> Is it a named expert, an anonymous source, or "studies show"? Named, on-record sources are more reliable than unnamed ones.</p></div>
+<div class="fc-step"><div class="num">3</div><p><strong>Search for the same story elsewhere.</strong> Does the BBC report it the same way as Fox News? If the facts differ, someone may have gotten it wrong — or be spinning it.</p></div>
+<div class="fc-step"><div class="num">4</div><p><strong>Check a fact-checking site.</strong> Google Fact Check Explorer, Snopes, and PolitiFact all search thousands of verified claims. Type any claim into their search bar.</p></div>
+<div class="fc-step"><div class="num">5</div><p><strong>Ask: what is this story missing?</strong> Good reporting names who benefits, who is harmed, what happened before, and what experts disagree. Missing any of these? Keep reading.</p></div>
+
+<div style="font-size:11px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:1.2px;margin:24px 0 12px">Trusted fact-check tools (external)</div>
+<div class="fc-grid">
+<div class="fc-card"><div class="icon">&#128269;</div><h3>Google Fact Check Explorer</h3><p>Search any claim. Shows what independent fact-checkers worldwide have ruled on thousands of stories.</p><p style="margin-top:10px"><a href="https://toolbox.google.com/factcheck/explorer" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px">Open Fact Check Explorer &rarr;</a></p></div>
+<div class="fc-card"><div class="icon">&#129300;</div><h3>Snopes</h3><p>The oldest fact-checking site. Strong on viral rumors, internet hoaxes, and "did that really happen" questions.</p><p style="margin-top:10px"><a href="https://www.snopes.com" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px">Visit Snopes &rarr;</a></p></div>
+<div class="fc-card"><div class="icon">&#9878;&#65039;</div><h3>AllSides</h3><p>Side-by-side coverage of the same story from Left, Center, and Right outlets. Great for seeing how framing changes the narrative.</p><p style="margin-top:10px"><a href="https://www.allsides.com" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px">Visit AllSides &rarr;</a></p></div>
+<div class="fc-card"><div class="icon">&#128202;</div><h3>Ad Fontes Media</h3><p>News source ratings on a chart showing both political bias AND reliability. Used by schools and newsrooms.</p><p style="margin-top:10px"><a href="https://adfontesmedia.com" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px">Visit Ad Fontes Media &rarr;</a></p></div>
+</div>
+
+<div class="tip-box">
+<h4>&#128161; Family activity: spot the framing</h4>
+<p>Pick any story from today&#39;s KiddieDaily. Then:</p>
+<ul>
+<li>Read the KiddieDaily version</li>
+<li>Search the headline on Google News and find 2 other outlets covering it</li>
+<li>Ask: What words did each outlet choose? What did they emphasize? What did they leave out?</li>
+<li>Discuss: Is the core fact the same across all three? What&#39;s different?</li>
+</ul>
+<p style="margin-top:8px">This is how journalists learn to read news critically — and it works for kids as young as 9.</p>
+</div>
+
+<div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" style="background:#1a4d80;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Today&#39;s stories</a>
+<a href="/parents/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">For Parents</a>
+<a href="/search.html" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Search all articles</a>
+</div>
+</main>
+{FOOTER}
+</body></html>"""
+
+    upload("fact-check/index.html", page, "[scraper] Fact Check / media literacy hub page")
+    print(f"  Fact-check page: {total} articles referenced, {n_multi} multi-source")
+
+
+def generate_games_page(manifest):
+    """Generate /games/index.html — media literacy games and educational activities for families."""
+    articles = manifest.get("articles", [])
+    sci_articles = [a for a in articles if a.get("is_science")]
+    # Pick 3 random-ish science articles for the quiz (by position, not random)
+    quiz_pool = sci_articles[:6:2]  # every other one, max 3
+
+    stop = {"about", "their", "these", "those", "would", "could", "which", "where",
+            "there", "after", "other", "first", "world", "using", "study", "finds",
+            "found", "shows", "says", "that", "have", "with", "from", "this", "will",
+            "into", "been", "more", "also", "than", "when", "were", "they"}
+
+    def _quiz_item(a, idx):
+        title = a.get("display_title", a.get("title", ""))
+        words = [w.capitalize() for w in re.sub(r"[^\w\s]", "", title.lower()).split()
+                 if len(w) > 4 and w not in stop]
+        keyword = words[0] if words else "Science"
+        # Build 3 multiple-choice options (A = correct, B/C = plausible distractors)
+        distractors = [
+            ("It happened a million years ago", "An ancient event"),
+            ("It\'s about extreme weather", "A weather story"),
+            ("Scientists changed their minds", "A retraction"),
+            ("It involves a new invention", "A technology story"),
+            ("It\'s about an endangered animal", "An animals story"),
+        ]
+        b_text, c_text = distractors[idx % len(distractors)]
+        return (
+            f'<div class="quiz-q" id="q{idx}" style="background:#fff;border:1px solid #dde4ef;'
+            f'border-radius:10px;padding:16px 20px;margin:12px 0">'
+            f'<p style="font-weight:700;font-size:15px;color:#1a4d80;margin:0 0 12px">'
+            f'Q{idx+1}. What is this headline about?<br>'
+            f'<span style="font-style:italic;font-weight:400;color:#2d3748">&ldquo;{title[:90]}{"…" if len(title)>90 else ""}&rdquo;</span></p>'
+            f'<div style="display:flex;flex-direction:column;gap:8px">'
+            f'<label style="cursor:pointer;font-size:14px;color:#2d3748"><input type="radio" name="q{idx}" value="a" style="margin-right:8px"> A) About {keyword}</label>'
+            f'<label style="cursor:pointer;font-size:14px;color:#2d3748"><input type="radio" name="q{idx}" value="b" style="margin-right:8px"> B) {b_text}</label>'
+            f'<label style="cursor:pointer;font-size:14px;color:#2d3748"><input type="radio" name="q{idx}" value="c" style="margin-right:8px"> C) {c_text}</label>'
+            f'</div>'
+            f'<div id="q{idx}-result" style="margin-top:10px;padding:8px 12px;border-radius:6px;display:none;font-size:14px"></div>'
+            f'</div>'
+        )
+
+    quiz_html = "\n".join(_quiz_item(a, i) for i, a in enumerate(quiz_pool))
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Games — KiddieDaily Media Literacy Activities</title>
+<meta name="description" content="Fun media literacy games and activities for kids. Spot the bias, quiz yourself on today's science news, and become a critical reader.">
+<link rel="canonical" href="https://kiddiedaily.com/games/">
+{CSS}
+<style>
+.game-card{{background:#fff;border:1px solid #dde4ef;border-radius:12px;padding:20px 22px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.05)}}
+.game-card h3{{margin:0 0 8px;font-size:18px;color:#1a4d80}}
+.game-card .tag{{font-size:11px;font-weight:700;color:#065f46;background:#d1fae5;padding:2px 8px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase}}
+.game-card p{{margin:8px 0 0;font-size:14px;color:#4a5568;line-height:1.55}}
+.btn-play{{display:inline-block;margin-top:12px;background:#1a4d80;color:#fff;padding:8px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif}}
+.btn-play:hover{{background:#1e3a6e}}
+</style>
+</head><body>
+{HEADER}
+<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<h1 style="font-size:28px;margin:0 0 6px">Games &amp; Activities</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 24px">
+Learn to read news like a pro — because critical thinking is a superpower.
+</p>
+
+<div class="game-card">
+<span class="tag">Live Quiz</span>
+<h3>&#129300; Headline Detective</h3>
+<p>Can you figure out what today&#39;s science headlines are about from the title alone? Test your reading comprehension with real KiddieDaily stories.</p>
+<div style="margin-top:16px">
+{quiz_html if quiz_html else '<p style="color:#718096">No quiz available yet — check back after 6am ET!</p>'}
+</div>
+{f"""<button onclick="(function(){{
+  var score=0,total={len(quiz_pool)};
+  {''.join(f"""
+  (function(){{
+    var el=document.querySelector('input[name=q{i}]:checked');
+    var res=document.getElementById('q{i}-result');
+    res.style.display='block';
+    if(el&&el.value==='a'){{score++;res.style.background='#d1fae5';res.style.color='#065f46';res.innerHTML='&#9989; Correct! The headline is about a science discovery.'}}
+    else{{res.style.background='#fee2e2';res.style.color='#c53030';res.innerHTML='&#10060; Not quite — this was a science story. Read the full article to learn more!'}}
+  }})();""" for i in range(len(quiz_pool)))}
+  alert('You got '+score+' out of '+total+'! '+(score===total?'Perfect score!':score>=total/2?'Good job — keep reading!':'Keep practicing by reading KiddieDaily every day!'));
+}})()" style="margin-top:14px;background:#1a4d80;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:14px;cursor:pointer;font-family:system-ui,sans-serif">
+Check My Answers</button>""" if quiz_pool else ""}
+</div>
+
+<div class="game-card">
+<span class="tag">Critical Thinking</span>
+<h3>&#127919; Spot the Bias Challenge</h3>
+<p>Every article on KiddieDaily shows where the outlet leans on the political spectrum. But can you spot bias in the headline itself — before you read the story?</p>
+<p><strong>Try this:</strong> Read two headlines on the same topic from different outlets. Look for:
+<ul style="font-size:14px;color:#4a5568;margin:8px 0;padding-left:20px;line-height:1.7">
+<li>Emotional or charged words ("slams", "blasts", "soars", "fails")</li>
+<li>Whose perspective is front and center</li>
+<li>What facts are left out of the headline</li>
+<li>Whether the headline matches the actual story</li>
+</ul>
+</p>
+<a href="/news/today.html" class="btn-play">Try with today&#39;s stories &rarr;</a>
+</div>
+
+<div class="game-card">
+<span class="tag">Fact Finding</span>
+<h3>&#128269; Claim Buster</h3>
+<p>Pick any headline. Now try to verify ONE fact in it using an external source. Use any of these:</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+<a href="https://toolbox.google.com/factcheck/explorer" rel="noopener nofollow" target="_blank" style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none">Google Fact Check Explorer</a>
+<a href="https://www.snopes.com" rel="noopener nofollow" target="_blank" style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none">Snopes</a>
+<a href="https://www.sciencenews.org" rel="noopener nofollow" target="_blank" style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none">Science News</a>
+<a href="https://www.nasa.gov" rel="noopener nofollow" target="_blank" style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:6px 14px;border-radius:6px;font-size:13px;text-decoration:none">NASA.gov</a>
+</div>
+<p style="margin-top:12px;font-size:13px;color:#718096">If you can verify it in under 3 minutes — you just fact-checked a story. That&#39;s what journalists do all day.</p>
+</div>
+
+<div class="game-card">
+<span class="tag">Science Skills</span>
+<h3>&#128300; Science or Spin?</h3>
+<p>Science stories have a different structure than political stories. In a good science story, you should be able to find:</p>
+<ul style="font-size:14px;color:#4a5568;margin:8px 0;padding-left:20px;line-height:1.7">
+<li>A named researcher or institution</li>
+<li>Where the study was published (journal name)</li>
+<li>How many subjects were studied</li>
+<li>What the researchers actually measured</li>
+<li>A caveat — what the study did NOT prove</li>
+</ul>
+<p style="font-size:14px;color:#4a5568;margin-top:8px">Pick a science article from KiddieDaily and see how many of these 5 you can find. If you can find all 5, it&#39;s a solid study. If you find fewer than 3, be skeptical.</p>
+<a href="/news/science.html" class="btn-play">Browse science articles &rarr;</a>
+</div>
+
+<div style="background:#f0f4f8;border-radius:10px;padding:18px 22px;margin:24px 0;font-family:system-ui,sans-serif">
+<div style="font-size:11px;font-weight:700;color:#4a5568;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">More free media literacy resources</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<a href="https://newslit.org" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px;text-decoration:none">News Literacy Project</a>
+<span style="color:#cbd5e0">·</span>
+<a href="https://www.allsides.com/media-literacy" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px;text-decoration:none">AllSides Media Literacy</a>
+<span style="color:#cbd5e0">·</span>
+<a href="https://www.commonsense.org/education/articles/news-and-media-literacy-resources" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px;text-decoration:none">Common Sense Media</a>
+<span style="color:#cbd5e0">·</span>
+<a href="https://www.pbs.org/newshour/classroom" rel="noopener nofollow" target="_blank" style="color:#1a4d80;font-size:13px;text-decoration:none">PBS NewsHour Classroom</a>
+</div>
+</div>
+
+<div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" style="background:#1a4d80;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Today&#39;s news</a>
+<a href="/fact-check/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Fact Check guide</a>
+<a href="/parents/" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">For Parents</a>
+</div>
+</main>
+{FOOTER}
+</body></html>"""
+
+    upload("games/index.html", page, "[scraper] Games / media literacy activities page")
+    print(f"  Games page: {len(quiz_pool)} quiz questions from today's science articles")
+
+
 def generate_search_page(manifest):
     """Generate /search.html — full-page search interface fetching /data/kd-articles.json."""
     articles = manifest.get("articles", [])
@@ -2467,6 +2744,14 @@ def main():
     # 6k5. Generate For-Parents briefing page
     print(f"\n[6k5] Generating For-Parents briefing page...")
     generate_for_parents_page(manifest, today)
+
+    # 6k6. Generate Fact Check / media literacy hub
+    print(f"\n[6k6] Generating Fact Check / media literacy page...")
+    generate_fact_check_page(manifest)
+
+    # 6k7. Generate Games / activities page
+    print(f"\n[6k7] Generating Games / activities page...")
+    generate_games_page(manifest)
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
