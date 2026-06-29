@@ -283,7 +283,13 @@
     "news/2026-06-29-can-video-games-help-us-better-understand-quantum.html",
     "news/2026-06-29-world-cup-2026-top-matches-to-watch-in-the-round-o.html",
     "news/2026-06-29-great-stories-little-jeopardy---does-the-new-world.html",
-    "news/2026-06-29-knockouts-are-here---what-is-englands-path-to-the.html"
+    "news/2026-06-29-knockouts-are-here---what-is-englands-path-to-the.html",
+    "news/2026-06-29-junes-strawberry-moon-is-unlike-any-other-full-moo.html",
+    "news/2026-06-29-inside-brazils-vast-network-of-lifesaving-free-mil.html",
+    "news/2026-06-29-can-home-batteries-help-save-the-climate-and-save.html",
+    "news/2026-06-29-nasas-canceled-artemis-hardware-contracts-reached.html",
+    "news/2026-06-29-how-population-decline-is-exposing-germanys-old-di.html",
+    "news/2026-06-29-when-five-wimbledon-titles-in-one-weekend-changed.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -569,7 +575,13 @@
     "Can video games help us better understand quantum mechanics?",
     "World Cup 2026: Top matches to watch in the Round of 32 knockout stage",
     "Great stories, little jeopardy - does the new World Cup format work?",
-    "Knockouts are here - what is England's path to the final?"
+    "Knockouts are here - what is England's path to the final?",
+    "June's Strawberry Moon is unlike any other full moon. Here's why",
+    "Inside Brazil’s vast network of lifesaving free milk banks",
+    "Can home batteries help save the climate and save you money?",
+    "NASA's canceled Artemis hardware contracts reached $5.9 billion, audit finds",
+    "How population decline is exposing Germany's old divides",
+    "When five Wimbledon titles in one weekend changed British tennis"
   ],
   "articles": [
     {
@@ -3677,6 +3689,72 @@
       "slug": "news/2026-06-29-knockouts-are-here---what-is-englands-path-to-the.html",
       "title": "Knockouts are here - what is England's path to the final?",
       "display_title": "Knockouts are here - what is England's path to the final?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-junes-strawberry-moon-is-unlike-any-other-full-moo.html",
+      "title": "June's Strawberry Moon is unlike any other full moon. Here's why",
+      "display_title": "June's Strawberry Moon is unlike any other full moon. Here's why",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-inside-brazils-vast-network-of-lifesaving-free-mil.html",
+      "title": "Inside Brazil’s vast network of lifesaving free milk banks",
+      "display_title": "Inside Brazil’s vast network of lifesaving free milk banks",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-can-home-batteries-help-save-the-climate-and-save.html",
+      "title": "Can home batteries help save the climate and save you money?",
+      "display_title": "Can home batteries help save the climate and save you money?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-nasas-canceled-artemis-hardware-contracts-reached.html",
+      "title": "NASA's canceled Artemis hardware contracts reached $5.9 billion, audit finds",
+      "display_title": "NASA's canceled Artemis hardware contracts reached $5.9 billion, audit finds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-how-population-decline-is-exposing-germanys-old-di.html",
+      "title": "How population decline is exposing Germany's old divides",
+      "display_title": "How population decline is exposing Germany's old divides",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-when-five-wimbledon-titles-in-one-weekend-changed.html",
+      "title": "When five Wimbledon titles in one weekend changed British tennis",
+      "display_title": "When five Wimbledon titles in one weekend changed British tennis",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
