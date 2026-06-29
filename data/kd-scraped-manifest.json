@@ -115,7 +115,12 @@
     "news/2026-06-29-ibm-creates-worlds-first-sub-1nm-computer-chip-cra.html",
     "news/2026-06-29-scientists-find-thousands-of-earthquakes-in-a-perf.html",
     "news/2026-06-29-two-boys-pulled-from-venezuela-earthquake-rubble-a.html",
-    "news/2026-06-29-england-top-group---but-they-will-not-win-world-cu.html"
+    "news/2026-06-29-england-top-group---but-they-will-not-win-world-cu.html",
+    "news/2026-06-29-nasa-rover-finds-record-breaking-trove-of-complex.html",
+    "news/2026-06-29-you-cant-patch-your-way-out-of-it-cheap-ai-worm-ca.html",
+    "news/2026-06-29-a-deadly-fungus-that-can-infect-cats-and-people-is.html",
+    "news/2026-06-29-cedric-alexander-retains-the-x-division-championsh.html",
+    "news/2026-06-29-fetterman-mccormick-sidestep-shapiro-on-pennsylvan.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -233,7 +238,12 @@
     "IBM creates world's first sub-1nm computer chip — cramming 100 billion transistors into a tiny fingernail-sized space",
     "Scientists find thousands of earthquakes in a perfectly straight line in Alaska, revealing a hidden 'microplate'",
     "Two boys pulled from Venezuela earthquake rubble among 33 people rescued over weekend",
-    "England top group - but they will not win World Cup unless they improve"
+    "England top group - but they will not win World Cup unless they improve",
+    "NASA rover finds record-breaking trove of complex organic molecules on Mars",
+    "'You can't patch your way out of it': Cheap AI worm can spread between devices without human guidance — but how did scientists create it?",
+    "A deadly fungus that can infect cats and people is spreading",
+    "Cedric Alexander retains the X Division Championship with high IQ steal at TNA Slammiversary",
+    "Fetterman, McCormick sidestep Shapiro on Pennsylvania's 'Great American State Fair' booth"
   ],
   "articles": [
     {
@@ -1499,6 +1509,61 @@
       "agreement_pct": 45,
       "is_science": false,
       "source_icons": "🇬🇧 🌍"
+    },
+    {
+      "slug": "news/2026-06-29-nasa-rover-finds-record-breaking-trove-of-complex.html",
+      "title": "NASA rover finds record-breaking trove of complex organic molecules on Mars",
+      "display_title": "NASA rover finds record-breaking trove of complex organic molecules on Mars",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-you-cant-patch-your-way-out-of-it-cheap-ai-worm-ca.html",
+      "title": "'You can't patch your way out of it': Cheap AI worm can spread between devices without human guidance — but how did scientists create it?",
+      "display_title": "'You can't patch your way out of it': Cheap AI worm can spread between devices without human guidance — but how did scientists create it?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-a-deadly-fungus-that-can-infect-cats-and-people-is.html",
+      "title": "A deadly fungus that can infect cats and people is spreading",
+      "display_title": "A deadly fungus that can infect cats and people is spreading",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-cedric-alexander-retains-the-x-division-championsh.html",
+      "title": "Cedric Alexander retains the X Division Championship with high IQ steal at TNA Slammiversary",
+      "display_title": "Cedric Alexander retains the X Division Championship with high IQ steal at TNA Slammiversary",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 1.3,
+      "agreement_pct": 23,
+      "is_science": false,
+      "source_icons": "🦅"
+    },
+    {
+      "slug": "news/2026-06-29-fetterman-mccormick-sidestep-shapiro-on-pennsylvan.html",
+      "title": "Fetterman, McCormick sidestep Shapiro on Pennsylvania's 'Great American State Fair' booth",
+      "display_title": "Fetterman, McCormick sidestep Shapiro on Pennsylvania's 'Great American State Fair' booth",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 23,
+      "is_science": false,
+      "source_icons": "⚖️"
     }
   ]
 }
