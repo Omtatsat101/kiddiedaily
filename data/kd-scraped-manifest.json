@@ -353,7 +353,11 @@
     "news/2026-06-29-extreme-heat-wave-in-france-kills-hundreds-of-thou.html",
     "news/2026-06-29-nepals-central-zoo-faces-questions-over-its-bird-f.html",
     "news/2026-06-29-early-land-animals-skipped-the-tadpole-phase.html",
-    "news/2026-06-29-with-starfall-spacex-eyes-an-edge-in-global-cargo.html"
+    "news/2026-06-29-with-starfall-spacex-eyes-an-edge-in-global-cargo.html",
+    "news/2026-06-29-not-all-coral-reefs-are-doomed-as-a-result-of-clim.html",
+    "news/2026-06-29-how-leopards-and-wolves-share-the-same-himalayan-v.html",
+    "news/2026-06-29-rocket-report-rebuild-begins-at-blue-origin-launch.html",
+    "news/2026-06-29-a-bold-satellite-rescue-mission-came-together-in-r.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -709,7 +713,11 @@
     "Extreme heat wave in France kills hundreds of thousands of poultry",
     "Nepal’s Central Zoo faces questions over its bird flu response",
     "Early land animals skipped the tadpole phase",
-    "With Starfall, SpaceX eyes an edge in global cargo delivery from orbit"
+    "With Starfall, SpaceX eyes an edge in global cargo delivery from orbit",
+    "Not all coral reefs are doomed as a result of climate change, study suggests",
+    "How leopards and wolves share the same Himalayan valley, study",
+    "Rocket Report: Rebuild begins at Blue Origin launch pad; Relativity targets Mars",
+    "A bold satellite rescue mission came together in record time, but will it work?"
   ],
   "articles": [
     {
@@ -4587,6 +4595,50 @@
       "slug": "news/2026-06-29-with-starfall-spacex-eyes-an-edge-in-global-cargo.html",
       "title": "With Starfall, SpaceX eyes an edge in global cargo delivery from orbit",
       "display_title": "With Starfall, SpaceX eyes an edge in global cargo delivery from orbit",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-not-all-coral-reefs-are-doomed-as-a-result-of-clim.html",
+      "title": "Not all coral reefs are doomed as a result of climate change, study suggests",
+      "display_title": "Not all coral reefs are doomed as a result of climate change, study suggests",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-how-leopards-and-wolves-share-the-same-himalayan-v.html",
+      "title": "How leopards and wolves share the same Himalayan valley, study",
+      "display_title": "How leopards and wolves share the same Himalayan valley, study",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-rocket-report-rebuild-begins-at-blue-origin-launch.html",
+      "title": "Rocket Report: Rebuild begins at Blue Origin launch pad; Relativity targets Mars",
+      "display_title": "Rocket Report: Rebuild begins at Blue Origin launch pad; Relativity targets Mars",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-a-bold-satellite-rescue-mission-came-together-in-r.html",
+      "title": "A bold satellite rescue mission came together in record time, but will it work?",
+      "display_title": "A bold satellite rescue mission came together in record time, but will it work?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
