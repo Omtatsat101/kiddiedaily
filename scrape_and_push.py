@@ -98,6 +98,9 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|^watch\s*:\s+how\s+to'                   # tutorial video stub articles ("Watch: How to...")
     r'|\bgel\s+nails?\b'                         # adult beauty/cosmetic content
     r'|\bdaca\s+recipients?\b|\bdreamers?\s+(?:face|struggle|fight)\b'  # immigration policy
+    r'|\bnhs\s+maternity\b|\bmaternity\s+(?:scandal|inquiry|crisis)\b'  # UK healthcare politics
+    r'|\binquiry\s+demands\s+nhs\b'               # NHS inquiry news
+    r'|\bpeople\s+prefer\s+negotiating\b'          # adult workplace gender psychology
     r'|\baverage\s+salary.{0,30}(?:rent|state|ranked)\b'  # adult housing/finance content
     r'|\brequired\s+bible|bible\s+stories?\s+(?:in|for|required|at)\b'  # church-state curriculum
     r'|\bchurch\s+and\s+state\b|\bseparation\s+of\s+church\b'  # church-state controversy
@@ -614,6 +617,16 @@ DEPRIORITIZE_WORDS = [
     # US DACA/immigration status (adult policy debate)
     "daca recipients", "daca recipient", "dreamers face",
     "american dream slipping",
+    # Adult gender/negotiation social science (adult workplace psychology)
+    "prefer negotiating with women", "negotiating with women",
+    "even when they don't know", "gender and negotiation",
+    # UK NHS healthcare controversy (adult politics)
+    "nhs maternity", "maternity scandal", "maternity inquiry",
+    "nhs inquiry", "nhs investigation", "nhs crisis",
+    "demands nhs", "inquiry demands",
+    # Adult sleep/health optimization (not kids science news)
+    "sleep optimization", "sleep hacking", "optimal sleep",
+    "biohacking", "anti-aging protocol",
     # IEEE organizational events, award ceremonies, training announcements
     "ieee awardee", "epics in ieee", "ieee's awards", "education week events",
     "virtual training course", "ieee rolls out",
