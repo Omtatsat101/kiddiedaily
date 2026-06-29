@@ -241,7 +241,14 @@
     "news/2026-06-29-logans-run-at-50-remembering-this-disco-age-sci-fi.html",
     "news/2026-06-29-hope-of-finding-more-venezuela-quake-survivors-fad.html",
     "news/2026-06-29-gazas-displaced-families-face-worsening-living-con.html",
-    "news/2026-06-29-trade-tensions-shake-up-brazils-caipirinha-spirit.html"
+    "news/2026-06-29-trade-tensions-shake-up-brazils-caipirinha-spirit.html",
+    "news/2026-06-29-limited-edition-july-4th-quarters-are-out-thereif.html",
+    "news/2026-06-29-new-clouded-leopard-cub-is-the-size-of-a-loaf-of-b.html",
+    "news/2026-06-29-this-week-in-space-podcast-episode-216-dark-matter.html",
+    "news/2026-06-29-spacecamp-at-40-a-wish-fulfillment-fantasy-brought.html",
+    "news/2026-06-29-the-race-to-understand-how-and-when-thwaites-glaci.html",
+    "news/2026-06-29-these-church-members-disagree-on-politics-together.html",
+    "news/2026-06-29-win-the-family-cookout-with-perfectly-cooked-hot-d.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -485,7 +492,14 @@
     "'Logan's Run' at 50: Remembering this disco-age sci-fi classic on its golden anniversary",
     "Hope of finding more Venezuela quake survivors fades despite late rescues",
     "Gaza’s displaced families face worsening living conditions",
-    "Trade tensions shake up Brazil's caipirinha spirit"
+    "Trade tensions shake up Brazil's caipirinha spirit",
+    "Limited-edition ‘July 4th’ quarters are out there…if you can find one",
+    "New clouded leopard cub is the size of a loaf of bread",
+    "This Week In Space podcast: Episode 216 — Dark Matter Intelligence",
+    "SpaceCamp at 40: A wish-fulfillment fantasy brought down to earth by NASA's real-life disaster",
+    "The race to understand how and when Thwaites glacier will collapse",
+    "These church members disagree on politics. Together they're wiping out medical debt",
+    "Win the family cookout with perfectly cooked hot dogs"
   ],
   "articles": [
     {
@@ -3131,6 +3145,83 @@
       "slug": "news/2026-06-29-trade-tensions-shake-up-brazils-caipirinha-spirit.html",
       "title": "Trade tensions shake up Brazil's caipirinha spirit",
       "display_title": "Trade tensions shake up Brazil's caipirinha spirit",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-limited-edition-july-4th-quarters-are-out-thereif.html",
+      "title": "Limited-edition ‘July 4th’ quarters are out there…if you can find one",
+      "display_title": "Limited-edition ‘July 4th’ quarters are out there…if you can find one",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-new-clouded-leopard-cub-is-the-size-of-a-loaf-of-b.html",
+      "title": "New clouded leopard cub is the size of a loaf of bread",
+      "display_title": "New clouded leopard cub is the size of a loaf of bread",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-this-week-in-space-podcast-episode-216-dark-matter.html",
+      "title": "This Week In Space podcast: Episode 216 — Dark Matter Intelligence",
+      "display_title": "This Week In Space podcast: Episode 216 — Dark Matter Intelligence",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-spacecamp-at-40-a-wish-fulfillment-fantasy-brought.html",
+      "title": "SpaceCamp at 40: A wish-fulfillment fantasy brought down to earth by NASA's real-life disaster",
+      "display_title": "SpaceCamp at 40: A wish-fulfillment fantasy brought down to earth by NASA's real-life disaster",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-the-race-to-understand-how-and-when-thwaites-glaci.html",
+      "title": "The race to understand how and when Thwaites glacier will collapse",
+      "display_title": "The race to understand how and when Thwaites glacier will collapse",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-these-church-members-disagree-on-politics-together.html",
+      "title": "These church members disagree on politics. Together they're wiping out medical debt",
+      "display_title": "These church members disagree on politics. Together they're wiping out medical debt",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-win-the-family-cookout-with-perfectly-cooked-hot-d.html",
+      "title": "Win the family cookout with perfectly cooked hot dogs",
+      "display_title": "Win the family cookout with perfectly cooked hot dogs",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.7,
