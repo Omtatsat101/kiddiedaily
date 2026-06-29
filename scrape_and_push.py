@@ -110,6 +110,9 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\b(?:index\s+fund|roth\s+ira|401k|hedge\s+fund|dividend\s+yield)\b'  # adult investing content
     r'|\b(?:ufc\s+\d+|boxing\s+results?|knockou?t\s+(?:win|loss)|canelo|fury\s+vs|usyk)\b'  # combat sports
     r'|\bin\s+memoriam\b|\bremembering\s+\w+.{0,15}years?\s+later\b'  # obituary/tribute format
+    r'|\bfda\s+panel\b|\bfda\s+advisory\b'      # adult FDA regulatory panel coverage
+    r'|\b(?:peptide|semaglutide|ozempic|wegovy|mounjaro)\b'  # adult weight-loss drug content
+    r'|\b(?:bodybuilding|testosterone\s+boost|muscle\s+mass\s+loss|anti.aging\s+protocol)\b'  # adult biohacking
     r'|^watch\s*:\s+how\s+to'                   # tutorial video stub articles ("Watch: How to...")
     r'|\bgel\s+nails?\b'                         # adult beauty/cosmetic content
     r'|\bdaca\s+recipients?\b|\bdreamers?\s+(?:face|struggle|fight)\b'  # immigration policy
@@ -339,8 +342,8 @@ SOURCES = [
     {"name": "Berkeley News",       "url": "https://news.berkeley.edu/feed/",                        "bias":  0.0, "icon": "🎙️"},
     # ZME Science: accessible science for curious minds — animals, space, paleontology
     {"name": "ZME Science",         "url": "https://www.zmescience.com/feed/",                       "bias":  0.0, "icon": "🔬"},
-    # Dogo News: news written specifically for kids ages 8-14 — exact audience match
-    {"name": "Dogo News",           "url": "https://www.dogonews.com/feed",                          "bias":  0.0, "icon": "🐶"},
+    # Time for Kids: TIME Magazine's news edition written for K-8 students
+    {"name": "Time for Kids",       "url": "https://www.timeforkids.com/feed/",                      "bias":  0.1, "icon": "⏰"},
     # Wired Science: accessible tech + science explainers for general audience
     {"name": "Wired Science",       "url": "https://www.wired.com/feed/category/science/latest/rss", "bias":  0.1, "icon": "💡"},
 ]
