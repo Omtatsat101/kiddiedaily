@@ -440,7 +440,8 @@
     "news/2026-06-29-mum-rescued-from-venezuela-rubble-with-newborn-bab.html",
     "news/2026-06-29-michael-jackson-movie-becomes-highest-grossing-bio.html",
     "news/2026-06-29-british-american-tobacco-to-cut-9000-jobs.html",
-    "news/2026-06-29-sleep-and-death-cista-handle-a-2400-year-old-sculp.html"
+    "news/2026-06-29-sleep-and-death-cista-handle-a-2400-year-old-sculp.html",
+    "news/2026-06-29-erased-from-history-a-century-on-from-canadas-anti.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -883,7 +884,8 @@
     "Mum rescued from Venezuela rubble with newborn baby tells BBC how he helped her survive",
     "Michael Jackson movie becomes highest-grossing biopic of all time",
     "British American Tobacco to cut 9,000 jobs",
-    "Sleep and Death cista handle: A 2,400-year-old sculpture depicting gods carrying away Zeus' son during the Trojan War"
+    "Sleep and Death cista handle: A 2,400-year-old sculpture depicting gods carrying away Zeus' son during the Trojan War",
+    "‘Erased from history’: A century on from Canada’s anti-Greek riots"
   ],
   "articles": [
     {
@@ -5739,6 +5741,18 @@
       "is_science": true,
       "source_name": "Live Science",
       "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-erased-from-history-a-century-on-from-canadas-anti.html",
+      "title": "‘Erased from history’: A century on from Canada’s anti-Greek riots",
+      "display_title": "‘Erased from history’: A century on from Canada’s anti-Greek riots",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍"
     }
   ]
 }
