@@ -622,7 +622,10 @@
     "news/2026-06-29-uv-light-patterns-thermochromic-crystals-without-d.html",
     "news/2026-06-29-online-calculator-shows-how-drastically-mowing-aff.html",
     "news/2026-06-29-brazil-vs-japan-live-fifa-world-cup-2026.html",
-    "news/2026-06-29-all-you-need-to-know-about-wimbledon-2026.html"
+    "news/2026-06-29-all-you-need-to-know-about-wimbledon-2026.html",
+    "news/2026-06-29-quiz-of-the-week-have-you-been-following-this-week.html",
+    "news/2026-06-29-new-explorer-scout-badges-include-digital-content.html",
+    "news/2026-06-29-what-happens-when-pokemon-and-wallace-gromits-make.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1247,7 +1250,10 @@
     "UV light patterns thermochromic crystals without damage, unlocking color-changing designs",
     "Online calculator shows how drastically mowing affects insects",
     "Brazil vs Japan LIVE: FIFA World Cup 2026",
-    "All you need to know about Wimbledon 2026"
+    "All you need to know about Wimbledon 2026",
+    "Quiz of the Week: Have you been following this week's news?",
+    "New Explorer Scout badges include digital content creation and democracy",
+    "What happens when Pokémon and Wallace & Gromit's makers collide?"
   ],
   "articles": [
     {
@@ -8280,6 +8286,42 @@
       "slug": "news/2026-06-29-all-you-need-to-know-about-wimbledon-2026.html",
       "title": "All you need to know about Wimbledon 2026",
       "display_title": "All you need to know about Wimbledon 2026",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-quiz-of-the-week-have-you-been-following-this-week.html",
+      "title": "Quiz of the Week: Have you been following this week's news?",
+      "display_title": "Quiz of the Week: Have you been following this week's news?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-new-explorer-scout-badges-include-digital-content.html",
+      "title": "New Explorer Scout badges include digital content creation and democracy",
+      "display_title": "New Explorer Scout badges include digital content creation and democracy",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "BBC Newsround",
+      "source_icons": "📺"
+    },
+    {
+      "slug": "news/2026-06-29-what-happens-when-pokemon-and-wallace-gromits-make.html",
+      "title": "What happens when Pokémon and Wallace & Gromit's makers collide?",
+      "display_title": "What happens when Pokémon and Wallace & Gromit's makers collide?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.1,
