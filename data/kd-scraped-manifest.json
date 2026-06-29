@@ -586,7 +586,10 @@
     "news/2026-06-29-the-canoe-in-the-forest.html",
     "news/2026-06-29-whats-next-for-deep-sea-mining.html",
     "news/2026-06-29-the-personal-toll-of-canadas-broken-fishing-promis.html",
-    "news/2026-06-29-uk-africa-relations-starmers-reset-that-never-deli.html"
+    "news/2026-06-29-uk-africa-relations-starmers-reset-that-never-deli.html",
+    "news/2026-06-29-to-speak-the-language-of-the-land.html",
+    "news/2026-06-29-the-destructive-legacy-of-failed-aquaculture.html",
+    "news/2026-06-29-conjuring-the-lost-land-beneath-the-north-sea.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1175,7 +1178,10 @@
     "The Canoe in the Forest",
     "What’s Next for Deep-Sea Mining?",
     "The Personal Toll of Canada’s Broken Fishing Promises",
-    "UK-Africa relations: Starmer's 'reset' that never delivered"
+    "UK-Africa relations: Starmer's 'reset' that never delivered",
+    "To Speak the Language of the Land",
+    "The Destructive Legacy of Failed Aquaculture",
+    "Conjuring the Lost Land Beneath the North Sea"
   ],
   "articles": [
     {
@@ -7783,6 +7789,42 @@
       "is_science": false,
       "source_name": "DW News",
       "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-to-speak-the-language-of-the-land.html",
+      "title": "To Speak the Language of the Land",
+      "display_title": "To Speak the Language of the Land",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-destructive-legacy-of-failed-aquaculture.html",
+      "title": "The Destructive Legacy of Failed Aquaculture",
+      "display_title": "The Destructive Legacy of Failed Aquaculture",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-conjuring-the-lost-land-beneath-the-north-sea.html",
+      "title": "Conjuring the Lost Land Beneath the North Sea",
+      "display_title": "Conjuring the Lost Land Beneath the North Sea",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
     }
   ]
 }
