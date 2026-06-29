@@ -248,7 +248,14 @@
     "news/2026-06-29-spacecamp-at-40-a-wish-fulfillment-fantasy-brought.html",
     "news/2026-06-29-the-race-to-understand-how-and-when-thwaites-glaci.html",
     "news/2026-06-29-these-church-members-disagree-on-politics-together.html",
-    "news/2026-06-29-win-the-family-cookout-with-perfectly-cooked-hot-d.html"
+    "news/2026-06-29-win-the-family-cookout-with-perfectly-cooked-hot-d.html",
+    "news/2026-06-29-why-do-fireflies-glow-its-more-than-butt-goo.html",
+    "news/2026-06-29-robot-dentist-prepares-tooth-for-a-crown.html",
+    "news/2026-06-29-blue-origin-plans-to-fly-new-glenn-rocket-again-th.html",
+    "news/2026-06-29-nasa-used-a-drone-to-deliver-a-human-kidney-is-thi.html",
+    "news/2026-06-29-how-menopause-radically-changes-the-brain-and-what.html",
+    "news/2026-06-29-tips-for-taking-care-of-your-pets-when-fireworks-a.html",
+    "news/2026-06-29-july-4th-fireworks-in-washington-whats-different-f.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -499,7 +506,14 @@
     "SpaceCamp at 40: A wish-fulfillment fantasy brought down to earth by NASA's real-life disaster",
     "The race to understand how and when Thwaites glacier will collapse",
     "These church members disagree on politics. Together they're wiping out medical debt",
-    "Win the family cookout with perfectly cooked hot dogs"
+    "Win the family cookout with perfectly cooked hot dogs",
+    "Why do fireflies glow? It’s more than butt goo.",
+    "Robot dentist prepares tooth for a crown",
+    "Blue Origin plans to fly New Glenn rocket again this year despite massive rocket explosion (video)",
+    "NASA used a drone to deliver a human kidney. Is this the future of transplant transport?",
+    "How menopause radically changes the brain – and what happens after",
+    "Tips for taking care of your pets when fireworks are booming",
+    "July 4th fireworks in Washington: What's different for America's 250th?"
   ],
   "articles": [
     {
@@ -3222,6 +3236,83 @@
       "slug": "news/2026-06-29-win-the-family-cookout-with-perfectly-cooked-hot-d.html",
       "title": "Win the family cookout with perfectly cooked hot dogs",
       "display_title": "Win the family cookout with perfectly cooked hot dogs",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-why-do-fireflies-glow-its-more-than-butt-goo.html",
+      "title": "Why do fireflies glow? It’s more than butt goo.",
+      "display_title": "Why do fireflies glow? It’s more than butt goo.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-robot-dentist-prepares-tooth-for-a-crown.html",
+      "title": "Robot dentist prepares tooth for a crown",
+      "display_title": "Robot dentist prepares tooth for a crown",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-blue-origin-plans-to-fly-new-glenn-rocket-again-th.html",
+      "title": "Blue Origin plans to fly New Glenn rocket again this year despite massive rocket explosion (video)",
+      "display_title": "Blue Origin plans to fly New Glenn rocket again this year despite massive rocket explosion (video)",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-nasa-used-a-drone-to-deliver-a-human-kidney-is-thi.html",
+      "title": "NASA used a drone to deliver a human kidney. Is this the future of transplant transport?",
+      "display_title": "NASA used a drone to deliver a human kidney. Is this the future of transplant transport?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-how-menopause-radically-changes-the-brain-and-what.html",
+      "title": "How menopause radically changes the brain – and what happens after",
+      "display_title": "How menopause radically changes the brain – and what happens after",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-tips-for-taking-care-of-your-pets-when-fireworks-a.html",
+      "title": "Tips for taking care of your pets when fireworks are booming",
+      "display_title": "Tips for taking care of your pets when fireworks are booming",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-july-4th-fireworks-in-washington-whats-different-f.html",
+      "title": "July 4th fireworks in Washington: What's different for America's 250th?",
+      "display_title": "July 4th fireworks in Washington: What's different for America's 250th?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.7,
