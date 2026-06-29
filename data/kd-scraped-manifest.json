@@ -460,7 +460,10 @@
     "news/2026-06-29-ieees-2026-education-week-events-emphasized-lifelo.html",
     "news/2026-06-29-behind-the-scenes-of-a-technical-interview.html",
     "news/2026-06-29-how-musicians-can-get-paid-for-training-ai.html",
-    "news/2026-06-29-the-secret-to-marathon-winning-humanoid-robots.html"
+    "news/2026-06-29-the-secret-to-marathon-winning-humanoid-robots.html",
+    "news/2026-06-29-engineering-is-critical-to-boosting-food-security.html",
+    "news/2026-06-29-this-1976-university-experiment-spun-up-the-us-win.html",
+    "news/2026-06-29-why-orbital-data-centers-are-harder-than-silicon-v.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -923,7 +926,10 @@
     "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning",
     "Behind the Scenes of a Technical Interview",
     "How Musicians Can Get Paid for Training AI",
-    "The Secret to Marathon-Winning Humanoid Robots"
+    "The Secret to Marathon-Winning Humanoid Robots",
+    "Engineering Is Critical to Boosting Food Security",
+    "This 1976 University Experiment Spun Up the U.S. Wind Industry",
+    "Why Orbital Data Centers Are Harder Than Silicon Valley Thinks"
   ],
   "articles": [
     {
@@ -6012,6 +6018,42 @@
       "slug": "news/2026-06-29-the-secret-to-marathon-winning-humanoid-robots.html",
       "title": "The Secret to Marathon-Winning Humanoid Robots",
       "display_title": "The Secret to Marathon-Winning Humanoid Robots",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-engineering-is-critical-to-boosting-food-security.html",
+      "title": "Engineering Is Critical to Boosting Food Security",
+      "display_title": "Engineering Is Critical to Boosting Food Security",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-this-1976-university-experiment-spun-up-the-us-win.html",
+      "title": "This 1976 University Experiment Spun Up the U.S. Wind Industry",
+      "display_title": "This 1976 University Experiment Spun Up the U.S. Wind Industry",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-why-orbital-data-centers-are-harder-than-silicon-v.html",
+      "title": "Why Orbital Data Centers Are Harder Than Silicon Valley Thinks",
+      "display_title": "Why Orbital Data Centers Are Harder Than Silicon Valley Thinks",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
