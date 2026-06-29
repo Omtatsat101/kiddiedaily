@@ -806,7 +806,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 @media(prefers-color-scheme:dark){html{background:#0f1117;color:#e2e8f0}header.kd{background:#0d2d54}a{color:#90cdf4}.byline,.kd-card-excerpt,.kd-bias-text{color:#a0aec0}.sources{background:#1a202c;border-left-color:#4a5568}footer.kd{background:#070c14}.kd-sc{background:#1a202c;border-color:#2d3748}.kd-sc h3 a{color:#90cdf4}h2{color:#a0c4ff;border-color:#2d3748}#search,#cat-search,#today-search{background:#1a202c;color:#e2e8f0;border-color:#4a5568}main{background:#0f1117}}
 @media print{header.kd,footer.kd,#kd-prog,.kd-skip,button,.kd-ham{display:none!important}main{max-width:100%!important;padding:0!important;margin:0!important}a{color:#000!important}h1,h2,h3{break-after:avoid}p{orphans:3;widows:3}.sources{border:1px solid #000;background:none!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
-''' + BIAS_CSS + "</style>"
+''' + BIAS_CSS + '</style>\n<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">'
 
 HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
@@ -2533,6 +2533,11 @@ def generate_for_parents_page(manifest, today):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>For Parents — KiddieDaily Daily Briefing</title>
 <meta name="description" content="KiddieDaily parent briefing for {today}: {n_today} articles, bias ratings, source analysis, and discussion guides for families.">
+<meta property="og:title" content="KiddieDaily — For Parents ({today})">
+<meta property="og:description" content="{n_today} articles today, bias-rated from 36 sources. Discussion guides included.">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta property="og:url" content="https://kiddiedaily.com/parents/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kiddiedaily.com/parents/">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
 {CSS}
@@ -2623,6 +2628,10 @@ def generate_subscribe_page(manifest, today):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Subscribe — Get Daily KiddieDaily Updates</title>
 <meta name="description" content="Get daily KiddieDaily updates via RSS, email, or bookmark. Free, kid-safe news for families — no ads, no spin.">
+<meta property="og:title" content="Subscribe — KiddieDaily">
+<meta property="og:description" content="Free daily kid-safe news. RSS, bookmark, or daily digest — your choice. No ads, no spin.">
+<meta property="og:url" content="https://kiddiedaily.com/subscribe/">
+<meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://kiddiedaily.com/subscribe/">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
 {CSS}
@@ -2751,6 +2760,11 @@ def generate_static_info_pages(manifest, today):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>{title_tag}</title>
 <meta name="description" content="{meta_desc}">
+<meta property="og:title" content="{title_tag}">
+<meta property="og:description" content="{meta_desc}">
+<meta property="og:url" content="https://kiddiedaily.com{canonical}">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://kiddiedaily.com{canonical}">
 {CSS}
 </head><body>
@@ -2770,17 +2784,17 @@ def generate_static_info_pages(manifest, today):
 <p>Ground-level news for parents: so you have the unbiased data you need to make the best decisions for your child. We don&#39;t tell you what to think — we give you the landscape, and the tools to read it critically.</p>
 
 <h2 style="font-size:18px;margin:24px 0 10px;color:#1a4d80">How it works</h2>
-<p>Every morning at 6am ET, our automated scraper collects stories from <strong>11 vetted sources</strong> spanning the full political spectrum. Each story is:</p>
+<p>Every morning at 6am ET, our automated scraper collects stories from <strong>36 vetted sources</strong> spanning the full political spectrum. Each story is:</p>
 <ul style="padding-left:20px;margin:8px 0">
 <li>Filtered through a kid-safety blocklist (violence, explicit content, age-inappropriate topics)</li>
 <li>Ranked to prioritize science, discovery, and nature over political conflict</li>
 <li>Bias-rated using <strong>AllSides</strong> and <strong>Ad Fontes Media</strong> methodology</li>
 <li>Grouped when multiple outlets cover the same topic — so you can compare framing</li>
 </ul>
-<p>We publish up to 5 new articles per day. Science-focused sources are weighted higher because they tend to be more universally relevant to families and less politically charged.</p>
+<p>We publish up to 11 new articles per day. Science-focused sources are weighted higher because they tend to be more universally relevant to families and less politically charged.</p>
 
 <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin:20px 0">
-<p style="margin:0;font-size:14px;color:#1e40af"><strong>By the numbers:</strong> {total} articles published &middot; {sci_pct}% science content &middot; 11 sources &middot; 0 ads &middot; 0 trackers &middot; updated daily at 6am ET</p>
+<p style="margin:0;font-size:14px;color:#1e40af"><strong>By the numbers:</strong> {total} articles published &middot; {sci_pct}% science content &middot; 36 sources &middot; 0 ads &middot; 0 trackers &middot; updated daily at 6am ET</p>
 </div>
 
 <h2 style="font-size:18px;margin:24px 0 10px;color:#1a4d80">Our principles</h2>
@@ -2906,6 +2920,11 @@ def generate_fact_check_page(manifest):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Fact Check — KiddieDaily Media Literacy Hub</title>
 <meta name="description" content="Help your family spot bias, check facts, and read news critically. KiddieDaily's media literacy guide for parents and kids.">
+<meta property="og:title" content="Fact Check — KiddieDaily Media Literacy Hub">
+<meta property="og:description" content="Help your family spot bias, check facts, and read news critically.">
+<meta property="og:url" content="https://kiddiedaily.com/fact-check/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kiddiedaily.com/fact-check/">
 {CSS}
 <style>
@@ -3090,6 +3109,11 @@ def generate_games_page(manifest):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Games — KiddieDaily Media Literacy Activities</title>
 <meta name="description" content="Fun media literacy games and activities for kids. Spot the bias, quiz yourself on today's science news, and become a critical reader.">
+<meta property="og:title" content="Games — KiddieDaily Media Literacy Activities">
+<meta property="og:description" content="Fun bias-spotting games and science quizzes for kids. Free, no login.">
+<meta property="og:url" content="https://kiddiedaily.com/games/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kiddiedaily.com/games/">
 {CSS}
 <style>
