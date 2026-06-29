@@ -46,17 +46,23 @@ if not GITHUB_TOKEN:
     raise SystemExit("GITHUB_TOKEN not found: set env var or add to projects/API-KEYS.env")
 
 # ── GitHub Contents API ────────────────────────────────────────────────────────
-def gh(method, path, body=None):
+def gh(method, path, body=None, _retry=3):
     data = json.dumps(body).encode() if body else None
     req = urllib.request.Request(
         f"https://api.github.com{path}", data=data,
         headers={"Authorization": f"Bearer {GITHUB_TOKEN}", "User-Agent": "kd-scraper",
                  "Accept": "application/vnd.github+json", "Content-Type": "application/json"},
         method=method)
-    try:
-        return json.loads(urllib.request.urlopen(req, timeout=20, context=ctx).read())
-    except urllib.error.HTTPError as e:
-        return {"_err": e.code, "_body": e.read().decode()[:300]}
+    for attempt in range(_retry):
+        try:
+            return json.loads(urllib.request.urlopen(req, timeout=25, context=ctx).read())
+        except urllib.error.HTTPError as e:
+            return {"_err": e.code, "_body": e.read().decode()[:300]}
+        except OSError:
+            if attempt < _retry - 1:
+                time.sleep(3 + attempt * 2)
+            else:
+                raise
 
 def upload(repo_path, content_str, message):
     branch = ACTIVE_BRANCH
@@ -319,6 +325,8 @@ BIAS_CSS = """
 .kd-chip.R{background:#fff5f5;color:#c53030}
 .kd-agree-row{display:flex;align-items:center;gap:10px;margin-top:6px}
 .kd-badge{padding:4px 12px;border-radius:12px;font-size:13px;font-weight:700}
+.kd-badge-sci{background:#d1fae5;color:#065f46}
+.kd-badge-news{background:#dbeafe;color:#1e40af}
 .badge-hi{background:#c6f6d5;color:#22543d}
 .badge-med{background:#fefcbf;color:#744210}
 .badge-lo{background:#fed7d7;color:#742a2a}
@@ -1469,22 +1477,16 @@ def generate_archive(manifest):
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>News Archive — KiddieDaily</title>
-<meta name="description" content="All KiddieDaily news articles — kid-friendly, bias-rated, fact-checked daily.">
+<meta name="description" content="All KiddieDaily news articles — kid-friendly, bias-rated, fact-checked daily. {len(articles)} articles and counting.">
+<meta property="og:title" content="KiddieDaily News Archive">
+<meta property="og:description" content="{len(articles)} kid-safe, bias-rated articles. Searchable and filterable by category.">
+<meta property="og:url" content="https://kiddiedaily.com/news/archive.html">
 <link rel="canonical" href="https://kiddiedaily.com/news/archive.html">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
 <style>
-body{{margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748}}
-header.kd{{background:#1a4d80;padding:14px 0}}
-header.kd .inner{{max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:0 20px}}
-header.kd .logo{{font-weight:700;font-size:22px;color:#fff;font-family:Georgia,serif;text-decoration:none}}
-header.kd nav{{display:flex;flex-wrap:wrap;gap:18px;flex:1;justify-content:flex-end}}
-header.kd nav a{{color:#fff;font-size:15px;font-family:system-ui,sans-serif}}
-main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
 .kd-sc{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:8px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
 .kd-sc-top{{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}}
-.kd-badge{{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}}
-.kd-badge-sci{{background:#d1fae5;color:#065f46}}
-.kd-badge-news{{background:#dbeafe;color:#1e40af}}
 .kd-mini-bias{{display:flex;align-items:center;gap:6px;margin-top:8px}}
 .kd-mini-lbl{{font-size:10px;font-weight:700;color:#718096;width:16px}}
 .kd-mini-track{{flex:1;height:6px;border-radius:3px;background:linear-gradient(to right,#3182ce 0%,#805ad5 50%,#e53e3e 100%);position:relative}}
@@ -1495,13 +1497,9 @@ main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
 #filter-btns{{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}}
 #filter-btns button{{background:#f7fafc;border:1px solid #e2e8f0;border-radius:20px;padding:5px 14px;cursor:pointer;font-size:13px;font-family:system-ui,sans-serif}}
 #filter-btns button.active{{background:#1a4d80;color:#fff;border-color:#1a4d80}}
-footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sans-serif;font-size:13px;text-align:center}}
-</style></head>
-<body>
-<header class="kd"><div class="inner">
-<a href="/" class="logo">KiddieDaily<small>news for families</small></a>
-<nav><a href="/news/">Kid News</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/parent-zone/">Parent Zone</a></nav>
-</div></header>
+</style>
+</head><body>
+{HEADER}
 <main>
 <h1 style="font-size:28px;margin-bottom:4px">News Archive</h1>
 <p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 20px">{len(articles)} articles &middot; Updated {today_str}</p>
@@ -1517,11 +1515,14 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 {sections_html}
 </div>
 
-<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096">
-  <a href="/feed.xml">Subscribe via RSS</a> &middot; <a href="/news/">Latest news</a>
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
+  <a href="/feed.xml" style="color:#1a4d80">Subscribe via RSS</a> &middot;
+  <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
+  <a href="/news/" style="color:#1a4d80">Latest news</a> &middot;
+  <a href="#top" style="color:#1a4d80">Back to top &uarr;</a>
 </p>
 </main>
-<footer><p>&copy; KiddieDaily &mdash; <a href="/privacy.html" style="color:#a0aec0">Privacy</a> &middot; <a href="/feed.xml" style="color:#a0aec0">RSS</a></p></footer>
+{FOOTER}
 
 <script>
 const DATA = {search_data};
@@ -1602,71 +1603,95 @@ def generate_category_pages(manifest):
         "environment": "Climate, oceans, forests, and Earth's ecosystems — environment news for kids.",
     }
 
+    # Badge class per category
+    cat_badge = {
+        "science": "kd-badge-sci",
+        "space":   "kd-badge-sci",
+        "animals": "kd-badge-sci",
+        "history": "kd-badge-sci",
+        "environment": "kd-badge-sci",
+        "world":   "kd-badge-news",
+    }
+    cat_icons = {
+        "science": "🔬", "world": "🌍", "space": "🚀",
+        "animals": "🐾", "history": "🏛", "environment": "🌿",
+    }
+
     for key, arts in cats.items():
         if not arts:
             continue
         arts = sorted(arts, key=lambda x: x.get("date", ""), reverse=True)
-        label = cat_labels[key]
+        label    = cat_labels[key]
+        badge_cls = cat_badge[key]
+        icon     = cat_icons.get(key, "")
+        multi_source = [a for a in arts if a.get("n_sources", 1) > 1]
+        latest_date  = arts[0].get("date", "") if arts else ""
 
         rows = []
-        for a in arts[:20]:
-            slug  = a["slug"]
-            title = a.get("display_title", a.get("title", ""))
-            date  = a.get("date", "")
-            n     = a.get("n_sources", 1)
-            bias  = a.get("bias_avg", 0.0)
+        for a in arts[:30]:
+            slug    = a["slug"]
+            title   = a.get("display_title", a.get("title", ""))
+            date    = a.get("date", "")
+            n       = a.get("n_sources", 1)
+            bias    = a.get("bias_avg", 0.0)
             dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
-            agree = f"{n} outlet{'s' if n!=1 else ''}"
+            agree   = f"{n} outlet{'s' if n!=1 else ''}"
+            multi_badge = (
+                f'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;'
+                f'padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'
+                f'{n} outlets</span>'
+            ) if n > 1 else ""
             rows.append(
                 f'<div class="kd-sc">'
-                f'<div class="kd-sc-top"><span class="kd-badge kd-badge-sci">{label}</span>'
+                f'<div class="kd-sc-top">'
+                f'<span class="kd-badge {badge_cls}">{icon} {label}</span>{multi_badge}'
                 f'<span style="font-size:11px;color:#718096;margin-left:auto">{agree} &middot; {date}</span></div>'
                 f'<h3 style="margin:4px 0 6px"><a href="/{slug}">{title}</a></h3>'
                 f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
                 f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
-                f'<span class="kd-mini-lbl" style="text-align:right">R</span></div>'
+                f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
+                f'<span style="font-size:10px;color:#a0aec0;margin-left:6px">bias {bias:+.1f}</span></div>'
                 f'</div>'
             )
 
         page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>{label} News — KiddieDaily</title>
-<meta name="description" content="{desc[key]}">
+<title>{icon} {label} News for Kids — KiddieDaily</title>
+<meta name="description" content="{desc[key]} {len(arts)} stories, latest {latest_date}.">
+<meta property="og:title" content="KiddieDaily {label} News">
+<meta property="og:description" content="{desc[key]}">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta property="og:url" content="https://kiddiedaily.com/news/{key}.html">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kiddiedaily.com/news/{key}.html">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
 <style>
-body{{margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748}}
-header.kd{{background:#1a4d80;padding:14px 0}}
-header.kd .inner{{max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:0 20px}}
-header.kd .logo{{font-weight:700;font-size:22px;color:#fff;font-family:Georgia,serif;text-decoration:none}}
-header.kd nav{{display:flex;flex-wrap:wrap;gap:18px;flex:1;justify-content:flex-end}}
-header.kd nav a{{color:#fff;font-size:15px;font-family:system-ui,sans-serif}}
-main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
 .kd-sc{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 12px;margin:10px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
 .kd-sc-top{{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}}
-.kd-badge{{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:20px}}
-.kd-badge-sci{{background:#d1fae5;color:#065f46}}
 .kd-mini-bias{{display:flex;align-items:center;gap:6px;margin-top:8px}}
 .kd-mini-lbl{{font-size:10px;font-weight:700;color:#718096;width:16px}}
 .kd-mini-track{{flex:1;height:6px;border-radius:3px;background:linear-gradient(to right,#3182ce 0%,#805ad5 50%,#e53e3e 100%);position:relative}}
 .kd-mini-dot{{position:absolute;top:-5px;width:16px;height:16px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)}}
 .kd-sc h3 a{{color:#1a4d80;text-decoration:none}}
-footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sans-serif;font-size:13px;text-align:center}}
-</style></head>
-<body>
-<header class="kd"><div class="inner">
-<a href="/" class="logo">KiddieDaily<small>news for families</small></a>
-<nav><a href="/news/today.html">Today</a><a href="/news/">All News</a><a href="/news/science.html">Science</a><a href="/news/world.html">World</a><a href="/news/space.html">Space</a><a href="/news/animals.html">Animals</a><a href="/news/history.html">History</a><a href="/news/environment.html">Environment</a><a href="/news/archive.html">Archive</a></nav>
-</div></header>
+</style>
+</head><body>
+{HEADER}
 <main>
-<h1 style="font-size:28px;margin-bottom:4px">{label} News</h1>
-<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 24px">{desc[key]} {len(arts)} stories.</p>
+<div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px">
+<h1 style="font-size:28px;margin:0">{icon} {label} News</h1>
+<span style="font-size:13px;color:#718096;font-family:system-ui,sans-serif">{len(arts)} stories</span>
+</div>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 20px">{desc[key]}</p>
+{"" if not multi_source else f'<div style="background:#fff8e1;border:1px solid #fde68a;border-radius:8px;padding:8px 14px;margin-bottom:16px;font-size:13px;font-family:system-ui,sans-serif;color:#92400e">&#x1F4F0; <strong>{len(multi_source)}</strong> stories covered by multiple news outlets — look for the yellow badge</div>'}
 {"".join(rows)}
-<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096">
-  <a href="/news/archive.html">Full archive</a> &middot; <a href="/feed.xml">RSS feed</a> &middot; <a href="/news/">All news</a>
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
+  <a href="/news/archive.html" style="color:#1a4d80">Full archive ({len(articles)} total)</a> &middot;
+  <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
+  <a href="/feed.xml" style="color:#1a4d80">RSS feed</a>
 </p>
 </main>
-<footer><p>&copy; KiddieDaily &mdash; <a href="/privacy.html" style="color:#a0aec0">Privacy</a></p></footer>
+{FOOTER}
 </body></html>"""
 
         upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
@@ -1676,59 +1701,130 @@ footer{{background:#1a4d80;color:#a0aec0;padding:28px 0;font-family:system-ui,sa
 # ── Today's news page ─────────────────────────────────────────────────────────
 def generate_today_page(manifest, today):
     articles = manifest.get("articles", [])
-    todays = [a for a in articles if a.get("date") == today]
+    todays = sorted(
+        [a for a in articles if a.get("date") == today],
+        key=lambda x: (0 if x.get("is_science") else 1, -(x.get("n_sources", 1)))
+    )
     all_recent = sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
 
-    def article_row(a, label=None):
-        slug  = a["slug"]
-        title = a.get("display_title", a.get("title", ""))
+    sci_today   = [a for a in todays if a.get("is_science")]
+    world_today = [a for a in todays if not a.get("is_science")]
+
+    def article_row(a):
+        slug   = a["slug"]
+        title  = a.get("display_title", a.get("title", ""))
         is_sci = a.get("is_science", False)
-        cat   = "Science" if is_sci else "World News"
-        n     = a.get("n_sources", 1)
-        date  = a.get("date", "")
-        badge_bg = "#d1fae5" if is_sci else "#dbeafe"
-        badge_cl = "#065f46" if is_sci else "#1e40af"
+        cat    = "Science" if is_sci else "World News"
+        n      = a.get("n_sources", 1)
+        bias   = a.get("bias_avg", 0.0)
+        dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
+        badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
+        multi_badge = (
+            f'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;'
+            f'padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'
+            f'{n} outlets</span>'
+        ) if n > 1 else ""
         return (
             f'<div style="padding:14px 0;border-bottom:1px solid #e5e7eb">'
-            + (f'<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#92400e;margin-bottom:6px">{label}</div>' if label else '')
-            + f'<div style="display:flex;align-items:flex-start;gap:10px">'
-            f'<span style="flex-shrink:0;font-size:11px;font-weight:700;background:{badge_bg};color:{badge_cl};padding:2px 8px;border-radius:20px;margin-top:3px">{cat}</span>'
-            f'<div style="flex:1"><a href="/{slug}" style="font-size:16px;font-weight:600;color:#1a4d80;text-decoration:none;line-height:1.3">{title}</a>'
-            f'<div style="font-size:12px;color:#718096;margin-top:4px">{date} &middot; {n} source{"s" if n!=1 else ""}</div>'
+            f'<div style="display:flex;align-items:flex-start;gap:10px">'
+            f'<div style="flex:1">'
+            f'<div style="margin-bottom:5px">'
+            f'<span class="kd-badge {badge_cls}" style="font-size:10px">{cat}</span>{multi_badge}</div>'
+            f'<a href="/{slug}" style="font-size:15px;font-weight:600;color:#1a4d80;text-decoration:none;line-height:1.35;display:block">{title}</a>'
+            f'<div style="display:flex;align-items:center;gap:6px;margin-top:6px">'
+            f'<span style="font-size:10px;color:#a0aec0">L</span>'
+            f'<div style="width:80px;height:5px;border-radius:3px;background:linear-gradient(to right,#3182ce,#805ad5,#e53e3e);position:relative;flex-shrink:0">'
+            f'<span style="position:absolute;top:-4px;left:{dot_pct}%;width:12px;height:12px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)"></span>'
+            f'</div><span style="font-size:10px;color:#a0aec0">R</span>'
+            f'<span style="font-size:11px;color:#a0aec0;margin-left:4px">bias {bias:+.1f}</span>'
+            f'</div>'
             f'</div></div></div>'
         )
 
-    today_rows = "".join(article_row(a) for a in todays) if todays else (
-        '<p style="color:#718096;font-family:system-ui,sans-serif">No articles yet today — check back after 6 AM ET.</p>'
-    )
+    def section_block(section_articles, section_id, icon, label, color):
+        if not section_articles:
+            return ""
+        rows = "".join(article_row(a) for a in section_articles)
+        return (
+            f'<div id="{section_id}" style="scroll-margin-top:70px">'
+            f'<div style="display:flex;align-items:center;gap:10px;margin:28px 0 4px;padding-bottom:8px;border-bottom:2px solid {color}">'
+            f'<span style="font-size:20px">{icon}</span>'
+            f'<h2 style="margin:0;font-size:18px;color:#1a4d80">{label}</h2>'
+            f'<span style="font-size:12px;color:#718096;font-family:system-ui,sans-serif;margin-left:auto">'
+            f'{len(section_articles)} article{"s" if len(section_articles)!=1 else ""}</span>'
+            f'</div>{rows}</div>'
+        )
+
+    # Quick-jump nav (only shown if we have both sections)
+    jump_nav = ""
+    if sci_today and world_today:
+        jump_nav = (
+            f'<div style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;'
+            f'padding:10px 16px;margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap;'
+            f'font-family:system-ui,sans-serif;font-size:13px;align-items:center">'
+            f'<span style="color:#718096;font-weight:600">Jump to:</span>'
+            f'<a href="#science-today" style="color:#065f46;background:#d1fae5;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">'
+            f'🔬 Science ({len(sci_today)})</a>'
+            f'<a href="#world-today" style="color:#1e40af;background:#dbeafe;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">'
+            f'🌍 World News ({len(world_today)})</a>'
+            f'</div>'
+        )
+    elif todays:
+        jump_nav = (
+            f'<div style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;'
+            f'padding:10px 16px;margin:0 0 20px;font-family:system-ui,sans-serif;font-size:13px;color:#718096">'
+            f'{len(todays)} article{"s" if len(todays)!=1 else ""} today — all science &middot; '
+            f'<a href="/news/world.html" style="color:#1a4d80">World news archive</a>'
+            f'</div>'
+        )
+
+    sci_section   = section_block(sci_today,   "science-today", "🔬", "Science & Discovery", "#34d399")
+    world_section = section_block(world_today, "world-today",   "🌍", "World News",           "#60a5fa")
 
     # Recent: up to 6 articles NOT from today
     prev_articles = [a for a in all_recent if a.get("date") != today][:6]
-    prev_rows = "".join(article_row(a) for a in prev_articles)
+    prev_rows     = "".join(article_row(a) for a in prev_articles)
+    prev_section  = (
+        f'<h2 style="font-size:18px;margin:36px 0 8px;color:#2d3748;border-bottom:1px solid #e5e7eb;padding-bottom:6px">'
+        f'Recent stories</h2>' + prev_rows
+    ) if prev_articles else ""
+
+    empty_msg = '<p style="color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles yet today — check back after 6am ET.</p>' if not todays else ""
 
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Today's Kid News — {today} | KiddieDaily</title>
-<meta name="description" content="Today's top stories for families, curated and bias-rated. {len(todays)} articles added {today}.">
+<title>Today&#39;s Kid News — {today} | KiddieDaily</title>
+<meta name="description" content="Today&#39;s kid-safe, bias-rated news for families. {len(todays)} articles — {len(sci_today)} science, {len(world_today)} world news. Updated {today}.">
+<meta property="og:title" content="KiddieDaily — Today&#39;s News ({today})">
+<meta property="og:description" content="{len(todays)} articles today: {len(sci_today)} science, {len(world_today)} world news. Bias-rated, kid-safe.">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta property="og:url" content="https://kiddiedaily.com/news/today.html">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kiddiedaily.com/news/today.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">
-</head>
-<body style="margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
+</head><body>
 {HEADER}
 <main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
-<h1 style="font-size:32px;margin:0 0 4px">Today's News</h1>
-<p style="font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 24px">{today} &middot; {len(todays)} article{"s" if len(todays)!=1 else ""} added today</p>
+<h1 style="font-size:28px;margin:0 0 4px">Today&#39;s News</h1>
+<p style="font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px">
+{today} &middot; {len(todays)} article{"s" if len(todays)!=1 else ""} &middot;
+<a href="/parents/" style="color:#1a4d80">For Parents</a> &middot;
+<a href="/digest/latest.html" style="color:#1a4d80">Daily Digest</a> &middot;
+<a href="/feed.xml" style="color:#1a4d80">RSS</a>
+</p>
 
-<section>
-{today_rows}
-</section>
-
-{"<h2 style='font-size:20px;margin:36px 0 12px;color:#2d3748;border-bottom:1px solid #e5e7eb;padding-bottom:6px'>Recent stories</h2>" + prev_rows if prev_articles else ""}
+{jump_nav}
+{empty_msg}
+{sci_section}
+{world_section}
+{prev_section}
 
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
-<a href="/news/archive.html" style="color:#1a4d80">Full archive</a> &middot;
-<a href="/digest/latest.html" style="color:#1a4d80">Daily digest</a> &middot;
-<a href="/feed.xml" style="color:#1a4d80">RSS feed</a>
+<a href="/news/archive.html" style="color:#1a4d80">Full archive ({len(articles)} articles)</a> &middot;
+<a href="/news/science.html" style="color:#1a4d80">Science</a> &middot;
+<a href="/news/world.html" style="color:#1a4d80">World News</a> &middot;
+<a href="#top" style="color:#1a4d80">Back to top &uarr;</a>
 </p>
 </main>
 {FOOTER}
