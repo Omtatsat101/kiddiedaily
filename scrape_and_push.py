@@ -1937,194 +1937,142 @@ def generate_archive(manifest):
     print(f"  Archive: {total} articles")
 
 
-# ── Category pages ───────────────────────────────────────────────────────────
+# ── Category keyword sets (shared by JSON index and page generator) ───────────
+_CAT_SPACE_KW = {"space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope"}
+_CAT_ANIMAL_KW = {"animal", "animals", "species", "whale", "shark", "bird", "birds", "dog", "dogs", "cat", "cats", "wildlife", "octopus", "insect", "insects", "turtle", "turtles", "fish", "elephant", "elephants", "bear", "bears", "wolf", "wolves", "lion", "lions", "tiger", "tigers", "dolphin", "dolphins", "penguin", "penguins", "seal", "seals", "zoo", "habitat", "extinct", "endangered", "mammal", "reptile", "amphibian", "coral", "reef", "migration", "nest", "prey", "predator", "marine", "ocean life", "bee", "bees", "butterfly", "butterflies"}
+_CAT_ENV_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation",
+               "sea level", "permafrost", "arctic", "antarctic", "polar ice",
+               "emissions", "greenhouse gas", "methane", "carbon dioxide",
+               "microplastic", "contamination", "pesticide", "toxic waste",
+               "conservation", "nature reserve", "reforestation", "rewilding",
+               "wetland", "mangrove", "peat", "estuary",
+               "heat wave", "extreme heat", "sea ice", "ice sheet", "ice cap",
+               "clean energy", "wind farm", "hydropower",
+               "water scarcity", "water quality", "groundwater", "coral bleach"}
+_CAT_HISTORY_KW = {
+    "ancient", "prehistoric", "medieval", "bronze age", "iron age", "stone age", "neolithic",
+    "paleolithic", "19th century", "18th century", "17th century", "16th century",
+    "world war", "war ii", "civil war", "cold war",
+    "renaissance", "byzantine", "ottoman", "ming dynasty", "qing dynasty",
+    "mesopotamia", "sumerian", "babylonian", "assyrian", "persian empire",
+    "viking", "roman", "greek", "pharaoh", "mayan", "aztec", "inca", "mongol",
+    "neanderthal", "homo naledi", "homo sapiens", "hominid", "hominin",
+    "native american", "indigenous", "colonial",
+    "samurai", "shogun", "ptolemaic", "norse", "celtic", "druid",
+    "greek mythology", "roman mythology", "norse mythology",
+    "fossil", "dinosaur", "archaeolog", "artifact", "excavat",
+    "ruin", "pyramid", "empire", "revolution", "civilization",
+    "million year", "thousand year", "history of", "history behind",
+    "historical", "archives", "uncovered a", "were discovered",
+    "ancient tomb", "burial site", "royal tomb", "human remains", "ancient remains",
+    "stone tools", "cave painting", "pictograph", "hieroglyph", "cuneiform",
+    "ancient writing", "ancient text", "ancient dna", "radiocarbon",
+    "ancient city", "lost city", "field expedition", "dig site",
+    "mummy", "mummified", "sarcophagus", "bog body",
+    "paleoanthropolog", "paleoarchaeolog", "ancient genome", "ancient migration",
+    "ancient skull", "ancient skeleton", "ancient bone", "ancient teeth",
+    "silk road", "trade route", "ancient trade", "ancient map",
+    "ancient ship", "shipwreck", "ancient kingdom", "ancient empire",
+    "world history", "cultural history", "oral history",
+    "early human", "early homo", "first humans",
+    "maginot", "casablanca conference", "intermediate period",
+    "kingdom of egypt", "old kingdom", "middle kingdom", "new kingdom",
+    "treaty of", "siege of", "dynasty of",
+    "pantheon", "mythology", "ancient god", "ancient goddess",
+    "ancient religion", "ancient myth", "ancient legend",
+    "ancient soldier", "ancient warrior", "ancient weapon",
+    "fortress", "ancient fortress", "ancient wall", "ancient palace",
+    "pharaoh of", "king of egypt", "queen of egypt",
+    "roman emperor", "roman senate", "roman republic",
+    "greek empire", "greek city", "greek philosophy",
+}
+_CAT_TECH_KW = {
+    "quantum", "robot", "robotics", "ai ", "artificial intelligence", "machine learning",
+    "nanosensor", "nanotechnology", "semiconductor", "computer chip", "microchip",
+    "algorithm", "software", "engineering", "invention", "cryogenic",
+    "3d print", "drone", "satellite commun", "electric vehicle", "battery",
+    "alloy", "polymer", "material science", "materials science",
+    "nuclear reactor", "nuclear fusion", "photovoltaic", "wind turbine",
+    "internet", "cybersecurity", "encryption", "data center", "cloud computing",
+    "fiber optic", "processor", "transistor", "laser tech",
+    "gene editing", "crispr", "synthetic biology", "bioengineering",
+    "autonomous vehicle", "self-driving", "exoskeleton", "prosthetic",
+    "wearable", "particle accelerator", "superconductor",
+    "deep learning", "neural network", "computer vision",
+    "bionic", "microbot", "quantum computing", "quantum sensor",
+    "solar cell", "solar panel", "energy storage", "supercapacitor",
+    "spectroscop", "electron microscope", "carbon nanotube",
+    "spacecraft design", "rocket engine", "space telescope",
+    "imaging technique", "remote sensing", "carbon fiber",
+    "molecular machine", "microfluidic", "lab-on-a-chip",
+    "neutrino detector", "gravitational wave detector",
+    "haptic", "augmented reality", "virtual reality",
+}
+_CAT_SOURCES = {
+    "space":       {"NASA"},
+    "animals":     {"Mongabay"},
+    "history":     {"JSTOR Daily", "World History Encyclopedia", "Archaeology", "Medievalists", "HistoryHit"},
+    "environment": {"NASA Earth", "Carbon Brief", "Hakai Magazine"},
+    "technology":  {"MIT Tech Review", "IEEE Spectrum"},
+}
+_CAT_KEYWORDS = {
+    "space": _CAT_SPACE_KW, "animals": _CAT_ANIMAL_KW, "environment": _CAT_ENV_KW,
+    "history": _CAT_HISTORY_KW, "technology": _CAT_TECH_KW,
+}
+
+def _article_cats(a):
+    haystack = (a.get("title","") + " " + a.get("slug","")).lower()
+    src = a.get("source_name","")
+    cats = ["science" if a.get("is_science") else "world"]
+    for cname, kws in _CAT_KEYWORDS.items():
+        if src in _CAT_SOURCES.get(cname, set()) or any(k in haystack for k in kws):
+            cats.append(cname)
+    return cats
+
+
+# ── Category pages (dynamic JS shell — loads from kd-articles.json) ───────────
 def generate_category_pages(manifest):
     articles = manifest.get("articles", [])
-    _SPACE_KW    = {"space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope"}
-    _ANIMAL_KW   = {"animal", "animals", "species", "whale", "shark", "bird", "birds", "dog", "dogs", "cat", "cats", "wildlife", "octopus", "insect", "insects", "turtle", "turtles", "fish", "elephant", "elephants", "bear", "bears", "wolf", "wolves", "lion", "lions", "tiger", "tigers", "dolphin", "dolphins", "penguin", "penguins", "seal", "seals", "zoo", "habitat", "extinct", "endangered", "mammal", "reptile", "amphibian", "coral", "reef", "migration", "nest", "prey", "predator", "marine", "ocean life", "bee", "bees", "butterfly", "butterflies"}
-    _ENVIRONMENT_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation",
-                       "sea level", "permafrost", "arctic", "antarctic", "polar ice",
-                       "emissions", "greenhouse gas", "methane", "carbon dioxide",
-                       "microplastic", "contamination", "pesticide", "toxic waste",
-                       "conservation", "nature reserve", "reforestation", "rewilding",
-                       "wetland", "mangrove", "peat", "estuary",
-                       "heat wave", "extreme heat", "sea ice", "ice sheet", "ice cap",
-                       "clean energy", "wind farm", "hydropower",
-                       "water scarcity", "water quality", "groundwater", "coral bleach"}
-    _HISTORY_KW  = {
-        # Time periods
-        "ancient", "prehistoric", "medieval", "bronze age", "iron age", "stone age", "neolithic",
-        "paleolithic", "19th century", "18th century", "17th century", "16th century",
-        "world war", "war ii", "civil war", "cold war",
-        "renaissance", "byzantine", "ottoman", "ming dynasty", "qing dynasty",
-        "mesopotamia", "sumerian", "babylonian", "assyrian", "persian empire",
-        # Peoples & civilizations
-        "viking", "roman", "greek", "pharaoh", "mayan", "aztec", "inca", "mongol",
-        "neanderthal", "homo naledi", "homo sapiens", "hominid", "hominin",
-        "native american", "indigenous", "colonial",
-        "samurai", "shogun", "ptolemaic", "norse", "celtic", "druid",
-        "greek mythology", "roman mythology", "norse mythology",
-        # Historical content
-        "fossil", "dinosaur", "archaeolog", "artifact", "excavat",
-        "ruin", "pyramid", "empire", "revolution", "civilization",
-        "million year", "thousand year", "history of", "history behind",
-        "historical", "archives", "uncovered a", "were discovered",
-        # Discoveries & finds
-        "ancient tomb", "burial site", "royal tomb", "human remains", "ancient remains",
-        "stone tools", "cave painting", "pictograph", "hieroglyph", "cuneiform",
-        "ancient writing", "ancient text", "ancient dna", "radiocarbon",
-        "ancient city", "lost city", "field expedition", "dig site",
-        "mummy", "mummified", "sarcophagus", "bog body",
-        # Paleoanthropology & evolution
-        "paleoanthropolog", "paleoarchaeolog", "ancient genome", "ancient migration",
-        "ancient skull", "ancient skeleton", "ancient bone", "ancient teeth",
-        # World history topics
-        "silk road", "trade route", "ancient trade", "ancient map",
-        "ancient ship", "shipwreck", "ancient kingdom", "ancient empire",
-        "world history", "cultural history", "oral history",
-        "early human", "early homo", "first humans",
-        # Period names and event types (covers WHE article patterns)
-        "maginot", "casablanca conference", "intermediate period",
-        "kingdom of egypt", "old kingdom", "middle kingdom", "new kingdom",
-        "treaty of", "siege of", "dynasty of",
-        "pantheon", "mythology", "ancient god", "ancient goddess",
-        "ancient religion", "ancient myth", "ancient legend",
-        "ancient soldier", "ancient warrior", "ancient weapon",
-        "fortress", "ancient fortress", "ancient wall", "ancient palace",
-        "pharaoh of", "king of egypt", "queen of egypt",
-        "roman emperor", "roman senate", "roman republic",
-        "greek empire", "greek city", "greek philosophy",
-    }
-    _TECH_KW     = {"quantum", "robot", "robotics", "ai ", "artificial intelligence", "machine learning",
-                    "nanosensor", "nanotechnology", "semiconductor", "computer chip", "microchip",
-                    "algorithm", "software", "engineering", "invention", "cryogenic",
-                    "3d print", "drone", "satellite commun", "electric vehicle", "battery",
-                    "alloy", "polymer", "material science", "materials science",
-                    "nuclear reactor", "nuclear fusion", "photovoltaic", "wind turbine",
-                    "internet", "cybersecurity", "encryption", "data center", "cloud computing",
-                    "fiber optic", "processor", "transistor", "laser tech",
-                    "gene editing", "crispr", "synthetic biology", "bioengineering",
-                    "autonomous vehicle", "self-driving", "exoskeleton", "prosthetic",
-                    "wearable", "particle accelerator", "superconductor",
-                    "deep learning", "neural network", "computer vision",
-                    "bionic", "microbot", "quantum computing", "quantum sensor",
-                    # Additional tech keywords for better classification coverage
-                    "solar cell", "solar panel", "energy storage", "supercapacitor",
-                    "spectroscop", "electron microscope", "carbon nanotube",
-                    "spacecraft design", "rocket engine", "space telescope",
-                    "imaging technique", "remote sensing", "carbon fiber",
-                    "molecular machine", "microfluidic", "lab-on-a-chip",
-                    "neutrino detector", "gravitational wave detector",
-                    "haptic", "augmented reality", "virtual reality"}
+    total = len(articles)
 
-    def _matches(a, kw_set):
-        haystack = (a.get("title", "") + " " + a.get("slug", "")).lower()
-        return any(k in haystack for k in kw_set)
-
-    cats = {
-        "science": [a for a in articles if a.get("is_science")],
-        "world":   [a for a in articles if not a.get("is_science")],
-        "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
-        "animals": [a for a in articles if _matches(a, _ANIMAL_KW) or a.get("source_name") == "Mongabay"],
-        "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") in {"JSTOR Daily", "World History Encyclopedia", "Archaeology", "Medievalists", "HistoryHit"}],
-        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Carbon Brief", "Hakai Magazine"}],
-        "technology":  [a for a in articles if _matches(a, _TECH_KW) or a.get("source_name") in {"MIT Tech Review", "IEEE Spectrum"}],
+    _CAT_META = {
+        "science":     ("🔬", "Science",     "Space, animals, inventions, and discoveries — science stories for curious kids.", "#34d399"),
+        "world":       ("🌍", "World News",  "What's happening around the world, explained for families.",                     "#60a5fa"),
+        "space":       ("🚀", "Space",       "Rockets, planets, galaxies, and NASA discoveries — space news for kids.",        "#a78bfa"),
+        "animals":     ("🐾", "Animals",     "Wildlife, sea creatures, and amazing animals from around the world.",            "#fbbf24"),
+        "history":     ("🏛", "History",     "Fossils, ancient civilizations, and discoveries that unlock the past.",          "#f9a8d4"),
+        "environment": ("🌿", "Environment", "Climate, oceans, forests, and Earth's ecosystems — environment news for kids.", "#6ee7b7"),
+        "technology":  ("💻", "Technology",  "AI, robots, engineering, and inventions — tech news explained for families.",   "#93c5fd"),
     }
-    cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment", "technology": "Technology"}
-    desc = {
-        "science": "Space, animals, inventions, and discoveries — science stories for curious kids.",
-        "world":   "What's happening around the world, explained for families.",
-        "space":   "Rockets, planets, galaxies, and NASA discoveries — space news for kids.",
-        "animals": "Wildlife, sea creatures, and amazing animals from around the world.",
-        "history": "Fossils, ancient civilizations, and discoveries that unlock the past.",
-        "environment": "Climate, oceans, forests, and Earth's ecosystems — environment news for kids.",
-        "technology": "AI, robots, engineering, and inventions — tech news explained for families.",
+    _PILL_COLORS = {
+        "science": ("#d1fae5","#065f46"), "technology": ("#e0e7ff","#3730a3"),
+        "space": ("#ede9fe","#5b21b6"), "animals": ("#fef3c7","#92400e"),
+        "world": ("#dbeafe","#1e40af"), "environment": ("#dcfce7","#166534"),
+        "history": ("#fce7f3","#9d174d"),
     }
 
-    # Badge class per category
-    cat_badge = {
-        "science": "kd-badge-sci",
-        "space":   "kd-badge-sci",
-        "animals": "kd-badge-sci",
-        "history": "kd-badge-sci",
-        "environment": "kd-badge-sci",
-        "technology": "kd-badge-sci",
-        "world":   "kd-badge-news",
-    }
-    cat_icons = {
-        "science": "🔬", "world": "🌍", "space": "🚀",
-        "animals": "🐾", "history": "🏛", "environment": "🌿",
-        "technology": "💻",
-    }
+    for key, (icon, label, description, accent) in _CAT_META.items():
+        # count articles for this category (for meta description)
+        n_cat = sum(1 for a in articles if key in _article_cats(a))
 
-    for key, arts in cats.items():
-        if not arts:
-            continue
-        arts = sorted(arts, key=lambda x: x.get("date", ""), reverse=True)
-        label    = cat_labels[key]
-        badge_cls = cat_badge[key]
-        icon     = cat_icons.get(key, "")
-        multi_source = [a for a in arts if a.get("n_sources", 1) > 1]
-        latest_date  = arts[0].get("date", "") if arts else ""
-
-        # Build cross-category pill nav (current category gets outline highlight)
-        _pill_colors = {
-            "science": ("#d1fae5","#065f46"), "technology": ("#e0e7ff","#3730a3"),
-            "space": ("#ede9fe","#5b21b6"), "animals": ("#fef3c7","#92400e"),
-            "world": ("#dbeafe","#1e40af"), "environment": ("#dcfce7","#166534"),
-            "history": ("#fce7f3","#9d174d"),
-        }
+        # Build cross-category pill nav
         pills = []
-        for ck, ci in cat_icons.items():
-            bg, fg = _pill_colors.get(ck, ("#f3f4f6","#374151"))
+        for ck, (ci, cl, _, _2) in _CAT_META.items():
+            bg, fg = _PILL_COLORS.get(ck, ("#f3f4f6","#374151"))
             outline = f";outline:2px solid {fg};outline-offset:1px" if ck == key else ""
             pills.append(
                 f'<a href="/news/{ck}.html" style="background:{bg};color:{fg};padding:4px 12px;'
                 f'border-radius:20px;font-size:12px;font-weight:700;text-decoration:none{outline}">'
-                f'{ci} {cat_labels[ck]}</a>'
+                f'{ci} {cl}</a>'
             )
-        cross_nav_html = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">' + ''.join(pills) + '</div>'
-
-        rows = []
-        for a in arts[:30]:
-            slug    = a["slug"]
-            title   = a.get("display_title", a.get("title", ""))
-            date    = a.get("date", "")
-            n       = a.get("n_sources", 1)
-            bias    = a.get("bias_avg", 0.0)
-            dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
-            agree   = f"{n} outlet{'s' if n!=1 else ''}"
-            excerpt_raw = a.get("description") or ""
-            excerpt = excerpt_raw[:137].rstrip() + "…" if len(excerpt_raw) > 137 else excerpt_raw
-            bias_text = ("Far Left" if bias <= -1.2 else "Leans Left" if bias <= -0.4
-                         else "Center-Left" if bias <= -0.15 else "Center" if bias <= 0.15
-                         else "Center-Right" if bias <= 0.4 else "Leans Right" if bias <= 1.2
-                         else "Far Right")
-            multi_badge = (
-                f'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;'
-                f'padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'
-                f'{n} outlets</span>'
-            ) if n > 1 else ""
-            rows.append(
-                f'<div class="kd-sc" data-title="{title.lower()}">'
-                f'<div class="kd-sc-top">'
-                f'<span class="kd-badge {badge_cls}">{icon} {label}</span>{multi_badge}'
-                f'<span style="font-size:11px;color:#718096;margin-left:auto">{agree} &middot; {date}</span></div>'
-                f'<h3 style="margin:4px 0 6px"><a href="/{slug}">{title}</a></h3>'
-                + (f'<p class="kd-card-excerpt">{excerpt}</p>' if excerpt else "")
-                + f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
-                f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
-                f'<span class="kd-mini-lbl" style="text-align:right">R</span>'
-                f'<span class="kd-bias-text">{bias_text}</span></div>'
-                f'</div>'
-            )
+        cross_nav = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px">' + ''.join(pills) + '</div>'
 
         page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>{icon} {label} News for Kids — KiddieDaily</title>
-<meta name="description" content="{desc[key]} {len(arts)} stories, latest {latest_date}.">
+<meta name="description" content="{description} {n_cat} stories.">
 <meta property="og:title" content="KiddieDaily {label} News">
-<meta property="og:description" content="{desc[key]}">
+<meta property="og:description" content="{description}">
 <meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
 <meta property="og:url" content="https://kiddiedaily.com/news/{key}.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -2142,38 +2090,87 @@ def generate_category_pages(manifest):
 .kd-sc h3 a{{color:#1a4d80;text-decoration:none}}
 .kd-sc h3 a:hover{{text-decoration:underline}}
 #cat-search{{width:100%;box-sizing:border-box;padding:10px 14px;font-size:16px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:16px;font-family:system-ui,sans-serif}}
+.cat-more-btn{{display:block;width:100%;background:none;border:1px solid #cbd5e0;padding:10px;border-radius:6px;cursor:pointer;font-family:system-ui,sans-serif;color:#1a4d80;font-size:13px;margin:10px 0 4px;text-align:center}}
 </style>
 </head><body>
 {HEADER}
 <main id="main">
 <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px">
 <h1 style="font-size:28px;margin:0">{icon} {label} News</h1>
-<span style="font-size:13px;color:#718096;font-family:system-ui,sans-serif">{len(arts)} stories</span>
+<span id="cat-count" style="font-size:13px;color:#718096;font-family:system-ui,sans-serif">{n_cat} stories</span>
 </div>
-<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 14px">{desc[key]}</p>
-{cross_nav_html}
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 14px">{description}</p>
+{cross_nav}
 <input type="search" id="cat-search" placeholder="Search {label} stories..." aria-label="Search {label} articles">
-{"" if not multi_source else f'<div style="background:#fff8e1;border:1px solid #fde68a;border-radius:8px;padding:8px 14px;margin-bottom:16px;font-size:13px;font-family:system-ui,sans-serif;color:#92400e">&#x1F4F0; <strong>{len(multi_source)}</strong> stories covered by multiple news outlets — look for the yellow badge</div>'}
-<div id="cat-list">{"".join(rows)}</div>
+<div id="cat-multi" style="display:none;background:#fff8e1;border:1px solid #fde68a;border-radius:8px;padding:8px 14px;margin-bottom:16px;font-size:13px;font-family:system-ui,sans-serif;color:#92400e"></div>
+<div id="cat-list"></div>
+<button id="cat-more" class="cat-more-btn" style="display:none" onclick="catLoadMore()"></button>
+<div id="cat-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles found in this category yet.</div>
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
-  <a href="/news/archive.html" style="color:#1a4d80">Full archive ({len(articles)} total)</a> &middot;
+  <a href="/news/archive.html" style="color:#1a4d80">Full archive ({total} total)</a> &middot;
   <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
   <a href="/feed.xml" style="color:#1a4d80">RSS feed</a>
 </p>
 </main>
 {FOOTER}
 <script>
+(function(){{
+var CAT='{key}',PAGE=20,arts=[],off=0,q='';
+var BL=[[-1.2,'Far Left'],[-0.4,'Leans Left'],[-0.15,'Center-Left'],[0.15,'Center'],[0.4,'Center-Right'],[1.2,'Leans Right'],[99,'Far Right']];
+function blbl(b){{for(var i=0;i<BL.length;i++)if(b<=BL[i][0])return BL[i][1];return'Far Right';}}
+var BC='{("kd-badge-sci" if key != "world" else "kd-badge-news")}';
+function card(a){{
+  var b=a.bias_avg||0,dp=Math.max(5,Math.min(95,Math.round((b+2)/4*100)));
+  var ttl=a.title||'';var dt=a.date||'';var n=a.n_sources||1;
+  var multi=n>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'+n+' outlets</span>':'';
+  var ex=a.description?a.description.slice(0,137)+(a.description.length>137?'…':''):'';
+  return '<div class="kd-sc" data-title="'+ttl.toLowerCase()+'">'
+    +'<div class="kd-sc-top"><span class="kd-badge '+BC+'">{icon} {label}</span>'+multi
+    +'<span style="font-size:11px;color:#718096;margin-left:auto">'+n+' outlet'+(n!==1?'s':'')+'&middot;'+dt+'</span></div>'
+    +'<h3 style="margin:4px 0 6px"><a href="/'+a.slug+'">'+ttl+'</a></h3>'
+    +(ex?'<p class="kd-card-excerpt">'+ex+'</p>':'')
+    +'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
+    +'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:'+dp+'%"></span></div>'
+    +'<span class="kd-mini-lbl" style="text-align:right">R</span>'
+    +'<span class="kd-bias-text">'+blbl(b)+'</span></div></div>';
+}}
+function renderSlice(){{
+  var list=document.getElementById('cat-list');
+  var visible=q?arts.filter(function(a){{return(a.title||'').toLowerCase().includes(q);}})
+               :arts;
+  var slice=visible.slice(off,off+PAGE);
+  slice.forEach(function(a){{var d=document.createElement('div');d.innerHTML=card(a);list.appendChild(d.firstChild);}});
+  off+=slice.length;
+  var rem=visible.length-off;
+  var btn=document.getElementById('cat-more');
+  if(rem>0){{btn.style.display='block';btn.textContent='Load '+Math.min(rem,PAGE)+' more';}}
+  else btn.style.display='none';
+}}
+window.catLoadMore=function(){{renderSlice();}};
+fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(function(data){{
+  arts=data.filter(function(a){{return Array.isArray(a.cats)&&a.cats.indexOf(CAT)>=0;}});
+  document.getElementById('cat-count').textContent=arts.length+' stories';
+  var multi=arts.filter(function(a){{return(a.n_sources||1)>1;}});
+  if(multi.length){{
+    var el=document.getElementById('cat-multi');
+    el.style.display='';
+    el.innerHTML='&#x1F4F0; <strong>'+multi.length+'</strong> stories covered by multiple news outlets — look for the yellow badge';
+  }}
+  if(!arts.length){{document.getElementById('cat-empty').style.display='';return;}}
+  renderSlice();
+}}).catch(function(){{document.getElementById('cat-empty').style.display='';}});
 document.getElementById('cat-search').addEventListener('input',function(){{
-  const q=this.value.toLowerCase().trim();
-  document.querySelectorAll('#cat-list .kd-sc').forEach(function(el){{
-    el.style.display=(!q||( el.dataset.title||'').includes(q))?'':'none';
-  }});
+  q=this.value.toLowerCase().trim();
+  off=0;
+  document.getElementById('cat-list').innerHTML='';
+  renderSlice();
 }});
+}})();
 </script>
 </body></html>"""
 
-        upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
-    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])} space={len(cats['space'])} animals={len(cats['animals'])} history={len(cats['history'])} environment={len(cats['environment'])} technology={len(cats['technology'])}")
+        upload(f"news/{key}.html", page, f"[scraper] {label} category page — dynamic JS, {n_cat} articles")
+    print(f"  Category pages: dynamic JS shells for {len(_CAT_META)} categories ({total} total articles)")
 
 
 # ── Today's news page ─────────────────────────────────────────────────────────
@@ -2375,10 +2372,10 @@ def generate_articles_json(manifest):
             "title":       a.get("display_title", a.get("title", "")),
             "date":        a.get("date", ""),
             "is_science":  a.get("is_science", False),
-            "category":    "science" if a.get("is_science", False) else "world",
             "bias_avg":    a.get("bias_avg", 0.0),
             "n_sources":   a.get("n_sources", 1),
             "description": a.get("description", "")[:200],
+            "cats":        _article_cats(a),
         }
         for a in sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
     ]
