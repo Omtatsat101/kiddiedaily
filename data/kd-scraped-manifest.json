@@ -390,7 +390,12 @@
     "news/2026-06-29-europes-extreme-heat-is-shutting-down-power-plants.html",
     "news/2026-06-29-stripe-anthropic-and-openai-are-backing-an-effort.html",
     "news/2026-06-29-guest-post-climate-change-has-caused-one-fifth-of.html",
-    "news/2026-06-29-debriefed-26-june-2026-heat-records-broken-across.html"
+    "news/2026-06-29-debriefed-26-june-2026-heat-records-broken-across.html",
+    "news/2026-06-29-the-emergence-of-the-web-data-infrastructure-layer.html",
+    "news/2026-06-29-the-download-introducing-the-engineering-issue.html",
+    "news/2026-06-29-temperatures-plunge-after-historic-heat-wave.html",
+    "news/2026-06-29-qa-what-change-of-power-in-colombia-could-mean-for.html",
+    "news/2026-06-29-media-reaction-how-climate-change-intensified-euro.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -783,7 +788,12 @@
     "Europe’s extreme heat is shutting down power plants",
     "Stripe, Anthropic, and OpenAI are backing an effort to stop respiratory infections",
     "Guest post: Climate change has caused one-fifth of Pine Island glacier retreat",
-    "DeBriefed 26 June 2026: Heat records broken across Europe | London climate action week | Introducing ‘Project Cosmos’"
+    "DeBriefed 26 June 2026: Heat records broken across Europe | London climate action week | Introducing ‘Project Cosmos’",
+    "The emergence of the web data infrastructure layer for AI",
+    "The Download: introducing the Engineering issue",
+    "Temperatures plunge after historic heat wave",
+    "Q&A: What change of power in Colombia could mean for world’s fossil-fuel transition",
+    "Media reaction: How climate change intensified Europe’s record-breaking June heat"
   ],
   "articles": [
     {
@@ -5068,6 +5078,61 @@
       "slug": "news/2026-06-29-debriefed-26-june-2026-heat-records-broken-across.html",
       "title": "DeBriefed 26 June 2026: Heat records broken across Europe | London climate action week | Introducing ‘Project Cosmos’",
       "display_title": "DeBriefed 26 June 2026: Heat records broken across Europe | London climate action week | Introducing ‘Project Cosmos’",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-the-emergence-of-the-web-data-infrastructure-layer.html",
+      "title": "The emergence of the web data infrastructure layer for AI",
+      "display_title": "The emergence of the web data infrastructure layer for AI",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-the-download-introducing-the-engineering-issue.html",
+      "title": "The Download: introducing the Engineering issue",
+      "display_title": "The Download: introducing the Engineering issue",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-temperatures-plunge-after-historic-heat-wave.html",
+      "title": "Temperatures plunge after historic heat wave",
+      "display_title": "Temperatures plunge after historic heat wave",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-qa-what-change-of-power-in-colombia-could-mean-for.html",
+      "title": "Q&A: What change of power in Colombia could mean for world’s fossil-fuel transition",
+      "display_title": "Q&A: What change of power in Colombia could mean for world’s fossil-fuel transition",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-media-reaction-how-climate-change-intensified-euro.html",
+      "title": "Media reaction: How climate change intensified Europe’s record-breaking June heat",
+      "display_title": "Media reaction: How climate change intensified Europe’s record-breaking June heat",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
