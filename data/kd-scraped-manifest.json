@@ -225,7 +225,15 @@
     "news/2026-06-29-watch-spacex-launch-15000-pound-siriusxm-satellite.html",
     "news/2026-06-29-father-and-son-pulled-out-alive-four-days-after-ve.html",
     "news/2026-06-29-who-is-stephen-eustaquio-who-scored-for-canada-aga.html",
-    "news/2026-06-29-a-heat-dome-is-driving-dangerous-heat-across-the-u.html"
+    "news/2026-06-29-a-heat-dome-is-driving-dangerous-heat-across-the-u.html",
+    "news/2026-06-29-myriam-heiman-named-director-of-the-picower-instit.html",
+    "news/2026-06-29-to-study-how-chips-really-work-mit-researchers-bui.html",
+    "news/2026-06-29-wwii-assault-tank-found-buried-in-sand-near-the-no.html",
+    "news/2026-06-29-in-japan-talking-gummy-robots-are-on-the-menu.html",
+    "news/2026-06-29-could-future-astronauts-use-oysters-as-water-filte.html",
+    "news/2026-06-29-if-i-am-to-die-let-it-be-here-malawians-fleeing-un.html",
+    "news/2026-06-29-ireland-upstage-world-champions-india-to-win-t20-s.html",
+    "news/2026-06-29-in-venezuela-silence-has-become-a-rescue-tool.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -453,7 +461,15 @@
     "Watch SpaceX launch 15,000-pound SiriusXM satellite to orbit tonight",
     "Father and son pulled out alive four days after Venezuela earthquake",
     "Who is Stephen Eustaquio, who scored for Canada against South Africa?",
-    "A 'heat dome' is driving dangerous heat across the U.S. into the July 4 weekend"
+    "A 'heat dome' is driving dangerous heat across the U.S. into the July 4 weekend",
+    "Myriam Heiman named director of The Picower Institute for Learning and Memory",
+    "To study how chips really work, MIT researchers built their own operating system",
+    "WWII assault tank found buried in sand near the North Sea",
+    "In Japan, talking gummy robots are on the menu",
+    "Could future astronauts use oysters as water filters? Here's why one company thinks so",
+    "‘If I am to die, let it be here’: Malawians fleeing unrest in South Africa",
+    "Ireland upstage world champions India to win T20 series at home",
+    "In Venezuela, silence has become a rescue tool"
   ],
   "articles": [
     {
@@ -2923,6 +2939,94 @@
       "slug": "news/2026-06-29-a-heat-dome-is-driving-dangerous-heat-across-the-u.html",
       "title": "A 'heat dome' is driving dangerous heat across the U.S. into the July 4 weekend",
       "display_title": "A 'heat dome' is driving dangerous heat across the U.S. into the July 4 weekend",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-myriam-heiman-named-director-of-the-picower-instit.html",
+      "title": "Myriam Heiman named director of The Picower Institute for Learning and Memory",
+      "display_title": "Myriam Heiman named director of The Picower Institute for Learning and Memory",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-to-study-how-chips-really-work-mit-researchers-bui.html",
+      "title": "To study how chips really work, MIT researchers built their own operating system",
+      "display_title": "To study how chips really work, MIT researchers built their own operating system",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-wwii-assault-tank-found-buried-in-sand-near-the-no.html",
+      "title": "WWII assault tank found buried in sand near the North Sea",
+      "display_title": "WWII assault tank found buried in sand near the North Sea",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-in-japan-talking-gummy-robots-are-on-the-menu.html",
+      "title": "In Japan, talking gummy robots are on the menu",
+      "display_title": "In Japan, talking gummy robots are on the menu",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-could-future-astronauts-use-oysters-as-water-filte.html",
+      "title": "Could future astronauts use oysters as water filters? Here's why one company thinks so",
+      "display_title": "Could future astronauts use oysters as water filters? Here's why one company thinks so",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-if-i-am-to-die-let-it-be-here-malawians-fleeing-un.html",
+      "title": "‘If I am to die, let it be here’: Malawians fleeing unrest in South Africa",
+      "display_title": "‘If I am to die, let it be here’: Malawians fleeing unrest in South Africa",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-ireland-upstage-world-champions-india-to-win-t20-s.html",
+      "title": "Ireland upstage world champions India to win T20 series at home",
+      "display_title": "Ireland upstage world champions India to win T20 series at home",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-in-venezuela-silence-has-become-a-rescue-tool.html",
+      "title": "In Venezuela, silence has become a rescue tool",
+      "display_title": "In Venezuela, silence has become a rescue tool",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.7,
