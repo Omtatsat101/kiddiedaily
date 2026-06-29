@@ -38,7 +38,7 @@ GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
 MAX_ARTICLES          = 9   # max new articles per run (6 sci + 3 world)
-MAX_SCI_PER_RUN       = 6   # max science articles per run (bumped with 22 sources)
+MAX_SCI_PER_RUN       = 8   # max science articles per run (bumped with 25 sources)
 MAX_WORLD_PER_RUN     = 3   # max world-news articles per run
 MAX_PER_SOURCE_PER_RUN= 2   # max articles from any single source per run (prevents domination)
 MAX_SPORTS_TOURNAMENT_PER_RUN = 1   # cap for any single major live tournament (World Cup, Wimbledon, Olympics…)
@@ -69,6 +69,8 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|^debriefed\s+\d'                 # Carbon Brief dated newsletter
     r'|^media\s+reaction[\s:]'          # Carbon Brief media-roundup
     r'|^\w+\s+briefing\s+\d'            # Regional briefings (China Briefing 25 June, US Briefing…)
+    r'|\bnews\s+brief\b'                # Morning/evening news brief roundups (NPR etc.)
+    r'|^morning\s+edition[\s:]'         # NPR Morning Edition teasers
     r')',
     re.I
 )
@@ -372,6 +374,12 @@ DEPRIORITIZE_WORDS = [
     "ai for business", "ai strategy for", "corporate ai",
     # Housing/social policy that isn't kids-relevant
     "housing crisis", "van life", "cost of living crisis",
+    # Adult health/medical topics not appropriate for kids
+    "for pms", "menopause", "erectile", "libido", "testosterone therapy",
+    "fertility treatment", "ivf", "miscarriage", "abortion pill",
+    "hormone therapy", "menstrual",
+    # News roundups/briefs (supplements commercial filter — lower score before hard-reject)
+    "news brief", "morning brief", "evening brief",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
