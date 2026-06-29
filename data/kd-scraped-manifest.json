@@ -582,7 +582,11 @@
     "news/2026-06-29-sudan-says-china-has-waived-50m-loan-whats-in-it-f.html",
     "news/2026-06-29-how-exactly-could-deep-sea-mining-benefit-all-of-h.html",
     "news/2026-06-29-so-long-and-thanks-for-all-the-fish.html",
-    "news/2026-06-29-the-first-first-responders.html"
+    "news/2026-06-29-the-first-first-responders.html",
+    "news/2026-06-29-the-canoe-in-the-forest.html",
+    "news/2026-06-29-whats-next-for-deep-sea-mining.html",
+    "news/2026-06-29-the-personal-toll-of-canadas-broken-fishing-promis.html",
+    "news/2026-06-29-uk-africa-relations-starmers-reset-that-never-deli.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1167,7 +1171,11 @@
     "Sudan says China has waived $50m loan: What’s in it for Khartoum, Beijing?",
     "How, Exactly, Could Deep-Sea Mining Benefit All of Humanity?",
     "So Long, and Thanks for All the Fish",
-    "The First First Responders"
+    "The First First Responders",
+    "The Canoe in the Forest",
+    "What’s Next for Deep-Sea Mining?",
+    "The Personal Toll of Canada’s Broken Fishing Promises",
+    "UK-Africa relations: Starmer's 'reset' that never delivered"
   ],
   "articles": [
     {
@@ -7727,6 +7735,54 @@
       "is_science": true,
       "source_name": "Hakai Magazine",
       "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-canoe-in-the-forest.html",
+      "title": "The Canoe in the Forest",
+      "display_title": "The Canoe in the Forest",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-whats-next-for-deep-sea-mining.html",
+      "title": "What’s Next for Deep-Sea Mining?",
+      "display_title": "What’s Next for Deep-Sea Mining?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-personal-toll-of-canadas-broken-fishing-promis.html",
+      "title": "The Personal Toll of Canada’s Broken Fishing Promises",
+      "display_title": "The Personal Toll of Canada’s Broken Fishing Promises",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-uk-africa-relations-starmers-reset-that-never-deli.html",
+      "title": "UK-Africa relations: Starmer's 'reset' that never delivered",
+      "display_title": "UK-Africa relations: Starmer's 'reset' that never delivered",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 8,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
     }
   ]
 }
