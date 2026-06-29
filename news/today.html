@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Today&#39;s Kid News — 2026-06-29 | KiddieDaily</title>
-<meta name="description" content="Today&#39;s kid-safe, bias-rated news for families. 761 articles — 508 science, 253 world news. Updated 2026-06-29.">
+<meta name="description" content="Today&#39;s kid-safe, bias-rated news for families. 764 articles — 508 science, 256 world news. Updated 2026-06-29.">
 <meta property="og:title" content="KiddieDaily — Today&#39;s News (2026-06-29)">
-<meta property="og:description" content="761 articles today: 508 science, 253 world news. Bias-rated, kid-safe.">
+<meta property="og:description" content="764 articles today: 508 science, 256 world news. Bias-rated, kid-safe.">
 <meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
 <meta property="og:url" content="https://kiddiedaily.com/news/today.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -83,7 +83,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 4px">Today&#39;s News</h1>
 <p style="font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px">
-2026-06-29 &middot; <span id="td-count">761</span> articles &middot;
+2026-06-29 &middot; <span id="td-count">764</span> articles &middot;
 <a href="/parents/" style="color:#1a4d80">For Parents</a> &middot;
 <a href="/digest/latest.html" style="color:#1a4d80">Daily Digest</a> &middot;
 <a href="/feed.xml" style="color:#1a4d80">RSS</a>
@@ -226,14 +226,24 @@ fetch('/data/kd-articles.json').then(function(r){return r.json();}).then(functio
 }).catch(function(){document.getElementById('td-empty').style.display='';});
 document.getElementById('today-search').addEventListener('input',function(){
   var q=this.value.toLowerCase().trim();
-  document.querySelectorAll('.td-card').forEach(function(el){
-    el.style.display=(!q||(el.dataset.title||'').includes(q))?'':'none';
-  });
-  ['td-sci-sec','td-world-sec'].forEach(function(id){
-    var sec=document.getElementById(id);if(!sec)return;
-    var any=[...sec.querySelectorAll('.td-card')].some(function(el){return el.style.display!=='none';});
-    sec.style.display=any?'':'none';
-  });
+  var sciEl=document.getElementById('td-sci-list'),wldEl=document.getElementById('td-world-list');
+  if(!q){
+    sciEl.innerHTML='';wldEl.innerHTML='';
+    sciOff=renderSlice(sci,sciEl,0,SCI_PG);updBtn(document.getElementById('td-sci-more'),sci,sciOff,SCI_PG);
+    wldOff=renderSlice(world,wldEl,0,WLD_PG);updBtn(document.getElementById('td-world-more'),world,wldOff,WLD_PG);
+    document.getElementById('td-sci-sec').style.display=sci.length?'':'none';
+    document.getElementById('td-world-sec').style.display=world.length?'':'none';
+    return;
+  }
+  function match(a){return((a.title||'')+' '+(a.description||'')).toLowerCase().indexOf(q)!==-1;}
+  var fs=sci.filter(match),fw=world.filter(match);
+  sciEl.innerHTML='';fw&&(wldEl.innerHTML='');
+  fs.forEach(function(a){var d=document.createElement('div');d.innerHTML=card(a);sciEl.appendChild(d.firstChild);});
+  fw.forEach(function(a){var d=document.createElement('div');d.innerHTML=card(a);wldEl.appendChild(d.firstChild);});
+  document.getElementById('td-sci-more').style.display='none';
+  document.getElementById('td-world-more').style.display='none';
+  document.getElementById('td-sci-sec').style.display=fs.length?'':'none';
+  document.getElementById('td-world-sec').style.display=fw.length?'':'none';
 });
 })();
 </script>
