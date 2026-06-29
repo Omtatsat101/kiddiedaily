@@ -195,6 +195,8 @@ SOURCES = [
     {"name": "Mongabay",      "url": "https://news.mongabay.com/feed/",                        "bias": -0.1, "icon": "🦁"},
     {"name": "JSTOR Daily",   "url": "https://daily.jstor.org/feed/",                          "bias": -0.1, "icon": "📚"},
     {"name": "NASA Earth",    "url": "https://earthobservatory.nasa.gov/feeds/earth-observatory.rss", "bias": 0.0, "icon": "🌍"},
+    {"name": "Yale E360",     "url": "https://e360.yale.edu/feeds/latest",                            "bias": -0.2, "icon": "🌿"},
+    {"name": "MIT Tech Review","url": "https://www.technologyreview.com/feed/",                        "bias": -0.1, "icon": "💻"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -302,7 +304,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "Yale E360", "MIT Tech Review"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -1687,7 +1689,15 @@ def generate_category_pages(manifest):
     articles = manifest.get("articles", [])
     _SPACE_KW    = {"space", "nasa", "galaxy", "planet", "star", "asteroid", "mars", "moon", "rocket", "telescope"}
     _ANIMAL_KW   = {"animal", "animals", "species", "whale", "shark", "bird", "birds", "dog", "dogs", "cat", "cats", "wildlife", "octopus", "insect", "insects", "turtle", "turtles", "fish", "elephant", "elephants", "bear", "bears", "wolf", "wolves", "lion", "lions", "tiger", "tigers", "dolphin", "dolphins", "penguin", "penguins", "seal", "seals", "zoo", "habitat", "extinct", "endangered", "mammal", "reptile", "amphibian", "coral", "reef", "migration", "nest", "prey", "predator", "marine", "ocean life", "bee", "bees", "butterfly", "butterflies"}
-    _ENVIRONMENT_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation"}
+    _ENVIRONMENT_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation",
+                       "sea level", "permafrost", "arctic", "antarctic", "polar ice",
+                       "emissions", "greenhouse gas", "methane", "carbon dioxide",
+                       "microplastic", "contamination", "pesticide", "toxic waste",
+                       "conservation", "nature reserve", "reforestation", "rewilding",
+                       "wetland", "mangrove", "peat", "estuary",
+                       "heat wave", "extreme heat", "sea ice", "ice sheet", "ice cap",
+                       "clean energy", "wind farm", "hydropower",
+                       "water scarcity", "water quality", "groundwater", "coral bleach"}
     _HISTORY_KW  = {
         # Time periods
         "ancient", "prehistoric", "medieval", "bronze age", "iron age", "stone age", "neolithic",
@@ -1708,7 +1718,14 @@ def generate_category_pages(manifest):
                     "algorithm", "software", "engineering", "invention", "cryogenic",
                     "3d print", "drone", "satellite commun", "electric vehicle", "battery",
                     "alloy", "polymer", "material science", "materials science",
-                    "nuclear reactor", "nuclear fusion", "photovoltaic", "wind turbine"}
+                    "nuclear reactor", "nuclear fusion", "photovoltaic", "wind turbine",
+                    "internet", "cybersecurity", "encryption", "data center", "cloud computing",
+                    "fiber optic", "processor", "transistor", "laser tech",
+                    "gene editing", "crispr", "synthetic biology", "bioengineering",
+                    "autonomous vehicle", "self-driving", "exoskeleton", "prosthetic",
+                    "wearable", "particle accelerator", "superconductor",
+                    "deep learning", "neural network", "computer vision",
+                    "bionic", "microbot", "quantum computing", "quantum sensor"}
 
     def _matches(a, kw_set):
         haystack = (a.get("title", "") + " " + a.get("slug", "")).lower()
@@ -1720,8 +1737,8 @@ def generate_category_pages(manifest):
         "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
         "animals": [a for a in articles if _matches(a, _ANIMAL_KW) or a.get("source_name") == "Mongabay"],
         "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") == "JSTOR Daily"],
-        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") == "NASA Earth"],
-        "technology":  [a for a in articles if _matches(a, _TECH_KW)],
+        "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Yale E360"}],
+        "technology":  [a for a in articles if _matches(a, _TECH_KW) or a.get("source_name") == "MIT Tech Review"],
     }
     cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment", "technology": "Technology"}
     desc = {
