@@ -724,6 +724,14 @@ DEPRIORITIZE_WORDS = [
     "mortgage rates frustrate", "homes harder to sell", "harder to sell",
     "housing market cooling", "homes sitting longer", "real estate slowdown",
     "affordability crisis",
+    # NPR/BBC author spotlight format ("Firstname Lastname on [topic]")
+    " on spotlighting", " on writing", " on crafting", " on telling",
+    " on creating his", " on creating her", " on creating their",
+    "author's journey", "in conversation with", "talks about his novel",
+    "talks about her novel", "talks about their novel",
+    # Fiction novel/book announcement (not news)
+    "new novel", "debut novel", "new memoir", "new book by",
+    "book excerpt", "excerpt from",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
