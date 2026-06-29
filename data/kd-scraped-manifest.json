@@ -217,7 +217,15 @@
     "news/2026-06-29-watch-chinas-tiangong-space-station-cross-the-moon.html",
     "news/2026-06-29-best-team-moments-matches-and-players-of-the-group.html",
     "news/2026-06-29-what-you-need-to-know-about-englands-opponents-dr.html",
-    "news/2026-06-29-thousands-of-kurds-gather-in-turkiye-to-demand-rel.html"
+    "news/2026-06-29-thousands-of-kurds-gather-in-turkiye-to-demand-rel.html",
+    "news/2026-06-29-would-you-return-a-favor-scientists-say-it-depends.html",
+    "news/2026-06-29-new-imaging-system-sees-through-murky-waters.html",
+    "news/2026-06-29-ons-new-flagship-marathon-running-shoe-is-super-li.html",
+    "news/2026-06-29-why-90-of-us-are-right-handed.html",
+    "news/2026-06-29-watch-spacex-launch-15000-pound-siriusxm-satellite.html",
+    "news/2026-06-29-father-and-son-pulled-out-alive-four-days-after-ve.html",
+    "news/2026-06-29-who-is-stephen-eustaquio-who-scored-for-canada-aga.html",
+    "news/2026-06-29-a-heat-dome-is-driving-dangerous-heat-across-the-u.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -437,7 +445,15 @@
     "Watch China's Tiangong space station cross the moon in stunning amateur footage",
     "Best team, moments, matches and players of the group stage",
     "What you need to know about England's opponents DR Congo",
-    "Thousands of Kurds gather in Turkiye to demand release of PKK leader"
+    "Thousands of Kurds gather in Turkiye to demand release of PKK leader",
+    "Would you return a favor? Scientists say it depends on the relationship",
+    "New imaging system sees through murky waters",
+    "On’s new flagship marathon running shoe is super-light thanks to a redesigned sole and an upper sprayed by robots",
+    "Why 90% of us are right-handed",
+    "Watch SpaceX launch 15,000-pound SiriusXM satellite to orbit tonight",
+    "Father and son pulled out alive four days after Venezuela earthquake",
+    "Who is Stephen Eustaquio, who scored for Canada against South Africa?",
+    "A 'heat dome' is driving dangerous heat across the U.S. into the July 4 weekend"
   ],
   "articles": [
     {
@@ -2825,6 +2841,94 @@
       "agreement_pct": 14,
       "is_science": false,
       "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-would-you-return-a-favor-scientists-say-it-depends.html",
+      "title": "Would you return a favor? Scientists say it depends on the relationship",
+      "display_title": "Would you return a favor? Scientists say it depends on the relationship",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-new-imaging-system-sees-through-murky-waters.html",
+      "title": "New imaging system sees through murky waters",
+      "display_title": "New imaging system sees through murky waters",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-ons-new-flagship-marathon-running-shoe-is-super-li.html",
+      "title": "On’s new flagship marathon running shoe is super-light thanks to a redesigned sole and an upper sprayed by robots",
+      "display_title": "On’s new flagship marathon running shoe is super-light thanks to a redesigned sole and an upper sprayed by robots",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-why-90-of-us-are-right-handed.html",
+      "title": "Why 90% of us are right-handed",
+      "display_title": "Why 90% of us are right-handed",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-watch-spacex-launch-15000-pound-siriusxm-satellite.html",
+      "title": "Watch SpaceX launch 15,000-pound SiriusXM satellite to orbit tonight",
+      "display_title": "Watch SpaceX launch 15,000-pound SiriusXM satellite to orbit tonight",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-father-and-son-pulled-out-alive-four-days-after-ve.html",
+      "title": "Father and son pulled out alive four days after Venezuela earthquake",
+      "display_title": "Father and son pulled out alive four days after Venezuela earthquake",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-who-is-stephen-eustaquio-who-scored-for-canada-aga.html",
+      "title": "Who is Stephen Eustaquio, who scored for Canada against South Africa?",
+      "display_title": "Who is Stephen Eustaquio, who scored for Canada against South Africa?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-a-heat-dome-is-driving-dangerous-heat-across-the-u.html",
+      "title": "A 'heat dome' is driving dangerous heat across the U.S. into the July 4 weekend",
+      "display_title": "A 'heat dome' is driving dangerous heat across the U.S. into the July 4 weekend",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "📻"
     }
   ]
 }
