@@ -535,7 +535,10 @@
     "news/2026-06-29-this-was-a-big-week-for-marie-curie-more-than-120.html",
     "news/2026-06-29-james-webb-space-telescope-captures-the-cigar-gala.html",
     "news/2026-06-29-how-humans-are-like-bloodhounds-and-bats.html",
-    "news/2026-06-29-can-thailand-cambodia-unlock-massive-oil-and-gas-r.html"
+    "news/2026-06-29-can-thailand-cambodia-unlock-massive-oil-and-gas-r.html",
+    "news/2026-06-29-some-neanderthals-were-genetically-healthy-right-u.html",
+    "news/2026-06-29-perseverance-scratches-the-martian-surface-finds-o.html",
+    "news/2026-06-29-archaic-hominin-species-buried-only-their-women.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1073,7 +1076,10 @@
     "This Was a Big Week for Marie Curie, More Than 120 Years Ago",
     "James Webb Space Telescope Captures the Cigar Galaxy’s Brilliant Stellar Halo in Pristine Detail",
     "How Humans Are Like Bloodhounds and Bats",
-    "Can Thailand, Cambodia unlock massive oil and gas reserves?"
+    "Can Thailand, Cambodia unlock massive oil and gas reserves?",
+    "Some Neanderthals Were Genetically Healthy Right Up Until the End",
+    "Perseverance Scratches the Martian Surface, Finds Organic Carbon",
+    "Archaic Hominin Species Buried Only Their Women"
   ],
   "articles": [
     {
@@ -7069,6 +7075,42 @@
       "is_science": false,
       "source_name": "DW News",
       "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-some-neanderthals-were-genetically-healthy-right-u.html",
+      "title": "Some Neanderthals Were Genetically Healthy Right Up Until the End",
+      "display_title": "Some Neanderthals Were Genetically Healthy Right Up Until the End",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-perseverance-scratches-the-martian-surface-finds-o.html",
+      "title": "Perseverance Scratches the Martian Surface, Finds Organic Carbon",
+      "display_title": "Perseverance Scratches the Martian Surface, Finds Organic Carbon",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-archaic-hominin-species-buried-only-their-women.html",
+      "title": "Archaic Hominin Species Buried Only Their Women",
+      "display_title": "Archaic Hominin Species Buried Only Their Women",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Nautilus",
+      "source_icons": "🔵"
     }
   ]
 }
