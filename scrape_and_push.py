@@ -1755,18 +1755,26 @@ def generate_today_page(manifest, today):
             f'</div></div></div>'
         )
 
-    def section_block(section_articles, section_id, icon, label, color):
+    def section_block(section_articles, section_id, icon, label, color, limit=15, see_all_url=""):
         if not section_articles:
             return ""
-        rows = "".join(article_row(a) for a in section_articles)
+        display = section_articles[:limit]
+        hidden  = len(section_articles) - len(display)
+        rows    = "".join(article_row(a) for a in display)
+        see_all = (
+            f'<div style="text-align:center;padding:14px 0;border-top:1px solid #e5e7eb;margin-top:4px">'
+            f'<a href="{see_all_url}" style="font-size:13px;color:#1a4d80;font-family:system-ui,sans-serif;'
+            f'font-weight:600">{icon} See all {len(section_articles)} {label} articles today &rarr;</a>'
+            f'</div>'
+        ) if hidden and see_all_url else ""
         return (
             f'<div id="{section_id}" style="scroll-margin-top:70px">'
             f'<div style="display:flex;align-items:center;gap:10px;margin:28px 0 4px;padding-bottom:8px;border-bottom:2px solid {color}">'
             f'<span style="font-size:20px">{icon}</span>'
             f'<h2 style="margin:0;font-size:18px;color:#1a4d80">{label}</h2>'
             f'<span style="font-size:12px;color:#718096;font-family:system-ui,sans-serif;margin-left:auto">'
-            f'{len(section_articles)} article{"s" if len(section_articles)!=1 else ""}</span>'
-            f'</div>{rows}</div>'
+            f'{len(display)}{f" of {len(section_articles)}" if hidden else ""} article{"s" if len(display)!=1 else ""}</span>'
+            f'</div>{rows}{see_all}</div>'
         )
 
     # Quick-jump nav (only shown if we have both sections)
@@ -1792,8 +1800,8 @@ def generate_today_page(manifest, today):
             f'</div>'
         )
 
-    sci_section   = section_block(sci_today,   "science-today", "🔬", "Science & Discovery", "#34d399")
-    world_section = section_block(world_today, "world-today",   "🌍", "World News",           "#60a5fa")
+    sci_section   = section_block(sci_today,   "science-today", "🔬", "Science & Discovery", "#34d399", limit=15, see_all_url="/news/science.html")
+    world_section = section_block(world_today, "world-today",   "🌍", "World News",           "#60a5fa", limit=10, see_all_url="/news/world.html")
 
     # Recent: up to 6 articles NOT from today
     prev_articles = [a for a in all_recent if a.get("date") != today][:6]
