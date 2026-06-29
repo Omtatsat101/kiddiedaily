@@ -412,34 +412,71 @@ RULES:
         return None
 
 # ── Article body builders ─────────────────────────────────────────────────────
-SKIP_PARA_WORDS = ["cookie", "subscribe", "newsletter", "javascript", "sign up",
-                   "advertisement", "click here", "read more", "follow us",
-                   "privacy policy", "terms of use", "all rights reserved",
-                   "copyright", "©", "skip to", "share this", "email address"]
+SKIP_PARA_WORDS = [
+    "cookie", "subscribe", "newsletter", "javascript", "sign up",
+    "advertisement", "click here", "read more", "follow us",
+    "privacy policy", "terms of use", "all rights reserved",
+    "copyright", "©", "skip to", "share this", "email address",
+    "by clicking", "you agree", "logged in", "create account",
+    "already a subscriber", "to continue reading", "paywall",
+    "enable javascript", "browser does not support", "reload the page",
+    "get the latest", "breaking news", "follow on", "download the app",
+]
+
+# Dateline pattern — "CITY, STATE (SOURCE) — " at start of text
+_DATELINE_RE = re.compile(
+    r"^[A-Z][A-Z ,'\-]{2,40}(?:\([^)]{2,20}\))?\s*[—\-]{1,3}\s*", re.UNICODE
+)
+
+def _clean_lede(text):
+    """Strip news datelines and boilerplate from the opening of a paragraph."""
+    text = text.strip()
+    # Remove datelines like "WASHINGTON (AP) — " or "NEW YORK — "
+    text = _DATELINE_RE.sub("", text)
+    # Remove byline openers like "By Staff Writer · "
+    text = re.sub(r"^By [A-Z][a-zA-Z .'\-]+ [·|•]\s*", "", text)
+    # Normalize HTML entities
+    text = text.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
+    text = text.replace("&#39;", "'").replace("&quot;", '"').replace("&nbsp;", " ")
+    return text.strip()
 
 def fetch_article_text(url, fallback):
     """Fetch full article text from source URL; return cleaned paragraphs or fallback."""
     try:
-        req = urllib.request.Request(
-            url, headers={"User-Agent": "Mozilla/5.0 (compatible; KiddieDaily/1.0)"})
-        raw = urllib.request.urlopen(req, timeout=10, context=ctx).read().decode("utf-8", errors="replace")
-        # Strip scripts, styles, nav, footer, aside
-        raw = re.sub(r"<(script|style|nav|footer|aside|header)[^>]*>.*?</\1>",
-                     "", raw, flags=re.DOTALL | re.IGNORECASE)
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0 Safari/537.36"
+            ),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+        }
+        req = urllib.request.Request(url, headers=headers)
+        raw = urllib.request.urlopen(req, timeout=7, context=ctx).read().decode("utf-8", errors="replace")
+        # Strip scripts, styles, nav, footer, aside, header, form, figure captions
+        raw = re.sub(
+            r"<(script|style|nav|footer|aside|header|form|figcaption|noscript)[^>]*>.*?</\1>",
+            "", raw, flags=re.DOTALL | re.IGNORECASE
+        )
         # Extract <p> content
         paras = re.findall(r"<p[^>]*>(.*?)</p>", raw, re.DOTALL | re.IGNORECASE)
         paras = [re.sub(r"<[^>]+>", "", p).strip() for p in paras]
+        paras = [re.sub(r"\s+", " ", p) for p in paras]
         paras = [
-            re.sub(r"\s+", " ", p)
-            for p in paras
-            if len(p) > 55
+            _clean_lede(p) if idx == 0 else p
+            for idx, p in enumerate(paras)
+            if len(p) > 50
             and not any(w in p.lower() for w in SKIP_PARA_WORDS)
         ]
         if len(paras) >= 2:
-            return " ".join(paras[:7])
+            return " ".join(paras[:9])
     except Exception:
         pass
-    return fallback
+    # Clean the fallback description too
+    clean_fb = re.sub(r"<[^>]+>", "", fallback or "").strip()
+    clean_fb = re.sub(r"\s+", " ", clean_fb)
+    return _clean_lede(clean_fb) if clean_fb else (fallback or "")
 
 
 def body_from_rss(group):
@@ -447,15 +484,19 @@ def body_from_rss(group):
     # Try to fetch full text; fall back to RSS description
     full_text = fetch_article_text(rep["link"], rep["description"])
 
-    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", full_text) if len(s.strip()) > 25]
+    sentences = [_clean_lede(s) if i == 0 else s
+                 for i, s in enumerate(
+                     s.strip() for s in re.split(r"(?<=[.!?])\s+", full_text)
+                     if len(s.strip()) > 25
+                 )]
 
     # Detect science article by checking group sources against SCIENCE_SOURCES
     is_science = any(s["source_name"] in SCIENCE_SOURCES for s in group)
     h2_mid  = "What scientists found" if is_science else "What happened"
     h2_late = "Why it matters for kids"
 
-    # Lede = first sentence only
-    lede = sentences[0] if sentences else full_text[:220]
+    # Lede = first sentence only (dateline already stripped by _clean_lede above)
+    lede = sentences[0] if sentences else _clean_lede(full_text[:220])
 
     # Build structured paragraphs from remaining sentences (groups of 2-3)
     body_sents = sentences[1:]  # everything after the lede sentence
@@ -561,7 +602,7 @@ FOOTER = """<footer class="kd"><div class="inner">
 <p style="margin:0;font-size:14px;color:#cbd5e0">Curated daily news for families with research-backed fact checks.</p></div>
 <div><h4>Read</h4><a href="/news/today.html">Today's News</a><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
 <a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
-<div><h4>Account</h4><a href="/parent-zone/">Parent Zone</a><a href="/about.html">About</a>
+<div><h4>Account</h4><a href="/parent-zone/">Parent Zone</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
 <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
 <div><h4>Our Network</h4><a href="https://kiddiewordle.com" rel="noopener">KiddieWordle</a>
@@ -1102,6 +1143,7 @@ STATIC_URLS = [
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
     "/about.html", "/privacy.html", "/terms.html", "/contact.html", "/status.html",
+    "/subscribe/",
     "/feed.xml", "/news/archive.html", "/news/today.html",
     "/news/science.html", "/news/world.html",
     "/news/space.html", "/news/animals.html", "/news/history.html", "/news/environment.html",
@@ -2065,6 +2107,131 @@ Your daily briefing — {today} &middot; Balanced sources &middot; No spin &midd
     print(f"  For-Parents page: {n_today} articles today, avg bias {avg_bias:+.2f} ({avg_bias_lbl})")
 
 
+def generate_subscribe_page(manifest, today):
+    """Generate /subscribe/index.html — how to get daily KiddieDaily updates."""
+    articles = manifest.get("articles", [])
+    total = len(articles)
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Subscribe — Get Daily KiddieDaily Updates</title>
+<meta name="description" content="Get daily KiddieDaily updates via RSS, email, or bookmark. Free, kid-safe news for families — no ads, no spin.">
+<link rel="canonical" href="https://kiddiedaily.com/subscribe/">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
+<style>
+.sub-card{{background:#fff;border:1px solid #dde4ef;border-radius:12px;padding:22px 24px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.05);display:flex;gap:18px;align-items:flex-start}}
+.sub-card .icon{{font-size:36px;min-width:44px;text-align:center}}
+.sub-card h3{{margin:0 0 6px;font-size:17px;color:#1a4d80}}
+.sub-card p{{margin:0;font-size:14px;color:#4a5568;line-height:1.55}}
+.sub-card .action{{margin-top:12px}}
+.sub-badge{{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.8px;text-transform:uppercase;margin-left:6px}}
+.badge-free{{background:#d1fae5;color:#065f46}}
+.badge-soon{{background:#fef3c7;color:#92400e}}
+</style>
+</head><body>
+{HEADER}
+<main style="max-width:720px;margin:0 auto;padding:32px 24px 64px">
+<h1 style="font-size:28px;margin:0 0 6px">Stay Updated</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 24px">
+KiddieDaily publishes fresh kid-safe, bias-rated news every morning at <strong>6am ET</strong>. Here&#39;s how to get it.
+</p>
+
+<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 20px;margin:0 0 20px;font-family:system-ui,sans-serif">
+<span style="font-size:13px;color:#1e40af">&#128202; <strong>{total} articles</strong> published so far &middot; updated daily &middot; free forever &middot; no ads &middot; no tracking</span>
+</div>
+
+<div class="sub-card">
+<div class="icon">&#128231;</div>
+<div>
+<h3>RSS Feed <span class="sub-badge badge-free">Free · Live now</span></h3>
+<p>The fastest way to follow KiddieDaily. Copy the feed URL into any RSS reader — Feedly, Apple News, Google News, Reeder, or any other reader you prefer.</p>
+<div class="action" style="display:flex;flex-direction:column;gap:8px">
+<div style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;font-family:monospace;font-size:14px;color:#1a4d80;word-break:break-all">https://kiddiedaily.com/feed.xml</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<a href="/feed.xml" style="background:#1a4d80;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-family:system-ui,sans-serif">Open RSS feed</a>
+<a href="https://feedly.com/i/subscription/feed/https://kiddiedaily.com/feed.xml" rel="noopener nofollow" target="_blank" style="background:#2d8a3e;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-family:system-ui,sans-serif">Add to Feedly</a>
+</div>
+<p style="font-size:12px;color:#718096;margin:4px 0 0"><strong>How to use:</strong> In any RSS app, tap "Add feed" and paste the URL above. New articles appear automatically each morning.</p>
+</div>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="icon">&#128241;</div>
+<div>
+<h3>Add to Home Screen <span class="sub-badge badge-free">Free · iPhone &amp; Android</span></h3>
+<p>Turn KiddieDaily into a home screen app — no app store needed. Open the site in Safari or Chrome, then add it to your home screen for one-tap daily access.</p>
+<div class="action">
+<details style="cursor:pointer">
+<summary style="font-size:13px;font-weight:600;color:#1a4d80;list-style:none">&#9654; iPhone/Safari instructions</summary>
+<ol style="font-size:13px;color:#4a5568;padding-left:20px;margin:8px 0;line-height:1.7">
+<li>Open <strong>kiddiedaily.com</strong> in Safari</li>
+<li>Tap the <strong>Share button</strong> (box with arrow) at the bottom</li>
+<li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+<li>Name it "KiddieDaily" and tap <strong>Add</strong></li>
+</ol>
+</details>
+<details style="cursor:pointer;margin-top:6px">
+<summary style="font-size:13px;font-weight:600;color:#1a4d80;list-style:none">&#9654; Android/Chrome instructions</summary>
+<ol style="font-size:13px;color:#4a5568;padding-left:20px;margin:8px 0;line-height:1.7">
+<li>Open <strong>kiddiedaily.com</strong> in Chrome</li>
+<li>Tap the <strong>three-dot menu</strong> (top right)</li>
+<li>Tap <strong>"Add to Home screen"</strong></li>
+<li>Tap <strong>Add</strong></li>
+</ol>
+</details>
+</div>
+</div>
+</div>
+
+<div class="sub-card">
+<div class="icon">&#128278;</div>
+<div>
+<h3>Bookmark the Daily Digest <span class="sub-badge badge-free">Free</span></h3>
+<p>The <a href="/digest/latest.html" style="color:#1a4d80">Daily Digest</a> always shows the most recent day&#39;s articles in one clean page. Bookmark it and check it with your morning coffee.</p>
+<div class="action">
+<a href="/digest/latest.html" style="background:#1a4d80;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-family:system-ui,sans-serif">Open today&#39;s digest</a>
+</div>
+</div>
+</div>
+
+<div class="sub-card" style="opacity:.8">
+<div class="icon">&#128140;</div>
+<div>
+<h3>Email Newsletter <span class="sub-badge badge-soon">Coming soon</span></h3>
+<p>A morning email with the day&#39;s top 5 kid-safe stories, bias ratings, and one parent discussion question. We&#39;re building this — sign up below to be notified when it launches.</p>
+<div class="action">
+<p style="font-size:13px;color:#718096">Email newsletter is not yet available. Use RSS or add to home screen in the meantime — same content, delivered differently.</p>
+</div>
+</div>
+</div>
+
+<div style="background:#f0f4f8;border-radius:10px;padding:18px 22px;margin:24px 0 0;font-family:system-ui,sans-serif">
+<div style="font-size:12px;font-weight:700;color:#4a5568;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">What you get every morning</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;font-size:13px;color:#2d3748">
+<div>&#9989; Up to 5 new stories</div>
+<div>&#9989; Bias ratings on every article</div>
+<div>&#9989; Parent discussion guides</div>
+<div>&#9989; Science-first curation</div>
+<div>&#9989; Kid-safety filtered</div>
+<div>&#9989; Zero ads or trackers</div>
+</div>
+</div>
+
+<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" style="background:#1a4d80;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Today&#39;s stories</a>
+<a href="/digest/latest.html" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Daily digest</a>
+<a href="/parents/" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">For Parents</a>
+</div>
+</main>
+{FOOTER}
+</body></html>"""
+
+    upload("subscribe/index.html", page, f"[scraper] Subscribe / stay-updated page — {total} articles")
+    print(f"  Subscribe page: RSS, home screen, digest — {total} articles referenced")
+
+
 def generate_static_info_pages(manifest, today):
     """Generate about.html, contact.html, privacy.html, terms.html — static info pages."""
     articles = manifest.get("articles", [])
@@ -2939,6 +3106,10 @@ def main():
     # 6k8. Generate static info pages (about, contact, privacy, terms)
     print(f"\n[6k8] Generating static info pages...")
     generate_static_info_pages(manifest, today)
+
+    # 6k8b. Generate subscribe / stay-updated page
+    print(f"\n[6k8b] Generating subscribe page...")
+    generate_subscribe_page(manifest, today)
 
     # 6k9. Generate og:image SVGs (used for social sharing previews)
     print(f"\n[6k9] Deploying og:image SVGs for social sharing...")
