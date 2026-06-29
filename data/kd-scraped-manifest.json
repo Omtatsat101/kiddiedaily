@@ -521,7 +521,12 @@
     "news/2026-06-29-from-hormuz-to-the-cockpit-how-warfare-and-crimina.html",
     "news/2026-06-29-trumps-ai-security-order-acknowledges-risks-but-st.html",
     "news/2026-06-29-dallas-cowboys-cheerleaders-on-fame-pressure-and-w.html",
-    "news/2026-06-29-fitness-brand-founder-and-olympian-les-mills-dies.html"
+    "news/2026-06-29-fitness-brand-founder-and-olympian-les-mills-dies.html",
+    "news/2026-06-29-giant-exoplanet-may-hold-a-magnetic-grip-on-its-ho.html",
+    "news/2026-06-29-neuroscience-cant-tell-us-the-way-to-govern-people.html",
+    "news/2026-06-29-remote-controlled-cockroach-swarm-can-now-breathe.html",
+    "news/2026-06-29-in-slovenia-pride-meets-growing-support-and-hostil.html",
+    "news/2026-06-29-saudi-arabias-early-fifa-world-cup-exit-prompts-fe.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1045,7 +1050,12 @@
     "From Hormuz to the cockpit: How warfare and criminal activity undermine GPS and the race to safeguard navigation",
     "Trump’s AI security order acknowledges risks but stops short of regulating industry",
     "Dallas Cowboys Cheerleaders on fame, pressure and World Cup fever",
-    "Fitness brand founder and Olympian Les Mills dies aged 91"
+    "Fitness brand founder and Olympian Les Mills dies aged 91",
+    "Giant exoplanet may hold a magnetic grip on its host star",
+    "Neuroscience can't tell us the way to govern people's brains",
+    "Remote-controlled cockroach swarm can now breathe underwater",
+    "In Slovenia, Pride meets growing support — and hostility",
+    "Saudi Arabia’s early FIFA World Cup exit prompts federation chief to resign"
   ],
   "articles": [
     {
@@ -6873,6 +6883,66 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-giant-exoplanet-may-hold-a-magnetic-grip-on-its-ho.html",
+      "title": "Giant exoplanet may hold a magnetic grip on its host star",
+      "display_title": "Giant exoplanet may hold a magnetic grip on its host star",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-neuroscience-cant-tell-us-the-way-to-govern-people.html",
+      "title": "Neuroscience can't tell us the way to govern people's brains",
+      "display_title": "Neuroscience can't tell us the way to govern people's brains",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "New Scientist",
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-remote-controlled-cockroach-swarm-can-now-breathe.html",
+      "title": "Remote-controlled cockroach swarm can now breathe underwater",
+      "display_title": "Remote-controlled cockroach swarm can now breathe underwater",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "New Scientist",
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-in-slovenia-pride-meets-growing-support-and-hostil.html",
+      "title": "In Slovenia, Pride meets growing support — and hostility",
+      "display_title": "In Slovenia, Pride meets growing support — and hostility",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-saudi-arabias-early-fifa-world-cup-exit-prompts-fe.html",
+      "title": "Saudi Arabia’s early FIFA World Cup exit prompts federation chief to resign",
+      "display_title": "Saudi Arabia’s early FIFA World Cup exit prompts federation chief to resign",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍"
     }
   ]
 }
