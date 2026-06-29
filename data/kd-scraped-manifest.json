@@ -538,7 +538,8 @@
     "news/2026-06-29-can-thailand-cambodia-unlock-massive-oil-and-gas-r.html",
     "news/2026-06-29-some-neanderthals-were-genetically-healthy-right-u.html",
     "news/2026-06-29-perseverance-scratches-the-martian-surface-finds-o.html",
-    "news/2026-06-29-archaic-hominin-species-buried-only-their-women.html"
+    "news/2026-06-29-archaic-hominin-species-buried-only-their-women.html",
+    "news/2026-06-29-ford-rehires-human-engineers-after-ai-fails-to-mat.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1079,7 +1080,8 @@
     "Can Thailand, Cambodia unlock massive oil and gas reserves?",
     "Some Neanderthals Were Genetically Healthy Right Up Until the End",
     "Perseverance Scratches the Martian Surface, Finds Organic Carbon",
-    "Archaic Hominin Species Buried Only Their Women"
+    "Archaic Hominin Species Buried Only Their Women",
+    "Ford rehires human engineers after AI fails to match quality checks"
   ],
   "articles": [
     {
@@ -7111,6 +7113,18 @@
       "is_science": true,
       "source_name": "Nautilus",
       "source_icons": "🔵"
+    },
+    {
+      "slug": "news/2026-06-29-ford-rehires-human-engineers-after-ai-fails-to-mat.html",
+      "title": "Ford rehires human engineers after AI fails to match quality checks",
+      "display_title": "Ford rehires human engineers after AI fails to match quality checks",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "BBC News",
+      "source_icons": "🇬🇧"
     }
   ]
 }
