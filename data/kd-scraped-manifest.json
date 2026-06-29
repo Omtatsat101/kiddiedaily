@@ -599,7 +599,9 @@
     "news/2026-06-29-one-great-shot-let-us-admire-the-lettuce-slug.html",
     "news/2026-06-29-caviar-pizzas-new-money-and-the-death-of-an-ancien.html",
     "news/2026-06-29-the-secret-sex-lives-of-deep-dark-corals.html",
-    "news/2026-06-29-pelosi-to-teach-at-new-uc-berkeley-democracy-insti.html"
+    "news/2026-06-29-pelosi-to-teach-at-new-uc-berkeley-democracy-insti.html",
+    "news/2026-06-29-one-great-shot-bluebottle-beauty.html",
+    "news/2026-06-29-little-books-with-big-subjects.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1201,7 +1203,9 @@
     "One Great Shot: Let Us Admire the Lettuce (Slug)",
     "Caviar Pizzas, New Money, and the Death of an Ancient Fish",
     "The Secret Sex Lives of Deep, Dark Corals",
-    "Pelosi to teach at new UC Berkeley democracy institute"
+    "Pelosi to teach at new UC Berkeley democracy institute",
+    "One Great Shot: Bluebottle Beauty",
+    "Little Books with Big Subjects"
   ],
   "articles": [
     {
@@ -7965,6 +7969,30 @@
       "is_science": false,
       "source_name": "The Hill",
       "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-one-great-shot-bluebottle-beauty.html",
+      "title": "One Great Shot: Bluebottle Beauty",
+      "display_title": "One Great Shot: Bluebottle Beauty",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-little-books-with-big-subjects.html",
+      "title": "Little Books with Big Subjects",
+      "display_title": "Little Books with Big Subjects",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
     }
   ]
 }
