@@ -604,7 +604,9 @@
     "news/2026-06-29-little-books-with-big-subjects.html",
     "news/2026-06-29-after-80-years-mathematicians-give-famed-erdos-met.html",
     "news/2026-06-29-what-is-the-positive-grassmannian-and-why-does-it.html",
-    "news/2026-06-29-how-physicists-track-and-trap-the-elusive-neutrino.html"
+    "news/2026-06-29-how-physicists-track-and-trap-the-elusive-neutrino.html",
+    "news/2026-06-29-a-dark-dimension-could-link-two-of-the-universes-g.html",
+    "news/2026-06-29-why-the-human-genomes-tangled-physicality-may-conf.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1211,7 +1213,9 @@
     "Little Books with Big Subjects",
     "After 80 Years, Mathematicians Give Famed ‘Erdős Method’ an Upgrade",
     "What Is the Positive Grassmannian and Why Does It Show Up Everywhere?",
-    "How Physicists Track and Trap the Elusive Neutrino"
+    "How Physicists Track and Trap the Elusive Neutrino",
+    "A Dark Dimension Could Link Two of the Universe’s Great Unknowns",
+    "Why the Human Genome’s Tangled Physicality May Confound AI"
   ],
   "articles": [
     {
@@ -8028,6 +8032,30 @@
       "slug": "news/2026-06-29-how-physicists-track-and-trap-the-elusive-neutrino.html",
       "title": "How Physicists Track and Trap the Elusive Neutrino",
       "display_title": "How Physicists Track and Trap the Elusive Neutrino",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Quanta Magazine",
+      "source_icons": "🔷"
+    },
+    {
+      "slug": "news/2026-06-29-a-dark-dimension-could-link-two-of-the-universes-g.html",
+      "title": "A Dark Dimension Could Link Two of the Universe’s Great Unknowns",
+      "display_title": "A Dark Dimension Could Link Two of the Universe’s Great Unknowns",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Quanta Magazine",
+      "source_icons": "🔷"
+    },
+    {
+      "slug": "news/2026-06-29-why-the-human-genomes-tangled-physicality-may-conf.html",
+      "title": "Why the Human Genome’s Tangled Physicality May Confound AI",
+      "display_title": "Why the Human Genome’s Tangled Physicality May Confound AI",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
