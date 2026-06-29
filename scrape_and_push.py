@@ -202,6 +202,7 @@ SOURCES = [
     {"name": "NASA Earth",    "url": "https://earthobservatory.nasa.gov/feeds/earth-observatory.rss", "bias": 0.0, "icon": "🌍"},
     {"name": "Carbon Brief",  "url": "https://www.carbonbrief.org/feed/",                             "bias": -0.3, "icon": "🌿"},
     {"name": "MIT Tech Review","url": "https://www.technologyreview.com/feed/",                        "bias": -0.1, "icon": "💻"},
+    {"name": "World History Encyclopedia", "url": "https://www.worldhistory.org/feed/",               "bias":  0.0, "icon": "📜"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -309,7 +310,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -1717,15 +1718,33 @@ def generate_category_pages(manifest):
         "ancient", "prehistoric", "medieval", "bronze age", "iron age", "stone age", "neolithic",
         "paleolithic", "19th century", "18th century", "17th century", "16th century",
         "world war", "war ii", "civil war", "cold war",
+        "renaissance", "byzantine", "ottoman", "ming dynasty", "qing dynasty",
+        "mesopotamia", "sumerian", "babylonian", "assyrian", "persian empire",
         # Peoples & civilizations
         "viking", "roman", "greek", "pharaoh", "mayan", "aztec", "inca", "mongol",
         "neanderthal", "homo naledi", "homo sapiens", "hominid",
         "native american", "indigenous", "colonial",
+        "samurai", "shogun", "ptolemaic", "norse", "celtic", "druid",
+        "greek mythology", "roman mythology", "norse mythology",
         # Historical content
         "fossil", "dinosaur", "archaeolog", "artifact", "excavat",
         "ruin", "pyramid", "empire", "revolution", "civilization",
         "million year", "thousand year", "history of", "history behind",
         "historical", "archives", "uncovered a", "were discovered",
+        # Discoveries & finds
+        "ancient tomb", "burial site", "royal tomb", "human remains", "ancient remains",
+        "stone tools", "cave painting", "pictograph", "hieroglyph", "cuneiform",
+        "ancient writing", "ancient text", "ancient dna", "radiocarbon",
+        "ancient city", "lost city", "field expedition", "dig site",
+        "mummy", "mummified", "sarcophagus", "bog body",
+        # Paleoanthropology & evolution
+        "paleoanthropolog", "paleoarchaeolog", "ancient genome", "ancient migration",
+        "ancient skull", "ancient skeleton", "ancient bone", "ancient teeth",
+        # World history topics
+        "silk road", "trade route", "ancient trade", "ancient map",
+        "ancient ship", "shipwreck", "ancient kingdom", "ancient empire",
+        "world history", "cultural history", "oral history",
+        "early human", "early homo", "first humans",
     }
     _TECH_KW     = {"quantum", "robot", "robotics", "ai ", "artificial intelligence", "machine learning",
                     "nanosensor", "nanotechnology", "semiconductor", "computer chip", "microchip",
@@ -1750,7 +1769,7 @@ def generate_category_pages(manifest):
         "world":   [a for a in articles if not a.get("is_science")],
         "space":   [a for a in articles if _matches(a, _SPACE_KW) or a.get("source_name") == "NASA"],
         "animals": [a for a in articles if _matches(a, _ANIMAL_KW) or a.get("source_name") == "Mongabay"],
-        "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") == "JSTOR Daily"],
+        "history": [a for a in articles if _matches(a, _HISTORY_KW) or a.get("source_name") in {"JSTOR Daily", "World History Encyclopedia"}],
         "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW) or a.get("source_name") in {"NASA Earth", "Carbon Brief"}],
         "technology":  [a for a in articles if _matches(a, _TECH_KW) or a.get("source_name") == "MIT Tech Review"],
     }
