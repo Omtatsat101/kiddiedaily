@@ -444,6 +444,8 @@ DEPRIORITIZE_WORDS = [
     "hormone therapy", "menstrual",
     # Psychedelic / drug-therapy content (specific compounds → BLOCKLIST; broader term → deprioritize)
     "psychedelic", "ketamine therapy", "mdma therapy",
+    "magic mushroom", "psilocybin", "lsd therapy", "ayahuasca",
+    "cannabis therapy", "marijuana research", "weed study",
     # Adult disease / clinical research (not age-appropriate framing)
     " hiv ", "hiv enters", "hiv and", "hiv in",
     "alzheimer", "memory loss from",
@@ -2177,115 +2179,17 @@ document.getElementById('cat-search').addEventListener('input',function(){{
 # ── Today's news page ─────────────────────────────────────────────────────────
 def generate_today_page(manifest, today):
     articles = manifest.get("articles", [])
-    todays = sorted(
-        [a for a in articles if a.get("date") == today],
-        key=lambda x: (0 if x.get("is_science") else 1, -(x.get("n_sources", 1)))
-    )
-    all_recent = sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
-
+    todays    = [a for a in articles if a.get("date") == today]
     sci_today   = [a for a in todays if a.get("is_science")]
     world_today = [a for a in todays if not a.get("is_science")]
-
-    def article_row(a):
-        slug   = a["slug"]
-        title  = a.get("display_title", a.get("title", ""))
-        is_sci = a.get("is_science", False)
-        cat    = "Science" if is_sci else "World News"
-        n      = a.get("n_sources", 1)
-        bias   = a.get("bias_avg", 0.0)
-        dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
-        badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
-        excerpt_raw = a.get("description") or ""
-        excerpt = excerpt_raw[:120].rstrip() + "…" if len(excerpt_raw) > 120 else excerpt_raw
-        bias_text = ("Far Left" if bias <= -1.2 else "Leans Left" if bias <= -0.4
-                     else "Center-Left" if bias <= -0.15 else "Center" if bias <= 0.15
-                     else "Center-Right" if bias <= 0.4 else "Leans Right" if bias <= 1.2
-                     else "Far Right")
-        multi_badge = (
-            f'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;'
-            f'padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'
-            f'{n} outlets</span>'
-        ) if n > 1 else ""
-        return (
-            f'<div style="padding:14px 0;border-bottom:1px solid #e5e7eb" data-title="{title.lower()}">'
-            f'<div style="margin-bottom:5px">'
-            f'<span class="kd-badge {badge_cls}" style="font-size:10px">{cat}</span>{multi_badge}</div>'
-            f'<a href="/{slug}" style="font-size:15px;font-weight:600;color:#1a4d80;text-decoration:none;line-height:1.35;display:block;margin-bottom:4px">{title}</a>'
-            + (f'<p style="margin:0 0 6px;font-size:13px;color:#4a5568;line-height:1.4;font-family:system-ui,sans-serif">{excerpt}</p>' if excerpt else "")
-            + f'<div style="display:flex;align-items:center;gap:6px">'
-            f'<span style="font-size:10px;color:#a0aec0">L</span>'
-            f'<div style="width:80px;height:5px;border-radius:3px;background:linear-gradient(to right,#3182ce,#805ad5,#e53e3e);position:relative;flex-shrink:0">'
-            f'<span style="position:absolute;top:-4px;left:{dot_pct}%;width:12px;height:12px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)"></span>'
-            f'</div><span style="font-size:10px;color:#a0aec0">R</span>'
-            f'<span style="font-size:11px;color:#718096;margin-left:4px">{bias_text}</span>'
-            f'</div>'
-            f'</div>'
-        )
-
-    def section_block(section_articles, section_id, icon, label, color, limit=15, see_all_url=""):
-        if not section_articles:
-            return ""
-        display = section_articles[:limit]
-        hidden  = len(section_articles) - len(display)
-        rows    = "".join(article_row(a) for a in display)
-        see_all = (
-            f'<div style="text-align:center;padding:14px 0;border-top:1px solid #e5e7eb;margin-top:4px">'
-            f'<a href="{see_all_url}" style="font-size:13px;color:#1a4d80;font-family:system-ui,sans-serif;'
-            f'font-weight:600">{icon} See all {len(section_articles)} {label} articles today &rarr;</a>'
-            f'</div>'
-        ) if hidden and see_all_url else ""
-        return (
-            f'<div id="{section_id}" style="scroll-margin-top:70px">'
-            f'<div style="display:flex;align-items:center;gap:10px;margin:28px 0 4px;padding-bottom:8px;border-bottom:2px solid {color}">'
-            f'<span style="font-size:20px">{icon}</span>'
-            f'<h2 style="margin:0;font-size:18px;color:#1a4d80">{label}</h2>'
-            f'<span style="font-size:12px;color:#718096;font-family:system-ui,sans-serif;margin-left:auto">'
-            f'{len(display)}{f" of {len(section_articles)}" if hidden else ""} article{"s" if len(display)!=1 else ""}</span>'
-            f'</div>{rows}{see_all}</div>'
-        )
-
-    # Quick-jump nav (only shown if we have both sections)
-    jump_nav = ""
-    if sci_today and world_today:
-        jump_nav = (
-            f'<div style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;'
-            f'padding:10px 16px;margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap;'
-            f'font-family:system-ui,sans-serif;font-size:13px;align-items:center">'
-            f'<span style="color:#718096;font-weight:600">Jump to:</span>'
-            f'<a href="#science-today" style="color:#065f46;background:#d1fae5;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">'
-            f'🔬 Science ({len(sci_today)})</a>'
-            f'<a href="#world-today" style="color:#1e40af;background:#dbeafe;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">'
-            f'🌍 World News ({len(world_today)})</a>'
-            f'</div>'
-        )
-    elif todays:
-        jump_nav = (
-            f'<div style="background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;'
-            f'padding:10px 16px;margin:0 0 20px;font-family:system-ui,sans-serif;font-size:13px;color:#718096">'
-            f'{len(todays)} article{"s" if len(todays)!=1 else ""} today — all science &middot; '
-            f'<a href="/news/world.html" style="color:#1a4d80">World news archive</a>'
-            f'</div>'
-        )
-
-    sci_section   = section_block(sci_today,   "science-today", "🔬", "Science & Discovery", "#34d399", limit=15, see_all_url="/news/science.html")
-    world_section = section_block(world_today, "world-today",   "🌍", "World News",           "#60a5fa", limit=10, see_all_url="/news/world.html")
-
-    # Recent: up to 6 articles NOT from today
-    prev_articles = [a for a in all_recent if a.get("date") != today][:6]
-    prev_rows     = "".join(article_row(a) for a in prev_articles)
-    prev_section  = (
-        f'<h2 style="font-size:18px;margin:36px 0 8px;color:#2d3748;border-bottom:1px solid #e5e7eb;padding-bottom:6px">'
-        f'Recent stories</h2>' + prev_rows
-    ) if prev_articles else ""
-
-    empty_msg = '<p style="color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles yet today — check back after 6am ET.</p>' if not todays else ""
+    total_today = len(todays)
 
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Today&#39;s Kid News — {today} | KiddieDaily</title>
-<meta name="description" content="Today&#39;s kid-safe, bias-rated news for families. {len(todays)} articles — {len(sci_today)} science, {len(world_today)} world news. Updated {today}.">
+<meta name="description" content="Today&#39;s kid-safe, bias-rated news for families. {total_today} articles — {len(sci_today)} science, {len(world_today)} world news. Updated {today}.">
 <meta property="og:title" content="KiddieDaily — Today&#39;s News ({today})">
-<meta property="og:description" content="{len(todays)} articles today: {len(sci_today)} science, {len(world_today)} world news. Bias-rated, kid-safe.">
+<meta property="og:description" content="{total_today} articles today: {len(sci_today)} science, {len(world_today)} world news. Bias-rated, kid-safe.">
 <meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
 <meta property="og:url" content="https://kiddiedaily.com/news/today.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -2294,27 +2198,54 @@ def generate_today_page(manifest, today):
 {CSS}
 <style>
 #today-search{{width:100%;box-sizing:border-box;padding:10px 14px;font-size:16px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:16px;font-family:system-ui,sans-serif}}
+.td-card{{padding:14px 0;border-bottom:1px solid #e5e7eb}}
+.td-card a{{font-size:15px;font-weight:600;color:#1a4d80;text-decoration:none;line-height:1.35;display:block;margin-bottom:4px}}
+.td-card .td-ex{{margin:0 0 6px;font-size:13px;color:#4a5568;line-height:1.4;font-family:system-ui,sans-serif}}
+.td-more-btn{{display:block;width:100%;background:none;border:1px solid #cbd5e0;padding:10px;border-radius:6px;cursor:pointer;font-family:system-ui,sans-serif;color:#1a4d80;font-size:13px;margin:8px 0 4px;text-align:center}}
 </style>
 </head><body>
 {HEADER}
 <main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 4px">Today&#39;s News</h1>
 <p style="font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px">
-{today} &middot; {len(todays)} article{"s" if len(todays)!=1 else ""} &middot;
+{today} &middot; <span id="td-count">{total_today}</span> articles &middot;
 <a href="/parents/" style="color:#1a4d80">For Parents</a> &middot;
 <a href="/digest/latest.html" style="color:#1a4d80">Daily Digest</a> &middot;
 <a href="/feed.xml" style="color:#1a4d80">RSS</a>
 </p>
 <input type="search" id="today-search" placeholder="Search today&#39;s stories..." aria-label="Search today's news">
-
-{jump_nav}
-{empty_msg}
-{sci_section}
-{world_section}
-{prev_section}
-
+<div id="td-jump" style="display:none;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:13px;align-items:center">
+  <span style="color:#718096;font-weight:600">Jump to:</span>
+  <a href="#td-sci" style="color:#065f46;background:#d1fae5;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f52c; Science (<span id="td-sci-n">0</span>)</a>
+  <a href="#td-world" style="color:#1e40af;background:#dbeafe;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f30d; World News (<span id="td-world-n">0</span>)</a>
+</div>
+<div id="td-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles yet today — check back after 6am ET.</div>
+<div id="td-sci-sec">
+  <div style="display:flex;align-items:center;gap:10px;margin:28px 0 4px;padding-bottom:8px;border-bottom:2px solid #34d399">
+    <span style="font-size:20px">&#x1f52c;</span>
+    <h2 id="td-sci" style="margin:0;font-size:18px;color:#1a4d80">Science &amp; Discovery</h2>
+    <span id="td-sci-hdr" style="font-size:12px;color:#718096;font-family:system-ui,sans-serif;margin-left:auto"></span>
+  </div>
+  <div id="td-sci-list"></div>
+  <button id="td-sci-more" class="td-more-btn" style="display:none" onclick="tdLoad('sci')"></button>
+  <div style="text-align:center;padding:14px 0;border-top:1px solid #e5e7eb;margin-top:4px">
+    <a href="/news/science.html" style="font-size:13px;color:#1a4d80;font-family:system-ui,sans-serif;font-weight:600">&#x1f52c; See all science articles &rarr;</a>
+  </div>
+</div>
+<div id="td-world-sec">
+  <div style="display:flex;align-items:center;gap:10px;margin:28px 0 4px;padding-bottom:8px;border-bottom:2px solid #60a5fa">
+    <span style="font-size:20px">&#x1f30d;</span>
+    <h2 id="td-world" style="margin:0;font-size:18px;color:#1a4d80">World News</h2>
+    <span id="td-world-hdr" style="font-size:12px;color:#718096;font-family:system-ui,sans-serif;margin-left:auto"></span>
+  </div>
+  <div id="td-world-list"></div>
+  <button id="td-world-more" class="td-more-btn" style="display:none" onclick="tdLoad('world')"></button>
+  <div style="text-align:center;padding:14px 0;border-top:1px solid #e5e7eb;margin-top:4px">
+    <a href="/news/world.html" style="font-size:13px;color:#1a4d80;font-family:system-ui,sans-serif;font-weight:600">&#x1f30d; See all world news &rarr;</a>
+  </div>
+</div>
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
-<a href="/news/archive.html" style="color:#1a4d80">Full archive ({len(articles)} articles)</a> &middot;
+<a href="/news/archive.html" style="color:#1a4d80">Full archive</a> &middot;
 <a href="/news/science.html" style="color:#1a4d80">Science</a> &middot;
 <a href="/news/world.html" style="color:#1a4d80">World News</a> &middot;
 <a href="#top" style="color:#1a4d80">Back to top &uarr;</a>
@@ -2322,23 +2253,83 @@ def generate_today_page(manifest, today):
 </main>
 {FOOTER}
 <script>
+(function(){{
+var TODAY='{today}',SCI_PG=15,WLD_PG=10,sci=[],world=[],sciOff=0,wldOff=0;
+var BL=[[-1.2,'Far Left'],[-0.4,'Leans Left'],[-0.15,'Center-Left'],[0.15,'Center'],[0.4,'Center-Right'],[1.2,'Leans Right'],[99,'Far Right']];
+function blbl(b){{for(var i=0;i<BL.length;i++)if(b<=BL[i][0])return BL[i][1];return'Far Right';}}
+function card(a){{
+  var b=a.bias_avg||0,dp=Math.max(5,Math.min(95,Math.round((b+2)/4*100)));
+  var isSci=!!a.is_science;
+  var bc=isSci?'kd-badge-sci':'kd-badge-news';
+  var cat=isSci?'Science':'World News';
+  var multi=a.n_sources>1?'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'+a.n_sources+' outlets</span>':'';
+  var ttl=a.display_title||a.title||'';
+  var ex=a.description?a.description.slice(0,120)+(a.description.length>120?'…':''):'';
+  return '<div class="td-card" data-title="'+ttl.toLowerCase()+'">'
+    +'<div style="margin-bottom:5px"><span class="kd-badge '+bc+'" style="font-size:10px">'+cat+'</span>'+multi+'</div>'
+    +'<a href="/'+a.slug+'">'+ttl+'</a>'
+    +(ex?'<p class="td-ex">'+ex+'</p>':'')
+    +'<div style="display:flex;align-items:center;gap:6px">'
+    +'<span style="font-size:10px;color:#a0aec0">L</span>'
+    +'<div style="width:80px;height:5px;border-radius:3px;background:linear-gradient(to right,#3182ce,#805ad5,#e53e3e);position:relative;flex-shrink:0">'
+    +'<span style="position:absolute;top:-4px;left:'+dp+'%;width:12px;height:12px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)"></span>'
+    +'</div><span style="font-size:10px;color:#a0aec0">R</span>'
+    +'<span style="font-size:11px;color:#718096;margin-left:4px">'+blbl(b)+'</span>'
+    +'</div></div>';
+}}
+function renderSlice(arr,el,off,pg){{
+  var s=arr.slice(off,off+pg);
+  s.forEach(function(a){{var d=document.createElement('div');d.innerHTML=card(a);el.appendChild(d.firstChild);}});
+  return off+s.length;
+}}
+function updBtn(btn,arr,off,pg){{
+  var r=arr.length-off;
+  if(r>0){{btn.style.display='block';btn.textContent='Load '+Math.min(r,pg)+' more';}}
+  else btn.style.display='none';
+}}
+window.tdLoad=function(w){{
+  if(w==='sci'){{sciOff=renderSlice(sci,document.getElementById('td-sci-list'),sciOff,SCI_PG);updBtn(document.getElementById('td-sci-more'),sci,sciOff,SCI_PG);}}
+  else{{wldOff=renderSlice(world,document.getElementById('td-world-list'),wldOff,WLD_PG);updBtn(document.getElementById('td-world-more'),world,wldOff,WLD_PG);}}
+}};
+fetch('/data/kd-articles.json').then(function(r){{return r.json();}}).then(function(data){{
+  sci=data.filter(function(a){{return a.date===TODAY&&!!a.is_science;}}).sort(function(a,b){{return(b.n_sources||1)-(a.n_sources||1);}});
+  world=data.filter(function(a){{return a.date===TODAY&&!a.is_science;}}).sort(function(a,b){{return(b.n_sources||1)-(a.n_sources||1);}});
+  document.getElementById('td-sci-n').textContent=sci.length;
+  document.getElementById('td-world-n').textContent=world.length;
+  document.getElementById('td-count').textContent=sci.length+world.length;
+  if(!sci.length&&!world.length){{
+    document.getElementById('td-empty').style.display='';
+    document.getElementById('td-sci-sec').style.display='none';
+    document.getElementById('td-world-sec').style.display='none';
+  }}else{{
+    document.getElementById('td-jump').style.display='flex';
+    if(!sci.length)document.getElementById('td-sci-sec').style.display='none';
+    else document.getElementById('td-sci-hdr').textContent=sci.length+' article'+(sci.length!==1?'s':'');
+    if(!world.length)document.getElementById('td-world-sec').style.display='none';
+    else document.getElementById('td-world-hdr').textContent=world.length+' article'+(world.length!==1?'s':'');
+  }}
+  sciOff=renderSlice(sci,document.getElementById('td-sci-list'),0,SCI_PG);
+  updBtn(document.getElementById('td-sci-more'),sci,sciOff,SCI_PG);
+  wldOff=renderSlice(world,document.getElementById('td-world-list'),0,WLD_PG);
+  updBtn(document.getElementById('td-world-more'),world,wldOff,WLD_PG);
+}}).catch(function(){{document.getElementById('td-empty').style.display='';}});
 document.getElementById('today-search').addEventListener('input',function(){{
-  const q=this.value.toLowerCase().trim();
-  document.querySelectorAll('[data-title]').forEach(function(el){{
+  var q=this.value.toLowerCase().trim();
+  document.querySelectorAll('.td-card').forEach(function(el){{
     el.style.display=(!q||(el.dataset.title||'').includes(q))?'':'none';
   }});
-  ['science-today','world-today'].forEach(function(id){{
-    const sec=document.getElementById(id);
-    if(!sec)return;
-    const any=[...sec.querySelectorAll('[data-title]')].some(function(el){{return el.style.display!=='none';}});
+  ['td-sci-sec','td-world-sec'].forEach(function(id){{
+    var sec=document.getElementById(id);if(!sec)return;
+    var any=[...sec.querySelectorAll('.td-card')].some(function(el){{return el.style.display!=='none';}});
     sec.style.display=any?'':'none';
   }});
 }});
+}})();
 </script>
 </body></html>"""
 
-    upload("news/today.html", page, f"[scraper] Today's news page — {len(todays)} articles for {today}")
-    print(f"  Today page: {len(todays)} article(s) for {today}")
+    upload("news/today.html", page, f"[scraper] Today's news — dynamic JS, {total_today} articles for {today}")
+    print(f"  ✓ today.html (dynamic JS): {total_today} today ({len(sci_today)} sci, {len(world_today)} world)")
 
 
 # ── Trending topics ───────────────────────────────────────────────────────────
