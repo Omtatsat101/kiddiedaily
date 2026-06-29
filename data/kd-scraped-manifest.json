@@ -105,7 +105,12 @@
     "news/2026-06-29-chinas-top-secret-dragon-space-plane-just-released.html",
     "news/2026-06-29-ai-companies-dont-want-to-be-legally-responsible-f.html",
     "news/2026-06-29-scientists-infected-a-vagina-on-a-chip-with-gonorr.html",
-    "news/2026-06-29-early-homo-sapiens-may-have-lived-in-rainforests-n.html"
+    "news/2026-06-29-early-homo-sapiens-may-have-lived-in-rainforests-n.html",
+    "news/2026-06-29-socotra-archipelago-the-yemeni-islands-covered-wit.html",
+    "news/2026-06-29-water-shortages-could-prevent-the-us-from-mining-m.html",
+    "news/2026-06-29-new-chip-harnesses-quantum-computings-biggest-weak.html",
+    "news/2026-06-29-how-to-win-a-world-cup-penalty-shootout.html",
+    "news/2026-06-29-nic-nemeth-captures-tna-world-championship-with-wi.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -213,7 +218,12 @@
     "China's top-secret 'dragon' space plane just released another unidentified object over Earth",
     "AI companies don't want to be legally responsible for their chatbots. US courts should make them.",
     "Scientists infected a 'vagina on a chip' with gonorrhea — then cured it with a new antibiotic found by AI",
-    "Early Homo sapiens may have lived in rainforests, new clues suggest — and it could overturn our understanding of human evolution"
+    "Early Homo sapiens may have lived in rainforests, new clues suggest — and it could overturn our understanding of human evolution",
+    "Socotra Archipelago: The Yemeni islands covered with astonishing cucumber, bottle and dragon's blood trees",
+    "Water shortages could prevent the US from mining more lithium, deepening reliance on foreign imports",
+    "New chip harnesses quantum computing's biggest weakness — and tries to turn it into a strength",
+    "How to win a World Cup penalty shootout",
+    "Nic Nemeth captures TNA World Championship with win over Mike Santana at Slammiversary"
   ],
   "articles": [
     {
@@ -1369,6 +1379,61 @@
       "agreement_pct": 23,
       "is_science": true,
       "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-socotra-archipelago-the-yemeni-islands-covered-wit.html",
+      "title": "Socotra Archipelago: The Yemeni islands covered with astonishing cucumber, bottle and dragon's blood trees",
+      "display_title": "Socotra Archipelago: The Yemeni islands covered with astonishing cucumber, bottle and dragon's blood trees",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-water-shortages-could-prevent-the-us-from-mining-m.html",
+      "title": "Water shortages could prevent the US from mining more lithium, deepening reliance on foreign imports",
+      "display_title": "Water shortages could prevent the US from mining more lithium, deepening reliance on foreign imports",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-new-chip-harnesses-quantum-computings-biggest-weak.html",
+      "title": "New chip harnesses quantum computing's biggest weakness — and tries to turn it into a strength",
+      "display_title": "New chip harnesses quantum computing's biggest weakness — and tries to turn it into a strength",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-how-to-win-a-world-cup-penalty-shootout.html",
+      "title": "How to win a World Cup penalty shootout",
+      "display_title": "How to win a World Cup penalty shootout",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.33,
+      "agreement_pct": 45,
+      "is_science": false,
+      "source_icons": "🇬🇧 🌍"
+    },
+    {
+      "slug": "news/2026-06-29-nic-nemeth-captures-tna-world-championship-with-wi.html",
+      "title": "Nic Nemeth captures TNA World Championship with win over Mike Santana at Slammiversary",
+      "display_title": "Nic Nemeth captures TNA World Championship with win over Mike Santana at Slammiversary",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 1.3,
+      "agreement_pct": 23,
+      "is_science": false,
+      "source_icons": "🦅"
     }
   ]
 }
