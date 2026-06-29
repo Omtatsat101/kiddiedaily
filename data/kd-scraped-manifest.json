@@ -441,7 +441,10 @@
     "news/2026-06-29-michael-jackson-movie-becomes-highest-grossing-bio.html",
     "news/2026-06-29-british-american-tobacco-to-cut-9000-jobs.html",
     "news/2026-06-29-sleep-and-death-cista-handle-a-2400-year-old-sculp.html",
-    "news/2026-06-29-erased-from-history-a-century-on-from-canadas-anti.html"
+    "news/2026-06-29-erased-from-history-a-century-on-from-canadas-anti.html",
+    "news/2026-06-29-this-senior-member-solves-complex-product-lifecycl.html",
+    "news/2026-06-29-why-does-a-bank-need-a-chief-scientist.html",
+    "news/2026-06-29-what-it-means-to-be-a-mathematician-when-ai-does-t.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -885,7 +888,10 @@
     "Michael Jackson movie becomes highest-grossing biopic of all time",
     "British American Tobacco to cut 9,000 jobs",
     "Sleep and Death cista handle: A 2,400-year-old sculpture depicting gods carrying away Zeus' son during the Trojan War",
-    "‘Erased from history’: A century on from Canada’s anti-Greek riots"
+    "‘Erased from history’: A century on from Canada’s anti-Greek riots",
+    "This Senior Member Solves Complex Product Lifecycle Challenges",
+    "Why Does a Bank Need a Chief Scientist?",
+    "What it Means to Be a Mathematician When AI Does the Math"
   ],
   "articles": [
     {
@@ -5753,6 +5759,42 @@
       "is_science": false,
       "source_name": "Al Jazeera",
       "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-this-senior-member-solves-complex-product-lifecycl.html",
+      "title": "This Senior Member Solves Complex Product Lifecycle Challenges",
+      "display_title": "This Senior Member Solves Complex Product Lifecycle Challenges",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-why-does-a-bank-need-a-chief-scientist.html",
+      "title": "Why Does a Bank Need a Chief Scientist?",
+      "display_title": "Why Does a Bank Need a Chief Scientist?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-what-it-means-to-be-a-mathematician-when-ai-does-t.html",
+      "title": "What it Means to Be a Mathematician When AI Does the Math",
+      "display_title": "What it Means to Be a Mathematician When AI Does the Math",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
     }
   ]
 }
