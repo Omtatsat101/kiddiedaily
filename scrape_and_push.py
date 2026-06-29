@@ -799,11 +799,12 @@ footer.kd h4{color:#fff;margin:0 0 10px;font-size:13px;letter-spacing:1.5px;text
 footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 .kd-card-excerpt{font-size:13px;color:#4a5568;margin:4px 0 6px;line-height:1.4;font-family:system-ui,sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .kd-bias-text{font-size:10px;color:#718096;margin-left:6px}
+.kd-skip{position:absolute;top:-48px;left:0;background:#1a4d80;color:#fff;padding:8px 16px;font-size:14px;font-family:system-ui,sans-serif;z-index:200;text-decoration:none;border-radius:0 0 6px 0;transition:top .15s}.kd-skip:focus{top:0;outline:3px solid #ffd700}
 .kd-ham{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:24px;line-height:1;padding:4px 8px}
 @media(max-width:640px){.kd-ham{display:flex;align-items:center;margin-left:auto;order:2}header.kd nav{display:none;order:3;width:100%;flex-direction:column;gap:0;padding:6px 0 8px;justify-content:flex-start}header.kd nav.open{display:flex}header.kd nav a{padding:12px 0;font-size:16px;border-top:1px solid rgba(255,255,255,.12);min-height:44px;display:flex;align-items:center}.pz-cta{width:fit-content}main{padding:20px 16px 48px}}
 ''' + BIAS_CSS + "</style>"
 
-HEADER = """<header class="kd"><div class="inner">
+HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
@@ -2027,7 +2028,7 @@ def generate_category_pages(manifest):
 </style>
 </head><body>
 {HEADER}
-<main>
+<main id="main">
 <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px">
 <h1 style="font-size:28px;margin:0">{icon} {label} News</h1>
 <span style="font-size:13px;color:#718096;font-family:system-ui,sans-serif">{len(arts)} stories</span>
@@ -2079,26 +2080,31 @@ def generate_today_page(manifest, today):
         bias   = a.get("bias_avg", 0.0)
         dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
         badge_cls = "kd-badge-sci" if is_sci else "kd-badge-news"
+        excerpt_raw = a.get("description") or ""
+        excerpt = excerpt_raw[:120].rstrip() + "…" if len(excerpt_raw) > 120 else excerpt_raw
+        bias_text = ("Far Left" if bias <= -1.2 else "Leans Left" if bias <= -0.4
+                     else "Center-Left" if bias <= -0.15 else "Center" if bias <= 0.15
+                     else "Center-Right" if bias <= 0.4 else "Leans Right" if bias <= 1.2
+                     else "Far Right")
         multi_badge = (
             f'<span style="font-size:10px;background:#fff8e1;color:#92400e;border:1px solid #fde68a;'
             f'padding:1px 7px;border-radius:20px;font-weight:700;margin-left:6px">'
             f'{n} outlets</span>'
         ) if n > 1 else ""
         return (
-            f'<div style="padding:14px 0;border-bottom:1px solid #e5e7eb">'
-            f'<div style="display:flex;align-items:flex-start;gap:10px">'
-            f'<div style="flex:1">'
+            f'<div style="padding:14px 0;border-bottom:1px solid #e5e7eb" data-title="{title.lower()}">'
             f'<div style="margin-bottom:5px">'
             f'<span class="kd-badge {badge_cls}" style="font-size:10px">{cat}</span>{multi_badge}</div>'
-            f'<a href="/{slug}" style="font-size:15px;font-weight:600;color:#1a4d80;text-decoration:none;line-height:1.35;display:block">{title}</a>'
-            f'<div style="display:flex;align-items:center;gap:6px;margin-top:6px">'
+            f'<a href="/{slug}" style="font-size:15px;font-weight:600;color:#1a4d80;text-decoration:none;line-height:1.35;display:block;margin-bottom:4px">{title}</a>'
+            + (f'<p style="margin:0 0 6px;font-size:13px;color:#4a5568;line-height:1.4;font-family:system-ui,sans-serif">{excerpt}</p>' if excerpt else "")
+            + f'<div style="display:flex;align-items:center;gap:6px">'
             f'<span style="font-size:10px;color:#a0aec0">L</span>'
             f'<div style="width:80px;height:5px;border-radius:3px;background:linear-gradient(to right,#3182ce,#805ad5,#e53e3e);position:relative;flex-shrink:0">'
             f'<span style="position:absolute;top:-4px;left:{dot_pct}%;width:12px;height:12px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)"></span>'
             f'</div><span style="font-size:10px;color:#a0aec0">R</span>'
-            f'<span style="font-size:11px;color:#a0aec0;margin-left:4px">bias {bias:+.1f}</span>'
+            f'<span style="font-size:11px;color:#718096;margin-left:4px">{bias_text}</span>'
             f'</div>'
-            f'</div></div></div>'
+            f'</div>'
         )
 
     def section_block(section_articles, section_id, icon, label, color, limit=15, see_all_url=""):
@@ -2171,9 +2177,12 @@ def generate_today_page(manifest, today):
 <link rel="canonical" href="https://kiddiedaily.com/news/today.html">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
 {CSS}
+<style>
+#today-search{{width:100%;box-sizing:border-box;padding:10px 14px;font-size:16px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:16px;font-family:system-ui,sans-serif}}
+</style>
 </head><body>
 {HEADER}
-<main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
+<main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 4px">Today&#39;s News</h1>
 <p style="font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px">
 {today} &middot; {len(todays)} article{"s" if len(todays)!=1 else ""} &middot;
@@ -2181,6 +2190,7 @@ def generate_today_page(manifest, today):
 <a href="/digest/latest.html" style="color:#1a4d80">Daily Digest</a> &middot;
 <a href="/feed.xml" style="color:#1a4d80">RSS</a>
 </p>
+<input type="search" id="today-search" placeholder="Search today&#39;s stories..." aria-label="Search today's news">
 
 {jump_nav}
 {empty_msg}
@@ -2196,6 +2206,14 @@ def generate_today_page(manifest, today):
 </p>
 </main>
 {FOOTER}
+<script>
+document.getElementById('today-search').addEventListener('input',function(){{
+  const q=this.value.toLowerCase().trim();
+  document.querySelectorAll('[data-title]').forEach(function(el){{
+    el.style.display=(!q||(el.dataset.title||'').includes(q))?'':'none';
+  }});
+}});
+</script>
 </body></html>"""
 
     upload("news/today.html", page, f"[scraper] Today's news page — {len(todays)} articles for {today}")
