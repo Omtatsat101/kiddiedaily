@@ -450,7 +450,10 @@
     "news/2026-06-29-home-broadband-is-5gs-surprise-killer-app.html",
     "news/2026-06-29-us-mens-world-cup-team-reignites-nations-love-affa.html",
     "news/2026-06-29-this-week-on-the-hill-house-aims-to-move-prioritie.html",
-    "news/2026-06-29-catherine-completes-three-peaks-challenge-to-explo.html"
+    "news/2026-06-29-catherine-completes-three-peaks-challenge-to-explo.html",
+    "news/2026-06-29-why-the-us-uses-only-half-of-its-grid-capacity.html",
+    "news/2026-06-29-ai-is-learning-to-read-the-room.html",
+    "news/2026-06-29-commemorating-70-years-of-artificial-intelligence.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -903,7 +906,10 @@
     "Home Broadband Is 5G’s Surprise Killer App",
     "US men’s World Cup team reignites nation’s love affair with soccer",
     "This week on The Hill: House aims to move priorities after conservative SAVE America Act rebellion",
-    "Catherine completes Three Peaks Challenge to 'explore life beyond' cancer diagnosis"
+    "Catherine completes Three Peaks Challenge to 'explore life beyond' cancer diagnosis",
+    "Why the U.S. Uses Only Half of Its Grid Capacity",
+    "AI Is Learning to Read the Room",
+    "Commemorating 70 Years of Artificial Intelligence"
   ],
   "articles": [
     {
@@ -5879,6 +5885,42 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-why-the-us-uses-only-half-of-its-grid-capacity.html",
+      "title": "Why the U.S. Uses Only Half of Its Grid Capacity",
+      "display_title": "Why the U.S. Uses Only Half of Its Grid Capacity",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-ai-is-learning-to-read-the-room.html",
+      "title": "AI Is Learning to Read the Room",
+      "display_title": "AI Is Learning to Read the Room",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-commemorating-70-years-of-artificial-intelligence.html",
+      "title": "Commemorating 70 Years of Artificial Intelligence",
+      "display_title": "Commemorating 70 Years of Artificial Intelligence",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
     }
   ]
 }
