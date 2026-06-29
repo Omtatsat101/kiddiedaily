@@ -2788,6 +2788,8 @@ def generate_weekly_digest(manifest, today):
   var cutoff = new Date();
   cutoff.setDate(cutoff.getDate() - 7);
   var cutoffStr = cutoff.toISOString().slice(0, 10);
+  var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmtDate(d){{var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}}
 
   function biasLabel(b) {{
     if (b <= -1.2) return 'Far Left';
@@ -2808,7 +2810,7 @@ def generate_weekly_digest(manifest, today):
     return '<div class="wk-card ' + cls + '">'
       + '<h3><a href="/' + a.slug + '">' + (a.display_title || a.title) + '</a></h3>'
       + desc
-      + '<p class="wk-meta">' + (a.date || '') + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + bLabel + ' (' + sign + bias.toFixed(1) + ')</p>'
+      + '<p class="wk-meta">' + fmtDate(a.date) + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + bLabel + ' (' + sign + bias.toFixed(1) + ')</p>'
       + '</div>';
   }}
 
@@ -3725,6 +3727,9 @@ def generate_search_page(manifest):
   var input     = document.getElementById('kd-search-input');
   var allArticles = [];
   var activeCategory = 'all';
+  var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var TODAY_STR=new Date().toISOString().slice(0,10);
+  function fmtDate(d){{var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}}
 
   function setCat(btn, cat) {{
     activeCategory = cat;
@@ -3752,13 +3757,17 @@ def generate_search_page(manifest):
       var badgeLbl  = a.is_science ? 'Science' : 'World News';
       var src_word  = a.n_sources === 1 ? '1 source' : a.n_sources + ' sources';
       var excerpt = a.description ? '<p style="font-size:13px;color:#4a5568;margin:4px 0 6px;line-height:1.5">' + a.description.slice(0, 130) + (a.description.length > 130 ? '…' : '') + '</p>' : '';
+      var cats=(a.cats||[]).filter(function(c){{return c!=='science'&&c!=='world';}});
+      var catTags=cats.slice(0,2).map(function(c){{return '<span class="kd-badge" style="background:#e0e7ff;color:#3730a3;font-size:9px">'+c+'</span>';}}).join('');
+      var newBadge=a.date===TODAY_STR?'<span class="kd-badge" style="background:#dc2626;color:#fff;margin-left:4px">NEW</span>':'';
       return '<div class="kd-sr">'
         + '<div class="kd-sr-top">'
         + '<span class="kd-badge ' + badgeCls + '">' + badgeLbl + '</span>'
+        + catTags + newBadge
         + '</div>'
         + '<h3><a href="/' + a.slug + '">' + a.title + '</a></h3>'
         + excerpt
-        + '<div class="kd-sr-meta">' + a.date + ' &middot; ' + src_word + '</div>'
+        + '<div class="kd-sr-meta">' + fmtDate(a.date) + ' &middot; ' + src_word + '</div>'
         + '</div>';
     }}).join('');
   }}
