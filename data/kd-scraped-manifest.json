@@ -453,7 +453,11 @@
     "news/2026-06-29-catherine-completes-three-peaks-challenge-to-explo.html",
     "news/2026-06-29-why-the-us-uses-only-half-of-its-grid-capacity.html",
     "news/2026-06-29-ai-is-learning-to-read-the-room.html",
-    "news/2026-06-29-commemorating-70-years-of-artificial-intelligence.html"
+    "news/2026-06-29-commemorating-70-years-of-artificial-intelligence.html",
+    "news/2026-06-29-mummified-dogs-reveal-tiwanaku-people-buried-compa.html",
+    "news/2026-06-29-ieee-rolls-out-large-language-models-virtual-train.html",
+    "news/2026-06-29-what-amazons-astro-taught-me-about-giving-robots-a.html",
+    "news/2026-06-29-ieees-2026-education-week-events-emphasized-lifelo.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -909,7 +913,11 @@
     "Catherine completes Three Peaks Challenge to 'explore life beyond' cancer diagnosis",
     "Why the U.S. Uses Only Half of Its Grid Capacity",
     "AI Is Learning to Read the Room",
-    "Commemorating 70 Years of Artificial Intelligence"
+    "Commemorating 70 Years of Artificial Intelligence",
+    "Mummified dogs reveal Tiwanaku people buried companions beside homes long before they became status symbols",
+    "IEEE Rolls Out Large Language Models Virtual Training Course",
+    "What Amazon’s Astro Taught Me About Giving Robots a Soul",
+    "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning"
   ],
   "articles": [
     {
@@ -5914,6 +5922,54 @@
       "slug": "news/2026-06-29-commemorating-70-years-of-artificial-intelligence.html",
       "title": "Commemorating 70 Years of Artificial Intelligence",
       "display_title": "Commemorating 70 Years of Artificial Intelligence",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-mummified-dogs-reveal-tiwanaku-people-buried-compa.html",
+      "title": "Mummified dogs reveal Tiwanaku people buried companions beside homes long before they became status symbols",
+      "display_title": "Mummified dogs reveal Tiwanaku people buried companions beside homes long before they became status symbols",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-ieee-rolls-out-large-language-models-virtual-train.html",
+      "title": "IEEE Rolls Out Large Language Models Virtual Training Course",
+      "display_title": "IEEE Rolls Out Large Language Models Virtual Training Course",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-what-amazons-astro-taught-me-about-giving-robots-a.html",
+      "title": "What Amazon’s Astro Taught Me About Giving Robots a Soul",
+      "display_title": "What Amazon’s Astro Taught Me About Giving Robots a Soul",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-ieees-2026-education-week-events-emphasized-lifelo.html",
+      "title": "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning",
+      "display_title": "IEEE’s 2026 Education Week Events Emphasized Lifelong Learning",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
