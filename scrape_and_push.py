@@ -68,6 +68,7 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|^the\s+download[\s:]'            # MIT Tech Review newsletter
     r'|^debriefed\s+\d'                 # Carbon Brief dated newsletter
     r'|^media\s+reaction[\s:]'          # Carbon Brief media-roundup
+    r'|^\w+\s+briefing\s+\d'            # Regional briefings (China Briefing 25 June, US Briefing…)
     r')',
     re.I
 )
