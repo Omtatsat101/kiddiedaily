@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Today&#39;s Kid News — 2026-06-29 | KiddieDaily</title>
-<meta name="description" content="Today&#39;s kid-safe, bias-rated news for families. 754 articles — 507 science, 247 world news. Updated 2026-06-29.">
+<meta name="description" content="Today&#39;s kid-safe, bias-rated news for families. 758 articles — 508 science, 250 world news. Updated 2026-06-29.">
 <meta property="og:title" content="KiddieDaily — Today&#39;s News (2026-06-29)">
-<meta property="og:description" content="754 articles today: 507 science, 247 world news. Bias-rated, kid-safe.">
+<meta property="og:description" content="758 articles today: 508 science, 250 world news. Bias-rated, kid-safe.">
 <meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
 <meta property="og:url" content="https://kiddiedaily.com/news/today.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -83,16 +83,24 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <main id="main" style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
 <h1 style="font-size:28px;margin:0 0 4px">Today&#39;s News</h1>
 <p style="font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px">
-2026-06-29 &middot; <span id="td-count">754</span> articles &middot;
+2026-06-29 &middot; <span id="td-count">758</span> articles &middot;
 <a href="/parents/" style="color:#1a4d80">For Parents</a> &middot;
 <a href="/digest/latest.html" style="color:#1a4d80">Daily Digest</a> &middot;
 <a href="/feed.xml" style="color:#1a4d80">RSS</a>
 </p>
 <input type="search" id="today-search" placeholder="Search today&#39;s stories..." aria-label="Search today's news">
-<div id="td-jump" style="display:none;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:13px;align-items:center">
+<div id="td-jump" style="display:none;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin:0 0 10px;display:flex;gap:12px;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:13px;align-items:center">
   <span style="color:#718096;font-weight:600">Jump to:</span>
   <a href="#td-sci" style="color:#065f46;background:#d1fae5;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f52c; Science (<span id="td-sci-n">0</span>)</a>
   <a href="#td-world" style="color:#1e40af;background:#dbeafe;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f30d; World News (<span id="td-world-n">0</span>)</a>
+</div>
+<div id="td-subcats" style="display:none;background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin:0 0 20px;flex-wrap:wrap;gap:10px;font-family:system-ui,sans-serif;font-size:13px;align-items:center">
+  <span style="color:#718096;font-weight:600">Browse by topic:</span>
+  <a href="/news/space.html" style="color:#5b21b6;background:#ede9fe;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f680; Space (<span id="td-spc-n">0</span>)</a>
+  <a href="/news/animals.html" style="color:#92400e;background:#fef3c7;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f43e; Animals (<span id="td-ani-n">0</span>)</a>
+  <a href="/news/history.html" style="color:#9d174d;background:#fce7f3;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f3db; History (<span id="td-his-n">0</span>)</a>
+  <a href="/news/environment.html" style="color:#166534;background:#dcfce7;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f33f; Env (<span id="td-env-n">0</span>)</a>
+  <a href="/news/technology.html" style="color:#3730a3;background:#e0e7ff;padding:4px 12px;border-radius:20px;text-decoration:none;font-weight:600">&#x1f4bb; Tech (<span id="td-tec-n">0</span>)</a>
 </div>
 <div id="td-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles yet today — check back after 6am ET.</div>
 <div id="td-sci-sec">
@@ -139,8 +147,10 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <a href="https://kiddiego.com" rel="noopener">KiddieGo</a></div>
 </div>
 <div style="text-align:center;font-size:13px;color:#a0aec0;margin-top:24px">
-&copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project</div>
+&copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project<br>
+<span style="font-size:11px;opacity:.6">Press <kbd style="background:#1a3660;border:1px solid #2d4f80;border-radius:3px;padding:1px 5px;font-family:monospace">/</kbd> to search</span></div>
 </footer>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){var s=document.getElementById('kd-search-input')||document.getElementById('search');if(s){e.preventDefault();s.focus();}else{window.location='/search.html';}}});</script>
 <script>
 (function(){
 var TODAY='2026-06-29',SCI_PG=15,WLD_PG=10,sci=[],world=[],sciOff=0,wldOff=0;
@@ -189,6 +199,15 @@ fetch('/data/kd-articles.json').then(function(r){return r.json();}).then(functio
   document.getElementById('td-sci-n').textContent=sci.length;
   document.getElementById('td-world-n').textContent=world.length;
   document.getElementById('td-count').textContent=sci.length+world.length;
+  var snCnt={space:0,animals:0,history:0,environment:0,technology:0};
+  sci.concat(world).forEach(function(a){(a.cats||[]).forEach(function(c){if(snCnt.hasOwnProperty(c))snCnt[c]++;});});
+  document.getElementById('td-spc-n').textContent=snCnt.space;
+  document.getElementById('td-ani-n').textContent=snCnt.animals;
+  document.getElementById('td-his-n').textContent=snCnt.history;
+  document.getElementById('td-env-n').textContent=snCnt.environment;
+  document.getElementById('td-tec-n').textContent=snCnt.technology;
+  if(snCnt.space+snCnt.animals+snCnt.history+snCnt.environment+snCnt.technology>0)
+    document.getElementById('td-subcats').style.display='flex';
   if(!sci.length&&!world.length){
     document.getElementById('td-empty').style.display='';
     document.getElementById('td-sci-sec').style.display='none';
