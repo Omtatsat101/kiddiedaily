@@ -433,7 +433,9 @@
     "news/2026-06-29-strawberry-moon-2026-tonights-full-moon-is-the-low.html",
     "news/2026-06-29-nanshe-the-selfless-sumerian-goddess-of-social-jus.html",
     "news/2026-06-29-old-kingdom-of-egypt-the-age-of-the-pyramids.html",
-    "news/2026-06-29-scramble-for-africa-how-european-empires-took-over.html"
+    "news/2026-06-29-scramble-for-africa-how-european-empires-took-over.html",
+    "news/2026-06-29-second-intermediate-period-of-egypt-the-era-of-the.html",
+    "news/2026-06-29-the-great-game-britain-and-russias-imperial-rivalr.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -869,7 +871,9 @@
     "Strawberry moon 2026: Tonight's full moon is the lowest, and one of the smallest 'micromoons' all year",
     "Nanshe: The Selfless Sumerian Goddess of Social Justice",
     "Old Kingdom of Egypt: The Age of the Pyramids",
-    "Scramble for Africa: How European Empires Took Over a Continent"
+    "Scramble for Africa: How European Empires Took Over a Continent",
+    "Second Intermediate Period of Egypt: The Era of the Hyksos",
+    "The Great Game: Britain and Russia's Imperial Rivalry"
   ],
   "articles": [
     {
@@ -5634,6 +5638,30 @@
       "slug": "news/2026-06-29-scramble-for-africa-how-european-empires-took-over.html",
       "title": "Scramble for Africa: How European Empires Took Over a Continent",
       "display_title": "Scramble for Africa: How European Empires Took Over a Continent",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-second-intermediate-period-of-egypt-the-era-of-the.html",
+      "title": "Second Intermediate Period of Egypt: The Era of the Hyksos",
+      "display_title": "Second Intermediate Period of Egypt: The Era of the Hyksos",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "World History Encyclopedia",
+      "source_icons": "📜"
+    },
+    {
+      "slug": "news/2026-06-29-the-great-game-britain-and-russias-imperial-rivalr.html",
+      "title": "The Great Game: Britain and Russia's Imperial Rivalry",
+      "display_title": "The Great Game: Britain and Russia's Imperial Rivalry",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
