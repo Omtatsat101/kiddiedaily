@@ -71,6 +71,7 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|^\w+\s+briefing\s+\d'            # Regional briefings (China Briefing 25 June, US Briefing…)
     r'|\bnews\s+brief\b'                # Morning/evening news brief roundups (NPR etc.)
     r'|^morning\s+edition[\s:]'         # NPR Morning Edition teasers
+    r'|^this\s+week\s+on\s+'            # "This week on The Hill" / "This week on X" roundups
     r')',
     re.I
 )
@@ -389,6 +390,16 @@ DEPRIORITIZE_WORDS = [
     # IEEE member-profile / organizational content (not editorial news)
     "senior member", "product lifecycle", "ieee member", "member solves",
     "distinguished lecturer", "fellow elevation",
+    # IEEE organizational events, award ceremonies, training announcements
+    "ieee awardee", "epics in ieee", "ieee's awards", "education week events",
+    "virtual training course", "ieee rolls out",
+    # Career-advice / professional-development articles (off-mission for kids news)
+    "technical interview", "what size company", "right for you?",
+    "job search tips", "career tips",
+    # Surveillance / panopticon concepts (not age-appropriate for KiddieDaily audience)
+    "panopticon",
+    # Entrepreneur motivational-profile articles
+    "the value of resilience", "taught me about resilience",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
