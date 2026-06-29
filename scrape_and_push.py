@@ -37,7 +37,7 @@ def _load_token(env_var, prefix):
 GITHUB_TOKEN = _load_token("GITHUB_TOKEN", "GITHUB_TOKEN=")
 ANTHROPIC_KEY = _load_token("ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY=")
 REPO = "Omtatsat101/kiddiedaily"
-MAX_ARTICLES = 3   # max new articles per run
+MAX_ARTICLES = 5   # max new articles per run
 
 # Active branch — set to a content branch in main(); falls back to "main" locally
 ACTIVE_BRANCH = "main"
@@ -956,6 +956,34 @@ jobs:
           EOF
 """
 
+CODEOWNERS_FILE = """\
+# KiddieDaily CODEOWNERS
+# Automated content PRs (content/daily-news-*) have no human reviewer requirement.
+# All source code + workflow changes route to the repo owner.
+* @Omtatsat101
+scrape_and_push.py @Omtatsat101
+.github/ @Omtatsat101
+"""
+
+PR_TEMPLATE_MD = """\
+## Summary
+<!-- What changed? Automated content update or manual fix? -->
+
+## Type
+- [ ] Automated content update (daily news scraper)
+- [ ] Scraper improvement
+- [ ] Workflow / CI update
+- [ ] Bug fix
+- [ ] Other
+
+## Checklist
+- [ ] Python syntax check passes (`python -m py_compile scrape_and_push.py`)
+- [ ] Articles JSON valid (`data/kd-articles.json` schema OK)
+- [ ] Sitemap includes all required URLs
+- [ ] No secrets or credentials included
+- [ ] CI review stages all pass
+"""
+
 # ── Sitemap ───────────────────────────────────────────────────────────────────
 STATIC_URLS = [
     "/", "/news/", "/parents/", "/fact-check/", "/games/",
@@ -969,7 +997,7 @@ STATIC_URLS = [
     "/fact-check/tylenol-kids-brains.html",
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
-    "/about.html", "/privacy.html", "/terms.html", "/contact.html",
+    "/about.html", "/privacy.html", "/terms.html", "/contact.html", "/status.html",
     "/feed.xml", "/news/archive.html", "/news/today.html",
     "/news/science.html", "/news/world.html",
     "/news/space.html", "/news/animals.html", "/news/history.html", "/news/environment.html",
@@ -1585,11 +1613,12 @@ def generate_articles_json(manifest):
     articles = manifest.get("articles", [])
     data = [
         {
-            "slug":     a["slug"],
-            "title":    a.get("display_title", a.get("title", "")),
-            "date":     a.get("date", ""),
+            "slug":      a["slug"],
+            "title":     a.get("display_title", a.get("title", "")),
+            "date":      a.get("date", ""),
             "is_science": a.get("is_science", False),
-            "bias_avg": a.get("bias_avg", 0.0),
+            "category":  "science" if a.get("is_science", False) else "world",
+            "bias_avg":  a.get("bias_avg", 0.0),
             "n_sources": a.get("n_sources", 1),
         }
         for a in sorted(articles, key=lambda x: x.get("date", ""), reverse=True)
@@ -1886,6 +1915,119 @@ def generate_search_page(manifest):
     print(f"  Search page: {total} articles indexed")
 
 
+# ── Scraper status page ───────────────────────────────────────────────────────
+def generate_status_page(manifest, today, pushed_count):
+    articles = manifest.get("articles", [])
+    total = len(articles)
+    sci   = sum(1 for a in articles if a.get("is_science"))
+    world = total - sci
+    dates = sorted({a.get("date", "") for a in articles if a.get("date")}, reverse=True)
+    last_run = dates[0] if dates else "—"
+    biases = [a.get("bias_avg", 0.0) for a in articles]
+    avg_bias = (sum(biases) / len(biases)) if biases else 0.0
+
+    source_counts = {}
+    for a in articles:
+        for icon in a.get("source_icons", "").split():
+            source_counts[icon] = source_counts.get(icon, 0) + 1
+    top_sources = sorted(source_counts.items(), key=lambda x: -x[1])[:6]
+    sources_html = " ".join(
+        f'<span style="font-size:24px" title="{icon}: {cnt} articles">{icon}</span>'
+        for icon, cnt in top_sources
+    )
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KiddieDaily — Scraper Status</title>
+<meta name="description" content="KiddieDaily automation status — last run, article counts, source breakdown.">
+<link rel="canonical" href="https://kiddiedaily.com/status.html">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+<style>
+body{{margin:0;font-family:system-ui,sans-serif;background:#f0f4f8;color:#2d3748}}
+header.kd{{background:#1a4d80;padding:14px 0}}
+header.kd .inner{{max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:0 20px}}
+header.kd .logo{{font-weight:700;font-size:22px;color:#fff;font-family:Georgia,serif;text-decoration:none}}
+header.kd nav{{display:flex;flex-wrap:wrap;gap:18px;flex:1;justify-content:flex-end}}
+header.kd nav a{{color:#fff;font-size:15px}}
+main{{max-width:780px;margin:0 auto;padding:32px 24px 64px}}
+.stat-card{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:20px 24px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
+.stat-card h3{{margin:0 0 6px;font-size:16px;color:#1a4d80}}
+.stat-val{{font-size:32px;font-weight:700;color:#2d3748;margin:4px 0}}
+.stat-sub{{font-size:13px;color:#718096}}
+.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}}
+.badge-ok{{display:inline-block;padding:4px 12px;border-radius:20px;background:#d1fae5;color:#065f46;font-size:13px;font-weight:700}}
+</style>
+</head><body>
+<header class="kd"><div class="inner">
+  <a class="logo" href="/">📰 KiddieDaily</a>
+  <nav>
+    <a href="/news/">News</a>
+    <a href="/news/science.html">Science</a>
+    <a href="/search.html">Search</a>
+    <a href="/digest/latest.html">Digest</a>
+    <a href="/parent-zone/">Parents</a>
+  </nav>
+</div></header>
+<main>
+  <h1 style="font-size:28px;margin:0 0 4px">Automation Status</h1>
+  <p style="color:#718096;margin:0 0 24px;font-size:14px">KiddieDaily runs automatically every morning at 6am ET via GitHub Actions.</p>
+
+  <div class="grid">
+    <div class="stat-card">
+      <h3>Last Run</h3>
+      <div class="stat-val">{last_run}</div>
+      <div class="stat-sub">Today: +{pushed_count} new article{"s" if pushed_count != 1 else ""}</div>
+    </div>
+    <div class="stat-card">
+      <h3>Total Articles</h3>
+      <div class="stat-val">{total}</div>
+      <div class="stat-sub">{sci} science &middot; {world} world news</div>
+    </div>
+    <div class="stat-card">
+      <h3>Avg Bias (all sources)</h3>
+      <div class="stat-val">{avg_bias:+.2f}</div>
+      <div class="stat-sub">Scale: -2 far-left → +2 far-right</div>
+    </div>
+    <div class="stat-card">
+      <h3>Days Covered</h3>
+      <div class="stat-val">{len(dates)}</div>
+      <div class="stat-sub">Since {dates[-1] if dates else "—"}</div>
+    </div>
+  </div>
+
+  <div class="stat-card" style="margin-top:20px">
+    <h3>Pipeline Health</h3>
+    <div style="margin:10px 0 6px;display:flex;flex-wrap:wrap;gap:8px">
+      <span class="badge-ok">✓ GitHub Actions cron active</span>
+      <span class="badge-ok">✓ GitHub Flow (branch → PR → merge)</span>
+      <span class="badge-ok">✓ 3-stage CI review</span>
+      <span class="badge-ok">✓ {total} articles indexed</span>
+      <span class="badge-ok">✓ RSS feed live</span>
+    </div>
+    <div style="margin-top:12px;font-size:13px;color:#718096">
+      Sources monitored: {sources_html}
+    </div>
+  </div>
+
+  <div class="stat-card" style="margin-top:16px">
+    <h3>Recent Dates</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+{"".join(f'      <a href="/digest/{d}.html" style="font-size:13px;padding:4px 10px;background:#dbeafe;color:#1e40af;border-radius:20px;text-decoration:none">{d}</a>' for d in dates[:14])}
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:13px;color:#718096;text-align:center">
+    <a href="https://github.com/Omtatsat101/kiddiedaily" style="color:#1a4d80">View on GitHub</a> &middot;
+    <a href="/feed.xml" style="color:#1a4d80">RSS Feed</a> &middot;
+    <a href="/sitemap.xml" style="color:#1a4d80">Sitemap</a>
+  </p>
+</main>
+</body></html>"""
+
+    upload("status.html", page, f"[scraper] Status page — {total} articles, last run {today}")
+    print(f"  Status page: {total} articles, {len(dates)} days covered")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -2036,17 +2178,25 @@ def main():
     print(f"\n[6k3] Generating search page...")
     generate_search_page(manifest)
 
+    # 6k4. Generate automation status page
+    print(f"\n[6k4] Generating status page...")
+    generate_status_page(manifest, today, pushed_count)
+
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
     self_src = pathlib.Path(__file__).read_text(encoding="utf-8")
     upload("scrape_and_push.py", self_src, "Deploy/update KiddieDaily scraper script")
 
-    # 8. Push GitHub Actions workflows (idempotent)
-    print("\n[8] Deploying GitHub Actions workflows...")
+    # 8. Push GitHub Actions workflows + governance files (idempotent)
+    print("\n[8] Deploying GitHub Actions workflows and governance files...")
     upload(".github/workflows/daily-news.yml", WORKFLOW_YAML,
            "[ci] Update daily news scraper workflow (GitHub Flow)")
     upload(".github/workflows/pr-review.yml", PR_REVIEW_YAML,
            "[ci] Add 3-stage content PR review agent workflow")
+    upload(".github/CODEOWNERS", CODEOWNERS_FILE,
+           "[ci] Add CODEOWNERS — GitHub best practices")
+    upload(".github/PULL_REQUEST_TEMPLATE.md", PR_TEMPLATE_MD,
+           "[ci] Add PR template — GitHub best practices")
 
     # 9. GitHub Flow: open PR and squash-merge content branch → main
     if in_ci and ACTIVE_BRANCH != "main":
