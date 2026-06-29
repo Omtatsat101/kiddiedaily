@@ -1211,7 +1211,7 @@ STATIC_URLS = [
     "/subscribe/",
     "/feed.xml", "/news/archive.html", "/news/today.html",
     "/news/science.html", "/news/world.html",
-    "/news/space.html", "/news/animals.html", "/news/history.html", "/news/environment.html",
+    "/news/space.html", "/news/animals.html", "/news/history.html", "/news/environment.html", "/news/technology.html",
     "/digest/latest.html",
     "/digest/weekly.html",
 ]
@@ -1637,6 +1637,12 @@ def generate_category_pages(manifest):
     _ANIMAL_KW   = {"animal", "animals", "species", "whale", "shark", "bird", "birds", "dog", "dogs", "cat", "cats", "wildlife", "octopus", "insect", "insects", "turtle", "turtles", "fish", "elephant", "elephants", "bear", "bears", "wolf", "wolves", "lion", "lions", "tiger", "tigers", "dolphin", "dolphins", "penguin", "penguins", "seal", "seals", "zoo", "habitat", "extinct", "endangered", "mammal", "reptile", "amphibian", "coral", "reef", "migration", "nest", "prey", "predator", "marine", "ocean life", "bee", "bees", "butterfly", "butterflies"}
     _ENVIRONMENT_KW = {"climate", "environment", "pollution", "forest", "ocean", "glacier", "wildfire", "drought", "flood", "hurricane", "tornado", "volcano", "earthquake", "recycling", "carbon", "solar", "renewable", "ecosystem", "biodiversity", "rainforest", "deforestation"}
     _HISTORY_KW  = {"ancient", "fossil", "dinosaur", "historical", "archaeolog", "million year", "prehistoric", "artifact", "ruin", "pyramid", "roman", "greek", "viking"}
+    _TECH_KW     = {"quantum", "robot", "robotics", "ai ", "artificial intelligence", "machine learning",
+                    "nanosensor", "nanotechnology", "semiconductor", "computer chip", "microchip",
+                    "algorithm", "software", "engineering", "invention", "cryogenic",
+                    "3d print", "drone", "satellite commun", "electric vehicle", "battery",
+                    "alloy", "polymer", "material science", "materials science",
+                    "nuclear reactor", "nuclear fusion", "photovoltaic", "wind turbine"}
 
     def _matches(a, kw_set):
         haystack = (a.get("title", "") + " " + a.get("slug", "")).lower()
@@ -1649,8 +1655,9 @@ def generate_category_pages(manifest):
         "animals": [a for a in articles if _matches(a, _ANIMAL_KW)],
         "history": [a for a in articles if _matches(a, _HISTORY_KW)],
         "environment": [a for a in articles if _matches(a, _ENVIRONMENT_KW)],
+        "technology":  [a for a in articles if _matches(a, _TECH_KW)],
     }
-    cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment"}
+    cat_labels = {"science": "Science", "world": "World News", "space": "Space", "animals": "Animals", "history": "History", "environment": "Environment", "technology": "Technology"}
     desc = {
         "science": "Space, animals, inventions, and discoveries — science stories for curious kids.",
         "world":   "What's happening around the world, explained for families.",
@@ -1658,6 +1665,7 @@ def generate_category_pages(manifest):
         "animals": "Wildlife, sea creatures, and amazing animals from around the world.",
         "history": "Fossils, ancient civilizations, and discoveries that unlock the past.",
         "environment": "Climate, oceans, forests, and Earth's ecosystems — environment news for kids.",
+        "technology": "AI, robots, engineering, and inventions — tech news explained for families.",
     }
 
     # Badge class per category
@@ -1667,11 +1675,13 @@ def generate_category_pages(manifest):
         "animals": "kd-badge-sci",
         "history": "kd-badge-sci",
         "environment": "kd-badge-sci",
+        "technology": "kd-badge-sci",
         "world":   "kd-badge-news",
     }
     cat_icons = {
         "science": "🔬", "world": "🌍", "space": "🚀",
         "animals": "🐾", "history": "🏛", "environment": "🌿",
+        "technology": "💻",
     }
 
     for key, arts in cats.items():
@@ -1752,7 +1762,7 @@ def generate_category_pages(manifest):
 </body></html>"""
 
         upload(f"news/{key}.html", page, f"[scraper] {label} category page — {len(arts)} articles")
-    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])} space={len(cats['space'])} animals={len(cats['animals'])} history={len(cats['history'])} environment={len(cats['environment'])}")
+    print(f"  Category pages: science={len(cats['science'])} world={len(cats['world'])} space={len(cats['space'])} animals={len(cats['animals'])} history={len(cats['history'])} environment={len(cats['environment'])} technology={len(cats['technology'])}")
 
 
 # ── Today's news page ─────────────────────────────────────────────────────────
