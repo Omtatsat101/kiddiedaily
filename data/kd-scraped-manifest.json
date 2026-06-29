@@ -209,7 +209,15 @@
     "news/2026-06-29-japanese-probe-set-for-super-close-flyby-on-july-5.html",
     "news/2026-06-29-france-the-team-to-beat-chris-sutton-predicts-worl.html",
     "news/2026-06-29-how-bellingham-became-tuchels-most-important-playe.html",
-    "news/2026-06-29-praise-pours-in-for-true-canadian-heroes-after-las.html"
+    "news/2026-06-29-praise-pours-in-for-true-canadian-heroes-after-las.html",
+    "news/2026-06-29-when-it-comes-to-predicting-peoples-preferences-it.html",
+    "news/2026-06-29-a-shot-of-carbon-dioxide-rewires-how-cement-sets.html",
+    "news/2026-06-29-mislabeled-saber-toothed-cat-fossil-spent-over-50.html",
+    "news/2026-06-29-3-ways-youre-working-wrong-according-to-scientists.html",
+    "news/2026-06-29-watch-chinas-tiangong-space-station-cross-the-moon.html",
+    "news/2026-06-29-best-team-moments-matches-and-players-of-the-group.html",
+    "news/2026-06-29-what-you-need-to-know-about-englands-opponents-dr.html",
+    "news/2026-06-29-thousands-of-kurds-gather-in-turkiye-to-demand-rel.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -421,7 +429,15 @@
     "Japanese probe set for super-close flyby on July 5: 'We're going to discover another beast to put in the zoo of asteroids'",
     "France the team to beat? Chris Sutton predicts World Cup's last-32 matches",
     "How Bellingham became Tuchel's most important player",
-    "Praise pours in for ‘true Canadian heroes’ after last-minute World Cup win"
+    "Praise pours in for ‘true Canadian heroes’ after last-minute World Cup win",
+    "When it comes to predicting people’s preferences, it pays to consider “the power of three”",
+    "A shot of carbon dioxide rewires how cement sets",
+    "Mislabeled saber-toothed cat fossil spent over 50 years hidden in a drawer",
+    "3 ways you’re working wrong, according to scientists",
+    "Watch China's Tiangong space station cross the moon in stunning amateur footage",
+    "Best team, moments, matches and players of the group stage",
+    "What you need to know about England's opponents DR Congo",
+    "Thousands of Kurds gather in Turkiye to demand release of PKK leader"
   ],
   "articles": [
     {
@@ -2715,6 +2731,94 @@
       "slug": "news/2026-06-29-praise-pours-in-for-true-canadian-heroes-after-las.html",
       "title": "Praise pours in for ‘true Canadian heroes’ after last-minute World Cup win",
       "display_title": "Praise pours in for ‘true Canadian heroes’ after last-minute World Cup win",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-when-it-comes-to-predicting-peoples-preferences-it.html",
+      "title": "When it comes to predicting people’s preferences, it pays to consider “the power of three”",
+      "display_title": "When it comes to predicting people’s preferences, it pays to consider “the power of three”",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-a-shot-of-carbon-dioxide-rewires-how-cement-sets.html",
+      "title": "A shot of carbon dioxide rewires how cement sets",
+      "display_title": "A shot of carbon dioxide rewires how cement sets",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-mislabeled-saber-toothed-cat-fossil-spent-over-50.html",
+      "title": "Mislabeled saber-toothed cat fossil spent over 50 years hidden in a drawer",
+      "display_title": "Mislabeled saber-toothed cat fossil spent over 50 years hidden in a drawer",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-3-ways-youre-working-wrong-according-to-scientists.html",
+      "title": "3 ways you’re working wrong, according to scientists",
+      "display_title": "3 ways you’re working wrong, according to scientists",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-watch-chinas-tiangong-space-station-cross-the-moon.html",
+      "title": "Watch China's Tiangong space station cross the moon in stunning amateur footage",
+      "display_title": "Watch China's Tiangong space station cross the moon in stunning amateur footage",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-best-team-moments-matches-and-players-of-the-group.html",
+      "title": "Best team, moments, matches and players of the group stage",
+      "display_title": "Best team, moments, matches and players of the group stage",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-what-you-need-to-know-about-englands-opponents-dr.html",
+      "title": "What you need to know about England's opponents DR Congo",
+      "display_title": "What you need to know about England's opponents DR Congo",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-thousands-of-kurds-gather-in-turkiye-to-demand-rel.html",
+      "title": "Thousands of Kurds gather in Turkiye to demand release of PKK leader",
+      "display_title": "Thousands of Kurds gather in Turkiye to demand release of PKK leader",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.4,
