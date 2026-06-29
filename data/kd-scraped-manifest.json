@@ -703,7 +703,13 @@
     "news/2026-06-29-nasa39s-roman-space-telescope-arrives-in-florida-n.html",
     "news/2026-06-29-pride-month-has-great-significance-for-those-who-f.html",
     "news/2026-06-29-strange-news-the-weirdest-stories-of-the-week.html",
-    "news/2026-06-29-staying-safe-in-water-when-the-weathers-hot.html"
+    "news/2026-06-29-staying-safe-in-water-when-the-weathers-hot.html",
+    "news/2026-06-29-japans-bold-experiment-to-curb-antibiotic-misuse-h.html",
+    "news/2026-06-29-ai-agents-are-not-your-coworkers.html",
+    "news/2026-06-29-a-dwarf-galaxy-torn-apart-by-the-milky-way-left-be.html",
+    "news/2026-06-29-america-250-brings-extraordinary-security-challeng.html",
+    "news/2026-06-29-uc-berkeley-establishing-nancy-pelosi-institute-de.html",
+    "news/2026-06-29-paris-mortuaries-overwhelmed-amid-europes-record-h.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1409,7 +1415,13 @@
     "NASA&#39;s Roman Space Telescope Arrives in Florida, New Treatment Could Relieve Knee Pain Without Surgery, and a Cave Full of All-Female Skeletons",
     "Pride Month has great significance for those who feel invisible. In Slovenia, many LGBTQ+ people understand just what that means",
     "Strange News: The weirdest stories of the week",
-    "Staying safe in water when the weather's hot"
+    "Staying safe in water when the weather's hot",
+    "Japan's bold experiment to curb antibiotic misuse has been a huge success. Could it work in the US?",
+    "AI agents are not your “coworkers”",
+    "A Dwarf Galaxy Torn Apart by the Milky Way Left Behind the Gaia Sausage&nbsp;",
+    "America 250 brings extraordinary security challenge to Washington",
+    "UC Berkeley establishing Nancy Pelosi Institute dedicated to addressing democracy's challenges",
+    "Paris mortuaries overwhelmed amid Europe's record heat"
   ],
   "articles": [
     {
@@ -9429,6 +9441,84 @@
       "source_name": "BBC Newsround",
       "source_icons": "📺",
       "description": "When it's super hot it can be tempting to cool off by going for a dip in some water. But experts want to make sure kids stay safe and only swim in the right places. Here's what you need to know."
+    },
+    {
+      "slug": "news/2026-06-29-japans-bold-experiment-to-curb-antibiotic-misuse-h.html",
+      "title": "Japan's bold experiment to curb antibiotic misuse has been a huge success. Could it work in the US?",
+      "display_title": "Japan's bold experiment to curb antibiotic misuse has been a huge success. Could it work in the US?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Live Science",
+      "source_icons": "🧬",
+      "description": "A unique policy in Japan encourages doctors to improve their antibiotic use and thus reduce their contribution to antibiotic resistance. Should the U.S. be taking notes?"
+    },
+    {
+      "slug": "news/2026-06-29-ai-agents-are-not-your-coworkers.html",
+      "title": "AI agents are not your “coworkers”",
+      "display_title": "AI agents are not your “coworkers”",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "MIT Tech Review",
+      "source_icons": "💻",
+      "description": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Imagine coming in to work to learn that a new underling will r"
+    },
+    {
+      "slug": "news/2026-06-29-a-dwarf-galaxy-torn-apart-by-the-milky-way-left-be.html",
+      "title": "A Dwarf Galaxy Torn Apart by the Milky Way Left Behind the Gaia Sausage&nbsp;",
+      "display_title": "A Dwarf Galaxy Torn Apart by the Milky Way Left Behind the Gaia Sausage&nbsp;",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Discover Magazine",
+      "source_icons": "🔬",
+      "description": "Learn more about the Gaia Sausage, a trail of stars from a dwarf galaxy the Milky Way absorbed billions of years ago."
+    },
+    {
+      "slug": "news/2026-06-29-america-250-brings-extraordinary-security-challeng.html",
+      "title": "America 250 brings extraordinary security challenge to Washington",
+      "display_title": "America 250 brings extraordinary security challenge to Washington",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "PBS NewsHour",
+      "source_icons": "📺",
+      "description": "Hundreds of thousands are expected in Washington, D.C., for the 250th anniversary of the nation's freedom. Federal law enforcement is preparing for one of the city's largest security operations."
+    },
+    {
+      "slug": "news/2026-06-29-uc-berkeley-establishing-nancy-pelosi-institute-de.html",
+      "title": "UC Berkeley establishing Nancy Pelosi Institute dedicated to addressing democracy's challenges",
+      "display_title": "UC Berkeley establishing Nancy Pelosi Institute dedicated to addressing democracy's challenges",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "PBS NewsHour",
+      "source_icons": "📺",
+      "description": "Former House Speaker Nancy Pelosi and the University of California, Berkeley, are partnering to form a new nonpartisan academic institute they say will be dedicated to strengthening democracy."
+    },
+    {
+      "slug": "news/2026-06-29-paris-mortuaries-overwhelmed-amid-europes-record-h.html",
+      "title": "Paris mortuaries overwhelmed amid Europe's record heat",
+      "display_title": "Paris mortuaries overwhelmed amid Europe's record heat",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "PBS NewsHour",
+      "source_icons": "📺",
+      "description": "A record-breaking heat wave has overwhelmed mortuaries in Paris, leaving funeral directors struggling to find space for bodies."
     }
   ]
 }
