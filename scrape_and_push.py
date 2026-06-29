@@ -241,6 +241,8 @@ BLOCKLIST = [
     "neo-nazi", "white supremac", "white nationalist", "white supremist",
     "kkk", "ku klux", "extremist group", "domestic terrorist",
     "hate group", "hate crime",
+    # Psychedelics and drug compounds not appropriate for kids
+    "magic mushroom", "psilocybin", "psilocin", "ayahuasca", "lsd trip",
 ]
 SAFE_OVERRIDES = [
     "space", "science", "animal", "planet", "nature", "research",
@@ -407,6 +409,8 @@ DEPRIORITIZE_WORDS = [
     "for pms", "menopause", "erectile", "libido", "testosterone therapy",
     "fertility treatment", "ivf", "miscarriage", "abortion pill",
     "hormone therapy", "menstrual",
+    # Psychedelic / drug-therapy content (specific compounds → BLOCKLIST; broader term → deprioritize)
+    "psychedelic", "ketamine therapy", "mdma therapy",
     # Adult disease / clinical research (not age-appropriate framing)
     " hiv ", "hiv enters", "hiv and", "hiv in",
     "alzheimer", "memory loss from",
