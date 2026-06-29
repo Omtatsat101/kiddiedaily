@@ -161,6 +161,8 @@ SOURCES = [
     {"name": "Al Jazeera",    "url": "https://www.aljazeera.com/xml/rss/all.xml",              "bias": -0.4, "icon": "🌍"},
     {"name": "The Hill",      "url": "https://thehill.com/news/feed/",                          "bias":  0.1, "icon": "⚖️"},
     {"name": "Fox News",      "url": "https://moxie.foxnews.com/google-publisher/latest.xml",   "bias":  1.3, "icon": "🦅"},
+    {"name": "AP News",       "url": "https://feeds.apnews.com/rss/apf-topnews",               "bias":  0.0, "icon": "📰"},
+    {"name": "PBS NewsHour",  "url": "https://www.pbs.org/newshour/feeds/rss/headlines",        "bias": -0.2, "icon": "📺"},
     {"name": "NASA",          "url": "https://www.nasa.gov/rss/dyn/breaking_news.rss",          "bias":  0.0, "icon": "🚀"},
     {"name": "Science Daily", "url": "https://www.sciencedaily.com/rss/all.xml",               "bias":  0.0, "icon": "🔬"},
     {"name": "Smithsonian",   "url": "https://www.smithsonianmag.com/rss/latest_articles/",    "bias": -0.1, "icon": "🏛️"},
@@ -278,6 +280,9 @@ DEPRIORITIZE_WORDS = [
     # entertainment/sport-entertainment (low value for kids news)
     "wwe", "tna", "wrestling", "championship belt", "retains the", "smackdown",
     "raw results", "raw recap", "nxt results",
+    # UK-specific politics (not relevant for US/global families)
+    "burnham", "keir starmer", "rishi sunak", "suella braverman",
+    "tory party", "labour party", "hs2", "westminster",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
