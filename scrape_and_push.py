@@ -582,6 +582,53 @@ def reading_time(html_text):
     mins = max(1, round(words / 200))
     return f"{mins} min read"
 
+def parent_discussion_guide(title, is_science):
+    """Return an HTML parent discussion guide for an article."""
+    # Extract 1-2 meaningful topic words from the title for question prompts
+    stop = {"about", "their", "these", "those", "would", "could", "which", "where",
+            "there", "after", "other", "first", "world", "using", "study", "finds",
+            "found", "shows", "says", "that", "have", "with", "from", "this", "will"}
+    words = [w for w in re.sub(r"[^\w\s]", "", title.lower()).split()
+             if len(w) > 3 and w not in stop]
+    topic = " ".join(words[:2]) if len(words) >= 2 else (words[0] if words else "this topic")
+
+    if is_science:
+        bullets = [
+            (f"<strong>Ask your child:</strong> &ldquo;What do you think scientists discovered about <em>{topic}</em>? "
+             "What part surprised you most?&rdquo;"),
+            ("<strong>Explore together:</strong> Search for &ldquo;" + topic + "&rdquo; on NASA Kids&#x2019; Club, "
+             "DK Find Out, or National Geographic Kids for more kid-friendly facts."),
+            ("<strong>Critical thinking:</strong> Science findings can change as more research is done. Ask: "
+             "&ldquo;How would scientists test this? What would prove them wrong?&rdquo;"),
+        ]
+        icon, color, bg, border = "🔬", "#065f46", "#f0fff4", "#9ae6b4"
+    else:
+        bullets = [
+            (f"<strong>Ask your child:</strong> &ldquo;Why do you think people care about <em>{topic}</em>? "
+             "How might this affect families like ours?&rdquo;"),
+            ("<strong>Compare sources:</strong> The bias rating above shows how this outlet leans. Try finding "
+             "one more source that covers the same story. Do they agree? What&rsquo;s different?"),
+            ("<strong>Media literacy:</strong> Ask: &ldquo;What facts does this story give us? "
+             "What opinions does it include? Who is speaking, and why might they say this?&rdquo;"),
+        ]
+        icon, color, bg, border = "🗞️", "#1e40af", "#eff6ff", "#93c5fd"
+
+    rows = "".join(
+        f'<li style="margin:8px 0;line-height:1.55;font-size:14px;color:#2d3748">{b}</li>'
+        for b in bullets
+    )
+    return (
+        f'<div style="background:{bg};border:1px solid {border};border-radius:10px;'
+        f'padding:18px 22px;margin:22px 0;font-family:system-ui,sans-serif">'
+        f'<div style="font-size:11px;font-weight:700;color:{color};text-transform:uppercase;'
+        f'letter-spacing:1.1px;margin-bottom:12px">{icon} Parent discussion guide</div>'
+        f'<ul style="margin:0;padding:0 0 0 18px">{rows}</ul>'
+        f'<p style="font-size:11px;color:#a0aec0;margin:12px 0 0">KiddieDaily is built for families — '
+        f'balanced sources, no agenda, no ads. Always read the original source and think for yourself.</p>'
+        f'</div>'
+    )
+
+
 def build_page(title, body_html, bias_html, score, group, slug, today):
     n = score["n_sources"]
     url = f"https://kiddiedaily.com/{slug}"
@@ -631,6 +678,8 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
         )
 
     perspectives_html = _perspectives_html(group, n)
+    is_sci = any(s["source_name"] in SCIENCE_SOURCES for s in group)
+    guide_html = parent_discussion_guide(title, is_sci)
 
     rt = reading_time(body_html)
     body = f"""<p class="byline">By KiddieDaily Editors &middot; {today} &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
@@ -638,6 +687,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 {bias_html}
 {perspectives_html}
 {body_html}
+{guide_html}
 <div class="sources"><h4>Original Sources</h4><ul>{source_items}</ul></div>
 <p style="margin-top:16px;padding:10px 14px;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;font-size:13px">
 &#128269; <strong>Want to verify this story?</strong>
