@@ -41,7 +41,10 @@
     "news/2026-06-28-scientists-have-deciphered-the-surviving-fragments.html",
     "news/2026-06-28-too-hot-for-art-some-paris-museums-and-landmarks-c.html",
     "news/2026-06-28-norman-rockwell-captured-the-hustle-of-the-west-wi.html",
-    "news/2026-06-28-early-humans-may-have-used-fire-18-million-years-a.html"
+    "news/2026-06-28-early-humans-may-have-used-fire-18-million-years-a.html",
+    "news/2026-06-29-james-webb-uncovers-exotic-salt-clouds-on-a-myster.html",
+    "news/2026-06-29-youll-be-more-than-amused-by-these-15-photos-of-th.html",
+    "news/2026-06-29-late-goal-gives-canada-first-ever-world-cup-knocko.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -85,7 +88,10 @@
     "Scientists Have Deciphered the Surviving Fragments of a 2,000-Year-Old Philosophical Treatise Frozen in Time by Mount Vesuvius' Eruption",
     "Too Hot for Art? Some Paris Museums and Landmarks Close or Reduce Hours Amid a Record Heat Wave in Europe",
     "Norman Rockwell Captured the Hustle of the West Wing in Colorful Drawings Displayed for Decades in the White House. They’re Now on Public View for the First Time",
-    "Early Humans May Have Used Fire 1.8 Million Years Ago, Nearly Doubling the Age of the Oldest Known Evidence for the Feat"
+    "Early Humans May Have Used Fire 1.8 Million Years Ago, Nearly Doubling the Age of the Oldest Known Evidence for the Feat",
+    "James Webb uncovers exotic salt clouds on a mysterious pink world",
+    "You’ll Be More Than Amused by These 15 Photos of Theme Parks. Their Electrifying Attractions Will Have Your Heart Racing Before You Even Set Foot on a Ride",
+    "Late goal gives Canada first-ever World Cup knockout stage victory"
   ],
   "articles": [
     {
@@ -537,6 +543,39 @@
       "agreement_pct": 31,
       "is_science": true,
       "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-29-james-webb-uncovers-exotic-salt-clouds-on-a-myster.html",
+      "title": "James Webb uncovers exotic salt clouds on a mysterious pink world",
+      "display_title": "James Webb uncovers exotic salt clouds on a mysterious pink world",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-youll-be-more-than-amused-by-these-15-photos-of-th.html",
+      "title": "You’ll Be More Than Amused by These 15 Photos of Theme Parks. Their Electrifying Attractions Will Have Your Heart Racing Before You Even Set Foot on a Ride",
+      "display_title": "You’ll Be More Than Amused by These 15 Photos of Theme Parks. Their Electrifying Attractions Will Have Your Heart Racing Before You Even Set Foot on a Ride",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🏛️"
+    },
+    {
+      "slug": "news/2026-06-29-late-goal-gives-canada-first-ever-world-cup-knocko.html",
+      "title": "Late goal gives Canada first-ever World Cup knockout stage victory",
+      "display_title": "Late goal gives Canada first-ever World Cup knockout stage victory",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": 0.17,
+      "agreement_pct": 62,
+      "is_science": false,
+      "source_icons": "🌍 🦅"
     }
   ]
 }
