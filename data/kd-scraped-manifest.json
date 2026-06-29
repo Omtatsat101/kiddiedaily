@@ -736,7 +736,10 @@
     "news/2026-06-29-cern-shutters-the-large-hadron-collider-for-a-majo.html",
     "news/2026-06-29-dr-congo-bans-mass-gatherings-in-the-capital-to-pr.html",
     "news/2026-06-29-bullied-teen-who-had-44-surgeries-for-rare-skull-c.html",
-    "news/2026-06-29-miracle-man-pulled-from-rubble-four-days-after-ven.html"
+    "news/2026-06-29-miracle-man-pulled-from-rubble-four-days-after-ven.html",
+    "news/2026-06-29-undocumented-migrants-flee-south-africa-amid-risin.html",
+    "news/2026-06-29-uks-prime-minister-in-waiting-vows-to-shake-up-pol.html",
+    "news/2026-06-29-mehdi-hasan-disrupting-democracys-decline.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1475,7 +1478,10 @@
     "CERN shutters the Large Hadron Collider for a major transformation",
     "DR Congo bans mass gatherings in the capital to prevent spread of Ebola",
     "Bullied teen who had 44 surgeries for rare skull condition now training as doctor",
-    "‘Miracle’: Man pulled from rubble four days after Venezuelan quakes"
+    "‘Miracle’: Man pulled from rubble four days after Venezuelan quakes",
+    "Undocumented migrants flee South Africa amid rising anti-immigrant protests",
+    "UK’s prime minister-in-waiting vows to shake up politics",
+    "Mehdi Hasan: Disrupting democracy’s decline"
   ],
   "articles": [
     {
@@ -9924,6 +9930,45 @@
       "source_name": "Al Jazeera",
       "source_icons": "🌍",
       "description": "A 21-year-old man was pulled alive from the rubble of an apartment building in La Guaira, Venezuela."
+    },
+    {
+      "slug": "news/2026-06-29-undocumented-migrants-flee-south-africa-amid-risin.html",
+      "title": "Undocumented migrants flee South Africa amid rising anti-immigrant protests",
+      "display_title": "Undocumented migrants flee South Africa amid rising anti-immigrant protests",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "Thousands of undocumented migrants in South Africa are rushing to leave after anti-immigrant protests."
+    },
+    {
+      "slug": "news/2026-06-29-uks-prime-minister-in-waiting-vows-to-shake-up-pol.html",
+      "title": "UK’s prime minister-in-waiting vows to shake up politics",
+      "display_title": "UK’s prime minister-in-waiting vows to shake up politics",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "Andy Burnham, Britain’s likely next leader, vowed to enact radical change to the nation’s politics during a speech."
+    },
+    {
+      "slug": "news/2026-06-29-mehdi-hasan-disrupting-democracys-decline.html",
+      "title": "Mehdi Hasan: Disrupting democracy’s decline",
+      "display_title": "Mehdi Hasan: Disrupting democracy’s decline",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "With democracy on the decline in both the UK and US, Mehdi Hasan makes the case for independent journalism."
     }
   ]
 }
