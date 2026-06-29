@@ -271,7 +271,12 @@
     "news/2026-06-29-i-have-a-100-per-cent-chance-of-getting-cancer-due.html",
     "news/2026-06-29-ancient-human-dna-found-on-cave-art-for-the-first.html",
     "news/2026-06-29-watch-bison-shield-their-baby-from-a-rare-wolf-att.html",
-    "news/2026-06-29-clarke-leaves-strong-scotland-legacy-but-exit-brin.html"
+    "news/2026-06-29-clarke-leaves-strong-scotland-legacy-but-exit-brin.html",
+    "news/2026-06-29-watch-out-for-the-giant-scorpion-hiding-in-the-sum.html",
+    "news/2026-06-29-watch-a-potentially-hazardous-asteroid-the-size-of.html",
+    "news/2026-06-29-europes-heatwave-is-the-hottest-and-most-humid-eve.html",
+    "news/2026-06-29-read-an-extract-from-slow-gods-by-claire-north.html",
+    "news/2026-06-29-amazon-prime-deals-are-ending-and-its-the-last-day.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -545,7 +550,12 @@
     "I have a 100 per cent chance of getting cancer due to a rare gene",
     "Ancient human DNA found on cave art for the first time",
     "Watch bison shield their baby from a rare wolf attack in Poland",
-    "Clarke leaves strong Scotland legacy but exit brings sense of relief"
+    "Clarke leaves strong Scotland legacy but exit brings sense of relief",
+    "Watch out for the giant scorpion hiding in the summer sky",
+    "Watch a 'Potentially hazardous asteroid' the size of a skyscraper close in on Earth live online tonight",
+    "Europe’s heatwave is the hottest and most humid ever",
+    "Read an extract from Slow Gods by Claire North",
+    "Amazon Prime deals are ending and it’s the last day to save on these top Bluetooth headphone, earbud, and speaker picks"
   ],
   "articles": [
     {
@@ -3527,6 +3537,61 @@
       "agreement_pct": 14,
       "is_science": false,
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-watch-out-for-the-giant-scorpion-hiding-in-the-sum.html",
+      "title": "Watch out for the giant scorpion hiding in the summer sky",
+      "display_title": "Watch out for the giant scorpion hiding in the summer sky",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-watch-a-potentially-hazardous-asteroid-the-size-of.html",
+      "title": "Watch a 'Potentially hazardous asteroid' the size of a skyscraper close in on Earth live online tonight",
+      "display_title": "Watch a 'Potentially hazardous asteroid' the size of a skyscraper close in on Earth live online tonight",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-europes-heatwave-is-the-hottest-and-most-humid-eve.html",
+      "title": "Europe’s heatwave is the hottest and most humid ever",
+      "display_title": "Europe’s heatwave is the hottest and most humid ever",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-read-an-extract-from-slow-gods-by-claire-north.html",
+      "title": "Read an extract from Slow Gods by Claire North",
+      "display_title": "Read an extract from Slow Gods by Claire North",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-amazon-prime-deals-are-ending-and-its-the-last-day.html",
+      "title": "Amazon Prime deals are ending and it’s the last day to save on these top Bluetooth headphone, earbud, and speaker picks",
+      "display_title": "Amazon Prime deals are ending and it’s the last day to save on these top Bluetooth headphone, earbud, and speaker picks",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
     }
   ]
 }
