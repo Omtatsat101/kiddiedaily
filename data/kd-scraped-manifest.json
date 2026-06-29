@@ -564,7 +564,11 @@
     "news/2026-06-29-the-father-of-parliament-or-a-ruthless-rebel-the-b.html",
     "news/2026-06-29-beyond-the-rubble-preserving-benghazis-heritage-an.html",
     "news/2026-06-29-fort-laramie-americas-road-west-an-oasis-a-bastion.html",
-    "news/2026-06-29-how-roman-taxes-became-medieval-military-service.html"
+    "news/2026-06-29-how-roman-taxes-became-medieval-military-service.html",
+    "news/2026-06-29-pithos-burial-discovered-at-hadrianopolis.html",
+    "news/2026-06-29-the-defiant-sovereignty-of-queen-jane.html",
+    "news/2026-06-29-holbeins-hidden-code-secrets-of-the-tudor-ambassad.html",
+    "news/2026-06-29-new-medieval-books-the-north-caucasian-kingdom-of.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1131,7 +1135,11 @@
     "The Father of Parliament or a Ruthless Rebel? The Bloody Legacy of Simon de Montfort",
     "Beyond the Rubble: Preserving Benghazi’s Heritage and Identity",
     "Fort Laramie: America’s Road West – An Oasis, a Bastion, and a Battlefield",
-    "How Roman Taxes Became Medieval Military Service"
+    "How Roman Taxes Became Medieval Military Service",
+    "Pithos Burial Discovered at Hadrianopolis",
+    "The Defiant Sovereignty of Queen Jane",
+    "Holbein’s Hidden Code: Secrets of the Tudor Ambassadors",
+    "New Medieval Books: The North Caucasian Kingdom of Alania, 850–1240"
   ],
   "articles": [
     {
@@ -7468,6 +7476,54 @@
       "slug": "news/2026-06-29-how-roman-taxes-became-medieval-military-service.html",
       "title": "How Roman Taxes Became Medieval Military Service",
       "display_title": "How Roman Taxes Became Medieval Military Service",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Medievalists",
+      "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-pithos-burial-discovered-at-hadrianopolis.html",
+      "title": "Pithos Burial Discovered at Hadrianopolis",
+      "display_title": "Pithos Burial Discovered at Hadrianopolis",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Archaeology",
+      "source_icons": "🏺"
+    },
+    {
+      "slug": "news/2026-06-29-the-defiant-sovereignty-of-queen-jane.html",
+      "title": "The Defiant Sovereignty of Queen Jane",
+      "display_title": "The Defiant Sovereignty of Queen Jane",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-holbeins-hidden-code-secrets-of-the-tudor-ambassad.html",
+      "title": "Holbein’s Hidden Code: Secrets of the Tudor Ambassadors",
+      "display_title": "Holbein’s Hidden Code: Secrets of the Tudor Ambassadors",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "HistoryHit",
+      "source_icons": "🗺️"
+    },
+    {
+      "slug": "news/2026-06-29-new-medieval-books-the-north-caucasian-kingdom-of.html",
+      "title": "New Medieval Books: The North Caucasian Kingdom of Alania, 850–1240",
+      "display_title": "New Medieval Books: The North Caucasian Kingdom of Alania, 850–1240",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
