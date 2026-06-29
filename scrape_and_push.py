@@ -1162,6 +1162,54 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
         "environment": ("🌿", "Environment", "/news/environment.html", "#dcfce7", "#166534"),
         "technology":  ("💻", "Technology",  "/news/technology.html",  "#e0e7ff", "#3730a3"),
     }
+    # "Explore the Topic" — category-matched kid-safe external resources
+    _EXPLORE_LINKS = {
+        "space":       [("🚀 NASA Kids", "https://www.nasa.gov/stem/forstudents/k-4/index.html"),
+                        ("🌌 Astronomy for Kids", "https://astronomy.com/get-involved/activities"),
+                        ("📡 Space.com for Students", "https://www.space.com/science-astronomy")],
+        "animals":     [("🐾 Nat Geo Kids: Animals", "https://kids.nationalgeographic.com/animals/"),
+                        ("🦁 WWF Kids", "https://www.worldwildlife.org/species"),
+                        ("🐘 Smithsonian Zoos", "https://nationalzoo.si.edu/animals")],
+        "history":     [("📜 Britannica Kids", "https://kids.britannica.com/"),
+                        ("🏛 Smithsonian Learning Lab", "https://learninglab.si.edu/"),
+                        ("🗺️ World History Encyclopedia", "https://www.worldhistory.org/")],
+        "environment": [("🌿 NASA Climate Kids", "https://climatekids.nasa.gov/"),
+                        ("🌎 EPA Students", "https://www.epa.gov/students"),
+                        ("🌊 NOAA Ocean Service Education", "https://oceanservice.noaa.gov/education/")],
+        "technology":  [("💻 Code.org", "https://code.org/learn"),
+                        ("🤖 CS4Kids", "https://www.cs4fn.org/"),
+                        ("⚡ IEEE Try Engineering", "https://tryengineering.org/")],
+        "science":     [("🔬 Science News for Students", "https://www.snexplores.org/"),
+                        ("🧬 Khan Academy Science", "https://www.khanacademy.org/science"),
+                        ("🏛 Smithsonian Science Ed.", "https://ssec.si.edu/")],
+        "world":       [("🌍 Nat Geo Kids: World", "https://kids.nationalgeographic.com/explore/"),
+                        ("📰 TIME for Kids", "https://www.timeforkids.com/"),
+                        ("🌐 DK Find Out!", "https://www.dkfindout.com/us/")],
+    }
+    _explore_cats = ([c for c in (cats or []) if c in _EXPLORE_LINKS]
+                     or (["science"] if is_sci else ["world"]))
+    _explore_links = []
+    for _ec in _explore_cats[:2]:
+        for _link in _EXPLORE_LINKS.get(_ec, []):
+            if _link not in _explore_links:
+                _explore_links.append(_link)
+    if not _explore_links:
+        _explore_links = _EXPLORE_LINKS["science" if is_sci else "world"]
+    _explore_links = _explore_links[:3]
+    explore_html = (
+        '<div style="margin:20px 0;padding:14px 18px;background:#fafafa;border:1px solid #e2e8f0;border-radius:10px;font-family:system-ui,sans-serif">'
+        '<div style="font-size:11px;font-weight:700;color:#4a5568;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🔭 Explore the topic further</div>'
+        '<div style="display:flex;flex-wrap:wrap;gap:8px">'
+        + "".join(
+            f'<a href="{url}" rel="noopener noreferrer" target="_blank" '
+            f'style="display:inline-block;background:#fff;border:1px solid #e2e8f0;'
+            f'border-radius:8px;padding:7px 13px;font-size:13px;color:#1a4d80;text-decoration:none;'
+            f'font-weight:500">{label}</a>'
+            for label, url in _explore_links
+        )
+        + '</div></div>'
+    )
+
     subcat_pills = ""
     if cats:
         subcats = [c for c in cats if c in _SUBCAT_META]
@@ -1185,6 +1233,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
 {perspectives_html}
 {body_html}
 {guide_html}
+{explore_html}
 <div class="sources"><h4>Original Sources</h4><ul>{source_items}</ul></div>
 <p style="margin-top:16px;padding:10px 14px;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;font-size:13px">
 &#128269; <strong>Want to verify this story?</strong>
