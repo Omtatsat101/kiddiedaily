@@ -589,7 +589,10 @@
     "news/2026-06-29-uk-africa-relations-starmers-reset-that-never-deli.html",
     "news/2026-06-29-to-speak-the-language-of-the-land.html",
     "news/2026-06-29-the-destructive-legacy-of-failed-aquaculture.html",
-    "news/2026-06-29-conjuring-the-lost-land-beneath-the-north-sea.html"
+    "news/2026-06-29-conjuring-the-lost-land-beneath-the-north-sea.html",
+    "news/2026-06-29-the-fleet-winged-ghosts-of-greenland.html",
+    "news/2026-06-29-for-killer-whales-saddle-patches-are-like-fingerpr.html",
+    "news/2026-06-29-for-the-love-of-a-little-sea.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1181,7 +1184,10 @@
     "UK-Africa relations: Starmer's 'reset' that never delivered",
     "To Speak the Language of the Land",
     "The Destructive Legacy of Failed Aquaculture",
-    "Conjuring the Lost Land Beneath the North Sea"
+    "Conjuring the Lost Land Beneath the North Sea",
+    "The Fleet-Winged Ghosts of Greenland",
+    "For Killer Whales, Saddle Patches are Like Fingerprints",
+    "For the Love of a Little Sea"
   ],
   "articles": [
     {
@@ -7818,6 +7824,42 @@
       "slug": "news/2026-06-29-conjuring-the-lost-land-beneath-the-north-sea.html",
       "title": "Conjuring the Lost Land Beneath the North Sea",
       "display_title": "Conjuring the Lost Land Beneath the North Sea",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-fleet-winged-ghosts-of-greenland.html",
+      "title": "The Fleet-Winged Ghosts of Greenland",
+      "display_title": "The Fleet-Winged Ghosts of Greenland",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-for-killer-whales-saddle-patches-are-like-fingerpr.html",
+      "title": "For Killer Whales, Saddle Patches are Like Fingerprints",
+      "display_title": "For Killer Whales, Saddle Patches are Like Fingerprints",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 8,
+      "is_science": true,
+      "source_name": "Hakai Magazine",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-for-the-love-of-a-little-sea.html",
+      "title": "For the Love of a Little Sea",
+      "display_title": "For the Love of a Little Sea",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
