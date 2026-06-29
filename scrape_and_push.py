@@ -230,6 +230,8 @@ SOURCES = [
     {"name": "Quanta Magazine",     "url": "https://www.quantamagazine.org/feed/",                    "bias":  0.0, "icon": "🔷"},
     # Kids news: BBC Newsround — gold standard children's news; animals, nature, world, science
     {"name": "BBC Newsround",       "url": "https://feeds.bbci.co.uk/newsround/rss.xml",              "bias": -0.1, "icon": "📺"},
+    # Science magazine: Discover — animals, space, paleontology, environment, physics
+    {"name": "Discover Magazine",   "url": "https://www.discovermagazine.com/rss/all",                "bias":  0.0, "icon": "🔬"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -350,7 +352,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -413,6 +415,7 @@ DEPRIORITIZE_WORDS = [
     # Housing/social policy that isn't kids-relevant
     "housing crisis", "van life", "cost of living crisis",
     # Adult health/medical topics not appropriate for kids
+    "knee pain", "back pain", "joint pain", "chronic pain",
     "for pms", "menopause", "erectile", "libido", "testosterone therapy",
     "fertility treatment", "ivf", "miscarriage", "abortion pill",
     "hormone therapy", "menstrual",
