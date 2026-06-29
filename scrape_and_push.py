@@ -190,6 +190,11 @@ SOURCES = [
     {"name": "New Scientist", "url": "https://www.newscientist.com/feed/home/",                "bias": -0.1, "icon": "🧪"},
     {"name": "Popular Science","url": "https://www.popsci.com/feed/",                          "bias":  0.0, "icon": "💡"},
     {"name": "Space.com",     "url": "https://www.space.com/feeds/all",                        "bias":  0.0, "icon": "🌌"},
+    # Additional sources for underrepresented categories (history, environment, animals)
+    {"name": "Scientific American", "url": "https://rss.scientificamerican.com/scientific-american/all", "bias": -0.1, "icon": "🔭"},
+    {"name": "Mongabay",      "url": "https://news.mongabay.com/feed/",                        "bias": -0.1, "icon": "🦁"},
+    {"name": "JSTOR Daily",   "url": "https://daily.jstor.org/feed/",                          "bias": -0.1, "icon": "📚"},
+    {"name": "NASA Earth",    "url": "https://earthobservatory.nasa.gov/feeds/earth-observatory.rss", "bias": 0.0, "icon": "🌍"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -297,7 +302,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Scientific American", "Mongabay", "JSTOR Daily", "NASA Earth"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
