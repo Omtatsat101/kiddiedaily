@@ -44,7 +44,10 @@
     "news/2026-06-28-early-humans-may-have-used-fire-18-million-years-a.html",
     "news/2026-06-29-james-webb-uncovers-exotic-salt-clouds-on-a-myster.html",
     "news/2026-06-29-youll-be-more-than-amused-by-these-15-photos-of-th.html",
-    "news/2026-06-29-late-goal-gives-canada-first-ever-world-cup-knocko.html"
+    "news/2026-06-29-late-goal-gives-canada-first-ever-world-cup-knocko.html",
+    "news/2026-06-29-einstein-probe-may-have-caught-a-black-hole-tearin.html",
+    "news/2026-06-29-scientists-discover-hidden-footprints-of-death-tha.html",
+    "news/2026-06-29-this-newly-discovered-ballista-spider-catapults-an.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -91,7 +94,10 @@
     "Early Humans May Have Used Fire 1.8 Million Years Ago, Nearly Doubling the Age of the Oldest Known Evidence for the Feat",
     "James Webb uncovers exotic salt clouds on a mysterious pink world",
     "You’ll Be More Than Amused by These 15 Photos of Theme Parks. Their Electrifying Attractions Will Have Your Heart Racing Before You Even Set Foot on a Ride",
-    "Late goal gives Canada first-ever World Cup knockout stage victory"
+    "Late goal gives Canada first-ever World Cup knockout stage victory",
+    "Einstein Probe may have caught a black hole tearing apart a white dwarf for the first time",
+    "Scientists discover hidden “footprints of death” that may help viruses spread",
+    "This newly discovered ballista spider catapults ants into a deadly trap"
   ],
   "articles": [
     {
@@ -576,6 +582,39 @@
       "agreement_pct": 62,
       "is_science": false,
       "source_icons": "🌍 🦅"
+    },
+    {
+      "slug": "news/2026-06-29-einstein-probe-may-have-caught-a-black-hole-tearin.html",
+      "title": "Einstein Probe may have caught a black hole tearing apart a white dwarf for the first time",
+      "display_title": "Einstein Probe may have caught a black hole tearing apart a white dwarf for the first time",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-scientists-discover-hidden-footprints-of-death-tha.html",
+      "title": "Scientists discover hidden “footprints of death” that may help viruses spread",
+      "display_title": "Scientists discover hidden “footprints of death” that may help viruses spread",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
+    },
+    {
+      "slug": "news/2026-06-29-this-newly-discovered-ballista-spider-catapults-an.html",
+      "title": "This newly discovered ballista spider catapults ants into a deadly trap",
+      "display_title": "This newly discovered ballista spider catapults ants into a deadly trap",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 31,
+      "is_science": true,
+      "source_icons": "🔬"
     }
   ]
 }
