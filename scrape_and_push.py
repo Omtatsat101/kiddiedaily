@@ -85,6 +85,10 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|pbm\s+lobby|pharmacy\s+benefit\s+manag'  # adult healthcare-policy lobbying
     r'|\bredistricti(?:ng|on)\s+ballot\b'  # local redistricting political news
     r'|dug\s+through.*deals?|last.minute.*deals?'  # last-minute deal roundups
+    r'|\bfilming\s+locations?\b'                 # TV/movie tourism ("6 House of Dragon filming locations")
+    r'|\bhighest.paid\s+job|best.paid\s+jobs?|highest.paying\s+job'  # adult salary content
+    r'|\bin\s+every\s+state.{0,15}mapped|mapped.{0,15}every\s+state'  # adult data maps
+    r'|\bsigns\s+with\s+\w|\btransfer\s+(?:fee|window|deal)\b'  # sports transfer gossip
     r')',
     re.I
 )
@@ -288,14 +292,16 @@ SOURCES = [
     {"name": "Atlas Obscura",       "url": "https://www.atlasobscura.com/feeds/latest",              "bias":  0.0, "icon": "🗺️"},
     # Mental Floss: fun facts, trivia, history oddities, science curiosities
     {"name": "Mental Floss",        "url": "https://www.mentalfloss.com/rss.xml",                    "bias":  0.0, "icon": "🧠"},
-    # Natural History Museum (London): dinosaurs, evolution, specimens, planet Earth
-    {"name": "NHM London",          "url": "https://www.nhm.ac.uk/discover/news.json.rss",           "bias":  0.0, "icon": "🦕"},
+    # Phys.org: broad science — physics, space, biology, chemistry, earth science
+    {"name": "Phys.org",            "url": "https://phys.org/rss-feed/",                             "bias":  0.0, "icon": "⚗️"},
     # IFLScience: accessible science news — animals, space, weird science, archaeology
-    {"name": "IFLScience",          "url": "https://www.iflscience.com/rss.xml",                     "bias":  0.0, "icon": "🧪"},
-    # American Museum of Natural History: anthropology, space, biodiversity, earth science
-    {"name": "AMNH",                "url": "https://www.amnh.org/explore/news-blogs/news-posts.rss", "bias":  0.0, "icon": "🏛"},
-    # Science Friday (NPR): science conversations, experiments, curiosity-driven stories
-    {"name": "Science Friday",      "url": "https://www.sciencefriday.com/feed/",                    "bias": -0.1, "icon": "🎙️"},
+    {"name": "IFLScience",          "url": "https://www.iflscience.com/feed/",                       "bias":  0.0, "icon": "🧪"},
+    # SciTechDaily: science & technology news aggregator — archaeology, space, biology, physics
+    {"name": "SciTechDaily",        "url": "https://scitechdaily.com/feed/",                         "bias":  0.0, "icon": "🏛"},
+    # Cosmos Magazine: quality science journalism — space, physics, biology, climate
+    {"name": "Cosmos Magazine",     "url": "https://cosmosmagazine.com/feed/",                       "bias":  0.0, "icon": "🎙️"},
+    # ZME Science: accessible science for curious minds — animals, space, paleontology
+    {"name": "ZME Science",         "url": "https://www.zmescience.com/feed/",                       "bias":  0.0, "icon": "🔬"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -433,7 +439,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "IFLScience", "SciTechDaily", "Cosmos Magazine", "ZME Science"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -547,6 +553,17 @@ DEPRIORITIZE_WORDS = [
     # IEEE member-profile / organizational content (not editorial news)
     "senior member", "product lifecycle", "ieee member", "member solves",
     "distinguished lecturer", "fellow elevation",
+    # Entertainment tourism / TV filming locations (not educational news)
+    "filming locations", "filming location", "film locations", "shot on location",
+    "where was filmed", "where they filmed",
+    # Adult career / salary content (not age-appropriate)
+    "highest-paid job", "highest paid job", "best-paid jobs", "best paid jobs",
+    "highest paying", "highest-paying", "top-paying", "top paying",
+    "salary by state", "salaries by state", "pay by state",
+    "in every state, mapped", "mapped by state", "every state mapped",
+    # Sports contract/transfer gossip (adult sports industry news)
+    "signs with", "signs for", "transfer fee", "transfer window",
+    "contract extension", "agrees deal", "seals deal",
     # IEEE organizational events, award ceremonies, training announcements
     "ieee awardee", "epics in ieee", "ieee's awards", "education week events",
     "virtual training course", "ieee rolls out",
