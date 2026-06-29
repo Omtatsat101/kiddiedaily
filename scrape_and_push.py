@@ -213,21 +213,24 @@ def fetch_rss(source):
         print(f"    ⚠ {source['name']}: {e}")
         return []
 
-    ATOM = "http://www.w3.org/2005/Atom"
+    ATOM  = "http://www.w3.org/2005/Atom"
+    RSS1  = "http://purl.org/rss/1.0/"
+    DC_NS = "http://purl.org/dc/elements/1.1/"
 
     def get_field(item, *tags):
         for tag in tags:
-            el = item.find(tag)
-            if el is not None and el.text:
-                return el.text.strip()
-            el = item.find(f"{{{ATOM}}}{tag}")
-            if el is not None and el.text:
-                return el.text.strip()
+            for ns in ("", ATOM, RSS1, DC_NS):
+                key = f"{{{ns}}}{tag}" if ns else tag
+                el = item.find(key)
+                if el is not None and el.text:
+                    return el.text.strip()
         return ""
 
     items = root.findall(".//item")
     if not items:
         items = root.findall(f".//{{{ATOM}}}entry")
+    if not items:
+        items = root.findall(f".//{{{RSS1}}}item")
 
     stories = []
     for item in items[:25]:
