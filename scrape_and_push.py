@@ -821,7 +821,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 @media(prefers-color-scheme:dark){html{background:#0f1117;color:#e2e8f0}header.kd{background:#0d2d54}a{color:#90cdf4}.byline,.kd-card-excerpt,.kd-bias-text{color:#a0aec0}.sources{background:#1a202c;border-left-color:#4a5568}footer.kd{background:#070c14}.kd-sc{background:#1a202c;border-color:#2d3748}.kd-sc h3 a{color:#90cdf4}h2{color:#a0c4ff;border-color:#2d3748}#search,#cat-search,#today-search{background:#1a202c;color:#e2e8f0;border-color:#4a5568}main{background:#0f1117}}
 @media print{header.kd,footer.kd,#kd-prog,.kd-skip,button,.kd-ham{display:none!important}main{max-width:100%!important;padding:0!important;margin:0!important}a{color:#000!important}h1,h2,h3{break-after:avoid}p{orphans:3;widows:3}.sources{border:1px solid #000;background:none!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
-''' + BIAS_CSS + '</style>\n<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">'
+''' + BIAS_CSS + '</style>\n<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#1a4d80"><meta name="theme-color" content="#0d2d54" media="(prefers-color-scheme:dark)">'
 
 HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
@@ -3817,6 +3817,42 @@ def main():
     upload("og-science.svg", _sci_svg, "[scraper] og:image — science articles")
     upload("og-news.svg", _news_svg, "[scraper] og:image — world news articles")
     print("  og:image SVGs deployed: og-science.svg, og-news.svg")
+
+    # 6k10. robots.txt — lets search engines crawl the site and find the sitemap
+    print(f"\n[6k10] Deploying robots.txt...")
+    _robots = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /data/\n"
+        "\n"
+        "Sitemap: https://kiddiedaily.com/sitemap.xml\n"
+    )
+    upload("robots.txt", _robots, "[scraper] robots.txt — allow crawl, point to sitemap")
+    print("  robots.txt deployed")
+
+    # 6k11. Web App Manifest — makes KiddieDaily installable as a PWA on mobile/desktop
+    print(f"\n[6k11] Deploying web app manifest...")
+    _manifest = json.dumps({
+        "name": "KiddieDaily",
+        "short_name": "KiddieDaily",
+        "description": "Daily kid-friendly news with bias indicators — no ads, no agenda",
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#0f172a",
+        "theme_color": "#1a4d80",
+        "icons": [
+            {
+                "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B0%3C/text%3E%3C/svg%3E",
+                "sizes": "any",
+                "type": "image/svg+xml",
+                "purpose": "any maskable"
+            }
+        ],
+        "categories": ["news", "education"],
+        "lang": "en-US"
+    }, indent=2)
+    upload("manifest.json", _manifest, "[scraper] PWA web app manifest")
+    print("  manifest.json deployed")
 
     # 7. Self-deploy: push this script to the kiddiedaily repo so GitHub Actions can find it
     print("\n[7] Self-deploying scraper script to repo...")
