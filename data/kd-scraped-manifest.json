@@ -331,7 +331,13 @@
     "news/2026-06-29-rollerena-new-yorks-fairy-godmother.html",
     "news/2026-06-29-the-making-of-the-muscular-farmer.html",
     "news/2026-06-29-why-did-this-journal-retract-two-1940s-papers-by-m.html",
-    "news/2026-06-29-antibiotic-megacluster-discovery-provides-new-stra.html"
+    "news/2026-06-29-antibiotic-megacluster-discovery-provides-new-stra.html",
+    "news/2026-06-29-our-ocean-conference-in-kenya-ends-with-64-billion.html",
+    "news/2026-06-29-bangladesh-tests-a-return-to-the-wild-for-extinct.html",
+    "news/2026-06-29-the-rise-and-fall-of-britains-muskrat-empire.html",
+    "news/2026-06-29-the-ghost-roads-of-irelands-great-famine.html",
+    "news/2026-06-29-feedbacks-upon-feedbacks-rock-weathering-and-the-c.html",
+    "news/2026-06-29-planet-orbits-so-close-to-its-star-that-their-magn.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -665,7 +671,13 @@
     "Rollerena: New York’s Fairy Godmother",
     "The Making of the Muscular Farmer",
     "Why did this journal retract two 1940s papers by Max Planck?",
-    "Antibiotic \"megacluster\" discovery provides new strategy to fight superbugs"
+    "Antibiotic \"megacluster\" discovery provides new strategy to fight superbugs",
+    "Our Ocean Conference in Kenya ends with $6.4 billion in pledges, review of past promises",
+    "Bangladesh tests a return to the wild for extinct peafowl populations",
+    "The Rise and Fall of Britain’s Muskrat Empire",
+    "The Ghost Roads of Ireland’s Great Famine",
+    "Feedbacks upon feedbacks: Rock weathering and the climate",
+    "Planet orbits so close to its star that their magnetic fields connect"
   ],
   "articles": [
     {
@@ -4301,6 +4313,72 @@
       "slug": "news/2026-06-29-antibiotic-megacluster-discovery-provides-new-stra.html",
       "title": "Antibiotic \"megacluster\" discovery provides new strategy to fight superbugs",
       "display_title": "Antibiotic \"megacluster\" discovery provides new strategy to fight superbugs",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-our-ocean-conference-in-kenya-ends-with-64-billion.html",
+      "title": "Our Ocean Conference in Kenya ends with $6.4 billion in pledges, review of past promises",
+      "display_title": "Our Ocean Conference in Kenya ends with $6.4 billion in pledges, review of past promises",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-bangladesh-tests-a-return-to-the-wild-for-extinct.html",
+      "title": "Bangladesh tests a return to the wild for extinct peafowl populations",
+      "display_title": "Bangladesh tests a return to the wild for extinct peafowl populations",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-the-rise-and-fall-of-britains-muskrat-empire.html",
+      "title": "The Rise and Fall of Britain’s Muskrat Empire",
+      "display_title": "The Rise and Fall of Britain’s Muskrat Empire",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-the-ghost-roads-of-irelands-great-famine.html",
+      "title": "The Ghost Roads of Ireland’s Great Famine",
+      "display_title": "The Ghost Roads of Ireland’s Great Famine",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
+    },
+    {
+      "slug": "news/2026-06-29-feedbacks-upon-feedbacks-rock-weathering-and-the-c.html",
+      "title": "Feedbacks upon feedbacks: Rock weathering and the climate",
+      "display_title": "Feedbacks upon feedbacks: Rock weathering and the climate",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-planet-orbits-so-close-to-its-star-that-their-magn.html",
+      "title": "Planet orbits so close to its star that their magnetic fields connect",
+      "display_title": "Planet orbits so close to its star that their magnetic fields connect",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
