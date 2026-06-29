@@ -484,7 +484,10 @@
     "news/2026-06-29-federal-officials-say-an-endangered-wetland-plant.html",
     "news/2026-06-29-millions-in-climate-investments-for-developing-cou.html",
     "news/2026-06-29-what-happened-when-an-lng-giant-came-to-town.html",
-    "news/2026-06-29-can-clusters-of-human-constructed-ponds-in-the-ari.html"
+    "news/2026-06-29-can-clusters-of-human-constructed-ponds-in-the-ari.html",
+    "news/2026-06-29-the-future-of-duxbury-reef.html",
+    "news/2026-06-29-how-mother-trees-nurture-our-forests.html",
+    "news/2026-06-29-a-midwest-mayor-joins-london-climate-week-as-a-rat.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -971,7 +974,10 @@
     "Federal Officials Say an Endangered Wetland Plant Is Recovering. Not Everyone Agrees.",
     "Millions in Climate Investments for Developing Countries Were Just Announced. It’s Not Nearly Enough.",
     "What Happened When an LNG Giant Came to Town",
-    "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?"
+    "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?",
+    "The Future of Duxbury Reef",
+    "How ‘Mother Trees’ Nurture Our Forests",
+    "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done"
   ],
   "articles": [
     {
@@ -6348,6 +6354,42 @@
       "slug": "news/2026-06-29-can-clusters-of-human-constructed-ponds-in-the-ari.html",
       "title": "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?",
       "display_title": "Can Clusters of Human-Constructed Ponds in the Arizona Desert Save a Threatened Frog?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-the-future-of-duxbury-reef.html",
+      "title": "The Future of Duxbury Reef",
+      "display_title": "The Future of Duxbury Reef",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-how-mother-trees-nurture-our-forests.html",
+      "title": "How ‘Mother Trees’ Nurture Our Forests",
+      "display_title": "How ‘Mother Trees’ Nurture Our Forests",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "Inside Climate News",
+      "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-a-midwest-mayor-joins-london-climate-week-as-a-rat.html",
+      "title": "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done",
+      "display_title": "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.4,
