@@ -313,7 +313,13 @@
     "news/2026-06-29-phages-could-enable-us-to-hijack-vaccine-immunity.html",
     "news/2026-06-29-hold-the-onions-and-see-if-they-make-you-cry.html",
     "news/2026-06-29-women-patrol-tanzanias-pemba-waters-in-a-community.html",
-    "news/2026-06-29-honduras-taps-armed-forces-to-eliminate-deforestat.html"
+    "news/2026-06-29-honduras-taps-armed-forces-to-eliminate-deforestat.html",
+    "news/2026-06-29-tropical-storm-arthur.html",
+    "news/2026-06-29-desert-field-test-with-nasa-advanced-rover-prototy.html",
+    "news/2026-06-29-the-17-best-popular-science-books-of-2026-so-far.html",
+    "news/2026-06-29-possible-signs-of-ancient-life-on-mars-are-rich-in.html",
+    "news/2026-06-29-french-court-orders-totalenergies-to-disclose-clim.html",
+    "news/2026-06-29-indias-fishers-confront-homegrown-ghost-gear-probl.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -629,7 +635,13 @@
     "Phages could enable us to hijack vaccine immunity to kill cancer cells",
     "Hold the onions – and see if they make you cry",
     "Women patrol Tanzania’s Pemba waters in a community-led push to protect the sea",
-    "Honduras taps armed forces to eliminate deforestation by 2029. Is it working?"
+    "Honduras taps armed forces to eliminate deforestation by 2029. Is it working?",
+    "Tropical Storm Arthur",
+    "Desert Field Test With NASA Advanced Rover Prototype",
+    "The 17 best popular science books of 2026 so far",
+    "Possible signs of ancient life on Mars are rich in complex carbon",
+    "French court orders TotalEnergies to disclose climate impacts in vigilance plan",
+    "India’s fishers confront homegrown ‘ghost gear’ problem"
   ],
   "articles": [
     {
@@ -4067,6 +4079,72 @@
       "slug": "news/2026-06-29-honduras-taps-armed-forces-to-eliminate-deforestat.html",
       "title": "Honduras taps armed forces to eliminate deforestation by 2029. Is it working?",
       "display_title": "Honduras taps armed forces to eliminate deforestation by 2029. Is it working?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-tropical-storm-arthur.html",
+      "title": "Tropical Storm Arthur",
+      "display_title": "Tropical Storm Arthur",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-desert-field-test-with-nasa-advanced-rover-prototy.html",
+      "title": "Desert Field Test With NASA Advanced Rover Prototype",
+      "display_title": "Desert Field Test With NASA Advanced Rover Prototype",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-the-17-best-popular-science-books-of-2026-so-far.html",
+      "title": "The 17 best popular science books of 2026 so far",
+      "display_title": "The 17 best popular science books of 2026 so far",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-possible-signs-of-ancient-life-on-mars-are-rich-in.html",
+      "title": "Possible signs of ancient life on Mars are rich in complex carbon",
+      "display_title": "Possible signs of ancient life on Mars are rich in complex carbon",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-french-court-orders-totalenergies-to-disclose-clim.html",
+      "title": "French court orders TotalEnergies to disclose climate impacts in vigilance plan",
+      "display_title": "French court orders TotalEnergies to disclose climate impacts in vigilance plan",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-indias-fishers-confront-homegrown-ghost-gear-probl.html",
+      "title": "India’s fishers confront homegrown ‘ghost gear’ problem",
+      "display_title": "India’s fishers confront homegrown ‘ghost gear’ problem",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.1,
