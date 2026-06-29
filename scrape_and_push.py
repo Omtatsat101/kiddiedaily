@@ -316,9 +316,11 @@ DEPRIORITIZE_WORDS = [
     # Business/finance research (not relevant for kids/parents' child-rearing decisions)
     "sales channel", "supply chain disruption", "quarterly earnings",
     "profit margin", "market share", "shareholder", "stock market", "hedge fund",
-    # Shopping/commercial content (product deals, reviews — not educational news)
+    # Shopping/commercial content and lifestyle (product deals, recipes, not educational news)
     "amazon prime", "deal days", "best deals", "sale ends", "buy now", "discount code",
     "prime day", "black friday", "cyber monday", "coupon", "promo code",
+    "perfectly cooked", "family cookout", "cookout with", "hot dog recipe", "bbq tips",
+    "this week in space podcast", "podcast: episode", "episode —",
     # Sports predictions/analysis (journalist opinion, not factual news)
     "predicts world cup", "world cup predictions", "team to beat",
     "sutton predicts", "expert predictions", "power rankings",
