@@ -54,6 +54,7 @@ _ADULT_TITLE_RE = re.compile(
     r'|suicide|overdose|opioid\s+overdose|drug\s+addict'
     r'|hiv\b'
     r'|hitler\b'
+    r'|sex\s+life|sex\s+lives'
     r')\b',
     re.I
 )
@@ -224,6 +225,8 @@ SOURCES = [
     {"name": "HistoryHit",          "url": "https://www.historyhit.com/feed/",                        "bias":  0.0, "icon": "🗺️"},
     # Ocean + coastal science: marine life, deep-sea, ocean ecology, coastal environment
     {"name": "Hakai Magazine",      "url": "https://hakaimagazine.com/feed/",                         "bias":  0.0, "icon": "🌊"},
+    # Math, physics, biology, CS — deep science for curious minds
+    {"name": "Quanta Magazine",     "url": "https://www.quantamagazine.org/feed/",                    "bias":  0.0, "icon": "🔷"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -342,7 +345,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -1842,7 +1845,15 @@ def generate_category_pages(manifest):
                     "autonomous vehicle", "self-driving", "exoskeleton", "prosthetic",
                     "wearable", "particle accelerator", "superconductor",
                     "deep learning", "neural network", "computer vision",
-                    "bionic", "microbot", "quantum computing", "quantum sensor"}
+                    "bionic", "microbot", "quantum computing", "quantum sensor",
+                    # Additional tech keywords for better classification coverage
+                    "solar cell", "solar panel", "energy storage", "supercapacitor",
+                    "spectroscop", "electron microscope", "carbon nanotube",
+                    "spacecraft design", "rocket engine", "space telescope",
+                    "imaging technique", "remote sensing", "carbon fiber",
+                    "molecular machine", "microfluidic", "lab-on-a-chip",
+                    "neutrino detector", "gravitational wave detector",
+                    "haptic", "augmented reality", "virtual reality"}
 
     def _matches(a, kw_set):
         haystack = (a.get("title", "") + " " + a.get("slug", "")).lower()
