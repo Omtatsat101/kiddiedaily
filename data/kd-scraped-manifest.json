@@ -489,7 +489,10 @@
     "news/2026-06-29-how-mother-trees-nurture-our-forests.html",
     "news/2026-06-29-a-midwest-mayor-joins-london-climate-week-as-a-rat.html",
     "news/2026-06-29-mamdani-backed-socialists-look-to-take-new-york-pl.html",
-    "news/2026-06-29-french-oil-major-failed-to-fulfill-vigilance-duty.html"
+    "news/2026-06-29-french-oil-major-failed-to-fulfill-vigilance-duty.html",
+    "news/2026-06-29-invasion-of-washington-ufo-tape-may-surface-as-law.html",
+    "news/2026-06-29-controversial-gondola-proposal-in-hawaii-halted-af.html",
+    "news/2026-06-29-luigi-mangione-returns-to-federal-court-as-jury-pl.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -981,7 +984,10 @@
     "How ‘Mother Trees’ Nurture Our Forests",
     "A Midwest Mayor Joins London Climate Week as a ‘Rational Optimist’ Who Aims to Get Things Done",
     "Mamdani-backed socialists look to take New York playbook nationwide and more top headlines",
-    "French Oil Major Failed to Fulfill ‘Vigilance’ Duty on Climate, Paris Court Rules"
+    "French Oil Major Failed to Fulfill ‘Vigilance’ Duty on Climate, Paris Court Rules",
+    "‘Invasion of Washington’ UFO tape may surface as lawmakers push release",
+    "Controversial gondola proposal in Hawaii halted after governor signs bill",
+    "Luigi Mangione returns to federal court as jury plans take shape"
   ],
   "articles": [
     {
@@ -6425,6 +6431,42 @@
       "is_science": false,
       "source_name": "Inside Climate News",
       "source_icons": "🌊"
+    },
+    {
+      "slug": "news/2026-06-29-invasion-of-washington-ufo-tape-may-surface-as-law.html",
+      "title": "‘Invasion of Washington’ UFO tape may surface as lawmakers push release",
+      "display_title": "‘Invasion of Washington’ UFO tape may surface as lawmakers push release",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-controversial-gondola-proposal-in-hawaii-halted-af.html",
+      "title": "Controversial gondola proposal in Hawaii halted after governor signs bill",
+      "display_title": "Controversial gondola proposal in Hawaii halted after governor signs bill",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-luigi-mangione-returns-to-federal-court-as-jury-pl.html",
+      "title": "Luigi Mangione returns to federal court as jury plans take shape",
+      "display_title": "Luigi Mangione returns to federal court as jury plans take shape",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
     }
   ]
 }
