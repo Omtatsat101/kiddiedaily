@@ -55,6 +55,8 @@ _ADULT_TITLE_RE = re.compile(
     r'|hiv\b'
     r'|hitler\b'
     r'|sex\s+life|sex\s+lives'
+    r'|sex\s+and\s+the\s+city'          # adult TV show personality quiz
+    r'|sopranos|breaking\s+bad|game\s+of\s+thrones|succession\s+character'  # adult TV quizzes
     r')\b',
     re.I
 )
@@ -91,6 +93,8 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\bsigns\s+with\s+\w|\btransfer\s+(?:fee|window|deal)\b'  # sports transfer gossip
     r'|\bscotus\b'                               # Supreme Court partisan politics
     r'|\brevenge\s+dress\b'                      # celebrity fashion events
+    r'|quiz\s*:\s*which\s+\w+\s+character\s+are\s+you'  # adult TV personality quizzes
+    r'|\bwhich\s+\w+\s+character\s+are\s+you\b'  # alternate quiz title pattern
     r'|\baverage\s+salary.{0,30}(?:rent|state|ranked)\b'  # adult housing/finance content
     r'|\brequired\s+bible|bible\s+stories?\s+(?:in|for|required|at)\b'  # church-state curriculum
     r'|\bchurch\s+and\s+state\b|\bseparation\s+of\s+church\b'  # church-state controversy
@@ -301,7 +305,7 @@ SOURCES = [
     # Sci-News: archaeology, paleontology, astronomy, biology discoveries
     {"name": "Sci-News",            "url": "https://www.sci.news/feed",                              "bias":  0.0, "icon": "⚗️"},
     # Earth.com: nature, wildlife, environment, ocean science, conservation
-    {"name": "Earth.com",           "url": "https://www.earth.com/feed/",                            "bias":  0.0, "icon": "🌍"},
+    {"name": "Earth.com",           "url": "https://www.earth.com/rss/",                             "bias":  0.0, "icon": "🌍"},
     # SciTechDaily: science & technology news aggregator — archaeology, space, biology, physics
     {"name": "SciTechDaily",        "url": "https://scitechdaily.com/feed/",                         "bias":  0.0, "icon": "🏛"},
     # Berkeley News: UC Berkeley research — physics, biology, environment, technology
@@ -591,6 +595,13 @@ DEPRIORITIZE_WORDS = [
     # Adult housing/rental market content
     "salary to rent", "salary needed to rent", "afford rent",
     "average rent", "rental market", "housing affordability",
+    # Millennial nostalgia / retro pop-culture (adult demographic, not kids)
+    "every millennial", "millennials remember", "millennial played",
+    "90s kids remember", "00s kids remember", "millennial classic",
+    "forgotten games", "retro game", "classic games",
+    # Academic lectures / podcast teasers (not news articles)
+    "berkeley talks", "berkeley talk:", "philosopher asks",
+    "is this our last",
     # IEEE organizational events, award ceremonies, training announcements
     "ieee awardee", "epics in ieee", "ieee's awards", "education week events",
     "virtual training course", "ieee rolls out",
