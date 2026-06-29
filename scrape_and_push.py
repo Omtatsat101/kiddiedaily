@@ -286,6 +286,16 @@ SOURCES = [
     {"name": "Science News Students", "url": "https://www.snexplores.org/feed",                      "bias":  0.0, "icon": "🔭"},
     # Weird wonders of the world: unusual places, lost history, strange science, discoveries
     {"name": "Atlas Obscura",       "url": "https://www.atlasobscura.com/feeds/latest",              "bias":  0.0, "icon": "🗺️"},
+    # Mental Floss: fun facts, trivia, history oddities, science curiosities
+    {"name": "Mental Floss",        "url": "https://www.mentalfloss.com/rss.xml",                    "bias":  0.0, "icon": "🧠"},
+    # Natural History Museum (London): dinosaurs, evolution, specimens, planet Earth
+    {"name": "NHM London",          "url": "https://www.nhm.ac.uk/discover/news.json.rss",           "bias":  0.0, "icon": "🦕"},
+    # IFLScience: accessible science news — animals, space, weird science, archaeology
+    {"name": "IFLScience",          "url": "https://www.iflscience.com/rss.xml",                     "bias":  0.0, "icon": "🧪"},
+    # American Museum of Natural History: anthropology, space, biodiversity, earth science
+    {"name": "AMNH",                "url": "https://www.amnh.org/explore/news-blogs/news-posts.rss", "bias":  0.0, "icon": "🏛"},
+    # Science Friday (NPR): science conversations, experiments, curiosity-driven stories
+    {"name": "Science Friday",      "url": "https://www.sciencefriday.com/feed/",                    "bias": -0.1, "icon": "🎙️"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -1234,6 +1244,14 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
 {body_html}
 {guide_html}
 {explore_html}
+<div style="margin:16px 0 24px;padding:14px 18px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;font-family:system-ui,sans-serif;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+<div style="font-size:26px">🎮</div>
+<div style="flex:1;min-width:160px">
+<strong style="font-size:14px;display:block;color:#92400e;margin-bottom:2px">Ready to test your knowledge?</strong>
+<span style="font-size:13px;color:#a16207">Play today's science quiz and word scramble on the Games page.</span>
+</div>
+<a href="/games/" style="background:#d97706;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;white-space:nowrap;font-weight:600">Play now &rarr;</a>
+</div>
 <div class="sources"><h4>Original Sources</h4><ul>{source_items}</ul></div>
 <p style="margin-top:16px;padding:10px 14px;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;font-size:13px">
 &#128269; <strong>Want to verify this story?</strong>
