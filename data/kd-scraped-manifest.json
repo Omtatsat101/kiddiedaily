@@ -377,7 +377,12 @@
     "news/2026-06-29-brazil-plays-japan-at-world-cup-knockouts-vinicius.html",
     "news/2026-06-29-australia-to-double-potential-fines-over-child-soc.html",
     "news/2026-06-29-the-download-europes-heat-wave-hits-the-grid-and-i.html",
-    "news/2026-06-29-the-download-brain-melting-heatwaves-and-unprecede.html"
+    "news/2026-06-29-the-download-brain-melting-heatwaves-and-unprecede.html",
+    "news/2026-06-29-what-europes-heat-wave-means-for-the-power-grid.html",
+    "news/2026-06-29-has-cornwalls-housing-crisis-created-a-van-life-ge.html",
+    "news/2026-06-29-heat-waves-mess-with-your-brain-scientists-are-try.html",
+    "news/2026-06-29-heatwave-and-high-humidity-to-blast-much-of-us-imp.html",
+    "news/2026-06-29-us-says-it-has-agreed-to-stand-down-after-exchange.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -757,7 +762,12 @@
     "Brazil plays Japan at World Cup knockouts: Vinicius, prediction and lineups",
     "Australia to double potential fines over child social media accounts",
     "The Download: Europe’s heat wave hits the grid, and IBM’s chip targets Moore’s Law",
-    "The Download: brain-melting heatwaves and unprecedented OpenAI restrictions"
+    "The Download: brain-melting heatwaves and unprecedented OpenAI restrictions",
+    "What Europe’s heat wave means for the power grid",
+    "Has Cornwall’s housing crisis created a van life generation?",
+    "Heat waves mess with your brain. Scientists are trying to figure out why.",
+    "Heatwave and high humidity to blast much of US: ‘impactful to anyone’",
+    "US says it has agreed to 'stand down' after exchange of strikes with Iran"
   ],
   "articles": [
     {
@@ -4905,6 +4915,61 @@
       "agreement_pct": 10,
       "is_science": true,
       "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-what-europes-heat-wave-means-for-the-power-grid.html",
+      "title": "What Europe’s heat wave means for the power grid",
+      "display_title": "What Europe’s heat wave means for the power grid",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-has-cornwalls-housing-crisis-created-a-van-life-ge.html",
+      "title": "Has Cornwall’s housing crisis created a van life generation?",
+      "display_title": "Has Cornwall’s housing crisis created a van life generation?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-heat-waves-mess-with-your-brain-scientists-are-try.html",
+      "title": "Heat waves mess with your brain. Scientists are trying to figure out why.",
+      "display_title": "Heat waves mess with your brain. Scientists are trying to figure out why.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-heatwave-and-high-humidity-to-blast-much-of-us-imp.html",
+      "title": "Heatwave and high humidity to blast much of US: ‘impactful to anyone’",
+      "display_title": "Heatwave and high humidity to blast much of US: ‘impactful to anyone’",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-us-says-it-has-agreed-to-stand-down-after-exchange.html",
+      "title": "US says it has agreed to 'stand down' after exchange of strikes with Iran",
+      "display_title": "US says it has agreed to 'stand down' after exchange of strikes with Iran",
+      "date": "2026-06-29",
+      "n_sources": 4,
+      "bias_avg": -0.25,
+      "agreement_pct": 42,
+      "is_science": false,
+      "source_icons": "🇬🇧 📻 ⚖️ 🌐"
     }
   ]
 }
