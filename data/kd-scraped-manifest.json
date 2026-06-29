@@ -492,7 +492,11 @@
     "news/2026-06-29-french-oil-major-failed-to-fulfill-vigilance-duty.html",
     "news/2026-06-29-invasion-of-washington-ufo-tape-may-surface-as-law.html",
     "news/2026-06-29-controversial-gondola-proposal-in-hawaii-halted-af.html",
-    "news/2026-06-29-luigi-mangione-returns-to-federal-court-as-jury-pl.html"
+    "news/2026-06-29-luigi-mangione-returns-to-federal-court-as-jury-pl.html",
+    "news/2026-06-29-what-are-supermassive-black-holes-everything-you-n.html",
+    "news/2026-06-29-what-20-million-bans-reveal-about-the-strain-on-wi.html",
+    "news/2026-06-29-como-las-ranitas-coqui-jovenes-equilibran-las-dema.html",
+    "news/2026-06-29-the-american-left-has-lost-its-mind-and-the-media.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -987,7 +991,11 @@
     "French Oil Major Failed to Fulfill ‘Vigilance’ Duty on Climate, Paris Court Rules",
     "‘Invasion of Washington’ UFO tape may surface as lawmakers push release",
     "Controversial gondola proposal in Hawaii halted after governor signs bill",
-    "Luigi Mangione returns to federal court as jury plans take shape"
+    "Luigi Mangione returns to federal court as jury plans take shape",
+    "What are supermassive black holes? Everything you need to know – and what astronomers are still learning – about these mysterious objects",
+    "What 20 million bans reveal about the strain on Wikipedia’s volunteers",
+    "¿Cómo las ranitas coquí jóvenes equilibran las demandas de crecimiento y de combatir enfermedades?",
+    "The American left has lost its mind, and the media seem unbothered"
   ],
   "articles": [
     {
@@ -6460,6 +6468,54 @@
       "slug": "news/2026-06-29-luigi-mangione-returns-to-federal-court-as-jury-pl.html",
       "title": "Luigi Mangione returns to federal court as jury plans take shape",
       "display_title": "Luigi Mangione returns to federal court as jury plans take shape",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 9,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-what-are-supermassive-black-holes-everything-you-n.html",
+      "title": "What are supermassive black holes? Everything you need to know – and what astronomers are still learning – about these mysterious objects",
+      "display_title": "What are supermassive black holes? Everything you need to know – and what astronomers are still learning – about these mysterious objects",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-what-20-million-bans-reveal-about-the-strain-on-wi.html",
+      "title": "What 20 million bans reveal about the strain on Wikipedia’s volunteers",
+      "display_title": "What 20 million bans reveal about the strain on Wikipedia’s volunteers",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-como-las-ranitas-coqui-jovenes-equilibran-las-dema.html",
+      "title": "¿Cómo las ranitas coquí jóvenes equilibran las demandas de crecimiento y de combatir enfermedades?",
+      "display_title": "¿Cómo las ranitas coquí jóvenes equilibran las demandas de crecimiento y de combatir enfermedades?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-the-american-left-has-lost-its-mind-and-the-media.html",
+      "title": "The American left has lost its mind, and the media seem unbothered",
+      "display_title": "The American left has lost its mind, and the media seem unbothered",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.1,
