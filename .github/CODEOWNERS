@@ -1,0 +1,6 @@
+# KiddieDaily CODEOWNERS
+# Automated content PRs (content/daily-news-*) have no human reviewer requirement.
+# All source code + workflow changes route to the repo owner.
+* @Omtatsat101
+scrape_and_push.py @Omtatsat101
+.github/ @Omtatsat101
