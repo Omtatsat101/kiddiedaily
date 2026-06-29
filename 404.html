@@ -99,8 +99,10 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <a href="https://kiddiego.com" rel="noopener">KiddieGo</a></div>
 </div>
 <div style="text-align:center;font-size:13px;color:#a0aec0;margin-top:24px">
-&copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project</div>
+&copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project<br>
+<span style="font-size:11px;opacity:.6">Press <kbd style="background:#1a3660;border:1px solid #2d4f80;border-radius:3px;padding:1px 5px;font-family:monospace">/</kbd> to search</span></div>
 </footer>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){var s=document.getElementById('kd-search-input')||document.getElementById('search');if(s){e.preventDefault();s.focus();}else{window.location='/search.html';}}});</script>
 <script>
 fetch('/data/kd-articles.json').then(function(r){return r.json();}).then(function(arts){
   var recent=arts.slice(0,4);
