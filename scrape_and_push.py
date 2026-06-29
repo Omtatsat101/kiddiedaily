@@ -77,6 +77,14 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|^this\s+week\s+on\s+'            # "This week on The Hill" / "This week on X" roundups
     r'|^[¿¡]'                           # Non-English articles (Spanish inverted punctuation)
     r'|^watch\s+newsround'              # BBC Newsround video-promo stub articles
+    r'|wine\s+club'                      # wine-lifestyle content (not for kids)
+    r'|oatmeal\s+(?:chocolate\s+chip\s+)?cookie|chocolate\s+chip\s+cookie'  # recipe content
+    r'|favorite\s+(?:recipe|oatmeal|cookie|meal)'  # personal recipe articles
+    r'|(?:joined|won\'t\s+last).*wine\s+club'  # wine-lifestyle narratives
+    r'|\bsheriff\s+addresses\b|\bsheriff.*latest\b'  # local-crime investigation news
+    r'|pbm\s+lobby|pharmacy\s+benefit\s+manag'  # adult healthcare-policy lobbying
+    r'|\bredistricti(?:ng|on)\s+ballot\b'  # local redistricting political news
+    r'|dug\s+through.*deals?|last.minute.*deals?'  # last-minute deal roundups
     r')',
     re.I
 )
@@ -2252,7 +2260,8 @@ def generate_category_pages(manifest):
 <meta property="og:url" content="https://kiddiedaily.com/news/{key}.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kiddiedaily.com/news/{key}.html">
-<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily {label} RSS" href="/feed/{key}.xml">
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily All News" href="/feed.xml">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://kiddiedaily.com"}},{{"@type":"ListItem","position":2,"name":"News","item":"https://kiddiedaily.com/news/"}},{{"@type":"ListItem","position":3,"name":"{label}","item":"https://kiddiedaily.com/news/{key}.html"}}]}}</script>
 {CSS}
 <style>
@@ -2284,7 +2293,8 @@ def generate_category_pages(manifest):
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
   <a href="/news/archive.html" style="color:#1a4d80">Full archive ({total} total)</a> &middot;
   <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
-  <a href="/feed.xml" style="color:#1a4d80">RSS feed</a>
+  <a href="/feed/{key}.xml" style="color:#1a4d80">{label} RSS feed</a> &middot;
+  <a href="/feed.xml" style="color:#718096">All news RSS</a>
 </p>
 </main>
 {FOOTER}
@@ -3207,6 +3217,19 @@ KiddieDaily publishes fresh kid-safe, bias-rated news every morning at <strong>6
 <a href="https://feedly.com/i/subscription/feed/https://kiddiedaily.com/feed.xml" rel="noopener nofollow" target="_blank" style="background:#2d8a3e;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-family:system-ui,sans-serif">Add to Feedly</a>
 </div>
 <p style="font-size:12px;color:#718096;margin:4px 0 0"><strong>How to use:</strong> In any RSS app, tap "Add feed" and paste the URL above. New articles appear automatically each morning.</p>
+<details style="margin-top:10px;cursor:pointer">
+<summary style="font-size:13px;font-weight:600;color:#1a4d80;list-style:none">&#9654; Browse by topic — individual category feeds</summary>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+<a href="/feed/science.xml" style="display:inline-flex;align-items:center;gap:4px;background:#d1fae5;color:#065f46;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">&#x1f52c; Science RSS</a>
+<a href="/feed/world.xml" style="display:inline-flex;align-items:center;gap:4px;background:#dbeafe;color:#1e40af;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">&#x1f30d; World RSS</a>
+<a href="/feed/space.xml" style="display:inline-flex;align-items:center;gap:4px;background:#ede9fe;color:#5b21b6;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">&#x1f680; Space RSS</a>
+<a href="/feed/animals.xml" style="display:inline-flex;align-items:center;gap:4px;background:#fef3c7;color:#92400e;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">&#x1f43e; Animals RSS</a>
+<a href="/feed/history.xml" style="display:inline-flex;align-items:center;gap:4px;background:#fce7f3;color:#9d174d;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">&#x1f3db; History RSS</a>
+<a href="/feed/environment.xml" style="display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">&#x1f33f; Environment RSS</a>
+<a href="/feed/technology.xml" style="display:inline-flex;align-items:center;gap:4px;background:#e0e7ff;color:#0369a1;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;font-family:system-ui,sans-serif">&#x1f4bb; Technology RSS</a>
+</div>
+<p style="font-size:12px;color:#718096;margin:8px 0 0">Each category feed updates automatically with new articles in that topic area.</p>
+</details>
 </div>
 </div>
 </div>
