@@ -401,7 +401,11 @@
     "news/2026-06-29-analysis-uk-sales-of-electric-vehicles-just-overto.html",
     "news/2026-06-29-guest-post-how-us-renewable-energy-growth-persists.html",
     "news/2026-06-29-mombasa-key-outcomes-from-the-our-ocean-conference.html",
-    "news/2026-06-29-ccc-faster-electrification-of-uk-will-put-money-ba.html"
+    "news/2026-06-29-ccc-faster-electrification-of-uk-will-put-money-ba.html",
+    "news/2026-06-29-toward-experiment-guided-alphafold-researchers-ove.html",
+    "news/2026-06-29-south-korea-unveils-880bn-chip-and-ai-investment-p.html",
+    "news/2026-06-29-watch-world-cup-day-18-canada-beats-south-africa-t.html",
+    "news/2026-06-29-venezuela-earthquake-aid-ramps-up-as-rescue-window.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -805,7 +809,11 @@
     "Analysis: UK sales of electric vehicles just overtook petrol cars for the first time",
     "Guest post: How US renewable-energy growth persists despite federal policy uncertainty",
     "Mombasa: Key outcomes from the Our Ocean Conference in Kenya",
-    "CCC: Faster electrification of UK will ‘put money back into people’s pockets’"
+    "CCC: Faster electrification of UK will ‘put money back into people’s pockets’",
+    "Toward experiment-guided AlphaFold: Researchers overcome AI tool's single-conformation limitation",
+    "South Korea unveils $880bn chip and AI investment plan",
+    "Watch World Cup Day 18: Canada beats South Africa, through to last 16",
+    "Venezuela earthquake: Aid ramps up as rescue window closes"
   ],
   "articles": [
     {
@@ -5217,6 +5225,50 @@
       "agreement_pct": 10,
       "is_science": false,
       "source_icons": "🌿"
+    },
+    {
+      "slug": "news/2026-06-29-toward-experiment-guided-alphafold-researchers-ove.html",
+      "title": "Toward experiment-guided AlphaFold: Researchers overcome AI tool's single-conformation limitation",
+      "display_title": "Toward experiment-guided AlphaFold: Researchers overcome AI tool's single-conformation limitation",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-south-korea-unveils-880bn-chip-and-ai-investment-p.html",
+      "title": "South Korea unveils $880bn chip and AI investment plan",
+      "display_title": "South Korea unveils $880bn chip and AI investment plan",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.35,
+      "agreement_pct": 21,
+      "is_science": false,
+      "source_icons": "🇬🇧 🌍"
+    },
+    {
+      "slug": "news/2026-06-29-watch-world-cup-day-18-canada-beats-south-africa-t.html",
+      "title": "Watch World Cup Day 18: Canada beats South Africa, through to last 16",
+      "display_title": "Watch World Cup Day 18: Canada beats South Africa, through to last 16",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": 0.45,
+      "agreement_pct": 21,
+      "is_science": false,
+      "source_icons": "🌍 🦅"
+    },
+    {
+      "slug": "news/2026-06-29-venezuela-earthquake-aid-ramps-up-as-rescue-window.html",
+      "title": "Venezuela earthquake: Aid ramps up as rescue window closes",
+      "display_title": "Venezuela earthquake: Aid ramps up as rescue window closes",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": false,
+      "source_icons": "🌐"
     }
   ]
 }
