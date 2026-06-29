@@ -470,7 +470,8 @@
     "news/2026-06-29-the-good-life-actress-dame-penelope-keith-dies-age.html",
     "news/2026-06-29-how-ieee-awardee-karen-panetta-became-bewitched-by.html",
     "news/2026-06-29-war-taught-this-ukrainian-entrepreneur-the-value-o.html",
-    "news/2026-06-29-award-winning-researcher-trains-robots-to-make-edu.html"
+    "news/2026-06-29-award-winning-researcher-trains-robots-to-make-edu.html",
+    "news/2026-06-29-epics-in-ieees-awards-honor-outstanding-students-a.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -943,7 +944,8 @@
     "The Good Life actress Dame Penelope Keith dies aged 86",
     "How IEEE Awardee Karen Panetta Became Bewitched by Engineering",
     "War Taught this Ukrainian Entrepreneur the Value of Resilience",
-    "Award-Winning Researcher Trains Robots to Make Educated Guesses"
+    "Award-Winning Researcher Trains Robots to Make Educated Guesses",
+    "EPICS in IEEE’s Awards Honor Outstanding Students and Faculty"
   ],
   "articles": [
     {
@@ -6152,6 +6154,18 @@
       "slug": "news/2026-06-29-award-winning-researcher-trains-robots-to-make-edu.html",
       "title": "Award-Winning Researcher Trains Robots to Make Educated Guesses",
       "display_title": "Award-Winning Researcher Trains Robots to Make Educated Guesses",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_name": "IEEE Spectrum",
+      "source_icons": "⚡"
+    },
+    {
+      "slug": "news/2026-06-29-epics-in-ieees-awards-honor-outstanding-students-a.html",
+      "title": "EPICS in IEEE’s Awards Honor Outstanding Students and Faculty",
+      "display_title": "EPICS in IEEE’s Awards Honor Outstanding Students and Faculty",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
