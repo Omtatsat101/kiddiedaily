@@ -568,7 +568,8 @@
     "news/2026-06-29-pithos-burial-discovered-at-hadrianopolis.html",
     "news/2026-06-29-the-defiant-sovereignty-of-queen-jane.html",
     "news/2026-06-29-holbeins-hidden-code-secrets-of-the-tudor-ambassad.html",
-    "news/2026-06-29-new-medieval-books-the-north-caucasian-kingdom-of.html"
+    "news/2026-06-29-new-medieval-books-the-north-caucasian-kingdom-of.html",
+    "news/2026-06-29-us-india-trade-deal-inside-the-key-sticking-points.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1139,7 +1140,8 @@
     "Pithos Burial Discovered at Hadrianopolis",
     "The Defiant Sovereignty of Queen Jane",
     "Holbein’s Hidden Code: Secrets of the Tudor Ambassadors",
-    "New Medieval Books: The North Caucasian Kingdom of Alania, 850–1240"
+    "New Medieval Books: The North Caucasian Kingdom of Alania, 850–1240",
+    "US-India trade deal: Inside the key sticking points"
   ],
   "articles": [
     {
@@ -7531,6 +7533,18 @@
       "is_science": true,
       "source_name": "Medievalists",
       "source_icons": "⚔️"
+    },
+    {
+      "slug": "news/2026-06-29-us-india-trade-deal-inside-the-key-sticking-points.html",
+      "title": "US-India trade deal: Inside the key sticking points",
+      "display_title": "US-India trade deal: Inside the key sticking points",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 8,
+      "is_science": false,
+      "source_name": "DW News",
+      "source_icons": "🌐"
     }
   ]
 }
