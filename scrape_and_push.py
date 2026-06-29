@@ -213,6 +213,8 @@ SOURCES = [
     {"name": "Inside Climate News", "url": "https://insideclimatenews.org/feed/",                  "bias": -0.4, "icon": "🌊"},
     # Academic journalism — science/space/tech explainers written by researchers
     {"name": "The Conversation",    "url": "https://theconversation.com/us/technology/articles.atom", "bias": -0.2, "icon": "🎓"},
+    # Deep-dive science journalism: paleontology, space, ecology, evolution, discovery
+    {"name": "Nautilus",            "url": "https://nautil.us/feed/",                                 "bias":  0.0, "icon": "🔵"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -331,7 +333,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -418,6 +420,10 @@ DEPRIORITIZE_WORDS = [
     "panopticon",
     # Entrepreneur motivational-profile articles
     "the value of resilience", "taught me about resilience",
+    # Political opinion framing about corporate/institutional positions (not kids science)
+    "climate denial", "legacy of climate",
+    # Entertainment ranking listicles (not news, not educational)
+    "worst to best", "ranked from worst",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
@@ -1772,7 +1778,7 @@ def generate_category_pages(manifest):
         "mesopotamia", "sumerian", "babylonian", "assyrian", "persian empire",
         # Peoples & civilizations
         "viking", "roman", "greek", "pharaoh", "mayan", "aztec", "inca", "mongol",
-        "neanderthal", "homo naledi", "homo sapiens", "hominid",
+        "neanderthal", "homo naledi", "homo sapiens", "hominid", "hominin",
         "native american", "indigenous", "colonial",
         "samurai", "shogun", "ptolemaic", "norse", "celtic", "druid",
         "greek mythology", "roman mythology", "norse mythology",
