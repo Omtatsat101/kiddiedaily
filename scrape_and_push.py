@@ -144,6 +144,10 @@ SOURCES = [
     {"name": "NASA",          "url": "https://www.nasa.gov/rss/dyn/breaking_news.rss",          "bias":  0.0, "icon": "🚀"},
     {"name": "Science Daily", "url": "https://www.sciencedaily.com/rss/all.xml",               "bias":  0.0, "icon": "🔬"},
     {"name": "Smithsonian",   "url": "https://www.smithsonianmag.com/rss/latest_articles/",    "bias": -0.1, "icon": "🏛️"},
+    # Extended science + educational sources (bias ≈ 0, topic-safe)
+    {"name": "Science News",  "url": "https://www.sciencenews.org/feed",                       "bias":  0.0, "icon": "📡"},
+    {"name": "EarthSky",      "url": "https://earthsky.org/feed/",                             "bias":  0.0, "icon": "🌏"},
+    {"name": "Live Science",  "url": "https://www.livescience.com/feeds/all",                  "bias":  0.0, "icon": "🧬"},
 ]
 
 # ── Kid-safety filter ──────────────────────────────────────────────────────────
@@ -241,7 +245,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -2135,9 +2139,17 @@ def main():
     print(f"\n[5] Generating articles (max {MAX_ARTICLES} per run)...")
     pushed_count = 0
 
+    MIN_SCORE = 1  # skip topics that rank ≤ 0 (political, low-signal, single-source noise)
+    skipped_low = 0
+
     for group in groups:
         if pushed_count >= MAX_ARTICLES:
             break
+
+        # Skip groups that score too low (political noise, single-source political stories)
+        if ranking_score(group) < MIN_SCORE:
+            skipped_low += 1
+            continue
 
         rep = group[0]
         slug = make_slug(rep["title"], today)
@@ -2185,6 +2197,9 @@ def main():
                 "source_icons": icons,
             })
             pushed_count += 1
+
+    if skipped_low:
+        print(f"\n    Skipped {skipped_low} low-score topics (political/noise below threshold)")
 
     # 6. Save manifest (always if changed: new articles OR migration)
     manifest_dirty = pushed_count > 0 or "articles" in manifest
