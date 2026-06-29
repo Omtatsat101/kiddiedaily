@@ -2900,49 +2900,70 @@ def generate_games_page(manifest):
     articles = manifest.get("articles", [])
     sci_articles = [a for a in articles if a.get("is_science")]
     world_articles = [a for a in articles if not a.get("is_science")]
-    # Pick 5 quiz articles: 4 recent science + 1 recent world news (for variety)
-    # Spread selection across the recent pool to avoid always same articles
-    recent_sci = sci_articles[-20:] if len(sci_articles) >= 20 else sci_articles
-    step = max(1, len(recent_sci) // 4)
-    quiz_sci = [recent_sci[min(i * step, len(recent_sci) - 1)] for i in range(4)]
-    quiz_world = world_articles[-2:] if world_articles else []
-    quiz_pool = (quiz_sci + quiz_world[:1])[:5]
+    # Pick 8 quiz articles: 6 recent science + 2 recent world news
+    recent_sci = sci_articles[-30:] if len(sci_articles) >= 30 else sci_articles
+    step = max(1, len(recent_sci) // 6)
+    quiz_sci = [recent_sci[min(i * step, len(recent_sci) - 1)] for i in range(6)]
+    quiz_world = world_articles[-3:] if world_articles else []
+    quiz_pool = (quiz_sci + quiz_world[:2])[:8]
 
     stop = {"about", "their", "these", "those", "would", "could", "which", "where",
             "there", "after", "other", "first", "world", "using", "study", "finds",
             "found", "shows", "says", "that", "have", "with", "from", "this", "will",
             "into", "been", "more", "also", "than", "when", "were", "they"}
 
-    def _quiz_item(a, idx):
+    def _extract_kws(a):
         title = a.get("display_title", a.get("title", ""))
-        words = [w.capitalize() for w in re.sub(r"[^\w\s]", "", title.lower()).split()
-                 if len(w) > 4 and w not in stop]
-        keyword = words[0] if words else "Science"
-        # Build 3 multiple-choice options (A = correct, B/C = plausible distractors)
-        distractors = [
-            ("It happened a million years ago", "An ancient event"),
-            ("It\'s about extreme weather", "A weather story"),
-            ("Scientists changed their minds", "A retraction"),
-            ("It involves a new invention", "A technology story"),
-            ("It\'s about an endangered animal", "An animals story"),
-        ]
-        b_text, c_text = distractors[idx % len(distractors)]
+        return [w.capitalize() for w in re.sub(r"[^\w\s]", "", title.lower()).split()
+                if len(w) > 4 and w not in stop]
+
+    # Pre-compute keywords for all articles so distractors come from other real headlines
+    all_kws = [_extract_kws(a) for a in quiz_pool]
+    # Rotate correct answer C→A→B→... so it's never always option A
+    _pos_cycle = [2, 0, 1]
+    correct_positions = [_pos_cycle[i % 3] for i in range(len(quiz_pool))]
+
+    def _quiz_item(a, idx, correct_pos):
+        title = a.get("display_title", a.get("title", ""))
+        my_kws = all_kws[idx]
+        keyword = my_kws[0] if my_kws else "Science"
+        correct_text = f"About {keyword}"
+        # Distractors drawn from keywords in other quiz articles (never this article's keyword)
+        other_kws = [all_kws[j][0] for j in range(len(all_kws)) if j != idx and all_kws[j]]
+        if len(other_kws) < 2:
+            other_kws += ["Ancient History", "Space Exploration", "Technology", "Animals", "Environment"]
+        d1 = f"About {other_kws[idx % len(other_kws)]}"
+        d2 = f"About {other_kws[(idx + max(1, len(other_kws) // 2)) % len(other_kws)]}"
+        labels = ["A", "B", "C"]
+        val_codes = ["a", "b", "c"]
+        options = ["", "", ""]
+        options[correct_pos] = correct_text
+        d_slots = [i for i in range(3) if i != correct_pos]
+        options[d_slots[0]] = d1
+        options[d_slots[1]] = d2
+        opts_html = "".join(
+            f'<label style="cursor:pointer;font-size:14px;color:#2d3748">'
+            f'<input type="radio" name="q{idx}" value="{val_codes[i]}" style="margin-right:8px"> '
+            f'{labels[i]}) {options[i]}</label>\n'
+            for i in range(3)
+        )
         return (
+            val_codes[correct_pos],
             f'<div class="quiz-q" id="q{idx}" style="background:#fff;border:1px solid #dde4ef;'
             f'border-radius:10px;padding:16px 20px;margin:12px 0">'
             f'<p style="font-weight:700;font-size:15px;color:#1a4d80;margin:0 0 12px">'
             f'Q{idx+1}. What is this headline about?<br>'
             f'<span style="font-style:italic;font-weight:400;color:#2d3748">&ldquo;{title[:90]}{"…" if len(title)>90 else ""}&rdquo;</span></p>'
             f'<div style="display:flex;flex-direction:column;gap:8px">'
-            f'<label style="cursor:pointer;font-size:14px;color:#2d3748"><input type="radio" name="q{idx}" value="a" style="margin-right:8px"> A) About {keyword}</label>'
-            f'<label style="cursor:pointer;font-size:14px;color:#2d3748"><input type="radio" name="q{idx}" value="b" style="margin-right:8px"> B) {b_text}</label>'
-            f'<label style="cursor:pointer;font-size:14px;color:#2d3748"><input type="radio" name="q{idx}" value="c" style="margin-right:8px"> C) {c_text}</label>'
+            f'{opts_html}'
             f'</div>'
             f'<div id="q{idx}-result" style="margin-top:10px;padding:8px 12px;border-radius:6px;display:none;font-size:14px"></div>'
             f'</div>'
         )
 
-    quiz_html = "\n".join(_quiz_item(a, i) for i, a in enumerate(quiz_pool))
+    items = [_quiz_item(a, i, correct_positions[i]) for i, a in enumerate(quiz_pool)]
+    correct_vals_js = "[" + ",".join(f'"{it[0]}"' for it in items) + "]"
+    quiz_html = "\n".join(it[1] for it in items)
 
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -2974,18 +2995,20 @@ Learn to read news like a pro — because critical thinking is a superpower.
 {quiz_html if quiz_html else '<p style="color:#718096">No quiz available yet — check back after 6am ET!</p>'}
 </div>
 {f"""<button onclick="(function(){{
-  var score=0,total={len(quiz_pool)};
-  {''.join(f"""
-  (function(){{
-    var el=document.querySelector('input[name=q{i}]:checked');
-    var res=document.getElementById('q{i}-result');
+  var ans={correct_vals_js},score=0,total={len(quiz_pool)};
+  for(var i=0;i<total;i++){{
+    var el=document.querySelector('input[name=q'+i+']:checked');
+    var res=document.getElementById('q'+i+'-result');
     res.style.display='block';
-    if(el&&el.value==='a'){{score++;res.style.background='#d1fae5';res.style.color='#065f46';res.innerHTML='&#9989; Correct! The headline is about a science discovery.'}}
-    else{{res.style.background='#fee2e2';res.style.color='#c53030';res.innerHTML='&#10060; Not quite — this was a science story. Read the full article to learn more!'}}
-  }})();""" for i in range(len(quiz_pool)))}
-  alert('You got '+score+' out of '+total+'! '+(score===total?'Perfect score!':score>=total/2?'Good job — keep reading!':'Keep practicing by reading KiddieDaily every day!'));
+    if(el&&el.value===ans[i]){{score++;res.style.background='#d1fae5';res.style.color='#065f46';res.innerHTML='&#9989; Correct!'}}
+    else{{res.style.background='#fee2e2';res.style.color='#c53030';res.innerHTML='&#10060; Not quite &#8212; read the full article to learn more!'}}
+  }}
+  var s=document.getElementById('quiz-summary');
+  s.style.display='block';
+  s.innerHTML='<strong>You got '+score+' out of '+total+'!</strong> '+(score===total?'&#127881; Perfect score!':score>=Math.ceil(total/2)?'&#128077; Good job &#8212; keep reading!':'&#128218; Keep practicing by reading KiddieDaily every day!');
 }})()" style="margin-top:14px;background:#1a4d80;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-size:14px;cursor:pointer;font-family:system-ui,sans-serif">
-Check My Answers</button>""" if quiz_pool else ""}
+Check My Answers</button>
+<div id="quiz-summary" style="display:none;margin-top:14px;padding:14px 18px;border-radius:8px;background:#eff6ff;color:#1e40af;font-size:15px;font-family:system-ui,sans-serif"></div>""" if quiz_pool else ""}
 </div>
 
 <div class="game-card">
@@ -3054,7 +3077,7 @@ Check My Answers</button>""" if quiz_pool else ""}
 </body></html>"""
 
     upload("games/index.html", page, "[scraper] Games / media literacy activities page")
-    print(f"  Games page: {len(quiz_pool)} quiz questions ({len(quiz_sci)} science + {len(quiz_world[:1])} world)")
+    print(f"  Games page: {len(quiz_pool)} quiz questions ({len([a for a in quiz_pool if a.get('is_science')])} science + {len([a for a in quiz_pool if not a.get('is_science')])} world)")
 
 
 def generate_search_page(manifest):
