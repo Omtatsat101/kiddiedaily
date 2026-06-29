@@ -343,7 +343,13 @@
     "news/2026-06-29-the-atlas-behind-the-revolution.html",
     "news/2026-06-29-how-sicilian-sulfur-fueled-the-industrial-revoluti.html",
     "news/2026-06-29-the-sad-inevitability-of-europes-heat-wave.html",
-    "news/2026-06-29-new-effort-will-get-genome-sequences-for-entire-en.html"
+    "news/2026-06-29-new-effort-will-get-genome-sequences-for-entire-en.html",
+    "news/2026-06-29-seizures-reveal-macabre-grey-parrot-blood-trade-in.html",
+    "news/2026-06-29-amazon-floodplains-cocoa-offers-a-climate-resilien.html",
+    "news/2026-06-29-every-homo-naledi-we-know-of-is-female-and-the-imp.html",
+    "news/2026-06-29-experimental-wine-bottle-tracks-oxygen-moving-thro.html",
+    "news/2026-06-29-france-records-around-1000-additional-deaths-as-ex.html",
+    "news/2026-06-29-when-did-presidents-start-traveling-abroad.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -689,7 +695,13 @@
     "The Atlas Behind the Revolution",
     "How Sicilian Sulfur Fueled the Industrial Revolution",
     "The \"sad inevitability\" of Europe's heat wave",
-    "New effort will get genome sequences for entire Endangered Species list"
+    "New effort will get genome sequences for entire Endangered Species list",
+    "Seizures reveal macabre grey parrot blood trade in Cameroon",
+    "Amazon floodplains cocoa offers a climate-resilient and sustainable chocolate",
+    "Every Homo naledi we know of is female, and the implications are fascinating",
+    "Experimental wine bottle tracks oxygen moving through the cork",
+    "France records around 1,000 additional deaths as extreme heat sets European records",
+    "When Did Presidents Start Traveling Abroad?"
   ],
   "articles": [
     {
@@ -4463,6 +4475,72 @@
       "agreement_pct": 11,
       "is_science": true,
       "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-seizures-reveal-macabre-grey-parrot-blood-trade-in.html",
+      "title": "Seizures reveal macabre grey parrot blood trade in Cameroon",
+      "display_title": "Seizures reveal macabre grey parrot blood trade in Cameroon",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-amazon-floodplains-cocoa-offers-a-climate-resilien.html",
+      "title": "Amazon floodplains cocoa offers a climate-resilient and sustainable chocolate",
+      "display_title": "Amazon floodplains cocoa offers a climate-resilient and sustainable chocolate",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-every-homo-naledi-we-know-of-is-female-and-the-imp.html",
+      "title": "Every Homo naledi we know of is female, and the implications are fascinating",
+      "display_title": "Every Homo naledi we know of is female, and the implications are fascinating",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-experimental-wine-bottle-tracks-oxygen-moving-thro.html",
+      "title": "Experimental wine bottle tracks oxygen moving through the cork",
+      "display_title": "Experimental wine bottle tracks oxygen moving through the cork",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-france-records-around-1000-additional-deaths-as-ex.html",
+      "title": "France records around 1,000 additional deaths as extreme heat sets European records",
+      "display_title": "France records around 1,000 additional deaths as extreme heat sets European records",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.15,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📺 🦁"
+    },
+    {
+      "slug": "news/2026-06-29-when-did-presidents-start-traveling-abroad.html",
+      "title": "When Did Presidents Start Traveling Abroad?",
+      "display_title": "When Did Presidents Start Traveling Abroad?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "📚"
     }
   ]
 }
