@@ -505,6 +505,21 @@ DEPRIORITIZE_WORDS = [
     # Tech-industry lobbying / regulatory affairs (not kids-relevant)
     "antitrust case", "sec charges", "ftc sues", "doj sues", "regulatory fine",
     "billion-dollar fine", "billion fine",
+    # Military organization names used as story subjects (not science/world-event framing)
+    "pentagon", "nato summit", "nato alliance",
+    "department of defense", "defense secretary", "joint chiefs",
+    # Military personnel loss framing (not appropriate for kids)
+    "missing soldier", "missing sailor", "missing marine", "missing airman",
+    "lost at sea", "killed in action", "fallen soldier",
+    # Geopolitical sanctions / diplomatic confrontation
+    "sanctions imposed", "sanctions lifted", "economic sanctions",
+    "expelled the ambassador", "summoned the ambassador",
+    # Prison / incarceration stories
+    "prison sentence", "sentenced to prison", "life sentence",
+    "death row", "death penalty", "capital punishment",
+    # Extremist / terror content
+    "terrorist attack", "terror plot", "extremist group",
+    "jihad", "isis", "al-qaeda", "boko haram",
 ]
 
 # Max absolute bias for world news articles (highly partisan sources get skipped)
@@ -2370,58 +2385,147 @@ def generate_articles_json(manifest):
 def generate_daily_digest(manifest, today):
     articles = manifest.get("articles", [])
     todays = [a for a in articles if a.get("date") == today]
+    n_today = len(todays)
     if not todays:
         print("  Digest: no articles for today, skipping")
         return
 
-    rows = []
-    for a in todays:
-        slug  = a["slug"]
-        title = a.get("display_title", a.get("title", ""))
-        is_sci = a.get("is_science", False)
-        cat   = "Science" if is_sci else "World News"
-        n     = a.get("n_sources", 1)
-        bias  = a.get("bias_avg", 0.0)
-        bias_label = "Center" if abs(bias) < 0.3 else ("Left-leaning" if bias < 0 else "Right-leaning")
-        rows.append(
-            f'<tr>'
-            f'<td style="padding:10px 8px;border-bottom:1px solid #e5e7eb">'
-            f'<strong><a href="https://kiddiedaily.com/{slug}" style="color:#1a4d80">{title}</a></strong><br>'
-            f'<span style="font-size:12px;color:#718096">{cat} &middot; {n} source{"s" if n!=1 else ""} &middot; Bias: {bias_label} ({bias:+.1f})</span>'
-            f'</td>'
-            f'</tr>'
-        )
-
+    # Dynamic JS shell — fetches /data/kd-articles.json at runtime and filters to today
+    # Keeps dated digest pages at ~9KB instead of 200-300KB for high-activity days
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>KiddieDaily Digest — {today}</title>
-<meta name="description" content="KiddieDaily daily digest for {today} — {len(todays)} stories for families.">
+<title>KiddieDaily — {today} Daily Digest</title>
+<meta name="description" content="KiddieDaily daily digest for {today} — kid-safe, bias-rated news for families.">
+<meta property="og:title" content="KiddieDaily Daily Digest — {today}">
+<meta property="og:description" content="Today's kid-friendly news — bias-rated and fact-check linked.">
+<meta property="og:url" content="https://kiddiedaily.com/digest/{today}.html">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://kiddiedaily.com/digest/{today}.html">
-</head>
-<body style="margin:0;font-family:Georgia,serif;background:#f0f4f8;color:#2d3748">
-<div style="max-width:640px;margin:40px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1)">
-  <div style="background:#1a4d80;padding:28px 32px">
-    <h1 style="margin:0;color:#ffd700;font-size:26px;letter-spacing:-0.5px">KiddieDaily</h1>
-    <p style="margin:4px 0 0;color:#a0c4e8;font-family:system-ui,sans-serif;font-size:14px">Daily digest for families &middot; {today}</p>
-  </div>
-  <div style="padding:24px 32px">
-    <p style="font-size:14px;color:#4a5568;font-family:system-ui,sans-serif;margin:0 0 20px">
-      Today's {len(todays)} kid-friendly stories — bias-rated and fact-check linked.
-    </p>
-    <table style="width:100%;border-collapse:collapse">{"".join(rows)}</table>
-    <div style="margin-top:24px;padding:14px 16px;background:#f7fafc;border-radius:8px;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568">
-      <strong>How to read the bias rating:</strong> -2 = far left &nbsp;|&nbsp; 0 = center &nbsp;|&nbsp; +2 = far right.
-      Sources = how many of our 8 monitored outlets covered the same story.
-    </div>
-    <p style="text-align:center;margin-top:20px;font-family:system-ui,sans-serif;font-size:13px;color:#718096">
-      <a href="https://kiddiedaily.com/news/" style="color:#1a4d80">Read all news</a> &middot;
-      <a href="https://kiddiedaily.com/feed.xml" style="color:#1a4d80">Subscribe via RSS</a>
-    </p>
-  </div>
+<link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
+{CSS}
+<style>
+.dig-card{{background:#fff;border:1px solid #dde4ef;border-radius:10px;padding:14px 18px 10px;margin:8px 0;box-shadow:0 1px 4px rgba(0,0,0,.06)}}
+.dig-card h3{{margin:0 0 4px;font-size:15px}}
+.dig-card h3 a{{color:#1a4d80;text-decoration:none}}
+.dig-card h3 a:hover{{text-decoration:underline}}
+.dig-meta{{font-size:12px;color:#718096;font-family:system-ui,sans-serif}}
+.dig-sci{{border-left:3px solid #059669}}
+.dig-world{{border-left:3px solid #1d4ed8}}
+.dig-section-hdr{{font-size:18px;font-weight:700;margin:24px 0 10px;padding-bottom:6px;font-family:system-ui,sans-serif}}
+.dig-section-hdr.sci{{color:#065f46;border-bottom:2px solid #d1fae5}}
+.dig-section-hdr.world{{color:#1e40af;border-bottom:2px solid #dbeafe}}
+#dig-count{{font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px;min-height:20px}}
+</style>
+</head><body>
+{HEADER}
+<main id="main">
+<h1 style="font-size:28px;margin-bottom:4px">Daily Digest</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 16px">{today}</p>
+
+<p id="dig-count">Loading today's stories…</p>
+
+<div id="dig-science-wrap" style="display:none">
+  <h2 class="dig-section-hdr sci" id="dig-sci-hdr"></h2>
+  <div id="dig-science-list"></div>
 </div>
+
+<div id="dig-world-wrap" style="display:none">
+  <h2 class="dig-section-hdr world" id="dig-world-hdr"></h2>
+  <div id="dig-world-list"></div>
+</div>
+
+<p id="dig-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;font-size:14px">
+  No articles for this date yet. Check back after the daily update.
+</p>
+
+<div style="margin-top:24px;padding:14px 16px;background:#f7fafc;border-left:4px solid #1a4d80;border-radius:0 8px 8px 0;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568;display:none" id="dig-legend">
+  <strong>Bias scale:</strong> -2 = far left &nbsp;|&nbsp; 0 = center &nbsp;|&nbsp; +2 = far right.
+  Sources = how many of our monitored outlets covered the same story.
+</div>
+
+<p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
+  <a href="/news/" style="color:#1a4d80">All news</a> &middot;
+  <a href="/digest/weekly.html" style="color:#1a4d80">Weekly digest</a> &middot;
+  <a href="/news/archive.html" style="color:#1a4d80">Archive</a> &middot;
+  <a href="/feed.xml" style="color:#1a4d80">RSS</a>
+</p>
+</main>
+{FOOTER}
+
+<script>
+(function() {{
+  var TARGET_DATE = '{today}';
+
+  function biasLabel(b) {{
+    if (b <= -1.2) return 'Far Left';
+    if (b <= -0.4) return 'Leans Left';
+    if (b <= -0.15) return 'Center-Left';
+    if (b <= 0.15) return 'Center';
+    if (b <= 0.4) return 'Center-Right';
+    if (b <= 1.2) return 'Leans Right';
+    return 'Far Right';
+  }}
+
+  function card(a, cls) {{
+    var n = a.n_sources || 1;
+    var bias = typeof a.bias_avg === 'number' ? a.bias_avg : 0;
+    var sign = bias >= 0 ? '+' : '';
+    var desc = a.description ? '<p style="font-size:13px;color:#4a5568;margin:4px 0 0;line-height:1.5">' + a.description.slice(0,130) + (a.description.length > 130 ? '…' : '') + '</p>' : '';
+    return '<div class="dig-card ' + cls + '">'
+      + '<h3><a href="/' + a.slug + '">' + (a.display_title || a.title) + '</a></h3>'
+      + desc
+      + '<p class="dig-meta">' + (a.is_science ? 'Science' : 'World News') + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + biasLabel(bias) + ' (' + sign + bias.toFixed(1) + ')</p>'
+      + '</div>';
+  }}
+
+  fetch('/data/kd-articles.json')
+    .then(function(r) {{ return r.json(); }})
+    .then(function(data) {{
+      var all = Array.isArray(data) ? data : (data.articles || []);
+      var todays = all.filter(function(a) {{ return a.date === TARGET_DATE; }});
+
+      var countEl  = document.getElementById('dig-count');
+      var emptyEl  = document.getElementById('dig-empty');
+      var sciWrap  = document.getElementById('dig-science-wrap');
+      var worldWrap= document.getElementById('dig-world-wrap');
+      var sciHdr   = document.getElementById('dig-sci-hdr');
+      var worldHdr = document.getElementById('dig-world-hdr');
+      var sciEl    = document.getElementById('dig-science-list');
+      var worldEl  = document.getElementById('dig-world-list');
+      var legendEl = document.getElementById('dig-legend');
+
+      if (!todays.length) {{
+        countEl.style.display = 'none';
+        emptyEl.style.display = 'block';
+        return;
+      }}
+
+      var sci   = todays.filter(function(a) {{ return a.is_science; }});
+      var world = todays.filter(function(a) {{ return !a.is_science; }});
+
+      countEl.textContent = todays.length + ' stories for ' + TARGET_DATE;
+      legendEl.style.display = 'block';
+
+      if (sci.length) {{
+        sciHdr.textContent = 'Science (' + sci.length + ' ' + (sci.length === 1 ? 'story' : 'stories') + ')';
+        sciEl.innerHTML = sci.map(function(a) {{ return card(a, 'dig-sci'); }}).join('');
+        sciWrap.style.display = 'block';
+      }}
+      if (world.length) {{
+        worldHdr.textContent = 'World News (' + world.length + ' ' + (world.length === 1 ? 'story' : 'stories') + ')';
+        worldEl.innerHTML = world.map(function(a) {{ return card(a, 'dig-world'); }}).join('');
+        worldWrap.style.display = 'block';
+      }}
+    }})
+    .catch(function() {{
+      document.getElementById('dig-count').textContent = 'Could not load today\'s stories. Please try refreshing.';
+    }});
+}})();
+</script>
 </body></html>"""
 
-    upload(f"digest/{today}.html", page, f"[scraper] Daily digest {today} — {len(todays)} articles")
+    upload(f"digest/{today}.html", page, f"[scraper] Daily digest {today} (dynamic) — {n_today} articles")
     # Also write /digest/latest.html as a redirect to today's digest
     redirect = f"""<!DOCTYPE html><html><head>
 <meta http-equiv="refresh" content="0;url=/digest/{today}.html">
@@ -2430,7 +2534,7 @@ def generate_daily_digest(manifest, today):
 <p>Redirecting to <a href="/digest/{today}.html">today's digest</a>...</p>
 </body></html>"""
     upload("digest/latest.html", redirect, f"[scraper] Update latest digest redirect → {today}")
-    print(f"  Digest: {len(todays)} articles for {today}")
+    print(f"  Digest: {n_today} articles for {today} (dynamic JS render)")
 
 
 # ── Weekly digest page ────────────────────────────────────────────────────────
