@@ -756,7 +756,10 @@
     "news/2026-06-29-childbirth-for-many-primate-species-is-even-harder.html",
     "news/2026-06-29-martinelli-scores-late-as-brazil-beat-japan-2-1-in.html",
     "news/2026-06-29-pentagon-identifies-marine-lost-at-sea-off-souther.html",
-    "news/2026-06-29-aftershock-frays-nerves-as-many-venezuelans-left-t.html"
+    "news/2026-06-29-aftershock-frays-nerves-as-many-venezuelans-left-t.html",
+    "news/2026-06-29-humans-sleep-the-least-of-all-apes-is-it-the-secre.html",
+    "news/2026-06-29-supreme-court-says-feds-lisa-cook-can-stay-in-her.html",
+    "news/2026-06-29-they-were-world-class-tennis-rivals-now-friends-th.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1515,7 +1518,10 @@
     "Childbirth for many primate species is even harder than for humans",
     "Martinelli scores late as Brazil beat Japan 2-1, into World Cup last 16",
     "Pentagon identifies Marine lost at sea off Southern California coast",
-    "Aftershock frays nerves as many Venezuelans left to fend for themselves"
+    "Aftershock frays nerves as many Venezuelans left to fend for themselves",
+    "Humans sleep the least of all apes – is it the secret to our success?",
+    "Supreme Court says Fed's Lisa Cook can stay in her job for now",
+    "They were world-class tennis rivals. Now friends, they've teamed up against cancer"
   ],
   "articles": [
     {
@@ -10224,6 +10230,45 @@
       "source_name": "BBC News",
       "source_icons": "🇬🇧",
       "description": "In devastated areas people are using crowbars, pickaxes and their bare hands to try to reach survivors."
+    },
+    {
+      "slug": "news/2026-06-29-humans-sleep-the-least-of-all-apes-is-it-the-secre.html",
+      "title": "Humans sleep the least of all apes – is it the secret to our success?",
+      "display_title": "Humans sleep the least of all apes – is it the secret to our success?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "New Scientist",
+      "source_icons": "🧪",
+      "description": "Sleep is essential, yet humans have evolved to need so little of it. When evolutionary anthropologist David Samson delved into our ancient past to find the reasons why, he discovered surprising ways t"
+    },
+    {
+      "slug": "news/2026-06-29-supreme-court-says-feds-lisa-cook-can-stay-in-her.html",
+      "title": "Supreme Court says Fed's Lisa Cook can stay in her job for now",
+      "display_title": "Supreme Court says Fed's Lisa Cook can stay in her job for now",
+      "date": "2026-06-29",
+      "n_sources": 4,
+      "bias_avg": -0.3,
+      "agreement_pct": 28,
+      "is_science": false,
+      "source_name": "NPR",
+      "source_icons": "📻 🌍 ⚖️ 📺",
+      "description": "The court's decision means Cook can stay in her position as her challenge to her dismissal plays out in the lower courts."
+    },
+    {
+      "slug": "news/2026-06-29-they-were-world-class-tennis-rivals-now-friends-th.html",
+      "title": "They were world-class tennis rivals. Now friends, they've teamed up against cancer",
+      "display_title": "They were world-class tennis rivals. Now friends, they've teamed up against cancer",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.7,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "NPR",
+      "source_icons": "📻",
+      "description": "They were the women's tennis champions of their generation. Now, Chris Evert and Martina Navratilova open up about friendship, cancer and retirement in the documentary Chris & Martina: The Final Set ."
     }
   ]
 }
