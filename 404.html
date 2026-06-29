@@ -59,7 +59,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 .badge-lo{background:#fed7d7;color:#742a2a}
 .kd-agree-note{font-size:12px;color:#718096}
 </style>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#1a4d80"><meta name="theme-color" content="#0d2d54" media="(prefers-color-scheme:dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#1a4d80"><meta name="theme-color" content="#0d2d54" media="(prefers-color-scheme:dark)"><script>if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");</script>
 </head><body>
 <a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
@@ -67,19 +67,24 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
 <a href="/games/">Games</a><a href="/about.html">About</a><a href="/parent-zone/" class="pz-cta">Parent Zone</a></nav>
 </div></header>
-<main id="main" style="max-width:600px;margin:0 auto;padding:64px 24px;text-align:center">
-<div style="font-size:72px;margin-bottom:16px">📰</div>
-<h1 style="font-size:28px;margin-bottom:8px">Page not found</h1>
-<p style="color:#718096;font-family:system-ui,sans-serif;font-size:16px;margin:0 0 28px">
+<main id="main" style="max-width:700px;margin:0 auto;padding:48px 24px">
+<div style="text-align:center;margin-bottom:36px">
+<div style="font-size:64px;margin-bottom:12px">&#128240;</div>
+<h1 style="font-size:26px;margin-bottom:6px">Page not found</h1>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:15px;margin:0 0 20px">
   This story may have moved, or the URL might be misspelled.
 </p>
-<a href="/search.html" style="display:inline-block;background:#1a4d80;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:16px;font-family:system-ui,sans-serif;font-weight:600;margin-bottom:12px">
+<a href="/search.html" style="display:inline-block;background:#1a4d80;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:15px;font-family:system-ui,sans-serif;font-weight:600;margin-right:10px">
   Search KiddieDaily &rarr;
 </a>
-<br>
-<a href="/" style="display:inline-block;color:#1a4d80;font-size:14px;font-family:system-ui,sans-serif;margin-top:12px">
-  &larr; Back to homepage
+<a href="/" style="display:inline-block;background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:10px 24px;border-radius:8px;font-size:15px;font-family:system-ui,sans-serif;text-decoration:none">
+  &larr; Homepage
 </a>
+</div>
+<div id="kd-404-recent" style="margin-top:8px"></div>
+<div style="text-align:center;margin-top:28px;padding:16px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;font-family:system-ui,sans-serif">
+<p style="margin:0;font-size:14px;color:#075985">&#128241; Browse by topic: <a href="/news/science.html">Science</a> &middot; <a href="/news/space.html">Space</a> &middot; <a href="/news/animals.html">Animals</a> &middot; <a href="/news/history.html">History</a> &middot; <a href="/news/environment.html">Environment</a> &middot; <a href="/news/technology.html">Technology</a></p>
+</div>
 </main>
 <footer class="kd"><div class="inner">
 <div style="flex:1;min-width:200px"><h4>KiddieDaily</h4>
@@ -96,4 +101,22 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <div style="text-align:center;font-size:13px;color:#a0aec0;margin-top:24px">
 &copy; 2026 KiddieDaily &middot; A Legacy Bridge Alliance Group family project</div>
 </footer>
+<script>
+fetch('/data/kd-articles.json').then(function(r){return r.json();}).then(function(arts){
+  var recent=arts.slice(0,4);
+  if(!recent.length)return;
+  var el=document.getElementById('kd-404-recent');
+  if(!el)return;
+  el.innerHTML='<h2 style="font-size:17px;color:#2d3748;font-family:system-ui,sans-serif;margin:0 0 12px">Recent stories you might like</h2>'
+    +recent.map(function(a){
+      var bc=a.is_science?'#d1fae5':'#dbeafe';var tc=a.is_science?'#065f46':'#1e40af';var bl=a.is_science?'Science':'World News';
+      var ex=a.description?(a.description.length>100?a.description.slice(0,100)+'…':a.description):'';
+      return'<div style="margin:8px 0;padding:12px 16px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;font-family:system-ui,sans-serif">'
+        +'<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;background:'+bc+';color:'+tc+';padding:2px 7px;border-radius:20px">'+bl+'</span>'
+        +'<a href="/'+a.slug+'" style="display:block;color:#1a4d80;font-weight:600;margin:5px 0 2px;font-size:15px">'+a.title+'</a>'
+        +(ex?'<p style="font-size:13px;color:#4a5568;margin:2px 0;line-height:1.4">'+ex+'</p>':'')
+        +'<span style="font-size:11px;color:#a0aec0">'+a.date+'</span></div>';
+    }).join('');
+}).catch(function(){});
+</script>
 </body></html>
