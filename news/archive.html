@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>News Archive — KiddieDaily</title>
-<meta name="description" content="All KiddieDaily news articles — kid-friendly, bias-rated, fact-checked daily. 803 articles and counting.">
+<meta name="description" content="All KiddieDaily news articles — kid-friendly, bias-rated, fact-checked daily. 806 articles and counting.">
 <meta property="og:title" content="KiddieDaily News Archive">
-<meta property="og:description" content="803 kid-safe, bias-rated articles. Searchable and filterable by category.">
+<meta property="og:description" content="806 kid-safe, bias-rated articles. Searchable and filterable by category.">
 <meta property="og:url" content="https://kiddiedaily.com/news/archive.html">
 <link rel="canonical" href="https://kiddiedaily.com/news/archive.html">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
@@ -90,9 +90,9 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 </div></header>
 <main id="main">
 <h1 style="font-size:28px;margin-bottom:4px">News Archive</h1>
-<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 16px">803 articles &middot; Updated 2026-06-29</p>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 16px">806 articles &middot; Updated 2026-06-29</p>
 
-<input type="search" id="arch-search" placeholder="Search 803 articles..." aria-label="Search archive">
+<input type="search" id="arch-search" placeholder="Search 806 articles..." aria-label="Search archive">
 <p id="arch-count"></p>
 <div id="filter-btns">
   <button class="active" onclick="setFilter('all',this)">All</button>
@@ -147,6 +147,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
   var searchEl = document.getElementById('arch-search');
 
   var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var TODAY_STR=new Date().toISOString().slice(0,10);
   function fmtDate(d){var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}
   function biasLabel(b) {
     return b <= -1.2 ? 'Far Left' : b <= -0.4 ? 'Leans Left' : b <= -0.15 ? 'Center-Left'
@@ -161,8 +162,9 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
     var dot = Math.max(5, Math.min(95, Math.round((bias + 2) / 4 * 100)));
     var bLbl = biasLabel(bias);
     var src = n === 1 ? '1 outlet' : n + ' outlets';
+    var newBadge = a.date === TODAY_STR ? '<span style="font-size:10px;background:#dc2626;color:#fff;padding:1px 6px;border-radius:20px;font-weight:700;margin-left:5px">NEW</span>' : '';
     return '<div class="kd-sc">'
-      + '<div class="kd-sc-top">' + badge + '<span style="font-size:11px;color:#718096;margin-left:auto">' + src + '</span></div>'
+      + '<div class="kd-sc-top">' + badge + newBadge + '<span style="font-size:11px;color:#718096;margin-left:auto">' + src + '</span></div>'
       + '<h3 style="margin:4px 0 6px"><a href="/' + a.slug + '">' + a.title + '</a></h3>'
       + '<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
       + '<div class="kd-mini-track"><span class="kd-mini-dot" style="left:' + dot + '%"></span></div>'
