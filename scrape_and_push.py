@@ -41,17 +41,18 @@ MAX_ARTICLES     = 8   # max new articles per run
 MAX_SCI_PER_RUN  = 5   # max science articles per run (remaining slots go to world)
 MAX_WORLD_PER_RUN= 3   # max world-news articles per run
 
-# Titles containing any of these words are not suitable for a K-12 audience
-_ADULT_TITLE_SKIP = {
-    "vagina", "penis", "vulva", "genital", "testicle", "erectile",
-    "sperm", "semen", "ovary", "uterus", "cervix",
-    "sex ", " sex,", " sex.", "sexual", "sexuall",
-    "rape", "raped", "rapist", "sexual assault",
-    "abortion", "contraception", "condom",
-    "nude", "naked", "pornograph",
-    "genocide", "massacre", "beheading", "torture",
-    "suicide", "overdose", "drug addict", "opioid overdose",
-}
+# Regex word-boundary filter — avoids substring false positives like "scraper"→"rape"
+_ADULT_TITLE_RE = re.compile(
+    r'\b(?:'
+    r'vagina|penis|vulva|genitals?|testicle|erectile|sperm|semen|ovary|uterus|cervix'
+    r'|sexual(?:\s+assault)?|sexuall?y|rape[sd]?|rapist'
+    r'|abortion|contraception|condom'
+    r'|nude|naked(?!\s+mole)|pornograph'
+    r'|genocide|massacre|beheading|torture'
+    r'|suicide|overdose|opioid\s+overdose|drug\s+addict'
+    r')\b',
+    re.I
+)
 
 # Active branch — set to a content branch in main(); falls back to "main" locally
 ACTIVE_BRANCH = "main"
@@ -3142,9 +3143,8 @@ def main():
 
         rep = group[0]
 
-        # Skip topics with adult/inappropriate titles
-        title_lc = rep["title"].lower()
-        if any(w in title_lc for w in _ADULT_TITLE_SKIP):
+        # Skip topics with adult/inappropriate titles (regex, word-boundary safe)
+        if _ADULT_TITLE_RE.search(rep["title"]):
             skipped_adult += 1
             print(f"    ⚠ Skipped (adult title): {rep['title'][:60]}")
             continue
