@@ -255,7 +255,12 @@
     "news/2026-06-29-nasa-used-a-drone-to-deliver-a-human-kidney-is-thi.html",
     "news/2026-06-29-how-menopause-radically-changes-the-brain-and-what.html",
     "news/2026-06-29-tips-for-taking-care-of-your-pets-when-fireworks-a.html",
-    "news/2026-06-29-july-4th-fireworks-in-washington-whats-different-f.html"
+    "news/2026-06-29-july-4th-fireworks-in-washington-whats-different-f.html",
+    "news/2026-06-29-300-year-old-shipwreck-found-near-worlds-largest-o.html",
+    "news/2026-06-29-dhl-explores-familiar-shipping-option-wind-power.html",
+    "news/2026-06-29-strange-glowing-bow-and-arrow-structure-may-be-a-g.html",
+    "news/2026-06-29-black-holes-point-of-no-escape-studied-with-the-lo.html",
+    "news/2026-06-29-parenting-may-permanently-improve-brain-health-for.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -513,7 +518,12 @@
     "NASA used a drone to deliver a human kidney. Is this the future of transplant transport?",
     "How menopause radically changes the brain – and what happens after",
     "Tips for taking care of your pets when fireworks are booming",
-    "July 4th fireworks in Washington: What's different for America's 250th?"
+    "July 4th fireworks in Washington: What's different for America's 250th?",
+    "300-year-old shipwreck found near world’s largest offshore wind farm",
+    "DHL explores familiar shipping option: wind power",
+    "Strange glowing 'bow-and-arrow' structure may be a giant cosmic shock wave created by a supersonic galaxy collision",
+    "Black hole's 'point of no escape' studied with the loudest gravitational waves ever heard",
+    "Parenting may permanently improve brain health for mums and dads"
   ],
   "articles": [
     {
@@ -3319,6 +3329,61 @@
       "agreement_pct": 14,
       "is_science": false,
       "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-300-year-old-shipwreck-found-near-worlds-largest-o.html",
+      "title": "300-year-old shipwreck found near world’s largest offshore wind farm",
+      "display_title": "300-year-old shipwreck found near world’s largest offshore wind farm",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-dhl-explores-familiar-shipping-option-wind-power.html",
+      "title": "DHL explores familiar shipping option: wind power",
+      "display_title": "DHL explores familiar shipping option: wind power",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-strange-glowing-bow-and-arrow-structure-may-be-a-g.html",
+      "title": "Strange glowing 'bow-and-arrow' structure may be a giant cosmic shock wave created by a supersonic galaxy collision",
+      "display_title": "Strange glowing 'bow-and-arrow' structure may be a giant cosmic shock wave created by a supersonic galaxy collision",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-black-holes-point-of-no-escape-studied-with-the-lo.html",
+      "title": "Black hole's 'point of no escape' studied with the loudest gravitational waves ever heard",
+      "display_title": "Black hole's 'point of no escape' studied with the loudest gravitational waves ever heard",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-parenting-may-permanently-improve-brain-health-for.html",
+      "title": "Parenting may permanently improve brain health for mums and dads",
+      "display_title": "Parenting may permanently improve brain health for mums and dads",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
     }
   ]
 }
