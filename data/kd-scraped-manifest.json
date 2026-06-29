@@ -193,7 +193,15 @@
     "news/2026-06-29-could-ai-tell-you-where-you-left-your-keys.html",
     "news/2026-06-29-emma-raducanu-withdraws-from-wimbledon-because-of.html",
     "news/2026-06-29-england-captain-ben-stokes-says-retiring-from-inte.html",
-    "news/2026-06-29-over-one-million-children-referred-for-mental-heal.html"
+    "news/2026-06-29-over-one-million-children-referred-for-mental-heal.html",
+    "news/2026-06-29-how-to-create-distinguishable-states-for-quantum-s.html",
+    "news/2026-06-29-fluorescent-nanosensor-enables-rapid-first-of-its.html",
+    "news/2026-06-29-one-of-jackie-and-shadows-chicks-accidentally-left.html",
+    "news/2026-06-29-why-are-airplanes-so-cold-its-for-your-health.html",
+    "news/2026-06-29-superman-returns-at-20-is-it-a-sequel-is-it-a-rebo.html",
+    "news/2026-06-29-first-dinosaur-bone-from-antarctica-found-in-a-dra.html",
+    "news/2026-06-29-conspiracy-or-chaos-algeria-austria-defend-unexpec.html",
+    "news/2026-06-29-venezuelans-angry-with-government-as-time-runs-out.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -389,7 +397,15 @@
     "Could AI tell you where you left your keys?",
     "Emma Raducanu withdraws from Wimbledon because of stress fracture",
     "England captain Ben Stokes says retiring from international cricket 'best thing' for him",
-    "Over one million children referred for mental healthcare - with anxiety the main reason"
+    "Over one million children referred for mental healthcare - with anxiety the main reason",
+    "How to create distinguishable states for quantum systems",
+    "Fluorescent nanosensor enables rapid, first-of-its-kind detection of key gut health biomarker",
+    "One of Jackie and Shadow’s chicks accidentally left the nest",
+    "Why are airplanes so cold? It’s for your health.",
+    "'Superman Returns' at 20: Is it a sequel? Is it a reboot? Two decades on, we're still not sure",
+    "First dinosaur bone from Antarctica found in a drawer",
+    "Conspiracy or chaos? Algeria & Austria defend 'unexpected' draw",
+    "Venezuelans angry with government as time runs out to rescue survivors"
   ],
   "articles": [
     {
@@ -2513,6 +2529,94 @@
       "agreement_pct": 14,
       "is_science": false,
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-how-to-create-distinguishable-states-for-quantum-s.html",
+      "title": "How to create distinguishable states for quantum systems",
+      "display_title": "How to create distinguishable states for quantum systems",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-fluorescent-nanosensor-enables-rapid-first-of-its.html",
+      "title": "Fluorescent nanosensor enables rapid, first-of-its-kind detection of key gut health biomarker",
+      "display_title": "Fluorescent nanosensor enables rapid, first-of-its-kind detection of key gut health biomarker",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-one-of-jackie-and-shadows-chicks-accidentally-left.html",
+      "title": "One of Jackie and Shadow’s chicks accidentally left the nest",
+      "display_title": "One of Jackie and Shadow’s chicks accidentally left the nest",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-why-are-airplanes-so-cold-its-for-your-health.html",
+      "title": "Why are airplanes so cold? It’s for your health.",
+      "display_title": "Why are airplanes so cold? It’s for your health.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
+    },
+    {
+      "slug": "news/2026-06-29-superman-returns-at-20-is-it-a-sequel-is-it-a-rebo.html",
+      "title": "'Superman Returns' at 20: Is it a sequel? Is it a reboot? Two decades on, we're still not sure",
+      "display_title": "'Superman Returns' at 20: Is it a sequel? Is it a reboot? Two decades on, we're still not sure",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-first-dinosaur-bone-from-antarctica-found-in-a-dra.html",
+      "title": "First dinosaur bone from Antarctica found in a drawer",
+      "display_title": "First dinosaur bone from Antarctica found in a drawer",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-conspiracy-or-chaos-algeria-austria-defend-unexpec.html",
+      "title": "Conspiracy or chaos? Algeria & Austria defend 'unexpected' draw",
+      "display_title": "Conspiracy or chaos? Algeria & Austria defend 'unexpected' draw",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-venezuelans-angry-with-government-as-time-runs-out.html",
+      "title": "Venezuelans angry with government as time runs out to rescue survivors",
+      "display_title": "Venezuelans angry with government as time runs out to rescue survivors",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌍"
     }
   ]
 }
