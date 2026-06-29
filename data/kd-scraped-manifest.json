@@ -632,7 +632,18 @@
     "news/2026-06-29-rare-camel-bones-found-in-serbian-fortress-suggest.html",
     "news/2026-06-29-man-city-appoint-new-manager-to-take-over-from-pep.html",
     "news/2026-06-29-what-games-do-you-play-with-your-friends.html",
-    "news/2026-06-29-why-netherlands-v-morocco-is-more-than-just-a-matc.html"
+    "news/2026-06-29-why-netherlands-v-morocco-is-more-than-just-a-matc.html",
+    "news/2026-06-29-in-a-scientific-first-researchers-recovered-ancien.html",
+    "news/2026-06-29-nasa-astronaut-chris-williams-preps-for-spacewalk.html",
+    "news/2026-06-29-mapping-earths-observations-featuring-betsy-ford.html",
+    "news/2026-06-29-nextstep-3-a-lunar-enabling-technology.html",
+    "news/2026-06-29-acetaminophen-in-pregnancy-shows-no-link-to-autism.html",
+    "news/2026-06-29-chinese-supercomputer-leapfrogs-best-us-machines-t.html",
+    "news/2026-06-29-for-hiring-remote-work-means-more-expertise-resear.html",
+    "news/2026-06-29-light-activated-compound-kills-antibiotic-resistan.html",
+    "news/2026-06-29-comcast-to-spin-off-nbcuniversal.html",
+    "news/2026-06-29-poll-finds-bipartisan-support-for-tighter-ai-regul.html",
+    "news/2026-06-29-us-steel-1-year-later-a-bet-on-allies-that-is-payi.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1267,7 +1278,18 @@
     "Rare Camel Bones Found in Serbian Fortress Suggest Far-Reaching Medieval Trade Networks",
     "Man City appoint new manager to take over from Pep Guardiola",
     "What games do you play with your friends?",
-    "Why Netherlands v Morocco is more than just a match"
+    "Why Netherlands v Morocco is more than just a match",
+    "In a Scientific First, Researchers Recovered Ancient DNA That Humans Left Behind on Rock Art and Cave Walls",
+    "NASA Astronaut Chris Williams Preps for Spacewalk",
+    "Mapping Earth’s Observations, featuring Betsy Ford",
+    "NextSTEP-3 A: Lunar Enabling Technology",
+    "Acetaminophen in pregnancy shows no link to autism or ADHD, again",
+    "Chinese supercomputer leapfrogs best US machines to be ranked world’s fastest",
+    "For hiring, remote work means more expertise, research finds",
+    "Light-activated compound kills antibiotic-resistant bacteria by turning its own defense enzyme against it",
+    "Comcast to spin off NBCUniversal",
+    "Poll finds bipartisan support for tighter AI regulation",
+    "US Steel 1 year later: A bet on allies that is paying off"
   ],
   "articles": [
     {
@@ -8427,6 +8449,138 @@
       "is_science": false,
       "source_name": "BBC News",
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-in-a-scientific-first-researchers-recovered-ancien.html",
+      "title": "In a Scientific First, Researchers Recovered Ancient DNA That Humans Left Behind on Rock Art and Cave Walls",
+      "display_title": "In a Scientific First, Researchers Recovered Ancient DNA That Humans Left Behind on Rock Art and Cave Walls",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.05,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_name": "Smithsonian",
+      "source_icons": "🏛️ 🔬"
+    },
+    {
+      "slug": "news/2026-06-29-nasa-astronaut-chris-williams-preps-for-spacewalk.html",
+      "title": "NASA Astronaut Chris Williams Preps for Spacewalk",
+      "display_title": "NASA Astronaut Chris Williams Preps for Spacewalk",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "NASA",
+      "source_icons": "🚀"
+    },
+    {
+      "slug": "news/2026-06-29-mapping-earths-observations-featuring-betsy-ford.html",
+      "title": "Mapping Earth’s Observations, featuring Betsy Ford",
+      "display_title": "Mapping Earth’s Observations, featuring Betsy Ford",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "NASA",
+      "source_icons": "🚀"
+    },
+    {
+      "slug": "news/2026-06-29-nextstep-3-a-lunar-enabling-technology.html",
+      "title": "NextSTEP-3 A: Lunar Enabling Technology",
+      "display_title": "NextSTEP-3 A: Lunar Enabling Technology",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "NASA",
+      "source_icons": "🚀"
+    },
+    {
+      "slug": "news/2026-06-29-acetaminophen-in-pregnancy-shows-no-link-to-autism.html",
+      "title": "Acetaminophen in pregnancy shows no link to autism or ADHD, again",
+      "display_title": "Acetaminophen in pregnancy shows no link to autism or ADHD, again",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Science News",
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-chinese-supercomputer-leapfrogs-best-us-machines-t.html",
+      "title": "Chinese supercomputer leapfrogs best US machines to be ranked world’s fastest",
+      "display_title": "Chinese supercomputer leapfrogs best US machines to be ranked world’s fastest",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Live Science",
+      "source_icons": "🧬"
+    },
+    {
+      "slug": "news/2026-06-29-for-hiring-remote-work-means-more-expertise-resear.html",
+      "title": "For hiring, remote work means more expertise, research finds",
+      "display_title": "For hiring, remote work means more expertise, research finds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-light-activated-compound-kills-antibiotic-resistan.html",
+      "title": "Light-activated compound kills antibiotic-resistant bacteria by turning its own defense enzyme against it",
+      "display_title": "Light-activated compound kills antibiotic-resistant bacteria by turning its own defense enzyme against it",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 7,
+      "is_science": true,
+      "source_name": "Phys.org",
+      "source_icons": "⚛️"
+    },
+    {
+      "slug": "news/2026-06-29-comcast-to-spin-off-nbcuniversal.html",
+      "title": "Comcast to spin off NBCUniversal",
+      "display_title": "Comcast to spin off NBCUniversal",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.05,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️ 📺"
+    },
+    {
+      "slug": "news/2026-06-29-poll-finds-bipartisan-support-for-tighter-ai-regul.html",
+      "title": "Poll finds bipartisan support for tighter AI regulation",
+      "display_title": "Poll finds bipartisan support for tighter AI regulation",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
+    },
+    {
+      "slug": "news/2026-06-29-us-steel-1-year-later-a-bet-on-allies-that-is-payi.html",
+      "title": "US Steel 1 year later: A bet on allies that is paying off",
+      "display_title": "US Steel 1 year later: A bet on allies that is paying off",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.1,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "The Hill",
+      "source_icons": "⚖️"
     }
   ]
 }
