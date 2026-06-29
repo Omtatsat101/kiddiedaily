@@ -944,7 +944,14 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
     guide_html = parent_discussion_guide(title, is_sci)
 
     rt = reading_time(body_html)
-    body = f"""<p class="byline">By KiddieDaily Editors &middot; {today} &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
+    cat_label = "Science" if is_sci else "World News"
+    cat_url   = "/news/science.html" if is_sci else "/news/world.html"
+    body = f"""<nav aria-label="Breadcrumb" style="font-size:12px;color:#718096;font-family:system-ui,sans-serif;margin-bottom:10px">
+<a href="/" style="color:#718096">KiddieDaily</a> ›
+<a href="/news/" style="color:#718096">News</a> ›
+<a href="{cat_url}" style="color:#1a4d80;font-weight:600">{cat_label}</a>
+</nav>
+<p class="byline">By KiddieDaily Editors &middot; {today} &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
 <h1>{title}</h1>
 {bias_html}
 {perspectives_html}
@@ -984,7 +991,7 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
 <meta name="twitter:image" content="{og_image}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E&#x1f4f0;%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">{jsonld}</script>
-{CSS}</head><body>{HEADER}<main>{body}</main>{FOOTER}
+{CSS}</head><body>{HEADER}<main id="main">{body}</main>{FOOTER}
 <script>
 (function(){{
   const SLUG="{slug}";
@@ -1004,7 +1011,8 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
         <a href="/${{a.slug}}" style='display:block;color:#1a4d80;font-weight:600;margin:5px 0 2px;font-size:15px'>${{a.title}}</a>
         <span style='font-size:11px;color:#a0aec0'>${{a.date}}</span>
         </div>`).join("");
-    document.body.appendChild(box);
+    const ft=document.querySelector('footer.kd');
+    if(ft)ft.parentNode.insertBefore(box,ft);else document.body.appendChild(box);
   }}).catch(()=>{{}});
 }})();
 </script>
@@ -2211,6 +2219,12 @@ document.getElementById('today-search').addEventListener('input',function(){{
   const q=this.value.toLowerCase().trim();
   document.querySelectorAll('[data-title]').forEach(function(el){{
     el.style.display=(!q||(el.dataset.title||'').includes(q))?'':'none';
+  }});
+  ['science-today','world-today'].forEach(function(id){{
+    const sec=document.getElementById(id);
+    if(!sec)return;
+    const any=[...sec.querySelectorAll('[data-title]')].some(function(el){{return el.style.display!=='none';}});
+    sec.style.display=any?'':'none';
   }});
 }});
 </script>
