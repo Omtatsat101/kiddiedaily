@@ -169,7 +169,15 @@
     "news/2026-06-29-climate-change-to-blame-for-intensity-of-europe-he.html",
     "news/2026-06-29-argentina-mileis-top-aide-resigns-over-corruption.html",
     "news/2026-06-29-albanias-flamingo-revolution-whats-behind-the-prot.html",
-    "news/2026-06-29-why-is-germany-taking-a-big-stake-in-a-major-tankm.html"
+    "news/2026-06-29-why-is-germany-taking-a-big-stake-in-a-major-tankm.html",
+    "news/2026-06-29-spacex-sends-24-starlink-satellites-into-earth-orb.html",
+    "news/2026-06-29-the-best-sci-fi-novel-in-2026-so-far-plus-6-other.html",
+    "news/2026-06-29-how-data-centers-can-better-manage-energy-use.html",
+    "news/2026-06-29-llms-help-robots-understand-vague-instructions-and.html",
+    "news/2026-06-29-mit-in-the-media-exploring-how-curiosity-driven-sc.html",
+    "news/2026-06-29-comedy-legend-mel-brooks-turns-100.html",
+    "news/2026-06-29-why-germanys-deutsche-bahn-will-face-delays-for-ma.html",
+    "news/2026-06-29-creative-climate-messaging-and-other-eco-wins-of-t.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -341,7 +349,15 @@
     "Climate change to blame for intensity of Europe heat wave: Scientists",
     "Argentina: Milei's top aide resigns over corruption scandal",
     "Albania's 'Flamingo Revolution': What's behind the protests?",
-    "Why is Germany taking a big stake in a major tankmaker?"
+    "Why is Germany taking a big stake in a major tankmaker?",
+    "SpaceX sends 24 Starlink satellites into Earth orbit on Falcon 9 launch from California (video)",
+    "The best sci-fi novel in 2026 so far – plus 6 other great reads",
+    "How data centers can better manage energy use",
+    "LLMs help robots understand vague instructions and focus on key details",
+    "MIT in the media: Exploring how curiosity-driven science is an essential ingredient in America’s success",
+    "Comedy legend Mel Brooks turns 100",
+    "Why Germany's Deutsche Bahn will face delays for many years",
+    "Creative climate messaging and other eco wins of the week"
   ],
   "articles": [
     {
@@ -2199,6 +2215,94 @@
       "n_sources": 1,
       "bias_avg": -0.1,
       "agreement_pct": 18,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-spacex-sends-24-starlink-satellites-into-earth-orb.html",
+      "title": "SpaceX sends 24 Starlink satellites into Earth orbit on Falcon 9 launch from California (video)",
+      "display_title": "SpaceX sends 24 Starlink satellites into Earth orbit on Falcon 9 launch from California (video)",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-the-best-sci-fi-novel-in-2026-so-far-plus-6-other.html",
+      "title": "The best sci-fi novel in 2026 so far – plus 6 other great reads",
+      "display_title": "The best sci-fi novel in 2026 so far – plus 6 other great reads",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-how-data-centers-can-better-manage-energy-use.html",
+      "title": "How data centers can better manage energy use",
+      "display_title": "How data centers can better manage energy use",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-llms-help-robots-understand-vague-instructions-and.html",
+      "title": "LLMs help robots understand vague instructions and focus on key details",
+      "display_title": "LLMs help robots understand vague instructions and focus on key details",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-mit-in-the-media-exploring-how-curiosity-driven-sc.html",
+      "title": "MIT in the media: Exploring how curiosity-driven science is an essential ingredient in America’s success",
+      "display_title": "MIT in the media: Exploring how curiosity-driven science is an essential ingredient in America’s success",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-comedy-legend-mel-brooks-turns-100.html",
+      "title": "Comedy legend Mel Brooks turns 100",
+      "display_title": "Comedy legend Mel Brooks turns 100",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-why-germanys-deutsche-bahn-will-face-delays-for-ma.html",
+      "title": "Why Germany's Deutsche Bahn will face delays for many years",
+      "display_title": "Why Germany's Deutsche Bahn will face delays for many years",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🌐"
+    },
+    {
+      "slug": "news/2026-06-29-creative-climate-messaging-and-other-eco-wins-of-t.html",
+      "title": "Creative climate messaging and other eco wins of the week",
+      "display_title": "Creative climate messaging and other eco wins of the week",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
       "is_science": false,
       "source_icons": "🌐"
     }
