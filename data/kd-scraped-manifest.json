@@ -375,7 +375,9 @@
     "news/2026-06-29-pampered-protected-primed---so-why-didnt-scotland.html",
     "news/2026-06-29-stealing-from-the-gods-indias-ram-temple-hit-by-co.html",
     "news/2026-06-29-brazil-plays-japan-at-world-cup-knockouts-vinicius.html",
-    "news/2026-06-29-australia-to-double-potential-fines-over-child-soc.html"
+    "news/2026-06-29-australia-to-double-potential-fines-over-child-soc.html",
+    "news/2026-06-29-the-download-europes-heat-wave-hits-the-grid-and-i.html",
+    "news/2026-06-29-the-download-brain-melting-heatwaves-and-unprecede.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -753,7 +755,9 @@
     "Pampered, protected & primed - so why didn't Scotland players perform?",
     "Stealing from the gods: India’s Ram Temple hit by corruption scandal",
     "Brazil plays Japan at World Cup knockouts: Vinicius, prediction and lineups",
-    "Australia to double potential fines over child social media accounts"
+    "Australia to double potential fines over child social media accounts",
+    "The Download: Europe’s heat wave hits the grid, and IBM’s chip targets Moore’s Law",
+    "The Download: brain-melting heatwaves and unprecedented OpenAI restrictions"
   ],
   "articles": [
     {
@@ -4879,6 +4883,28 @@
       "agreement_pct": 11,
       "is_science": false,
       "source_icons": "📻"
+    },
+    {
+      "slug": "news/2026-06-29-the-download-europes-heat-wave-hits-the-grid-and-i.html",
+      "title": "The Download: Europe’s heat wave hits the grid, and IBM’s chip targets Moore’s Law",
+      "display_title": "The Download: Europe’s heat wave hits the grid, and IBM’s chip targets Moore’s Law",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
+    },
+    {
+      "slug": "news/2026-06-29-the-download-brain-melting-heatwaves-and-unprecede.html",
+      "title": "The Download: brain-melting heatwaves and unprecedented OpenAI restrictions",
+      "display_title": "The Download: brain-melting heatwaves and unprecedented OpenAI restrictions",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 10,
+      "is_science": true,
+      "source_icons": "💻"
     }
   ]
 }
