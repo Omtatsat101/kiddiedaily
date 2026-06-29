@@ -46,7 +46,7 @@ _ADULT_TITLE_SKIP = {
     "vagina", "penis", "vulva", "genital", "testicle", "erectile",
     "sperm", "semen", "ovary", "uterus", "cervix",
     "sex ", " sex,", " sex.", "sexual", "sexuall",
-    "rape", "raped", "rapist", "assault",
+    "rape", "raped", "rapist", "sexual assault",
     "abortion", "contraception", "condom",
     "nude", "naked", "pornograph",
     "genocide", "massacre", "beheading", "torture",
