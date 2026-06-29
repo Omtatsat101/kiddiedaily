@@ -99,7 +99,13 @@ def gh(method, path, body=None, _retry=3):
         try:
             return json.loads(urllib.request.urlopen(req, timeout=25, context=ctx).read())
         except urllib.error.HTTPError as e:
-            return {"_err": e.code, "_body": e.read().decode()[:300]}
+            body_text = e.read().decode()[:400]
+            # Retry on server errors and "malformed request" transients
+            is_transient = e.code >= 500 or (e.code == 400 and "malformed" in body_text.lower())
+            if is_transient and attempt < _retry - 1:
+                time.sleep(4 + attempt * 3)
+                continue
+            return {"_err": e.code, "_body": body_text}
         except OSError:
             if attempt < _retry - 1:
                 time.sleep(3 + attempt * 2)
@@ -2428,11 +2434,17 @@ def generate_daily_digest(manifest, today):
 <div id="dig-science-wrap" style="display:none">
   <h2 class="dig-section-hdr sci" id="dig-sci-hdr"></h2>
   <div id="dig-science-list"></div>
+  <div style="text-align:center;margin:12px 0 4px">
+    <button id="dig-sci-more" onclick="digLoadSci()" style="display:none;background:#065f46;color:#fff;border:none;padding:9px 24px;border-radius:6px;font-size:13px;cursor:pointer;font-family:system-ui,sans-serif">Load more</button>
+  </div>
 </div>
 
 <div id="dig-world-wrap" style="display:none">
   <h2 class="dig-section-hdr world" id="dig-world-hdr"></h2>
   <div id="dig-world-list"></div>
+  <div style="text-align:center;margin:12px 0 4px">
+    <button id="dig-world-more" onclick="digLoadWorld()" style="display:none;background:#1e40af;color:#fff;border:none;padding:9px 24px;border-radius:6px;font-size:13px;cursor:pointer;font-family:system-ui,sans-serif">Load more</button>
+  </div>
 </div>
 
 <p id="dig-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;font-size:14px">
@@ -2456,6 +2468,8 @@ def generate_daily_digest(manifest, today):
 <script>
 (function() {{
   var TARGET_DATE = '{today}';
+  var PAGE = 20;
+  var sci = [], world = [], sciOff = 0, worldOff = 0;
 
   function biasLabel(b) {{
     if (b <= -1.2) return 'Far Left';
@@ -2479,21 +2493,43 @@ def generate_daily_digest(manifest, today):
       + '</div>';
   }}
 
+  function renderSlice(arr, el, off, cls) {{
+    var slice = arr.slice(off, off + PAGE);
+    slice.forEach(function(a) {{
+      var div = document.createElement('div');
+      div.innerHTML = card(a, cls);
+      el.appendChild(div.firstChild);
+    }});
+    return off + slice.length;
+  }}
+
+  function updateBtn(btn, arr, off) {{
+    var rem = arr.length - off;
+    if (rem > 0) {{
+      btn.style.display = 'block';
+      btn.textContent = 'Load ' + Math.min(rem, PAGE) + ' more';
+    }} else {{
+      btn.style.display = 'none';
+    }}
+  }}
+
   fetch('/data/kd-articles.json')
     .then(function(r) {{ return r.json(); }})
     .then(function(data) {{
       var all = Array.isArray(data) ? data : (data.articles || []);
       var todays = all.filter(function(a) {{ return a.date === TARGET_DATE; }});
 
-      var countEl  = document.getElementById('dig-count');
-      var emptyEl  = document.getElementById('dig-empty');
-      var sciWrap  = document.getElementById('dig-science-wrap');
-      var worldWrap= document.getElementById('dig-world-wrap');
-      var sciHdr   = document.getElementById('dig-sci-hdr');
-      var worldHdr = document.getElementById('dig-world-hdr');
-      var sciEl    = document.getElementById('dig-science-list');
-      var worldEl  = document.getElementById('dig-world-list');
-      var legendEl = document.getElementById('dig-legend');
+      var countEl   = document.getElementById('dig-count');
+      var emptyEl   = document.getElementById('dig-empty');
+      var sciWrap   = document.getElementById('dig-science-wrap');
+      var worldWrap = document.getElementById('dig-world-wrap');
+      var sciHdr    = document.getElementById('dig-sci-hdr');
+      var worldHdr  = document.getElementById('dig-world-hdr');
+      var sciEl     = document.getElementById('dig-science-list');
+      var worldEl   = document.getElementById('dig-world-list');
+      var sciBtn    = document.getElementById('dig-sci-more');
+      var worldBtn  = document.getElementById('dig-world-more');
+      var legendEl  = document.getElementById('dig-legend');
 
       if (!todays.length) {{
         countEl.style.display = 'none';
@@ -2501,26 +2537,37 @@ def generate_daily_digest(manifest, today):
         return;
       }}
 
-      var sci   = todays.filter(function(a) {{ return a.is_science; }});
-      var world = todays.filter(function(a) {{ return !a.is_science; }});
+      sci   = todays.filter(function(a) {{ return a.is_science; }});
+      world = todays.filter(function(a) {{ return !a.is_science; }});
 
       countEl.textContent = todays.length + ' stories for ' + TARGET_DATE;
       legendEl.style.display = 'block';
 
       if (sci.length) {{
         sciHdr.textContent = 'Science (' + sci.length + ' ' + (sci.length === 1 ? 'story' : 'stories') + ')';
-        sciEl.innerHTML = sci.map(function(a) {{ return card(a, 'dig-sci'); }}).join('');
+        sciOff = renderSlice(sci, sciEl, 0, 'dig-sci');
+        updateBtn(sciBtn, sci, sciOff);
         sciWrap.style.display = 'block';
       }}
       if (world.length) {{
         worldHdr.textContent = 'World News (' + world.length + ' ' + (world.length === 1 ? 'story' : 'stories') + ')';
-        worldEl.innerHTML = world.map(function(a) {{ return card(a, 'dig-world'); }}).join('');
+        worldOff = renderSlice(world, worldEl, 0, 'dig-world');
+        updateBtn(worldBtn, world, worldOff);
         worldWrap.style.display = 'block';
       }}
     }})
     .catch(function() {{
       document.getElementById('dig-count').textContent = 'Could not load today\'s stories. Please try refreshing.';
     }});
+
+  window.digLoadSci = function() {{
+    sciOff = renderSlice(sci, document.getElementById('dig-science-list'), sciOff, 'dig-sci');
+    updateBtn(document.getElementById('dig-sci-more'), sci, sciOff);
+  }};
+  window.digLoadWorld = function() {{
+    worldOff = renderSlice(world, document.getElementById('dig-world-list'), worldOff, 'dig-world');
+    updateBtn(document.getElementById('dig-world-more'), world, worldOff);
+  }};
 }})();
 </script>
 </body></html>"""
