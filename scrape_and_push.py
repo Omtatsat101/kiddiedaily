@@ -132,7 +132,9 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bsentenced\s+to\s+(?:\d+|life|two|three|four|five)\b' # "sentenced to N years"
     r'|\bgets?\s+(?:life|years?)\s+in\s+(?:prison|jail)' # prison sentence results
     r'|\bdied\s+of\s+(?:aids?|hiv|cancer|drug|overdose|covid)' # celebrity death + disease
+    r'|\bcause\s+of\s+death\s+(?:was|is|revealed|confirmed)\b'  # "cause of death was X"
     r'|\b(?:actress|actor|celebrity|star)\s+(?:died?|dead|passes?\s+away|passes?)' # celebrity death
+    r"|'s\s+cause\s+of\s+death"                # "Chase's cause of death was..."
     r'|\b(?:asylum|refugee)\s+(?:seeker|repay|repatriat|detain|flee|policy)' # asylum policy
     r'|\brefugees?\s+will\s+be'               # "Refugees will be told..."
     r'|\bimmigration\s+(?:crackdown|enforcement|policy|ban|ban)' # immigration enforcement
@@ -724,6 +726,11 @@ DEPRIORITIZE_WORDS = [
     "mortgage rates frustrate", "homes harder to sell", "harder to sell",
     "housing market cooling", "homes sitting longer", "real estate slowdown",
     "affordability crisis",
+    # Adult FIRE / early retirement personal finance content
+    "retired at", "retire at", "retired early", "early retirement",
+    "financial independence", "fire movement", "f.i.r.e.", "financially free",
+    "packed lunches and retired", "we retired at", "how we retired",
+    "quit our jobs and retired",
     # NPR/BBC author spotlight format ("Firstname Lastname on [topic]")
     " on spotlighting", " on writing", " on crafting", " on telling",
     " on creating his", " on creating her", " on creating their",
