@@ -99,7 +99,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <button id="cat-more" class="cat-more-btn" style="display:none" onclick="catLoadMore()"></button>
 <div id="cat-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles found in this category yet.</div>
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
-  <a href="/news/archive.html" style="color:#1a4d80">Full archive (786 total)</a> &middot;
+  <a href="/news/archive.html" style="color:#1a4d80">Full archive (789 total)</a> &middot;
   <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
   <a href="/feed.xml" style="color:#1a4d80">RSS feed</a>
 </p>
@@ -142,7 +142,7 @@ function card(a){
 }
 function renderSlice(){
   var list=document.getElementById('cat-list');
-  var visible=q?arts.filter(function(a){return(a.title||'').toLowerCase().includes(q);})
+  var visible=q?arts.filter(function(a){return((a.title||'')+' '+(a.description||'')).toLowerCase().includes(q);})
                :arts;
   var slice=visible.slice(off,off+PAGE);
   slice.forEach(function(a){var d=document.createElement('div');d.innerHTML=card(a);list.appendChild(d.firstChild);});
