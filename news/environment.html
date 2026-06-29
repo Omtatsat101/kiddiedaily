@@ -100,7 +100,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <button id="cat-more" class="cat-more-btn" style="display:none" onclick="catLoadMore()"></button>
 <div id="cat-empty" style="display:none;color:#718096;font-family:system-ui,sans-serif;padding:20px 0">No articles found in this category yet.</div>
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
-  <a href="/news/archive.html" style="color:#1a4d80">Full archive (843 total)</a> &middot;
+  <a href="/news/archive.html" style="color:#1a4d80">Full archive (847 total)</a> &middot;
   <a href="/news/today.html" style="color:#1a4d80">Today&#39;s news</a> &middot;
   <a href="/feed/environment.xml" style="color:#1a4d80">Environment RSS feed</a> &middot;
   <a href="/feed.xml" style="color:#718096">All news RSS</a>
@@ -141,7 +141,8 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
     document.body.appendChild(b);
     setTimeout(function(){b.style.transition='opacity 1.5s';b.style.opacity='0';setTimeout(function(){if(b.parentNode)b.parentNode.removeChild(b);},1500);},3500);
   }
-}catch(e){}})();</script>
+}catch(e){}})();
+(function(){try{var n=JSON.parse(localStorage.getItem('kd_saved')||'[]').length;if(n>0){var links=document.querySelectorAll('a[href="/saved.html"]');links.forEach(function(l){l.textContent='🔖 Saved ('+n+')';});}}catch(e){}})();</script>
 <script>
 (function(){
 var CAT='environment',PAGE=20,arts=[],off=0,q='';
