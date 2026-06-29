@@ -462,6 +462,11 @@ DEPRIORITIZE_WORDS = [
     "mine collapse", "mine explosion", "mine rescue", "miners trapped",
     "rescue efforts continue", "hoping beyond hope", "survivors pulled from",
     "bodies recovered", "toll rises", "death toll",
+    # Political sentiment polls / approval surveys (not age-appropriate issue framing)
+    "gallup", "approval rating", "favorability rating", "year low", "year high",
+    "hits all-time", "confidence in government", "public trust", "american pride",
+    "national pride", "voter sentiment", "opinion poll", "poll shows",
+    "pew research", "% of americans say", "% say they",
     # US political figures not already covered (by name → catch specific political stories)
     "hegseth", "pelosi", "mayorkas", "blinken", "yellen", "mcconnell", "schumer",
     "mitch mcconnell", "chuck schumer", "rand paul", "ted cruz", "marco rubio",
@@ -1708,64 +1713,21 @@ def update_parent_zone(manifest):
 
 # ── Archive page ───────────────────────────────────────────────────────────────
 def generate_archive(manifest):
-    articles = sorted(manifest.get("articles", []), key=lambda x: x.get("date", ""), reverse=True)
+    articles = manifest.get("articles", [])
     if not articles:
         return
 
-    # Build inline JSON for client-side search (no backend needed)
-    search_data = json.dumps([{
-        "slug": a["slug"],
-        "title": a.get("display_title", a.get("title", "")),
-        "date": a.get("date", ""),
-        "cat": "Science" if a.get("is_science") else "World News",
-    } for a in articles])
-
-    # Group articles by date
-    by_date = {}
-    for a in articles:
-        d = a.get("date", "Unknown")
-        by_date.setdefault(d, []).append(a)
-
-    date_sections = []
-    for date, arts in sorted(by_date.items(), reverse=True):
-        rows = []
-        for a in arts:
-            slug  = a["slug"]
-            title = a.get("display_title", a.get("title", ""))
-            is_sci = a.get("is_science", False)
-            cat   = "Science" if is_sci else "World News"
-            badge = "kd-badge-sci" if is_sci else "kd-badge-news"
-            n     = a.get("n_sources", 1)
-            bias  = a.get("bias_avg", 0.0)
-            dot_pct = max(5, min(95, round((bias + 2) / 4 * 100)))
-            agree = f"{n} outlet{'s' if n!=1 else ''}"
-            rows.append(
-                f'<div class="kd-sc arch-item" data-title="{title.lower()}" data-cat="{cat.lower()}">'
-                f'<div class="kd-sc-top">'
-                f'<span class="kd-badge {badge}">{cat}</span>'
-                f'<span style="font-size:11px;color:#718096;margin-left:auto">{agree}</span>'
-                f'</div>'
-                f'<h3 style="margin:4px 0 6px"><a href="/{slug}">{title}</a></h3>'
-                f'<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
-                f'<div class="kd-mini-track"><span class="kd-mini-dot" style="left:{dot_pct}%"></span></div>'
-                f'<span class="kd-mini-lbl" style="text-align:right">R</span></div>'
-                f'</div>'
-            )
-        date_sections.append(
-            f'<h2 style="font-size:1em;color:#718096;font-family:system-ui,sans-serif;'
-            f'font-weight:600;letter-spacing:1px;text-transform:uppercase;margin:24px 0 8px">{date}</h2>\n'
-            + "\n".join(rows)
-        )
-
-    sections_html = "\n".join(date_sections)
+    total = len(articles)
     today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
+    # Lightweight shell — loads articles dynamically from /data/kd-articles.json
+    # Reduces page size from ~670KB (embedded HTML) to ~15KB (dynamic render)
     page = f"""<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>News Archive — KiddieDaily</title>
-<meta name="description" content="All KiddieDaily news articles — kid-friendly, bias-rated, fact-checked daily. {len(articles)} articles and counting.">
+<meta name="description" content="All KiddieDaily news articles — kid-friendly, bias-rated, fact-checked daily. {total} articles and counting.">
 <meta property="og:title" content="KiddieDaily News Archive">
-<meta property="og:description" content="{len(articles)} kid-safe, bias-rated articles. Searchable and filterable by category.">
+<meta property="og:description" content="{total} kid-safe, bias-rated articles. Searchable and filterable by category.">
 <meta property="og:url" content="https://kiddiedaily.com/news/archive.html">
 <link rel="canonical" href="https://kiddiedaily.com/news/archive.html">
 <link rel="alternate" type="application/rss+xml" title="KiddieDaily RSS" href="/feed.xml">
@@ -1779,26 +1741,34 @@ def generate_archive(manifest):
 .kd-mini-dot{{position:absolute;top:-5px;width:16px;height:16px;background:#fff;border:2px solid #4a5568;border-radius:50%;transform:translateX(-50%)}}
 .kd-sc h3 a{{color:#1a4d80;text-decoration:none}}
 .kd-sc h3 a:hover{{text-decoration:underline}}
-#search{{width:100%;box-sizing:border-box;padding:10px 14px;font-size:16px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:4px;font-family:system-ui,sans-serif}}
+#arch-search{{width:100%;box-sizing:border-box;padding:10px 14px;font-size:16px;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:4px;font-family:system-ui,sans-serif}}
+#arch-search:focus{{border-color:#1a4d80;outline:3px solid rgba(26,77,128,.2)}}
 #filter-btns{{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}}
-#filter-btns button{{background:#f7fafc;border:1px solid #e2e8f0;border-radius:20px;padding:5px 14px;cursor:pointer;font-size:13px;font-family:system-ui,sans-serif}}
+#filter-btns button{{background:#f7fafc;border:1px solid #e2e8f0;border-radius:20px;padding:5px 14px;cursor:pointer;font-size:13px;font-family:system-ui,sans-serif;min-height:36px}}
 #filter-btns button.active{{background:#1a4d80;color:#fff;border-color:#1a4d80}}
+#arch-count{{font-size:14px;color:#718096;font-family:system-ui,sans-serif;margin:0 0 16px;min-height:20px}}
+.arch-date-hdr{{font-size:.85em;color:#718096;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin:24px 0 8px}}
 </style>
 </head><body>
 {HEADER}
 <main id="main">
 <h1 style="font-size:28px;margin-bottom:4px">News Archive</h1>
-<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 20px">{len(articles)} articles &middot; Updated {today_str}</p>
+<p style="color:#718096;font-family:system-ui,sans-serif;font-size:14px;margin:0 0 16px">{total} articles &middot; Updated {today_str}</p>
 
-<input type="search" id="search" placeholder="Search stories..." aria-label="Search articles">
+<input type="search" id="arch-search" placeholder="Search {total} articles..." aria-label="Search archive">
+<p id="arch-count"></p>
 <div id="filter-btns">
-  <button class="active" onclick="filterCat('all',this)">All</button>
-  <button onclick="filterCat('science',this)">Science</button>
-  <button onclick="filterCat('world news',this)">World News</button>
+  <button class="active" onclick="setFilter('all',this)">All categories</button>
+  <button onclick="setFilter('science',this)">Science</button>
+  <button onclick="setFilter('world',this)">World News</button>
+  <button onclick="setFilter('space',this)">Space</button>
+  <button onclick="setFilter('animals',this)">Animals</button>
 </div>
 
-<div id="archive-list">
-{sections_html}
+<div id="archive-list"><p style="color:#718096;font-family:system-ui,sans-serif">Loading articles…</p></div>
+
+<div style="text-align:center;margin-top:24px">
+  <button id="load-more" onclick="loadMore()" style="display:none;background:#1a4d80;color:#fff;border:none;padding:10px 28px;border-radius:6px;font-size:14px;cursor:pointer;font-family:system-ui,sans-serif">Load more articles</button>
 </div>
 
 <p style="text-align:center;margin-top:32px;font-size:13px;color:#718096;font-family:system-ui,sans-serif">
@@ -1811,52 +1781,102 @@ def generate_archive(manifest):
 {FOOTER}
 
 <script>
-const DATA = {search_data};
-let activeCat = 'all';
+(function() {{
+  var allArticles = [], filtered = [], activeFilter = 'all', query = '', offset = 0;
+  var PAGE = 40;
 
-document.getElementById('search').addEventListener('input', function() {{
-  const q = this.value.toLowerCase().trim();
-  document.querySelectorAll('.arch-item').forEach(el => {{
-    const t = el.dataset.title || '';
-    const c = el.dataset.cat || '';
-    const catOk = activeCat === 'all' || c === activeCat;
-    const qOk = !q || t.includes(q);
-    el.style.display = (catOk && qOk) ? '' : 'none';
-  }});
-  updateDateHeaders();
-}});
+  var listEl  = document.getElementById('archive-list');
+  var countEl = document.getElementById('arch-count');
+  var moreBtn = document.getElementById('load-more');
+  var searchEl = document.getElementById('arch-search');
 
-function filterCat(cat, btn) {{
-  activeCat = cat;
-  document.querySelectorAll('#filter-btns button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const q = document.getElementById('search').value.toLowerCase().trim();
-  document.querySelectorAll('.arch-item').forEach(el => {{
-    const c = el.dataset.cat || '';
-    const t = el.dataset.title || '';
-    const catOk = cat === 'all' || c === cat;
-    const qOk = !q || t.includes(q);
-    el.style.display = (catOk && qOk) ? '' : 'none';
-  }});
-  updateDateHeaders();
-}}
+  function biasLabel(b) {{
+    return b <= -1.2 ? 'Far Left' : b <= -0.4 ? 'Leans Left' : b <= -0.15 ? 'Center-Left'
+         : b <= 0.15 ? 'Center' : b <= 0.4 ? 'Center-Right' : b <= 1.2 ? 'Leans Right' : 'Far Right';
+  }}
 
-function updateDateHeaders() {{
-  document.querySelectorAll('#archive-list h2').forEach(h => {{
-    let next = h.nextElementSibling;
-    let anyVisible = false;
-    while (next && !next.matches('h2')) {{
-      if (next.style.display !== 'none') anyVisible = true;
-      next = next.nextElementSibling;
-    }}
-    h.style.display = anyVisible ? '' : 'none';
+  function renderCard(a) {{
+    var isSci = a.is_science || a.category === 'science';
+    var catKey = a.category || (isSci ? 'science' : 'world');
+    var badge = isSci ? '<span class="kd-badge kd-badge-sci">Science</span>' : '<span class="kd-badge kd-badge-news">World News</span>';
+    var n = a.n_sources || 1;
+    var bias = a.bias_avg || 0;
+    var dot = Math.max(5, Math.min(95, Math.round((bias + 2) / 4 * 100)));
+    var bLbl = biasLabel(bias);
+    var src = n === 1 ? '1 outlet' : n + ' outlets';
+    return '<div class="kd-sc">'
+      + '<div class="kd-sc-top">' + badge + '<span style="font-size:11px;color:#718096;margin-left:auto">' + src + '</span></div>'
+      + '<h3 style="margin:4px 0 6px"><a href="/' + a.slug + '">' + a.title + '</a></h3>'
+      + '<div class="kd-mini-bias"><span class="kd-mini-lbl">L</span>'
+      + '<div class="kd-mini-track"><span class="kd-mini-dot" style="left:' + dot + '%"></span></div>'
+      + '<span class="kd-mini-lbl" style="text-align:right">R</span>'
+      + '<span style="font-size:10px;color:#718096;margin-left:6px">' + bLbl + '</span></div>'
+      + '<div style="font-size:11px;color:#718096;margin-top:4px">' + (a.date || '') + '</div>'
+      + '</div>';
+  }}
+
+  function applyFilter() {{
+    var q = query.toLowerCase();
+    filtered = allArticles.filter(function(a) {{
+      var catKey = a.category || (a.is_science ? 'science' : 'world');
+      var catOk = activeFilter === 'all' || catKey === activeFilter;
+      var qOk = !q || (a.title && a.title.toLowerCase().indexOf(q) !== -1)
+               || (a.description && a.description.toLowerCase().indexOf(q) !== -1);
+      return catOk && qOk;
+    }});
+    offset = 0;
+    renderPage();
+  }}
+
+  function renderPage() {{
+    var chunk = filtered.slice(0, offset + PAGE);
+    // Group by date
+    var byDate = {{}};
+    chunk.forEach(function(a) {{ (byDate[a.date || 'Unknown'] = byDate[a.date || 'Unknown'] || []).push(a); }});
+    var html = '';
+    Object.keys(byDate).sort().reverse().forEach(function(d) {{
+      html += '<h2 class="arch-date-hdr">' + d + '</h2>';
+      byDate[d].forEach(function(a) {{ html += renderCard(a); }});
+    }});
+    listEl.innerHTML = html || '<p style="color:#718096;font-family:system-ui,sans-serif">No articles matched.</p>';
+    offset = Math.min(offset + PAGE, filtered.length);
+    countEl.textContent = filtered.length + ' article' + (filtered.length === 1 ? '' : 's')
+      + (query ? " for '" + query + "'" : '') + (activeFilter !== 'all' ? ' in ' + activeFilter : '');
+    moreBtn.style.display = offset < filtered.length ? '' : 'none';
+  }}
+
+  function loadMore() {{ renderPage(); }}
+  window.loadMore = loadMore;
+
+  function setFilter(cat, btn) {{
+    activeFilter = cat;
+    document.querySelectorAll('#filter-btns button').forEach(function(b) {{ b.classList.remove('active'); }});
+    btn.classList.add('active');
+    applyFilter();
+  }}
+  window.setFilter = setFilter;
+
+  searchEl.addEventListener('input', function() {{
+    query = this.value.trim();
+    applyFilter();
   }});
-}}
+
+  fetch('/data/kd-articles.json')
+    .then(function(r) {{ return r.json(); }})
+    .then(function(data) {{
+      allArticles = data.sort(function(a, b) {{ return b.date < a.date ? -1 : 1; }});
+      searchEl.placeholder = 'Search ' + allArticles.length + ' articles…';
+      applyFilter();
+    }})
+    .catch(function() {{
+      listEl.innerHTML = '<p style="color:#718096;font-family:system-ui,sans-serif">Could not load articles. <a href="/search.html">Try search</a>.</p>';
+    }});
+}})();
 </script>
 </body></html>"""
 
-    upload("news/archive.html", page, f"[scraper] Archive page — {len(articles)} articles")
-    print(f"  Archive: {len(articles)} articles")
+    upload("news/archive.html", page, f"[scraper] Archive page (dynamic) — {total} articles")
+    print(f"  Archive: {total} articles")
 
 
 # ── Category pages ───────────────────────────────────────────────────────────
