@@ -29,6 +29,7 @@ footer.kd h4{color:#fff;margin:0 0 10px;font-size:13px;letter-spacing:1.5px;text
 footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 .kd-card-excerpt{font-size:13px;color:#4a5568;margin:4px 0 6px;line-height:1.4;font-family:system-ui,sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .kd-bias-text{font-size:10px;color:#718096;margin-left:6px}
+.kd-skip{position:absolute;top:-48px;left:0;background:#1a4d80;color:#fff;padding:8px 16px;font-size:14px;font-family:system-ui,sans-serif;z-index:200;text-decoration:none;border-radius:0 0 6px 0;transition:top .15s}.kd-skip:focus{top:0;outline:3px solid #ffd700}
 .kd-ham{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:24px;line-height:1;padding:4px 8px}
 @media(max-width:640px){.kd-ham{display:flex;align-items:center;margin-left:auto;order:2}header.kd nav{display:none;order:3;width:100%;flex-direction:column;gap:0;padding:6px 0 8px;justify-content:flex-start}header.kd nav.open{display:flex}header.kd nav a{padding:12px 0;font-size:16px;border-top:1px solid rgba(255,255,255,.12);min-height:44px;display:flex;align-items:center}.pz-cta{width:fit-content}main{padding:20px 16px 48px}}
 
@@ -86,7 +87,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 </style>
 </head>
 <body>
-<header class="kd"><div class="inner">
+<a href="#main" class="kd-skip">Skip to content</a><header class="kd"><div class="inner">
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a>
@@ -102,7 +103,7 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
 <input
   id="kd-search-input"
   type="search"
-  placeholder="Search 677 articles..."
+  placeholder="Search 687 articles..."
   aria-label="Search articles"
   autofocus
   autocomplete="off"
