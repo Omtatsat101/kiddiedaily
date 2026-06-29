@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>KiddieDaily Weekly Digest — Best of the Week</title>
-<meta name="description" content="KiddieDaily weekly digest — 809 stories from the last 7 days for families. Kid-safe, bias-rated news.">
+<meta name="description" content="KiddieDaily weekly digest — 812 stories from the last 7 days for families. Kid-safe, bias-rated news.">
 <meta property="og:title" content="KiddieDaily — Best of the Week">
-<meta property="og:description" content="809 kid-friendly stories from the last 7 days — bias-rated and fact-check linked.">
+<meta property="og:description" content="812 kid-friendly stories from the last 7 days — bias-rated and fact-check linked.">
 <meta property="og:url" content="https://kiddiedaily.com/digest/weekly.html">
 <meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
 <meta name="twitter:card" content="summary">
@@ -140,6 +140,8 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
   var cutoff = new Date();
   cutoff.setDate(cutoff.getDate() - 7);
   var cutoffStr = cutoff.toISOString().slice(0, 10);
+  var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmtDate(d){var p=d?d.split('-'):[];return p.length===3?MO[parseInt(p[1])-1]+' '+parseInt(p[2])+', '+p[0]:d||'';}
 
   function biasLabel(b) {
     if (b <= -1.2) return 'Far Left';
@@ -157,10 +159,14 @@ footer.kd a{color:#cbd5e0;display:block;padding:3px 0;font-size:14px}
     var bLabel = biasLabel(bias);
     var sign = bias >= 0 ? '+' : '';
     var desc = a.description ? '<p style="font-size:13px;color:#4a5568;margin:4px 0 0;line-height:1.5">' + a.description.slice(0,130) + (a.description.length > 130 ? '…' : '') + '</p>' : '';
+    var cats=(a.cats||[]).filter(function(c){return c!=='science'&&c!=='world';});
+    var catTags=cats.slice(0,2).map(function(c){return '<span style="font-size:9px;background:#e0e7ff;color:#3730a3;padding:1px 5px;border-radius:20px;font-weight:600;margin-right:4px">'+c+'</span>';}).join('');
+    var mainBadge='<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-right:6px;'+(a.is_science?'background:#d1fae5;color:#065f46':'background:#dbeafe;color:#1e40af')+'">'+(a.is_science?'Science':'World News')+'</span>';
     return '<div class="wk-card ' + cls + '">'
+      + '<div style="margin-bottom:5px">'+mainBadge+catTags+'</div>'
       + '<h3><a href="/' + a.slug + '">' + (a.display_title || a.title) + '</a></h3>'
       + desc
-      + '<p class="wk-meta">' + (a.date || '') + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + bLabel + ' (' + sign + bias.toFixed(1) + ')</p>'
+      + '<p class="wk-meta">' + fmtDate(a.date) + ' &middot; ' + n + ' source' + (n !== 1 ? 's' : '') + ' &middot; Bias: ' + bLabel + ' (' + sign + bias.toFixed(1) + ')</p>'
       + '</div>';
   }
 
