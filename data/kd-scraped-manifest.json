@@ -742,7 +742,10 @@
     "news/2026-06-29-mehdi-hasan-disrupting-democracys-decline.html",
     "news/2026-06-29-iraqs-corruption-crackdown-is-a-start-not-a-soluti.html",
     "news/2026-06-29-gaza-high-school-students-fight-for-a-future.html",
-    "news/2026-06-29-fire-and-floods-hit-ghanas-capital-as-residents-ar.html"
+    "news/2026-06-29-fire-and-floods-hit-ghanas-capital-as-residents-ar.html",
+    "news/2026-06-29-earthquake-jolts-southwest-china.html",
+    "news/2026-06-29-lebanons-displaced-begin-to-return-home-but-some-h.html",
+    "news/2026-06-29-jd-vances-2028-strategy-is-starting-to-take-shape.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1487,7 +1490,10 @@
     "Mehdi Hasan: Disrupting democracy’s decline",
     "Iraq’s corruption crackdown is a start, not a solution",
     "Gaza high school student’s fight for a future",
-    "Fire and floods hit Ghana’s capital as residents are left stranded"
+    "Fire and floods hit Ghana’s capital as residents are left stranded",
+    "Earthquake jolts southwest China",
+    "Lebanon’s displaced begin to return home, but some have nowhere to go",
+    "JD Vance’s 2028 strategy is starting to take shape"
   ],
   "articles": [
     {
@@ -10014,6 +10020,45 @@
       "source_name": "Al Jazeera",
       "source_icons": "🌍",
       "description": "A massive fire engulfed a rubber factory in Ghana’s capital, Accra, as severe flooding swamped parts of the city."
+    },
+    {
+      "slug": "news/2026-06-29-earthquake-jolts-southwest-china.html",
+      "title": "Earthquake jolts southwest China",
+      "display_title": "Earthquake jolts southwest China",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "An earthquake with a magnitude of 5.5 struck Yibin in China’s southwest province of Sichuan shortly on Monday."
+    },
+    {
+      "slug": "news/2026-06-29-lebanons-displaced-begin-to-return-home-but-some-h.html",
+      "title": "Lebanon’s displaced begin to return home, but some have nowhere to go",
+      "display_title": "Lebanon’s displaced begin to return home, but some have nowhere to go",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "Thousands in Lebanon attempt to return home, yet rampant destruction leaves many trapped in displacement centres."
+    },
+    {
+      "slug": "news/2026-06-29-jd-vances-2028-strategy-is-starting-to-take-shape.html",
+      "title": "JD Vance’s 2028 strategy is starting to take shape",
+      "display_title": "JD Vance’s 2028 strategy is starting to take shape",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.4,
+      "agreement_pct": 7,
+      "is_science": false,
+      "source_name": "Al Jazeera",
+      "source_icons": "🌍",
+      "description": "The vice president’s decision to criticise Israel and distance himself from rival Rubio means he is reading the base."
     }
   ]
 }
