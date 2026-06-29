@@ -299,6 +299,7 @@ DEPRIORITIZE_WORDS = [
     "raw results", "raw recap", "nxt results",
     # professional-sports results/retirements (adult sports industry, not child-development news)
     "test match", "ashes series", "ashes test", "county cricket",
+    "t20 series", "t20 match", "t20 cricket", "ipl ",
     "says retiring", "retiring from international", "ends international career",
     "wimbledon final", "wimbledon semi", "wimbledon quarter",
     "premier league", "la liga", "serie a", "ligue 1",
