@@ -152,9 +152,17 @@ BLOCKLIST = [
     "suicide", "overdose", "cocaine", "heroin", "fentanyl",
     "explicit", "porn", "adult content",
     "war crime", "genocide", "torture", "execution", "beheading",
+    "fatally", "death toll", "casualties", "bodies found",
+    "die in", "dies in", "died in",
 ]
-SAFE_OVERRIDES = ["space", "science", "animal", "planet", "nature", "research",
-                  "invention", "discovery", "environment", "ocean", "climate"]
+SAFE_OVERRIDES = [
+    "space", "science", "animal", "planet", "nature", "research",
+    "invention", "discovery", "environment", "ocean", "climate",
+    # extended: nature/ecology death-adjacent stories are OK
+    "fossil", "dinosaur", "reef", "coral", "species", "extinct",
+    "habitat", "migration", "eruption", "meteor", "asteroid",
+    "galaxy", "telescope", "comet", "nebula",
+]
 
 def is_kid_safe(title, desc):
     text = (title + " " + desc).lower()
@@ -240,6 +248,9 @@ DEPRIORITIZE_WORDS = [
     "iran", "israel", "ukraine", "russia", "hamas", "congress",
     "senate", "republican", "democrat", "trump", "biden", "president",
     "election", "indicted", "arrested", "shooting", "crash",
+    # political-regulatory (heavy penalty so non-science replaces them)
+    "supreme court", "aoc", "gop", "filibuster", "legislation",
+    "firefighter", "firefighters", "police officer", "custody",
 ]
 
 def ranking_score(group):
@@ -588,10 +599,40 @@ def build_page(title, body_html, bias_html, score, group, slug, today):
     fc_query = urllib.parse.quote(title[:80])
     fact_check_url = f"https://toolbox.google.com/factcheck/explorer/search/{fc_query}"
 
+    # Multiple perspectives block — shows how each outlet framed the story
+    def _perspectives_html(group, n):
+        if n < 2:
+            return ""
+        rows = []
+        for s in group:
+            b = s["source_bias"]
+            lean = ("Left" if b <= -0.4 else ("Right" if b >= 0.4 else "Center"))
+            lean_color = "#2b6cb0" if lean == "Left" else ("#c53030" if lean == "Right" else "#276749")
+            headline = s["title"][:100] + ("…" if len(s["title"]) > 100 else "")
+            rows.append(
+                f'<div style="padding:10px 14px;border-left:3px solid {lean_color};margin:6px 0;background:#fafafa;border-radius:0 6px 6px 0">'
+                f'<span style="font-size:11px;font-weight:700;color:{lean_color};text-transform:uppercase;letter-spacing:.8px">{lean}</span>'
+                f' <span style="font-size:11px;color:#718096">&mdash; {s["source_icon"]} {s["source_name"]}</span><br>'
+                f'<span style="font-size:14px;color:#2d3748">{headline}</span>'
+                f'</div>'
+            )
+        return (
+            '<div style="background:#fff8e1;border:1px solid #fde68a;border-radius:10px;padding:16px 20px;margin:18px 0;font-family:system-ui,sans-serif">'
+            '<div style="font-size:11px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">'
+            '&#127919; Multiple perspectives — how outlets framed this story</div>'
+            + "".join(rows) +
+            '<p style="font-size:11px;color:#a0aec0;margin:8px 0 0">Reading multiple sources helps you spot framing differences. '
+            'Neither left- nor right-leaning outlets are always wrong — or always right.</p>'
+            '</div>'
+        )
+
+    perspectives_html = _perspectives_html(group, n)
+
     rt = reading_time(body_html)
     body = f"""<p class="byline">By KiddieDaily Editors &middot; {today} &middot; {rt} &middot; {n} source{"s" if n!=1 else ""}</p>
 <h1>{title}</h1>
 {bias_html}
+{perspectives_html}
 {body_html}
 <div class="sources"><h4>Original Sources</h4><ul>{source_items}</ul></div>
 <p style="margin-top:16px;padding:10px 14px;background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;font-size:13px">
@@ -1824,12 +1865,23 @@ def generate_search_page(manifest):
 .kd-badge-sci{{background:#d1fae5;color:#065f46}}
 .kd-badge-news{{background:#dbeafe;color:#1e40af}}
 #kd-no-results{{display:none;text-align:center;color:#718096;font-family:system-ui,sans-serif;padding:40px 0;font-size:15px}}
+.kd-cat-filters{{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}}
+.kd-cat-btn{{padding:7px 16px;border-radius:20px;border:2px solid #dde4ef;background:#fff;
+  font-size:13px;font-weight:700;cursor:pointer;font-family:system-ui,sans-serif;
+  color:#4a5568;transition:all .15s}}
+.kd-cat-btn.active{{background:#1a4d80;color:#fff;border-color:#1a4d80}}
+.kd-cat-btn:hover:not(.active){{border-color:#1a4d80;color:#1a4d80}}
 </style>
 </head>
 <body>
 {{HEADER}}
 <main style="max-width:780px;margin:0 auto;padding:32px 24px 64px">
-<h1 style="font-size:28px;margin:0 0 20px">Search KiddieDaily</h1>
+<h1 style="font-size:28px;margin:0 0 16px">Search KiddieDaily</h1>
+<div class="kd-cat-filters">
+  <button class="kd-cat-btn active" data-cat="all" onclick="setCat(this,'all')">All</button>
+  <button class="kd-cat-btn" data-cat="science" onclick="setCat(this,'science')">🔬 Science</button>
+  <button class="kd-cat-btn" data-cat="world" onclick="setCat(this,'world')">🌍 World News</button>
+</div>
 <input
   id="kd-search-input"
   type="search"
@@ -1856,12 +1908,21 @@ def generate_search_page(manifest):
   var noResults = document.getElementById('kd-no-results');
   var input     = document.getElementById('kd-search-input');
   var allArticles = [];
+  var activeCategory = 'all';
+
+  function setCat(btn, cat) {{
+    activeCategory = cat;
+    document.querySelectorAll('.kd-cat-btn').forEach(function(b) {{ b.classList.remove('active'); }});
+    btn.classList.add('active');
+    filterAndRender();
+  }}
+  window.setCat = setCat;
 
   function renderResults(articles, query) {{
     if (!articles.length) {{
       container.innerHTML = '';
-      noResults.style.display = query ? 'block' : 'none';
-      countEl.textContent = query ? '' : '';
+      noResults.style.display = (query || activeCategory !== 'all') ? 'block' : 'none';
+      countEl.textContent = '';
       return;
     }}
     noResults.style.display = 'none';
@@ -1886,9 +1947,11 @@ def generate_search_page(manifest):
 
   function filterAndRender() {{
     var q = input.value.trim().toLowerCase();
-    var filtered = q
-      ? allArticles.filter(function(a) {{ return a.title.toLowerCase().indexOf(q) !== -1; }})
-      : allArticles;
+    var filtered = allArticles.filter(function(a) {{
+      var matchesCat = activeCategory === 'all' || (a.category || (a.is_science ? 'science' : 'world')) === activeCategory;
+      var matchesQ   = !q || a.title.toLowerCase().indexOf(q) !== -1;
+      return matchesCat && matchesQ;
+    }});
     renderResults(filtered, q);
   }}
 
