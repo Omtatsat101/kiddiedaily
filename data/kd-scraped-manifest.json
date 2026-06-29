@@ -260,7 +260,12 @@
     "news/2026-06-29-dhl-explores-familiar-shipping-option-wind-power.html",
     "news/2026-06-29-strange-glowing-bow-and-arrow-structure-may-be-a-g.html",
     "news/2026-06-29-black-holes-point-of-no-escape-studied-with-the-lo.html",
-    "news/2026-06-29-parenting-may-permanently-improve-brain-health-for.html"
+    "news/2026-06-29-parenting-may-permanently-improve-brain-health-for.html",
+    "news/2026-06-29-exodus-the-helium-sea-author-peter-f-hamilton-talk.html",
+    "news/2026-06-29-spacexs-next-starship-breathes-fire-for-1st-time-i.html",
+    "news/2026-06-29-the-surprising-ways-your-brain-changes-from-your-2.html",
+    "news/2026-06-29-lost-books-by-ancient-philosophers-recovered-from.html",
+    "news/2026-06-29-16-gorgeous-images-from-the-1839-awards-color-phot.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -523,7 +528,12 @@
     "DHL explores familiar shipping option: wind power",
     "Strange glowing 'bow-and-arrow' structure may be a giant cosmic shock wave created by a supersonic galaxy collision",
     "Black hole's 'point of no escape' studied with the loudest gravitational waves ever heard",
-    "Parenting may permanently improve brain health for mums and dads"
+    "Parenting may permanently improve brain health for mums and dads",
+    "'Exodus: The Helium Sea' author Peter F. Hamilton talks universe crafting and finishing the story in this second prequel novel for sci-fi RPG 'Exodus' (exclusive)",
+    "SpaceX's next Starship breathes fire for 1st time in prelaunch test (video)",
+    "The surprising ways your brain changes from your 20s to your 40s",
+    "Lost books by ancient philosophers recovered from 'unreadable' scrolls",
+    "16 gorgeous images from the 1839 Awards’ Color Photography Contest"
   ],
   "articles": [
     {
@@ -3384,6 +3394,61 @@
       "agreement_pct": 14,
       "is_science": true,
       "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-exodus-the-helium-sea-author-peter-f-hamilton-talk.html",
+      "title": "'Exodus: The Helium Sea' author Peter F. Hamilton talks universe crafting and finishing the story in this second prequel novel for sci-fi RPG 'Exodus' (exclusive)",
+      "display_title": "'Exodus: The Helium Sea' author Peter F. Hamilton talks universe crafting and finishing the story in this second prequel novel for sci-fi RPG 'Exodus' (exclusive)",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-spacexs-next-starship-breathes-fire-for-1st-time-i.html",
+      "title": "SpaceX's next Starship breathes fire for 1st time in prelaunch test (video)",
+      "display_title": "SpaceX's next Starship breathes fire for 1st time in prelaunch test (video)",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🌌"
+    },
+    {
+      "slug": "news/2026-06-29-the-surprising-ways-your-brain-changes-from-your-2.html",
+      "title": "The surprising ways your brain changes from your 20s to your 40s",
+      "display_title": "The surprising ways your brain changes from your 20s to your 40s",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-lost-books-by-ancient-philosophers-recovered-from.html",
+      "title": "Lost books by ancient philosophers recovered from 'unreadable' scrolls",
+      "display_title": "Lost books by ancient philosophers recovered from 'unreadable' scrolls",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-16-gorgeous-images-from-the-1839-awards-color-phot.html",
+      "title": "16 gorgeous images from the 1839 Awards’ Color Photography Contest",
+      "display_title": "16 gorgeous images from the 1839 Awards’ Color Photography Contest",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "💡"
     }
   ]
 }
