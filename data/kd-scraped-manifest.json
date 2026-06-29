@@ -300,7 +300,14 @@
     "news/2026-06-29-a-turquoise-tint-for-the-black-sea.html",
     "news/2026-06-29-if-you-arent-terrified-by-this-heatwave-you-should.html",
     "news/2026-06-29-ben-stokess-exit-is-unconventional-for-an-english.html",
-    "news/2026-06-29-got-the-tennis-bug-how-to-play-sport-without-payin.html"
+    "news/2026-06-29-got-the-tennis-bug-how-to-play-sport-without-payin.html",
+    "news/2026-06-29-all-known-homo-naledi-skeletons-seem-to-be-female.html",
+    "news/2026-06-29-nasas-hirise-captures-perseverance-marking-a-miles.html",
+    "news/2026-06-29-playing-the-moon-game.html",
+    "news/2026-06-29-record-breaking-ibm-chip-uses-trick-to-cram-in-100.html",
+    "news/2026-06-29-thai-farmers-fear-water-woes-from-planned-lng-plan.html",
+    "news/2026-06-29-kenyas-overcrowded-safaris-wildlife-for-who.html",
+    "news/2026-06-29-metallica-donates-20000-to-city-foodbank-with-empt.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -603,7 +610,14 @@
     "A Turquoise Tint for the Black Sea",
     "If you aren't terrified by this heatwave, you should be",
     "Ben Stokes's exit is unconventional for an English great",
-    "Got the tennis bug? How to play sport without paying"
+    "Got the tennis bug? How to play sport without paying",
+    "All known Homo naledi skeletons seem to be female",
+    "NASA’s HiRISE Captures Perseverance Marking a Milestone on Mars",
+    "Playing the Moon Game",
+    "Record-breaking IBM chip uses trick to cram in 100 billion transistors",
+    "Thai farmers fear water woes from planned LNG plant",
+    "Kenya’s overcrowded safaris: Wildlife for who?",
+    "Metallica donates £20,000 to city foodbank with 'empty shelves' after sell-out gig"
   ],
   "articles": [
     {
@@ -3898,6 +3912,83 @@
       "slug": "news/2026-06-29-got-the-tennis-bug-how-to-play-sport-without-payin.html",
       "title": "Got the tennis bug? How to play sport without paying",
       "display_title": "Got the tennis bug? How to play sport without paying",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 11,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-all-known-homo-naledi-skeletons-seem-to-be-female.html",
+      "title": "All known Homo naledi skeletons seem to be female",
+      "display_title": "All known Homo naledi skeletons seem to be female",
+      "date": "2026-06-29",
+      "n_sources": 2,
+      "bias_avg": -0.15,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "🧪 🔭"
+    },
+    {
+      "slug": "news/2026-06-29-nasas-hirise-captures-perseverance-marking-a-miles.html",
+      "title": "NASA’s HiRISE Captures Perseverance Marking a Milestone on Mars",
+      "display_title": "NASA’s HiRISE Captures Perseverance Marking a Milestone on Mars",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-playing-the-moon-game.html",
+      "title": "Playing the Moon Game",
+      "display_title": "Playing the Moon Game",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🌍"
+    },
+    {
+      "slug": "news/2026-06-29-record-breaking-ibm-chip-uses-trick-to-cram-in-100.html",
+      "title": "Record-breaking IBM chip uses trick to cram in 100 billion transistors",
+      "display_title": "Record-breaking IBM chip uses trick to cram in 100 billion transistors",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-thai-farmers-fear-water-woes-from-planned-lng-plan.html",
+      "title": "Thai farmers fear water woes from planned LNG plant",
+      "display_title": "Thai farmers fear water woes from planned LNG plant",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-kenyas-overcrowded-safaris-wildlife-for-who.html",
+      "title": "Kenya’s overcrowded safaris: Wildlife for who?",
+      "display_title": "Kenya’s overcrowded safaris: Wildlife for who?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-metallica-donates-20000-to-city-foodbank-with-empt.html",
+      "title": "Metallica donates £20,000 to city foodbank with 'empty shelves' after sell-out gig",
+      "display_title": "Metallica donates £20,000 to city foodbank with 'empty shelves' after sell-out gig",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
