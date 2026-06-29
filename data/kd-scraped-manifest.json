@@ -499,7 +499,10 @@
     "news/2026-06-29-the-american-left-has-lost-its-mind-and-the-media.html",
     "news/2026-06-29-how-young-coqui-frogs-balance-the-competing-demand.html",
     "news/2026-06-29-anyone-can-fake-a-scientific-image-with-ai-trickin.html",
-    "news/2026-06-29-why-do-baseball-players-put-a-black-mark-under-the.html"
+    "news/2026-06-29-why-do-baseball-players-put-a-black-mark-under-the.html",
+    "news/2026-06-29-quantum-sensors-could-spot-hidden-damage-in-the-th.html",
+    "news/2026-06-29-where-nature-draws-the-map-here-are-5-ways-to-look.html",
+    "news/2026-06-29-nasa-announces-its-artemis-iii-crew-which-will-tes.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -1001,7 +1004,10 @@
     "The American left has lost its mind, and the media seem unbothered",
     "How young coquí frogs balance the competing demands of growth and fighting disease",
     "Anyone can fake a scientific image with AI, tricking even academic journals – and undermining trust in science",
-    "Why do baseball players put a black mark under their eyes?"
+    "Why do baseball players put a black mark under their eyes?",
+    "Quantum sensors could spot hidden damage in the thousands of US bridges rated ‘structurally deficient’",
+    "Where nature draws the map – here are 5 ways to look at the US, without state boundaries",
+    "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion"
   ],
   "articles": [
     {
@@ -6558,6 +6564,42 @@
       "slug": "news/2026-06-29-why-do-baseball-players-put-a-black-mark-under-the.html",
       "title": "Why do baseball players put a black mark under their eyes?",
       "display_title": "Why do baseball players put a black mark under their eyes?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-quantum-sensors-could-spot-hidden-damage-in-the-th.html",
+      "title": "Quantum sensors could spot hidden damage in the thousands of US bridges rated ‘structurally deficient’",
+      "display_title": "Quantum sensors could spot hidden damage in the thousands of US bridges rated ‘structurally deficient’",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-where-nature-draws-the-map-here-are-5-ways-to-look.html",
+      "title": "Where nature draws the map – here are 5 ways to look at the US, without state boundaries",
+      "display_title": "Where nature draws the map – here are 5 ways to look at the US, without state boundaries",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 9,
+      "is_science": true,
+      "source_name": "The Conversation",
+      "source_icons": "🎓"
+    },
+    {
+      "slug": "news/2026-06-29-nasa-announces-its-artemis-iii-crew-which-will-tes.html",
+      "title": "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion",
+      "display_title": "NASA announces its Artemis III crew, which will test important equipment and systems in Earth orbit and is testing public opinion",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.2,
