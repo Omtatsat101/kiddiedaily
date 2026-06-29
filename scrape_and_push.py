@@ -57,6 +57,7 @@ _ADULT_TITLE_RE = re.compile(
 )
 
 # Hard-reject commercial/shopping/promo titles (score penalty not enough — science +5 overrides it)
+# Also rejects newsletter roundup formats (The Download, DeBriefed, etc.) and media-reaction meta-articles
 _COMMERCIAL_TITLE_RE = re.compile(
     r'(?:'
     r'deals?\s+(?:are\s+)?ending|prime\s+deals?|prime\s+day'
@@ -64,6 +65,9 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|save\s+(?:up\s+to|\d+%?)\s+on|best\s+(?:deals?|prices?)\s+on'
     r'|limited.time\s+offer|shop\s+now|buy\s+now\s+and\s+save'
     r'|black\s+friday|cyber\s+monday'
+    r'|^the\s+download[\s:]'            # MIT Tech Review newsletter
+    r'|^debriefed\s+\d'                 # Carbon Brief dated newsletter
+    r'|^media\s+reaction[\s:]'          # Carbon Brief media-roundup
     r')',
     re.I
 )
