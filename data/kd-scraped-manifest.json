@@ -60,7 +60,12 @@
     "news/2026-06-29-kaine-says-hegseth-grudge-against-army-looks-perso.html",
     "news/2026-06-29-mullin-defends-haiti-tps-decision.html",
     "news/2026-06-29-tillis-passing-save-america-act-before-midterms-is.html",
-    "news/2026-06-29-burnham-to-promise-devolution-in-first-major-speec.html"
+    "news/2026-06-29-burnham-to-promise-devolution-in-first-major-speec.html",
+    "news/2026-06-29-how-big-a-cybersecurity-threat-are-the-latest-ai-m.html",
+    "news/2026-06-29-giant-deep-sea-roly-polies-steal-a-gene-to-endure.html",
+    "news/2026-06-29-brains-break-and-repair-dna-to-grow.html",
+    "news/2026-06-29-new-science-on-algae-die-offs-is-too-late-for-the.html",
+    "news/2026-06-29-ancient-flowering-plants-may-have-used-dinosaurs-t.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -123,7 +128,12 @@
     "Kaine says Hegseth 'grudge' against Army looks 'personal'",
     "Mullin defends Haiti TPS decision",
     "Tillis: Passing SAVE America Act before midterms is an 'impossible task'",
-    "Burnham to promise devolution in first major speech since launching No 10 bid"
+    "Burnham to promise devolution in first major speech since launching No 10 bid",
+    "How big a cybersecurity threat are the latest AI models, really?",
+    "Giant, deep-sea roly-polies steal a gene to endure starvation",
+    "Brains break and repair DNA to grow",
+    "New science on algae die-offs is too late for the Reflecting Pool",
+    "Ancient flowering plants may have used dinosaurs to spread their seeds"
   ],
   "articles": [
     {
@@ -784,6 +794,61 @@
       "agreement_pct": 31,
       "is_science": false,
       "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-how-big-a-cybersecurity-threat-are-the-latest-ai-m.html",
+      "title": "How big a cybersecurity threat are the latest AI models, really?",
+      "display_title": "How big a cybersecurity threat are the latest AI models, really?",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-giant-deep-sea-roly-polies-steal-a-gene-to-endure.html",
+      "title": "Giant, deep-sea roly-polies steal a gene to endure starvation",
+      "display_title": "Giant, deep-sea roly-polies steal a gene to endure starvation",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-brains-break-and-repair-dna-to-grow.html",
+      "title": "Brains break and repair DNA to grow",
+      "display_title": "Brains break and repair DNA to grow",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-new-science-on-algae-die-offs-is-too-late-for-the.html",
+      "title": "New science on algae die-offs is too late for the Reflecting Pool",
+      "display_title": "New science on algae die-offs is too late for the Reflecting Pool",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-ancient-flowering-plants-may-have-used-dinosaurs-t.html",
+      "title": "Ancient flowering plants may have used dinosaurs to spread their seeds",
+      "display_title": "Ancient flowering plants may have used dinosaurs to spread their seeds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
     }
   ]
 }
