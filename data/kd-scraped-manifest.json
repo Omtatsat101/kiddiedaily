@@ -65,7 +65,12 @@
     "news/2026-06-29-giant-deep-sea-roly-polies-steal-a-gene-to-endure.html",
     "news/2026-06-29-brains-break-and-repair-dna-to-grow.html",
     "news/2026-06-29-new-science-on-algae-die-offs-is-too-late-for-the.html",
-    "news/2026-06-29-ancient-flowering-plants-may-have-used-dinosaurs-t.html"
+    "news/2026-06-29-ancient-flowering-plants-may-have-used-dinosaurs-t.html",
+    "news/2026-06-29-weve-had-fire-for-longer-than-we-thought.html",
+    "news/2026-06-29-a-mars-rover-found-organic-carbon-just-sitting-on.html",
+    "news/2026-06-29-a-potential-hindrance-to-fusion-power-may-help-ins.html",
+    "news/2026-06-29-the-worlds-largest-scorpion-lived-415-million-year.html",
+    "news/2026-06-29-the-little-brain-may-give-the-aging-mind-a-big-boo.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -133,7 +138,12 @@
     "Giant, deep-sea roly-polies steal a gene to endure starvation",
     "Brains break and repair DNA to grow",
     "New science on algae die-offs is too late for the Reflecting Pool",
-    "Ancient flowering plants may have used dinosaurs to spread their seeds"
+    "Ancient flowering plants may have used dinosaurs to spread their seeds",
+    "We’ve had fire for longer than we thought",
+    "A Mars rover found organic carbon just sitting on a rock",
+    "A potential hindrance to fusion power may help instead",
+    "The world’s largest scorpion lived 415 million years ago",
+    "The ‘little brain’ may give the aging mind a big boost"
   ],
   "articles": [
     {
@@ -843,6 +853,61 @@
       "slug": "news/2026-06-29-ancient-flowering-plants-may-have-used-dinosaurs-t.html",
       "title": "Ancient flowering plants may have used dinosaurs to spread their seeds",
       "display_title": "Ancient flowering plants may have used dinosaurs to spread their seeds",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-weve-had-fire-for-longer-than-we-thought.html",
+      "title": "We’ve had fire for longer than we thought",
+      "display_title": "We’ve had fire for longer than we thought",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-a-mars-rover-found-organic-carbon-just-sitting-on.html",
+      "title": "A Mars rover found organic carbon just sitting on a rock",
+      "display_title": "A Mars rover found organic carbon just sitting on a rock",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-a-potential-hindrance-to-fusion-power-may-help-ins.html",
+      "title": "A potential hindrance to fusion power may help instead",
+      "display_title": "A potential hindrance to fusion power may help instead",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-the-worlds-largest-scorpion-lived-415-million-year.html",
+      "title": "The world’s largest scorpion lived 415 million years ago",
+      "display_title": "The world’s largest scorpion lived 415 million years ago",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": 0.0,
+      "agreement_pct": 23,
+      "is_science": true,
+      "source_icons": "📡"
+    },
+    {
+      "slug": "news/2026-06-29-the-little-brain-may-give-the-aging-mind-a-big-boo.html",
+      "title": "The ‘little brain’ may give the aging mind a big boost",
+      "display_title": "The ‘little brain’ may give the aging mind a big boost",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": 0.0,
