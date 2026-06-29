@@ -357,7 +357,11 @@
     "news/2026-06-29-not-all-coral-reefs-are-doomed-as-a-result-of-clim.html",
     "news/2026-06-29-how-leopards-and-wolves-share-the-same-himalayan-v.html",
     "news/2026-06-29-rocket-report-rebuild-begins-at-blue-origin-launch.html",
-    "news/2026-06-29-a-bold-satellite-rescue-mission-came-together-in-r.html"
+    "news/2026-06-29-a-bold-satellite-rescue-mission-came-together-in-r.html",
+    "news/2026-06-29-as-temperatures-soar-paris-court-set-to-rule-on-la.html",
+    "news/2026-06-29-hunter-gatherers-in-siberia-died-of-a-plague-outbr.html",
+    "news/2026-06-29-sooner-than-expected-useful-quantum-error-correcti.html",
+    "news/2026-06-29-vietnamese-environmental-lawyer-dang-dinh-bach-rel.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -717,7 +721,11 @@
     "Not all coral reefs are doomed as a result of climate change, study suggests",
     "How leopards and wolves share the same Himalayan valley, study",
     "Rocket Report: Rebuild begins at Blue Origin launch pad; Relativity targets Mars",
-    "A bold satellite rescue mission came together in record time, but will it work?"
+    "A bold satellite rescue mission came together in record time, but will it work?",
+    "As temperatures soar, Paris court set to rule on landmark climate change case",
+    "Hunter-gatherers in Siberia died of a plague outbreak 5,500 years ago",
+    "Sooner than expected? Useful quantum error correction promised for 2028.",
+    "Vietnamese environmental lawyer Dang Dinh Bach released after 5 years in prison"
   ],
   "articles": [
     {
@@ -4645,6 +4653,50 @@
       "agreement_pct": 11,
       "is_science": true,
       "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-as-temperatures-soar-paris-court-set-to-rule-on-la.html",
+      "title": "As temperatures soar, Paris court set to rule on landmark climate change case",
+      "display_title": "As temperatures soar, Paris court set to rule on landmark climate change case",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
+    },
+    {
+      "slug": "news/2026-06-29-hunter-gatherers-in-siberia-died-of-a-plague-outbr.html",
+      "title": "Hunter-gatherers in Siberia died of a plague outbreak 5,500 years ago",
+      "display_title": "Hunter-gatherers in Siberia died of a plague outbreak 5,500 years ago",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-sooner-than-expected-useful-quantum-error-correcti.html",
+      "title": "Sooner than expected? Useful quantum error correction promised for 2028.",
+      "display_title": "Sooner than expected? Useful quantum error correction promised for 2028.",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.2,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🔭"
+    },
+    {
+      "slug": "news/2026-06-29-vietnamese-environmental-lawyer-dang-dinh-bach-rel.html",
+      "title": "Vietnamese environmental lawyer Dang Dinh Bach released after 5 years in prison",
+      "display_title": "Vietnamese environmental lawyer Dang Dinh Bach released after 5 years in prison",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 11,
+      "is_science": true,
+      "source_icons": "🦁"
     }
   ]
 }
