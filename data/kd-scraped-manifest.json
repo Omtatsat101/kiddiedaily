@@ -289,7 +289,11 @@
     "news/2026-06-29-can-home-batteries-help-save-the-climate-and-save.html",
     "news/2026-06-29-nasas-canceled-artemis-hardware-contracts-reached.html",
     "news/2026-06-29-how-population-decline-is-exposing-germanys-old-di.html",
-    "news/2026-06-29-when-five-wimbledon-titles-in-one-weekend-changed.html"
+    "news/2026-06-29-when-five-wimbledon-titles-in-one-weekend-changed.html",
+    "news/2026-06-29-weve-uncovered-a-master-gene-that-switches-on-huma.html",
+    "news/2026-06-29-where-when-and-how-to-watch-the-2026-solar-eclipse.html",
+    "news/2026-06-29-i-see-tourists-pee-in-front-of-my-house-the-camper.html",
+    "news/2026-06-29-why-is-pregnancy-sickness-drug-not-easily-accessib.html"
   ],
   "pushed_titles": [
     "US conducts strikes on Iran after attack on cargo ship",
@@ -581,7 +585,11 @@
     "Can home batteries help save the climate and save you money?",
     "NASA's canceled Artemis hardware contracts reached $5.9 billion, audit finds",
     "How population decline is exposing Germany's old divides",
-    "When five Wimbledon titles in one weekend changed British tennis"
+    "When five Wimbledon titles in one weekend changed British tennis",
+    "We’ve uncovered a master gene that switches on human development",
+    "Where, when and how to watch the 2026 solar eclipse",
+    "'I see tourists pee in front of my house': The campervan problem on the Isle of Skye",
+    "Why is pregnancy sickness drug not easily accessible to all?"
   ],
   "articles": [
     {
@@ -3755,6 +3763,50 @@
       "slug": "news/2026-06-29-when-five-wimbledon-titles-in-one-weekend-changed.html",
       "title": "When five Wimbledon titles in one weekend changed British tennis",
       "display_title": "When five Wimbledon titles in one weekend changed British tennis",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-weve-uncovered-a-master-gene-that-switches-on-huma.html",
+      "title": "We’ve uncovered a master gene that switches on human development",
+      "display_title": "We’ve uncovered a master gene that switches on human development",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-where-when-and-how-to-watch-the-2026-solar-eclipse.html",
+      "title": "Where, when and how to watch the 2026 solar eclipse",
+      "display_title": "Where, when and how to watch the 2026 solar eclipse",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.1,
+      "agreement_pct": 14,
+      "is_science": true,
+      "source_icons": "🧪"
+    },
+    {
+      "slug": "news/2026-06-29-i-see-tourists-pee-in-front-of-my-house-the-camper.html",
+      "title": "'I see tourists pee in front of my house': The campervan problem on the Isle of Skye",
+      "display_title": "'I see tourists pee in front of my house': The campervan problem on the Isle of Skye",
+      "date": "2026-06-29",
+      "n_sources": 1,
+      "bias_avg": -0.3,
+      "agreement_pct": 14,
+      "is_science": false,
+      "source_icons": "🇬🇧"
+    },
+    {
+      "slug": "news/2026-06-29-why-is-pregnancy-sickness-drug-not-easily-accessib.html",
+      "title": "Why is pregnancy sickness drug not easily accessible to all?",
+      "display_title": "Why is pregnancy sickness drug not easily accessible to all?",
       "date": "2026-06-29",
       "n_sources": 1,
       "bias_avg": -0.3,
