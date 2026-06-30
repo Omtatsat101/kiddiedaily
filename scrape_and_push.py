@@ -342,8 +342,8 @@ SOURCES = [
     {"name": "Berkeley News",       "url": "https://news.berkeley.edu/feed/",                        "bias":  0.0, "icon": "🎙️"},
     # ZME Science: accessible science for curious minds — animals, space, paleontology
     {"name": "ZME Science",         "url": "https://www.zmescience.com/feed/",                       "bias":  0.0, "icon": "🔬"},
-    # Knowable Magazine: research journalism from Annual Reviews — deep science for curious minds
-    {"name": "Knowable Magazine",   "url": "https://knowablemagazine.org/rss.xml",                  "bias": 0.0, "icon": "📖"},
+    # Earth.com: environmental science, nature, and Earth research news
+    {"name": "Earth.com",           "url": "https://www.earth.com/feed/",                           "bias": 0.0, "icon": "🌱"},
     # Wired Science: accessible tech + science explainers for general audience
     {"name": "Wired Science",       "url": "https://www.wired.com/feed/category/science/latest/rss", "bias":  0.1, "icon": "💡"},
 ]
@@ -483,7 +483,7 @@ def jaccard(t1, t2):
         return 0.0
     return len(w1 & w2) / len(w1 | w2)
 
-SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "SciTechDaily", "Berkeley News", "ZME Science", "Wired Science"}
+SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "SciTechDaily", "Berkeley News", "ZME Science", "Wired Science", "Earth.com"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
