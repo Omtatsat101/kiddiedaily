@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jun 2026 00:03:40 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2026 00:06:13 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -55,6 +55,30 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Researchers say the discovery could be a “Rosetta stone” for cosmic signals.</description>
+  </item>
+  <item>
+    <title>The Most Promising Ebola Vaccine Has Been Sitting on the Shelf for 15 Years</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-the-most-promising-ebola-vaccine-has-been-sitting.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-the-most-promising-ebola-vaccine-has-been-sitting.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Years after initial tests, researchers are now racing to see if a vaccine developed in 2011 can help fight the current Bundibugyo outbreak in Congo.</description>
+  </item>
+  <item>
+    <title>Canada Missed Chances to Inspect Titan Before Fatal Implosion</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-canada-missed-chances-to-inspect-titan-before-fata.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-canada-missed-chances-to-inspect-titan-before-fata.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A new report shows that government agencies failed to communicate and includes recommendations for stronger oversight in a bid to avert future disasters.</description>
+  </item>
+  <item>
+    <title>West Antarctica Is Missing Way Too Much Ice</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-west-antarctica-is-missing-way-too-much-ice.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-west-antarctica-is-missing-way-too-much-ice.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Temperatures have climbed up to 45 degrees Fahrenheit above normal, stopping ice from forming in the dead of Antarctic winter.</description>
   </item>
   <item>
     <title>James Webb uncovers exotic salt clouds on a mysterious pink world</title>
@@ -140,30 +164,6 @@
     <title>New science on algae die-offs is too late for the Reflecting Pool</title>
     <link>https://kiddiedaily.com/news/2026-06-29-new-science-on-algae-die-offs-is-too-late-for-the.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-new-science-on-algae-die-offs-is-too-late-for-the.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description></description>
-  </item>
-  <item>
-    <title>Ancient flowering plants may have used dinosaurs to spread their seeds</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-ancient-flowering-plants-may-have-used-dinosaurs-t.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-ancient-flowering-plants-may-have-used-dinosaurs-t.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description></description>
-  </item>
-  <item>
-    <title>We’ve had fire for longer than we thought</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-weve-had-fire-for-longer-than-we-thought.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-weve-had-fire-for-longer-than-we-thought.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description></description>
-  </item>
-  <item>
-    <title>A Mars rover found organic carbon just sitting on a rock</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-a-mars-rover-found-organic-carbon-just-sitting-on.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-a-mars-rover-found-organic-carbon-just-sitting-on.html</guid>
     <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description></description>
