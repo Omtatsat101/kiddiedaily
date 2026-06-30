@@ -137,9 +137,11 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bjudge\s+delay'                        # "judge delays sentencing"
     r'|\bsentencing\s+(?:hearing|delayed?|phase)' # court sentencing news
     r'|\b(?:murder|assault|rape|kidnap)\s+trial\b' # criminal trial coverage
-    r'|\byears?\s+in\s+(?:prison|jail)'      # "X years in prison/jail" - sentencing coverage
+    r'|\byears?\s+in\s+(?:\w+\s+)?(?:prison|jail)'      # "X years in [US] prison/jail" - sentencing coverage
+    r'|\b\d+\s+years?\s+in\s+(?:\w+\s+)?(?:prison|jail)' # "30 years in US prison" — number + qualifier
     r'|\bsentenced\s+to\s+(?:\d+|life|two|three|four|five)\b' # "sentenced to N years"
-    r'|\bgets?\s+(?:life|years?)\s+in\s+(?:prison|jail)' # prison sentence results
+    r'|\bgets?\s+(?:life|\d+\s+)?years?\s+in\s+(?:\w+\s+)?(?:prison|jail)' # prison sentence results
+    r'|\b(?:convicted|jailed|imprisoned)\s+(?:for|over|in)\b' # conviction framing
     r'|\bdied\s+of\s+(?:aids?|hiv|cancer|drug|overdose|covid)' # celebrity death + disease
     r'|\bcause\s+of\s+death\s+(?:was|is|revealed|confirmed)\b'  # "cause of death was X"
     r'|\b(?:actress|actor|celebrity|star)\s+(?:died?|dead|passes?\s+away|passes?)' # celebrity death
