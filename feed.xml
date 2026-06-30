@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jun 2026 00:06:13 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2026 00:25:36 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -81,6 +81,62 @@
     <description>Temperatures have climbed up to 45 degrees Fahrenheit above normal, stopping ice from forming in the dead of Antarctic winter. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
+    <title>Why the Longest Match in Wimbledon History Lasted Three Days</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-why-the-longest-match-in-wimbledon-history-lasted.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-why-the-longest-match-in-wimbledon-history-lasted.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The record will likely never be broken again. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Two Massive Earthquakes Struck Venezuela. Thousands Are Feared Dead</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-two-massive-earthquakes-struck-venezuela-thousands.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-two-massive-earthquakes-struck-venezuela-thousands.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The country’s interim leader declared a state of emergency on Wednesday following shocks measuring 7.5 magnitude after two quakes hit in less than a minute. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Andy's 'radical rewiring' and 'it's coming homes'</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-andys-radical-rewiring-and-its-coming-homes.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-andys-radical-rewiring-and-its-coming-homes.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Andy Burnham's plans to devolve power in Britain and build more council housing lead Tuesday's papers. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Why £15 durians are being sold at half price - or given away for free</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-why-15-durians-are-being-sold-at-half-price---or-g.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-why-15-durians-are-being-sold-at-half-price---or-g.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>As Malaysian durians are being sold at throwaway prices, farmers worry about their livelihoods. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Sixty-six years on: The promise of DRC independence remains unfulfilled</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-sixty-six-years-on-the-promise-of-drc-independence.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-sixty-six-years-on-the-promise-of-drc-independence.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The DRC’s independence anniversary renews debate over progress, security and state capacity. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Anxiety turns to joy as Brazil qualifies for the Final 16</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-anxiety-turns-to-joy-as-brazil-qualifies-for-the-f.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-anxiety-turns-to-joy-as-brazil-qualifies-for-the-f.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Brazil fans at a fan fest on Rio de Janeiro celebrated after their team overturned Japan’s early lead and won 2-1. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Why the Reflecting Pool Is Full of Algae After Trump's Renovation</title>
+    <link>https://kiddiedaily.com/news/2026-06-30-why-the-reflecting-pool-is-full-of-algae-after-tru.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-why-the-reflecting-pool-is-full-of-algae-after-tru.html</guid>
+    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Warm weather has fueled a bloom that National Park Service workers are trying to kill using everything from hydrogen peroxide to nanobubbles ahead of July 4 celebrations. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
     <title>James Webb uncovers exotic salt clouds on a mysterious pink world</title>
     <link>https://kiddiedaily.com/news/2026-06-29-james-webb-uncovers-exotic-salt-clouds-on-a-myster.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-james-webb-uncovers-exotic-salt-clouds-on-a-myster.html</guid>
@@ -111,62 +167,6 @@
     <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>1 outlet covering this story — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Scientists discover hidden “footprints of death” that may help viruses spread</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-scientists-discover-hidden-footprints-of-death-tha.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-scientists-discover-hidden-footprints-of-death-tha.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>1 outlet covering this story — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>This newly discovered ballista spider catapults ants into a deadly trap</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-this-newly-discovered-ballista-spider-catapults-an.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-this-newly-discovered-ballista-spider-catapults-an.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>1 outlet covering this story — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Three firefighters die battling huge wildfires on Colorado-Utah border</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-three-firefighters-die-battling-huge-wildfires-on.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-three-firefighters-die-battling-huge-wildfires-on.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>2 outlets covering this story — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Speed Limits for Ships Protect Endangered Right Whales From Vessel Strikes. Could the Animals Survive Without Them?</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-speed-limits-for-ships-protect-endangered-right-wh.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-speed-limits-for-ships-protect-endangered-right-wh.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>1 outlet covering this story — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Did These Prehistoric Primates Really Bury Just Their Female Dead Deep in a Cave?</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-did-these-prehistoric-primates-really-bury-just-th.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-did-these-prehistoric-primates-really-bury-just-th.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>1 outlet covering this story — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>From Boston to Miami: How the Tartan Army lit up the World Cup</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-from-boston-to-miami-how-the-tartan-army-lit-up-th.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-from-boston-to-miami-how-the-tartan-army-lit-up-th.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>1 outlet covering this story — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Canada score late to beat South Africa and reach last 16 at World Cup 2026</title>
-    <link>https://kiddiedaily.com/news/2026-06-29-canada-score-late-to-beat-south-africa-and-reach-l.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-29-canada-score-late-to-beat-south-africa-and-reach-l.html</guid>
-    <pubDate>Mon, 29 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>2 outlets covering this story — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   </channel>
 </rss>
