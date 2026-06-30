@@ -342,8 +342,8 @@ SOURCES = [
     {"name": "Berkeley News",       "url": "https://news.berkeley.edu/feed/",                        "bias":  0.0, "icon": "🎙️"},
     # ZME Science: accessible science for curious minds — animals, space, paleontology
     {"name": "ZME Science",         "url": "https://www.zmescience.com/feed/",                       "bias":  0.0, "icon": "🔬"},
-    # National Geographic Kids: science, animals, exploration for younger audience
-    {"name": "Nat Geo Kids",        "url": "https://www.nationalgeographic.com/animals/article.rss", "bias": 0.0, "icon": "🦁"},
+    # Knowable Magazine: research journalism from Annual Reviews — deep science for curious minds
+    {"name": "Knowable Magazine",   "url": "https://knowablemagazine.org/rss.xml",                  "bias": 0.0, "icon": "📖"},
     # Wired Science: accessible tech + science explainers for general audience
     {"name": "Wired Science",       "url": "https://www.wired.com/feed/category/science/latest/rss", "bias":  0.1, "icon": "💡"},
 ]
