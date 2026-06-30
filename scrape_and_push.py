@@ -170,9 +170,13 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
     r'|\bbreaking\s+promises\b|\baccusing\s+(?:him|her)\s+of\b' # political drama framing
     r'|\boligarc?hs?\b'                            # oligarch stories (mob/political violence)
-    r'|\binjured\s+in\s+(?:blast|explosion|bombing)\b' # targeted attack/bombing injury
+    r'|\b(?:injured|wounded|shot)\s+in\s+(?:blast|explosion|bomb|attack|shooting|ambush)\b' # violence event casualties
+    r'|\bpolice\s+(?:hunt|chase|seek|search)\s+(?:for\s+)?(?:suspect|gunman|attacker|killer)\b' # police manhunt
+    r'|\bhunt\s+for\s+(?:suspect|gunman|attacker|killer)\b' # suspect manhunt framing
+    r'|\b(?:two|three|four|five|six|seven|eight|nine|ten|\d+)\s+(?:wounded|killed|dead|injured)\s+in\b' # mass casualty framing
     r'|\b(?:assassination|assassin(?:ated)?)\b'    # assassination/political violence
     r'|\b(?:mob|cartel|mafia|gangster)\s+(?:boss|leader|war|hit|killing)\b' # organized crime
+    r'|\b(?:stabbing|knife\s+attack|gun(?:man|men)|gunshot|shootout)\b' # violent crime acts
     r')',
     re.I
 )
