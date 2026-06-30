@@ -484,6 +484,8 @@ def jaccard(t1, t2):
     return len(w1 & w2) / len(w1 | w2)
 
 SCIENCE_SOURCES = {"NASA", "Science Daily", "Smithsonian", "Science News", "EarthSky", "Live Science", "Phys.org", "MIT News", "New Scientist", "Popular Science", "Space.com", "Ars Technica Science", "Mongabay", "JSTOR Daily", "NASA Earth", "MIT Tech Review", "World History Encyclopedia", "IEEE Spectrum", "The Conversation", "Nautilus", "Archaeology", "Medievalists", "HistoryHit", "Hakai Magazine", "Quanta Magazine", "Discover Magazine", "Mental Floss", "Sci-News", "SciTechDaily", "Berkeley News", "ZME Science", "Wired Science", "Universe Today"}
+# Sources written explicitly for kids or general curious audiences — get a ranking boost
+KIDS_SOURCES = {"BBC Newsround", "Science News Students", "Good News Network", "Atlas Obscura"}
 DEPRIORITIZE_WORDS = [
     "war", "strike", "bomb", "missile", "airstrike", "military",
     "attack", "troops", "soldier", "killed", "dead", "death",
@@ -776,11 +778,13 @@ MAX_WORLD_NEWS_BIAS = 0.6
 def ranking_score(group):
     n = len(group)
     has_science = any(s["source_name"] in SCIENCE_SOURCES for s in group)
+    has_kids   = any(s["source_name"] in KIDS_SOURCES for s in group)
     bias_penalty = abs(sum(s["source_bias"] for s in group) / n)
     combined_text = " ".join(s["title"].lower() for s in group)
     heavy_news = sum(1 for w in DEPRIORITIZE_WORDS if w in combined_text)
     return (
         (5 if has_science else 0)  # science sources get big boost
+        + (3 if has_kids else 0)   # kid-targeted sources get priority
         + n * 2                    # more corroborating sources = better
         - heavy_news * 3           # political/military words = penalty
         - bias_penalty             # extreme bias = small penalty
