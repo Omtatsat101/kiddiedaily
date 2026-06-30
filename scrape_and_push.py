@@ -165,6 +165,10 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bpelosi\s+institute\b'                 # named partisan institution
     r'|\btrump\s+(?:signs?|pushes?|demands?|orders?|calls?)\b' # partisan executive action
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
+    r'|\boligarc?hs?\b'                            # oligarch stories (mob/political violence)
+    r'|\binjured\s+in\s+(?:blast|explosion|bombing)\b' # targeted attack/bombing injury
+    r'|\b(?:assassination|assassin(?:ated)?)\b'    # assassination/political violence
+    r'|\b(?:mob|cartel|mafia|gangster)\s+(?:boss|leader|war|hit|killing)\b' # organized crime
     r')',
     re.I
 )
