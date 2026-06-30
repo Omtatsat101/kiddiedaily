@@ -182,8 +182,11 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bdrone\s+(?:hits?|strikes?|attack|kill|killed|struck|crash)\b' # drone strike/war news
     r'|\b(?:airstrike|air\s+strike|missile\s+strike|missile\s+attack|bombing\s+raid)\b' # air/missile attacks
     r'|\b(?:Zaporizhzhia|Bakhmut|Kharkiv|Mariupol)\b'  # active Ukrainian war zone cities
-    r'|\b(?:anti.migrant|anti.immigrant)\s+(?:protest|violence|sentiment|riot|march)\b' # xenophobic protest news
+    r'|\b(?:anti.migrant|anti.immigrant)\s+(?:protests?|protesters?|violence|sentiment|riot|march|rally|rallies)\b' # xenophobic protest news
     r'|\bwarns?\s+anti.migrant\b'  # government warning anti-migrant groups
+    r'|\bgrooming\s+gang\b'  # child exploitation criminal content
+    r'|\bstalker\s+who\b|\bstalking\s+(?:victim|case|charges?|arrest)\b'  # stalker crime content
+    r'|\b(?:undocumented\s+migrants?|undocumented\s+foreigners?)\s+(?:flee|fear|face|targeted?)\b'  # xenophobic targeting framing
     r'|\b(?:accuse[sd]?|accusing|blames?|blaming)\s+(?:\w+\s+){0,3}(?:government|authorities|president|regime|administration)\s+of\b'  # political accusation framing
     r'|\b(?:government|regime|administration)\s+(?:negligence|incompetence|apathy|corruption|cruelty|failure)\b'  # government failure framing
     r'|\b(?:negligence\s+and\s+apathy|apathy\s+and\s+negligence)\b'  # political failure narrative
