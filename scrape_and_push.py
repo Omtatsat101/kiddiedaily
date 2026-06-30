@@ -342,8 +342,8 @@ SOURCES = [
     {"name": "Berkeley News",       "url": "https://news.berkeley.edu/feed/",                        "bias":  0.0, "icon": "🎙️"},
     # ZME Science: accessible science for curious minds — animals, space, paleontology
     {"name": "ZME Science",         "url": "https://www.zmescience.com/feed/",                       "bias":  0.0, "icon": "🔬"},
-    # Time for Kids: TIME Magazine's news edition written for K-8 students
-    {"name": "Time for Kids",       "url": "https://www.timeforkids.com/feed/",                      "bias":  0.1, "icon": "⏰"},
+    # National Geographic: science, nature, history, exploration — ideal for curious kids
+    {"name": "National Geographic", "url": "https://www.nationalgeographic.com/latest-stories/_jcr_content/content/feedcomponent.rss", "bias": 0.0, "icon": "🌍"},
     # Wired Science: accessible tech + science explainers for general audience
     {"name": "Wired Science",       "url": "https://www.wired.com/feed/category/science/latest/rss", "bias":  0.1, "icon": "💡"},
 ]
