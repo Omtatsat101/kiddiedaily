@@ -176,7 +176,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:two|three|four|five|six|seven|eight|nine|ten|\d+)\s+(?:wounded|killed|dead|injured)\s+in\b' # mass casualty framing
     r'|\b(?:assassination|assassin(?:ated)?)\b'    # assassination/political violence
     r'|\b(?:mob|cartel|mafia|gangster)\s+(?:boss|leader|war|hit|killing)\b' # organized crime
-    r'|\b(?:stabbing|knife\s+attack|gun(?:man|men)|gunshot|shootout)\b' # violent crime acts
+    r'|\b(?:stabbing|knife\s+attack|gun(?:man|men)|gunshot|gun(?:fight|battle))\b' # violent crime acts (NOT "shootout" = penalty shoot-out in sports)
     r'|\b(?:accuse[sd]?|accusing|blames?|blaming)\s+(?:\w+\s+){0,3}(?:government|authorities|president|regime|administration)\s+of\b'  # political accusation framing
     r'|\b(?:government|regime|administration)\s+(?:negligence|incompetence|apathy|corruption|cruelty|failure)\b'  # government failure framing
     r'|\b(?:negligence\s+and\s+apathy|apathy\s+and\s+negligence)\b'  # political failure narrative
