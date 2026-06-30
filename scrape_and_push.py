@@ -148,6 +148,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\brefugees?\s+will\s+be'               # "Refugees will be told..."
     r'|\bimmigration\s+(?:crackdown|enforcement|policy|ban|ban)' # immigration enforcement
     r'|\bborder\s+(?:crisis|crossing|enforcement|crackdown)' # border enforcement
+    r'|\b(?:deported?|deportation|deportees?)\s+(?:by|from|to|back)\b' # deportation news
     r'|\bserial\s+killer\b'                   # serial killer coverage
     r'|\bmass\s+(?:shooting|murder|killing)\b' # mass violence events
     r'|\btemporary\s+protected\s+status\b'    # immigration status policy
