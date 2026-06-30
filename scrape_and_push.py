@@ -187,6 +187,10 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:accuse[sd]?|accusing|blames?|blaming)\s+(?:\w+\s+){0,3}(?:government|authorities|president|regime|administration)\s+of\b'  # political accusation framing
     r'|\b(?:government|regime|administration)\s+(?:negligence|incompetence|apathy|corruption|cruelty|failure)\b'  # government failure framing
     r'|\b(?:negligence\s+and\s+apathy|apathy\s+and\s+negligence)\b'  # political failure narrative
+    r'|\b(?:conducts?|launches?|carries?\s+out)\s+(?:military\s+)?strikes?\s+(?:on|against|in)\b'  # military strike ops
+    r'|\bexchange\s+of\s+(?:fire|strikes?|attacks?)\s+(?:with|between)\b'  # mutual military exchange
+    r'|\bstand\s+down\s+after\s+(?:exchange|strikes?|attack|conflict)\b'  # military de-escalation framing
+    r'|\bstrikes?\s+(?:on|against)\s+(?:Iran|Iraq|Syria|Yemen|Gaza|Pakistan|Afghanistan|Somalia|Libya|Sudan|North\s*Korea)\b'  # named-country military strikes
     r')',
     re.I
 )
