@@ -52,6 +52,7 @@ _ADULT_TITLE_RE = re.compile(
     r'|nude|naked(?!\s+mole)|pornograph'
     r'|genocide|massacre|beheading|torture'
     r'|suicide|overdose|opioid\s+overdose|drug\s+addict'
+    r'|cocaine|heroin|fentanyl|methamphetamine|crystal\s+meth'
     r'|hiv\b'
     r'|hitler\b'
     r'|sex\s+life|sex\s+lives'
