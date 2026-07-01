@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 00:46:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 01:09:04 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -63,6 +63,22 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>NPR's Michel Martin speaks with Kim Wehle {WAIL-ee}, professor of law at the University of Baltimore School of Law, about the Supreme Court's final decisions this term. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>NPR reporter explains retracted story on Alito's retirement</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-npr-reporter-explains-retracted-story-on-alitos-re.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-npr-reporter-explains-retracted-story-on-alitos-re.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>NPR journalist Nina Totenberg on Tuesday discussed the events leading up to a story from the outlet about Supreme Court Justice Samuel Alito retiring that was later retracted. NPR said in an editor’s — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>White House upends AI model release</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-white-house-upends-ai-model-release.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-white-house-upends-ai-model-release.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>{beacon} View Online Technology Technology &amp;#8202; The Big Story White House halts new AI models, spurring confusion The Trump administration's request for OpenAI to delay the release of its new model — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The country’s interim leader declared a state of emergency on Wednesday following shocks measuring 7.5 magnitude after two quakes hit in less than a minute. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Andy's 'radical rewiring' and 'it's coming homes'</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-andys-radical-rewiring-and-its-coming-homes.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-andys-radical-rewiring-and-its-coming-homes.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Andy Burnham's plans to devolve power in Britain and build more council housing lead Tuesday's papers. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Why £15 durians are being sold at half price - or given away for free</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-why-15-durians-are-being-sold-at-half-price---or-g.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-why-15-durians-are-being-sold-at-half-price---or-g.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>As Malaysian durians are being sold at throwaway prices, farmers worry about their livelihoods. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
   </item>
   </channel>
 </rss>
