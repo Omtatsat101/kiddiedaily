@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 02:41:04 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 03:04:02 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -31,6 +31,14 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Exoplanet atmospheres have become prima targets for astrobiologists in the search for life beyond Earth. This is because exoplanet surfaces can’t be directly imaged yet, so astronomers must get creati</description>
+  </item>
+  <item>
+    <title>Astronomers Discover Another Galaxy With No Dark Matter</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-astronomers-discover-another-galaxy-with-no-dark-m.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-astronomers-discover-another-galaxy-with-no-dark-m.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Astronomers using W. M. Keck Observatory on Maunakea, Hawaiʻi Island, have discovered the third known galaxy apparently lacking dark matter, part of a strange linear structure that may have formed dur</description>
   </item>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>On September 22, 2021, the IceCube Neutrino Detector in Antarctica caught a blast of neutrinos as it passed through the solar system. These neutrinos were remarkably high-energy and came from a galaxy</description>
-  </item>
-  <item>
-    <title>Mars May Have Vast Magma Systems Beneath Its Surface</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-mars-may-have-vast-magma-systems-beneath-its-surfa.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-mars-may-have-vast-magma-systems-beneath-its-surfa.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Researchers from the University of Oxford have uncovered evidence that Mars once hosted widespread, Earth-like magmatic systems deep beneath its surface – despite the planet lacking the plate tectonic</description>
   </item>
   </channel>
 </rss>
