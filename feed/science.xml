@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 05:06:07 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 05:29:06 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -63,6 +63,22 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>A large fish once feared extinct in Cambodia has been recorded in the country’s waters for the fourth time since 2020, renewing hope for the species. The Mekong giant salmon carp (Aaptosyax grypus), a</description>
+  </item>
+  <item>
+    <title>Scientists say Earth Impacts May Have Delivered Microbes to the Clouds of Venus</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-scientists-say-earth-impacts-may-have-delivered-mi.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-scientists-say-earth-impacts-may-have-delivered-mi.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>New models suggest Earth microbes may briefly survive in Venus’s clouds.</description>
+  </item>
+  <item>
+    <title>Habitable Worlds Targets in New Star Activity Catalog</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-habitable-worlds-targets-in-new-star-activity-cata.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-habitable-worlds-targets-in-new-star-activity-cata.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Searching for habitable worlds beyond our solar system consists of more than just having it orbit within its star’s habitable zone, which is the region where temperatures could be just right for liqui</description>
   </item>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The country’s interim leader declared a state of emergency on Wednesday following shocks measuring 7.5 magnitude after two quakes hit in less than a minute.</description>
-  </item>
-  <item>
-    <title>Why the Reflecting Pool Is Full of Algae After Trump's Renovation</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-why-the-reflecting-pool-is-full-of-algae-after-tru.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-why-the-reflecting-pool-is-full-of-algae-after-tru.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Warm weather has fueled a bloom that National Park Service workers are trying to kill using everything from hydrogen peroxide to nanobubbles ahead of July 4 celebrations.</description>
-  </item>
-  <item>
-    <title>An Alternative to Black Holes: Gravastars with Big Bangs Inside</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-an-alternative-to-black-holes-gravastars-with-big.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-an-alternative-to-black-holes-gravastars-with-big.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Stellar mass black holes may not be black holes at all. Instead, they could be a type of extremely compact star called a gravastar, which mimics a black hole. This is according to theoretical phsyicis</description>
   </item>
   </channel>
 </rss>
