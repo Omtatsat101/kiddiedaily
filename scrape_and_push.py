@@ -1557,10 +1557,17 @@ def build_page(title, body_html, bias_html, score, group, slug, today, cats=None
 # ── Manifest: tracks pushed slugs to avoid duplicates ─────────────────────────
 def load_manifest():
     r = gh("GET", f"/repos/{REPO}/contents/data/kd-scraped-manifest.json")
-    if r.get("_err") or not r.get("content"):
+    if r.get("_err") or not r.get("sha"):
+        return {"pushed_slugs": [], "pushed_titles": [], "articles": []}
+    content = r.get("content", "")
+    if not content:
+        # File > 1MB: Contents API omits inline content. Fall back to Blob API.
+        blob = gh("GET", f"/repos/{REPO}/git/blobs/{r['sha']}")
+        content = blob.get("content", "")
+    if not content:
         return {"pushed_slugs": [], "pushed_titles": [], "articles": []}
     try:
-        m = json.loads(base64.b64decode(r["content"]).decode("utf-8"))
+        m = json.loads(base64.b64decode(content).decode("utf-8"))
     except Exception:
         return {"pushed_slugs": [], "pushed_titles": [], "articles": []}
 
