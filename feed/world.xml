@@ -6,8 +6,40 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 00:00:09 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 00:23:11 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>What the Supreme Court did on the final day of its term</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-what-the-supreme-court-did-on-the-final-day-of-its.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-what-the-supreme-court-did-on-the-final-day-of-its.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The Supreme Court upheld the right of children born on U.S. soil to automatic American citizenship. In so doing, the court rejected President Trump's most aggressive attempt to limit immigration.</description>
+  </item>
+  <item>
+    <title>Editor's note: NPR retracts Justice Samuel Alito story</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-editors-note-npr-retracts-justice-samuel-alito-sto.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-editors-note-npr-retracts-justice-samuel-alito-sto.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description></description>
+  </item>
+  <item>
+    <title>Serena Williams loses singles match in opening round at Wimbledon</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-serena-williams-loses-singles-match-in-opening-rou.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-serena-williams-loses-singles-match-in-opening-rou.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Williams played two doubles matches just before Wimbledon to announce her comeback, but she hadn't played a singles match since the 2022 U.S. Open.</description>
+  </item>
+  <item>
+    <title>US women Olympians react to historic Supreme Court ruling on the protection of women's sports</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-us-women-olympians-react-to-historic-supreme-court.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-us-women-olympians-react-to-historic-supreme-court.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Olympic gold medalists celebrate the Supreme Court ruling upholding state laws that ban transgender athletes from competing in women&amp;apos;s sports.</description>
+  </item>
   <item>
     <title>Andy's 'radical rewiring' and 'it's coming homes'</title>
     <link>https://kiddiedaily.com/news/2026-06-30-andys-radical-rewiring-and-its-coming-homes.html</link>
@@ -135,38 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>The US superstar is a true legend of the sport and has had an amazing journey to the top based on breaking records, family bonds and incredible talent. Find out about her story here.</description>
-  </item>
-  <item>
-    <title>Australian town crier officially named world's loudest man</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-australian-town-crier-officially-named-worlds-loud.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-australian-town-crier-officially-named-worlds-loud.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Joseph McGrail-Bateup's mighty yell was registered at a huge 122.4 decibels - that's around the same noise level as a jet plane taking off!</description>
-  </item>
-  <item>
-    <title>Heartbroken Iran exit World Cup amid silver lining of Mexican hospitality</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-heartbroken-iran-exit-world-cup-amid-silver-lining.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-heartbroken-iran-exit-world-cup-amid-silver-lining.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>In their three weeks in Tijuana, Iran&amp;#039;s players established a reciprocal relationship of love and respect with Mexicans.</description>
-  </item>
-  <item>
-    <title>Paraguay declares holiday after beating Germany in World Cup upset</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-paraguay-declares-holiday-after-beating-germany-in.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-paraguay-declares-holiday-after-beating-germany-in.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Paraguay has declared a national holiday after its national team stunned four-time champions Germany</description>
-  </item>
-  <item>
-    <title>World Cup Mexican wave fail: Tell us your celebration disasters</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-world-cup-mexican-wave-fail-tell-us-your-celebrati.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-world-cup-mexican-wave-fail-tell-us-your-celebrati.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>After one World Cup fan lost their phone during a Mexican wave, we want to hear your stories of celebration gone wrong.</description>
   </item>
   </channel>
 </rss>
