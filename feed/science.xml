@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 05:53:32 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 06:16:09 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -79,6 +79,14 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Searching for habitable worlds beyond our solar system consists of more than just having it orbit within its star’s habitable zone, which is the region where temperatures could be just right for liqui</description>
+  </item>
+  <item>
+    <title>Iran leaves World Cup with warm send-off from Mexican fans</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-iran-leaves-world-cup-with-warm-send-off-from-mexi.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-iran-leaves-world-cup-with-warm-send-off-from-mexi.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Mexican fans gathered in Tijuana to bid farewell to Iran&amp;#039;s national football team before the squad departed</description>
   </item>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The record will likely never be broken again.</description>
-  </item>
-  <item>
-    <title>Two Massive Earthquakes Struck Venezuela. Thousands Are Feared Dead</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-two-massive-earthquakes-struck-venezuela-thousands.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-two-massive-earthquakes-struck-venezuela-thousands.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The country’s interim leader declared a state of emergency on Wednesday following shocks measuring 7.5 magnitude after two quakes hit in less than a minute.</description>
   </item>
   </channel>
 </rss>
