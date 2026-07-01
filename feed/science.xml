@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 04:20:11 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 04:43:24 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -55,6 +55,14 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Sites relevant to the start of the American Revolutionary War are interspersed throughout the modern-day Boston metropolitan region. The post Minute Man National Historical Park appeared first on NASA</description>
+  </item>
+  <item>
+    <title>Recent discoveries of ‘lost’ Mekong giant salmon carp renews hope for the fish</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-recent-discoveries-of-lost-mekong-giant-salmon-car.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-recent-discoveries-of-lost-mekong-giant-salmon-car.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A large fish once feared extinct in Cambodia has been recorded in the country’s waters for the fourth time since 2020, renewing hope for the species. The Mekong giant salmon carp (Aaptosyax grypus), a</description>
   </item>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Stellar mass black holes may not be black holes at all. Instead, they could be a type of extremely compact star called a gravastar, which mimics a black hole. This is according to theoretical phsyicis</description>
-  </item>
-  <item>
-    <title>World's Most Powerful Collider Shuts Down for a Smashing Upgrade</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-worlds-most-powerful-collider-shuts-down-for-a-sma.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-worlds-most-powerful-collider-shuts-down-for-a-sma.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Europe's CERN physics research center bids 'Farewell' to the Large Hadron Collider, but it's actually more like 'See You Later, Accelerator!' The new, improved High-Luminosity LHC is due to make its d</description>
   </item>
   </channel>
 </rss>
