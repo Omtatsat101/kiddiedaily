@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 06:40:01 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 07:03:06 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -89,6 +89,22 @@
     <description>Mexican fans gathered in Tijuana to bid farewell to Iran&amp;#039;s national football team before the squad departed</description>
   </item>
   <item>
+    <title>World Cup fans sweat through US 'heat dome'</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-world-cup-fans-sweat-through-us-heat-dome.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-world-cup-fans-sweat-through-us-heat-dome.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>As scorching heat left the US east coast baking in the middle of the World Cup, the BBC caught up with fans braving the weather to support their team.</description>
+  </item>
+  <item>
+    <title>ESA Outlines High-Tech Lander Instruments for 2050 Enceladus</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-esa-outlines-high-tech-lander-instruments-for-2050.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-esa-outlines-high-tech-lander-instruments-for-2050.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Saturn’s moon, Enceladus, has become a prime solar system target for astrobiologists. This is because the small moon, which is just over 10 percent the diameter of Earth’s Moon, harbors a vast subsurf</description>
+  </item>
+  <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
     <link>https://kiddiedaily.com/news/2026-06-30-london-climate-action-week-foiled-by-extreme-heat.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-london-climate-action-week-foiled-by-extreme-heat.html</guid>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>A new report shows that government agencies failed to communicate and includes recommendations for stronger oversight in a bid to avert future disasters.</description>
-  </item>
-  <item>
-    <title>West Antarctica Is Missing Way Too Much Ice</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-west-antarctica-is-missing-way-too-much-ice.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-west-antarctica-is-missing-way-too-much-ice.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Temperatures have climbed up to 45 degrees Fahrenheit above normal, stopping ice from forming in the dead of Antarctic winter.</description>
-  </item>
-  <item>
-    <title>Why the Longest Match in Wimbledon History Lasted Three Days</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-why-the-longest-match-in-wimbledon-history-lasted.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-why-the-longest-match-in-wimbledon-history-lasted.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The record will likely never be broken again.</description>
   </item>
   </channel>
 </rss>
