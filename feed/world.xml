@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 01:32:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 01:55:05 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>What the Supreme Court did on the final day of its term</title>
@@ -89,6 +89,22 @@
     <description>With his fifth and sixth goals at the tournament, Mbappe pulls even with Messi in the Golden Boot race.</description>
   </item>
   <item>
+    <title>United, free and brilliant - can anyone stop France masterclass?</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-united-free-and-brilliant---can-anyone-stop-france.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-united-free-and-brilliant---can-anyone-stop-france.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>France boss Didier Deschamps urges caution despite watching his side dismantle Sweden to leave Les Bleus fans dreaming of winning the World Cup.</description>
+  </item>
+  <item>
+    <title>North Korea’s Kim hails ‘unshakeable will’ to develop ties with China’s Xi</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-north-koreas-kim-hails-unshakeable-will-to-develop.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-north-koreas-kim-hails-unshakeable-will-to-develop.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Kim Jong Un has sent Xi Jinping a congratulatory message to mark the 105th anniversary of the Chinese Communist Party.</description>
+  </item>
+  <item>
     <title>Andy's 'radical rewiring' and 'it's coming homes'</title>
     <link>https://kiddiedaily.com/news/2026-06-30-andys-radical-rewiring-and-its-coming-homes.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-andys-radical-rewiring-and-its-coming-homes.html</guid>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>As well as Gill&amp;#039;s heroics, Paraguay&amp;#039;s unlikely victory was founded on coach Alfaro&amp;#039;s unshakeable faith in his defenders.</description>
-  </item>
-  <item>
-    <title>Morocco reach World Cup last-16 with dramatic shootout win over Netherlands</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-morocco-reach-world-cup-last-16-with-dramatic-shoo.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-morocco-reach-world-cup-last-16-with-dramatic-shoo.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Morocco came from behind to knock the Netherlands out in the round of 32, beating them 3-2 on penalties.</description>
-  </item>
-  <item>
-    <title>The end for Nagelsmann? Germany suffer their 'next football nightmare'</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-the-end-for-nagelsmann-germany-suffer-their-next-f.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-the-end-for-nagelsmann-germany-suffer-their-next-f.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Germany make a shock last-32 exit against Paraguay, losing a World Cup penalty shootout for the first time to pile pressure on boss Julian Nagelsmann.</description>
   </item>
   </channel>
 </rss>
