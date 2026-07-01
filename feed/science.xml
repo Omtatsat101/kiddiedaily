@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 03:57:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 04:20:11 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -39,6 +39,22 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Astronomers using W. M. Keck Observatory on Maunakea, Hawaiʻi Island, have discovered the third known galaxy apparently lacking dark matter, part of a strange linear structure that may have formed dur</description>
+  </item>
+  <item>
+    <title>The brain’s language network is more extensive than previously thought</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-the-brains-language-network-is-more-extensive-than.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-the-brains-language-network-is-more-extensive-than.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A new study reveals that parts of the brain located far from the canonical language-processing centers are also involved in language comprehension.</description>
+  </item>
+  <item>
+    <title>Minute Man National Historical Park</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-minute-man-national-historical-park.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-minute-man-national-historical-park.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Sites relevant to the start of the American Revolutionary War are interspersed throughout the modern-day Boston metropolitan region. The post Minute Man National Historical Park appeared first on NASA</description>
   </item>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Europe's CERN physics research center bids 'Farewell' to the Large Hadron Collider, but it's actually more like 'See You Later, Accelerator!' The new, improved High-Luminosity LHC is due to make its d</description>
-  </item>
-  <item>
-    <title>ESA’s ExoMars Trace Gas Orbiter Has Yet to Detect Methane On Mars</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-esas-exomars-trace-gas-orbiter-has-yet-to-detect-m.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-esas-exomars-trace-gas-orbiter-has-yet-to-detect-m.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>After more than eight years of searching and with instruments designed to detect it, the European Space Agency’s (ESA) Mars Trace Gas Orbiter has yet to find methane in the red planet’s atmosphere.</description>
-  </item>
-  <item>
-    <title>The "Shadow Blaster" Galaxy's Role in High-energy Cosmic Neutrinos</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-the-shadow-blaster-galaxys-role-in-high-energy-cos.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-the-shadow-blaster-galaxys-role-in-high-energy-cos.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>On September 22, 2021, the IceCube Neutrino Detector in Antarctica caught a blast of neutrinos as it passed through the solar system. These neutrinos were remarkably high-energy and came from a galaxy</description>
   </item>
   </channel>
 </rss>
