@@ -6,8 +6,16 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 00:00:09 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 00:23:11 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-scientists-create-tiny-mini-livers-that-could-one.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-scientists-create-tiny-mini-livers-that-could-one.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Engineered tissue grafts could help perform key liver functions and benefit thousands of people living with liver failure. The liver is one of the body&amp;#8217;s hardest-working organs, carrying out hun</description>
+  </item>
   <item>
     <title>London Climate Action Week Foiled by Extreme Heat</title>
     <link>https://kiddiedaily.com/news/2026-06-30-london-climate-action-week-foiled-by-extreme-heat.html</link>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Artificial Intelligence (AI) is continuing to have a disruptive impact on ever more parts of humanity. But what does it mean in the long run? A new paper, available in pre-print on arXiv from Austrian</description>
-  </item>
-  <item>
-    <title>The Black Holes That Burp Years After They Eat</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-the-black-holes-that-burp-years-after-they-eat.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-the-black-holes-that-burp-years-after-they-eat.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>When a star strays too close to a supermassive black hole, it is torn apart in a brief, brilliant flare, and astronomers long assumed that was the end of the story. It isn't. Using the Very Large Arra</description>
   </item>
   </channel>
 </rss>
