@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 00:46:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 01:09:04 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>What the Supreme Court did on the final day of its term</title>
@@ -47,6 +47,22 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>NPR's Michel Martin speaks with Kim Wehle {WAIL-ee}, professor of law at the University of Baltimore School of Law, about the Supreme Court's final decisions this term.</description>
+  </item>
+  <item>
+    <title>NPR reporter explains retracted story on Alito's retirement</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-npr-reporter-explains-retracted-story-on-alitos-re.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-npr-reporter-explains-retracted-story-on-alitos-re.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>NPR journalist Nina Totenberg on Tuesday discussed the events leading up to a story from the outlet about Supreme Court Justice Samuel Alito retiring that was later retracted. NPR said in an editor’s</description>
+  </item>
+  <item>
+    <title>White House upends AI model release</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-white-house-upends-ai-model-release.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-white-house-upends-ai-model-release.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>{beacon} View Online Technology Technology &amp;#8202; The Big Story White House halts new AI models, spurring confusion The Trump administration's request for OpenAI to delay the release of its new model</description>
   </item>
   <item>
     <title>Andy's 'radical rewiring' and 'it's coming homes'</title>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>How Paraguay marked one of the biggest wins in their footballing history with euphoric celebrations.</description>
-  </item>
-  <item>
-    <title>Emotional Gakpo scores days after loss of unborn son</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-emotional-gakpo-scores-days-after-loss-of-unborn-s.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-emotional-gakpo-scores-days-after-loss-of-unborn-s.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Liverpool forward Cody Gakpo scores for the Netherlands days after the loss of his unborn son, as they are knocked out on penalties by Morocco.</description>
-  </item>
-  <item>
-    <title>Meet the school with 11 pupils</title>
-    <link>https://kiddiedaily.com/news/2026-06-30-meet-the-school-with-11-pupils.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-06-30-meet-the-school-with-11-pupils.html</guid>
-    <pubDate>Tue, 30 Jun 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Imagine your school being so remote it can even be tough for the teachers to get to. Nina went to visit the school, off the coast of Northern Ireland, where there is just one school, with two teachers</description>
   </item>
   </channel>
 </rss>
