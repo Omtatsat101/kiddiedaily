@@ -206,6 +206,9 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bper\s+hour.{0,50}\bmapped\b|\bmapped\b.{0,50}\bper\s+hour\b'  # adult earnings-data maps ("make per hour, mapped")
     r'|\bmost\s+per\s+hour\b'                      # "make the most per hour" earnings rankings
     r'|\b(?:job|labor|labour)\s+market\s+(?:slows?|cools?|tightens?|weakens?|surges?|grows?|adds?|loses?|shrinks?|report)\b'  # adult economic job market news
+    r'|\bemployers?\s+(?:pulled?\s+back|slow\w*|cut|shed|add\w*)\b.{0,40}\bhiring\b'  # adult hiring trend news
+    r'|\b(?:payroll|hiring)\s+(?:data|report|numbers?|growth|falls?|slows?|gains?|rose|fell|dropped?|cooled?|picked\s+up)\b'  # payroll/hiring data reports
+    r'|\b(?:us|u\.s\.)\s+employers?\s+(?:pulled?\s+back|add\w*|cut|shed|hired?)\b'  # US employer action headlines
     r')',
     re.I
 )
