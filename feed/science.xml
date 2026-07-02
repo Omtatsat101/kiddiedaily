@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 03:52:59 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 04:14:05 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
@@ -39,6 +39,14 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>JAKARTA — The Indonesian government is developing a roadmap to protect local wisdom in biodiversity conservation, a move aimed at strengthening the recognition and protection of Indigenous peoples and</description>
+  </item>
+  <item>
+    <title>Colorful songbirds face higher risk of extinction</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-colorful-songbirds-face-higher-risk-of-extinction.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-colorful-songbirds-face-higher-risk-of-extinction.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>While prized as pets in some places, the pet trade is not entirely to blame. The post Colorful songbirds face higher risk of extinction appeared first on Popular Science .</description>
   </item>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -159,14 +167,6 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>When stars like the Sun reach the end of their lives, the textbook story has them puffing up and quietly shedding their outer layers to leave a white dwarf behind. A new model suggests it is far less</description>
-  </item>
-  <item>
-    <title>A portable ultrasound system could make reliable breast imaging more accessible</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-a-portable-ultrasound-system-could-make-reliable-b.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-a-portable-ultrasound-system-could-make-reliable-b.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The new technology, which generates high-resolution, 3D images of breast tissue, requires no expertise to operate and could be used at home.</description>
   </item>
   </channel>
 </rss>
