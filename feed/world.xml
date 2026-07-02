@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 00:31:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 00:53:04 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Newly formed Tropical Storm Douglas poses no threat to land, hurricane center says</title>
@@ -71,6 +71,30 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Iran’s football team has landed back in Tehran after their World Cup</description>
+  </item>
+  <item>
+    <title>Belgium stage 3–2 comeback win over Senegal to enter World Cup last 16</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-belgium-stage-32-comeback-win-over-senegal-to-ente.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-belgium-stage-32-comeback-win-over-senegal-to-ente.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Tielemans&amp;#039;s penalty late into stoppage time of extra time capped Belgium&amp;#039;s comeback from 2-0 down in Seattle.</description>
+  </item>
+  <item>
+    <title>ICE surges enforcement, makes 10,000 arrests in five days amid Supreme Court birthright citizenship decision</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-ice-surges-enforcement-makes-10000-arrests-in-five.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-ice-surges-enforcement-makes-10000-arrests-in-five.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>ICE made over 10,000 arrests in five days as the Supreme Court upheld birthright citizenship under the Fourteenth Amendment, rejecting Trump bid.</description>
+  </item>
+  <item>
+    <title>Fox News Poll: A close Senate contest is brewing in Iowa</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-fox-news-poll-a-close-senate-contest-is-brewing-in.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-fox-news-poll-a-close-senate-contest-is-brewing-in.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Democrat Josh Turek holds a 4-point lead over Republican Ashley Hinson in the 2026 Iowa Senate race as Donald Trump favorability drops statewide.</description>
   </item>
   <item>
     <title>What the Supreme Court did on the final day of its term</title>
@@ -143,30 +167,6 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers.</description>
-  </item>
-  <item>
-    <title>Mbappe, Deschamps break World Cup records in Sweden thrashing</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-mbappe-deschamps-break-world-cup-records-in-sweden.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-mbappe-deschamps-break-world-cup-records-in-sweden.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>With his fifth and sixth goals at the tournament, Mbappe pulls even with Messi in the Golden Boot race.</description>
-  </item>
-  <item>
-    <title>United, free and brilliant - can anyone stop France masterclass?</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-united-free-and-brilliant---can-anyone-stop-france.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-united-free-and-brilliant---can-anyone-stop-france.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>France boss Didier Deschamps urges caution despite watching his side dismantle Sweden to leave Les Bleus fans dreaming of winning the World Cup.</description>
-  </item>
-  <item>
-    <title>North Korea’s Kim hails ‘unshakeable will’ to develop ties with China’s Xi</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-north-koreas-kim-hails-unshakeable-will-to-develop.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-north-koreas-kim-hails-unshakeable-will-to-develop.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Kim Jong Un has sent Xi Jinping a congratulatory message to mark the 105th anniversary of the Chinese Communist Party.</description>
   </item>
   </channel>
 </rss>
