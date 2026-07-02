@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 00:09:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 00:31:00 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Crutchfield’s Fourth of July headphone and earbud sale is all fireworks no fizzle</title>
@@ -23,6 +23,14 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>A prototype cell partly capable of replicating itself has been created using 36 existing bacterial genes, but it's not really a living organism – yet</description>
+  </item>
+  <item>
+    <title>The 5 Types of Aliens People Most Frequently Say They See</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-the-5-types-of-aliens-people-most-frequently-say-t.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-the-5-types-of-aliens-people-most-frequently-say-t.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>From the Greys to the Nordics, these aliens appear frequently across abduction stories and science fiction tales.</description>
   </item>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -159,14 +167,6 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>An extensive study of U.S. cities identifies walkable neighborhoods, urban greenery, and access to amenities as key contributors to residents’ health.</description>
-  </item>
-  <item>
-    <title>Pangolins are the world’s most trafficked mammal. A nearly 200-year-old specimen could help.</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-pangolins-are-the-worlds-most-trafficked-mammal-a.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-pangolins-are-the-worlds-most-trafficked-mammal-a.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Their overlapping scales are believed to be a powerful aphrodisiac. The post Pangolins are the world&amp;#8217;s most trafficked mammal. A nearly 200-year-old specimen could help. appeared first on Popula</description>
   </item>
   </channel>
 </rss>
