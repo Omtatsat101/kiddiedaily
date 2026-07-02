@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 02:58:56 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 03:29:46 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
@@ -31,6 +31,14 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>A predawn Moon-and-planets meetup, a returning comet, a great chance to see the Milky Way, and Saturn’s rings at a new angle. Skywatching Highlights Transcript An early morning hangout with the Moon a</description>
+  </item>
+  <item>
+    <title>New Indonesia roadmap aims to protect Indigenous knowledge for biodiversity</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-new-indonesia-roadmap-aims-to-protect-indigenous-k.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-new-indonesia-roadmap-aims-to-protect-indigenous-k.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>JAKARTA — The Indonesian government is developing a roadmap to protect local wisdom in biodiversity conservation, a move aimed at strengthening the recognition and protection of Indigenous peoples and</description>
   </item>
   <item>
     <title>Scientists Create Tiny “Mini Livers” That Could One Day Replace Liver Transplants</title>
@@ -159,14 +167,6 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The new technology, which generates high-resolution, 3D images of breast tissue, requires no expertise to operate and could be used at home.</description>
-  </item>
-  <item>
-    <title>How urban design leads to better wellness</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-how-urban-design-leads-to-better-wellness.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-how-urban-design-leads-to-better-wellness.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>An extensive study of U.S. cities identifies walkable neighborhoods, urban greenery, and access to amenities as key contributors to residents’ health.</description>
   </item>
   </channel>
 </rss>
