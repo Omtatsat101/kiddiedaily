@@ -199,6 +199,9 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bstrikes?\s+(?:on|against)\s+(?:Iran|Iraq|Syria|Yemen|Gaza|Pakistan|Afghanistan|Somalia|Libya|Sudan|North\s*Korea)\b'  # named-country military strikes
     r'|\bMK.Ultra\b|\bMKUltra\b'  # CIA mind control program — not kid-appropriate
     r'|\bCIA\s+(?:mind\s+control|human\s+experiment|torture|interrogation|drug\s+test|secret\s+program)\b'  # CIA black programs
+    r'|\bexplosive\s+diarrhea\b'  # sensationalist gut-health clickbait
+    r'|^fox\s+news\s+poll\s*:'    # partisan polling content
+    r'|\bICE\s+(?:surges?|raids?|sweeps?|makes?\s+\d+|arrests?\s+\d+)'  # ICE enforcement news
     r')',
     re.I
 )
