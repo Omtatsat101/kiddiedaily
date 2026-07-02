@@ -1611,6 +1611,39 @@ def save_manifest(manifest):
            "Update scraped articles manifest")
 
 # ── news/index.html — fully generated dynamic hub ─────────────────────────────
+def retro_purge_filtered(manifest):
+    """Self-healing corpus: re-apply the current hard-reject filters to every
+    already-published article on every run. A filter patch thus cleans up past
+    slip-throughs automatically — no manual purge cycle. Purged entries stay in
+    pushed_slugs/pushed_titles so they are never re-scraped; their HTML pages
+    are deleted from the repo and they drop out of every regenerated index."""
+    kept, purged = [], []
+    for a in manifest.get("articles", []):
+        titles = {a.get("title", ""), a.get("display_title", "")}
+        titles.discard("")
+        bad = any(
+            _ADULT_TITLE_RE.search(t) or _COMMERCIAL_TITLE_RE.search(t)
+            or (not a.get("is_science") and _WORLD_NEWS_REJECT_RE.search(t))
+            for t in titles
+        )
+        (purged if bad else kept).append(a)
+    if not purged:
+        return 0
+    manifest["articles"] = kept
+    for a in purged:
+        print(f"    ✂ {a.get('date','')} | {(a.get('display_title') or a.get('title',''))[:70]}")
+        slug = a.get("slug", "")
+        if not slug:
+            continue
+        r = gh("GET", f"/repos/{REPO}/contents/{slug}?ref={ACTIVE_BRANCH}")
+        if isinstance(r, dict) and r.get("sha") and not r.get("_err"):
+            gh("DELETE", f"/repos/{REPO}/contents/{slug}",
+               {"message": "[scraper] Retro-purge filtered article page",
+                "sha": r["sha"], "branch": ACTIVE_BRANCH})
+            time.sleep(0.3)
+    return len(purged)
+
+
 def generate_news_index_page(manifest):
     articles = manifest.get("articles", [])
     total    = len(articles)
@@ -4809,6 +4842,11 @@ def main():
     pushed_titles = set(t.lower() for t in manifest.get("pushed_titles", []))
     print(f"    {len(pushed_slugs)} articles already pushed")
 
+    # 1b. Self-healing retro-purge: current filters re-applied to whole corpus
+    print("\n[1b] Retro-purging filter slip-throughs from corpus...")
+    n_retro = retro_purge_filtered(manifest)
+    print(f"    {n_retro} slip-through(s) purged" if n_retro else "    Corpus clean — no slip-throughs")
+
     # 2. Fetch RSS
     print(f"\n[2] Fetching {len(SOURCES)} RSS feeds...")
     all_stories = []
@@ -5004,8 +5042,10 @@ def main():
         generate_news_index_page(manifest)
 
     # 6c. Always rebuild sitemap (articles + digest dates change daily)
+    # Live article slugs only — pushed_slugs retains purged entries whose pages
+    # were deleted, and those must not appear in the sitemap as 404s.
     print(f"\n[6c] Updating sitemap.xml...")
-    update_sitemap(manifest.get("pushed_slugs", []), manifest)
+    update_sitemap([a.get("slug", "") for a in manifest.get("articles", []) if a.get("slug")], manifest)
 
     # 6d. Update homepage with latest 3 articles
     print(f"\n[6d] Updating homepage...")
