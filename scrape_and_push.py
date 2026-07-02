@@ -168,6 +168,8 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:gambling|bribery|extortion)\s+(?:scheme|ring|case|scandal|charges?|indictment)\b' # crime
     r'|\bmortgage\s+fraud\b'                   # mortgage fraud coverage
     r'|\bcriminal\s+(?:charges?|allegations?|conspiracy)\b' # criminal proceedings
+    r'|\bgrand\s+jury\b'                          # grand jury = criminal proceedings, always legal/political
+    r'|\bindictment\b'                            # indictment = criminal charge filing, always legal/political
     r'|\bpelosi\b|\bnancy\s+pelosi\b'          # partisan political figure (hard block)
     r'|\bpelosi\s+institute\b'                 # named partisan institution
     r'|\bpirro\b'                              # Jeanine Pirro — Trump-appointed US Atty DC, partisan (hard block)
