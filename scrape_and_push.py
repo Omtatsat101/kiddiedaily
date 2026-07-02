@@ -125,7 +125,8 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|\bchurch\s+and\s+state\b|\bseparation\s+of\s+church\b'  # church-state controversy
     r'|\bsongs?\s+you\s+(?:might\s+not\s+know|didn\'t\s+know).{0,20}wrote\b'  # celebrity song trivia
     r'|(?:headphone|earbud|speaker|laptop|tablet|appliance|gadget)s?\s+sale\b'  # consumer tech retail sales
-    r'|(?:fourth\s+of\s+july|independence\s+day|labor\s+day|memorial\s+day|presidents\s+day)\s+.{0,40}sale\b'  # holiday sales
+    r'|(?:fourth\s+of\s+july|4th\s+of\s+july|independence\s+day|labor\s+day|memorial\s+day|presidents\s+day)\s+.{0,40}sale\b'  # holiday sales (word or numeric form)
+    r'|(?=.*\b(?:home\s+depot|walmart|target|best\s+buy|costco|lowe\'?s|kohl\'?s|nordstrom)\b)(?=.*\b(?:sale|deals?|discounts?)\b).'  # retailer + sale/deal anywhere in title
     r')',
     re.I
 )
