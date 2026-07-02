@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 01:34:57 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 01:55:54 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Newly formed Tropical Storm Douglas poses no threat to land, hurricane center says</title>
@@ -97,6 +97,14 @@
     <description>Democrat Josh Turek holds a 4-point lead over Republican Ashley Hinson in the 2026 Iowa Senate race as Donald Trump favorability drops statewide.</description>
   </item>
   <item>
+    <title>USA World Cup star Folarin Balogun receives controversial red card during Round of 32 match</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-usa-world-cup-star-folarin-balogun-receives-contro.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-usa-world-cup-star-folarin-balogun-receives-contro.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>U.S. men’s national team star Folarin Balogun received a red card in the second half of their Round of 32 World Cup matchup against Bosnia and Herzegovina on Wednesday night.</description>
+  </item>
+  <item>
     <title>What the Supreme Court did on the final day of its term</title>
     <link>https://kiddiedaily.com/news/2026-07-01-what-the-supreme-court-did-on-the-final-day-of-its.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-what-the-supreme-court-did-on-the-final-day-of-its.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Right-backs Jarell Quansah and Reece James will miss England's World Cup last-32 match against DR Congo because of injury.</description>
-  </item>
-  <item>
-    <title>Anthropic says US lifts export ban on its advanced AI tools</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-anthropic-says-us-lifts-export-ban-on-its-advanced.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-anthropic-says-us-lifts-export-ban-on-its-advanced.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers.</description>
   </item>
   </channel>
 </rss>
