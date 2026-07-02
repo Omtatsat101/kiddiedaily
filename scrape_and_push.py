@@ -171,6 +171,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bpelosi\b|\bnancy\s+pelosi\b'          # partisan political figure (hard block)
     r'|\bpelosi\s+institute\b'                 # named partisan institution
     r'|\bpirro\b'                              # Jeanine Pirro — Trump-appointed US Atty DC, partisan (hard block)
+    r'|\bencourag\w+\s+drugg'               # forums/groups encouraging drugging (drink spiking, criminal activity)
     r'|\btrump\s+(?:signs?|pushes?|demands?|orders?|calls?)\b' # partisan executive action
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
