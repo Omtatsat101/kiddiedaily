@@ -203,6 +203,9 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bexplosive\s+diarrhea\b'  # sensationalist gut-health clickbait
     r'|^fox\s+news\s+poll\s*:'    # partisan polling content
     r'|\bICE\s+(?:surges?|raids?|sweeps?|makes?\s+\d+|arrests?\s+\d+)'  # ICE enforcement news
+    r'|\bper\s+hour.{0,50}\bmapped\b|\bmapped\b.{0,50}\bper\s+hour\b'  # adult earnings-data maps ("make per hour, mapped")
+    r'|\bmost\s+per\s+hour\b'                      # "make the most per hour" earnings rankings
+    r'|\b(?:job|labor|labour)\s+market\s+(?:slows?|cools?|tightens?|weakens?|surges?|grows?|adds?|loses?|shrinks?|report)\b'  # adult economic job market news
     r')',
     re.I
 )
