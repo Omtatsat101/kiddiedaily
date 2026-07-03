@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 01:07:07 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 01:09:50 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -55,6 +55,30 @@
     <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Astronomers have released the largest gravitational wave catalog ever, revealing 161 new black hole collisions and pushing the total number of detections to 390. Among the highlights are the clearest</description>
+  </item>
+  <item>
+    <title>This spray-on powder can stop life-threatening bleeding in 1 second</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-this-spray-on-powder-can-stop-life-threatening-ble.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-this-spray-on-powder-can-stop-life-threatening-ble.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A new spray-on powder developed by KAIST can stop life-threatening bleeding in about one second by instantly forming a strong gel over a wound. It works on deep and irregular injuries where convention</description>
+  </item>
+  <item>
+    <title>How asteroids may have sparked life on Earth</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-how-asteroids-may-have-sparked-life-on-earth.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-how-asteroids-may-have-sparked-life-on-earth.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Ancient asteroid impacts may have done more than reshape Earth's surface—they could have helped spark life itself. New computer models show the collisions created enormous underground hydrothermal sys</description>
+  </item>
+  <item>
+    <title>Scientists discover a protein switch that burns fat and blocks new fat cells</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-scientists-discover-a-protein-switch-that-burns-fa.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-scientists-discover-a-protein-switch-that-burns-fa.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A protein called “Mitch” may hold the key to a new generation of obesity treatments. Researchers found that disabling it in human cells boosts fat burning, increases energy use, and makes it harder fo</description>
   </item>
   <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
@@ -143,30 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The Smithsonian Natural History Museum’s latest exhibit, “From These Lands,” connects visitors with America’s natural history.</description>
-  </item>
-  <item>
-    <title>The animal behind most aggressive wildlife encounters may surprise you</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-the-animal-behind-most-aggressive-wildlife-encount.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-the-animal-behind-most-aggressive-wildlife-encount.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Analysis of 3,000 incidents in Canada reveals which animal–human activity combos are especially risky. Of note: Elk and campgrounds are a bad mix.</description>
-  </item>
-  <item>
-    <title>Complex carbon in Mars rocks: Another clue to past life?</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-complex-carbon-in-mars-rocks-another-clue-to-past.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-complex-carbon-in-mars-rocks-another-clue-to-past.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Scientists have found complex carbon in Mars rocks that the Perseverance rover has studied. They're the same rocks found in 2024 to contain hints of life. The post Complex carbon in Mars rocks: Anothe</description>
-  </item>
-  <item>
-    <title>Exquisite Albireo, a beloved and colorful double star</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-exquisite-albireo-a-beloved-and-colorful-double-st.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-exquisite-albireo-a-beloved-and-colorful-double-st.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Albireo, in the constellation Cygnus, is a favorite for stargazers. Through a small telescope, it appears as a beautiful gold star with a dimmer blue companion. The post Exquisite Albireo, a beloved a</description>
   </item>
   </channel>
 </rss>
