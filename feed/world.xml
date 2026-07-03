@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 08:30:40 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 08:38:43 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>'World cup pubs boost' and 'Kate holds court'</title>
@@ -63,14 +63,6 @@
     <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>A Princess Cruises cruise ship docked in San Francisco has seen an outbreak of norovirus, according to the U.S. Centers for Disease Control and Prevention. The CDC said that 102 out of the over 3,000</description>
-  </item>
-  <item>
-    <title>Relief efforts shift as Venezuela quake survivors seek aid</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-relief-efforts-shift-as-venezuela-quake-survivors.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-relief-efforts-shift-as-venezuela-quake-survivors.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Emergency relief is becoming the focus in Venezuela’s La Guaira state as aid stations distribute food.</description>
   </item>
   <item>
     <title>Physicists Discover Superconducting States That Get Stronger Under Conditions Meant to Kill Them</title>
@@ -153,20 +145,28 @@
     <description>Ottawa says future pipeline will reduce economic dependence on the US amid Donald Trump&amp;#039;s trade war.</description>
   </item>
   <item>
-    <title>Khamenei’s coffin readied as Iran prepares for seven-day funeral</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-khameneis-coffin-readied-as-iran-prepares-for-seve.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-khameneis-coffin-readied-as-iran-prepares-for-seve.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Former Supreme Leader Ali Khamenei&amp;#039;s coffin has been readied as Iran prepares for seven-day funeral.</description>
-  </item>
-  <item>
     <title>In Photos: Check out some of the best World Cup fancy dress</title>
     <link>https://kiddiedaily.com/news/2026-07-03-in-photos-check-out-some-of-the-best-world-cup-fan.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-in-photos-check-out-some-of-the-best-world-cup-fan.html</guid>
     <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>World Cup 2026 fans show off their excitement with creative costumes inspired by national symbols, culture and football traditions.</description>
+  </item>
+  <item>
+    <title>US gets ready to celebrate 250th birthday</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-us-gets-ready-to-celebrate-250th-birthday.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-us-gets-ready-to-celebrate-250th-birthday.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The United States of America turns 250 this year, so we've had a look at the history of US independence and what people and organisations around the UK are doing to mark this huge milestone.</description>
+  </item>
+  <item>
+    <title>500-million-year-old fossil explains spider's bite</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-500-million-year-old-fossil-explains-spiders-bite.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-500-million-year-old-fossil-explains-spiders-bite.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Experts say the discovery could help them better understand how life was evolving on our planet at that time. Find out more here.</description>
   </item>
   </channel>
 </rss>
