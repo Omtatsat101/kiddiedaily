@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 07:16:06 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 07:39:13 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -145,6 +145,14 @@
     <description>Palmyra Atoll in the North Pacific is one of the most remote island systems on Earth. A native rainforest tree on the island performs a critical ecological service by providing nesting sites for thous</description>
   </item>
   <item>
+    <title>Dog days of summer: Hottest in July and August</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-dog-days-of-summer-hottest-in-july-and-august.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-dog-days-of-summer-hottest-in-july-and-august.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The dog days of summer are named for the Dog Star Sirius - the brightest star in the sky - in the constellation Canis Major the Greater Dog. Learn why here. The post Dog days of summer: Hottest in Jul</description>
+  </item>
+  <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
     <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>From the Greys to the Nordics, these aliens appear frequently across abduction stories and science fiction tales.</description>
-  </item>
-  <item>
-    <title>What’s Up: July 2026 Skywatching Tips from NASA</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-whats-up-july-2026-skywatching-tips-from-nasa.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-whats-up-july-2026-skywatching-tips-from-nasa.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>A predawn Moon-and-planets meetup, a returning comet, a great chance to see the Milky Way, and Saturn’s rings at a new angle. Skywatching Highlights Transcript An early morning hangout with the Moon a</description>
   </item>
   </channel>
 </rss>
