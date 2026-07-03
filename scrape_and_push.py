@@ -263,6 +263,8 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:last|dying|final)\s+words\s+to\b|\bdeathbed\b|\bdying\s+words\b'  # deathbed / celebrity last-words content
     r'|\bjustice\s+department\b|\bDOJ\b|\bunredact\w+|\bredacted\s+(?:documents?|files?|report|version)'  # DOJ / redacted legal documents
     r'|\btrump\s+(?:to\s+)?(?:headline|rally|rallies|campaign|visit|attend|host|hold|tout|vow|slam|blast|celebrat|declar)\w*'  # Trump political events (extends existing Trump verb filter)
+    r'|\bmamdani\b|\bhouthis?\b|\bmilitia\b|\binsurgenc\w+'  # named politician / militant groups
+    r'|\bexcess\s+deaths?\b|\b\d[\d,]{2,}\s+deaths?\b'  # mass-mortality / death-toll statistics
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
