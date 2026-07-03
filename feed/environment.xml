@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/environment.xml" rel="self" type="application/rss+xml"/>
     <description>Climate and environment news for families.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 08:30:40 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 08:38:43 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>There's a Waterfall in Antarctica That Bleeds Red – Here's What's Hiding Inside It</title>
@@ -47,14 +47,6 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Environment</category>
     <description>The latest eruption from Mount Etna, which is on the island of Sicily, lit up the night sky and could be seen from miles away. Find out more here.</description>
-  </item>
-  <item>
-    <title>Families search for earthquake survivors in one of Venezuela's hardest hit areas</title>
-    <link>https://kiddiedaily.com/news/2026-07-01-families-search-for-earthquake-survivors-in-one-of.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-families-search-for-earthquake-survivors-in-one-of.html</guid>
-    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Environment</category>
-    <description>BBC correspondent Will Grant reports from Caraballeda, La Guaira, where locals are still desperately searching for family members in the rubble.</description>
   </item>
   <item>
     <title>Mexico ends a 40-year knockout drought, beats Ecuador to advance in World Cup</title>
@@ -167,6 +159,14 @@
     <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
     <category>Environment</category>
     <description>Chavista military forces did not arrive at the disaster zone with shovels and pickaxes, but with pistols and rifles.</description>
+  </item>
+  <item>
+    <title>Ocean-monitoring satellite spots wildfire smoke from space | Space photo of the day for July 1, 2026</title>
+    <link>https://kiddiedaily.com/news/2026-07-01-ocean-monitoring-satellite-spots-wildfire-smoke-fr.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-01-ocean-monitoring-satellite-spots-wildfire-smoke-fr.html</guid>
+    <pubDate>Wed, 01 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Environment</category>
+    <description>A NASA satellite has found an unintended, important purpose.</description>
   </item>
   </channel>
 </rss>
