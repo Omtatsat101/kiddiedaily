@@ -257,6 +257,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:norovirus|hantavirus|monkeypox|mpox|cholera|dengue)\b|\boutbreak\s+(?:linked|hits?|reported|declared)\b'
     r'|\btaxes?\s+on\b|\bwhole\s+hog\s+politics\b|\bpartisan\b|\bidentity\s+politics\b'  # grocery/consumption-tax policy, political columns
     r'|\bhuman\s+rights\s+(?:catastrophe|crisis|abuse|violation|disaster|emergency)|\bhumanitarian\s+(?:crisis|catastrophe|disaster|emergency)|\bwar\s+crimes?\b|\bethnic\s+cleansing\b|\batrocit\w+|\bcrimes?\s+against\s+humanity\b'  # humanitarian / conflict-atrocity crisis
+    r'|\b(?:re)?arrests?\s+(?:prominent|leading|opposition|top|\w+\s+)?(?:activists?|journalists?|dissidents?|protesters?|critics?|conservationists?|lawyers?|campaigners?|bloggers?)\b|\b(?:journalists?|activists?|protesters?|dissidents?|critics?|conservationists?|campaigners?)\s+(?:detained|arrested|jailed|imprisoned)\b|\bpolitical\s+prisoners?\b|\bfamine\b|\bmass\s+starvation\b'  # political arrests / persecution, famine
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
