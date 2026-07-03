@@ -6,8 +6,32 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 00:20:38 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:44:07 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>New calculator reveals whether you should really worry about statin side effects</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-new-calculator-reveals-whether-you-should-really-w.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-new-calculator-reveals-whether-you-should-really-w.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Scientists at the University of Oxford have created a calculator that predicts a person's individual risk of serious muscle disorders from statin medications. Their analysis found that more than 98% o</description>
+  </item>
+  <item>
+    <title>Scientists reveal what really happens when water is trapped in tiny spaces</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-scientists-reveal-what-really-happens-when-water-i.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-scientists-reveal-what-really-happens-when-water-i.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A decades-old puzzle about water has finally been unraveled. Researchers found that water trapped in tiny nanoscale spaces is not inherently more reactive. Instead, the intense pressures created insid</description>
+  </item>
+  <item>
+    <title>Great ape laughter reveals a hidden origin of human speech</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-great-ape-laughter-reveals-a-hidden-origin-of-huma.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-great-ape-laughter-reveals-a-hidden-origin-of-huma.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The rhythm of human laughter appears to have deep evolutionary roots shared with chimpanzees, bonobos, gorillas, and orangutans. That ancient pattern may offer one of the clearest clues yet to how the</description>
+  </item>
   <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
     <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
@@ -143,30 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Frederick Douglass's 1852 Fourth of July speech highlighted the hypocrisy of celebrating independence while slavery still existed, and today Black Americans still face economic and social discriminati</description>
-  </item>
-  <item>
-    <title>Northern lights could dazzle to start July 4 weekend</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-northern-lights-could-dazzle-to-start-july-4-weeke.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-northern-lights-could-dazzle-to-start-july-4-weeke.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Sure, you may be hoping to see fireworks or a drone show over the July 4 weekend, but nature may be gearing up to give you its own colorful nighttime display.</description>
-  </item>
-  <item>
-    <title>Earth Might Be Home to 20 Million Insect Species—More Than Three Times as Many as Previously Thought, a Study Suggests</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-earth-might-be-home-to-20-million-insect-speciesmo.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-earth-might-be-home-to-20-million-insect-speciesmo.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Recent estimates have come to the consensus that our planet hosts roughly six million insect species. New research reveals that they may have drastically underestimated their counts</description>
-  </item>
-  <item>
-    <title>Man converts canoe into a sailboat, takes it for a spin</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-man-converts-canoe-into-a-sailboat-takes-it-for-a.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-man-converts-canoe-into-a-sailboat-takes-it-for-a.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>No drilling required. The post Man converts canoe into a sailboat, takes it for a spin appeared first on Popular Science .</description>
   </item>
   </channel>
 </rss>
