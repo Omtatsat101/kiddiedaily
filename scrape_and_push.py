@@ -194,6 +194,14 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bcoalition\s+(?:agree|agrees|agreed|deal|govern|government|talks?|reach\w*|collaps\w*|partner\w*)\b'  # government coalition politics
     r'|\btax\s+(?:reform|cut|cuts|hike|rise|bill|change|changes|plan|policy|deal|break|code|law)\w*'  # tax-policy legislation
     r'|\b(?:income|corporate|pension|inheritance|payroll)\s+tax\b'  # specific tax-policy framings
+    r'|\bSNP\b'                               # Scottish National Party (political)
+    r'|\btor(?:y|ies)\b'                       # UK Conservative Party (political)
+    r'|\blabour\s+(?:party|leader|mp|government|manifesto)\b'  # UK Labour party politics
+    r'|\bconservative\s+(?:party|leader|mp|government|manifesto|leadership)\b'  # UK Conservative party politics
+    r'|\bleadership\s+(?:contest|race|bid|challenge|campaign|battle|hopeful|rival)\b'  # party leadership politics
+    r'|\bparty\s+leader(?:ship)?\b'            # party leader/leadership (political)
+    r'|\bhosepipe\b'                           # UK water-restriction regional utility news
+    r'|\bhorse\s?meat\b'                       # food-fraud / adulteration investigation
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
