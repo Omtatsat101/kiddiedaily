@@ -170,6 +170,9 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:gambling|bribery|extortion)\s+(?:scheme|ring|case|scandal|charges?|indictment)\b' # crime
     r'|\bmortgage\s+fraud\b'                   # mortgage fraud coverage
     r'|\bcriminal\s+(?:charges?|allegations?|conspiracy)\b' # criminal proceedings
+    r'|\b(?:governor|senate|house|congressional)\s+(?:nominee|primary|candidate|race)\b'  # election race content — always partisan
+    r'|\bgov(?:ernor)?\s+nominee\b'               # governor nominee specifically
+    r'|\bDSA\s+(?:candidate|member|nominee|backed?|wing|endorsed?)\b'  # Democratic Socialists candidate references
     r'|\bjack\s+smith\s+(?:says?|claims?|warns?|blasts?|slams?|attacks?|criticizes?|calls?|reveals?|speaks?|writes?|testifies?)\b'  # Jack Smith (former special counsel) political commentary
     r'|\b(?:special\s+counsel|special\s+prosecutor)\s+(?:jack\s+)?smith\b'  # special counsel Smith references
     r'|\binquest\s+(?:adjourned|delayed|resumed|verdict|into|hears?|finds?|concludes?|opens?|returns?|jury)\b'  # death inquest legal proceedings
