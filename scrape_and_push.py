@@ -47,7 +47,7 @@ MAX_SPORTS_TOURNAMENT_PER_RUN = 1   # cap for any single major live tournament (
 _ADULT_TITLE_RE = re.compile(
     r'\b(?:'
     r'vagina|penis|vulva|genitals?|testicle|erectile|sperm(?!\s+whales?)|semen|ovary|uterus|cervix'
-    r'|sexual(?:\s+assault)?|sexuall?y|rape[sd]?|rapist'
+    r'|sexual(?:\s+(?:assault|abuse|violence|misconduct|offen[cs]e|predator|exploitation|harassment))?|sexuall?y|rap(?:e|es|ed|ing|ist)|molest\w*|(?:paedo|pedo)phil\w*|drugging'
     r'|abortion|contraception|condom'
     r'|nude|naked(?!\s+mole)|pornograph'
     r'|genocide|massacre|beheading|torture'
