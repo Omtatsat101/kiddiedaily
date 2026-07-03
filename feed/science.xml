@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 01:39:05 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 02:00:00 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -89,6 +89,14 @@
     <description>A pioneering climate scientist is challenging a U.S. government report that cited his research while reaching what he says is the exact opposite conclusion. Benjamin Santer and his colleagues say deca</description>
   </item>
   <item>
+    <title>Evocative photos of Canadian Arctic win New Scientist Editors Award</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-evocative-photos-of-canadian-arctic-win-new-scient.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-evocative-photos-of-canadian-arctic-win-new-scient.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Natalya Saprunova's photo series exploring coastal erosion and permafrost thaw across Inuvialuit territories in Canada has won the New Scientist Editors Award at the Earth Photo 2026 competition</description>
+  </item>
+  <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
     <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>NASA astronaut Chris Williams took this photo of an orbital sunrise from the International Space Station on June 26, 2026. In 24 hours, the space station makes 16 orbits of Earth, traveling through 16</description>
-  </item>
-  <item>
-    <title>NASA’s Webb Reveals Stars Sparking to Life in Cosmic Celebration</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-nasas-webb-reveals-stars-sparking-to-life-in-cosmi.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-nasas-webb-reveals-stars-sparking-to-life-in-cosmi.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>NASA’s James Webb Space Telescope has captured the infrared light of numerous features that previously were impossible to see beyond the thick dust of the FS Tau star system. In addition to myriad bac</description>
   </item>
   </channel>
 </rss>
