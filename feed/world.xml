@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 02:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 02:22:57 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>'World cup pubs boost' and 'Kate holds court'</title>
@@ -105,6 +105,14 @@
     <description>Entry to the National Mall for a record-breaking fireworks show celebrating July 4 has been delayed as Washington, D.C. braces for extreme heat, Freedom 250 organizers said Thursday. President Trump i</description>
   </item>
   <item>
+    <title>Ronaldo scores as Portugal come back to win, Croatia denied by late VAR</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-ronaldo-scores-as-portugal-come-back-to-win-croati.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-ronaldo-scores-as-portugal-come-back-to-win-croati.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Cristiano Ronaldo pulls Portugal level before Goncalo Ramos wins it late on; Croatia have further goal ruled offside.</description>
+  </item>
+  <item>
     <title>Newly formed Tropical Storm Douglas poses no threat to land, hurricane center says</title>
     <link>https://kiddiedaily.com/news/2026-07-02-newly-formed-tropical-storm-douglas-poses-no-threa.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-newly-formed-tropical-storm-douglas-poses-no-threa.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>President Trump has sought to limit mail-in voting and has ordered his administration to impose limits on the practice.</description>
-  </item>
-  <item>
-    <title>Iran football team welcomed home after World Cup exit</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-iran-football-team-welcomed-home-after-world-cup-e.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-iran-football-team-welcomed-home-after-world-cup-e.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Iran’s football team has landed back in Tehran after their World Cup</description>
   </item>
   </channel>
 </rss>
