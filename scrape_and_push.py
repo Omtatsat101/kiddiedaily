@@ -246,6 +246,15 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bclashing\s+visions\b|\bnation.?s\s+(?:divide|divisions?)\b'  # political-divide opinion framing
     r'|\bnews\s+quiz\b'                        # branded external news quizzes (site has its own games)
     r'|\bvoters?\b|\breform\s+(?:proposals?|package|bill|agenda|plan)\w*'  # electorate / policy-reform politics
+    # --- Corpus-audit gap closers: obituaries / ministers / courts / outbreaks / unrest ---
+    r'|\bdies?\s+aged\s+\d{1,3}\b|\bdies?\s+at\s+(?:the\s+age\s+of\s+)?\d{1,3}\b|\bdead\s+at\s+\d{1,3}\b'  # obituaries
+    r'|\b\d{1,2}[\s-]year[\s-]olds?\s+(?:dies?|died|killed|dead|drowns?)\b'  # "18-year-old dies"
+    r'|\b(?:firefighters?|police\s+officers?|paramedics?|miners?|climbers?|divers?|passengers?|pilots?)\s+(?:dies?|died|killed|dead)\b'
+    r'|\bkill(?:s|ed|ing)\s+(?:at\s+least\s+)?(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\b'  # small casualty counts (word-form, avoids "kills 99%")
+    r'|\bprime\s+minister\b|\bforeign\s+minister\b|\bminister\s+(?:quits|resigns?|resigned|vows|warns)\b|\b(?:finance|defen[cs]e|health|home|interior|culture|deputy|justice)\s+minister\b'
+    r'|\bfederal\s+court\b|\bappeals\s+court\b|\bcircuit\s+court\b|\bhigh\s+court\b|\bfederal\s+jury\b|\bjury\s+(?:selection|deliberat|plans)\b'
+    r'|\btear\s+gas\b|\briot\s+police\b|\brubber\s+bullets?\b'
+    r'|\b(?:norovirus|hantavirus|monkeypox|mpox|cholera|dengue)\b|\boutbreak\s+(?:linked|hits?|reported|declared)\b'
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
