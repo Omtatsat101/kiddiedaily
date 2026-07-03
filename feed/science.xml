@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 02:48:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 03:12:17 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -97,6 +97,14 @@
     <description>Natalya Saprunova's photo series exploring coastal erosion and permafrost thaw across Inuvialuit territories in Canada has won the New Scientist Editors Award at the Earth Photo 2026 competition</description>
   </item>
   <item>
+    <title>Scientists stunned as bumble bees solve a classic intelligence test</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-scientists-stunned-as-bumble-bees-solve-a-classic.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-scientists-stunned-as-bumble-bees-solve-a-classic.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Bumble bees astonished researchers by inventing a new way to reach a hidden reward, despite never being taught the trick. The discovery adds to growing evidence that these tiny insects are far smarter</description>
+  </item>
+  <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
     <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Mexico has fully embraced its role as a World Cup host. Many visitors rave about the atmosphere and wish there were more knockout-stage matches in Mexico as opposed to the United States.</description>
-  </item>
-  <item>
-    <title>Good Morning, Earth!</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-good-morning-earth.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-good-morning-earth.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>NASA astronaut Chris Williams took this photo of an orbital sunrise from the International Space Station on June 26, 2026. In 24 hours, the space station makes 16 orbits of Earth, traveling through 16</description>
   </item>
   </channel>
 </rss>
