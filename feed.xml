@@ -6,8 +6,32 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 23:48:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:11:06 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>'World cup pubs boost' and 'Kate holds court'</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-world-cup-pubs-boost-and-kate-holds-court.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-world-cup-pubs-boost-and-kate-holds-court.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Late openings of pubs and Catherine appearing at Wimbledon lead Friday's front pages. — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>On the Strait of Hormuz, BBC finds seized ships and shark fishermen as uneasy calm returns</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-on-the-strait-of-hormuz-bbc-finds-seized-ships-and.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-on-the-strait-of-hormuz-bbc-finds-seized-ships-and.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The BBC visits Bandar Abbas to see how the US-Israeli war with Iran has affected everyday life in the port city. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>How the American Dream has survived 250 years, but only just</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-how-the-american-dream-has-survived-250-years-but.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-how-the-american-dream-has-survived-250-years-but.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The American Dream has persisted since the days of the Founding Fathers, but faith in the ideal is fading — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+  </item>
   <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
     <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
@@ -143,30 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>JAKARTA — The Indonesian government is developing a roadmap to protect local wisdom in biodiversity conservation, a move aimed at strengthening the recognition and protection of Indigenous peoples and — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Mamdani to give speech marking America 250 on Friday</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-mamdani-to-give-speech-marking-america-250-on-frid.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-mamdani-to-give-speech-marking-america-250-on-frid.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>New York City mayor Zohran Mamdani (D) is expected to give a speech marking America's 250th birthday on Friday flanked by recently naturalized citizens, according to a new report. Sources say Mamdani, — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>On the front line of Congo’s Ebola outbreak</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-on-the-front-line-of-congos-ebola-outbreak.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-on-the-front-line-of-congos-ebola-outbreak.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Al Jazeera&amp;#039;s Catherine Wambua-Soi reports from Bunia, on the front line of the Ebola response. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Colorful songbirds face higher risk of extinction</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-colorful-songbirds-face-higher-risk-of-extinction.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-colorful-songbirds-face-higher-risk-of-extinction.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>While prized as pets in some places, the pet trade is not entirely to blame. The post Colorful songbirds face higher risk of extinction appeared first on Popular Science . — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
   </item>
   </channel>
 </rss>
