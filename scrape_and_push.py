@@ -1708,6 +1708,24 @@ def save_manifest(manifest):
            "Update scraped articles manifest")
 
 # ── news/index.html — fully generated dynamic hub ─────────────────────────────
+# Historical / educational framing — deep-past content (archaeology, paleontology, ancient &
+# medieval history) legitimately uses words like "famine", "plague", "died", "war" that the
+# world-reject filter targets in CURRENT news. A title with clear historical framing is exempted
+# from world-reject so kids' history/science stays. Deliberately excludes bare "history"/"historic"
+# (those show up in current political news, e.g. "cites a history professor").
+_HISTORICAL_RE = re.compile(
+    r"\b\d[\d,]*\s+years?\s+ago\b|\bcenturies\s+ago\b|\bmillennia\b"
+    r"|\bancient\b|\bmedieval\b|\bprehistoric\b|\bantiquity\b"
+    r"|\b(?:bronze|iron|stone|ice)\s+age\b"
+    r"|\bneanderthals?\b|\bhunter.?gatherers?\b|\bpharaoh\w*|\bmummies|\bmummy\b"
+    r"|\barchaeolog\w+|\bexcavat\w+|\bunearth\w+"
+    r"|\bfossil\w*|\bdinosaur\w*|\bmammoth\w*|\btrilobite\w*"
+    r"|\bgreat\s+famine\b|\bblack\s+death\b"
+    r"|\b\d{3,4}\s*(?:BCE?|AD)\b|\bmillion\s+years?\b|\bcentury\b",
+    re.I,
+)
+
+
 def retro_purge_filtered(manifest):
     """Self-healing corpus: re-apply the current hard-reject filters to every
     already-published article on every run. A filter patch thus cleans up past
@@ -1720,7 +1738,7 @@ def retro_purge_filtered(manifest):
         titles.discard("")
         bad = any(
             _ADULT_TITLE_RE.search(t) or _COMMERCIAL_TITLE_RE.search(t)
-            or (not a.get("is_science") and _WORLD_NEWS_REJECT_RE.search(t))
+            or (_WORLD_NEWS_REJECT_RE.search(t) and not _HISTORICAL_RE.search(t))
             for t in titles
         )
         (purged if bad else kept).append(a)
@@ -7105,13 +7123,14 @@ def main():
             print(f"    ⚠ Skipped (commercial): {rep['title'][:60]}")
             continue
 
-        # World news: hard-reject adult-topic stories not appropriate for kids
-        # (applies before category check so non-science articles are filtered early)
-        if not any(s["source_name"] in SCIENCE_SOURCES for s in group):
-            if _WORLD_NEWS_REJECT_RE.search(rep["title"]):
-                skipped_adult += 1
-                print(f"    ⚠ Skipped (world-reject): {rep['title'][:60]}")
-                continue
+        # World news: hard-reject adult-topic stories not appropriate for kids. Applies to ALL
+        # articles (even science-source/-tagged ones) so harmful stories mis-tagged as science are
+        # still filtered — but exempts clearly-historical framing (archaeology, ancient plague, the
+        # Great Famine, "5,000 years ago", etc.) so kids' history/science content survives.
+        if _WORLD_NEWS_REJECT_RE.search(rep["title"]) and not _HISTORICAL_RE.search(rep["title"]):
+            skipped_adult += 1
+            print(f"    ⚠ Skipped (world-reject): {rep['title'][:60]}")
+            continue
 
         # Skip groups that score too low (political noise, single-source political stories)
         if ranking_score(group) < MIN_SCORE:
