@@ -208,6 +208,33 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bsuicide\b|\bself.harm\b'              # suicide / self-harm content
     r'|\b(?:man|men|woman|women|boys?|girls?|teenagers?|workers?|persons?|people|migrants?|villagers?|children|kids?|students?|tourists?|passengers?)\s+(?:dies?|died|killed|dead|found\s+dead|burns?\s+to\s+death|shot\s+dead)\b'  # human death / tragedy news
     r'|\bdies?\s+after\s+(?:setting|being|a\s+|an\s+|falling|crash|stabb|shoot|attack)'  # tragic death circumstances
+    # --- Proactive safety block: violence / war / disaster / graphic-health (bounded to avoid science/nature collisions) ---
+    r'|\bstab(?:s|bed|bing)\b|\bgunmen?\b|\bgunfire\b|\bopens?\s+fire\b|\bshot\s+dead\b'
+    r'|\bmass\s+shooting\b|\bshootings?\s+(?:at|in|spree|rampage|leaves?|kills?|dead|wounds?)\b'
+    r'|\barmed\s+(?:robber|robbery|raid|gang|attacker|assailant)\b|\bgang\s+(?:violence|war|shooting|rape|members?)\b'
+    r'|\bknife\s+(?:attack|crime|rampage|wielding)\b|\bmachete\b'
+    r'|\bairstrikes?\b|\bair\s+strikes?\s+(?:hit|kill|target|pound|destroy|level|near|on|against|leave|in|rock|pummel)\b'
+    r'|\bmissile\s+(?:strike|attack|barrage|hits?|fired|launch)\b|\bshelling\b|\bceasefire\b'
+    r'|\b(?:government|rebel|enemy|army|ground|foreign)\s+troops\b|\btroops\s+(?:advance|deploy|invade|withdraw|clash|kill|open\s+fire|storm|enter)\b'
+    r'|\bsoldiers?\s+(?:killed|dead|die|died|wounded|injured|ambush)\b|\bdrone\s+(?:strike|attack)\b'
+    r'|\bterror(?:ist|ism)?\s+(?:attack|plot|cell|suspect|threat|group|network)\b|\bterrorists?\b|\bhostages?\b'
+    r'|\b(?:car|suicide|pipe|nail|roadside)\s+bomb\w*|\bbomb(?:ing)?\s+(?:attack|blast|kills?|hits?|targets?|rips?|near)\b|\bbomb\s+explodes?\b'
+    r'|\b(?:man|woman|boy|girl|toddler|child|teen|teenager|baby|infant|pensioner|hiker|climber|swimmer)\s+drowns?\b|\bdrowns?\s+in\s+(?:a\s+|the\s+)?(?:pool|river|sea|lake|canal|bath)\b'
+    r'|\bplane\s+crash(?:es|ed)?\b|\bair\s+crash\b|\bjet\s+crash\b'
+    r'|\b(?:bus|coach|ferry|boat|train|lorry|truck|minibus|van)\s+(?:crash|plunge|derail|capsiz|falls?|topple|overturn)\w*'
+    r'|\bcrash\s+kills?\b|\bkilled\s+in\s+(?:a\s+)?(?:crash|collision|accident|blast)\b|\bbuilding\s+collapse\b|\bcollapse\s+kills?\b'
+    r'|\bkill(?:s|ed|ing)\s+(?:dozens|hundreds|thousands|scores)\b'
+    r'|\bfatal\s+(?:\w+\s+){0,2}(?:fire|blaze|crash|collision|accident|shooting|stabbing|fall)\b|\bclaims?\s+(?:the\s+)?(?:life|lives|famil\w+)\b'
+    r'|\bbodies\s+(?:found|recovered|pulled|discovered)\b|\bmass\s+grave\b'
+    r'|\b(?:burn(?:ed|t)|hacked|beaten|stabbed|frozen|choked|starved|crushed)\s+to\s+death\b|\bfound\s+(?:frozen|hanged|strangled|stabbed)\b'
+    r'|\b(?:\d+|two|three|four|five|six|seven|eight|nine|ten|dozens?|scores|hundreds|several|many)\s+(?:feared\s+)?dead\b(?!\s+(?:languages?|sea|stars?|zones?|ends?|planets?))'
+    r'|\b(?:buries|buried|engulf\w+|swallow\w+|flatten\w+|devastat\w+|wipes?\s+out)\s+(?:a\s+|the\s+|entire\s+)?(?:village|town|city|homes?|houses?|neighbou?rhood|community|families)\b'
+    r'|\b(?:human|sex|child|drug|people)\s+trafficking\b|\bgrooming\s+(?:teens?|children|kids|minors|young|a\s+(?:child|teen|minor|girl|boy))\b|\bchild\s+(?:abuse|sex|porn)\w*'
+    r'|\b(?:earthquake|quake|flood|landslide|wildfire|hurricane|tornado|cyclone|tsunami|mudslide|avalanche)\s+(?:kills?|victims?|deaths?|dead|death\s+toll|survivors?)\b|\bdeath\s+toll\b'
+    r'|\bdeadly\s+(?:virus|disease|outbreak|bug|infection|pandemic|epidemic|flu|attack|blast|crash|fire|flood|storm|strain)\b'
+    r'|\b(?:virus|disease|ebola|cholera|measles|plague|smallpox)\s+(?:outbreak|kills?|claims?|spreads?|death\s+toll)\b|\boutbreak\s+(?:kills?|spreads?|deaths?|grips?|sickens?)\b'
+    r'|\bcancer\s+patient\b|\bterminally\s+ill\b|\bdying\s+(?:man|woman|boy|girl|child|wish)\b'
+    r'|\bkhamenei\b|\bayatollah\b|\bworld\s+leaders?\b|\bkebabs?\b'
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
