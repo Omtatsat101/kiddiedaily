@@ -170,6 +170,10 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:gambling|bribery|extortion)\s+(?:scheme|ring|case|scandal|charges?|indictment)\b' # crime
     r'|\bmortgage\s+fraud\b'                   # mortgage fraud coverage
     r'|\bcriminal\s+(?:charges?|allegations?|conspiracy)\b' # criminal proceedings
+    r'|\bdemocrats?\s+(?:accuse|accuses?|blast|slam|attack|criticize)\s+(?:trump|gop|republicans?)\b'  # partisan Democrat-vs-Republican accusation framing
+    r'|\brepublicans?\s+(?:accuse|accuses?|blast|slam|attack|criticize)\s+(?:democrats?|biden|harris)\b'  # partisan GOP-vs-Democrat accusation framing
+    r'|\b(?:house|senate)\s+democrats?\s+(?:accuse|blast|slam|attack|demand|warn|call\s+out)\b'  # Congressional Democrats making partisan attacks
+    r'|\b(?:house|senate)\s+republicans?\s+(?:accuse|blast|slam|attack|demand|warn|call\s+out)\b'  # Congressional Republicans making partisan attacks
     r'|\b(?:governor|senate|house|congressional)\s+(?:nominee|primary|candidate|race)\b'  # election race content — always partisan
     r'|\bgov(?:ernor)?\s+nominee\b'               # governor nominee specifically
     r'|\bDSA\s+(?:candidate|member|nominee|backed?|wing|endorsed?)\b'  # Democratic Socialists candidate references
