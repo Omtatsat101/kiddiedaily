@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 12:28:03 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 12:32:36 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>'World cup pubs boost' and 'Kate holds court'</title>
@@ -55,14 +55,6 @@
     <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>"You've inspired us," read a post by Chancellor Merz on X right after Germany's lackluster performance and early elimination from the FIFA World Cup. It is seen as a communication blunder that has rep</description>
-  </item>
-  <item>
-    <title>Cruise ship docked in San Francisco hit by norovirus outbreak</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-cruise-ship-docked-in-san-francisco-hit-by-norovir.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-cruise-ship-docked-in-san-francisco-hit-by-norovir.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>A Princess Cruises cruise ship docked in San Francisco has seen an outbreak of norovirus, according to the U.S. Centers for Disease Control and Prevention. The CDC said that 102 out of the over 3,000</description>
   </item>
   <item>
     <title>Physicists Discover Superconducting States That Get Stronger Under Conditions Meant to Kill Them</title>
@@ -167,6 +159,14 @@
     <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Experts say the discovery could help them better understand how life was evolving on our planet at that time. Find out more here.</description>
+  </item>
+  <item>
+    <title>As heat waves loom, scientists wonder how humans will adapt</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-as-heat-waves-loom-scientists-wonder-how-humans-wi.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-as-heat-waves-loom-scientists-wonder-how-humans-wi.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Temperatures are set to soar in the US around the July 4 holiday, a week after Europe struck new records. With experts predicting more intense and more frequent heat waves in the future, can our bodie</description>
   </item>
   </channel>
 </rss>
