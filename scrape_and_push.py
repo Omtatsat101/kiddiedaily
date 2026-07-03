@@ -4736,9 +4736,11 @@ def generate_explore_by_wonder_page(manifest, today):
                 .replace("&", "&amp;").replace("<", "&lt;")
                 .replace(">", "&gt;").replace('"', "&quot;"))
 
-    # Work over the TAIL (recent) of the oldest->newest list, newest first.
+    # Scan the whole corpus newest-first so every theme fills its collection from
+    # its own freshest matches (a shared recent-window starves rarer cats and
+    # collapsed the hub to a single "Curious Minds" collection).
     pool = [a for a in articles if _eligible(a)]
-    recent = list(reversed(pool[-120:] if len(pool) >= 120 else pool))
+    recent = list(reversed(pool))
 
     def _in_theme(a, theme_cats):
         cats = set(a.get("cats") or [])
