@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 03:12:17 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 03:15:20 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>'World cup pubs boost' and 'Kate holds court'</title>
@@ -113,14 +113,6 @@
     <description>Cristiano Ronaldo pulls Portugal level before Goncalo Ramos wins it late on; Croatia have further goal ruled offside.</description>
   </item>
   <item>
-    <title>Dem CO gov nominee calls out DSA candidate for antisemitism comment</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-dem-co-gov-nominee-calls-out-dsa-candidate-for-ant.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-dem-co-gov-nominee-calls-out-dsa-candidate-for-ant.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Colorado Attorney General Phil Weiser (D), who defeated Sen. Michael Bennett (D) in Colorado’s Democratic gubernatorial primary, said he would confront congressional candidate Melat Kiros (D) for refu</description>
-  </item>
-  <item>
     <title>Who are the rogue bishops defying Pope Leo XIV?</title>
     <link>https://kiddiedaily.com/news/2026-07-03-who-are-the-rogue-bishops-defying-pope-leo-xiv.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-who-are-the-rogue-bishops-defying-pope-leo-xiv.html</guid>
@@ -167,6 +159,14 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Taylor Swift and Travis Kelce are expected to celebrate their wedding with a party at New York's Madison Square Garden this weekend.</description>
+  </item>
+  <item>
+    <title>Diesel sees biggest monthly fall in 26 years. What's happening to fuel prices?</title>
+    <link>https://kiddiedaily.com/news/2026-07-02-diesel-sees-biggest-monthly-fall-in-26-years-whats.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-diesel-sees-biggest-monthly-fall-in-26-years-whats.html</guid>
+    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>When the US-Israel war with Iran began, fuel costs jumped, but they are now plummeting as hope of lasting peace grows.</description>
   </item>
   </channel>
 </rss>
