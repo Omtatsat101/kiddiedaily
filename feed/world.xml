@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 04:00:54 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 04:05:35 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>'World cup pubs boost' and 'Kate holds court'</title>
@@ -129,6 +129,14 @@
     <description>The Leopards&amp;#039; first World Cup in more than 50 years united Congolese supporters, despite defeat to England.</description>
   </item>
   <item>
+    <title>Venezuela leader rejects criticism for earthquake response</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-venezuela-leader-rejects-criticism-for-earthquake.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-venezuela-leader-rejects-criticism-for-earthquake.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Acting President Delcy Rodríguez has slammed critics for saying that her government was slow to respond to the disaster. She said the criticism was "manufactured in propaganda laboratories."</description>
+  </item>
+  <item>
     <title>Newly formed Tropical Storm Douglas poses no threat to land, hurricane center says</title>
     <link>https://kiddiedaily.com/news/2026-07-02-newly-formed-tropical-storm-douglas-poses-no-threa.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-newly-formed-tropical-storm-douglas-poses-no-threa.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Taylor Swift and Travis Kelce are expected to celebrate their wedding with a party at New York's Madison Square Garden this weekend.</description>
-  </item>
-  <item>
-    <title>Diesel sees biggest monthly fall in 26 years. What's happening to fuel prices?</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-diesel-sees-biggest-monthly-fall-in-26-years-whats.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-diesel-sees-biggest-monthly-fall-in-26-years-whats.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>When the US-Israel war with Iran began, fuel costs jumped, but they are now plummeting as hope of lasting peace grows.</description>
   </item>
   </channel>
 </rss>
