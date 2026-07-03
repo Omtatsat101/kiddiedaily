@@ -255,6 +255,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bfederal\s+court\b|\bappeals\s+court\b|\bcircuit\s+court\b|\bhigh\s+court\b|\bfederal\s+jury\b|\bjury\s+(?:selection|deliberat|plans)\b'
     r'|\btear\s+gas\b|\briot\s+police\b|\brubber\s+bullets?\b'
     r'|\b(?:norovirus|hantavirus|monkeypox|mpox|cholera|dengue)\b|\boutbreak\s+(?:linked|hits?|reported|declared)\b'
+    r'|\btaxes?\s+on\b|\bwhole\s+hog\s+politics\b|\bpartisan\b|\bidentity\s+politics\b'  # grocery/consumption-tax policy, political columns
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
