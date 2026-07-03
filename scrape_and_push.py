@@ -202,6 +202,11 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bparty\s+leader(?:ship)?\b'            # party leader/leadership (political)
     r'|\bhosepipe\b'                           # UK water-restriction regional utility news
     r'|\bhorse\s?meat\b'                       # food-fraud / adulteration investigation
+    r'|\bset(?:s|ting)?\s+(?:himself|herself|themselves|itself|oneself|self)\s+(?:on\s+fire|alight|ablaze)\b'  # self-immolation (graphic)
+    r'|\bself.immolat\w*'                      # self-immolation
+    r'|\bsuicide\b|\bself.harm\b'              # suicide / self-harm content
+    r'|\b(?:man|men|woman|women|boys?|girls?|teenagers?|workers?|persons?|people|migrants?|villagers?|children|kids?|students?|tourists?|passengers?)\s+(?:dies?|died|killed|dead|found\s+dead|burns?\s+to\s+death|shot\s+dead)\b'  # human death / tragedy news
+    r'|\bdies?\s+after\s+(?:setting|being|a\s+|an\s+|falling|crash|stabb|shoot|attack)'  # tragic death circumstances
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
