@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 00:20:38 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:44:07 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>'World cup pubs boost' and 'Kate holds court'</title>
@@ -55,6 +55,22 @@
     <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>"You've inspired us," read a post by Chancellor Merz on X right after Germany's lackluster performance and early elimination from the FIFA World Cup. It is seen as a communication blunder that has rep</description>
+  </item>
+  <item>
+    <title>Cruise ship docked in San Francisco hit by norovirus outbreak</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-cruise-ship-docked-in-san-francisco-hit-by-norovir.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-cruise-ship-docked-in-san-francisco-hit-by-norovir.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>A Princess Cruises cruise ship docked in San Francisco has seen an outbreak of norovirus, according to the U.S. Centers for Disease Control and Prevention. The CDC said that 102 out of the over 3,000</description>
+  </item>
+  <item>
+    <title>Relief efforts shift as Venezuela quake survivors seek aid</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-relief-efforts-shift-as-venezuela-quake-survivors.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-relief-efforts-shift-as-venezuela-quake-survivors.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Emergency relief is becoming the focus in Venezuela’s La Guaira state as aid stations distribute food.</description>
   </item>
   <item>
     <title>Newly formed Tropical Storm Douglas poses no threat to land, hurricane center says</title>
@@ -151,22 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>The world’s oceans are under heat stress, with average sea surface temperatures hitting 21°C.</description>
-  </item>
-  <item>
-    <title>USA beat Bosnia 2-0 despite Balogun red card, enter World Cup last 16</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-usa-beat-bosnia-2-0-despite-balogun-red-card-enter.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-usa-beat-bosnia-2-0-despite-balogun-red-card-enter.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Balogun scored USA&amp;#039;s first goal and was sent off for a foul, but the home team scored another to advance to next round.</description>
-  </item>
-  <item>
-    <title>Mamdani to give speech marking America 250 on Friday</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-mamdani-to-give-speech-marking-america-250-on-frid.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-mamdani-to-give-speech-marking-america-250-on-frid.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>New York City mayor Zohran Mamdani (D) is expected to give a speech marking America's 250th birthday on Friday flanked by recently naturalized citizens, according to a new report. Sources say Mamdani,</description>
   </item>
   </channel>
 </rss>
