@@ -127,7 +127,8 @@ _COMMERCIAL_TITLE_RE = re.compile(
     r'|(?:headphone|earbud|speaker|laptop|tablet|appliance|gadget)s?\s+sale\b'  # consumer tech retail sales
     r'|(?:fourth\s+of\s+july|4th\s+of\s+july|independence\s+day|labor\s+day|memorial\s+day|presidents\s+day)\s+.{0,40}sale\b'  # holiday sales (word or numeric form)
     r'|(?=.*\b(?:home\s+depot|walmart|target|best\s+buy|costco|lowe\'?s|kohl\'?s|nordstrom)\b)(?=.*\b(?:sale|deals?|discounts?)\b).'  # retailer + sale/deal anywhere in title
-    r'|\bwedding\s+gift\b'                         # adult wedding financial etiquette content
+    r'|\bwedding\s+(?:gifts?|guests?|presents?|registry|etiquette|budget)\b'  # adult wedding financial/etiquette content
+    r'|\bhow\s+much\s+(?:should|do|to|did|would)\s+(?:you|we|i|they|he|she)\s+(?:gift|give|spend|pay|tip|budget|save|earn|cost)\b'  # personal-finance "how much should you gift/spend/pay" framing
     r'|\bhow\s+much.{0,20}gift\s+at\s+a\b'        # "how much should you gift at a wedding" framing
     r')',
     re.I
