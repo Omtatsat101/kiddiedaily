@@ -1191,7 +1191,7 @@ HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/fact-check/">Fact Check</a>
-<a href="/games/">Games</a><a href="/draw/">Draw</a><a href="/saved.html">Saved</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
+<a href="/games/">Games</a><a href="/draw/">Draw</a><a href="/wonder/">Wonder</a><a href="/saved.html">Saved</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
 </div></header>"""
 
 FOOTER = """<footer class="kd"><div class="inner">
@@ -1202,6 +1202,7 @@ FOOTER = """<footer class="kd"><div class="inner">
 <div><h4>Account</h4><a href="/saved.html">Saved Stories</a><a href="/parents/">For Parents</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
 <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+<div><h4>Explore &amp; Play</h4><a href="/wonder/">Explore by Wonder</a><a href="/hello/">Maya's Hello</a><a href="/news-word/">News Word</a><a href="/news-numbers/">By the Numbers</a><a href="/time-traveler/">Time Traveler</a></div>
 <div><h4>Our Network</h4><a href="https://kiddiewordle.com" rel="noopener">KiddieWordle</a>
 <a href="https://kiddiesketch.com" rel="noopener">KiddieSketch</a>
 <a href="https://kiddiego.com" rel="noopener">KiddieGo</a></div>
@@ -2004,6 +2005,7 @@ STATIC_URLS = [
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
     "/draw/",
+    "/wonder/", "/hello/", "/news-word/", "/news-numbers/", "/time-traveler/",
     "/about.html", "/privacy.html", "/terms.html", "/contact.html", "/status.html",
     "/subscribe/",
     "/feed.xml", "/news/archive.html", "/news/today.html",
@@ -4664,6 +4666,1866 @@ def generate_draw_page(manifest, today):
     print(f"  Draw page: featured challenge + {len(more)} story-spark prompts")
 
 
+def generate_explore_by_wonder_page(manifest, today):
+    """Generate /wonder/index.html — 'Explore by Wonder' themed discovery hub.
+
+    A browse-by-curiosity experience: instead of flat category lists, the day's
+    kid-safe stories are auto-assembled into a handful of themed "wonder
+    collections" (Space Week, Animal Kingdom, Time Travelers, Planet Protectors,
+    Curious Minds) — each a visual card grid of recent stories in that theme.
+    Borrows the discovery/collections mechanic from the KiddieGo megastore.
+
+    Static + privacy-safe: all collection assembly happens at build time in
+    Python (deterministic — identical corpora produce identical HTML). The only
+    client JS is a presentational theme-chip filter that shows/hides collections
+    already on the page; it fetches nothing, stores nothing, and sets no cookies
+    (consistent with our data-sovereignty rule). Never surfaces world/politics.
+    """
+    articles = manifest.get("articles", [])
+
+    # Ordered theme definitions. Each: key, emoji, name, tagline, gradient, tint,
+    # ink, and the manifest cats that belong to it. Only visual/is_science cats
+    # are ever eligible — world/politics is intentionally absent.
+    THEMES = [
+        ("space", "\U0001F680", "Space Week",
+         "Rockets, planets, moons and everything beyond the sky.",
+         "#3730a3", "#5b21b6", "#ede9fe", ("space",)),
+        ("animals", "\U0001F43E", "Animal Kingdom",
+         "Creatures big, small, furry, scaly and everything in between.",
+         "#92400e", "#b45309", "#fef3c7", ("animals",)),
+        ("history", "\U0001F3DB️", "Time Travelers",
+         "Journeys into the past — long-ago people, places and discoveries.",
+         "#9d174d", "#be185d", "#fce7f3", ("history",)),
+        ("environment", "\U0001F30D", "Planet Protectors",
+         "Our Earth, its weather, oceans and how we help keep it healthy.",
+         "#166534", "#15803d", "#dcfce7", ("environment",)),
+        ("science", "\U0001F52C", "Curious Minds",
+         "Big questions, clever experiments and brand-new science.",
+         "#1a4d80", "#2b6cb0", "#e0e7ff", ("science", "technology")),
+    ]
+
+    # Categories we will NEVER surface, regardless of anything else.
+    BLOCK_CATS = {"world"}
+    # Categories that make an article eligible for the wonder hub at all.
+    ELIGIBLE_CATS = {"space", "animals", "history", "environment", "science", "technology"}
+
+    date_rx = re.compile(r"(\d{4})-(\d{2})-(\d{2})")
+    MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+    def _date_from_slug(slug):
+        """Derive (iso, pretty) date from the slug prefix; ('', '') if none."""
+        m = date_rx.search(slug or "")
+        if not m:
+            return "", ""
+        y, mo, d = m.group(1), m.group(2), m.group(3)
+        try:
+            pretty = f"{MONTHS[int(mo) - 1]} {int(d)}, {y}"
+        except (ValueError, IndexError):
+            pretty = ""
+        return f"{y}-{mo}-{d}", pretty
+
+    def _eligible(a):
+        cats = set(a.get("cats") or [])
+        if cats & BLOCK_CATS:
+            return False
+        return bool(cats & ELIGIBLE_CATS) or bool(a.get("is_science"))
+
+    def _esc(s):
+        return (str(s or "")
+                .replace("&", "&amp;").replace("<", "&lt;")
+                .replace(">", "&gt;").replace('"', "&quot;"))
+
+    # Work over the TAIL (recent) of the oldest->newest list, newest first.
+    pool = [a for a in articles if _eligible(a)]
+    recent = list(reversed(pool[-120:] if len(pool) >= 120 else pool))
+
+    def _in_theme(a, theme_cats):
+        cats = set(a.get("cats") or [])
+        if cats & set(theme_cats):
+            return True
+        # is_science stories with no explicit visual cat fall into Curious Minds.
+        if "science" in theme_cats and a.get("is_science") and not (cats & ELIGIBLE_CATS):
+            return True
+        return False
+
+    MAX_PER_COLLECTION = 6
+    collections = []          # list of (theme_tuple, [articles])
+    total_featured = 0
+    for theme in THEMES:
+        key, emoji, name, tagline, grad, grad2, tint, theme_cats = theme
+        seen_titles = set()
+        picks = []
+        for a in recent:
+            if not _in_theme(a, theme_cats):
+                continue
+            t = (a.get("display_title") or a.get("title") or "").strip().lower()
+            if t and t in seen_titles:
+                continue
+            seen_titles.add(t)
+            picks.append(a)
+            if len(picks) >= MAX_PER_COLLECTION:
+                break
+        if picks:
+            collections.append((theme, picks))
+            total_featured += len(picks)
+
+    # ── Build the theme filter chips (one per non-empty collection) ──────────
+    chips_html = '<button class="wf-chip wf-chip-all is-on" data-theme="all" type="button">All wonders</button>'
+    for (theme, picks) in collections:
+        key, emoji, name, tagline, grad, grad2, tint, theme_cats = theme
+        chips_html += (
+            f'<button class="wf-chip" data-theme="{key}" type="button" '
+            f'style="--wf-ink:{grad}">'
+            f'<span aria-hidden="true">{emoji}</span> {_esc(name)} '
+            f'<span class="wf-chip-n">{len(picks)}</span></button>'
+        )
+
+    # ── Build each collection block + its story cards ────────────────────────
+    def _card(a):
+        slug = a.get("slug", "")
+        title = a.get("display_title") or a.get("title") or "Untitled story"
+        desc = a.get("description") or ""
+        if len(desc) > 118:
+            desc = desc[:117].rstrip() + "…"
+        iso, pretty = _date_from_slug(slug)
+        n = a.get("n_sources", 1) or 1
+        href = f"/{_esc(slug)}" if slug else "/news/"
+        meta_bits = []
+        if pretty:
+            meta_bits.append(_esc(pretty))
+        if n > 1:
+            meta_bits.append(f"{n} outlets")
+        meta = " &middot; ".join(meta_bits)
+        desc_html = f'<p class="wc-ex">{_esc(desc)}</p>' if desc else ""
+        meta_html = f'<div class="wc-meta">{meta}</div>' if meta else ""
+        return (
+            f'<a class="wc" href="{href}">'
+            f'<h3 class="wc-t">{_esc(title)}</h3>'
+            f'{desc_html}{meta_html}'
+            f'<span class="wc-go">Read this story &rarr;</span>'
+            f'</a>'
+        )
+
+    collections_html = ""
+    for (theme, picks) in collections:
+        key, emoji, name, tagline, grad, grad2, tint, theme_cats = theme
+        cards = "".join(_card(a) for a in picks)
+        collections_html += (
+            f'<section class="wcoll" data-theme="{key}" '
+            f'style="--wc-grad:{grad};--wc-grad2:{grad2};--wc-tint:{tint}">'
+            f'<header class="wcoll-h">'
+            f'<div class="wcoll-ic" aria-hidden="true">{emoji}</div>'
+            f'<div><h2 class="wcoll-t">{_esc(name)}</h2>'
+            f'<p class="wcoll-sub">{_esc(tagline)}</p></div>'
+            f'<span class="wcoll-count">{len(picks)} '
+            f'{"story" if len(picks) == 1 else "stories"}</span>'
+            f'</header>'
+            f'<div class="wc-grid">{cards}</div>'
+            f'</section>'
+        )
+
+    n_collections = len(collections)
+    if not collections_html:
+        collections_html = (
+            '<div class="wonder-empty">'
+            '<div class="we-ic" aria-hidden="true">\U0001F52D</div>'
+            '<p>Fresh wonder collections are being assembled from today&rsquo;s '
+            'discoveries. Check back soon &mdash; new stories arrive every day!</p>'
+            '<a class="we-btn" href="/news/">Browse all Kid News &rarr;</a>'
+            '</div>'
+        )
+
+    # Stat strip values (all build-time, deterministic).
+    stat_collections = n_collections
+    stat_stories = total_featured
+    stat_themes = len(THEMES)
+
+    # ── Page-specific CSS as a PLAIN string (no f-string braces anywhere) ────
+    page_css = (
+        ".wonder-hero{background:linear-gradient(135deg,#1a4d80,#2b6cb0 60%,#5b21b6);"
+        "color:#fff;border-radius:18px;padding:30px 28px;margin:0 0 22px;"
+        "font-family:system-ui,sans-serif}"
+        ".wonder-hero h1{margin:0 0 8px;font-size:31px;line-height:1.15}"
+        ".wonder-hero p{margin:0;font-size:15px;color:#dbeafe;line-height:1.5;max-width:60ch}"
+        ".wonder-stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}"
+        ".wonder-stats .st{background:rgba(255,255,255,.14);border-radius:10px;"
+        "padding:8px 14px;font-size:13px;font-family:system-ui,sans-serif;color:#fff}"
+        ".wonder-stats .st b{font-size:18px;display:block;line-height:1.1}"
+        ".wf-bar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;"
+        "font-family:system-ui,sans-serif}"
+        ".wf-chip{background:#fff;border:1.5px solid #dde4ef;border-radius:22px;"
+        "padding:7px 14px;font-size:13px;font-weight:600;color:#2d3748;cursor:pointer;"
+        "display:inline-flex;align-items:center;gap:6px;line-height:1}"
+        ".wf-chip:hover{border-color:var(--wf-ink,#1a4d80);color:var(--wf-ink,#1a4d80)}"
+        ".wf-chip.is-on{background:var(--wf-ink,#1a4d80);border-color:var(--wf-ink,#1a4d80);color:#fff}"
+        ".wf-chip-all{--wf-ink:#1a4d80}"
+        ".wf-chip-n{background:rgba(0,0,0,.08);border-radius:20px;padding:1px 7px;"
+        "font-size:11px;font-weight:700}"
+        ".wf-chip.is-on .wf-chip-n{background:rgba(255,255,255,.25)}"
+        ".wcoll{background:#fff;border:1px solid #e6e9f0;border-radius:16px;"
+        "padding:20px 22px 22px;margin:0 0 22px;box-shadow:0 2px 10px rgba(0,0,0,.05);"
+        "border-top:5px solid var(--wc-grad,#1a4d80)}"
+        ".wcoll-h{display:flex;align-items:center;gap:14px;margin:0 0 16px;flex-wrap:wrap}"
+        ".wcoll-ic{width:48px;height:48px;border-radius:12px;background:var(--wc-tint,#e0e7ff);"
+        "display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}"
+        ".wcoll-t{margin:0;font-size:21px;color:var(--wc-grad,#1a4d80);"
+        "font-family:system-ui,sans-serif;line-height:1.2}"
+        ".wcoll-sub{margin:2px 0 0;font-size:13px;color:#718096;"
+        "font-family:system-ui,sans-serif;line-height:1.4}"
+        ".wcoll-count{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.6px;"
+        "text-transform:uppercase;color:var(--wc-grad2,#2b6cb0);background:var(--wc-tint,#e0e7ff);"
+        "padding:4px 10px;border-radius:20px;white-space:nowrap}"
+        ".wc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}"
+        ".wc{display:flex;flex-direction:column;background:#fbfcfe;border:1px solid #e8ecf3;"
+        "border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit;"
+        "font-family:system-ui,sans-serif;transition:border-color .12s,box-shadow .12s,transform .12s}"
+        ".wc:hover{border-color:var(--wc-grad,#1a4d80);box-shadow:0 4px 14px rgba(0,0,0,.09);"
+        "transform:translateY(-2px);text-decoration:none}"
+        ".wc-t{margin:0 0 6px;font-size:15px;font-weight:700;color:#1a2b44;line-height:1.32}"
+        ".wc-ex{margin:0 0 10px;font-size:12.5px;color:#4a5568;line-height:1.45;flex:1}"
+        ".wc-meta{font-size:11px;color:#94a3b8;margin:0 0 10px}"
+        ".wc-go{font-size:12px;font-weight:700;color:var(--wc-grad2,#2b6cb0);margin-top:auto}"
+        ".wonder-empty{background:#fff;border:1px dashed #cbd5e0;border-radius:16px;"
+        "padding:34px 26px;text-align:center;font-family:system-ui,sans-serif;color:#4a5568}"
+        ".wonder-empty .we-ic{font-size:38px;margin-bottom:10px}"
+        ".wonder-empty p{margin:0 auto 16px;max-width:44ch;font-size:15px;line-height:1.55}"
+        ".we-btn,.wonder-cta a{display:inline-block;background:#1a4d80;color:#fff;"
+        "padding:9px 18px;border-radius:8px;font-size:14px;text-decoration:none}"
+        ".wonder-note{background:#f0f9ff;border:1px solid #bae6fd;border-radius:14px;"
+        "padding:16px 20px;margin:8px 0 22px;font-family:system-ui,sans-serif}"
+        ".wonder-note strong{color:#075985}"
+        ".wonder-note p{margin:6px 0 0;font-size:13px;color:#0c4a6e;line-height:1.55}"
+        ".wonder-cta{margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;"
+        "font-family:system-ui,sans-serif}"
+        ".wonder-cta a.alt{background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80}"
+        ".wonder-cta a.ghost{background:#f7fafc;color:#718096;border:1px solid #e2e8f0}"
+        "@media(max-width:640px){.wonder-hero{padding:24px 20px}.wonder-hero h1{font-size:26px}"
+        ".wcoll{padding:16px 16px 18px}.wcoll-count{margin-left:0}}"
+        "@media(prefers-color-scheme:dark){"
+        ".wf-chip{background:#1a202c;border-color:#2d3748;color:#e2e8f0}"
+        ".wcoll{background:#161b26;border-color:#2d3748}"
+        ".wc{background:#1a202c;border-color:#2d3748}"
+        ".wc-t{color:#e2e8f0}.wc-ex{color:#a0aec0}.wc-meta{color:#718096}"
+        ".wonder-note{background:#0c2536;border-color:#1e3a52}.wonder-note p{color:#bae6fd}"
+        ".wonder-empty{background:#161b26;border-color:#2d3748;color:#a0aec0}}"
+        "@media(prefers-reduced-motion:reduce){.wc{transition:none}.wc:hover{transform:none}}"
+    )
+
+    # ── Client JS as a PLAIN string: presentational filter only (no data) ────
+    filter_js = (
+        "(function(){"
+        "var chips=document.querySelectorAll('.wf-chip');"
+        "var colls=document.querySelectorAll('.wcoll');"
+        "if(!chips.length||!colls.length)return;"
+        "function apply(theme){"
+        "for(var i=0;i<colls.length;i++){"
+        "var show=(theme==='all'||colls[i].getAttribute('data-theme')===theme);"
+        "colls[i].style.display=show?'':'none';}"
+        "for(var j=0;j<chips.length;j++){"
+        "chips[j].classList.toggle('is-on',chips[j].getAttribute('data-theme')===theme);}"
+        "}"
+        "for(var k=0;k<chips.length;k++){(function(btn){"
+        "btn.addEventListener('click',function(){apply(btn.getAttribute('data-theme'));"
+        "var m=document.getElementById('wonder-collections');"
+        "if(m&&window.scrollTo){var y=m.getBoundingClientRect().top+window.pageYOffset-70;"
+        "window.scrollTo({top:y<0?0:y,behavior:'smooth'});}});"
+        "})(chips[k]);}"
+        "})();"
+    )
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Explore by Wonder — KiddieDaily Discovery Collections</title>
+<meta name="description" content="Browse the day's kid-safe news by curiosity: themed wonder collections like Space Week, Animal Kingdom, Time Travelers and Planet Protectors — a discovery hub from KiddieDaily.">
+<meta property="og:title" content="Explore by Wonder — KiddieDaily Discovery Collections">
+<meta property="og:description" content="Themed collections of real, kid-safe news stories. Follow your curiosity through space, animals, history, the planet and more.">
+<meta property="og:url" content="https://kiddiedaily.com/wonder/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kiddiedaily.com/wonder/">
+{CSS}
+<style>{page_css}</style>
+</head><body>
+{HEADER}
+<main id="main" style="max-width:820px;margin:0 auto;padding:28px 24px 64px">
+<div class="wonder-hero">
+<h1>&#128302; Explore by Wonder</h1>
+<p>Don&rsquo;t just scroll the headlines &mdash; follow your curiosity. We&rsquo;ve gathered the day&rsquo;s kid-safe stories into themed <strong>wonder collections</strong> so you can dive into whatever amazes you most.</p>
+<div class="wonder-stats">
+<div class="st"><b>{stat_collections}</b>collections today</div>
+<div class="st"><b>{stat_stories}</b>stories to explore</div>
+<div class="st"><b>{stat_themes}</b>wonder themes</div>
+</div>
+</div>
+<div class="wf-bar" role="group" aria-label="Filter wonder collections by theme">
+{chips_html}
+</div>
+<div id="wonder-collections">
+{collections_html}
+</div>
+<div class="wonder-note">
+<strong>&#128302; For grown-ups</strong>
+<p>&ldquo;Explore by Wonder&rdquo; is a browse-by-curiosity view of the same bias-rated, kid-safe stories on KiddieDaily &mdash; grouped by theme instead of a flat list. Tap a theme chip to focus on one wonder, or explore them all. Every story links to our full write-up with sources.</p>
+</div>
+<div class="wonder-cta">
+<a href="/news/today.html">Today&#39;s news</a>
+<a class="alt" href="/news/">All Kid News</a>
+<a class="ghost" href="/games/">Games &amp; quizzes</a>
+</div>
+</main>
+{FOOTER}
+<script>{filter_js}</script>
+</body></html>"""
+
+    upload("wonder/index.html", page, "[scraper] Explore by Wonder discovery collections hub")
+    print(f"  Wonder hub: {n_collections} collections, {total_featured} stories featured")
+
+
+def generate_maya_hello(manifest, today):
+    """Generate /hello/index.html — "Maya's Daily Hello", a warm avatar front door.
+
+    Maya is a friendly inline-SVG guide (borrowed from the GoGoMaya kid avatar)
+    who greets kids and gives a short, kid-voiced take on the single most
+    wonder-sparking science story of the day, plus one open "I wonder..."
+    question and a link to read more. Deterministic pick + template phrasing —
+    NO live LLM, nothing uploaded, no cookies/trackers (data-sovereignty safe).
+    An emotional, among-friends entry point to the news for ages 8-12.
+    """
+    articles = manifest.get("articles", [])
+    VISUAL_CATS = {"space", "animals", "history", "environment", "science"}
+
+    def _esc(s):
+        return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+    def _wonder(a):
+        # Prefer real science / visual-nature stories; never surface world/politics.
+        return bool(set(a.get("cats") or []) & VISUAL_CATS) or a.get("is_science")
+
+    # Newest-first pool of kid-safe, wonder-sparking stories (use the TAIL for recent).
+    pool = [a for a in articles if _wonder(a)]
+    recent = list(reversed(pool[-40:] if len(pool) >= 40 else pool))
+
+    STOP = {"about", "their", "these", "those", "would", "could", "which", "where",
+            "there", "after", "other", "first", "world", "using", "study", "finds",
+            "found", "shows", "says", "that", "have", "with", "from", "this", "will",
+            "into", "been", "more", "also", "than", "when", "were", "they", "your",
+            "scientists", "research", "researchers", "reveals", "reveal", "discover",
+            "discovered", "suggests", "according", "amazing", "here", "just", "like",
+            # leading superlatives/fillers so the topic word lands on a real noun
+            "oldest", "newest", "largest", "smallest", "biggest", "giant", "tiny",
+            "hidden", "secret", "rare", "brand", "super", "mega", "incredible",
+            "surprising", "mysterious", "ever", "seen", "photo", "picture", "video",
+            "over", "under", "near", "deep", "high", "wild", "very"}
+
+    ICON = {"space": "\U0001F680", "animals": "\U0001F43E", "history": "\U0001F3DB️",
+            "environment": "\U0001F331", "science": "\U0001F52C"}
+
+    # Warmth-scored ranking so Maya greets the *most wonder-sparking* story, not
+    # merely the newest. Deterministic: depends only on corpus content, not clock.
+    WONDER_WORDS = ("discover", "new", "first", "found", "mystery", "hidden", "secret",
+                    "giant", "tiny", "space", "star", "planet", "moon", "galaxy",
+                    "dinosaur", "fossil", "ancient", "ocean", "deep", "glow", "rare",
+                    "oldest", "largest", "smallest", "baby", "rescue", "surprise",
+                    "volcano", "comet", "meteor", "whale", "shark", "octopus")
+    CAT_WEIGHT = {"space": 5, "animals": 5, "environment": 3, "history": 3, "science": 2}
+
+    def _dom_cat(a):
+        cats = set(a.get("cats") or [])
+        for c in ("space", "animals", "history", "environment"):
+            if c in cats:
+                return c
+        return "science"
+
+    def _topic(a):
+        title = a.get("display_title", a.get("title", ""))
+        words = [w for w in re.sub(r"[^\w\s]", "", title.lower()).split()
+                 if len(w) > 3 and w not in STOP and w.isalpha()]
+        return words[0] if words else "this discovery"
+
+    def _score(a, idx):
+        title = (a.get("display_title", a.get("title", "")) or "").lower()
+        s = CAT_WEIGHT.get(_dom_cat(a), 2)
+        s += sum(2 for w in WONDER_WORDS if w in title)
+        s += 2 if a.get("is_science") else 0
+        s += min(int(a.get("n_sources", 1) or 1), 3)          # corroboration bonus, capped
+        # Gentle recency nudge (small, deterministic — index within newest-first list).
+        s += max(0, 6 - idx) * 0.1
+        return s
+
+    ranked = sorted(
+        ((a, i) for i, a in enumerate(recent)),
+        # Highest score wins; ties break on newer (lower idx), then title for stability.
+        key=lambda p: (-_score(p[0], p[1]), p[1],
+                       (p[0].get("display_title", p[0].get("title", "")) or "")),
+    )
+    ranked_articles = [a for a, _ in ranked]
+
+    hero = ranked_articles[0] if ranked_articles else None
+
+    # ── Kid-voiced template phrasing (deterministic pick by topic/cat, no random) ──
+    OPENERS = [
+        "Ooh, wait till you hear this one!",
+        "I have got the coolest thing to tell you today.",
+        "Okay, this story made my brain do a happy little flip.",
+        "Guess what scientists just figured out?",
+        "I found a story today that I could not stop thinking about.",
+        "You are going to love this — I promise.",
+    ]
+    # Per-category 2nd/3rd sentences. Each uses {t} = topic word, filled safely.
+    TAKES = {
+        "space": [
+            "Way, way out in space, {t} is doing something nobody expected. Space is basically the biggest mystery box ever, and today we get to peek inside.",
+            "Somewhere out among the stars, {t} just surprised the smartest sky-watchers on Earth. Imagine how tiny and how HUGE that makes us feel at the same time.",
+        ],
+        "animals": [
+            "A real-life animal — {t} — is doing something so clever that even scientists went 'whoa!' Animals are full of secret talents we are only just noticing.",
+            "Turns out {t} has a hidden trick up its... well, it does not have sleeves, but you get the idea! Nature keeps inventing things we never would have guessed.",
+        ],
+        "history": [
+            "People who lived a LONG time ago left behind a clue about {t}, and we just found it. It is like the past mailed us a secret letter across thousands of years.",
+            "A piece of history about {t} popped back into the world today. Every old thing we dig up is a tiny time-machine for our imaginations.",
+        ],
+        "environment": [
+            "Our amazing planet is showing us something new about {t}. Earth is the only home we have got, so every discovery about it is a big deal.",
+            "Scientists learned something fresh about {t} and how our world works. The more we understand it, the better we can take care of it together.",
+        ],
+        "science": [
+            "Curious minds just uncovered something new about {t}, and it is the kind of thing that makes you say 'but HOW?' That question is where all the best science begins.",
+            "Someone in a lab followed their curiosity about {t} — and found an answer nobody had before. That is the superpower of asking good questions.",
+        ],
+    }
+    WONDERS = {
+        "space": [
+            "I wonder what it would feel like to float right next to {t} and look back at Earth.",
+            "I wonder what other secrets are hiding out there that we have not spotted yet.",
+        ],
+        "animals": [
+            "I wonder what {t} would say if it could tell us about its day.",
+            "I wonder how many more animal superpowers are still waiting to be discovered.",
+        ],
+        "history": [
+            "I wonder what a kid just like you was doing back when {t} was around.",
+            "I wonder what people 1,000 years from now will dig up about US.",
+        ],
+        "environment": [
+            "I wonder what one small thing you and I could do to help {t}.",
+            "I wonder what our planet will look like when you are all grown up.",
+        ],
+        "science": [
+            "I wonder what question you would ask a scientist about {t}.",
+            "I wonder what you would discover if you got to run the experiment yourself.",
+        ],
+    }
+    SIGNOFFS = [
+        "Stay curious — Maya",
+        "Keep wondering — Maya",
+        "See you tomorrow — Maya",
+        "Your friend in wonder, Maya",
+    ]
+
+    def _pick(lst, seed):
+        return lst[seed % len(lst)] if lst else ""
+
+    if hero is not None:
+        cat = _dom_cat(hero)
+        topic = _topic(hero)
+        seed = len(topic) + len(recent)          # deterministic, content-driven
+        opener = _pick(OPENERS, seed)
+        take = _pick(TAKES.get(cat, TAKES["science"]), seed).replace("{t}", topic)
+        wonder = _pick(WONDERS.get(cat, WONDERS["science"]), seed + 1).replace("{t}", topic)
+        signoff = _pick(SIGNOFFS, seed)
+        hero_title = hero.get("display_title", hero.get("title", ""))
+        hero_slug = hero.get("slug", "")
+        hero_icon = ICON.get(cat, "\U0001F52C")
+        read_more = (
+            f'<a class="mh-read" href="/{_esc(hero_slug)}">'
+            f'Read the whole story with a grown-up &nbsp;&rarr;</a>'
+        ) if hero_slug else ""
+    else:
+        cat, topic = "science", "a curious discovery"
+        opener = "Hi friend! The news is a little quiet today, but wonder never sleeps."
+        take = ("I do not have a brand-new story for you this minute, so here is a "
+                "tiny challenge instead: look out a window and find ONE thing you "
+                "cannot fully explain. That is a mystery worth chasing.")
+        wonder = "I wonder what the most curious question in the whole world is."
+        signoff = "Stay curious — Maya"
+        hero_title = ""
+        hero_slug = ""
+        hero_icon = "✨"
+        read_more = ('<a class="mh-read" href="/news/today.html">'
+                     'See today&rsquo;s stories &nbsp;&rarr;</a>')
+
+    # ── A few more friendly picks Maya "also loved" (deterministic, de-duped) ──
+    seen_topics = {topic}
+    also = []
+    for a in ranked_articles[1:]:
+        t = _topic(a)
+        if t in seen_topics:
+            continue
+        seen_topics.add(t)
+        also.append(a)
+        if len(also) >= 3:
+            break
+
+    also_cards = ""
+    for i, a in enumerate(also):
+        c = _dom_cat(a)
+        t = a.get("display_title", a.get("title", ""))
+        slug = a.get("slug", "")
+        ic = ICON.get(c, "\U0001F52C")
+        title_html = _esc(t[:88])
+        inner = (
+            f'<span class="mh-alt-ic" aria-hidden="true">{ic}</span>'
+            f'<span class="mh-alt-t">{title_html}</span>'
+        )
+        if slug:
+            also_cards += f'<a class="mh-alt" href="/{_esc(slug)}">{inner}</a>'
+        else:
+            also_cards += f'<div class="mh-alt">{inner}</div>'
+    if not also_cards:
+        also_cards = ('<div class="mh-alt"><span class="mh-alt-ic" aria-hidden="true">\U0001F308</span>'
+                      '<span class="mh-alt-t">More wonder lands here tomorrow — check back!</span></div>')
+
+    # ── Inline SVG avatar: Maya. Friendly star-explorer with a waving arm and
+    #    twinkling stars (gentle CSS animation, disabled under reduced-motion).
+    #    Kept as a plain string; no external assets. ─────────────────────────
+    maya_svg = (
+        '<svg class="mh-maya" viewBox="0 0 200 210" role="img" '
+        'aria-label="Maya, a friendly cartoon guide, waving hello" '
+        'xmlns="http://www.w3.org/2000/svg">'
+        '<defs>'
+        '<radialGradient id="mhSky" cx="50%" cy="38%" r="70%">'
+        '<stop offset="0%" stop-color="#dbeafe"/><stop offset="100%" stop-color="#bfdbfe"/>'
+        '</radialGradient>'
+        '<linearGradient id="mhHair" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0%" stop-color="#3a2a5d"/><stop offset="100%" stop-color="#241a3d"/>'
+        '</linearGradient>'
+        '</defs>'
+        '<circle cx="100" cy="100" r="96" fill="url(#mhSky)"/>'
+        '<g class="mh-tw" fill="#fbbf24">'
+        '<path d="M40 46 l3 7 7 3 -7 3 -3 7 -3-7 -7-3 7-3z"/>'
+        '<path d="M164 60 l2.4 5.6 5.6 2.4 -5.6 2.4 -2.4 5.6 -2.4-5.6 -5.6-2.4 5.6-2.4z"/>'
+        '<path d="M150 150 l2 4.6 4.6 2 -4.6 2 -2 4.6 -2-4.6 -4.6-2 4.6-2z"/>'
+        '</g>'
+        '<path d="M56 210 v-24 a44 44 0 0 1 88 0 v24 z" fill="#2b6cb0"/>'
+        '<path d="M100 176 l4 9 9 1 -7 6 2 9 -8-5 -8 5 2-9 -7-6 9-1z" fill="#fbbf24"/>'
+        '<g class="mh-wave">'
+        '<path d="M138 168 q22 -10 28 -30" stroke="#f4c9a6" stroke-width="13" '
+        'fill="none" stroke-linecap="round"/>'
+        '<circle cx="168" cy="134" r="9" fill="#f4c9a6"/>'
+        '</g>'
+        '<path d="M62 168 q-16 -6 -20 -22" stroke="#f4c9a6" stroke-width="13" '
+        'fill="none" stroke-linecap="round"/>'
+        '<rect x="92" y="120" width="16" height="16" rx="6" fill="#f4c9a6"/>'
+        '<circle cx="100" cy="98" r="34" fill="#f6d2b0"/>'
+        '<path d="M64 100 a36 36 0 0 1 72 0 q-8 -14 -20 -12 q-4 -10 -16 -10 '
+        'q-12 0 -16 10 q-12 -2 -20 12z" fill="url(#mhHair)"/>'
+        '<circle cx="66" cy="104" r="9" fill="url(#mhHair)"/>'
+        '<circle cx="134" cy="104" r="9" fill="url(#mhHair)"/>'
+        '<circle cx="88" cy="98" r="4.6" fill="#2d2440"/>'
+        '<circle cx="112" cy="98" r="4.6" fill="#2d2440"/>'
+        '<circle cx="89.5" cy="96.5" r="1.5" fill="#fff"/>'
+        '<circle cx="113.5" cy="96.5" r="1.5" fill="#fff"/>'
+        '<circle cx="80" cy="108" r="5" fill="#f6a5a5" opacity=".65"/>'
+        '<circle cx="120" cy="108" r="5" fill="#f6a5a5" opacity=".65"/>'
+        '<path d="M88 110 q12 12 24 0" stroke="#b3573f" stroke-width="3.5" '
+        'fill="none" stroke-linecap="round"/>'
+        '</svg>'
+    )
+
+    # ── Page-specific CSS as a PLAIN string (interpolated as {page_css}) ──
+    page_css = (
+        ".mh-wrap{font-family:system-ui,-apple-system,'Segoe UI',sans-serif}"
+        ".mh-hero{display:flex;gap:22px;align-items:center;flex-wrap:wrap;"
+        "background:linear-gradient(135deg,#1a4d80,#2b6cb0);color:#fff;"
+        "border-radius:20px;padding:24px 26px;margin:0 0 22px}"
+        ".mh-maya{width:150px;height:auto;flex:0 0 auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}"
+        ".mh-hi{flex:1;min-width:220px}"
+        ".mh-hi .mh-greet{font-size:13px;font-weight:700;letter-spacing:1.4px;"
+        "text-transform:uppercase;color:#cfe4ff;margin:0 0 4px}"
+        ".mh-hi h1{margin:0 0 8px;font-size:30px;line-height:1.15}"
+        ".mh-hi p{margin:0;font-size:15px;color:#e3efff;line-height:1.55}"
+        ".mh-bubble{position:relative;background:#fff;border:1px solid #d9e2ef;"
+        "border-radius:18px;padding:22px 24px 20px;margin:0 0 20px;"
+        "box-shadow:0 4px 16px rgba(20,60,110,.10)}"
+        ".mh-bubble::before{content:'';position:absolute;top:-14px;left:44px;"
+        "width:26px;height:26px;background:#fff;border-left:1px solid #d9e2ef;"
+        "border-top:1px solid #d9e2ef;transform:rotate(45deg)}"
+        ".mh-cat{display:inline-flex;align-items:center;gap:6px;font-size:12px;"
+        "font-weight:700;color:#2b6cb0;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px}"
+        ".mh-say{font-size:19px;line-height:1.5;color:#1f2b44;margin:0 0 4px;font-weight:500}"
+        ".mh-say .mh-lead{font-weight:800;color:#1a4d80}"
+        ".mh-storytitle{font-size:13px;color:#6b7a90;font-style:italic;margin:10px 0 14px}"
+        ".mh-wonder{background:#fff8e1;border:1px dashed #f0c15a;border-radius:14px;"
+        "padding:14px 18px;margin:14px 0 16px}"
+        ".mh-wonder .mh-wq-label{font-size:11px;font-weight:800;letter-spacing:1.2px;"
+        "text-transform:uppercase;color:#a06a00;margin:0 0 4px}"
+        ".mh-wonder p{margin:0;font-size:17px;color:#7a4e00;line-height:1.5;font-weight:600}"
+        ".mh-read{display:inline-block;background:#1a4d80;color:#fff;text-decoration:none;"
+        "padding:10px 18px;border-radius:9px;font-size:14px;font-weight:600}"
+        ".mh-read:hover{background:#14406b;text-decoration:none}"
+        ".mh-sign{text-align:right;font-size:14px;color:#2b6cb0;font-weight:700;"
+        "font-style:italic;margin:16px 0 0}"
+        ".mh-alt-h{font-size:11px;font-weight:800;color:#718096;text-transform:uppercase;"
+        "letter-spacing:1.2px;margin:0 0 10px}"
+        ".mh-alt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));"
+        "gap:12px;margin:0 0 24px}"
+        ".mh-alt{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e2e8f0;"
+        "border-radius:12px;padding:12px 14px;text-decoration:none;color:#1f2b44;transition:transform .1s}"
+        "a.mh-alt:hover{transform:translateY(-2px);border-color:#bcd3ef;text-decoration:none}"
+        ".mh-alt-ic{font-size:22px;flex:0 0 auto}"
+        ".mh-alt-t{font-size:14px;line-height:1.35;font-weight:600}"
+        ".mh-grownup{background:#f0fff4;border:1px solid #9ae6b4;border-radius:14px;"
+        "padding:16px 20px;margin:8px 0 0}"
+        ".mh-grownup strong{color:#22543d}"
+        ".mh-grownup p{margin:6px 0 0;font-size:13px;color:#276749;line-height:1.55}"
+        ".mh-grownup a{color:#276749;font-weight:600}"
+        ".mh-nav{margin:22px 0 0;display:flex;gap:10px;flex-wrap:wrap}"
+        ".mh-nav a{padding:9px 18px;border-radius:8px;font-size:14px;text-decoration:none;"
+        "font-family:system-ui,sans-serif}"
+        ".mh-nav .p1{background:#1a4d80;color:#fff}"
+        ".mh-nav .p2{background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80}"
+        ".mh-nav .p3{background:#f7fafc;color:#718096;border:1px solid #e2e8f0}"
+        "@keyframes mhWave{0%,100%{transform:rotate(0)}50%{transform:rotate(-16deg)}}"
+        "@keyframes mhTw{0%,100%{opacity:.35}50%{opacity:1}}"
+        ".mh-wave{transform-origin:150px 160px;animation:mhWave 1.6s ease-in-out infinite}"
+        ".mh-tw{animation:mhTw 2.4s ease-in-out infinite}"
+        "@media(max-width:560px){.mh-hero{padding:20px}.mh-maya{width:112px}.mh-hi h1{font-size:24px}"
+        ".mh-say{font-size:17px}}"
+        "@media(prefers-reduced-motion:reduce){.mh-wave,.mh-tw{animation:none}}"
+        "@media(prefers-color-scheme:dark){"
+        ".mh-bubble{background:#141c2b;border-color:#2a3550}"
+        ".mh-bubble::before{background:#141c2b;border-color:#2a3550}"
+        ".mh-say{color:#e6edf7}.mh-say .mh-lead{color:#90cdf4}.mh-storytitle{color:#9fb0c7}"
+        ".mh-alt{background:#141c2b;border-color:#2a3550;color:#e6edf7}"
+        ".mh-wonder{background:#2a2410;border-color:#5c4a1e}.mh-wonder p{color:#f4d58a}"
+        ".mh-wonder .mh-wq-label{color:#e0b455}"
+        ".mh-grownup{background:#10261a;border-color:#2f5c40}.mh-grownup p{color:#9ae6b4}"
+        ".mh-grownup a{color:#9ae6b4}}"
+    )
+
+    # ── Cosmetic scroll progress-bar JS as a PLAIN string (interpolated as {js}).
+    #    No data collection, no storage — purely a visual bar. ──
+    js = (
+        "(function(){"
+        "var b=document.getElementById('kd-prog');if(!b)return;"
+        "function u(){var h=document.documentElement;"
+        "var m=(h.scrollHeight-h.clientHeight)||1;"
+        "b.style.width=((h.scrollTop||document.body.scrollTop)/m*100)+'%';}"
+        "document.addEventListener('scroll',u,{passive:true});u();"
+        "})();"
+    )
+
+    # ── Non-f HTML fragments carrying dynamic (pre-escaped) text ──
+    greet_line = "Maya says hi"
+    bubble_cat = f'<div class="mh-cat">{hero_icon} A wonder worth sharing</div>'
+    story_title_html = (
+        f'<div class="mh-storytitle">&mdash; from the real story: &ldquo;{_esc(hero_title[:110])}&rdquo;</div>'
+        if hero_title else ""
+    )
+    say_html = (
+        f'<p class="mh-say"><span class="mh-lead">{_esc(opener)}</span> {_esc(take)}</p>'
+    )
+    wonder_html = (
+        '<div class="mh-wonder"><div class="mh-wq-label">&#10024; Maya wonders&hellip;</div>'
+        f'<p>{_esc(wonder)}</p></div>'
+    )
+    sign_html = f'<p class="mh-sign">{_esc(signoff)}</p>'
+
+    # ── Final page. The f-string carries NO literal { } braces: every CSS/JS
+    #    block is interpolated via {page_css} / {js}; dynamic text via named vars. ─
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Maya&#39;s Daily Hello — KiddieDaily</title>
+<meta name="description" content="Meet Maya, KiddieDaily&#39;s friendly guide. Every day she shares a warm, kid-voiced hello about the most wonder-sparking science story — plus an 'I wonder...' question to spark curiosity.">
+<meta property="og:title" content="Maya's Daily Hello — KiddieDaily">
+<meta property="og:description" content="A friendly avatar guide who greets kids with the day's most wonder-sparking science story and an 'I wonder...' question.">
+<meta property="og:url" content="https://kiddiedaily.com/hello/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kiddiedaily.com/hello/">
+{CSS}
+<style>{page_css}</style>
+</head><body>
+{HEADER}
+<div id="kd-prog"></div>
+<main id="main" style="max-width:820px;margin:0 auto;padding:28px 24px 64px">
+<div class="mh-wrap">
+<div class="mh-hero">
+{maya_svg}
+<div class="mh-hi">
+<div class="mh-greet">{greet_line}</div>
+<h1>Hi, I&rsquo;m Maya! &#128075;</h1>
+<p>I read the news so we can be curious together. Here&rsquo;s the one story today that gave me the biggest case of the wonders.</p>
+</div>
+</div>
+<div class="mh-bubble">
+{bubble_cat}
+{say_html}
+{story_title_html}
+{wonder_html}
+{read_more}
+{sign_html}
+</div>
+<div class="mh-alt-h">A few more things I loved today</div>
+<div class="mh-alt-grid">
+{also_cards}
+</div>
+<div class="mh-grownup">
+<strong>&#128075; For grown-ups</strong>
+<p>Maya is a friendly front door to the news &mdash; a warm, kid-voiced hello that turns the day&rsquo;s most wonder-sparking science story into a shared moment of curiosity. Her take and her &ldquo;I wonder&hellip;&rdquo; question are written from the real, bias-rated story linked above; nothing your child types is ever collected, and there are no trackers or ads.</p>
+<p>Read the full story together, then ask your child Maya&rsquo;s wonder question and see where it leads.</p>
+</div>
+<div class="mh-nav">
+<a class="p1" href="/news/today.html">Today&#39;s news</a>
+<a class="p2" href="/draw/">Draw the news</a>
+<a class="p3" href="/games/">Games &amp; quizzes</a>
+</div>
+</div>
+</main>
+{FOOTER}
+<script>{js}</script>
+</body></html>"""
+
+    upload("hello/index.html", page, "[scraper] Maya's Daily Hello avatar greeter")
+    print(f"  Maya's Hello: greeted with '{topic}' ({cat}) + {len(also)} extra picks")
+
+
+def generate_numbers_page(manifest, today):
+    """Generate /news-numbers/index.html — 'News by the Numbers' data-literacy studio.
+
+    Data-literacy reps for kids: pull a concrete NUMBER that appears in a recent,
+    kid-friendly headline/description (via a safe regex), and present it as a
+    'guess the number' reveal card plus a plain-language, kid-scale sense of how
+    big that figure really is (number sense). Borrows the core mechanic from
+    brokerage / data-literacy practice — estimate first, then check against the
+    real figure and reason about scale.
+
+    Distinct from every other page: no multiple-choice quiz, no drawing canvas,
+    no fact-check checklist — the whole page trains one skill, feeling the size
+    of a number.
+
+    Degrades gracefully: if no clean number is found in the recent corpus it
+    falls back to a fixed set of evergreen, kid-safe number facts so the page
+    is never empty.
+
+    Privacy-safe & static: everything runs client-side, nothing is uploaded, no
+    cookies/trackers, no external model APIs (data-sovereignty rule). Content is
+    chosen deterministically (by index/length, never random or time-of-day) so an
+    identical corpus produces identical output and commits stay quiet.
+    """
+    articles = manifest.get("articles", [])
+    VISUAL_CATS = {"space", "animals", "history", "environment", "science"}
+
+    def _kid_safe(a):
+        # Prefer science / visual categories; never surface world/politics.
+        cats = set(a.get("cats") or [])
+        if "world" in cats:
+            return False
+        return bool(cats & VISUAL_CATS) or a.get("is_science")
+
+    def _date_from_slug(slug):
+        m = re.search(r"\d{4}-\d{2}-\d{2}", slug or "")
+        return m.group() if m else ""
+
+    # Recent = TAIL of the oldest->newest list, newest first (matches draw page).
+    pool = [a for a in articles if _kid_safe(a)]
+    recent = list(reversed(pool[-70:] if len(pool) >= 70 else pool))
+
+    # ── safe number extraction ────────────────────────────────────────────────
+    # Only plain, kid-friendly magnitudes: an optional word-multiplier
+    # (thousand/million/billion/trillion) OR a short comma-grouped integer.
+    # Deliberately conservative — skip decimals-as-versions, bare years, %, $,
+    # ranges, and times so we never surface a garbled or scary figure.
+    WORD_MULT = {
+        "thousand": 1000,
+        "thousands": 1000,
+        "million": 1000000,
+        "millions": 1000000,
+        "billion": 1000000000,
+        "billions": 1000000000,
+        "trillion": 1000000000000,
+        "trillions": 1000000000000,
+    }
+    # e.g. "1.5 million", "12 thousand", "3 billion"
+    RE_WORD = re.compile(
+        r"\b(\d{1,3}(?:\.\d{1,2})?)\s+(thousand|thousands|million|millions|billion|billions|trillion|trillions)\b",
+        re.IGNORECASE,
+    )
+    # e.g. "1,200" / "45,000" / "300" — 1 to 4 groups, no decimals.
+    RE_PLAIN = re.compile(r"(?<![\d.,$%])(\d{1,3}(?:,\d{3}){0,3})(?![\d.,%])")
+
+    # Units we are happy to keep next to a number (kid-friendly, non-scary).
+    GOOD_UNIT = re.compile(
+        r"^(years?|year-old|days?|hours?|minutes?|seconds?|"
+        r"miles?|kilometers?|kilometres?|km|meters?|metres?|feet|foot|pounds?|kg|kilograms?|"
+        r"tons?|tonnes?|degrees?|light-?years?|species|planets?|moons?|stars?|galaxies|"
+        r"eggs?|babies|chicks|penguins?|animals?|bones?|teeth|legs?|steps?|times)\b",
+        re.IGNORECASE,
+    )
+    # Reject a match if any of these scary/adult tokens sit right next to it.
+    BAD_NEAR = re.compile(
+        r"\b(kill(?:ed|s|ing)?|dead|death|deaths|died|die|wound(?:ed|s)?|injur\w*|victim\w*|"
+        r"war|troop\w*|weapon\w*|gun\w*|missile\w*|bomb\w*|shoot\w*|attack\w*|refugee\w*|"
+        r"virus|covid|disease|cancer|tumou?r|drug\w*|arrest\w*|prison\w*|crime\w*|police|"
+        r"protest\w*|riot\w*|dollars?|usd|percent|bce?)\b",
+        re.IGNORECASE,
+    )
+
+    def _clean_text(s):
+        return re.sub(r"\s+", " ", (s or "")).strip()
+
+    def _kid_scale(value):
+        """Return a plain-language, kid-scale comparison for an integer value."""
+        v = abs(int(round(value)))
+        if v <= 0:
+            return "That is zero — none at all!"
+        if v <= 5:
+            return "You can count that on one hand."
+        if v <= 12:
+            return "About the number of eggs in a carton."
+        if v <= 30:
+            return "Roughly the number of kids in a school class."
+        if v <= 100:
+            return "About how many steps you take crossing a big playground."
+        if v <= 1000:
+            return "You'd have to count out loud for about 15 minutes to reach it."
+        if v <= 10000:
+            return "More than all the students in a large elementary school."
+        if v <= 100000:
+            return "About how many people fit in a really big sports stadium."
+        if v <= 1000000:
+            return "Picture every seat in ten huge stadiums, all full."
+        if v <= 1000000000:
+            return "That's like counting every second for over 30 years without stopping!"
+        if v <= 1000000000000:
+            return "More stars than you could ever count with your eyes in a whole lifetime."
+        return "So huge it's hard for anyone — even grown-ups — to truly picture!"
+
+    def _hint(value):
+        """A gentle 'how many digits' hint that never leaks the exact number."""
+        digits = len(str(abs(int(round(value)))))
+        names = {1: "one digit", 2: "two digits", 3: "three digits", 4: "four digits"}
+        if digits in names:
+            return "This number has " + names[digits] + "."
+        if digits <= 6:
+            return "This number is in the thousands."
+        if digits <= 9:
+            return "This number is in the millions."
+        if digits <= 12:
+            return "This number is in the billions."
+        return "This number is truly gigantic."
+
+    def _fmt(value):
+        return "{:,}".format(int(round(value)))
+
+    def _extract_number(a):
+        """Try to find ONE clean, kid-safe number in a title/description.
+
+        Returns dict(value, phrase, context) or None.
+        """
+        title = _clean_text(a.get("display_title") or a.get("title") or "")
+        desc = _clean_text(a.get("description") or "")
+        for source in (title, desc):
+            if not source:
+                continue
+            # 1) word-multiplier form first (e.g. "2 million")
+            m = RE_WORD.search(source)
+            if m:
+                lo = max(0, m.start() - 40)
+                hi = min(len(source), m.end() + 40)
+                if not BAD_NEAR.search(source[lo:hi]):
+                    num = float(m.group(1))
+                    value = num * WORD_MULT[m.group(2).lower()]
+                    if 10 <= value <= 10000000000000:
+                        return {"value": value, "phrase": m.group(0), "context": source}
+            # 2) plain comma-grouped integer (e.g. "45,000" or "300 eggs")
+            for pm in RE_PLAIN.finditer(source):
+                raw = pm.group(1)
+                digits_only = raw.replace(",", "")
+                if not digits_only.isdigit():
+                    continue
+                value = int(digits_only)
+                # Skip trivially tiny, likely-year (bare 1000-2100), or huge.
+                if value < 8 or value > 999999999:
+                    continue
+                if "," not in raw and 1000 <= value <= 2100:
+                    continue  # looks like a year
+                lo = max(0, pm.start() - 40)
+                hi = min(len(source), pm.end() + 40)
+                if BAD_NEAR.search(source[lo:hi]):
+                    continue
+                # Only keep if a friendly unit follows (keeps it concrete & safe).
+                after = source[pm.end():pm.end() + 30].lstrip()
+                if not GOOD_UNIT.match(after):
+                    continue
+                return {"value": value, "phrase": raw, "context": source}
+        return None
+
+    # ── evergreen fallbacks (always kid-safe, never scary) ────────────────────
+    EVERGREEN = [
+        {"value": 8, "label": "planets in our Solar System",
+         "blurb": "Since Pluto became a 'dwarf planet' in 2006, we count eight main planets orbiting the Sun."},
+        {"value": 206, "label": "bones in a grown-up human body",
+         "blurb": "Babies are born with about 300 bones — some fuse together as you grow!"},
+        {"value": 100, "label": "years a giant tortoise can live",
+         "blurb": "Some giant tortoises have lived past 150 years — older than your great-great-grandparents!"},
+        {"value": 390, "label": "kilometers per hour a peregrine falcon can dive",
+         "blurb": "That makes the peregrine falcon the fastest animal on the whole planet."},
+        {"value": 60000, "label": "miles of blood vessels inside your body",
+         "blurb": "Lined up end to end, they could wrap around the whole Earth more than twice!"},
+        {"value": 300000, "label": "kilometers per second that light travels",
+         "blurb": "Nothing we know of moves faster. Sunlight takes about 8 minutes to reach us."},
+    ]
+
+    def _pick_evergreen(i):
+        e = EVERGREEN[i % len(EVERGREEN)]
+        return {
+            "value": e["value"],
+            "phrase": _fmt(e["value"]),
+            "label": e["label"],
+            "blurb": e["blurb"],
+            "slug": "",
+            "title": "",
+            "date": "",
+        }
+
+    # ── build the deck (deterministic, de-duplicated by value) ────────────────
+    picks, seen_vals = [], set()
+    for a in recent:
+        found = _extract_number(a)
+        if not found:
+            continue
+        vkey = int(round(found["value"]))
+        if vkey in seen_vals:
+            continue
+        seen_vals.add(vkey)
+        picks.append({
+            "value": found["value"],
+            "phrase": found["phrase"],
+            "label": "",
+            "blurb": "",
+            "slug": a.get("slug", ""),
+            "title": a.get("display_title") or a.get("title") or "",
+            "date": _date_from_slug(a.get("slug", "")),
+        })
+        if len(picks) >= 6:
+            break
+
+    used_fallback = False
+    if len(picks) < 3:
+        # Top up (or fully populate) with evergreen facts so we always have >=3.
+        used_fallback = True
+        i = 0
+        while len(picks) < 3 and i < len(EVERGREEN):
+            ev = _pick_evergreen(i)
+            if int(round(ev["value"])) not in seen_vals:
+                seen_vals.add(int(round(ev["value"])))
+                picks.append(ev)
+            i += 1
+
+    import html as _html
+
+    def esc(s):
+        return _html.escape(s or "", quote=True)
+
+    # ── render one card ────────────────────────────────────────────────────────
+    def _card(idx, p):
+        value = p["value"]
+        answer = _fmt(value)
+        hint = _hint(value)
+        scale = _kid_scale(value)
+        from_real = bool(p.get("slug"))
+        if from_real:
+            title = p["title"]
+            source_line = (
+                'From a real KiddieDaily story: '
+                '<a href="/' + esc(p["slug"]) + '">' + esc(title[:80]) + ' &rarr;</a>'
+            )
+            date = p.get("date") or ""
+            date_html = ('<span class="nb-date">' + esc(date) + '</span>') if date else ""
+            question = "How big is the number hiding in this headline?"
+            # Blank out the digits in the headline so kids guess before the reveal.
+            masked = title
+            if p.get("phrase"):
+                masked = title.replace(p["phrase"], "?????", 1)
+            teaser = '<p class="nb-teaser">&ldquo;' + esc(masked[:110]) + '&rdquo;</p>'
+        else:
+            source_line = "An evergreen number fact to warm up your number sense."
+            date_html = ""
+            question = "Can you guess: " + esc(p.get("label") or "what this number counts") + "?"
+            teaser = ""
+
+        extra = ('<p class="nb-extra">' + esc(p["blurb"]) + '</p>') if p.get("blurb") else ""
+        reveal_extra = '<p class="nb-extra">' + esc(scale) + '</p>' + extra
+
+        # data-answer holds the formatted number; revealed only on click via JS.
+        return (
+            '<div class="nb-card" data-answer="' + esc(answer) + '">'
+            '<div class="nb-kicker">Number ' + str(idx + 1) + date_html + '</div>'
+            '<p class="nb-q">' + question + '</p>'
+            + teaser +
+            '<div class="nb-guess">'
+            '<label class="nb-lbl" for="nb-in-' + str(idx) + '">Your guess</label>'
+            '<input class="nb-input" id="nb-in-' + str(idx) + '" type="text" inputmode="numeric" '
+            'autocomplete="off" placeholder="type a number">'
+            '<button class="nb-btn nb-check" type="button">Check</button>'
+            '<button class="nb-btn nb-reveal" type="button">Reveal</button>'
+            '</div>'
+            '<p class="nb-hint">&#128161; Hint: ' + esc(hint) + '</p>'
+            '<div class="nb-answer" hidden>'
+            '<div class="nb-big">' + esc(answer) + '</div>'
+            + reveal_extra +
+            '<p class="nb-feedback" aria-live="polite"></p>'
+            '<p class="nb-src">' + source_line + '</p>'
+            '</div>'
+            '</div>'
+        )
+
+    cards_html = "".join(_card(i, p) for i, p in enumerate(picks))
+
+    feat = picks[0]
+    feat_answer = _fmt(feat["value"])
+    feat_scale = _kid_scale(feat["value"])
+
+    fallback_note = ""
+    if used_fallback:
+        fallback_note = (
+            '<p class="nb-note">Not many clean numbers in today&rsquo;s kid-safe stories, '
+            'so we mixed in some all-time favorite number facts. Check back tomorrow for fresh ones!</p>'
+        )
+
+    n_real = sum(1 for p in picks if p.get("slug"))
+
+    # ── page-specific CSS (PLAIN string; no f-string braces anywhere) ─────────
+    page_css = (
+        ".nb-hero{background:linear-gradient(135deg,#1a4d80,#2b6cb0);color:#fff;border-radius:16px;"
+        "padding:28px 26px;margin:0 0 22px;font-family:system-ui,sans-serif}"
+        ".nb-hero h1{margin:0 0 6px;font-size:30px}"
+        ".nb-hero p{margin:0;font-size:15px;color:#dbeafe;line-height:1.5}"
+        ".nb-feat{background:#f7fafc;border:1px solid #dde4ef;border-radius:14px;padding:20px 22px;"
+        "margin:0 0 22px;font-family:system-ui,sans-serif}"
+        ".nb-feat .k{font-size:11px;font-weight:700;color:#2b6cb0;text-transform:uppercase;letter-spacing:1.2px}"
+        ".nb-feat .big{font-size:40px;font-weight:800;color:#1a4d80;line-height:1.1;margin:6px 0 2px}"
+        ".nb-feat .sc{font-size:15px;color:#2d3748;line-height:1.5;margin:0}"
+        ".nb-how{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px 20px;"
+        "margin:0 0 22px;font-family:system-ui,sans-serif}"
+        ".nb-how h2{margin:0 0 8px;font-size:15px;color:#1e40af;border:none;padding:0}"
+        ".nb-how ol{margin:0;padding-left:20px;color:#1e3a8a;font-size:14px;line-height:1.6}"
+        ".nb-note{background:#fff8e1;border:1px solid #fde68a;border-radius:10px;padding:12px 16px;"
+        "margin:0 0 20px;font-size:13px;color:#92400e;font-family:system-ui,sans-serif}"
+        ".nb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:0 0 26px}"
+        ".nb-card{background:#fff;border:1px solid #dde4ef;border-radius:14px;padding:18px 20px;"
+        "box-shadow:0 2px 8px rgba(0,0,0,.05);font-family:system-ui,sans-serif;display:flex;flex-direction:column}"
+        ".nb-kicker{font-size:11px;font-weight:700;color:#2b6cb0;text-transform:uppercase;letter-spacing:1.2px;"
+        "display:flex;align-items:center;gap:8px}"
+        ".nb-date{font-size:10px;font-weight:600;color:#a0aec0;letter-spacing:.5px}"
+        ".nb-q{font-size:17px;font-weight:700;color:#1a2b44;line-height:1.35;margin:8px 0 6px}"
+        ".nb-teaser{font-size:13px;color:#4a5568;font-style:italic;margin:0 0 10px;line-height:1.45}"
+        ".nb-guess{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 10px}"
+        ".nb-lbl{font-size:12px;color:#718096;width:100%;margin:0}"
+        ".nb-input{flex:1;min-width:120px;font-size:16px;padding:9px 12px;border:2px solid #cbd5e0;"
+        "border-radius:8px;font-family:system-ui,sans-serif;color:#1a1a1a;background:#fff}"
+        ".nb-input:focus{outline:none;border-color:#1a4d80}"
+        ".nb-btn{border:none;border-radius:8px;padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer;"
+        "font-family:system-ui,sans-serif}"
+        ".nb-check{background:#1a4d80;color:#fff}"
+        ".nb-reveal{background:#f0f4f8;color:#2d3748;border:1px solid #cbd5e0}"
+        ".nb-hint{font-size:12px;color:#718096;margin:0 0 4px}"
+        ".nb-answer{margin-top:8px;padding-top:12px;border-top:1px dashed #cbd5e0}"
+        ".nb-big{font-size:30px;font-weight:800;color:#1a4d80;line-height:1.1;letter-spacing:.5px}"
+        ".nb-extra{font-size:14px;color:#2d3748;line-height:1.5;margin:6px 0 0}"
+        ".nb-feedback{font-size:13px;font-weight:700;margin:8px 0 0;min-height:18px}"
+        ".nb-feedback.ok{color:#276749}.nb-feedback.close{color:#b7791f}.nb-feedback.off{color:#c53030}"
+        ".nb-src{font-size:12px;color:#718096;margin:10px 0 0}"
+        ".nb-src a{color:#2b6cb0;text-decoration:none;font-weight:600}"
+        ".parent-note{background:#f0fff4;border:1px solid #9ae6b4;border-radius:12px;padding:16px 20px;"
+        "margin:6px 0 0;font-family:system-ui,sans-serif}"
+        ".parent-note strong{color:#22543d}"
+        ".parent-note p{margin:6px 0 0;font-size:13px;color:#276749;line-height:1.55}"
+        "@media(prefers-color-scheme:dark){"
+        ".nb-how{background:#12233b;border-color:#1e3a5f}.nb-how h2,.nb-how ol{color:#bcd3f0}"
+        ".nb-card,.nb-feat{background:#1a202c;border-color:#2d3748}"
+        ".nb-q{color:#e2e8f0}.nb-teaser,.nb-extra,.nb-feat .sc{color:#cbd5e0}"
+        ".nb-input{background:#0f1117;color:#e2e8f0;border-color:#4a5568}"
+        ".nb-reveal{background:#2d3748;color:#e2e8f0;border-color:#4a5568}"
+        ".nb-big,.nb-feat .big{color:#90cdf4}"
+        ".nb-note{background:#3b2f12;border-color:#5f4a1e;color:#f0d98c}}"
+    )
+
+    # ── client JS (PLAIN string; guess-check + reveal, all client-side) ───────
+    js = (
+        "(function(){"
+        "function digits(s){return (s||'').replace(/[^0-9]/g,'');}"
+        "var cards=document.querySelectorAll('.nb-card');"
+        "for(var i=0;i<cards.length;i++){(function(card){"
+        "var ans=card.getAttribute('data-answer')||'';"
+        "var ansNum=parseInt(digits(ans),10);"
+        "var box=card.querySelector('.nb-answer');"
+        "var fb=card.querySelector('.nb-feedback');"
+        "var input=card.querySelector('.nb-input');"
+        "var checkBtn=card.querySelector('.nb-check');"
+        "var revealBtn=card.querySelector('.nb-reveal');"
+        "function show(){if(box)box.hidden=false;}"
+        "function feedback(){"
+        "if(!fb)return;var g=parseInt(digits(input&&input.value),10);"
+        "if(isNaN(g)||isNaN(ansNum)){fb.textContent='Type a number, then Reveal to see the answer!';fb.className='nb-feedback';return;}"
+        "var diff=Math.abs(g-ansNum);"
+        "if(diff===0){fb.textContent='\\uD83C\\uDF89 Spot on! You nailed it.';fb.className='nb-feedback ok';return;}"
+        "var ratio=ansNum===0?diff:diff/Math.abs(ansNum);"
+        "if(ratio<=0.1){fb.textContent='So close! You were almost exactly right.';fb.className='nb-feedback close';}"
+        "else if(ratio<=0.5){fb.textContent=(g<ansNum?'A bit low — ':'A bit high — ')+'good try, you are in the right ballpark!';fb.className='nb-feedback close';}"
+        "else{fb.textContent=(g<ansNum?'Lower than the real number. ':'Higher than the real number. ')+'Numbers can be surprising!';fb.className='nb-feedback off';}"
+        "}"
+        "if(checkBtn)checkBtn.addEventListener('click',function(){show();feedback();});"
+        "if(revealBtn)revealBtn.addEventListener('click',function(){show();feedback();});"
+        "if(input)input.addEventListener('keydown',function(e){if(e.key==='Enter'){show();feedback();}});"
+        "})(cards[i]);}"
+        "})();"
+    )
+
+    # ── page shell (f-string kept 100% free of literal { } braces) ────────────
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>News by the Numbers — KiddieDaily Data Literacy</title>
+<meta name="description" content="Guess the number hiding in a real headline, then discover how big it truly is. A free data-literacy game that builds number sense for curious kids — from KiddieDaily.">
+<meta property="og:title" content="News by the Numbers — KiddieDaily Data Literacy">
+<meta property="og:description" content="Guess the number in a real news headline, then feel how big it really is. Number sense for kids.">
+<meta property="og:url" content="https://kiddiedaily.com/news-numbers/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kiddiedaily.com/news-numbers/">
+{CSS}
+<style>{page_css}</style>
+</head><body>
+{HEADER}
+<main id="main" style="max-width:820px;margin:0 auto;padding:28px 24px 64px">
+<div class="nb-hero">
+<h1>&#128290; News by the Numbers</h1>
+<p>Every big story has a number in it. Guess how big it is first &mdash; then find out how much that number really means. This is how you build number sense!</p>
+</div>
+<div class="nb-feat">
+<div class="k">&#127919; Warm-up number</div>
+<div class="big">{feat_answer}</div>
+<p class="sc">{feat_scale}</p>
+</div>
+<div class="nb-how">
+<h2>How to play</h2>
+<ol>
+<li>Read the headline &mdash; the number is hidden with question marks.</li>
+<li>Type your best <strong>guess</strong>. Nobody expects it to be exact!</li>
+<li>Hit <strong>Reveal</strong> to see the real number and how close you were.</li>
+<li>Read the &ldquo;how big is it really?&rdquo; clue to feel the size of the number.</li>
+</ol>
+</div>
+{fallback_note}
+<div class="nb-grid">
+{cards_html}
+</div>
+<div class="parent-note">
+<strong>&#128202; For grown-ups</strong>
+<p>&ldquo;News by the Numbers&rdquo; turns real headlines into estimation practice &mdash; the same skill grown-ups use to sanity-check prices, distances, and data. Estimating first, then checking, is one of the strongest ways to build lasting number sense.</p>
+<p>Everything runs in your browser. Nothing your child types is uploaded, saved, or tracked.</p>
+</div>
+<div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" style="background:#1a4d80;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Today&#39;s news</a>
+<a href="/games/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Games &amp; quizzes</a>
+<a href="/fact-check/" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Fact Check</a>
+</div>
+</main>
+{FOOTER}
+<script>{js}</script>
+</body></html>"""
+
+    upload("news-numbers/index.html", page, "[scraper] News by the Numbers data-literacy page")
+    print(f"  News-by-Numbers page: {len(picks)} number cards ({n_real} from real headlines, fallback={used_fallback})")
+
+
+def generate_news_word_page(manifest, today):
+    """Generate /news-word/index.html — 'News Word', a daily Wordle-style guessing game.
+
+    The secret word is a real science/nature term (5-6 letters) pulled from a recent,
+    kid-safe headline. Players type guesses and get green/yellow/gray letter feedback,
+    exactly like a word-guess game; solving reveals the source article so kids can go
+    read the real story behind the word.
+
+    Distinct from the Games page word-scramble (which only unscrambles a shown word):
+    this hides the word and gives per-letter hot/cold feedback across multiple guesses.
+
+    Privacy-safe & kid-appropriate: 100% client-side, nothing uploaded, no cookies or
+    trackers, no external APIs (data-sovereignty rule). The secret word is drawn only
+    from science / space / animals / history / environment stories, never world/politics.
+
+    Deterministic: the daily word is chosen by a stable hash of `today` over a sorted,
+    de-duplicated candidate pool, so an identical corpus + date always yields identical
+    HTML (no noisy commits between runs on the same day).
+    """
+    articles = manifest.get("articles", [])
+    VISUAL_CATS = {"space", "animals", "history", "environment", "science"}
+
+    def _kid_safe(a):
+        # Prefer science / visual categories; never surface world/politics headlines.
+        cats = set(a.get("cats") or [])
+        if "world" in cats:
+            return False
+        return bool(cats & VISUAL_CATS) or a.get("is_science")
+
+    # Words we never want to be the secret answer (too generic / meta / not a "term").
+    STOP = {
+        "about", "their", "these", "those", "would", "could", "which", "where",
+        "there", "after", "other", "first", "world", "using", "study", "finds",
+        "found", "shows", "says", "that", "have", "with", "from", "this", "will",
+        "into", "been", "more", "also", "than", "when", "were", "they", "some",
+        "each", "then", "here", "research", "reveals", "reveal", "before", "could",
+        "might", "should", "known", "turns", "makes", "helps", "even", "over",
+        "under", "back", "away", "long", "high", "deep", "wide", "fast", "slow",
+        "large", "small", "great", "little", "years", "year", "times", "time",
+        "human", "humans", "people", "north", "south", "east", "west", "still",
+        "every", "again", "while", "being", "since", "among", "around", "really",
+        "today", "week", "month", "learn", "learns", "learned", "amazing", "close",
+        "watch", "meet", "meets", "story", "stories", "thing", "things", "kids",
+    }
+
+    # Build a candidate pool of distinct 5-6 letter alphabetic words tied to a story.
+    # Walk newest->oldest so we favor recent headlines when trimming.
+    recent = list(reversed(articles[-80:] if len(articles) >= 80 else articles))
+    cand_map = {}  # WORD(upper) -> (slug, display_title) of the first (most recent) story
+    for a in recent:
+        if not _kid_safe(a):
+            continue
+        title = a.get("display_title", a.get("title", "")) or ""
+        slug = a.get("slug", "")
+        for raw in re.sub(r"[^\w\s]", " ", title).split():
+            w = raw.upper()
+            if (len(w) in (5, 6) and w.isalpha() and w.lower() not in STOP
+                    and w not in cand_map):
+                cand_map[w] = (slug, title)
+
+    # Deterministic daily pick: sort the pool for a stable order, then index by a
+    # simple hash of the date. Same corpus + same day => same word, every run.
+    pool = sorted(cand_map.keys())
+    if pool:
+        date_key = re.sub(r"[^0-9]", "", str(today)) or "0"
+        h = 0
+        for ch in date_key:
+            h = (h * 31 + ord(ch)) & 0x7FFFFFFF
+        idx = h % len(pool)
+        secret = pool[idx]
+        src_slug, src_title = cand_map[secret]
+    else:
+        # Fallback so the page still renders on an empty/edge corpus.
+        secret = "COMET"
+        src_slug, src_title = "", ""
+
+    wl = len(secret)
+    max_guesses = 6
+
+    # A tiny curated valid-guess list so kids' plausible words are accepted even if
+    # they're not the secret. Filtered to the current word length; secret guaranteed in.
+    COMMON_WORDS = [
+        "APPLE", "BEACH", "BRAIN", "BREAD", "CHAIR", "CLOUD", "DREAM", "EARTH",
+        "FIELD", "FLAME", "FRUIT", "GHOST", "GRASS", "GREEN", "HEART", "HORSE",
+        "HOUSE", "JUICE", "LIGHT", "MONEY", "MUSIC", "NIGHT", "OCEAN", "PAINT",
+        "PLANT", "PLATE", "RIVER", "ROBOT", "SMILE", "SNAKE", "SOUND", "SPACE",
+        "STONE", "STORM", "SUGAR", "TIGER", "TRAIN", "WATER", "WHALE", "WORLD",
+        "ANIMAL", "BRIDGE", "CASTLE", "DESERT", "DRAGON", "FLOWER", "FOREST",
+        "FRIEND", "GARDEN", "ISLAND", "JUNGLE", "MAMMAL", "MARKET", "MONKEY",
+        "PLANET", "PUZZLE", "ROCKET", "SCHOOL", "SPIDER", "SPRING", "SUMMER",
+        "WINTER", "WONDER",
+    ]
+    valid = sorted({w for w in COMMON_WORDS if len(w) == wl} | {secret})
+
+    # ---- JSON payloads passed to the client (all safe: a word + one slug) --------
+    secret_js = json.dumps(secret)
+    valid_js = json.dumps(valid)
+    slug_js = json.dumps(src_slug)
+    title_js = json.dumps(src_title[:90])
+    wl_js = json.dumps(wl)
+    max_js = json.dumps(max_guesses)
+
+    # Human hint for the header (category emoji + short prompt), no answer leaked.
+    hint_label = "science" if not src_slug else "today's science headlines"
+
+    # ---- page-specific CSS (PLAIN string; contains all the braces) --------------
+    page_css = (
+        ".nw-hero{background:linear-gradient(135deg,#1a4d80,#2b6cb0);color:#fff;border-radius:16px;"
+        "padding:26px 24px;margin:0 0 22px;font-family:system-ui,sans-serif}"
+        ".nw-hero h1{margin:0 0 6px;font-size:30px}"
+        ".nw-hero p{margin:0;font-size:15px;color:#dbeafe;line-height:1.5}"
+        ".nw-board{display:grid;gap:8px;justify-content:center;margin:10px 0 6px}"
+        ".nw-row{display:grid;gap:8px}"
+        ".nw-tile{width:52px;height:52px;display:flex;align-items:center;justify-content:center;"
+        "font-family:system-ui,sans-serif;font-size:28px;font-weight:800;text-transform:uppercase;"
+        "border:2px solid #cbd5e0;border-radius:8px;color:#1a2b44;background:#fff;transition:transform .12s}"
+        ".nw-tile.filled{border-color:#94a3b8}"
+        ".nw-tile.pop{transform:scale(1.08)}"
+        ".nw-tile.correct{background:#38a169;border-color:#38a169;color:#fff}"
+        ".nw-tile.present{background:#d69e2e;border-color:#d69e2e;color:#fff}"
+        ".nw-tile.absent{background:#94a3b8;border-color:#94a3b8;color:#fff}"
+        ".nw-msg{min-height:24px;text-align:center;font-family:system-ui,sans-serif;font-size:15px;"
+        "font-weight:600;color:#2b6cb0;margin:4px 0 10px}"
+        ".nw-kb{max-width:520px;margin:8px auto 0;display:flex;flex-direction:column;gap:7px}"
+        ".nw-kbrow{display:flex;justify-content:center;gap:6px}"
+        ".nw-key{flex:1;min-width:0;max-width:44px;height:52px;border:none;border-radius:7px;background:#e2e8f0;"
+        "color:#1a2b44;font-family:system-ui,sans-serif;font-size:15px;font-weight:700;cursor:pointer;"
+        "text-transform:uppercase;padding:0}"
+        ".nw-key.wide{max-width:74px;font-size:12px;flex:1.5}"
+        ".nw-key.correct{background:#38a169;color:#fff}"
+        ".nw-key.present{background:#d69e2e;color:#fff}"
+        ".nw-key.absent{background:#94a3b8;color:#fff}"
+        ".nw-key:active{transform:translateY(1px)}"
+        ".nw-panel{background:#fff;border:1px solid #dde4ef;border-radius:14px;padding:18px 20px;"
+        "margin:18px 0;box-shadow:0 2px 10px rgba(0,0,0,.06);font-family:system-ui,sans-serif}"
+        ".nw-reveal{background:#f0fff4;border:1px solid #9ae6b4;border-radius:14px;padding:18px 22px;"
+        "margin:16px 0;font-family:system-ui,sans-serif;display:none}"
+        ".nw-reveal.show{display:block}"
+        ".nw-reveal h3{margin:0 0 6px;color:#22543d;font-size:19px}"
+        ".nw-reveal p{margin:0 0 8px;font-size:14px;color:#276749;line-height:1.5}"
+        ".nw-reveal a{color:#276749;font-weight:700;text-decoration:none}"
+        ".nw-btn{background:#1a4d80;color:#fff;border:none;padding:9px 18px;border-radius:8px;"
+        "font-size:14px;font-family:system-ui,sans-serif;cursor:pointer;font-weight:600}"
+        ".nw-btn.ghost{background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80}"
+        ".nw-rules{font-size:13px;color:#4a5568;line-height:1.6}"
+        ".nw-rules b{color:#2d3748}"
+        ".nw-swatch{display:inline-block;width:15px;height:15px;border-radius:3px;vertical-align:middle;margin:0 2px}"
+        ".parent-note{background:#f0fff4;border:1px solid #9ae6b4;border-radius:12px;padding:16px 20px;"
+        "margin:18px 0 0;font-family:system-ui,sans-serif}"
+        ".parent-note strong{color:#22543d}"
+        ".parent-note p{margin:6px 0 0;font-size:13px;color:#276749;line-height:1.55}"
+        ".parent-note a{color:#276749;font-weight:600}"
+        "@media(max-width:480px){.nw-tile{width:44px;height:44px;font-size:23px}.nw-key{height:46px}}"
+        "@media(prefers-color-scheme:dark){.nw-tile{background:#1a202c;color:#e2e8f0;border-color:#2d3748}"
+        ".nw-panel{background:#1a202c;border-color:#2d3748;color:#e2e8f0}"
+        ".nw-rules{color:#a0aec0}.nw-rules b{color:#e2e8f0}.nw-key{background:#2d3748;color:#e2e8f0}}"
+    )
+
+    # ---- client JS (PLAIN string; contains all the braces) ----------------------
+    # NOTE: placeholders __SECRET__ etc. are swapped for JSON literals afterward so the
+    # JS body itself stays free of Python f-string interpolation.
+    js = (
+        "(function(){"
+        "var SECRET=__SECRET__,VALID=__VALID__,WL=__WL__,MAXG=__MAXG__,"
+        "SLUG=__SLUG__,TITLE=__TITLE__;"
+        "var board=document.getElementById('nw-board'),msg=document.getElementById('nw-msg'),"
+        "kb=document.getElementById('nw-kb'),reveal=document.getElementById('nw-reveal'),"
+        "revealBody=document.getElementById('nw-reveal-body');"
+        "if(!board)return;"
+        "var row=0,col=0,cur='',done=false,grid=[],keyState={};"
+        "for(var r=0;r<MAXG;r++){var rowEl=document.createElement('div');rowEl.className='nw-row';"
+        "rowEl.style.gridTemplateColumns='repeat('+WL+',1fr)';var cells=[];"
+        "for(var c=0;c<WL;c++){var t=document.createElement('div');t.className='nw-tile';"
+        "t.id='nw-t-'+r+'-'+c;rowEl.appendChild(t);cells.push(t);}board.appendChild(rowEl);grid.push(cells);}"
+        "var rows=['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'];"
+        "rows.forEach(function(letters,ri){var kr=document.createElement('div');kr.className='nw-kbrow';"
+        "if(ri===2){kr.appendChild(mkKey('ENTER','enter',true));}"
+        "letters.split('').forEach(function(ch){kr.appendChild(mkKey(ch,ch,false));});"
+        "if(ri===2){kr.appendChild(mkKey('DEL','del',true));}kb.appendChild(kr);});"
+        "function mkKey(label,val,wide){var b=document.createElement('button');b.type='button';"
+        "b.className='nw-key'+(wide?' wide':'');b.textContent=label;b.setAttribute('data-k',val);"
+        "b.setAttribute('aria-label',val==='del'?'delete':val==='enter'?'enter':'letter '+label);"
+        "b.addEventListener('click',function(){handle(val);});return b;}"
+        "function setMsg(s){msg.textContent=s||'';}"
+        "function handle(k){if(done)return;"
+        "if(k==='enter'){submit();return;}"
+        "if(k==='del'){if(col>0){col--;cur=cur.slice(0,-1);paint();}setMsg('');return;}"
+        "if(/^[A-Z]$/.test(k)&&col<WL){cur+=k;var t=grid[row][col];t.textContent=k;"
+        "t.classList.add('filled','pop');(function(el){setTimeout(function(){el.classList.remove('pop');},120);})(t);"
+        "col++;setMsg('');}}"
+        "function paint(){for(var c=0;c<WL;c++){var t=grid[row][c];"
+        "if(c<cur.length){t.textContent=cur[c];t.classList.add('filled');}"
+        "else{t.textContent='';t.classList.remove('filled');}}}"
+        "function score(guess){var res=new Array(WL).fill('absent');var counts={};var i,ch;"
+        "for(i=0;i<WL;i++){ch=SECRET[i];counts[ch]=(counts[ch]||0)+1;}"
+        "for(i=0;i<WL;i++){if(guess[i]===SECRET[i]){res[i]='correct';counts[guess[i]]--;}}"
+        "for(i=0;i<WL;i++){if(res[i]==='correct')continue;ch=guess[i];"
+        "if(counts[ch]>0){res[i]='present';counts[ch]--;}}return res;}"
+        "function rank(a,b){var o={correct:3,present:2,absent:1};return (o[a]||0)-(o[b]||0);}"
+        "function submit(){if(col<WL){setMsg('Not enough letters');return;}"
+        "var guess=cur;if(VALID.indexOf(guess)===-1&&guess!==SECRET){setMsg('Try a real word');return;}"
+        "var res=score(guess);"
+        "for(var c=0;c<WL;c++){(function(idx){var t=grid[row][idx];"
+        "setTimeout(function(){t.classList.add(res[idx]);},idx*90);"
+        "var kbtn=kb.querySelector('[data-k=\"'+guess[idx]+'\"]');"
+        "if(kbtn){var prev=keyState[guess[idx]];if(rank(res[idx],prev)>0||!prev){"
+        "if(prev)kbtn.classList.remove(prev);kbtn.classList.add(res[idx]);keyState[guess[idx]]=res[idx];}}"
+        "})(c);}"
+        "if(guess===SECRET){done=true;setTimeout(function(){setMsg('You got it! Nice work.');win();},WL*90+120);return;}"
+        "row++;col=0;cur='';"
+        "if(row>=MAXG){done=true;setTimeout(function(){setMsg('Out of guesses — the word was '+SECRET);lose();},WL*90+120);}"
+        "else{setMsg('');}}"
+        "function win(){showReveal(true);}"
+        "function lose(){showReveal(false);}"
+        "function showReveal(won){"
+        "var h=won?'\\uD83C\\uDF89 You solved today\\u2019s News Word!':'\\uD83D\\uDCD6 The word was '+SECRET;"
+        "var body='<h3>'+h+'</h3>';"
+        "body+='<p>The word <b>'+SECRET+'</b> came from a real story we shared for curious kids.</p>';"
+        "if(SLUG){body+='<p><a href=\"/'+SLUG+'\">Read the story: '+esc(TITLE)+' \\u2192</a></p>';}"
+        "else{body+='<p>Come back tomorrow for a brand-new science word!</p>';}"
+        "body+='<p style=\"font-size:12px;color:#718096\">Everything you played stayed on your device \\u2014 nothing was uploaded.</p>';"
+        "revealBody.innerHTML=body;reveal.classList.add('show');}"
+        "function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}"
+        "document.addEventListener('keydown',function(e){if(done)return;"
+        "if(e.target&&(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'))return;"
+        "var k=e.key;if(k==='Enter'){handle('enter');}else if(k==='Backspace'){handle('del');}"
+        "else if(/^[a-zA-Z]$/.test(k)){handle(k.toUpperCase());}});"
+        "})();"
+    )
+    js = (js.replace("__SECRET__", secret_js).replace("__VALID__", valid_js)
+            .replace("__WL__", wl_js).replace("__MAXG__", max_js)
+            .replace("__SLUG__", slug_js).replace("__TITLE__", title_js))
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>News Word — Daily Science Word Game — KiddieDaily</title>
+<meta name="description" content="News Word is a free daily word-guessing game for kids. The secret word is a real science or nature term from the day's headlines — guess it in six tries, then read the story behind it.">
+<meta property="og:title" content="News Word — KiddieDaily's Daily Science Word Game">
+<meta property="og:description" content="Guess the hidden science word in six tries with green/yellow/gray hints, then discover the real headline it came from. Free, kid-safe, no sign-up.">
+<meta property="og:url" content="https://kiddiedaily.com/news-word/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kiddiedaily.com/news-word/">
+{CSS}
+<style>{page_css}</style>
+</head><body>
+{HEADER}
+<main id="main" style="max-width:820px;margin:0 auto;padding:28px 24px 64px">
+<div class="nw-hero">
+<h1>&#129504; News Word</h1>
+<p>Today&rsquo;s secret word is a real science or nature term from {hint_label}. Guess it in six tries &mdash; green means right spot, yellow means right letter/wrong spot. Solve it to unlock the story behind the word!</p>
+</div>
+<div id="nw-msg" class="nw-msg"></div>
+<div id="nw-board" class="nw-board" role="grid" aria-label="News Word guessing board"></div>
+<div id="nw-kb" class="nw-kb" aria-label="On-screen keyboard"></div>
+<div id="nw-reveal" class="nw-reveal" aria-live="polite"><div id="nw-reveal-body"></div>
+<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" class="nw-btn" style="text-decoration:none">Today&rsquo;s news</a>
+<a href="/games/" class="nw-btn ghost" style="text-decoration:none">More games</a>
+</div></div>
+<div class="nw-panel">
+<div class="nw-rules">
+<b>How to play</b><br>
+Type a {wl}-letter word and press Enter. After each guess the tiles change color:<br>
+<span class="nw-swatch" style="background:#38a169"></span> <b>Green</b> = right letter, right spot.
+<span class="nw-swatch" style="background:#d69e2e"></span> <b>Yellow</b> = right letter, wrong spot.
+<span class="nw-swatch" style="background:#94a3b8"></span> <b>Gray</b> = that letter isn&rsquo;t in the word.<br>
+You get <b>six</b> guesses. The answer is always a word from a real, kid-friendly science or nature story &mdash; no scary or grown-up news here.
+</div>
+</div>
+<div class="parent-note">
+<strong>&#129504; For grown-ups</strong>
+<p>News Word is a Wordle-style vocabulary game where the daily answer is a genuine science or nature word pulled from that day&rsquo;s kid-safe headlines. It builds spelling, pattern-thinking, and curiosity &mdash; and every solved word links to the real story so learning keeps going.</p>
+<p>It runs entirely in the browser: no accounts, no cookies, nothing your child types is ever uploaded. Looking for more? Try our <a href="/games/">Games</a> and <a href="/draw/">Draw the News</a> pages.</p>
+</div>
+<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/science.html" class="nw-btn ghost" style="text-decoration:none">More science stories</a>
+<a href="/news/" class="nw-btn ghost" style="text-decoration:none">All kid news</a>
+</div>
+</main>
+{FOOTER}
+<script>{js}</script>
+</body></html>"""
+
+    upload("news-word/index.html", page, "[scraper] News Word daily science word game")
+    print(f"  News Word page: secret is a {wl}-letter word from a real headline (pool of {len(pool)} candidates)")
+
+
+def generate_time_traveler_page(manifest, today):
+    """Generate /time-traveler/index.html — an era timeline of history stories.
+
+    Places recent history / archaeology / ancient-world stories onto a visual
+    'time traveler' timeline by the era they discuss (Ancient, Medieval,
+    Renaissance, Modern) using keyword detection on the title + description.
+    Kids browse the past by *when it happened*, not just the flat history feed.
+
+    Static + privacy-safe: no backend, no cookies, no trackers, no external
+    model APIs. The era filter is client-side only (in-page JS). Deterministic:
+    era assignment and ordering depend only on the corpus, so identical inputs
+    produce identical HTML (no random / time-of-day churn).
+    """
+    articles = manifest.get("articles", [])
+
+    # Only surface visual / kid-safe stories — never world/politics. History is
+    # the spine, but we also let clearly historical science/archaeology pieces in.
+    ALLOWED_CATS = {"history", "science", "space", "animals", "environment"}
+
+    # Defense-in-depth: in this manifest EVERY non-science article carries a base
+    # "world" cat, so a history-tagged story is often cats={"world","history"}.
+    # We therefore CANNOT exclude on the "world" cat (it would drop most real
+    # history pieces). Instead, reject any story whose text carries hard
+    # politics / conflict / crime language even if it matched an era keyword, so
+    # the page honors its "no world/politics" promise for ages 8-12.
+    BLOCK_KW = (
+        "president", "senator", "congress", "election", "vote", "voter",
+        "ballot", "campaign", "democrat", "republican", "politic", "parliament",
+        "prime minister", "protest", "riot", "coup", "sanction", "tariff",
+        "war ", "warfare", "wartime", "world war", "civil war", "invasion",
+        "invade", "troops", "military", "missile", "airstrike", "air strike",
+        "bomb", "shooting", "shooter", "gun ", "weapon", "terror", "hostage",
+        "killed", "killing", "murder", "assault", "genocide", "massacre",
+        "refugee", "migrant", "deport", "immigration", "indict", "felony",
+        "lawsuit", "verdict", "prison", "arrest", "scandal", "corruption",
+        "shutdown", "impeach", "nuclear weapon", "ceasefire", "hamas", "israel",
+        "ukraine", "russia", "gaza", "trump", "biden", "putin",
+    )
+
+    def _text(a):
+        return " ".join([
+            a.get("display_title", "") or a.get("title", "") or "",
+            a.get("description", "") or "",
+        ]).lower()
+
+    def _blocked(a):
+        # Whole-substring check on title+description. Deterministic; text-only.
+        txt = _text(a)
+        return any(b in txt for b in BLOCK_KW)
+
+    def _kid_safe(a):
+        cats = set(a.get("cats") or [])
+        # Hard reject: politics / conflict / crime language is never appropriate,
+        # even for a story that also carries the history cat.
+        if _blocked(a):
+            return False
+        # Must have at least one allowed visual cat OR be flagged science.
+        if "history" in cats:
+            return True
+        if not (cats & ALLOWED_CATS or a.get("is_science")):
+            return False
+        # A history-adjacent story still needs historical language to earn a spot.
+        return True
+
+    # ── Era detection ──────────────────────────────────────────────────────────
+    # Ordered oldest -> newest. Each era carries keyword triggers; matching is
+    # done as whole-word-ish substring checks against title+description.
+    ERAS = [
+        {
+            "key": "ancient",
+            "name": "Ancient World",
+            "span": "Before 500 CE",
+            "icon": "\U0001F3FA",  # amphora
+            "color": "#b7791f",
+            "tint": "#fffaf0",
+            "line": "Pyramids, pharaohs, and the first great cities.",
+            "kw": ["ancient", "egypt", "pharaoh", "pyramid", "mummy", "mummies",
+                   "pharaohs", "roman", "rome", "greek", "greece", "mesopotamia",
+                   "sumer", "babylon", "bronze age", "iron age", "stone age",
+                   "prehistoric", "neolithic", "fossil", "dinosaur", "mammoth",
+                   "cave painting", "hieroglyph", "aztec", "maya", "mayan",
+                   "inca", "bce", "b.c.", "antiquity", "pompeii", "gladiator",
+                   "pharaonic", "sphinx", "archaeolog", "excavat", "artifact",
+                   "artefact", "ruins", "tomb", "temple", "millennia",
+                   "thousands of years", "years ago"],
+        },
+        {
+            "key": "medieval",
+            "name": "Medieval Times",
+            "span": "500 - 1400 CE",
+            "icon": "\U0001F3F0",  # castle
+            "color": "#805ad5",
+            "tint": "#faf5ff",
+            "line": "Castles, knights, and kingdoms across the world.",
+            "kw": ["medieval", "middle ages", "knight", "castle", "viking",
+                   "vikings", "crusade", "crusades", "monk", "monastery",
+                   "dynasty", "samurai", "feudal", "plague", "black death",
+                   "cathedral", "kingdom", "empire of", "byzantine", "moat",
+                   "chivalry", "longbow", "sword", "shield maiden", "norse",
+                   "anglo-saxon", "sultan", "caliph"],
+        },
+        {
+            "key": "renaissance",
+            "name": "Age of Discovery",
+            "span": "1400 - 1750 CE",
+            "icon": "\U0001F5FA",  # world map
+            "color": "#2f855a",
+            "tint": "#f0fff4",
+            "line": "Explorers, inventors, and new ideas set sail.",
+            "kw": ["renaissance", "explorer", "explorers", "voyage", "galleon",
+                   "shipwreck", "columbus", "magellan", "da vinci", "leonardo",
+                   "telescope", "galileo", "printing press", "colonial",
+                   "conquistador", "17th century", "16th century", "1500s",
+                   "1600s", "age of sail", "new world", "circumnavigat",
+                   "cartograph", "astrolabe"],
+        },
+        {
+            "key": "modern",
+            "name": "Modern Era",
+            "span": "1750 CE - today",
+            "icon": "⚙️",  # gear
+            "color": "#2b6cb0",
+            "tint": "#ebf8ff",
+            "line": "Machines, flight, and world-changing discoveries.",
+            "kw": ["industrial", "revolution", "steam engine", "victorian",
+                   "1800s", "1900s", "19th century", "20th century", "world war",
+                   "wwi", "wwii", "titanic", "wright brothers", "moon landing",
+                   "apollo", "cold war", "railway", "railroad", "locomotive",
+                   "invention", "electricity", "photograph", "automobile",
+                   "aviation", "shackleton", "expedition", "century ago",
+                   "decades ago", "1920s", "1940s", "1960s"],
+        },
+    ]
+    ERA_INDEX = {e["key"]: i for i, e in enumerate(ERAS)}
+
+    def _era_for(a):
+        """Return era key, or None if no historical era keyword matched.
+
+        Scores every era by keyword hits; ties break toward the OLDER era so a
+        piece mentioning both 'ancient' and 'modern dating' reads as ancient.
+        Deterministic: depends only on the text.
+        """
+        txt = _text(a)
+        best_key, best_score = None, 0
+        for e in ERAS:
+            score = 0
+            for k in e["kw"]:
+                if k in txt:
+                    score += 1
+            if score > best_score:
+                best_score = score
+                best_key = e["key"]
+        return best_key
+
+    # ── Build the timeline buckets ─────────────────────────────────────────────
+    # Use the TAIL for "recent"; scan newest-first so each era shows fresh finds.
+    pool = [a for a in articles if _kid_safe(a)]
+    recent = list(reversed(pool[-140:] if len(pool) >= 140 else pool))
+
+    DATE_RE = re.compile(r"(\d{4})-(\d{2})-(\d{2})")
+
+    def _pub_date(a):
+        m = DATE_RE.search(a.get("slug", "") or "")
+        return m.group(0) if m else ""
+
+    MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+    def _pretty_date(d):
+        m = DATE_RE.match(d) if d else None
+        if not m:
+            return ""
+        y, mo, da = m.group(1), int(m.group(2)), int(m.group(3))
+        mo = MONTHS[mo] if 1 <= mo <= 12 else ""
+        return (mo + " " + str(da) + ", " + y).strip()
+
+    # Assign each recent story to at most one era; de-duplicate by slug.
+    buckets = {e["key"]: [] for e in ERAS}
+    seen = set()
+    PER_ERA = 8  # cap per era so the page stays scannable + deterministic
+    for a in recent:
+        slug = a.get("slug", "")
+        if not slug or slug in seen:
+            continue
+        key = _era_for(a)
+        if key is None:
+            continue
+        if len(buckets[key]) >= PER_ERA:
+            continue
+        seen.add(slug)
+        buckets[key].append(a)
+
+    total_placed = sum(len(v) for v in buckets.values())
+
+    # Fallback content if the corpus has no clearly-dated history stories yet.
+    if total_placed == 0:
+        empty_state = (
+            '<div class="tt-empty">'
+            '<div class="tt-empty-ic">\U0001F9ED</div>'
+            '<p>The time machine is warming up! We haven’t spotted enough '
+            'history stories in today’s news yet. Check back soon — '
+            'new discoveries from the past land here all the time.</p>'
+            '<a href="/news/history.html">Browse all history stories &rarr;</a>'
+            '</div>'
+        )
+    else:
+        empty_state = ""
+
+    # ── Era chips (client-side filter buttons) ─────────────────────────────────
+    def _esc(s):
+        return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+    chips = ['<button class="tt-chip tt-chip-all sel" data-era="all">'
+             '\U0001F30D All eras</button>']
+    for e in ERAS:
+        n = len(buckets[e["key"]])
+        disabled = "" if n else " tt-chip-off"
+        chips.append(
+            '<button class="tt-chip' + disabled + '" data-era="' + e["key"] + '" '
+            'style="--tt-c:' + e["color"] + '">'
+            + e["icon"] + ' ' + _esc(e["name"])
+            + ' <span class="tt-chip-n">' + str(n) + '</span></button>'
+        )
+    chips_html = "".join(chips)
+
+    # ── Timeline sections ──────────────────────────────────────────────────────
+    sections = []
+    for e in ERAS:
+        items = buckets[e["key"]]
+        cards = []
+        for a in items:
+            title = _esc(a.get("display_title", "") or a.get("title", ""))
+            desc = a.get("description", "") or ""
+            if len(desc) > 150:
+                desc = desc[:147].rstrip() + "…"
+            desc = _esc(desc)
+            slug = a.get("slug", "")
+            # Attribute-safe: slugs are build-generated, but escape defensively so
+            # a stray quote/angle bracket can never break the href or inject markup.
+            slug_attr = _esc(slug).replace('"', "&quot;")
+            d = _pub_date(a)
+            pretty = _esc(_pretty_date(d))
+            date_html = ('<span class="tt-when">' + pretty + '</span>') if pretty else ""
+            cards.append(
+                '<article class="tt-card">'
+                + date_html
+                + '<h3><a href="/' + slug_attr + '">' + title + '</a></h3>'
+                + ('<p>' + desc + '</p>' if desc else "")
+                + '<a class="tt-read" href="/' + slug_attr + '">Read this story &rarr;</a>'
+                + '</article>'
+            )
+        cards_html = "".join(cards)
+        if not cards_html:
+            # Keep the era on the map but show a gentle placeholder.
+            cards_html = ('<p class="tt-none">No stories from this era in today’s '
+                          'news — the timeline refreshes as new finds arrive.</p>')
+        sections.append(
+            '<section class="tt-era" data-era="' + e["key"] + '" '
+            'style="--tt-c:' + e["color"] + ';--tt-tint:' + e["tint"] + '">'
+            '<div class="tt-era-head">'
+            '<span class="tt-dot"></span>'
+            '<div class="tt-era-title">'
+            '<span class="tt-era-ic">' + e["icon"] + '</span>'
+            '<h2>' + _esc(e["name"]) + '</h2>'
+            '<span class="tt-span">' + _esc(e["span"]) + '</span>'
+            '</div></div>'
+            '<p class="tt-era-line">' + _esc(e["line"]) + '</p>'
+            '<div class="tt-cards">' + cards_html + '</div>'
+            '</section>'
+        )
+    sections_html = "".join(sections)
+
+    # ── Page-specific CSS (PLAIN string — no f-string, no literal-brace traps) ──
+    page_css = (
+        ".tt-hero{background:linear-gradient(135deg,#1a4d80,#2b6cb0);color:#fff;"
+        "border-radius:16px;padding:26px 26px;margin:0 0 20px;font-family:system-ui,sans-serif}"
+        ".tt-hero h1{margin:0 0 6px;font-size:30px}"
+        ".tt-hero p{margin:0;font-size:15px;color:#dbeafe;line-height:1.5}"
+        ".tt-bar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;font-family:system-ui,sans-serif}"
+        ".tt-chip{background:#fff;border:1.5px solid #cbd5e0;color:#2d3748;border-radius:999px;"
+        "padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;line-height:1.2;"
+        "display:inline-flex;align-items:center;gap:6px}"
+        ".tt-chip:hover{border-color:var(--tt-c,#1a4d80)}"
+        ".tt-chip.sel{background:var(--tt-c,#1a4d80);border-color:var(--tt-c,#1a4d80);color:#fff}"
+        ".tt-chip-all.sel{background:#1a4d80;border-color:#1a4d80}"
+        ".tt-chip-n{background:rgba(0,0,0,.10);border-radius:999px;padding:0 7px;font-size:11px;"
+        "min-width:18px;text-align:center}"
+        ".tt-chip.sel .tt-chip-n{background:rgba(255,255,255,.25)}"
+        ".tt-chip-off{opacity:.4;cursor:not-allowed}"
+        ".tt-line{position:relative;padding-left:26px}"
+        ".tt-line:before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:3px;"
+        "background:linear-gradient(180deg,#b7791f,#805ad5,#2f855a,#2b6cb0);border-radius:3px}"
+        ".tt-era{position:relative;margin:0 0 30px;scroll-margin-top:70px}"
+        ".tt-era-head{display:flex;align-items:center;gap:10px;margin:0 0 4px}"
+        ".tt-dot{position:absolute;left:-26px;top:4px;width:17px;height:17px;border-radius:50%;"
+        "background:var(--tt-c,#1a4d80);border:3px solid #faf8f3;box-shadow:0 0 0 2px var(--tt-c,#1a4d80)}"
+        ".tt-era-title{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px}"
+        ".tt-era-ic{font-size:22px}"
+        ".tt-era-title h2{margin:0;font-size:22px;color:var(--tt-c,#1a4d80);border:none;padding:0}"
+        ".tt-span{font-size:12px;font-weight:700;color:#718096;font-family:system-ui,sans-serif;"
+        "text-transform:uppercase;letter-spacing:1px}"
+        ".tt-era-line{margin:0 0 12px;font-size:14px;color:#4a5568;font-family:system-ui,sans-serif;font-style:italic}"
+        ".tt-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}"
+        ".tt-card{background:var(--tt-tint,#fff);border:1px solid #e2e8f0;border-left:4px solid var(--tt-c,#1a4d80);"
+        "border-radius:10px;padding:14px 16px;font-family:system-ui,sans-serif;display:flex;flex-direction:column}"
+        ".tt-when{font-size:11px;font-weight:700;color:var(--tt-c,#1a4d80);text-transform:uppercase;"
+        "letter-spacing:.5px;margin:0 0 4px}"
+        ".tt-card h3{margin:0 0 6px;font-size:16px;line-height:1.35;font-family:Georgia,serif}"
+        ".tt-card h3 a{color:#1a2b44}"
+        ".tt-card p{margin:0 0 10px;font-size:13px;color:#4a5568;line-height:1.5;flex:1}"
+        ".tt-read{font-size:13px;color:var(--tt-c,#2b6cb0);font-weight:600;text-decoration:none}"
+        ".tt-read:hover{text-decoration:underline}"
+        ".tt-none{font-size:13px;color:#a0aec0;font-family:system-ui,sans-serif;margin:0;padding:8px 0}"
+        ".tt-empty{background:#fff;border:1px dashed #cbd5e0;border-radius:14px;padding:28px 24px;"
+        "text-align:center;font-family:system-ui,sans-serif;color:#4a5568}"
+        ".tt-empty-ic{font-size:34px;margin-bottom:8px}"
+        ".tt-empty a{display:inline-block;margin-top:10px;color:#2b6cb0;font-weight:600;text-decoration:none}"
+        ".tt-note{background:#f0f4f8;border:1px solid #d6e0ea;border-radius:12px;padding:14px 18px;"
+        "margin:6px 0 0;font-family:system-ui,sans-serif;font-size:13px;color:#4a5568;line-height:1.55}"
+        ".tt-note strong{color:#1a4d80}"
+        ".tt-cta{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}"
+        ".tt-cta a{padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif}"
+        "@media(prefers-color-scheme:dark){"
+        ".tt-chip{background:#1a202c;border-color:#2d3748;color:#e2e8f0}"
+        ".tt-card{background:#161b26;border-color:#2d3748}"
+        ".tt-card h3 a{color:#cfe0f5}"
+        ".tt-dot{border-color:#0f1117}"
+        ".tt-empty{background:#161b26;border-color:#2d3748;color:#a0aec0}"
+        ".tt-note{background:#161b26;border-color:#2d3748;color:#a0aec0}}"
+    )
+
+    # ── Client JS (PLAIN string) — era filter, no data leaves the browser ──────
+    page_js = (
+        "(function(){"
+        "var bar=document.getElementById('tt-bar');if(!bar)return;"
+        "var chips=bar.querySelectorAll('.tt-chip');"
+        "var eras=document.querySelectorAll('.tt-era');"
+        "function apply(sel){"
+        "for(var i=0;i<eras.length;i++){"
+        "var k=eras[i].getAttribute('data-era');"
+        "eras[i].style.display=(sel==='all'||sel===k)?'':'none';}"
+        "for(var j=0;j<chips.length;j++){"
+        "chips[j].classList.toggle('sel',chips[j].getAttribute('data-era')===sel);}}"
+        "for(var c=0;c<chips.length;c++){(function(btn){"
+        "if(btn.classList.contains('tt-chip-off'))return;"
+        "btn.addEventListener('click',function(){"
+        "var sel=btn.getAttribute('data-era');apply(sel);"
+        "if(sel!=='all'){var t=document.querySelector('.tt-era[data-era=\"'+sel+'\"]');"
+        "if(t&&t.scrollIntoView)t.scrollIntoView({behavior:'smooth',block:'start'});}"
+        "});})(chips[c]);}"
+        "})();"
+    )
+
+    # ── Page shell (f-string with ZERO literal { } braces) ─────────────────────
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Time Traveler — KiddieDaily History Timeline</title>
+<meta name="description" content="Travel through history! KiddieDaily sorts real history and archaeology stories onto a timeline by era — Ancient, Medieval, Age of Discovery, and Modern. Browse the past by when it happened.">
+<meta property="og:title" content="Time Traveler — KiddieDaily History Timeline">
+<meta property="og:description" content="Real history stories placed on a timeline by era. Browse the past by when it happened — a free history explorer for curious kids.">
+<meta property="og:url" content="https://kiddiedaily.com/time-traveler/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kiddiedaily.com/time-traveler/">
+{CSS}
+<style>{page_css}</style>
+</head><body>
+{HEADER}
+<main id="main" style="max-width:820px;margin:0 auto;padding:28px 24px 64px">
+<div class="tt-hero">
+<h1>&#9203; Time Traveler</h1>
+<p>Hop in the time machine! We take real history and archaeology stories from the news and place them on a timeline by the era they explore. Tap an era to jump through the past.</p>
+</div>
+<div class="tt-bar" id="tt-bar">{chips_html}</div>
+{empty_state}
+<div class="tt-line">
+{sections_html}
+</div>
+<div class="tt-note">
+<strong>&#128218; How the timeline works:</strong> We read each story&#39;s headline and summary and look for clues about <em>when</em> it happened &mdash; words like &ldquo;pyramid,&rdquo; &ldquo;castle,&rdquo; &ldquo;explorer,&rdquo; or &ldquo;steam engine.&rdquo; Then we drop it into the matching era. It&#39;s a fun estimate, not a history exam &mdash; a great way to start a conversation about how long ago things really happened!
+</div>
+<div class="tt-cta">
+<a href="/news/history.html" style="background:#1a4d80;color:#fff">All history stories</a>
+<a href="/draw/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80">Draw the news</a>
+<a href="/games/" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0">Games &amp; quizzes</a>
+</div>
+</main>
+{FOOTER}
+<script>{page_js}</script>
+</body></html>"""
+
+    upload("time-traveler/index.html", page, "[scraper] Time Traveler history era timeline")
+    placed_bits = ", ".join(e["name"] + ":" + str(len(buckets[e["key"]])) for e in ERAS)
+    print(f"  Time Traveler page: {total_placed} stories placed across 4 eras ({placed_bits})")
+
+
 def generate_search_page(manifest):
     """Generate /search.html — full-page search interface fetching /data/kd-articles.json."""
     articles = manifest.get("articles", [])
@@ -5385,6 +7247,26 @@ def main():
     # 6k7b. Generate Draw the News creativity studio
     print(f"\n[6k7b] Generating Draw the News creativity studio...")
     generate_draw_page(manifest, today)
+
+    # 6k7c. Explore by Wonder — themed discovery collections
+    print(f"\n[6k7c] Generating Explore by Wonder hub...")
+    generate_explore_by_wonder_page(manifest, today)
+
+    # 6k7d. Maya's Daily Hello — friendly avatar guide
+    print(f"\n[6k7d] Generating Maya's Daily Hello...")
+    generate_maya_hello(manifest, today)
+
+    # 6k7e. News by the Numbers — data literacy
+    print(f"\n[6k7e] Generating News by the Numbers...")
+    generate_numbers_page(manifest, today)
+
+    # 6k7f. News Word — daily word-guess game
+    print(f"\n[6k7f] Generating News Word game...")
+    generate_news_word_page(manifest, today)
+
+    # 6k7g. Time Traveler — history era timeline
+    print(f"\n[6k7g] Generating Time Traveler timeline...")
+    generate_time_traveler_page(manifest, today)
 
     # 6k8. Generate static info pages (about, contact, privacy, terms)
     print(f"\n[6k8] Generating static info pages...")
