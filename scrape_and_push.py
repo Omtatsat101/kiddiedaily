@@ -235,6 +235,11 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:virus|disease|ebola|cholera|measles|plague|smallpox)\s+(?:outbreak|kills?|claims?|spreads?|death\s+toll)\b|\boutbreak\s+(?:kills?|spreads?|deaths?|grips?|sickens?)\b'
     r'|\bcancer\s+patient\b|\bterminally\s+ill\b|\bdying\s+(?:man|woman|boy|girl|child|wish)\b'
     r'|\bkhamenei\b|\bayatollah\b|\bworld\s+leaders?\b|\bkebabs?\b'
+    r'|\bgorsuch\b|\bkavanaugh\b|\balito\b|\bsotomayor\b|\bsupreme\s+court\b|\bscotus\b'  # SCOTUS justices / court (political)
+    r'|\btransgender\s+(?:rights|advocates?|policy|ban|athletes?|law|ruling|case|movement|community|troops|military|surgery)\b|\btrans\s+(?:rights|athletes?|ban)\b'  # trans-rights political/legal litigation
+    r'|\bthe\s+memo:'                          # The Hill political opinion column
+    r'|\bclashing\s+visions\b|\bnation.?s\s+(?:divide|divisions?)\b'  # political-divide opinion framing
+    r'|\bnews\s+quiz\b'                        # branded external news quizzes (site has its own games)
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
