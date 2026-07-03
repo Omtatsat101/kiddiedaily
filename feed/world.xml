@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 02:22:57 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 02:45:56 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>'World cup pubs boost' and 'Kate holds court'</title>
@@ -113,6 +113,14 @@
     <description>Cristiano Ronaldo pulls Portugal level before Goncalo Ramos wins it late on; Croatia have further goal ruled offside.</description>
   </item>
   <item>
+    <title>Jack Smith says DOJ ‘can't do its job’ because of judges’ distrust of prosecutors</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-jack-smith-says-doj-cant-do-its-job-because-of-jud.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-jack-smith-says-doj-cant-do-its-job-because-of-jud.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Former special counsel Jack Smith warned that the U.S. is facing an “attack on the rule of law” under President Trump, saying he is “very concerned” about the integrity of future elections and accusin</description>
+  </item>
+  <item>
     <title>Newly formed Tropical Storm Douglas poses no threat to land, hurricane center says</title>
     <link>https://kiddiedaily.com/news/2026-07-02-newly-formed-tropical-storm-douglas-poses-no-threa.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-newly-formed-tropical-storm-douglas-poses-no-threa.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>England Captain Harry Kane's World Cup goals against DR Congo dominate Thursday's front pages.</description>
-  </item>
-  <item>
-    <title>US judge sides with NAACP over proposed mail-in ballot restrictions</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-us-judge-sides-with-naacp-over-proposed-mail-in-ba.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-us-judge-sides-with-naacp-over-proposed-mail-in-ba.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>President Trump has sought to limit mail-in voting and has ordered his administration to impose limits on the practice.</description>
   </item>
   </channel>
 </rss>
