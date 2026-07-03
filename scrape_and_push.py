@@ -58,6 +58,7 @@ _ADULT_TITLE_RE = re.compile(
     r'|smoking\s+(?:ban|kills|cessation|rates?)|(?:stop|quit|anti).?smoking'
     r'|nicotine\s+(?:pouch|addict\w*|product|patch|gum|replacement|hit|craving|delivery|content)'
     r'|hiv\b'
+    r'|aids[\s-]?(?:free|epidemic|virus|patients?|crisis|diagnosis|treatment|deaths?|pandemic|generation|drugs?)'
     r'|hitler\b'
     r'|sex\s+life|sex\s+lives'
     r'|sex\s+and\s+the\s+city'          # adult TV show personality quiz
@@ -244,6 +245,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bthe\s+memo:'                          # The Hill political opinion column
     r'|\bclashing\s+visions\b|\bnation.?s\s+(?:divide|divisions?)\b'  # political-divide opinion framing
     r'|\bnews\s+quiz\b'                        # branded external news quizzes (site has its own games)
+    r'|\bvoters?\b|\breform\s+(?:proposals?|package|bill|agenda|plan)\w*'  # electorate / policy-reform politics
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
