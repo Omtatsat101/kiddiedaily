@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 04:00:54 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 04:05:35 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -129,6 +129,14 @@
     <description>A 55-page report from House Democrats accuses Freedom 250 of America's birthday celebrations for profit, using questionable fundraising methods. Watchdog groups had already sounded alarms.</description>
   </item>
   <item>
+    <title>NASA Reveals Four Cosmic Masterpieces for America’s 250th Birthday</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-nasa-reveals-four-cosmic-masterpieces-for-americas.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-nasa-reveals-four-cosmic-masterpieces-for-americas.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>NASA unveiled four patriotic-colored images of the cosmos to celebrate America&amp;#8217;s 250th birthday, revealing everything from an exploded star to a galaxy cluster shaped by dark matter. NASA is mar</description>
+  </item>
+  <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
     <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>JAKARTA — The Indonesian government is developing a roadmap to protect local wisdom in biodiversity conservation, a move aimed at strengthening the recognition and protection of Indigenous peoples and</description>
-  </item>
-  <item>
-    <title>Colorful songbirds face higher risk of extinction</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-colorful-songbirds-face-higher-risk-of-extinction.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-colorful-songbirds-face-higher-risk-of-extinction.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>While prized as pets in some places, the pet trade is not entirely to blame. The post Colorful songbirds face higher risk of extinction appeared first on Popular Science .</description>
   </item>
   </channel>
 </rss>
