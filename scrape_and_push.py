@@ -170,6 +170,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\b(?:gambling|bribery|extortion)\s+(?:scheme|ring|case|scandal|charges?|indictment)\b' # crime
     r'|\bmortgage\s+fraud\b'                   # mortgage fraud coverage
     r'|\bcriminal\s+(?:charges?|allegations?|conspiracy)\b' # criminal proceedings
+    r'|\binquest\s+(?:adjourned|delayed|resumed|verdict|into|hears?|finds?|concludes?|opens?|returns?|jury)\b'  # death inquest legal proceedings
     r'|\bgrand\s+jury\b'                          # grand jury = criminal proceedings, always legal/political
     r'|\bindictment\b'                            # indictment = criminal charge filing, always legal/political
     r'|\bfelony\b'                                # felony = serious criminal charge, always legal/political
