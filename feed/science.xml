@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 00:44:07 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 01:07:07 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -31,6 +31,30 @@
     <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The rhythm of human laughter appears to have deep evolutionary roots shared with chimpanzees, bonobos, gorillas, and orangutans. That ancient pattern may offer one of the clearest clues yet to how the</description>
+  </item>
+  <item>
+    <title>Scientists create quantum sound device that could transform communications</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-scientists-create-quantum-sound-device-that-could.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-scientists-create-quantum-sound-device-that-could.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A new quantum device can generate precisely controlled bursts of sound-like particles, or phonons, by forcing electrons through an ultra-thin crystal at extremely low temperatures. The surprising beha</description>
+  </item>
+  <item>
+    <title>Tiny magnetic waves could unlock quantum computers the size of a penny</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-tiny-magnetic-waves-could-unlock-quantum-computers.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-tiny-magnetic-waves-could-unlock-quantum-computers.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A major breakthrough in quantum technology has turned magnons, tiny magnetic waves once considered too short-lived for practical use, into promising carriers of quantum information. Researchers extend</description>
+  </item>
+  <item>
+    <title>390 gravitational wave detections reveal hidden population of black holes</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-390-gravitational-wave-detections-reveal-hidden-po.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-390-gravitational-wave-detections-reveal-hidden-po.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Astronomers have released the largest gravitational wave catalog ever, revealing 161 new black hole collisions and pushing the total number of detections to 390. Among the highlights are the clearest</description>
   </item>
   <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
@@ -143,30 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Albireo, in the constellation Cygnus, is a favorite for stargazers. Through a small telescope, it appears as a beautiful gold star with a dimmer blue companion. The post Exquisite Albireo, a beloved a</description>
-  </item>
-  <item>
-    <title>James Webb telescope may have discovered a mysterious, never-before-seen substance on Pluto and Titan</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-james-webb-telescope-may-have-discovered-a-mysteri.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-james-webb-telescope-may-have-discovered-a-mysteri.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>A new study has identified a very specific wavelength of light missing from both Pluto and Saturn's largest moon, Titan. The surprising signal suggests that these worlds harbor an unknown molecule tha</description>
-  </item>
-  <item>
-    <title>Ancient ring discovered underground in Scotland could be a Stonehenge-like monument</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-ancient-ring-discovered-underground-in-scotland-co.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-ancient-ring-discovered-underground-in-scotland-co.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>A hidden ring of stones or timbers detected beneath peat at Machrie Moor could represent a previously unknown Neolithic or Bronze Age monument.</description>
-  </item>
-  <item>
-    <title>Don't whitewash American history on the Fourth of July</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-dont-whitewash-american-history-on-the-fourth-of-j.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-dont-whitewash-american-history-on-the-fourth-of-j.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Frederick Douglass's 1852 Fourth of July speech highlighted the hypocrisy of celebrating independence while slavery still existed, and today Black Americans still face economic and social discriminati</description>
   </item>
   </channel>
 </rss>
