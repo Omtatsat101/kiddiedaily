@@ -177,7 +177,9 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bpelosi\s+institute\b'                 # named partisan institution
     r'|\bpirro\b'                              # Jeanine Pirro — Trump-appointed US Atty DC, partisan (hard block)
     r'|\bencourag\w+\s+drugg'               # forums/groups encouraging drugging (drink spiking, criminal activity)
-    r'|\btrump\s+(?:signs?|pushes?|demands?|orders?|calls?)\b' # partisan executive action
+    r'|\btrump\s+(?:signs?|pushes?|demands?|orders?|calls?|launches?|announces?|unveils?)\b' # partisan executive action
+    r'|\btrump\s+accounts?\b'                  # "Trump Accounts" savings policy (partisan executive branding)
+    r'|\bwhite\s+house\s+(?:to\s+)?(?:launch|announce|unveil|roll\s+out)\b'  # White House policy rollout news
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
