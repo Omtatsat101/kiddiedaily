@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 05:54:56 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 06:18:04 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -137,6 +137,14 @@
     <description>NASA unveiled four patriotic-colored images of the cosmos to celebrate America&amp;#8217;s 250th birthday, revealing everything from an exploded star to a galaxy cluster shaped by dark matter. NASA is mar</description>
   </item>
   <item>
+    <title>Rare fungi help restore Palmyra Atoll rainforests, new study finds. Here’s how</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-rare-fungi-help-restore-palmyra-atoll-rainforests.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-rare-fungi-help-restore-palmyra-atoll-rainforests.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Palmyra Atoll in the North Pacific is one of the most remote island systems on Earth. A native rainforest tree on the island performs a critical ecological service by providing nesting sites for thous</description>
+  </item>
+  <item>
     <title>Have scientists really made a living cell from scratch? Not quite</title>
     <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</guid>
@@ -159,14 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>A predawn Moon-and-planets meetup, a returning comet, a great chance to see the Milky Way, and Saturn’s rings at a new angle. Skywatching Highlights Transcript An early morning hangout with the Moon a</description>
-  </item>
-  <item>
-    <title>New Indonesia roadmap aims to protect Indigenous knowledge for biodiversity</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-new-indonesia-roadmap-aims-to-protect-indigenous-k.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-new-indonesia-roadmap-aims-to-protect-indigenous-k.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>JAKARTA — The Indonesian government is developing a roadmap to protect local wisdom in biodiversity conservation, a move aimed at strengthening the recognition and protection of Indigenous peoples and</description>
   </item>
   </channel>
 </rss>
