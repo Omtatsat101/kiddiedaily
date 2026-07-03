@@ -6,8 +6,32 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 23:48:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:11:06 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>'World cup pubs boost' and 'Kate holds court'</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-world-cup-pubs-boost-and-kate-holds-court.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-world-cup-pubs-boost-and-kate-holds-court.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Late openings of pubs and Catherine appearing at Wimbledon lead Friday's front pages.</description>
+  </item>
+  <item>
+    <title>On the Strait of Hormuz, BBC finds seized ships and shark fishermen as uneasy calm returns</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-on-the-strait-of-hormuz-bbc-finds-seized-ships-and.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-on-the-strait-of-hormuz-bbc-finds-seized-ships-and.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The BBC visits Bandar Abbas to see how the US-Israeli war with Iran has affected everyday life in the port city.</description>
+  </item>
+  <item>
+    <title>How the American Dream has survived 250 years, but only just</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-how-the-american-dream-has-survived-250-years-but.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-how-the-american-dream-has-survived-250-years-but.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The American Dream has persisted since the days of the Founding Fathers, but faith in the ideal is fading</description>
+  </item>
   <item>
     <title>Newly formed Tropical Storm Douglas poses no threat to land, hurricane center says</title>
     <link>https://kiddiedaily.com/news/2026-07-02-newly-formed-tropical-storm-douglas-poses-no-threa.html</link>
@@ -143,30 +167,6 @@
     <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>The two were atop the 1,454 ft (443 m) building for at least ten minutes and displayed a large banner before climbing down.</description>
-  </item>
-  <item>
-    <title>German prosecutors charge Ukrainian suspect over Nord Stream explosions</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-german-prosecutors-charge-ukrainian-suspect-over-n.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-german-prosecutors-charge-ukrainian-suspect-over-n.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Prosecutors allege a yacht was used in the sabotage of pipelines, with the suspect leading the operation.</description>
-  </item>
-  <item>
-    <title>German FIFA World Cup tourist to visit White House</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-german-fifa-world-cup-tourist-to-visit-white-house.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-german-fifa-world-cup-tourist-to-visit-white-house.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>A viral FIFA World Cup fan who deleted his social media account after Germany lost received a public invite to the White House on Wednesday by Nick Adams, a controversial MAGA influencer who currently</description>
-  </item>
-  <item>
-    <title>US designates Ecuador’s Chone Killers gang as ‘terrorist’ organisation</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-us-designates-ecuadors-chone-killers-gang-as-terro.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-us-designates-ecuadors-chone-killers-gang-as-terro.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Ecuador&amp;#039;s government praises the US for backing President Noboa&amp;#039;s campaign to dismantle gang-crime networks.</description>
   </item>
   </channel>
 </rss>
