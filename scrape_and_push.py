@@ -1191,14 +1191,14 @@ HEADER = """<a href="#main" class="kd-skip">Skip to content</a><header class="kd
 <a href="/" class="logo">KiddieDaily<small>News for Families</small></a>
 <button class="kd-ham" onclick="this.closest('header').querySelector('nav').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
 <nav><a href="/news/today.html">Today</a><a href="/news/">Kid News</a><a href="/search.html">Search</a><a href="/fact-check/">Fact Check</a>
-<a href="/games/">Games</a><a href="/saved.html">Saved</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
+<a href="/games/">Games</a><a href="/draw/">Draw</a><a href="/saved.html">Saved</a><a href="/about.html">About</a><a href="/parents/" class="pz-cta">For Parents</a></nav>
 </div></header>"""
 
 FOOTER = """<footer class="kd"><div class="inner">
 <div style="flex:1;min-width:200px"><h4>KiddieDaily</h4>
 <p style="margin:0;font-size:14px;color:#cbd5e0">Curated daily news for families with research-backed fact checks.</p></div>
 <div><h4>Read</h4><a href="/news/today.html">Today's News</a><a href="/news/">Kid News</a><a href="/digest/latest.html">Daily Digest</a>
-<a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a></div>
+<a href="/parents/">For Parents</a><a href="/fact-check/">Fact Check</a><a href="/games/">Games</a><a href="/draw/">Draw the News</a></div>
 <div><h4>Account</h4><a href="/saved.html">Saved Stories</a><a href="/parents/">For Parents</a><a href="/subscribe/">Subscribe</a><a href="/about.html">About</a>
 <a href="/contact.html">Contact</a></div>
 <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
@@ -2003,6 +2003,7 @@ STATIC_URLS = [
     "/fact-check/tylenol-kids-brains.html",
     "/fact-check/social-media-teen-depression.html",
     "/games/index.html",
+    "/draw/",
     "/about.html", "/privacy.html", "/terms.html", "/contact.html", "/status.html",
     "/subscribe/",
     "/feed.xml", "/news/archive.html", "/news/today.html",
@@ -4417,6 +4418,252 @@ Check My Answers</button>
     print(f"  Games page: {len(quiz_pool)} quiz questions ({len([a for a in quiz_pool if a.get('is_science')])} science + {len([a for a in quiz_pool if not a.get('is_science')])} world)")
 
 
+def generate_draw_page(manifest, today):
+    """Generate /draw/index.html — 'Draw the News' creativity studio.
+
+    Turns real, kid-friendly headlines (space/animals/science/history/environment)
+    into imagination prompts, plus an in-browser doodle pad. Bridges KiddieDaily
+    news with hands-on creativity. Privacy-safe: the canvas never leaves the browser
+    (no upload, no tracking) — consistent with our data-sovereignty rule.
+    """
+    articles = manifest.get("articles", [])
+    VISUAL_CATS = {"space", "animals", "history", "environment", "science"}
+
+    def _visual(a):
+        return bool(set(a.get("cats") or []) & VISUAL_CATS) or a.get("is_science")
+
+    pool = [a for a in articles if _visual(a)]
+    recent = list(reversed(pool[-60:] if len(pool) >= 60 else pool))  # newest first
+
+    stop = {"about", "their", "these", "those", "would", "could", "which", "where",
+            "there", "after", "other", "first", "world", "using", "study", "finds",
+            "found", "shows", "says", "that", "have", "with", "from", "this", "will",
+            "into", "been", "more", "also", "than", "when", "were", "they", "scientists",
+            "research", "researchers", "reveals", "could", "study", "new", "how", "why",
+            "what", "reveal", "discover", "discovered", "suggests"}
+
+    ICON = {"space": "🚀", "animals": "🐾", "history": "🏛️", "environment": "🌱", "science": "🔬"}
+    PROMPTS = {
+        "space": [
+            "Draw what you think {t} looks like up close — add colors nobody has ever seen in space.",
+            "Design your very own rocket ship to go explore {t}. What's inside the cockpit?",
+            "Imagine you live near {t}. Draw your space house and the view out the window.",
+        ],
+        "animals": [
+            "Draw {t} in its home. What is it doing right now?",
+            "Invent a brand-new animal inspired by {t}. Give it a silly name!",
+            "Draw {t} having the best day ever. What made it so good?",
+        ],
+        "history": [
+            "Draw a scene from the time of {t}. What are people wearing?",
+            "If you could time-travel to {t}, draw what you'd pack in your backpack.",
+            "Draw the coolest thing you'd want to see if you visited {t}.",
+        ],
+        "environment": [
+            "Draw our planet the way you hope it looks in 100 years.",
+            "Invent a machine that could help with {t}. Draw how it works.",
+            "Draw your dream treehouse that helps take care of {t}.",
+        ],
+        "science": [
+            "Scientists just learned something new about {t}. Draw what YOU imagine it looks like.",
+            "Invent a gadget that uses {t}. What does it do?",
+            "Draw yourself as a scientist studying {t}. What's in your lab?",
+        ],
+    }
+
+    def _topic(a):
+        title = a.get("display_title", a.get("title", ""))
+        words = [w for w in re.sub(r"[^\w\s]", "", title.lower()).split()
+                 if len(w) > 3 and w not in stop and w.isalpha()]
+        return words[0] if words else "this discovery"
+
+    def _dom_cat(a):
+        cats = set(a.get("cats") or [])
+        for c in ("space", "animals", "history", "environment"):
+            if c in cats:
+                return c
+        return "science"
+
+    def _prompt_for(cat, topic, idx):
+        lst = PROMPTS.get(cat, PROMPTS["science"])
+        return lst[(idx + len(topic)) % len(lst)].replace("{t}", topic)
+
+    # De-duplicate by topic word; take up to 6 distinct picks (newest first)
+    seen, picks = set(), []
+    for a in recent:
+        t = _topic(a)
+        if t in seen:
+            continue
+        seen.add(t)
+        picks.append(a)
+        if len(picks) >= 6:
+            break
+
+    PALETTE = [("#1a4d80", "blue"), ("#e53e3e", "red"), ("#dd6b20", "orange"),
+               ("#d69e2e", "yellow"), ("#38a169", "green"), ("#805ad5", "purple"),
+               ("#d53f8c", "pink"), ("#1a202c", "black")]
+    swatches_html = "".join(
+        f'<button class="sw{" sel" if i == 0 else ""}" data-color="{c}" '
+        f'style="background:{c}" title="{n}" aria-label="{n} crayon"></button>'
+        for i, (c, n) in enumerate(PALETTE)
+    )
+
+    if picks:
+        feat = picks[0]
+        feat_cat, feat_topic = _dom_cat(feat), _topic(feat)
+        feat_prompt = _prompt_for(feat_cat, feat_topic, 0)
+        feat_slug = feat.get("slug", "")
+        feat_title = feat.get("display_title", feat.get("title", ""))
+        feat_src = (f'Inspired by a real story: <a href="/{feat_slug}" '
+                    f'style="color:#2b6cb0;text-decoration:none;font-weight:600">{feat_title} &rarr;</a>'
+                    ) if feat_slug else "A fresh challenge, every day."
+    else:
+        feat_cat, feat_topic = "science", "a curious discovery"
+        feat_prompt = "Draw the most amazing thing you can imagine a scientist discovering today."
+        feat_src = "A fresh challenge, every day."
+
+    more = picks[1:6]
+    more_cards = ""
+    for i, a in enumerate(more):
+        cat, topic = _dom_cat(a), _topic(a)
+        prompt = _prompt_for(cat, topic, i + 1)
+        title = a.get("display_title", a.get("title", ""))
+        slug = a.get("slug", "")
+        read = (f'<a href="/{slug}">Read the story &rarr;</a>') if slug else ""
+        more_cards += (
+            f'<div class="draw-spark"><div class="ic">{ICON[cat]}</div>'
+            f'<p class="pr">{prompt}</p>{read}'
+            f'<p class="src">Inspired by: {title[:70]}</p></div>'
+        )
+    if not more_cards:
+        more_cards = ('<div class="draw-spark"><div class="ic">🎨</div>'
+                      '<p class="pr">Check back tomorrow for fresh story sparks from the day&rsquo;s news!</p></div>')
+
+    draw_css = (
+        ".draw-hero{background:linear-gradient(135deg,#1a4d80,#2b6cb0);color:#fff;border-radius:16px;"
+        "padding:28px 26px;margin:0 0 24px;font-family:system-ui,sans-serif}"
+        ".draw-hero h1{margin:0 0 6px;font-size:30px}"
+        ".draw-hero p{margin:0;font-size:15px;color:#dbeafe;line-height:1.5}"
+        ".draw-featured{background:#fff;border:1px solid #dde4ef;border-radius:14px;padding:22px 24px;"
+        "margin:0 0 26px;box-shadow:0 2px 10px rgba(0,0,0,.06)}"
+        ".draw-featured .kicker{font-size:11px;font-weight:700;color:#2b6cb0;text-transform:uppercase;letter-spacing:1.2px}"
+        ".draw-featured .prompt{font-size:22px;font-weight:700;color:#1a2b44;line-height:1.35;margin:8px 0 4px;font-family:system-ui,sans-serif}"
+        ".draw-featured .src{font-size:12px;color:#718096;margin:0 0 16px}"
+        ".pad-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}"
+        ".sw{width:28px;height:28px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #cbd5e0;cursor:pointer;padding:0}"
+        ".sw.sel{box-shadow:0 0 0 2px #1a4d80;transform:scale(1.12)}"
+        ".tool-btn{background:#f0f4f8;border:1px solid #cbd5e0;border-radius:8px;padding:7px 14px;font-size:13px;"
+        "cursor:pointer;color:#2d3748;font-family:system-ui,sans-serif}"
+        ".tool-btn.sel{background:#1a4d80;color:#fff;border-color:#1a4d80}"
+        "#kd-canvas{width:100%;max-width:700px;border:2px dashed #b7c6da;border-radius:12px;touch-action:none;"
+        "background:#fff;display:block;cursor:crosshair}"
+        ".draw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:14px 0 26px}"
+        ".draw-spark{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 18px;"
+        "font-family:system-ui,sans-serif;display:flex;flex-direction:column}"
+        ".draw-spark .ic{font-size:26px}"
+        ".draw-spark .pr{font-size:15px;font-weight:600;color:#2d3748;line-height:1.4;margin:6px 0 10px;flex:1}"
+        ".draw-spark .src{font-size:11px;color:#a0aec0;margin:8px 0 0}"
+        ".draw-spark a{font-size:13px;color:#2b6cb0;text-decoration:none;font-weight:600}"
+        ".parent-note{background:#f0fff4;border:1px solid #9ae6b4;border-radius:12px;padding:16px 20px;"
+        "margin:6px 0 0;font-family:system-ui,sans-serif}"
+        ".parent-note strong{color:#22543d}"
+        ".parent-note p{margin:6px 0 0;font-size:13px;color:#276749;line-height:1.55}"
+        ".parent-note a{color:#276749;font-weight:600}"
+    )
+
+    canvas_js = (
+        "(function(){"
+        "var c=document.getElementById('kd-canvas');if(!c)return;"
+        "var ctx=c.getContext('2d');"
+        "function fit(){var w=Math.min(700,(c.parentNode.clientWidth||700)-2);c.width=w;c.height=340;"
+        "ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);}fit();"
+        "var drawing=false,color='#1a4d80',size=4,erasing=false,last=null;"
+        "function pos(e){var r=c.getBoundingClientRect();var p=(e.touches&&e.touches[0])||e;"
+        "return{x:(p.clientX-r.left)*(c.width/r.width),y:(p.clientY-r.top)*(c.height/r.height)};}"
+        "function start(e){drawing=true;last=pos(e);if(e.cancelable)e.preventDefault();}"
+        "function move(e){if(!drawing)return;var p=pos(e);ctx.strokeStyle=erasing?'#fff':color;"
+        "ctx.lineWidth=erasing?size*4:size;ctx.lineCap='round';ctx.lineJoin='round';"
+        "ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;"
+        "if(e.cancelable)e.preventDefault();}"
+        "function end(){drawing=false;}"
+        "c.addEventListener('pointerdown',start);c.addEventListener('pointermove',move);"
+        "window.addEventListener('pointerup',end);c.addEventListener('pointerleave',end);"
+        "function selOnly(el){var q=document.querySelectorAll('[data-color],#kd-eraser');"
+        "for(var i=0;i<q.length;i++)q[i].classList.remove('sel');if(el)el.classList.add('sel');}"
+        "var sw=document.querySelectorAll('[data-color]');"
+        "for(var i=0;i<sw.length;i++){(function(b){b.addEventListener('click',function(){"
+        "color=b.getAttribute('data-color');erasing=false;selOnly(b);});})(sw[i]);}"
+        "var er=document.getElementById('kd-eraser');if(er)er.addEventListener('click',function(){erasing=true;selOnly(er);});"
+        "var cl=document.getElementById('kd-clear');if(cl)cl.addEventListener('click',fit);"
+        "var sz=document.getElementById('kd-size');if(sz)sz.addEventListener('input',function(){size=parseInt(sz.value,10)||4;});"
+        "var dl=document.getElementById('kd-download');if(dl)dl.addEventListener('click',function(){"
+        "var a=document.createElement('a');a.download='my-news-drawing.png';a.href=c.toDataURL('image/png');a.click();});"
+        "window.addEventListener('resize',function(){var d=c.toDataURL();var img=new Image();"
+        "img.onload=function(){fit();ctx.drawImage(img,0,0,c.width,c.height);};img.src=d;});"
+        "})();"
+    )
+
+    featured_html = (
+        '<div class="draw-featured">'
+        '<div class="kicker">&#9999;&#65039; Today&rsquo;s Drawing Challenge</div>'
+        f'<p class="prompt">{feat_prompt}</p>'
+        f'<p class="src">{feat_src}</p>'
+        '<div class="pad-tools">'
+        f'{swatches_html}'
+        '<button id="kd-eraser" class="tool-btn">Eraser</button>'
+        '<label class="tool-btn" style="cursor:default">Brush '
+        '<input id="kd-size" type="range" min="2" max="20" value="4" style="vertical-align:middle;width:70px"></label>'
+        '<button id="kd-clear" class="tool-btn">Clear</button>'
+        '<button id="kd-download" class="tool-btn" style="background:#38a169;color:#fff;border-color:#38a169">&#11015; Save my drawing</button>'
+        '</div>'
+        '<canvas id="kd-canvas" height="340"></canvas>'
+        '<p style="font-size:12px;color:#a0aec0;margin:8px 0 0">Your drawing stays on your device &mdash; nothing is uploaded. Save it to keep it! &#127912;</p>'
+        '</div>'
+    )
+
+    page = f"""<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Draw the News — KiddieDaily Creativity Studio</title>
+<meta name="description" content="Turn real science, space, and animal headlines into fun drawing challenges. A free, screen-light creativity studio for kids — from KiddieDaily.">
+<meta property="og:title" content="Draw the News — KiddieDaily Creativity Studio">
+<meta property="og:description" content="Real headlines become drawing challenges. A free creativity studio for curious kids.">
+<meta property="og:url" content="https://kiddiedaily.com/draw/">
+<meta property="og:image" content="https://kiddiedaily.com/og-science.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kiddiedaily.com/draw/">
+{CSS}
+<style>{draw_css}</style>
+</head><body>
+{HEADER}
+<main id="main" style="max-width:820px;margin:0 auto;padding:28px 24px 64px">
+<div class="draw-hero">
+<h1>&#127912; Draw the News</h1>
+<p>Every day we turn a real science, space, or animal story into a drawing challenge. Grab crayons or use the doodle pad below — then imagine away!</p>
+</div>
+{featured_html}
+<div style="font-size:11px;font-weight:700;color:#718096;text-transform:uppercase;letter-spacing:1.2px;margin:0 0 12px">More story sparks to draw</div>
+<div class="draw-grid">
+{more_cards}
+</div>
+<div class="parent-note">
+<strong>&#127912; For grown-ups</strong>
+<p>&ldquo;Draw the News&rdquo; turns real science and nature stories into imagination prompts &mdash; great for screen-light play. Print a prompt, hand over the crayons, and talk about the story together.</p>
+<p>Love what your child makes? Our sister site <a href="https://kiddiesketch.com" rel="noopener">KiddieSketch</a> can turn a favorite drawing into a real keepsake.</p>
+</div>
+<div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/news/today.html" style="background:#1a4d80;color:#fff;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Today&#39;s news</a>
+<a href="/games/" style="background:#f7fafc;color:#1a4d80;border:1px solid #1a4d80;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">Games &amp; quizzes</a>
+<a href="/news/science.html" style="background:#f7fafc;color:#718096;border:1px solid #e2e8f0;padding:9px 18px;border-radius:6px;font-size:14px;text-decoration:none;font-family:system-ui,sans-serif">More science</a>
+</div>
+</main>
+{FOOTER}
+<script>{canvas_js}</script>
+</body></html>"""
+
+    upload("draw/index.html", page, "[scraper] Draw the News creativity studio")
+    print(f"  Draw page: featured challenge + {len(more)} story-spark prompts")
+
+
 def generate_search_page(manifest):
     """Generate /search.html — full-page search interface fetching /data/kd-articles.json."""
     articles = manifest.get("articles", [])
@@ -5134,6 +5381,10 @@ def main():
     # 6k7. Generate Games / activities page
     print(f"\n[6k7] Generating Games / activities page...")
     generate_games_page(manifest)
+
+    # 6k7b. Generate Draw the News creativity studio
+    print(f"\n[6k7b] Generating Draw the News creativity studio...")
+    generate_draw_page(manifest, today)
 
     # 6k8. Generate static info pages (about, contact, privacy, terms)
     print(f"\n[6k8] Generating static info pages...")
