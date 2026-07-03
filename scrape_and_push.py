@@ -190,6 +190,10 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\btrump\s+(?:signs?|pushes?|demands?|orders?|calls?|launches?|announces?|unveils?)\b' # partisan executive action
     r'|\btrump\s+accounts?\b'                  # "Trump Accounts" savings policy (partisan executive branding)
     r'|\bwhite\s+house\s+(?:to\s+)?(?:launch|announce|unveil|roll\s+out)\b'  # White House policy rollout news
+    r'|\bpensions?\b'                          # pensions = adult financial/policy topic, never kid content
+    r'|\bcoalition\s+(?:agree|agrees|agreed|deal|govern|government|talks?|reach\w*|collaps\w*|partner\w*)\b'  # government coalition politics
+    r'|\btax\s+(?:reform|cut|cuts|hike|rise|bill|change|changes|plan|policy|deal|break|code|law)\w*'  # tax-policy legislation
+    r'|\b(?:income|corporate|pension|inheritance|payroll)\s+tax\b'  # specific tax-policy framings
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
