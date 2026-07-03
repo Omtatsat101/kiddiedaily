@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2026 08:06:31 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 08:30:40 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>New calculator reveals whether you should really worry about statin side effects</title>
@@ -161,12 +161,12 @@
     <description>Learn how SpudCell, a synthetic cell built from chemical parts, can grow, divide, copy its DNA, and bring life-like behavior closer to engineering.</description>
   </item>
   <item>
-    <title>Have scientists really made a living cell from scratch? Not quite</title>
-    <link>https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-02-have-scientists-really-made-a-living-cell-from-scr.html</guid>
-    <pubDate>Thu, 02 Jul 2026 10:00:00 +0000</pubDate>
+    <title>Unrefined: How Capitalism Reinvented Sugar</title>
+    <link>https://kiddiedaily.com/news/2026-07-03-unrefined-how-capitalism-reinvented-sugar.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-unrefined-how-capitalism-reinvented-sugar.html</guid>
+    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>A prototype cell partly capable of replicating itself has been created using 36 existing bacterial genes, but it's not really a living organism – yet</description>
+    <description>Singerman's "Unrefined: How Capitalism Reinvented Sugar" is a thorough examination of the history of sugar and how imperialism and capitalism shaped the world through this substance. This book covers</description>
   </item>
   </channel>
 </rss>
