@@ -203,6 +203,8 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bexchange\s+of\s+(?:fire|strikes?|attacks?)\s+(?:with|between)\b'  # mutual military exchange
     r'|\bstand\s+down\s+after\s+(?:exchange|strikes?|attack|conflict)\b'  # military de-escalation framing
     r'|\bstrikes?\s+(?:on|against)\s+(?:Iran|Iraq|Syria|Yemen|Gaza|Pakistan|Afghanistan|Somalia|Libya|Sudan|North\s*Korea)\b'  # named-country military strikes
+    r'|\bStrait\s+of\s+Hormuz\b'               # geopolitical military chokepoint — always conflict/Iran context
+    r'|\bseized?\s+(?:ships?|vessels?|tankers?)\b'  # military/geopolitical seizure of ships
     r'|\bMK.Ultra\b|\bMKUltra\b'  # CIA mind control program — not kid-appropriate
     r'|\bCIA\s+(?:mind\s+control|human\s+experiment|torture|interrogation|drug\s+test|secret\s+program)\b'  # CIA black programs
     r'|\bexplosive\s+diarrhea\b'  # sensationalist gut-health clickbait
