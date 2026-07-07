@@ -266,6 +266,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bmamdani\b|\bhouthis?\b|\bmilitia\b|\binsurgenc\w+'  # named politician / militant groups
     r'|\bexcess\s+deaths?\b|\b\d[\d,]{2,}\s+deaths?\b'  # mass-mortality / death-toll statistics
     r'|\bforces?\s+(?:thousands|hundreds|residents|families|people|locals)\s+to\s+(?:evacuate|flee)\b|\bmass\s+evacuation\b|\b(?:wildfire|blaze|bushfire|flood|hurricane|volcano)\s+(?:forces|prompts|triggers|sparks)\s+(?:evacuation|thousands)\b'  # disaster mass-evacuation news
+    r'|\bfarage\b|\bby-?elections?\b|\bresigns?\s+as\s+(?:an?\s+)?MP\b|\bMPs?\s+(?:resign|quit|vow|demand|debate|clash|defect|suspend)\w*'  # UK MP / by-election politics
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
