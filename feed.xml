@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jul 2026 21:34:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 21:38:36 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Reigning champion Argentina escapes with remarkable World Cup victory over Egypt</title>
@@ -113,14 +113,6 @@
     <description>Whether you woke up early to catch-up, had a special watch party at your school or just caught the highlights - we want to know how YOU watched the epic match? Take part in our vote and let us know in — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>Farage resigns as MP and vows to fight by-election amid finances row</title>
-    <link>https://kiddiedaily.com/news/2026-07-07-farage-resigns-as-mp-and-vows-to-fight-by-election.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-farage-resigns-as-mp-and-vows-to-fight-by-election.html</guid>
-    <pubDate>Tue, 07 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Labour, the Conservatives, the Lib Dems and Restore Britain rule out standing in the by-election, in an effective boycott. — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
     <title>Taylor Swift and Travis Kelce are married!</title>
     <link>https://kiddiedaily.com/news/2026-07-07-taylor-swift-and-travis-kelce-are-married.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-taylor-swift-and-travis-kelce-are-married.html</guid>
@@ -129,44 +121,52 @@
     <description>A spokesperson for the couple confirmed the news after the ceremony, which took place on Friday. Find out more here. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>'World cup pubs boost' and 'Kate holds court'</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-world-cup-pubs-boost-and-kate-holds-court.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-world-cup-pubs-boost-and-kate-holds-court.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Late openings of pubs and Catherine appearing at Wimbledon lead Friday's front pages. — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
+    <title>Unidentified metal spheres found on Australian beach are 'debris from a foreign rocket body', space agency says</title>
+    <link>https://kiddiedaily.com/news/2026-07-07-unidentified-metal-spheres-found-on-australian-bea.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-unidentified-metal-spheres-found-on-australian-bea.html</guid>
+    <pubDate>Tue, 07 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The Australian Space Agency is warning residents of Queensland to be on the lookout after metallic-looking spheres, possibly space debris, appeared on a beach. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>How the American Dream has survived 250 years, but only just</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-how-the-american-dream-has-survived-250-years-but.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-how-the-american-dream-has-survived-250-years-but.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>The American Dream has persisted since the days of the Founding Fathers, but faith in the ideal is fading — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+    <title>NASA celebrates America's 250th birthday with incredible views of space</title>
+    <link>https://kiddiedaily.com/news/2026-07-07-nasa-celebrates-americas-250th-birthday-with-incre.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-nasa-celebrates-americas-250th-birthday-with-incre.html</guid>
+    <pubDate>Tue, 07 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>NASA is marking the United States' 250th birthday with four striking red, white, and blue images of deep space from the Chandra X-ray Observatory. The collection features an exploded star, a stellar n — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>Photos: Fans gather in the Bay Area for the World Cup match between the U.S. and Bosnia-Herzegovina</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-photos-fans-gather-in-the-bay-area-for-the-world-c.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-photos-fans-gather-in-the-bay-area-for-the-world-c.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>World Cup watch parties in Santa Clara and the San Francisco Bay Area brought fans together for the United States vs. Bosnia-Herzegovina match, where the U.S. earned a 2-0 win to reach the Round of 16 — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
+    <title>Our Milky Way galaxy might be larger than we thought</title>
+    <link>https://kiddiedaily.com/news/2026-07-07-our-milky-way-galaxy-might-be-larger-than-we-thoug.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-our-milky-way-galaxy-might-be-larger-than-we-thoug.html</guid>
+    <pubDate>Tue, 07 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Astronomers used cosmic explosions to find that we may be wrong about our own galaxy. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>Rare copy of US Declaration of Independence found by volunteer in UK archives</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-rare-copy-of-us-declaration-of-independence-found.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-rare-copy-of-us-declaration-of-independence-found.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>The newly discovered copy is one of only 11 of its kind in the world. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+    <title>Astronaut flexes his muscles mid-spacewalk | Space photo of the day for July 7, 2026</title>
+    <link>https://kiddiedaily.com/news/2026-07-07-astronaut-flexes-his-muscles-mid-spacewalk-space-p.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-astronaut-flexes-his-muscles-mid-spacewalk-space-p.html</guid>
+    <pubDate>Tue, 07 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>NASA astronaut Chris Williams recently flexed his muscles for a photo while on a spacewalk with fellow astronaut Jessica Meir. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>Weekly quiz: Why did Catherine climb the UK's three highest peaks?</title>
-    <link>https://kiddiedaily.com/news/2026-07-03-weekly-quiz-why-did-catherine-climb-the-uks-three.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-03-weekly-quiz-why-did-catherine-climb-the-uks-three.html</guid>
-    <pubDate>Fri, 03 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>How much attention did you pay to what happened in the world over the past seven days? — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+    <title>Speaking More Languages May Help Slow Brain Aging</title>
+    <link>https://kiddiedaily.com/news/2026-07-07-speaking-more-languages-may-help-slow-brain-aging.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-speaking-more-languages-may-help-slow-brain-aging.html</guid>
+    <pubDate>Tue, 07 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A new study suggests multilingual people have younger brains The post Speaking More Languages May Help Slow Brain Aging appeared first on Nautilus . — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Rare Medieval Book of Hours to Headline Manuscript Sale</title>
+    <link>https://kiddiedaily.com/news/2026-07-07-rare-medieval-book-of-hours-to-headline-manuscript.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-07-rare-medieval-book-of-hours-to-headline-manuscript.html</guid>
+    <pubDate>Tue, 07 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A beautifully illuminated fifteenth-century Book of Hours created in Bruges will be one of the highlights of Freeman's third annual Western Manuscripts and Miniatures sale, taking place on 9 July. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
   </item>
   </channel>
 </rss>
