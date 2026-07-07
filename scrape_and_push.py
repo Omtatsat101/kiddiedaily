@@ -57,6 +57,7 @@ _ADULT_TITLE_RE = re.compile(
     r'|tobacco\s+(?:ban|industry|product|compan|giant|firm|pouch|use|control|tax|advert|smok)\w*'
     r'|smoking\s+(?:ban|kills|cessation|rates?)|(?:stop|quit|anti).?smoking'
     r'|nicotine\s+(?:pouch|addict\w*|product|patch|gum|replacement|hit|craving|delivery|content)'
+    r'|drinking\s+(?:to\s+cope|alcohol|problem|habit|culture|age)|(?:binge|heavy|problem)\s+drink\w*|alcohol\s+(?:use\s+disorder|abuse|addiction|dependence|consumption|misuse|poisoning)|alcoholics?|alcoholism'
     r'|hiv\b'
     r'|aids[\s-]?(?:free|epidemic|virus|patients?|crisis|diagnosis|treatment|deaths?|pandemic|generation|drugs?)'
     r'|hitler\b'
