@@ -270,6 +270,7 @@ _WORLD_NEWS_REJECT_RE = re.compile(
     r'|\bfarage\b|\bby-?elections?\b|\bresigns?\s+as\s+(?:an?\s+)?MP\b|\bMPs?\s+(?:resign|quit|vow|demand|debate|clash|defect|suspend)\w*'  # UK MP / by-election politics
     r'|\ble\s+pen\b|\btop\s+court\b|\bpresidency\b|\brun\s+for\s+(?:president|presidency|office|governor|mayor|congress|senate|parliament|the\s+white\s+house)\b'  # named politician / highest court / running for office
     r'|\bbirthright\s+citizenship\b|\bimmigration\s+(?:debate|fight|raid|reform|status|arrests?)\b'  # birthright-citizenship / immigration politics
+    r'|\bprotests?\b|\bprotesters?\b|\bdemonstrators?\b|\buprising\b'  # protest / activism / civil unrest
     r'|\bbiden\s+(?:signs?|pushes?|accuses?|orders?|admits?)\b' # partisan executive action
     r'|\brfk\s*jr\b'                            # US health secretary, always partisan
     r'|\b(?:maga|anti.maga|far.right|far.left|ultra.maga)\b' # partisan label content
