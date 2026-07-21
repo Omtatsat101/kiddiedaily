@@ -1,0 +1,115 @@
+name: Rebuild Sitemap
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Regenerate sitemap.xml from filesystem
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require("node:fs");
+          const path = require("node:path");
+
+          const repoRoot = process.cwd();
+          const cnamePath = path.join(repoRoot, "CNAME");
+          const domain = fs.existsSync(cnamePath)
+            ? fs.readFileSync(cnamePath, "utf8").trim()
+            : `${process.env.GITHUB_REPOSITORY_OWNER}.github.io/${process.env.GITHUB_REPOSITORY.split("/")[1]}`;
+          const baseUrl = `https://${domain.replace(/^https?:\/\//, "").replace(/\/$/, "")}`;
+          const skipDirs = new Set([".git", ".github", ".handoff", "node_modules", "public"]);
+          const routes = new Set();
+
+          function walk(currentDir) {
+            for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
+              if (entry.isDirectory()) {
+                if (!skipDirs.has(entry.name)) {
+                  walk(path.join(currentDir, entry.name));
+                }
+                continue;
+              }
+
+              if (!entry.name.endsWith(".html")) {
+                continue;
+              }
+
+              const absolutePath = path.join(currentDir, entry.name);
+              const relativePath = path.relative(repoRoot, absolutePath).replace(/\\/g, "/");
+
+              if (relativePath === "index.html") {
+                routes.add("/");
+              } else if (entry.name === "index.html") {
+                routes.add(`/${path.dirname(relativePath).replace(/\\/g, "/")}/`);
+              } else {
+                routes.add(`/${relativePath}`);
+              }
+            }
+          }
+
+          walk(repoRoot);
+
+          const sortedRoutes = [...routes].sort((left, right) => {
+            if (left === "/") return -1;
+            if (right === "/") return 1;
+            return left.localeCompare(right);
+          });
+
+          function priorityFor(route) {
+            if (route === "/") return "1.0";
+            if (/\/(privacy|terms)\.html$/.test(route)) return "0.5";
+            if (/\/contact\.html$/.test(route)) return "0.6";
+            if (/\/about\.html$/.test(route)) return "0.7";
+            if (route.endsWith("/")) return "0.9";
+            if (route.includes("/blog/")) return "0.7";
+            return "0.8";
+          }
+
+          const sitemap = [
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+            ...sortedRoutes.map((route) => {
+              const normalizedRoute = route === "/" ? "" : route;
+              return `  <url><loc>${baseUrl}${normalizedRoute}</loc><priority>${priorityFor(route)}</priority></url>`;
+            }),
+            "</urlset>",
+            "",
+          ].join("\n");
+
+          fs.writeFileSync(path.join(repoRoot, "sitemap.xml"), sitemap, "utf8");
+          NODE
+
+      - name: Commit sitemap update if needed
+        shell: bash
+        run: |
+          if git diff --quiet -- sitemap.xml; then
+            echo "No sitemap changes detected."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "chore: rebuild sitemap"
+          git push
