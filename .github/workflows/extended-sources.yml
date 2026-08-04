@@ -1,11 +1,11 @@
-name: KiddieDaily Extended Sources â€” Afternoon Run
+name: KiddieDaily Extended Sources — Afternoon Run
 
 on:
   # Fire after the truth-check verifier completes (which itself fires after the morning scraper)
   workflow_run:
     workflows: ["KiddieDaily Truth & Bias Verifier"]
     types: [completed]
-  # Fallback cron: 15:00 UTC (10am ET) â€” well after morning scraper + truth-check finish
+  # Fallback cron: 15:00 UTC (10am ET) — well after morning scraper + truth-check finish
   schedule:
     - cron: "0 15 * * *"
   # Always allow manual trigger
@@ -28,7 +28,7 @@ jobs:
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install dependencies
         run: pip install --quiet requests anthropic
@@ -38,3 +38,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python extended_sources_patch.py
+
