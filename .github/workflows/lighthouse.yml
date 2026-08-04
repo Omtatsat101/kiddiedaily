@@ -1,0 +1,139 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect site-facing changes
+        id: scope
+        shell: bash
+        run: |
+          changed_files=$(git diff --name-only origin/main...HEAD -- . ':(exclude).github/**')
+          if [ -z "$changed_files" ]; then
+            echo "site_changed=false" >> "$GITHUB_OUTPUT"
+            echo "No site-facing files changed; skipping Lighthouse comparison."
+          else
+            echo "site_changed=true" >> "$GITHUB_OUTPUT"
+            printf '%s\n' "$changed_files"
+          fi
+
+      - name: Prepare main-branch baseline checkout
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
+        shell: bash
+        run: |
+          git fetch origin main --depth=1
+          git worktree add ../baseline origin/main
+
+      - name: Start local static servers
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > current-site.log 2>&1 &
+          echo $! > current-site.pid
+
+          (
+            cd ../baseline
+            python3 -m http.server 4174 --bind 127.0.0.1 > ../baseline-site.log 2>&1 &
+            echo $! > ../baseline-site.pid
+          )
+
+      - name: Wait for local sites
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
+        shell: bash
+        run: |
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null && curl -fsS http://127.0.0.1:4174/ > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat current-site.log || true
+          cat baseline-site.log || true
+          exit 1
+
+      - name: Compare Lighthouse scores against main baseline
+        if: ${{ steps.scope.outputs.site_changed == 'true' }}
+        shell: bash
+        env:
+          BASELINE_URL: http://127.0.0.1:4174/
+          LOCAL_URL: http://127.0.0.1:4173/
+        run: |
+          npx --yes lighthouse "$BASELINE_URL" \
+            --only-categories=performance,accessibility \
+            --output=json \
+            --output-path=baseline-lighthouse.json \
+            --chrome-flags="--headless=new --no-sandbox" \
+            --quiet
+
+          npx --yes lighthouse "$LOCAL_URL" \
+            --only-categories=performance,accessibility \
+            --output=json \
+            --output-path=pr-lighthouse.json \
+            --chrome-flags="--headless=new --no-sandbox" \
+            --quiet
+
+          node <<'NODE'
+          const fs = require("node:fs");
+
+          const baseline = JSON.parse(fs.readFileSync("baseline-lighthouse.json", "utf8"));
+          const current = JSON.parse(fs.readFileSync("pr-lighthouse.json", "utf8"));
+          const categories = ["performance", "accessibility"];
+          const failures = [];
+
+          for (const category of categories) {
+            const baselineScore = baseline.categories[category]?.score ?? 0;
+            const currentScore = current.categories[category]?.score ?? 0;
+            const delta = currentScore - baselineScore;
+
+            console.log(
+              `${category}: baseline ${(baselineScore * 100).toFixed(0)}, current ${(currentScore * 100).toFixed(0)}, delta ${(delta * 100).toFixed(1)}`,
+            );
+
+            if (delta < -0.05) {
+              failures.push(`${category} dropped by ${Math.abs(delta * 100).toFixed(1)} points`);
+            }
+          }
+
+          if (failures.length > 0) {
+            console.error(failures.join("\n"));
+            process.exit(1);
+          }
+          NODE
+
+      - name: Upload Lighthouse artifacts
+        if: ${{ always() && steps.scope.outputs.site_changed == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: |
+            baseline-lighthouse.json
+            pr-lighthouse.json
+            current-site.log
+            baseline-site.log
+
+      - name: Stop local servers
+        if: ${{ always() && steps.scope.outputs.site_changed == 'true' }}
+        shell: bash
+        run: |
+          if [ -f current-site.pid ]; then
+            kill "$(cat current-site.pid)" || true
+          fi
+          if [ -f baseline-site.pid ]; then
+            kill "$(cat baseline-site.pid)" || true
+          fi
