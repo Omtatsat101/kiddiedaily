@@ -1924,7 +1924,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Run KiddieDaily news scraper
         env:
@@ -1952,7 +1952,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Python syntax check
         run: |
           python -m py_compile scrape_and_push.py
@@ -1969,7 +1969,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Validate HTML files (DOCTYPE + KiddieDaily header)
         run: |
           python - <<'EOF'
@@ -2030,7 +2030,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Validate sitemap
         run: |
           python - <<'EOF'
