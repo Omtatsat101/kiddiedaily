@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2026 16:45:04 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 16:48:22 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>Sperm whales change their clicks when boats are nearby scientists say</title>
-    <link>https://kiddiedaily.com/news/2026-08-04-sperm-whales-change-their-clicks-when-boats-are-ne.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-04-sperm-whales-change-their-clicks-when-boats-are-ne.html</guid>
-    <pubDate>Tue, 04 Aug 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>According to a new study, the marine creatures alter the pattern and timing of their clicks, almost like changing the way they speak. Find out more here.</description>
-  </item>
   <item>
     <title>Bear Rocks Preserve in Davis, West Virginia</title>
     <link>https://kiddiedaily.com/news/2026-08-04-bear-rocks-preserve-in-davis-west-virginia.html</link>
@@ -23,22 +15,6 @@
     <pubDate>Tue, 04 Aug 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Perched more than 4,000 feet above sea level at the northern edge of Dolly Sods, Bear Rocks is one of the most unusual landscapes in the Appalachian Mountains. Its broad sandstone outcrops overlook th</description>
-  </item>
-  <item>
-    <title>Photos: Guatemala’s Fuego volcano erupts, forcing evacuations</title>
-    <link>https://kiddiedaily.com/news/2026-08-04-photos-guatemalas-fuego-volcano-erupts-forcing-eva.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-04-photos-guatemalas-fuego-volcano-erupts-forcing-eva.html</guid>
-    <pubDate>Tue, 04 Aug 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Guatemala raises alert as Fuego volcano erupts, spewing ash and forcing village evacuations.</description>
-  </item>
-  <item>
-    <title>Songs prep unhatched finches’ brains for a hot world</title>
-    <link>https://kiddiedaily.com/news/2026-08-04-songs-prep-unhatched-finches-brains-for-a-hot-worl.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-04-songs-prep-unhatched-finches-brains-for-a-hot-worl.html</guid>
-    <pubDate>Tue, 04 Aug 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Adult finches make “heat calls” to their eggs when temps rise. Exposure to those songs trigger chicks' developing brains to change in ways that better handle heat.</description>
   </item>
   <item>
     <title>Gedenkstein Melitta Bentz in Dresden, Germany</title>
@@ -167,6 +143,30 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>La Casa del Mendrugo occupies an old colonial mansion in Puebla. Its name, Mendrugo, refers to the crumbs or charity that the Jesuits received from the parishioners in order to support their ministry.</description>
+  </item>
+  <item>
+    <title>Umtanum Creek Footbridge in Ellensburg, Washington</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Yakima (pronounced "YAK-uh-maw") Canyon, where the Yakima River traverses a water gap through Manastash Ridge, is an obvious thoroughfare and was used by Native Americans for thousands of years, and t</description>
+  </item>
+  <item>
+    <title>Cave Rock in Glenbrook, Nevada</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Cave Rock, which sits on the southeastern side of Lake Tahoe, is a 360-foot-high and 800-foot-wide geological marvel that archaeologists say was formed by a five-million-year-old volcano vent. Thousan</description>
+  </item>
+  <item>
+    <title>British Runner ‘Calls His Shot’ and Breaks World Record in the Mile–After it Stood for 27 Years</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Scottish runner Josh Kerr just put in the fastest mile time in human history, breaking a record that had stood for 27 years after clocking 3:42.66. Set at the recent London Diamond League athletics me</description>
   </item>
   </channel>
 </rss>
