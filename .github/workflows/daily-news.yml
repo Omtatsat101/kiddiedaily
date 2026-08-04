@@ -2,9 +2,9 @@ name: KiddieDaily Daily News Scraper
 
 on:
   schedule:
-    - cron: '0 10 * * *'    # 6am ET â€” morning update
-    - cron: '0 16 * * *'    # noon ET â€” midday update
-    - cron: '0 22 * * *'    # 6pm ET â€” evening update
+    - cron: '0 10 * * *'    # 6am ET — morning update
+    - cron: '0 16 * * *'    # noon ET — midday update
+    - cron: '0 22 * * *'    # 6pm ET — evening update
   workflow_dispatch:          # manual trigger for testing
 
 jobs:
@@ -19,10 +19,11 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Run KiddieDaily news scraper
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scrape_and_push.py
+
