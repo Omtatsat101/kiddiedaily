@@ -6,8 +6,16 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2026 10:54:20 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 11:16:35 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>The protein craze may not be for everyone</title>
+    <link>https://kiddiedaily.com/news/2026-08-05-the-protein-craze-may-not-be-for-everyone.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-05-the-protein-craze-may-not-be-for-everyone.html</guid>
+    <pubDate>Wed, 05 Aug 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Getting more protein has been all the rage. In sedentary people, that advice could accelerate aging.</description>
+  </item>
   <item>
     <title>Fridays With Bob</title>
     <link>https://kiddiedaily.com/news/2026-08-05-fridays-with-bob.html</link>
@@ -39,14 +47,6 @@
     <pubDate>Wed, 05 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Louis Armstrong’s name is almost always pronounced “Louie,” but the jazz legend himself insisted it was actually “Louis.” Here’s how the confusion started.</description>
-  </item>
-  <item>
-    <title>10 Most Common Jobs in the American Frontier Era</title>
-    <link>https://kiddiedaily.com/news/2026-08-05-10-most-common-jobs-in-the-american-frontier-era.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-05-10-most-common-jobs-in-the-american-frontier-era.html</guid>
-    <pubDate>Wed, 05 Aug 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>From blacksmiths to cowboys, these essential jobs defined everyday life on the rugged frontier.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
