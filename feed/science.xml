@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Aug 2026 10:39:27 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 15:04:08 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>A record-breaking star could reveal how the Milky Way’s giant black hole spins</title>
-    <link>https://kiddiedaily.com/news/2026-08-22-a-record-breaking-star-could-reveal-how-the-milky.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-22-a-record-breaking-star-could-reveal-how-the-milky.html</guid>
-    <pubDate>Sat, 22 Aug 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The star passes very close to the Milky Way’s supermassive black hole and could reveal the black hole’s spin by tracking how it warps the star’s orbit.</description>
-  </item>
   <item>
     <title>APOD: 2026 August 22 – Mostly Perseids</title>
     <link>https://kiddiedaily.com/news/2026-08-22-apod-2026-august-22-mostly-perseids.html</link>
@@ -23,6 +15,14 @@
     <pubDate>Sat, 22 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>APOD Science APOD APOD: 2026 August 22… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different i</description>
+  </item>
+  <item>
+    <title>A record-breaking star could reveal how the Milky Way’s giant black hole spins</title>
+    <link>https://kiddiedaily.com/news/2026-08-22-a-record-breaking-star-could-reveal-how-the-milky.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-22-a-record-breaking-star-could-reveal-how-the-milky.html</guid>
+    <pubDate>Sat, 22 Aug 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The star passes very close to the Milky Way’s supermassive black hole and could reveal the black hole’s spin by tracking how it warps the star’s orbit.</description>
   </item>
   <item>
     <title>This total solar eclipse looked strangely golden — here’s why</title>
@@ -33,20 +33,20 @@
     <description>Spain’s total solar eclipse delivered an unexpected sight: a corona glowing gold instead of its usual pearly white. Because the Sun was setting, its light passed through more atmosphere, while smoke f</description>
   </item>
   <item>
-    <title>Scientists say the human family tree may need a major rewrite</title>
-    <link>https://kiddiedaily.com/news/2026-08-22-scientists-say-the-human-family-tree-may-need-a-ma.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-22-scientists-say-the-human-family-tree-may-need-a-ma.html</guid>
+    <title>Out-of-control SpaceX rocket carved a 60-foot crater into the moon, NASA images reveal</title>
+    <link>https://kiddiedaily.com/news/2026-08-22-out-of-control-spacex-rocket-carved-a-60-foot-crat.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-22-out-of-control-spacex-rocket-carved-a-60-foot-crat.html</guid>
     <pubDate>Sat, 22 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>The human family tree may be due for a major rewrite. Researchers argue that Australopithecus and Paranthropus should be folded into the genus Homo because new fossils have blurred many of the traits</description>
+    <description>NASA has finally revealed the enormous crater left on the moon after a SpaceX Falcon 9 upper stage smashed into its surface on Aug. 5.</description>
   </item>
   <item>
-    <title>A SpaceX rocket smashed into the Moon — NASA just revealed the crater</title>
-    <link>https://kiddiedaily.com/news/2026-08-22-a-spacex-rocket-smashed-into-the-moon-nasa-just-re.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-22-a-spacex-rocket-smashed-into-the-moon-nasa-just-re.html</guid>
+    <title>On the hunt for dark matter</title>
+    <link>https://kiddiedaily.com/news/2026-08-22-on-the-hunt-for-dark-matter.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-22-on-the-hunt-for-dark-matter.html</guid>
     <pubDate>Sat, 22 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>A discarded SpaceX Falcon 9 stage crashed into the Moon on Aug. 5, leaving behind a newly formed crater about 60 feet wide. NASA’s Lunar Reconnaissance Orbiter captured detailed images showing bright</description>
+    <description>From Broadway to MIT’s Laboratory for Nuclear Science, PhD student Jessica Fry doesn’t do anything halfway. Now she’s hunting for the universe’s most elusive particle.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
