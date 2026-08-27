@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2026 13:35:41 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 14:09:00 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday</title>
@@ -15,22 +15,6 @@
     <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The Moon could glow an eerie red in the early hours of Friday but cloud cover may spoil the spectacle for some parts of the UK.</description>
-  </item>
-  <item>
-    <title>Remembering Dolly Parton: 8 facts about the icon</title>
-    <link>https://kiddiedaily.com/news/2026-08-27-remembering-dolly-parton-8-facts-about-the-icon.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-remembering-dolly-parton-8-facts-about-the-icon.html</guid>
-    <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Dolly Parton was one of the world's most successful artists. On Tuesday, her family announced that she passed away at 80. Here are some important and extraordinary facts about the country music supers</description>
-  </item>
-  <item>
-    <title>A record-breaking star could reveal how the Milky Way’s giant black hole spins</title>
-    <link>https://kiddiedaily.com/news/2026-08-27-a-record-breaking-star-could-reveal-how-the-milky.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-a-record-breaking-star-could-reveal-how-the-milky.html</guid>
-    <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The star passes very close to the Milky Way’s supermassive black hole and could reveal the black hole’s spin by tracking how it warps the star’s orbit.</description>
   </item>
   <item>
     <title>Roman Space Telescope Travels to SpaceX Hangar</title>
@@ -47,6 +31,14 @@
     <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>On Wednesday, Aug. 12, Jamie Carter was on an expedition cruise ship, searching for clear skies just below Greenland's ice cap. Here's how his ninth totality unfolded.</description>
+  </item>
+  <item>
+    <title>Fastest star in the galaxy could unlock black hole secrets</title>
+    <link>https://kiddiedaily.com/news/2026-08-27-fastest-star-in-the-galaxy-could-unlock-black-hole.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-fastest-star-in-the-galaxy-could-unlock-black-hole.html</guid>
+    <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Astronomers have discovered the fastest star in the galaxy. It orbits the supermassive black hole at the center of our galaxy and could reveal its spin. The post Fastest star in the galaxy could unloc</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
@@ -167,6 +159,14 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>While the celestial body seems to host three features that could make a livable environment—an atmosphere, a rocky composition and a temperature that could allow liquid water to sit on the surface—res</description>
+  </item>
+  <item>
+    <title>An ancient Maya astronomer finally has a name</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A Maya calendar formula bears the name Sak Tahn Waax, the first known Classic Maya mathematician-astronomer directly credited for such work.</description>
   </item>
   </channel>
 </rss>
