@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2026 14:09:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 18:32:08 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday</title>
-    <link>https://kiddiedaily.com/news/2026-08-27-moon-set-to-turn-red-as-rare-partial-lunar-eclipse.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-moon-set-to-turn-red-as-rare-partial-lunar-eclipse.html</guid>
-    <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The Moon could glow an eerie red in the early hours of Friday but cloud cover may spoil the spectacle for some parts of the UK.</description>
-  </item>
   <item>
     <title>Roman Space Telescope Travels to SpaceX Hangar</title>
     <link>https://kiddiedaily.com/news/2026-08-27-roman-space-telescope-travels-to-spacex-hangar.html</link>
@@ -33,12 +25,20 @@
     <description>On Wednesday, Aug. 12, Jamie Carter was on an expedition cruise ship, searching for clear skies just below Greenland's ice cap. Here's how his ninth totality unfolded.</description>
   </item>
   <item>
-    <title>Fastest star in the galaxy could unlock black hole secrets</title>
-    <link>https://kiddiedaily.com/news/2026-08-27-fastest-star-in-the-galaxy-could-unlock-black-hole.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-fastest-star-in-the-galaxy-could-unlock-black-hole.html</guid>
+    <title>Collapsed glacier likely caused devastating Nepal-Tibet floods, scientists say</title>
+    <link>https://kiddiedaily.com/news/2026-08-27-collapsed-glacier-likely-caused-devastating-nepal.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-collapsed-glacier-likely-caused-devastating-nepal.html</guid>
     <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>Astronomers have discovered the fastest star in the galaxy. It orbits the supermassive black hole at the center of our galaxy and could reveal its spin. The post Fastest star in the galaxy could unloc</description>
+    <description>Preliminary investigations by scientists have pointed to a collapsed glacier as the cause, highlighting the issue of rapidly melting Himalayan ice.</description>
+  </item>
+  <item>
+    <title>Turn Your Eyes to the Night Skies This Week to See a Near-Total Lunar Eclipse. It'll Temporarily Turn the Moon Red</title>
+    <link>https://kiddiedaily.com/news/2026-08-27-turn-your-eyes-to-the-night-skies-this-week-to-see.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-turn-your-eyes-to-the-night-skies-this-week-to-see.html</guid>
+    <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>During the peak, 96 percent of the moon will be within the darkest part of our planet's shadow. The orb will take on an eerie glow because of how sunlight gets filtered through Earth's atmosphere</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
