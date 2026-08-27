@@ -6,8 +6,16 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2026 13:35:41 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 14:09:00 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>Chickahominy Riverfront Park in Williamsburg, Virginia</title>
+    <link>https://kiddiedaily.com/news/2026-08-27-chickahominy-riverfront-park-in-williamsburg-virgi.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-27-chickahominy-riverfront-park-in-williamsburg-virgi.html</guid>
+    <pubDate>Thu, 27 Aug 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Just a few miles from Jamestown, Chickahominy Riverfront Park sits at the edge of a tidal river that has changed remarkably little since English colonists first explored it in 1607. Bald cypress trees</description>
+  </item>
   <item>
     <title>Gedenkstein Melitta Bentz in Dresden, Germany</title>
     <link>https://kiddiedaily.com/news/2026-07-21-gedenkstein-melitta-bentz-in-dresden-germany.html</link>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Scottish runner Josh Kerr just put in the fastest mile time in human history, breaking a record that had stood for 27 years after clocking 3:42.66. Set at the recent London Diamond League athletics me</description>
-  </item>
-  <item>
-    <title>Easton’s Crayola Crayons and Markers Statues in Easton, Pennsylvania</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-eastons-crayola-crayons-and-markers-statues-in-eas.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-eastons-crayola-crayons-and-markers-statues-in-eas.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>These colorful statues are on display in downtown Easton as a reminder of the birthplace of Crayola. Around 1885 Edwin Binney and C. Harold Smith set out on a mission to expand their business. They wa</description>
   </item>
   </channel>
 </rss>
