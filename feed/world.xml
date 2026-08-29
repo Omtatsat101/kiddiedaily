@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2026 16:14:41 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 22:02:41 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Fossil Beach at York River State Park in Williamsburg, Virginia</title>
@@ -15,6 +15,30 @@
     <pubDate>Sat, 29 Aug 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>The trail to Fossil Beach winds through a forest, a marsh , and ends at what appears to be an unassuming stretch of sand along the York River. But look down instead of out. Mixed among shells and pebb</description>
+  </item>
+  <item>
+    <title>Unusual Picnic Places Around the World</title>
+    <link>https://kiddiedaily.com/news/2026-08-29-unusual-picnic-places-around-the-world.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-29-unusual-picnic-places-around-the-world.html</guid>
+    <pubDate>Sat, 29 Aug 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>There’s nothing quite like a picnic surrounded by friends and family, soaking in the sun, sharing snacks, and enjoying the sounds of nature. Whether you prefer to use one big blanket, sit at a table w</description>
+  </item>
+  <item>
+    <title>Nelson House in Yorktown, Virginia</title>
+    <link>https://kiddiedaily.com/news/2026-08-29-nelson-house-in-yorktown-virginia.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-29-nelson-house-in-yorktown-virginia.html</guid>
+    <pubDate>Sat, 29 Aug 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>The Nelson House looks remarkably composed for a building that survived the Siege of Yorktown. Standing along Yorktown's Main Street, the Georgian house was built around 1730 by “Scotch Tom” Nelson, a</description>
+  </item>
+  <item>
+    <title>Have YOUR say: Should schools ban packed lunches?</title>
+    <link>https://kiddiedaily.com/news/2026-08-29-have-your-say-should-schools-ban-packed-lunches.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-29-have-your-say-should-schools-ban-packed-lunches.html</guid>
+    <pubDate>Sat, 29 Aug 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Should packed lunches be banned? Prue Leith says school meals could help children eat better, but what do YOU think?</description>
   </item>
   <item>
     <title>Gedenkstein Melitta Bentz in Dresden, Germany</title>
@@ -143,30 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>La Casa del Mendrugo occupies an old colonial mansion in Puebla. Its name, Mendrugo, refers to the crumbs or charity that the Jesuits received from the parishioners in order to support their ministry.</description>
-  </item>
-  <item>
-    <title>Umtanum Creek Footbridge in Ellensburg, Washington</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Yakima (pronounced "YAK-uh-maw") Canyon, where the Yakima River traverses a water gap through Manastash Ridge, is an obvious thoroughfare and was used by Native Americans for thousands of years, and t</description>
-  </item>
-  <item>
-    <title>Cave Rock in Glenbrook, Nevada</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Cave Rock, which sits on the southeastern side of Lake Tahoe, is a 360-foot-high and 800-foot-wide geological marvel that archaeologists say was formed by a five-million-year-old volcano vent. Thousan</description>
-  </item>
-  <item>
-    <title>British Runner ‘Calls His Shot’ and Breaks World Record in the Mile–After it Stood for 27 Years</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Scottish runner Josh Kerr just put in the fastest mile time in human history, breaking a record that had stood for 27 years after clocking 3:42.66. Set at the recent London Diamond League athletics me</description>
   </item>
   </channel>
 </rss>
