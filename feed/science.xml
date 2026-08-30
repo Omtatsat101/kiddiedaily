@@ -6,8 +6,16 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Aug 2026 10:32:43 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 15:04:40 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>'A glorious dawn launch': NASA's newest space telescope has left the Earth</title>
+    <link>https://kiddiedaily.com/news/2026-08-30-a-glorious-dawn-launch-nasas-newest-space-telescop.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-30-a-glorious-dawn-launch-nasas-newest-space-telescop.html</guid>
+    <pubDate>Sun, 30 Aug 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The tour-bus-sized telescope aims to unravel cosmic mysteries and identify more than 100,000 planets beyond our solar system.</description>
+  </item>
   <item>
     <title>Best eclipse photos! Nearly total lunar August 27-28</title>
     <link>https://kiddiedaily.com/news/2026-08-30-best-eclipse-photos-nearly-total-lunar-august-27-2.html</link>
@@ -31,14 +39,6 @@
     <pubDate>Sun, 30 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Wake up your sleepy brain this Sunday with trivia covering history and beyond.</description>
-  </item>
-  <item>
-    <title>NASA’s new space telescope will reveal the universe like never before</title>
-    <link>https://kiddiedaily.com/news/2026-08-30-nasas-new-space-telescope-will-reveal-the-universe.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-30-nasas-new-space-telescope-will-reveal-the-universe.html</guid>
-    <pubDate>Sun, 30 Aug 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>NASA’s new Nancy Grace Roman space telescope will tackle nearly every aspect of astrophysics, including dark matter, dark energy and alien planets.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
