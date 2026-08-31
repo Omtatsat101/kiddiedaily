@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2026 10:10:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 10:34:36 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Trump hails NASA's space telescope launch</title>
@@ -39,6 +39,14 @@
     <pubDate>Mon, 31 Aug 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Get ready for your week with our latest batch of trivia.</description>
+  </item>
+  <item>
+    <title>Ribbon-Cutting Event for NASA Deep Space Network’s Deep Space Station 23</title>
+    <link>https://kiddiedaily.com/news/2026-08-31-ribbon-cutting-event-for-nasa-deep-space-networks.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-08-31-ribbon-cutting-event-for-nasa-deep-space-networks.html</guid>
+    <pubDate>Mon, 31 Aug 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Description Leadership from NASA Headquarters, the Jet Propulsion Laboratory, and the Deep Space Network (DSN) stand in front of the recently completed Deep Space Station 23 antenna at the Deep Space</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>While the celestial body seems to host three features that could make a livable environment—an atmosphere, a rocky composition and a temperature that could allow liquid water to sit on the surface—res</description>
-  </item>
-  <item>
-    <title>An ancient Maya astronomer finally has a name</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>A Maya calendar formula bears the name Sak Tahn Waax, the first known Classic Maya mathematician-astronomer directly credited for such work.</description>
   </item>
   </channel>
 </rss>
