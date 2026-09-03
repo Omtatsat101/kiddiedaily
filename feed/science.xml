@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Sep 2026 10:10:22 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 10:34:51 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>NASA’s Roman Space Telescope launches to reveal the Universe’s darkest secrets</title>
@@ -17,12 +17,20 @@
     <description>NASA’s Roman Space Telescope has launched on a million mile journey to L2, where it will scan huge portions of the cosmos for clues about dark matter, dark energy, and distant worlds. With survey spee</description>
   </item>
   <item>
-    <title>New Hubble images reveal a bizarre decagon over Saturn’s south pole</title>
-    <link>https://kiddiedaily.com/news/2026-09-03-new-hubble-images-reveal-a-bizarre-decagon-over-sa.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-03-new-hubble-images-reveal-a-bizarre-decagon-over-sa.html</guid>
+    <title>NASA’s Hubble Tracks New Decagon Encircling Saturn’s South Pole</title>
+    <link>https://kiddiedaily.com/news/2026-09-03-nasas-hubble-tracks-new-decagon-encircling-saturns.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-03-nasas-hubble-tracks-new-decagon-encircling-saturns.html</guid>
     <pubDate>Thu, 03 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>A hexagon darkens the clouds over Saturn’s north pole. Now, astronomers have found a similarly shaped atmospheric wave at the other pole.</description>
+    <description>NASA’s Hubble Space Telescope observes a giant, evolving, 10-sided atmospheric wave encircling Saturn’s south pole.</description>
+  </item>
+  <item>
+    <title>APOD: 2026 September 3 – The Eclipse and the Stork</title>
+    <link>https://kiddiedaily.com/news/2026-09-03-apod-2026-september-3-the-eclipse-and-the-stork.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-03-apod-2026-september-3-the-eclipse-and-the-stork.html</guid>
+    <pubDate>Thu, 03 Sep 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>APOD Science APOD APOD: 2026 September 3 – The… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a dif</description>
   </item>
   <item>
     <title>Trivia of the Day for September 2, 2026: We Bet You Can’t Get Every Question Right</title>
@@ -31,14 +39,6 @@
     <pubDate>Thu, 03 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Get in some mental exercise this Wednesday with the latest entry of Mental Floss’s Trivia of the Day.</description>
-  </item>
-  <item>
-    <title>Atlas of the brain’s striatum could guide researchers to new drug treatments</title>
-    <link>https://kiddiedaily.com/news/2026-09-03-atlas-of-the-brains-striatum-could-guide-researche.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-03-atlas-of-the-brains-striatum-could-guide-researche.html</guid>
-    <pubDate>Thu, 03 Sep 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>A new study reveals insights into populations of neurons affected by Huntington’s disease, schizophrenia, addiction, and other disorders.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
