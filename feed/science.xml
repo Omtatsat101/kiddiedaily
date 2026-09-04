@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2026 10:34:38 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 15:05:43 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>A Mysterious Decagon Unexpectedly Appeared Around Saturn's South Pole. The Ten-Sided Shape Seems to Be a Wave in the Atmosphere</title>
@@ -17,20 +17,12 @@
     <description>Decades ago, scientists found a hexagon around Saturn’s north pole. Now, recent images reveal a decagon in the planet’s southern hemisphere—and it seems to have recently formed</description>
   </item>
   <item>
-    <title>NASA’s Roman Space Telescope launches to reveal the Universe’s darkest secrets</title>
-    <link>https://kiddiedaily.com/news/2026-09-04-nasas-roman-space-telescope-launches-to-reveal-the.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-04-nasas-roman-space-telescope-launches-to-reveal-the.html</guid>
+    <title>Dark matter detector finds a strange signal scientists can’t yet explain</title>
+    <link>https://kiddiedaily.com/news/2026-09-04-dark-matter-detector-finds-a-strange-signal-scient.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-04-dark-matter-detector-finds-a-strange-signal-scient.html</guid>
     <pubDate>Fri, 04 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>NASA’s Roman Space Telescope has launched on a million mile journey to L2, where it will scan huge portions of the cosmos for clues about dark matter, dark energy, and distant worlds. With survey spee</description>
-  </item>
-  <item>
-    <title>Dark matter hunters may have finally spotted a hint of the particles</title>
-    <link>https://kiddiedaily.com/news/2026-09-04-dark-matter-hunters-may-have-finally-spotted-a-hin.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-04-dark-matter-hunters-may-have-finally-spotted-a-hin.html</guid>
-    <pubDate>Fri, 04 Sep 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Shadowy dark matter has eluded scientists for decades. The LZ experiment may have spotted one particle, called a WIMP, but more data is needed to check.</description>
+    <description>The LUX-ZEPLIN experiment has detected a rare particle interaction that looks unusually difficult to explain as ordinary background noise and appeared where dark matter might be expected. Scientists a</description>
   </item>
   <item>
     <title>Atlas of the brain’s striatum could guide researchers to new drug treatments</title>
@@ -39,6 +31,14 @@
     <pubDate>Fri, 04 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>A new study reveals insights into populations of neurons affected by Huntington’s disease, schizophrenia, addiction, and other disorders.</description>
+  </item>
+  <item>
+    <title>NASA’s new space telescope will reveal the universe like never before</title>
+    <link>https://kiddiedaily.com/news/2026-09-04-nasas-new-space-telescope-will-reveal-the-universe.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-04-nasas-new-space-telescope-will-reveal-the-universe.html</guid>
+    <pubDate>Fri, 04 Sep 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>NASA’s new Nancy Grace Roman space telescope will tackle nearly every aspect of astrophysics, including dark matter, dark energy and alien planets.</description>
   </item>
   <item>
     <title>Dame Jacqueline Wilson answers YOUR questions</title>
