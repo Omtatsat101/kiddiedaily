@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:32:54 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 15:04:46 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>Have scientists discovered a dark matter particle?</title>
-    <link>https://kiddiedaily.com/news/2026-09-05-have-scientists-discovered-a-dark-matter-particle.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-05-have-scientists-discovered-a-dark-matter-particle.html</guid>
-    <pubDate>Sat, 05 Sep 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Dark matter is an invisible substance that is said to bind the universe; scientists may have found new signs of it.</description>
-  </item>
   <item>
     <title>A Mysterious Decagon Unexpectedly Appeared Around Saturn's South Pole. The Ten-Sided Shape Seems to Be a Wave in the Atmosphere</title>
     <link>https://kiddiedaily.com/news/2026-09-05-a-mysterious-decagon-unexpectedly-appeared-around.html</link>
@@ -23,6 +15,14 @@
     <pubDate>Sat, 05 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Decades ago, scientists found a hexagon around Saturn’s north pole. Now, recent images reveal a decagon in the planet’s southern hemisphere—and it seems to have recently formed</description>
+  </item>
+  <item>
+    <title>Dark matter detector finds a strange signal scientists can’t yet explain</title>
+    <link>https://kiddiedaily.com/news/2026-09-05-dark-matter-detector-finds-a-strange-signal-scient.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-05-dark-matter-detector-finds-a-strange-signal-scient.html</guid>
+    <pubDate>Sat, 05 Sep 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The LUX-ZEPLIN experiment has detected a rare particle interaction that looks unusually difficult to explain as ordinary background noise and appeared where dark matter might be expected. Scientists a</description>
   </item>
   <item>
     <title>Atlas of the brain’s striatum could guide researchers to new drug treatments</title>
@@ -41,12 +41,12 @@
     <description>NASA’s new Nancy Grace Roman space telescope will tackle nearly every aspect of astrophysics, including dark matter, dark energy and alien planets.</description>
   </item>
   <item>
-    <title>The Most Popular TV Show the Year You Were Born</title>
-    <link>https://kiddiedaily.com/news/2026-09-05-the-most-popular-tv-show-the-year-you-were-born.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-05-the-most-popular-tv-show-the-year-you-were-born.html</guid>
+    <title>Medieval Past Revealed at Bayeux Tapestry Museum</title>
+    <link>https://kiddiedaily.com/news/2026-09-05-medieval-past-revealed-at-bayeux-tapestry-museum.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-05-medieval-past-revealed-at-bayeux-tapestry-museum.html</guid>
     <pubDate>Sat, 05 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>This show was likely playing on TV just as you learned to sit and crawl!</description>
+    <description>Archaeological excavations at the Bayeux Tapestry Museum reveal medieval tanning and dyeing, hundreds of burials and nearly 2,000 years of history.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
