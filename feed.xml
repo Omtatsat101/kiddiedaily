@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Sep 2026 10:35:29 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 15:05:39 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>Scientists say August was Earth's hottest month they've measured</title>
-    <link>https://kiddiedaily.com/news/2026-09-10-scientists-say-august-was-earths-hottest-month-the.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-10-scientists-say-august-was-earths-hottest-month-the.html</guid>
-    <pubDate>Thu, 10 Sep 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The European climate service Copernicus said the Earth just sweltered through its hottest month on record in August. Scientists said the heat surge is mostly due to human-caused climate change. — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
   <item>
     <title>15 Best Places to Experience Bioluminescence</title>
     <link>https://kiddiedaily.com/news/2026-09-10-15-best-places-to-experience-bioluminescence.html</link>
@@ -23,6 +15,14 @@
     <pubDate>Thu, 10 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The humble glow worm is, in fact, a catchall term for numerous glowing creatures, from gnat larvae to fire flys to algae, that can be found all over the world. These tiny critters illuminate the night — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>The American “cheetah” wasn’t a cheetah at all</title>
+    <link>https://kiddiedaily.com/news/2026-09-10-the-american-cheetah-wasnt-a-cheetah-at-all.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-10-the-american-cheetah-wasnt-a-cheetah-at-all.html</guid>
+    <pubDate>Thu, 10 Sep 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The extinct “American cheetah” was not really a cheetah at all, but a puma relative with an unexpectedly flexible lifestyle. Fossils from the Yukon suggest northern populations survived partly by eati — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>New Hubble images reveal a bizarre decagon over Saturn’s south pole</title>
@@ -41,12 +41,12 @@
     <description>After nearly eight years and billions of kilometers of travel, BepiColombo -- a science mission led by ESA in close collaboration with JAXA -- has begun its long-awaited arrival at the smallest and in — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>How the lowly egg could help protect future spacecraft</title>
-    <link>https://kiddiedaily.com/news/2026-09-10-how-the-lowly-egg-could-help-protect-future-spacec.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-10-how-the-lowly-egg-could-help-protect-future-spacec.html</guid>
+    <title>We are not ready for El Niño — here's how we can be</title>
+    <link>https://kiddiedaily.com/news/2026-09-10-we-are-not-ready-for-el-nino-heres-how-we-can-be.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-10-we-are-not-ready-for-el-nino-heres-how-we-can-be.html</guid>
     <pubDate>Thu, 10 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>Bioinspired designs could be sturdy astronaut allies. The post How the lowly egg could help protect future spacecraft appeared first on Popular Science . — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
+    <description>For this forecast, we still have the time to act. — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
