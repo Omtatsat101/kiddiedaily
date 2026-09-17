@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Sep 2026 15:05:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 16:13:47 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>UK butterfly numbers are up but campaigners say it's not all good news</title>
@@ -17,12 +17,28 @@
     <description>Warm weather have seen butterfly numbers grow in the UK this year, but charity Butterfly Conservation are worried about a population crash.</description>
   </item>
   <item>
+    <title>What do you think of your school dinners?</title>
+    <link>https://kiddiedaily.com/news/2026-09-17-what-do-you-think-of-your-school-dinners.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-17-what-do-you-think-of-your-school-dinners.html</guid>
+    <pubDate>Thu, 17 Sep 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Changes are coming to school dinners in England with the aim of making them healthier - it'll mean more fruit and veg but fewer chips! Have your say on the changes and tell us you think about what you</description>
+  </item>
+  <item>
     <title>Why is inflation rising again around the world?</title>
     <link>https://kiddiedaily.com/news/2026-09-17-why-is-inflation-rising-again-around-the-world.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-17-why-is-inflation-rising-again-around-the-world.html</guid>
     <pubDate>Thu, 17 Sep 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Rising energy prices are pushing inflation higher again, forcing major central banks to raise interest rates.</description>
+  </item>
+  <item>
+    <title>Canada welcomes EU proposal to become 'associate member'</title>
+    <link>https://kiddiedaily.com/news/2026-09-17-canada-welcomes-eu-proposal-to-become-associate-me.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-17-canada-welcomes-eu-proposal-to-become-associate-me.html</guid>
+    <pubDate>Thu, 17 Sep 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Canadian Prime Minister Mark Carney said a Canada-EU alliance would create a "beacon for other democracies".</description>
   </item>
   <item>
     <title>Gedenkstein Melitta Bentz in Dresden, Germany</title>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>La Casa del Mendrugo occupies an old colonial mansion in Puebla. Its name, Mendrugo, refers to the crumbs or charity that the Jesuits received from the parishioners in order to support their ministry.</description>
-  </item>
-  <item>
-    <title>Umtanum Creek Footbridge in Ellensburg, Washington</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Yakima (pronounced "YAK-uh-maw") Canyon, where the Yakima River traverses a water gap through Manastash Ridge, is an obvious thoroughfare and was used by Native Americans for thousands of years, and t</description>
-  </item>
-  <item>
-    <title>Cave Rock in Glenbrook, Nevada</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Cave Rock, which sits on the southeastern side of Lake Tahoe, is a 360-foot-high and 800-foot-wide geological marvel that archaeologists say was formed by a five-million-year-old volcano vent. Thousan</description>
   </item>
   </channel>
 </rss>
