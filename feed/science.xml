@@ -6,23 +6,15 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Sep 2026 10:35:03 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 15:05:20 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
-    <title>New tiger cat species identified in Bolivia, first in over a century</title>
-    <link>https://kiddiedaily.com/news/2026-09-18-new-tiger-cat-species-identified-in-bolivia-first.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-18-new-tiger-cat-species-identified-in-bolivia-first.html</guid>
+    <title>Scientists name a new cat species for the first time in over a century</title>
+    <link>https://kiddiedaily.com/news/2026-09-18-scientists-name-a-new-cat-species-for-the-first-ti.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-18-scientists-name-a-new-cat-species-for-the-first-ti.html</guid>
     <pubDate>Fri, 18 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>Leopardus tilcayo is the first new living cat species named and described in more than a century.</description>
-  </item>
-  <item>
-    <title>Venus may have swallowed its own moon</title>
-    <link>https://kiddiedaily.com/news/2026-09-18-venus-may-have-swallowed-its-own-moon.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-18-venus-may-have-swallowed-its-own-moon.html</guid>
-    <pubDate>Fri, 18 Sep 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Venus may have once had a moon, but new research suggests the planet’s incredibly slow rotation could have doomed it. Computer simulations showed that instead of gradually drifting away like Earth’s m</description>
+    <description>The South American tiger cat is not one species but five distinct species, a new study finds.</description>
   </item>
   <item>
     <title>How Do You Read Ancient Charred Scrolls? Make Your Own</title>
@@ -33,20 +25,20 @@
     <description>A new technique could unlock the secrets of the Herculaneum scrolls The post How Do You Read Ancient Charred Scrolls? Make Your Own appeared first on Nautilus .</description>
   </item>
   <item>
-    <title>A 66-Million-Year-Old Feather Trapped in Dinosaur Poop Might Help Explain Why Some Birds Survived Mass Extinction</title>
-    <link>https://kiddiedaily.com/news/2026-09-18-a-66-million-year-old-feather-trapped-in-dinosaur.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-18-a-66-million-year-old-feather-trapped-in-dinosaur.html</guid>
+    <title>Scientists develop new method for deciphering ancient scrolls</title>
+    <link>https://kiddiedaily.com/news/2026-09-18-scientists-develop-new-method-for-deciphering-anci.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-18-scientists-develop-new-method-for-deciphering-anci.html</guid>
     <pubDate>Fri, 18 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>Discovered in Montana in 2016, the cherry-size coprolite contains feathers, bones and evidence of the bird's last meal before the creature was eaten by a theropod</description>
+    <description>Even a handheld XRF scanner is sufficient to determine most promising scrolls for further analysis.</description>
   </item>
   <item>
-    <title>Fossils of iconic long-necked dinosaur Diplodocus found in Europe for first time — and it may have traveled there via land bridge</title>
-    <link>https://kiddiedaily.com/news/2026-09-18-fossils-of-iconic-long-necked-dinosaur-diplodocus.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-18-fossils-of-iconic-long-necked-dinosaur-diplodocus.html</guid>
+    <title>The U.S. has weapons in space. Here’s what that could mean</title>
+    <link>https://kiddiedaily.com/news/2026-09-18-the-us-has-weapons-in-space-heres-what-that-could.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-18-the-us-has-weapons-in-space-heres-what-that-could.html</guid>
     <pubDate>Fri, 18 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>Fossils of the long-necked dinosaur Diplodocus have been discovered in Spain, marking the first time remains of this iconic Jurassic-period dino have been found outside the U.S.</description>
+    <description>A cryptic announcement raises questions about the type of weapons and how they could be used. We talked to an expert about the consequences.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
@@ -167,6 +159,14 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>While the celestial body seems to host three features that could make a livable environment—an atmosphere, a rocky composition and a temperature that could allow liquid water to sit on the surface—res</description>
+  </item>
+  <item>
+    <title>An ancient Maya astronomer finally has a name</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>A Maya calendar formula bears the name Sak Tahn Waax, the first known Classic Maya mathematician-astronomer directly credited for such work.</description>
   </item>
   </channel>
 </rss>
