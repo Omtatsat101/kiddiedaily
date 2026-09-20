@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2026 10:08:58 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 10:33:10 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Meet Earth's newest wild cat species, living in Bolivia and the first named in over a century</title>
@@ -33,20 +33,20 @@
     <description>Scientists have grown human brain tissue to fill most of a mouse’s cortex, creating a new model for studying brain disease and neural circuits.</description>
   </item>
   <item>
-    <title>Scientists develop new method for deciphering ancient scrolls</title>
-    <link>https://kiddiedaily.com/news/2026-09-20-scientists-develop-new-method-for-deciphering-anci.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-20-scientists-develop-new-method-for-deciphering-anci.html</guid>
-    <pubDate>Sun, 20 Sep 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Even a handheld XRF scanner is sufficient to determine most promising scrolls for further analysis.</description>
-  </item>
-  <item>
     <title>A giant crater may reveal the origin of Mars’ doomed moon</title>
     <link>https://kiddiedaily.com/news/2026-09-20-a-giant-crater-may-reveal-the-origin-of-mars-doome.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-20-a-giant-crater-may-reveal-the-origin-of-mars-doome.html</guid>
     <pubDate>Sun, 20 Sep 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>A massive crater on Mars’ moon Phobos may hide a dense region of compressed material that could reveal whether the moon is a captured asteroid or debris from an ancient impact on Mars. Japan’s upcomin</description>
+  </item>
+  <item>
+    <title>Surviving the summer</title>
+    <link>https://kiddiedaily.com/news/2026-09-20-surviving-the-summer.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-20-surviving-the-summer.html</guid>
+    <pubDate>Sun, 20 Sep 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Editor in Chief Nancy Shute discusses existential threats to humankind: extreme heat, never-ending drought and a plan to provide Earth with sunlight on demand.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
