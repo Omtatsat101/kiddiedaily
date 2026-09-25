@@ -6,40 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Sep 2026 22:03:12 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 22:06:49 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>Man City found guilty of majority of 115 financial rule breaches</title>
-    <link>https://kiddiedaily.com/news/2026-09-25-man-city-found-guilty-of-majority-of-115-financial.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-25-man-city-found-guilty-of-majority-of-115-financial.html</guid>
-    <pubDate>Fri, 25 Sep 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>The club, which denies all wrongdoing, is accused of breaching the Premier League's financial rules between 2009 and 2018.</description>
-  </item>
-  <item>
-    <title>Let’s learn about trace fossils</title>
-    <link>https://kiddiedaily.com/news/2026-09-25-lets-learn-about-trace-fossils.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-25-lets-learn-about-trace-fossils.html</guid>
-    <pubDate>Fri, 25 Sep 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Trace fossils — such as burrows, footprints and vomit — offer snapshots of ancient life.</description>
-  </item>
-  <item>
-    <title>Timeline: Man City’s Premier League financial charges to reported verdict</title>
-    <link>https://kiddiedaily.com/news/2026-09-25-timeline-man-citys-premier-league-financial-charge.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-25-timeline-man-citys-premier-league-financial-charge.html</guid>
-    <pubDate>Fri, 25 Sep 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>City reportedly found guilty of all but one of the 115 charges that were first brought in February 2023.</description>
-  </item>
-  <item>
-    <title>Like an armadillo, a new soft robot rolls up to protect itself</title>
-    <link>https://kiddiedaily.com/news/2026-09-25-like-an-armadillo-a-new-soft-robot-rolls-up-to-pro.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-09-25-like-an-armadillo-a-new-soft-robot-rolls-up-to-pro.html</guid>
-    <pubDate>Fri, 25 Sep 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Like the three-banded armadillo, this device can roll up to shield its innards, such as sensitive electronics and a small payload.</description>
-  </item>
   <item>
     <title>Gedenkstein Melitta Bentz in Dresden, Germany</title>
     <link>https://kiddiedaily.com/news/2026-07-21-gedenkstein-melitta-bentz-in-dresden-germany.html</link>
@@ -167,6 +135,38 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>La Casa del Mendrugo occupies an old colonial mansion in Puebla. Its name, Mendrugo, refers to the crumbs or charity that the Jesuits received from the parishioners in order to support their ministry.</description>
+  </item>
+  <item>
+    <title>Umtanum Creek Footbridge in Ellensburg, Washington</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Yakima (pronounced "YAK-uh-maw") Canyon, where the Yakima River traverses a water gap through Manastash Ridge, is an obvious thoroughfare and was used by Native Americans for thousands of years, and t</description>
+  </item>
+  <item>
+    <title>Cave Rock in Glenbrook, Nevada</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Cave Rock, which sits on the southeastern side of Lake Tahoe, is a 360-foot-high and 800-foot-wide geological marvel that archaeologists say was formed by a five-million-year-old volcano vent. Thousan</description>
+  </item>
+  <item>
+    <title>British Runner ‘Calls His Shot’ and Breaks World Record in the Mile–After it Stood for 27 Years</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Scottish runner Josh Kerr just put in the fastest mile time in human history, breaking a record that had stood for 27 years after clocking 3:42.66. Set at the recent London Diamond League athletics me</description>
+  </item>
+  <item>
+    <title>Easton’s Crayola Crayons and Markers Statues in Easton, Pennsylvania</title>
+    <link>https://kiddiedaily.com/news/2026-07-21-eastons-crayola-crayons-and-markers-statues-in-eas.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-eastons-crayola-crayons-and-markers-statues-in-eas.html</guid>
+    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>These colorful statues are on display in downtown Easton as a reminder of the birthplace of Crayola. Around 1885 Edwin Binney and C. Harold Smith set out on a mission to expand their business. They wa</description>
   </item>
   </channel>
 </rss>
