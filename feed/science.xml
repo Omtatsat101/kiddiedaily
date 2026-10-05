@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Oct 2026 16:17:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 22:02:45 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Some dinosaurs may have munched on seaweed, scientists say</title>
@@ -17,14 +17,6 @@
     <description>Scientists say they have found evidence from fossils, that some dinosaurs living near the coast 100 million year ago may have eaten food that came from the sea.</description>
   </item>
   <item>
-    <title>What Does an Earthquake Sound Like?</title>
-    <link>https://kiddiedaily.com/news/2026-10-05-what-does-an-earthquake-sound-like.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-what-does-an-earthquake-sound-like.html</guid>
-    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Seismologist Hugo Benioff spent decades turning seismic vibrations into signals he could study—and, eventually, hear. The post What Does an Earthquake Sound Like? appeared first on JSTOR Daily .</description>
-  </item>
-  <item>
     <title>Your gut bacteria may reveal how fast your brain is aging</title>
     <link>https://kiddiedaily.com/news/2026-10-05-your-gut-bacteria-may-reveal-how-fast-your-brain-i.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-your-gut-bacteria-may-reveal-how-fast-your-brain-i.html</guid>
@@ -33,12 +25,20 @@
     <description>A UCLA study links faster brain aging to specific gut bacteria and chemical byproducts, with older-looking brains also associated with poorer memory, focus, and mood. The findings suggest that biologi</description>
   </item>
   <item>
-    <title>The job interview question you don't have to answer</title>
-    <link>https://kiddiedaily.com/news/2026-10-05-the-job-interview-question-you-dont-have-to-answer.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-the-job-interview-question-you-dont-have-to-answer.html</guid>
+    <title>What Does an Earthquake Sound Like?</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-what-does-an-earthquake-sound-like.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-what-does-an-earthquake-sound-like.html</guid>
     <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>Experts explain what you should do if you are asked for your current salary during a job interview.</description>
+    <description>Seismologist Hugo Benioff spent decades turning seismic vibrations into signals he could study—and, eventually, hear. The post What Does an Earthquake Sound Like? appeared first on JSTOR Daily .</description>
+  </item>
+  <item>
+    <title>AP World History Unit 4: Transoceanic Interconnections (c. 1450–1750)</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-ap-world-history-unit-4-transoceanic-interconnecti.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-ap-world-history-unit-4-transoceanic-interconnecti.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Between 1450 and 1750, new maritime technology allowed European states to reach the Americas, Africa, and Asia by sea for the first time, linking the Eastern and Western Hemispheres in a single networ</description>
   </item>
   <item>
     <title>People really hate AI, so why can’t they get enough?</title>
@@ -47,6 +47,54 @@
     <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Over the summer I talked to the CEO of Springboards, a startup building an LLM that’s designed to come up with a wider variety of responses than its mainstream rivals do. At the start of the call, he</description>
+  </item>
+  <item>
+    <title>Hunter-Gatherers Don’t Have Trouble Sleeping: Why? and What Can We Learn from Them?</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-hunter-gatherers-dont-have-trouble-sleeping-why-an.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-hunter-gatherers-dont-have-trouble-sleeping-why-an.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The BBC recently spoke with a sleep scientist who&amp;#8217;s spent much of his career studying the sleeping habits of the last remaining, contactable, hunter-gatherer societies on Earth. What he found mi</description>
+  </item>
+  <item>
+    <title>What are the world’s loudest birds? Here are 2 contenders</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-what-are-the-worlds-loudest-birds-here-are-2-conte.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-what-are-the-worlds-loudest-birds-here-are-2-conte.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>What are the world's loudest birds? Researchers say the bare-throated bellbird and red-legged seriema are 2 major contenders. The post What are the world’s loudest birds? Here are 2 contenders first a</description>
+  </item>
+  <item>
+    <title>And the Fat Bear Week winner is … Backpack!</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-and-the-fat-bear-week-winner-is-backpack.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-and-the-fat-bear-week-winner-is-backpack.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Congrats to Backpack, the winner of Fat Bear Week 2026! Take a look at the final brackets and see where your favorite fatties fell. The post And the Fat Bear Week winner is … Backpack! first appeared</description>
+  </item>
+  <item>
+    <title>How prepared are you for a disaster?</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-how-prepared-are-you-for-a-disaster.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-how-prepared-are-you-for-a-disaster.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>From emergency kits to evacuation plans, Live Science asks readers how prepared they are for the unexpected.</description>
+  </item>
+  <item>
+    <title>APOD: 2026 October 5 – M104: The Sombrero Galaxy’s Tidal Streams</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-apod-2026-october-5-m104-the-sombrero-galaxys-tida.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-apod-2026-october-5-m104-the-sombrero-galaxys-tida.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>APOD Science APOD APOD: 2026 October 5 – M104:… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a dif</description>
+  </item>
+  <item>
+    <title>Scientists find a surprising clue to why the universe’s expansion doesn’t add up</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-scientists-find-a-surprising-clue-to-why-the-unive.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-scientists-find-a-surprising-clue-to-why-the-unive.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Tiny magnetic fields created shortly after the Big Bang may help explain the long-running disagreement over how fast the universe is expanding. Detailed simulations show that these primordial fields c</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
@@ -119,54 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Astronomers have detected helium escaping from the super-Earth LHS 1140 b, providing the strongest evidence yet that a rocky planet in another star's habitable zone has retained an atmosphere for bill</description>
-  </item>
-  <item>
-    <title>Actively Steerable Femtosat Constellations for In-situ Exploration of Saturn’s Rings, Atmosphere, and Magnetosphere</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-actively-steerable-femtosat-constellations-for-in.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-actively-steerable-femtosat-constellations-for-in.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Michael RubensteinNorthwestern University, Chicago We propose a mission to use ~10,000 actively steerable femtosats to map the ring composition, atmospheric composition and density, and the magnetic f</description>
-  </item>
-  <item>
-    <title>This “exotic weirdo” exoplanet has a rocky surface and an atmosphere</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-this-exotic-weirdo-exoplanet-has-a-rocky-surface-a.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-this-exotic-weirdo-exoplanet-has-a-rocky-surface-a.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Astronomers found a helium atmosphere around a rocky exoplanet — a good sign for the search for life outside the solar system.</description>
-  </item>
-  <item>
-    <title>James Webb Space Telescope looks back in time 4.4 billion years | Space photo of the day for July 21, 2026</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-james-webb-space-telescope-looks-back-in-time-44-b.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-james-webb-space-telescope-looks-back-in-time-44-b.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The James Webb Space Telescope captured this image of a young galaxy cluster, MACS J0553.4-3342.</description>
-  </item>
-  <item>
-    <title>The Growing Crescent of Mars as NASA’s Psyche Mission Approaches</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-the-growing-crescent-of-mars-as-nasas-psyche-missi.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-the-growing-crescent-of-mars-as-nasas-psyche-missi.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Description This composite of images taken by NASA’s Psyche mission shows the crescent of Mars grow as the spacecraft approached the planet for a gravity assist from May 2 to May 15, 2026. The series</description>
-  </item>
-  <item>
-    <title>Webb Catches Supermassive Black Hole Feeding from Cosmic Gas Streams</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-webb-catches-supermassive-black-hole-feeding-from.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-webb-catches-supermassive-black-hole-feeding-from.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>New images of the giant elliptical galaxy NGC 4696 from the NASA/ESA/CSA James Webb Space Telescope reveal gas filaments funneling material into a spinning disk around a supermassive black hole 800 li</description>
-  </item>
-  <item>
-    <title>Could Life Exist on This Nearby World? In a First, Astronomers Find an Atmosphere on an Earth-Like Exoplanet in the Habitable Zone</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-could-life-exist-on-this-nearby-world-in-a-first-a.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-could-life-exist-on-this-nearby-world-in-a-first-a.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>While the celestial body seems to host three features that could make a livable environment—an atmosphere, a rocky composition and a temperature that could allow liquid water to sit on the surface—res</description>
   </item>
   </channel>
 </rss>
