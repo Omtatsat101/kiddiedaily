@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Oct 2026 10:12:42 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 10:40:40 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Some dinosaurs may have munched on seaweed, scientists say</title>
@@ -15,6 +15,14 @@
     <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Scientists say they have found evidence from fossils, that some dinosaurs living near the coast 100 million year ago may have eaten food that came from the sea.</description>
+  </item>
+  <item>
+    <title>What Does the Fourth Dimension Actually Look Like?</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-what-does-the-fourth-dimension-actually-look-like.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-what-does-the-fourth-dimension-actually-look-like.html</guid>
+    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Maggie Miller explains why our intuition about three dimensions breaks down in four, and how she visualizes 4D spaces as a reel of three-dimensional snapshots. The post What Does the Fourth Dimension</description>
   </item>
   <item>
     <title>What to know about the Kelvin wave raising the sea level along the West Coast</title>
@@ -33,20 +41,12 @@
     <description>Experts explain what you should do if you are asked for your current salary during a job interview.</description>
   </item>
   <item>
-    <title>AP World History Unit 4: Transoceanic Interconnections (c. 1450–1750)</title>
-    <link>https://kiddiedaily.com/news/2026-10-05-ap-world-history-unit-4-transoceanic-interconnecti.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-ap-world-history-unit-4-transoceanic-interconnecti.html</guid>
+    <title>Nobel medicine prize goes to 3 scientists for research into brain activity</title>
+    <link>https://kiddiedaily.com/news/2026-10-05-nobel-medicine-prize-goes-to-3-scientists-for-rese.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-nobel-medicine-prize-goes-to-3-scientists-for-rese.html</guid>
     <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>Between 1450 and 1750, new maritime technology allowed European states to reach the Americas, Africa, and Asia by sea for the first time, linking the Eastern and Western Hemispheres in a single networ</description>
-  </item>
-  <item>
-    <title>Why Do We Say “Turn Over A New Leaf”?</title>
-    <link>https://kiddiedaily.com/news/2026-10-05-why-do-we-say-turn-over-a-new-leaf.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-05-why-do-we-say-turn-over-a-new-leaf.html</guid>
-    <pubDate>Mon, 05 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The phrase "turn over a new leaf" didn't originally refer to the kind of leaves you find on trees. Here's where it really comes from.</description>
+    <description>The Nobel Prize in medicine was awarded Monday to three scientists working on the mechanisms the brain uses to switch on, or off, the activity of individual nerve cells.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
