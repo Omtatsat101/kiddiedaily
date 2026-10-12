@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2026 10:43:29 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 15:09:03 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>The Best Theme Parks in America for Halloween, Ranked</title>
-    <link>https://kiddiedaily.com/news/2026-10-12-the-best-theme-parks-in-america-for-halloween-rank.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-12-the-best-theme-parks-in-america-for-halloween-rank.html</guid>
-    <pubDate>Mon, 12 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Discover the top 10 theme parks in America for Halloween, ranked by visitor reviews. See how Disney, Universal, and Silver Dollar City compare for spooky season.</description>
-  </item>
   <item>
     <title>Atlas Obscura’s Guide to America’s Most Haunted Cemeteries</title>
     <link>https://kiddiedaily.com/news/2026-10-12-atlas-obscuras-guide-to-americas-most-haunted-ceme.html</link>
@@ -31,6 +23,14 @@
     <pubDate>Mon, 12 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Francis Halzen of University of Wisconsin-Madison led development of IceCube Neutrino Observatory.</description>
+  </item>
+  <item>
+    <title>What to expect as Hurricane Isaias bears down on the Gulf Coast as a major storm</title>
+    <link>https://kiddiedaily.com/news/2026-10-12-what-to-expect-as-hurricane-isaias-bears-down-on-t.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-12-what-to-expect-as-hurricane-isaias-bears-down-on-t.html</guid>
+    <pubDate>Mon, 12 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Hurricane Isaias has strengthened into a Category 3 hurricane as it heads toward the Gulf Coast. Residents are rushing to prepare for the storm, which is packing winds up to 120 mph and is expected to</description>
   </item>
   <item>
     <title>Hurricane Simon pounds resorts and vulnerable towns along Mexico's Pacific coast</title>
