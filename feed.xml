@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2026 10:16:21 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 10:43:29 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>The Best Theme Parks in America for Halloween, Ranked</title>
@@ -25,6 +25,14 @@
     <description>It’s nice to imagine death as an endless deep sleep, but not everyone is so lucky. In cemeteries across the U.S., you’ll find souls whose final resting places are not, in fact, restful at all. Perhaps — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
+    <title>Neutrino physicist wins 2026 Nobel Physics Prize</title>
+    <link>https://kiddiedaily.com/news/2026-10-12-neutrino-physicist-wins-2026-nobel-physics-prize.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-12-neutrino-physicist-wins-2026-nobel-physics-prize.html</guid>
+    <pubDate>Mon, 12 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Francis Halzen of University of Wisconsin-Madison led development of IceCube Neutrino Observatory. — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
     <title>Hurricane Simon pounds resorts and vulnerable towns along Mexico's Pacific coast</title>
     <link>https://kiddiedaily.com/news/2026-10-12-hurricane-simon-pounds-resorts-and-vulnerable-town.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-12-hurricane-simon-pounds-resorts-and-vulnerable-town.html</guid>
@@ -39,14 +47,6 @@
     <pubDate>Mon, 12 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>One theory points to a long-awaited supersymmetric particle called a ‘higgsino.’ But that idea has some issues. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Experiment: Discover the science behind afterimages</title>
-    <link>https://kiddiedaily.com/news/2026-10-12-experiment-discover-the-science-behind-afterimages.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-12-experiment-discover-the-science-behind-afterimages.html</guid>
-    <pubDate>Mon, 12 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>By observing afterimages, you can learn how different cone cells in the retina respond to various colors. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
