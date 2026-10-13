@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Oct 2026 10:11:56 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 10:40:33 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>Neutrino physicist wins 2026 Nobel Physics Prize</title>
-    <link>https://kiddiedaily.com/news/2026-10-13-neutrino-physicist-wins-2026-nobel-physics-prize.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-13-neutrino-physicist-wins-2026-nobel-physics-prize.html</guid>
-    <pubDate>Tue, 13 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Francis Halzen of University of Wisconsin-Madison led development of IceCube Neutrino Observatory. — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
   <item>
     <title>Atlas Obscura’s Guide to America’s Most Haunted Cemeteries</title>
     <link>https://kiddiedaily.com/news/2026-10-13-atlas-obscuras-guide-to-americas-most-haunted-ceme.html</link>
@@ -31,6 +23,14 @@
     <pubDate>Tue, 13 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>One theory points to a long-awaited supersymmetric particle called a ‘higgsino.’ But that idea has some issues. — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Neutrino physicist wins 2026 Nobel Physics Prize</title>
+    <link>https://kiddiedaily.com/news/2026-10-13-neutrino-physicist-wins-2026-nobel-physics-prize.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-13-neutrino-physicist-wins-2026-nobel-physics-prize.html</guid>
+    <pubDate>Tue, 13 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Francis Halzen of University of Wisconsin-Madison led development of IceCube Neutrino Observatory. — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>How did Roman aqueducts get water to go uphill?</title>
