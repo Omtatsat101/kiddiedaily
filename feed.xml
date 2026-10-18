@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Oct 2026 10:34:30 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 15:05:26 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>What happens when you lose your voice?</title>
@@ -15,6 +15,14 @@
     <pubDate>Sun, 18 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Losing your voice can feel like losing part of yourself. Can voice-cloning technology help people find themselves again? — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Climate Change Has It In for the World’s Best Surfing</title>
+    <link>https://kiddiedaily.com/news/2026-10-18-climate-change-has-it-in-for-the-worlds-best-surfi.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-18-climate-change-has-it-in-for-the-worlds-best-surfi.html</guid>
+    <pubDate>Sun, 18 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>As coastlines change, so do surf breaks. That may spell the end for premier waves and the tourist economies that depend on them. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>7 Things You Might Not Know About Medieval Algeria</title>
@@ -31,14 +39,6 @@
     <pubDate>Sun, 18 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Stellar remnants called white dwarfs ‪appear to come in a rainbow of colors, according to a new study. — 5 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>Climate Change Has It In for the World’s Best Surfing</title>
-    <link>https://kiddiedaily.com/news/2026-10-18-climate-change-has-it-in-for-the-worlds-best-surfi.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-18-climate-change-has-it-in-for-the-worlds-best-surfi.html</guid>
-    <pubDate>Sun, 18 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>As coastlines change, so do surf breaks. That may spell the end for premier waves and the tourist economies that depend on them. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>It's time to reassess the size of our solar system, scientists say</title>
