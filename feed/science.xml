@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Oct 2026 10:36:48 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 15:05:33 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>Japan launches historic mission to bring back Mars moon samples</title>
-    <link>https://kiddiedaily.com/news/2026-10-20-japan-launches-historic-mission-to-bring-back-mars.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-20-japan-launches-historic-mission-to-bring-back-mars.html</guid>
-    <pubDate>Tue, 20 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Japan has launched a five-year uncrewed mission to collect samples from Phobos, one of Mars’ two moons.</description>
-  </item>
   <item>
     <title>What happens when you lose your voice?</title>
     <link>https://kiddiedaily.com/news/2026-10-20-what-happens-when-you-lose-your-voice.html</link>
@@ -23,6 +15,22 @@
     <pubDate>Tue, 20 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Losing your voice can feel like losing part of yourself. Can voice-cloning technology help people find themselves again?</description>
+  </item>
+  <item>
+    <title>Japan probe sets course for Mars moon</title>
+    <link>https://kiddiedaily.com/news/2026-10-20-japan-probe-sets-course-for-mars-moon.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-20-japan-probe-sets-course-for-mars-moon.html</guid>
+    <pubDate>Tue, 20 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The MMX spacecraft is on its way to Mars' moon Phobos to collect surface samples that could help answer long-standing questions about the formation of the Solar System.</description>
+  </item>
+  <item>
+    <title>Your aging brain may be trading memory for something more valuable</title>
+    <link>https://kiddiedaily.com/news/2026-10-20-your-aging-brain-may-be-trading-memory-for-somethi.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-20-your-aging-brain-may-be-trading-memory-for-somethi.html</guid>
+    <pubDate>Tue, 20 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The aging brain may be undergoing a remarkable transformation rather than simply losing its abilities, shifting its focus from remembering details to understanding the bigger picture. Scientists sugge</description>
   </item>
   <item>
     <title>The Best Haunted Hotels to Book for a Spooky Getaway</title>
@@ -39,14 +47,6 @@
     <pubDate>Tue, 20 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>What is a cryptid? A cryptid is an animal whose existence has been suggested but not proven by science—creatures like Bigfoot, the Loch Ness Monster, the Chupacabra, and the Jersey Devil. The term com</description>
-  </item>
-  <item>
-    <title>These tiny snakes cartwheel to escape danger</title>
-    <link>https://kiddiedaily.com/news/2026-10-20-these-tiny-snakes-cartwheel-to-escape-danger.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-20-these-tiny-snakes-cartwheel-to-escape-danger.html</guid>
-    <pubDate>Tue, 20 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>New videos offer a closer look at a rare and bizarre escape behavior in some Southeast Asian snakes.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
