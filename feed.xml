@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Oct 2026 10:38:40 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 15:05:23 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>What happens when you lose your voice?</title>
@@ -15,6 +15,14 @@
     <pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Losing your voice can feel like losing part of yourself. Can voice-cloning technology help people find themselves again? — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Japan launches historic MMX sample-return mission to Mars' moon Phobos (video)</title>
+    <link>https://kiddiedaily.com/news/2026-10-21-japan-launches-historic-mmx-sample-return-mission.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-21-japan-launches-historic-mmx-sample-return-mission.html</guid>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Japan just launched an epic mission to Mars' moons that could make history as the first spacecraft to return to Earth from the Red Planet — and it plans to come back with samples onboard. — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>Your aging brain may be trading memory for something more valuable</title>
@@ -39,14 +47,6 @@
     <pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>What is a cryptid? A cryptid is an animal whose existence has been suggested but not proven by science—creatures like Bigfoot, the Loch Ness Monster, the Chupacabra, and the Jersey Devil. The term com — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>The MMX mission launches to Mars’ moons on Monday</title>
-    <link>https://kiddiedaily.com/news/2026-10-21-the-mmx-mission-launches-to-mars-moons-on-monday.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-21-the-mmx-mission-launches-to-mars-moons-on-monday.html</guid>
-    <pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The MMX mission launches October 19 to Mars’ moons Phobos and Deimos. It will collect a sample from Phobos and return it to Earth in 2031. The post The MMX mission launches to Mars’ moons on Monday fi — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
