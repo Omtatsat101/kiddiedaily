@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Oct 2026 10:38:27 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 15:06:03 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Cryptid Tourism: The Best Museums, Destinations &amp; Festivals Across America</title>
@@ -17,6 +17,14 @@
     <description>What is a cryptid? A cryptid is an animal whose existence has been suggested but not proven by science—creatures like Bigfoot, the Loch Ness Monster, the Chupacabra, and the Jersey Devil. The term com</description>
   </item>
   <item>
+    <title>AI can give you your voice back</title>
+    <link>https://kiddiedaily.com/news/2026-10-22-ai-can-give-you-your-voice-back.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-22-ai-can-give-you-your-voice-back.html</guid>
+    <pubDate>Thu, 22 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>People who have lost the ability to talk are finding new voices with technology. This technological feat is changing what it means to lose a voice.</description>
+  </item>
+  <item>
     <title>Japan launches historic MMX sample-return mission to Mars' moon Phobos (video)</title>
     <link>https://kiddiedaily.com/news/2026-10-22-japan-launches-historic-mmx-sample-return-mission.html</link>
     <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-22-japan-launches-historic-mmx-sample-return-mission.html</guid>
@@ -25,12 +33,12 @@
     <description>Japan just launched an epic mission to Mars' moons that could make history as the first spacecraft to return to Earth from the Red Planet — and it plans to come back with samples onboard.</description>
   </item>
   <item>
-    <title>Your aging brain may be trading memory for something more valuable</title>
-    <link>https://kiddiedaily.com/news/2026-10-22-your-aging-brain-may-be-trading-memory-for-somethi.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-22-your-aging-brain-may-be-trading-memory-for-somethi.html</guid>
+    <title>Scientists discover a surprising secret behind the human brain’s wrinkles</title>
+    <link>https://kiddiedaily.com/news/2026-10-22-scientists-discover-a-surprising-secret-behind-the.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-22-scientists-discover-a-surprising-secret-behind-the.html</guid>
     <pubDate>Thu, 22 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>The aging brain may be undergoing a remarkable transformation rather than simply losing its abilities, shifting its focus from remembering details to understanding the bigger picture. Scientists sugge</description>
+    <description>Scientists have discovered why common marmosets have unusually small, smooth brains despite starting development much like other primates. The secret lies in subtle changes to brain-building cells tha</description>
   </item>
   <item>
     <title>AI could turn scientific papers into research assistants</title>
@@ -39,14 +47,6 @@
     <pubDate>Thu, 22 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>An AI ‘virtual author’ can help scientists use a paper’s methods on new data. But it’s not going to match a human author’s expertise.</description>
-  </item>
-  <item>
-    <title>AI can give you your voice back</title>
-    <link>https://kiddiedaily.com/news/2026-10-22-ai-can-give-you-your-voice-back.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-22-ai-can-give-you-your-voice-back.html</guid>
-    <pubDate>Thu, 22 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>People who have lost the ability to talk are finding new voices with technology. This technological feat is changing what it means to lose a voice.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
