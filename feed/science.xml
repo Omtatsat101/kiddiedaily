@@ -6,8 +6,16 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Oct 2026 10:34:52 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 15:04:24 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
+  <item>
+    <title>Why 'You Can See Everything' is captivating audiences</title>
+    <link>https://kiddiedaily.com/news/2026-10-24-why-you-can-see-everything-is-captivating-audience.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-24-why-you-can-see-everything-is-captivating-audience.html</guid>
+    <pubDate>Sat, 24 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>"You Can See Everything," the documentary co-directed by Lance Oppenheim and Nathan Fielder, is a breakthrough success. It follows Elizabeth Holmes, the convicted founder of Theranos, just weeks befor</description>
+  </item>
   <item>
     <title>A Team of Astronomers Thinks They Have Identified the Exact Night Sky That Inspired Vincent van Gogh's 'Starry Night.' Not Everyone Is Convinced</title>
     <link>https://kiddiedaily.com/news/2026-10-24-a-team-of-astronomers-thinks-they-have-identified.html</link>
@@ -31,14 +39,6 @@
     <pubDate>Sat, 24 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The melting of the poles is increasingly shifting Earth's shape at a faster rate, with the planet becoming more and more round.</description>
-  </item>
-  <item>
-    <title>Why 'You Can See Everything' is captivating audiences</title>
-    <link>https://kiddiedaily.com/news/2026-10-24-why-you-can-see-everything-is-captivating-audience.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-24-why-you-can-see-everything-is-captivating-audience.html</guid>
-    <pubDate>Sat, 24 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>"You Can See Everything," the documentary co-directed by Lance Oppenheim and Nathan Fielder, is a breakthrough success. It follows Elizabeth Holmes, the convicted founder of Theranos, just weeks befor</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
