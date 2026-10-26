@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Oct 2026 10:39:35 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 15:29:06 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>A Team of Astronomers Thinks They Have Identified the Exact Night Sky That Inspired Vincent van Gogh's 'Starry Night.' Not Everyone Is Convinced</title>
@@ -15,6 +15,14 @@
     <pubDate>Mon, 26 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Very few night skies seen from the south of France during the summer of 1889 would match the scene on van Gogh's canvas. A new study argues that it could have been July 22</description>
+  </item>
+  <item>
+    <title>Hunter’s Moon falls on October 25-26, with Saturn nearby</title>
+    <link>https://kiddiedaily.com/news/2026-10-26-hunters-moon-falls-on-october-25-26-with-saturn-ne.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-26-hunters-moon-falls-on-october-25-26-with-saturn-ne.html</guid>
+    <pubDate>Mon, 26 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The 2026 October full moon is the Hunter's Moon. It falls around October 25-26. It's near the planet Saturn and in front of the constellation Aries the Ram. The post Hunter’s Moon falls on October 25-</description>
   </item>
   <item>
     <title>Have you spotted any Halloween decorations?</title>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>While the celestial body seems to host three features that could make a livable environment—an atmosphere, a rocky composition and a temperature that could allow liquid water to sit on the surface—res</description>
-  </item>
-  <item>
-    <title>An ancient Maya astronomer finally has a name</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-an-ancient-maya-astronomer-finally-has-a-name.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>A Maya calendar formula bears the name Sak Tahn Waax, the first known Classic Maya mathematician-astronomer directly credited for such work.</description>
   </item>
   </channel>
 </rss>
