@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Oct 2026 15:04:43 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 16:10:28 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Where to See the World’s Creepiest Dolls and Toys</title>
@@ -17,12 +17,28 @@
     <description>Humans have played with dolls for thousands of years, but it was not until the 18th century, when improved manufacturing rendered them more lifelike, that they started to be seen as sinister. Doll mak</description>
   </item>
   <item>
-    <title>Fox News continues cable news lead over MS NOW, CNN in October viewership</title>
-    <link>https://kiddiedaily.com/news/2026-10-29-fox-news-continues-cable-news-lead-over-ms-now-cnn.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-29-fox-news-continues-cable-news-lead-over-ms-now-cnn.html</guid>
+    <title>King Charles on Caribbean tour as calls grow for slavery reparations</title>
+    <link>https://kiddiedaily.com/news/2026-10-29-king-charles-on-caribbean-tour-as-calls-grow-for-s.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-29-king-charles-on-caribbean-tour-as-calls-grow-for-s.html</guid>
     <pubDate>Thu, 29 Oct 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
-    <description>Fox News Channel continued its streak as the most-watched cable news network with 1.1 million average total viewers throughout October 2026.</description>
+    <description>UK’s King Charles joined a Junkanoo street parade during a visit to the Bahamas ahead of the Commonwealth summit.</description>
+  </item>
+  <item>
+    <title>Would you like your high street to be car-free?</title>
+    <link>https://kiddiedaily.com/news/2026-10-29-would-you-like-your-high-street-to-be-car-free.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-29-would-you-like-your-high-street-to-be-car-free.html</guid>
+    <pubDate>Thu, 29 Oct 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>From this week, no cars, buses or bikes can go down a part of Oxford Street in London. We want to know if you would like a pedestrian-only shopping area where you live.</description>
+  </item>
+  <item>
+    <title>An avalanche inspired this forecaster to keep others safe</title>
+    <link>https://kiddiedaily.com/news/2026-10-29-an-avalanche-inspired-this-forecaster-to-keep-othe.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-29-an-avalanche-inspired-this-forecaster-to-keep-othe.html</guid>
+    <pubDate>Thu, 29 Oct 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Chris Dickson combines tech and field observations to make avalanche forecasts.</description>
   </item>
   <item>
     <title>Gedenkstein Melitta Bentz in Dresden, Germany</title>
@@ -151,22 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>La Casa del Mendrugo occupies an old colonial mansion in Puebla. Its name, Mendrugo, refers to the crumbs or charity that the Jesuits received from the parishioners in order to support their ministry.</description>
-  </item>
-  <item>
-    <title>Umtanum Creek Footbridge in Ellensburg, Washington</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-umtanum-creek-footbridge-in-ellensburg-washington.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Yakima (pronounced "YAK-uh-maw") Canyon, where the Yakima River traverses a water gap through Manastash Ridge, is an obvious thoroughfare and was used by Native Americans for thousands of years, and t</description>
-  </item>
-  <item>
-    <title>Cave Rock in Glenbrook, Nevada</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-cave-rock-in-glenbrook-nevada.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Cave Rock, which sits on the southeastern side of Lake Tahoe, is a 360-foot-high and 800-foot-wide geological marvel that archaeologists say was formed by a five-million-year-old volcano vent. Thousan</description>
   </item>
   </channel>
 </rss>
