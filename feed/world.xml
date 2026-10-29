@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/world.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly world news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Oct 2026 10:33:12 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 15:04:43 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>Where to See the World’s Creepiest Dolls and Toys</title>
@@ -15,6 +15,14 @@
     <pubDate>Thu, 29 Oct 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Humans have played with dolls for thousands of years, but it was not until the 18th century, when improved manufacturing rendered them more lifelike, that they started to be seen as sinister. Doll mak</description>
+  </item>
+  <item>
+    <title>Fox News continues cable news lead over MS NOW, CNN in October viewership</title>
+    <link>https://kiddiedaily.com/news/2026-10-29-fox-news-continues-cable-news-lead-over-ms-now-cnn.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-29-fox-news-continues-cable-news-lead-over-ms-now-cnn.html</guid>
+    <pubDate>Thu, 29 Oct 2026 10:00:00 +0000</pubDate>
+    <category>World News</category>
+    <description>Fox News Channel continued its streak as the most-watched cable news network with 1.1 million average total viewers throughout October 2026.</description>
   </item>
   <item>
     <title>Gedenkstein Melitta Bentz in Dresden, Germany</title>
@@ -159,14 +167,6 @@
     <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
     <category>World News</category>
     <description>Cave Rock, which sits on the southeastern side of Lake Tahoe, is a 360-foot-high and 800-foot-wide geological marvel that archaeologists say was formed by a five-million-year-old volcano vent. Thousan</description>
-  </item>
-  <item>
-    <title>British Runner ‘Calls His Shot’ and Breaks World Record in the Mile–After it Stood for 27 Years</title>
-    <link>https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-07-21-british-runner-calls-his-shot-and-breaks-world-rec.html</guid>
-    <pubDate>Tue, 21 Jul 2026 10:00:00 +0000</pubDate>
-    <category>World News</category>
-    <description>Scottish runner Josh Kerr just put in the fastest mile time in human history, breaking a record that had stood for 27 years after clocking 3:42.66. Set at the recent London Diamond League athletics me</description>
   </item>
   </channel>
 </rss>
