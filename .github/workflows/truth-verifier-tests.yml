@@ -1,0 +1,26 @@
+name: Truth Verifier Offline Tests
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - truth_verify.py
+      - test_truth_verify.py
+      - .github/workflows/truth-verifier-tests.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verifier-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check verifier syntax
+        run: python -m py_compile truth_verify.py test_truth_verify.py
+      - name: Run offline verifier regressions
+        run: python -m unittest -v test_truth_verify.py
