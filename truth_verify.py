@@ -18,6 +18,8 @@ Secrets required (both already set on the repo):
 import os
 import json
 import base64
+import hashlib
+from html import escape
 import time
 import re
 import sys
@@ -62,7 +64,24 @@ def gh_get(path: str) -> dict | None:
     if r.status_code == 404:
         return None
     r.raise_for_status()
-    return r.json()
+    data = r.json()
+    # GitHub omits inline content for files larger than 1 MB.
+    if data.get("encoding") == "none":
+        raw_headers = {**GH_HEADERS, "Accept": "application/vnd.github.raw+json"}
+        raw = requests.get(url, headers=raw_headers, timeout=GITHUB_TIMEOUT)
+        raw.raise_for_status()
+        content = raw.content
+        # Do not pair new bytes with an old SHA if the file changes between reads.
+        digest = hashlib.sha1(
+            b"blob " + str(len(content)).encode("ascii") + b"\0" + content
+        ).hexdigest()
+        if digest != data.get("sha"):
+            raise ValueError("GitHub content changed during read; retry on next run.")
+        data["content"] = base64.b64encode(content).decode("ascii")
+        data["encoding"] = "base64"
+    if data.get("encoding") != "base64":
+        raise ValueError("Unsupported GitHub content encoding.")
+    return data
 
 
 def gh_put(path: str, content: str, message: str, sha: str | None = None) -> bool:
@@ -81,23 +100,15 @@ def gh_put(path: str, content: str, message: str, sha: str | None = None) -> boo
 # ---------------------------------------------------------------------------
 # Claude analysis
 # ---------------------------------------------------------------------------
-def claude_analyze(title: str, snippet: str, n_sources: int, bias_avg: float) -> dict:
+def claude_analyze(title: str, snippet: str, n_sources: int, bias_avg: float) -> dict | None:
     """
     Extract claims + score truth confidence + detect bias signals.
     Returns a dict with keys: claims, truth_confidence, bias_signals,
     missing_context, kid_safe_rating.
-    Falls back to safe defaults on any error.
+    Returns None if analysis is unavailable or invalid; never invents a rating.
     """
-    default = {
-        "claims": [],
-        "truth_confidence": 65,
-        "bias_signals": [],
-        "missing_context": None,
-        "kid_safe_rating": "G",
-    }
-
-    if not ANTHROPIC_API_KEY:
-        return default
+    if not ANTHROPIC_API_KEY.strip():
+        return None
 
     prompt = f"""You are a fact-checking assistant for KiddieDaily, a children's news site for ages 5-12.
 
@@ -154,19 +165,34 @@ Rules:
         raw = re.sub(r"^```json\s*|^```\s*|```$", "", raw, flags=re.MULTILINE).strip()
         m = re.search(r"\{.*\}", raw, re.DOTALL)
         if not m:
-            return default
+            return None
         parsed = json.loads(m.group())
-        # Sanitise
-        parsed["truth_confidence"] = max(25, min(95, int(parsed.get("truth_confidence", 65))))
-        parsed["kid_safe_rating"] = parsed.get("kid_safe_rating", "G")
-        if parsed["kid_safe_rating"] not in ("G", "PG", "PG-13"):
-            parsed["kid_safe_rating"] = "G"
-        parsed["claims"] = [str(c) for c in parsed.get("claims", [])[:3]]
-        parsed["bias_signals"] = [str(s) for s in parsed.get("bias_signals", [])[:3]]
+        # Require actual model assessments, not fabricated defaults.
+        if not isinstance(parsed, dict):
+            return None
+        score = parsed.get("truth_confidence")
+        if type(score) is not int or not 25 <= score <= 95:
+            return None
+        if parsed.get("kid_safe_rating") not in ("G", "PG", "PG-13"):
+            return None
+        for key in ("claims", "bias_signals"):
+            if not isinstance(parsed.get(key), list):
+                return None
+            if not all(isinstance(value, str) for value in parsed[key]):
+                return None
+        if not parsed["claims"] or not all(claim.strip() for claim in parsed["claims"]):
+            return None
+        if "missing_context" not in parsed or (
+            parsed["missing_context"] is not None
+            and not isinstance(parsed["missing_context"], str)
+        ):
+            return None
+        parsed["claims"] = parsed["claims"][:3]
+        parsed["bias_signals"] = parsed["bias_signals"][:3]
         return parsed
     except Exception as exc:
-        print(f"    Claude error: {exc}")
-        return default
+        print(f"    Claude analysis unavailable ({type(exc).__name__}); no badge written.")
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -191,7 +217,7 @@ def build_truth_html(result: dict) -> str:
     rating_color = {"G": "#38a169", "PG": "#d69e2e", "PG-13": "#c05621"}.get(rating, "#38a169")
 
     claims_li = "".join(
-        f'<li style="margin-bottom:4px">{c}</li>' for c in result["claims"]
+        f'<li style="margin-bottom:4px">{escape(c)}</li>' for c in result["claims"]
     )
     claims_block = (
         f'<ul style="margin:8px 0 0;padding-left:18px;font-size:.83rem;color:#4a5568">'
@@ -203,7 +229,7 @@ def build_truth_html(result: dict) -> str:
     signals_spans = " ".join(
         f'<span style="display:inline-block;background:#fff5f5;color:#c53030;'
         f'border-radius:4px;padding:1px 6px;font-size:.75rem;margin:2px 2px 0 0">'
-        f"&ldquo;{s}&rdquo;</span>"
+        f"&ldquo;{escape(s)}&rdquo;</span>"
         for s in result["bias_signals"]
     )
     signals_block = (
@@ -213,7 +239,7 @@ def build_truth_html(result: dict) -> str:
         else ""
     )
 
-    mc = result.get("missing_context") or ""
+    mc = escape(result.get("missing_context") or "")
     missing_block = (
         f'<p style="margin:8px 0 0;font-size:.8rem;color:#718096">'
         f"<strong>Missing context:</strong> {mc}</p>"
@@ -289,6 +315,10 @@ def run() -> int:
         print("ERROR: GITHUB_TOKEN not set — cannot access GitHub API.")
         return 1
 
+    if not ANTHROPIC_API_KEY.strip():
+        print("ERROR: ANTHROPIC_API_KEY not set — verification disabled; no articles changed.")
+        return 1
+
     ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
     print(f"[{ts}] KiddieDaily Truth Verifier — starting")
 
@@ -311,6 +341,7 @@ def run() -> int:
 
     print(f"Found {len(today_articles)} article(s) to verify (today={TODAY}).")
     updated = 0
+    verification_failed = False
 
     for article in today_articles:
         slug = article.get("slug", "")
@@ -343,6 +374,11 @@ def run() -> int:
         )
         time.sleep(0.4)  # Claude courtesy rate limit
 
+        if result is None:
+            print("    ✗ Analysis unavailable or invalid — article unchanged.")
+            verification_failed = True
+            continue
+
         truth_html = build_truth_html(result)
         updated_html = inject_truth_check(html, truth_html)
 
@@ -365,12 +401,14 @@ def run() -> int:
             updated += 1
         else:
             print("    ❌ GitHub push failed.")
+            verification_failed = True
 
         time.sleep(1.2)  # GitHub secondary rate limit guard
 
     print(f"\nDone. Updated {updated}/{len(today_articles)} article(s).")
-    return 0
+    return 1 if verification_failed else 0
 
 
 if __name__ == "__main__":
     sys.exit(run())
+
