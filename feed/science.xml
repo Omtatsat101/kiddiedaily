@@ -6,7 +6,7 @@
     <atom:link href="https://kiddiedaily.com/feed/science.xml" rel="self" type="application/rss+xml"/>
     <description>Kid-friendly science and nature news, bias-rated.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Oct 2026 10:08:55 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 10:32:42 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
   <item>
     <title>A striking Mars cloud may be born from surprising physics</title>
@@ -15,14 +15,6 @@
     <pubDate>Fri, 30 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Everyday Earth clouds get their start with a bit of salt or dust. Not so the Red Planet's Arsia Mons Elongated Cloud, computer models suggest.</description>
-  </item>
-  <item>
-    <title>AI could turn scientific papers into research assistants</title>
-    <link>https://kiddiedaily.com/news/2026-10-30-ai-could-turn-scientific-papers-into-research-assi.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-30-ai-could-turn-scientific-papers-into-research-assi.html</guid>
-    <pubDate>Fri, 30 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>An AI ‘virtual author’ can help scientists use a paper’s methods on new data. But it’s not going to match a human author’s expertise.</description>
   </item>
   <item>
     <title>Some of the world’s biggest bats are getting smaller</title>
@@ -39,6 +31,14 @@
     <pubDate>Fri, 30 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>The Vera C. Rubin Observatory has found what might be a new dwarf planet in our solar system, orbiting the sun on an inclined plane past Pluto.</description>
+  </item>
+  <item>
+    <title>Scientists discover a hidden reason why muscles weaken with age</title>
+    <link>https://kiddiedaily.com/news/2026-10-30-scientists-discover-a-hidden-reason-why-muscles-we.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-30-scientists-discover-a-hidden-reason-why-muscles-we.html</guid>
+    <pubDate>Fri, 30 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Scientists have uncovered a hidden defense mechanism in aging muscles that sacrifices strength to protect cells from damage. In mice, partially restoring a crucial molecule reversed signs of muscle wa</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
