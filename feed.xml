@@ -6,16 +6,8 @@
     <atom:link href="https://kiddiedaily.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Daily kid-friendly news with bias indicators and fact checks. Updated every morning.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Oct 2026 10:32:27 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 15:03:27 +0000</lastBuildDate>
     <managingEditor>editors@kiddiedaily.com (KiddieDaily Editors)</managingEditor>
-  <item>
-    <title>This Halloween, amateur astronomers may be in for a dwarf planet treat</title>
-    <link>https://kiddiedaily.com/news/2026-10-31-this-halloween-amateur-astronomers-may-be-in-for-a.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-31-this-halloween-amateur-astronomers-may-be-in-for-a.html</guid>
-    <pubDate>Sat, 31 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>The Vera Rubin Observatory is shedding new light on the faraway regions by Neptune and beyond, including possible solar system building blocks. — 5 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
   <item>
     <title>A striking Mars cloud may be born from surprising physics</title>
     <link>https://kiddiedaily.com/news/2026-10-31-a-striking-mars-cloud-may-be-born-from-surprising.html</link>
@@ -23,6 +15,22 @@
     <pubDate>Sat, 31 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
     <description>Everyday Earth clouds get their start with a bit of salt or dust. Not so the Red Planet's Arsia Mons Elongated Cloud, computer models suggest. — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>Halloween Aboard the International Space Station</title>
+    <link>https://kiddiedaily.com/news/2026-10-31-halloween-aboard-the-international-space-station.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-31-halloween-aboard-the-international-space-station.html</guid>
+    <pubDate>Sat, 31 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>Although no ghouls, goblins, or trick-or-treaters come knocking at the International Space Station’s front hatch, crew members aboard the orbiting laboratory still like to get in the Halloween spirit. — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
+  </item>
+  <item>
+    <title>This Halloween, amateur astronomers may be in for a dwarf planet treat</title>
+    <link>https://kiddiedaily.com/news/2026-10-31-this-halloween-amateur-astronomers-may-be-in-for-a.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-31-this-halloween-amateur-astronomers-may-be-in-for-a.html</guid>
+    <pubDate>Sat, 31 Oct 2026 10:00:00 +0000</pubDate>
+    <category>Science</category>
+    <description>The Vera Rubin Observatory is shedding new light on the faraway regions by Neptune and beyond, including possible solar system building blocks. — 4 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>Some of the world’s biggest bats are getting smaller</title>
@@ -33,20 +41,12 @@
     <description>Madagascan flying foxes aren’t as mighty as they were 150 years ago. The big bats have shrunk, possibly due to selective hunting or other human impacts. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
-    <title>Do you have seasonal affective disorder? How to tell — and what to do about it</title>
-    <link>https://kiddiedaily.com/news/2026-10-31-do-you-have-seasonal-affective-disorder-how-to-tel.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-31-do-you-have-seasonal-affective-disorder-how-to-tel.html</guid>
+    <title>Halloween costumes swaps take place across UK</title>
+    <link>https://kiddiedaily.com/news/2026-10-31-halloween-costumes-swaps-take-place-across-uk.html</link>
+    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-31-halloween-costumes-swaps-take-place-across-uk.html</guid>
     <pubDate>Sat, 31 Oct 2026 10:00:00 +0000</pubDate>
     <category>Science</category>
-    <description>The syndrome can make people feel like a "hibernating bear," says Dr. Norman Rosenthal, who published the first research on SAD. He explains how to identify the symptoms and what to do to feel better. — 3 outlets covering this story, bias-rated on KiddieDaily.</description>
-  </item>
-  <item>
-    <title>5 Common Misconceptions About Día de los Muertos</title>
-    <link>https://kiddiedaily.com/news/2026-10-31-5-common-misconceptions-about-dia-de-los-muertos.html</link>
-    <guid isPermaLink="true">https://kiddiedaily.com/news/2026-10-31-5-common-misconceptions-about-dia-de-los-muertos.html</guid>
-    <pubDate>Sat, 31 Oct 2026 10:00:00 +0000</pubDate>
-    <category>Science</category>
-    <description>Learn the real history of Día de los Muertos as we clear up common myths about its Aztec origins, ofrenda symbols, and how it differs from Halloween. — 1 outlet covering this story, bias-rated on KiddieDaily.</description>
+    <description>Halloween costume swaps have been taking place across the UK in libraries, schools and community centres to save people money and help the environment. — 2 outlets covering this story, bias-rated on KiddieDaily.</description>
   </item>
   <item>
     <title>Another new Psyche mission flyby image of Mars</title>
